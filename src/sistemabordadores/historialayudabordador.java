@@ -28,7 +28,7 @@ public class historialayudabordador extends javax.swing.JFrame {
         Calendar now = Calendar.getInstance();
         String[] strMonths = new String[]{"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
 
-        mesdelaño = strMonths[now.get(Calendar.MONTH)];
+       // mesdelaño = strMonths[now.get(Calendar.MONTH)];
         añoactual = now.get(Calendar.YEAR);
         
     
@@ -92,6 +92,7 @@ public class historialayudabordador extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lbsumahoras = new javax.swing.JLabel();
         btnsalir = new javax.swing.JButton();
+        lbaño = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("historial ayuda bordador");
@@ -153,6 +154,8 @@ public class historialayudabordador extends javax.swing.JFrame {
             }
         });
 
+        lbaño.setText("0000");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -161,8 +164,10 @@ public class historialayudabordador extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82)
+                .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbaño, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnsalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -180,11 +185,13 @@ public class historialayudabordador extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbaño, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -201,7 +208,9 @@ public class historialayudabordador extends javax.swing.JFrame {
 
         DefaultTableModel modelotabla = (DefaultTableModel) tabla.getModel();
         String[] datos = new String[2];
-        Object mesdelañ =  cbmes.getSelectedItem();
+        Object mesdelaño =  cbmes.getSelectedItem();
+        Object añoobject =lbaño.getText();
+        añoactual = Integer.parseInt(añoobject.toString());
         String diafinal = "";
         String dia = "";
         String mes = "";
@@ -210,62 +219,62 @@ public class historialayudabordador extends javax.swing.JFrame {
         
         limpiartabla();
         
-        if(mesdelañ.equals("Enero"))
+        if(mesdelaño.equals("Enero"))
         {
             diafinal = "31";
             mes ="01";
         }
-        else if(mesdelañ.equals("Febrero"))
+        else if(mesdelaño.equals("Febrero"))
         {
            diafinal = "29"; 
             mes ="02";
         }
-        else if(mesdelañ.equals("Marzo"))
+        else if(mesdelaño.equals("Marzo"))
         {
             diafinal = "31";
              mes ="03";
         }
-        else if(mesdelañ.equals("Abril"))
+        else if(mesdelaño.equals("Abril"))
         {
             diafinal = "30";
             mes ="04";
         }
-        else if(mesdelañ.equals("Mayo"))
+        else if(mesdelaño.equals("Mayo"))
         {
             diafinal = "31";
             mes ="05";
         }
-        else if(mesdelañ.equals("Junio"))
+        else if(mesdelaño.equals("Junio"))
         {
             diafinal = "30";
             mes ="06";
         }
-        else if(mesdelañ.equals("Julio"))
+        else if(mesdelaño.equals("Julio"))
         {
             diafinal = "31";
             mes ="07";
         }
-        else if(mesdelañ.equals("Agosto"))
+        else if(mesdelaño.equals("Agosto"))
         {
             diafinal = "31";
             mes ="08";
         }
-        else if(mesdelañ.equals("Septiembre"))
+        else if(mesdelaño.equals("Septiembre"))
         {
             diafinal = "30";
             mes ="09";
         }
-        else if(mesdelañ.equals("Octubre"))
+        else if(mesdelaño.equals("Octubre"))
         {
            diafinal = "31"; 
            mes ="10";
         }
-        else if(mesdelañ.equals("Noviembre"))
+        else if(mesdelaño.equals("Noviembre"))
         {
           diafinal = "30";  
           mes ="11";
         }
-        else if(mesdelañ.equals("Diciembre"))
+        else if(mesdelaño.equals("Diciembre"))
         {
           diafinal = "31"; 
           mes ="12";
@@ -280,7 +289,7 @@ public class historialayudabordador extends javax.swing.JFrame {
             datos[0] = String.valueOf(i);
             dia = String.valueOf(i);
             
-            fecha = (+añoactual + "-" + mes + "-" + dia);
+            fecha = (+añoactual+ "-" +mes+ "-" +dia);
             tiempo = "0";
            
             String SQL = "Select tiempo from ayuda_bordador where fecha= '"+fecha+"' ";
@@ -367,10 +376,11 @@ public class historialayudabordador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnsalir;
-    private javax.swing.JComboBox<String> cbmes;
+    public static javax.swing.JComboBox<String> cbmes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JLabel lbaño;
     private javax.swing.JLabel lbsumahoras;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables

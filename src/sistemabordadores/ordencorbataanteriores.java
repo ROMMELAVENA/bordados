@@ -96,8 +96,6 @@ public class ordencorbataanteriores extends javax.swing.JFrame {
 
                 lbcliente.setText(rs.getString("cliente"));
                 lbnumeroventa.setText(rs.getString("numero_venta"));
-                lbprenda.setText(rs.getString("prenda"));
-                lbcantidad.setText(rs.getString("cantidad"));
                 lbbordadosorden.setText(rs.getString("cantidad_bordados"));
 
                 lbfechaelaboracion.setText(rs.getString("fecha"));

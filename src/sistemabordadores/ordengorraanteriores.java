@@ -139,7 +139,7 @@ public class ordengorraanteriores extends javax.swing.JFrame {
 
         String folio = lbfolio.getText();
 
-        String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar from historial_ordenes_gorra where numero = '" + folio + "'";
+        String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras from historial_ordenes_gorra where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -201,6 +201,48 @@ public class ordengorraanteriores extends javax.swing.JFrame {
                 lbaplicacionfrentecolor.setText(aplicacionfrentecolor);
                 
                 lugardondesebordara = rs.getString("lugar");
+                
+                String cantidadfrente = rs.getString("cantidad_frente");
+                String cantidadladoderecho = rs.getString("cantidad_lado_derecho");
+                String cantidadladoizquierdo = rs.getString("cantidad_lado_izquierdo");
+                String cantidadatras = rs.getString("cantidad_atras");
+                
+                if(cantidadfrente.equals("0"))
+                {
+                   btnfrente.setEnabled(true);  
+                }
+                else
+                {
+                   btnfrente.setEnabled(false);  
+                }  
+                
+                 if(cantidadladoderecho.equals("0"))
+                {
+                    btnladoderecho.setEnabled(true); 
+                }
+                else
+                {
+                   btnladoderecho.setEnabled(false);  
+                } 
+                 
+                 if(cantidadladoizquierdo.equals("0"))
+                {
+                   btnladoizquierdo.setEnabled(true); 
+                }
+                else
+                {
+                    btnladoizquierdo.setEnabled(false);
+                }
+                 
+                  if(cantidadatras.equals("0"))
+                {
+                    btnatras.setEnabled(true);
+                }
+                else
+                {
+                    btnatras.setEnabled(false);
+                } 
+                
 
             }
 
@@ -422,7 +464,7 @@ public class ordengorraanteriores extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set "+ubicacion+"='" + lbcantidad.getText() + "' where numero = '"+lbfolio.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_gorra set "+ubicacion+"='" + lbcantidad.getText() + "' where numero = '"+lbfolio.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 

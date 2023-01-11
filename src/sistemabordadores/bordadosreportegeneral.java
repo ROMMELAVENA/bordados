@@ -46,6 +46,14 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     String cantidadotraubicacion="0";
     String cantidadotraubicacion2="0";
     
+    ///
+    String cantidadfrente="0";
+    String cantidadladoderecho="0";
+    String cantidadladoizquierdo="0";
+    String cantidadatras="0";
+    
+    ///
+    String cantidadfrentecorbata = "0";
     
     
     
@@ -993,6 +1001,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String costostring = "0";
 
+        int cantidadfrenteint = Integer.parseInt(cantidadfrente);
+        int cantidadladoderechoint = Integer.parseInt(cantidadladoderecho);
+        int cantidadladoizquierdoint = Integer.parseInt(cantidadladoizquierdo);
+        int cantidadatrasint = Integer.parseInt(cantidadatras);
+        
+        
         for (int i = 0; i < tabla.getRowCount(); i++) {
 
             Object cantidadobject = tabla.getValueAt(i, 2);
@@ -1023,7 +1037,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String costopuntadaladoizquierdostring = String.format("%.02f ", costopuntadaladoizquierdo);
                 tabla.setValueAt(costopuntadaladoizquierdostring, i, 30);
 
-                importeladoizquierdo = cantidad * costopuntadaladoizquierdo;
+                importeladoizquierdo = cantidadladoizquierdoint * costopuntadaladoizquierdo;
 
                 //LADO DERECHO
                 double costopuntadaladoderecho = 0.0;
@@ -1048,7 +1062,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String costopuntadaladoderechostring = String.format("%.02f ", costopuntadaladoderecho);
                 tabla.setValueAt(costopuntadaladoderechostring, i, 33);
 
-                importeladoderecho = cantidad * costopuntadaladoderecho;
+                importeladoderecho = cantidadladoderechoint * costopuntadaladoderecho;
 
 // FRENTE
                 double costopuntadafrente = 0.0;
@@ -1074,7 +1088,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String costopuntadafrentestring = String.format("%.02f ", costopuntadafrente);
                 tabla.setValueAt(costopuntadafrentestring, i, 27);
 
-                importefrente = cantidad * costopuntadafrente;
+                importefrente = cantidadfrenteint * costopuntadafrente;
 
                 // ATRAS
                 double costopuntadaatras = 0.0;
@@ -1100,7 +1114,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String costopuntadaespaldastring = String.format("%.02f ", costopuntadaatras);
                 tabla.setValueAt(costopuntadaespaldastring, i, 36);
 
-                importeatras = cantidad * costopuntadaatras;
+                importeatras = cantidadatrasint * costopuntadaatras;
 
                 double sumabordados = importeladoizquierdo + importeladoderecho + importefrente + importeatras;
                 String sumabordadosstring = String.format("%.02f ", sumabordados);
@@ -1287,7 +1301,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select fecha,cliente,cantidad,prenda,frente,puntadas_frente,lado_izquierdo,puntadas_lado_izquierdo,lado_derecho,puntadas_lado_derecho,atras,puntadas_atras,aplicacion_frente,numero_venta from historial_ordenes_gorra where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select fecha,cliente,cantidad,prenda,frente,puntadas_frente,cantidad_frente,lado_izquierdo,puntadas_lado_izquierdo,cantidad_lado_izquierdo,lado_derecho,puntadas_lado_derecho,cantidad_lado_derecho,atras,puntadas_atras,cantidad_atras,aplicacion_frente,numero_venta from historial_ordenes_gorra where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         int ultimafila = 0;
 
@@ -1305,12 +1319,16 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String prenda = rs.getString("prenda");
                 String frente = rs.getString("frente");
                 String puntadasfrente = rs.getString("puntadas_frente");
+                cantidadfrente = rs.getString("cantidad_frente");
                 String ladoizquierdo = rs.getString("lado_izquierdo");
                 String puntadasladoizquierdo = rs.getString("puntadas_lado_izquierdo");
+                cantidadladoizquierdo = rs.getString("cantidad_lado_izquierdo");
                 String ladoderecho = rs.getString("lado_derecho");
                 String puntadasladoderecho = rs.getString("puntadas_lado_derecho");
+                cantidadladoderecho = rs.getString("cantidad_lado_derecho");
                 String atras = rs.getString("atras");
                 String puntadasatras = rs.getString("puntadas_atras");
+                cantidadatras = rs.getString("cantidad_atras");
                 String aplicacionfrente = rs.getString("aplicacion_frente");
                 String numeroventa = rs.getString("numero_venta");
 

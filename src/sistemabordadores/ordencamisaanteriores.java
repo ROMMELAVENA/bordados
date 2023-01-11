@@ -128,6 +128,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         lbrutaespalda.setVisible(false);
         lbtipo.setVisible(false);
         lbnombreconcepto.setVisible(false);
+        btneliminar.setVisible(false);
 
         topes();
 
@@ -403,7 +404,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                 if(lugardondesebordara.equals("Esta sucursal"))
                 {
                 
-                    btnimagen.setEnabled(false);
+                    
                     btninsertarponchados.setEnabled(false);
                     cbsucursal.setEnabled(false);
                 
@@ -458,7 +459,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                 }
                 else
                 {
-                    btnimagen.setEnabled(true);
+                    
                     btninsertarponchados.setEnabled(true);
                     cbsucursal.setEnabled(true);
                     
@@ -533,6 +534,8 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         
         String prendasql ="";
         String prendanombresql="";
+        btnverfotomontaje.setEnabled(false);
+        btnimagen.setEnabled(true);
                 
                                
           
@@ -574,6 +577,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                     lblImagen.setText("NO HAY IMAGEN");
                     lblImagen.setHorizontalAlignment(SwingConstants.CENTER);
                     lblImagen.setVerticalAlignment(SwingConstants.CENTER);
+                    btnimagen.setEnabled(true);
                 } 
                 
                 else 
@@ -593,6 +597,8 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                     lblImagen.setIcon(new ImageIcon(
                             img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
                     repaint();
+                    btnverfotomontaje.setEnabled(true);
+                    btnimagen.setEnabled(false);
                     
                     /// *******
                     
@@ -752,6 +758,13 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex);
                 }
+        
+        
+        String ubicacionsinguiones = ubicacion;
+        ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
+        
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+        
         
         try {
             datos();
@@ -1361,7 +1374,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                                     .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbrutaespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbrutaimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbrutapechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbrutamangaderecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1375,7 +1388,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                         .addGap(64, 64, 64))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(20, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();

@@ -37,6 +37,18 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     int ultimomes = 0;
     int ultimoaño = 0;
+    
+    String cantidadpechoizquierdo="0";
+    String cantidadpechoderecho="0";
+    String cantidadmangaizquierda="0";
+    String cantidadmangaderecha="0";
+    String cantidadespalda="0";
+    String cantidadotraubicacion="0";
+    String cantidadotraubicacion2="0";
+    
+    
+    
+    
     PreparedStatement pst;
 
     public bordadosreportegeneral() {
@@ -321,7 +333,15 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho,manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha,espalda_nombre,espalda,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,numero_venta,otra_ubicacion_nombre,otra_ubicacion,otra_ubicacion2_nombre,otra_ubicacion2 from historial_ordenes_camisa where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select codigo,fecha,cliente,cantidad,prenda,numero_venta,"
+                  + "cantidad_pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo,"
+                  + "cantidad_pecho_derecho,pecho_derecho_nombre,pecho_derecho,"
+                  + "cantidad_manga_izquierda,manga_izquierda_nombre,manga_izquierda,"
+                  + "cantidad_manga_derecha,manga_derecha_nombre,manga_derecha,"
+                  + "cantidad_espalda,espalda_nombre,espalda,"
+                  + "cantidad_otra_ubicacion,otra_ubicacion,otra_ubicacion_nombre,"
+                  + "cantidad_otra_ubicacion2,otra_ubicacion2,otra_ubicacion2_nombre,"
+                  + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2 from historial_ordenes_camisa where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -333,18 +353,25 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 datos[1] = rs.getString("cliente");
                 datos[2] = rs.getString("cantidad");
                 datos[3] = rs.getString("prenda");
+                cantidadpechoizquierdo = rs.getString("cantidad_pecho_izquierdo");
                 datos[4] = rs.getString("pecho_izquierdo_nombre");
                 datos[5] = rs.getString("pecho_izquierdo");
+                cantidadpechoderecho = rs.getString("cantidad_pecho_derecho");
                 datos[7] = rs.getString("pecho_derecho_nombre");
                 datos[8] = rs.getString("pecho_derecho");
+                cantidadmangaizquierda = rs.getString("cantidad_manga_izquierda");
                 datos[10] = rs.getString("manga_izquierda_nombre");
                 datos[11] = rs.getString("manga_izquierda");
+                cantidadmangaderecha = rs.getString("cantidad_manga_derecha");
                 datos[13] = rs.getString("manga_derecha_nombre");
                 datos[14] = rs.getString("manga_derecha");
+                cantidadespalda = rs.getString("cantidad_espalda");
                 datos[16] = rs.getString("espalda_nombre");
                 datos[17] = rs.getString("espalda");
+                cantidadotraubicacion = rs.getString("cantidad_otra_ubicacion");
                 datos[19] = rs.getString("otra_ubicacion_nombre");
                 datos[20] = rs.getString("otra_ubicacion");
+                cantidadotraubicacion2 = rs.getString("cantidad_otra_ubicacion2");
                 datos[22] = rs.getString("otra_ubicacion2_nombre");
                 datos[23] = rs.getString("otra_ubicacion2");
                 datos[53] = rs.getString("aplicacion_pecho_izquierdo");
@@ -352,6 +379,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 datos[55] = rs.getString("aplicacion_manga_izquierda");
                 datos[56] = rs.getString("aplicacion_manga_derecha");
                 datos[60] = rs.getString("aplicacion_espalda");
+               
                 datos[63] = rs.getString("numero_venta");
                 modelo2.addRow(datos);
             }
@@ -380,7 +408,17 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         for (int i = 0; i < tabla.getRowCount(); i++) {
 
             Object cantidadobject = tabla.getValueAt(i, 2);
-            int cantidad = Integer.parseInt(cantidadobject.toString());
+            
+            int cantidadpechoizquierdoint = Integer.parseInt(cantidadpechoizquierdo);
+            int cantidadpechoderechoint = Integer.parseInt(cantidadpechoderecho);
+            int cantidadmangaizquierdaint = Integer.parseInt(cantidadmangaizquierda);
+            int cantidadmangaderechaint = Integer.parseInt(cantidadmangaderecha);
+            int cantidadespaldaint = Integer.parseInt(cantidadespalda);
+            int cantidadotraubicacionint = Integer.parseInt(cantidadotraubicacion);
+            int cantidadotraubicacion2int = Integer.parseInt(cantidadotraubicacion2);
+ 
+            
+            
 
             //PECHO IZQUIERDO
             double costopuntadapechoizquierdo = 0.0;
@@ -390,7 +428,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             try {
                 PreparedStatement prst = cn.prepareStatement(sql1);
                 ResultSet rs = prst.executeQuery();
-                if (rs.next()) {
+                if (rs.next())
+                {
 
                     costostring = rs.getString("costo");
                     costopuntadapechoizquierdo = Double.parseDouble(costostring);
@@ -403,7 +442,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             String costopuntadapechoizquierdostring = String.format("%.02f ", costopuntadapechoizquierdo);
             tabla.setValueAt(costopuntadapechoizquierdostring, i, 6);
-            importepechoizquierdo = cantidad * costopuntadapechoizquierdo;
+            importepechoizquierdo = cantidadpechoizquierdoint * costopuntadapechoizquierdo;
 
             //PECHO DERECHO
             double costopuntadapechoderecho = 0.0;
@@ -426,7 +465,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             String costopuntadapechoderechostring = String.format("%.02f ", costopuntadapechoderecho);
             tabla.setValueAt(costopuntadapechoderechostring, i, 9);
-            importepechoderecho = cantidad * costopuntadapechoderecho;
+            importepechoderecho = cantidadpechoderechoint * costopuntadapechoderecho;
 
 //MANGA IZQUIERDA
             double costopuntadamangaizquierda = 0.0;
@@ -449,7 +488,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             String costopuntadamangaizquierdastring = String.format("%.02f ", costopuntadamangaizquierda);
             tabla.setValueAt(costopuntadamangaizquierdastring, i, 12);
-            importemangaizquierda = cantidad * costopuntadamangaizquierda;
+            importemangaizquierda = cantidadmangaizquierdaint * costopuntadamangaizquierda;
 
 //MANGA DERECHA
             double costopuntadamangaderecha = 0.0;
@@ -472,7 +511,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             String costopuntadamangaderechastring = String.format("%.02f ", costopuntadamangaderecha);
             tabla.setValueAt(costopuntadamangaderechastring, i, 15);
-            importemangaderecha = cantidad * costopuntadamangaderecha;
+            importemangaderecha = cantidadmangaderechaint * costopuntadamangaderecha;
 
             // ESPALDA
             double costopuntadaespalda = 0.0;
@@ -495,7 +534,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             String costopuntadaespaldastring = String.format("%.02f ", costopuntadaespalda);
             tabla.setValueAt(costopuntadaespaldastring, i, 18);
-            importeespalda = cantidad * costopuntadaespalda;
+            importeespalda = cantidadespaldaint * costopuntadaespalda;
 
             /// otra ubicacion
             double costopuntadaotraubicacion = 0.0;
@@ -521,7 +560,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             String costopuntadaotraubicacionstring = String.format("%.02f ", costopuntadaotraubicacion);
             tabla.setValueAt(costopuntadaotraubicacionstring, i, 21);
 
-            importeotraubicacion = cantidad * costopuntadaotraubicacion;
+            importeotraubicacion = cantidadotraubicacionint * costopuntadaotraubicacion;
 
             /// otra ubicacion2
             double costopuntadaotraubicacion2 = 0.0;
@@ -547,7 +586,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             String costopuntadaotraubicacion2string = String.format("%.02f ", costopuntadaotraubicacion2);
             tabla.setValueAt(costopuntadaotraubicacion2string, i, 24);
 
-            importeotraubicacion2 = cantidad * costopuntadaotraubicacion2;
+            importeotraubicacion2 = cantidadotraubicacionint * costopuntadaotraubicacion2;
 
             double sumabordados = importepechoizquierdo + importepechoderecho + importemangaizquierda + importemangaderecha + importeespalda + importeotraubicacion + importeotraubicacion2;
             String sumabordadosstring = String.format("%.02f ", sumabordados);
@@ -2434,6 +2473,10 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 espalda = rs.getString("espalda");
                 otraubicacion = rs.getString("otra_ubicacion");
                 otraubicacion2 = rs.getString("otra_ubicacion2");
+                
+                
+                
+                
                 aplicacionpechoizquierdo = rs.getString("aplicacion_pecho_izquierdo");
                 aplicacionpechoderecho = rs.getString("aplicacion_pecho_derecho");
                 aplicacionmangaizquierda = rs.getString("aplicacion_manga_izquierda");
@@ -2925,6 +2968,9 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             System.out.println(ex);
         }
 
+        
+        
+//////////////////////        
 ////////////////////// GORRAS
         String sqlgorras = "Select codigo,fecha,cliente,cantidad,prenda,puntadas_lado_izquierdo,puntadas_lado_derecho,puntadas_frente,puntadas_atras,aplicacion_frente from historial_ordenes_gorra where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
 

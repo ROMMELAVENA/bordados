@@ -370,10 +370,10 @@ public static String dia() {
         
         
 
-        if (tiendaalaquesereplicara.equals("cdmxnorte")) {
-            path = "C:\\sistema\\dfnorte.txt";
+        if (tiendaalaquesereplicara.equals("cdmxcentro")) {
+            path = "C:\\sistema\\cdmxcentro.txt";
         } else if (tiendaalaquesereplicara.equals("cdmxsur")) {
-            path = "C:\\sistema\\dfsur.txt";
+            path = "C:\\sistema\\cdmxsur.txt";
         } else if (tiendaalaquesereplicara.equals("guadalajara")) {
             path = "C:\\sistema\\gualajara.txt";
         } else if (tiendaalaquesereplicara.equals("monterrey")) {

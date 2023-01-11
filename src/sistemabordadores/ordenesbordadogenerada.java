@@ -253,6 +253,31 @@ public class ordenesbordadogenerada extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"sql orden ponchado" + ex);
         }
         
+        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlcorbata);
+            while (rs.next()) {
+                datos5[0] = rs.getString("numero");
+                datos5[1] = rs.getString("cliente");
+                datos5[2] = "Corbata";
+                datos5[3] = rs.getString("tipo");
+                datos5[4] = rs.getString("lugar");
+                datos5[5] = rs.getString("numero_venta");
+                datos5[6] = rs.getString("fecha");
+
+                modeloparches.addRow(datos5);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
+        }
+        
         
         
     }

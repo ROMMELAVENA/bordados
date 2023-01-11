@@ -105,6 +105,7 @@ public class ordengorraanteriores extends javax.swing.JFrame {
     String tiendasolicitoarticulos = "";
     String numeroordenenvio = "";
     String tiendaordenenvio = "";
+    String lugardondesebordara = "";
 
     int descargado = 0;
 
@@ -199,6 +200,7 @@ public class ordengorraanteriores extends javax.swing.JFrame {
 
                 lbaplicacionfrentecolor.setText(aplicacionfrentecolor);
                 
+                lugardondesebordara = rs.getString("lugar");
 
             }
 
@@ -415,6 +417,34 @@ public class ordengorraanteriores extends javax.swing.JFrame {
         
         
     }
+    
+    void actualizarlascantidadesbordadas(String ubicacion)
+    {
+        try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set "+ubicacion+"='" + lbcantidad.getText() + "' where numero = '"+lbfolio.getText()+"'  ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+        
+        
+        String ubicacionsinguiones = ubicacion;
+        ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
+        
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+        
+        
+        try {
+            datos();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisaanteriores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
     
 
     @SuppressWarnings("unchecked")
@@ -945,7 +975,15 @@ public class ordengorraanteriores extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnladoderechoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechoActionPerformed
-      JSystemFileChooser adjuntar = new JSystemFileChooser();
+if(lugardondesebordara.equals("Esta sucursal"))
+        {
+            String ubicacion = "cantidad_lado_derecho";
+            actualizarlascantidadesbordadas((String) ubicacion);
+        }
+        else
+        {
+        
+        JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -957,6 +995,8 @@ public class ordengorraanteriores extends javax.swing.JFrame {
             btnladoderecho.setEnabled(false);
             descargado = 1;
 
+        }
+        
         }
     }//GEN-LAST:event_btnladoderechoActionPerformed
 
@@ -1317,6 +1357,14 @@ public class ordengorraanteriores extends javax.swing.JFrame {
     }//GEN-LAST:event_btnreplicarActionPerformed
 
     private void btnfrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteActionPerformed
+    if(lugardondesebordara.equals("Esta sucursal"))
+        {
+            String ubicacion = "cantidad_frente";
+            actualizarlascantidadesbordadas((String) ubicacion);
+        }
+        else
+        {
+
         JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
@@ -1330,10 +1378,21 @@ public class ordengorraanteriores extends javax.swing.JFrame {
             descargado = 1;
 
         }
+        
+        }
     }//GEN-LAST:event_btnfrenteActionPerformed
 
     private void btnladoizquierdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdoActionPerformed
-       JSystemFileChooser adjuntar = new JSystemFileChooser();
+
+        if(lugardondesebordara.equals("Esta sucursal"))
+        {
+            String ubicacion = "cantidad_lado_izquierdo";
+            actualizarlascantidadesbordadas((String) ubicacion);
+        }
+        else
+        {
+        
+        JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -1346,10 +1405,20 @@ public class ordengorraanteriores extends javax.swing.JFrame {
             descargado = 1;
 
         }
+       }
     }//GEN-LAST:event_btnladoizquierdoActionPerformed
 
     private void btnatrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasActionPerformed
-       JSystemFileChooser adjuntar = new JSystemFileChooser();
+
+        if(lugardondesebordara.equals("Esta sucursal"))
+        {
+            String ubicacion = "cantidad_atras";
+            actualizarlascantidadesbordadas((String) ubicacion);
+        }
+        else
+        {
+        
+        JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -1361,6 +1430,8 @@ public class ordengorraanteriores extends javax.swing.JFrame {
             btnatras.setEnabled(false);
             descargado = 1;
 
+        }
+        
         }
     }//GEN-LAST:event_btnatrasActionPerformed
 

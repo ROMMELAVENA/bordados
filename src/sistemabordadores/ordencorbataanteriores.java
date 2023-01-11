@@ -113,6 +113,15 @@ public class ordencorbataanteriores extends javax.swing.JFrame {
                 String ladoizquierdofrente = rs.getString("frente");
                 
                 String frentecantidad = rs.getString("frente_cantidad");
+                if(frentecantidad.equals("0"))
+                {
+                   btnfrente.setEnabled(true);
+                }
+                else
+                {
+                    btnfrente.setEnabled(false);
+                }    
+                
                 
                 if (ladoizquierdofrente == null || ladoizquierdofrente.equals("")) 
                 {
@@ -660,6 +669,8 @@ public class ordencorbataanteriores extends javax.swing.JFrame {
         {
             
         }
+       
+       datos();
     }//GEN-LAST:event_btnfrenteActionPerformed
 
     ResultSet rs;

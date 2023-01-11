@@ -114,7 +114,10 @@ public class ordenesbordadogenerada extends javax.swing.JFrame {
         String[] datos2 = new String[10];
         String[] datos3 = new String[10];
         String[] datos4 = new String[10];
+        String[] datos5 = new String[10];
 
+        //// historial_orden_camisa
+        
         String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  "
                          + "FROM historial_ordenes_camisa where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') "
                          + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'por solicitar') and fecha between '"+fechainicial+"' and '"+fechafinal+"'  ";
@@ -142,6 +145,7 @@ public class ordenesbordadogenerada extends javax.swing.JFrame {
         }
 
         
+        //// historial_orden_gorra
         
         String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'por solicitar' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
@@ -167,8 +171,9 @@ public class ordenesbordadogenerada extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"sql orden gorra" +  ex);
         }
         
+        //// historial_orden_pantalon
         
-         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'por solicitar' or estatus_orden = 'solicitada' ) and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -194,7 +199,9 @@ public class ordenesbordadogenerada extends javax.swing.JFrame {
         }
         
         
-        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'por solicitar' or estatus_orden = 'solicitada' ) and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        //// historial_orden_parches
+        
+        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -217,6 +224,33 @@ public class ordenesbordadogenerada extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
            JOptionPane.showMessageDialog(null,"sql orden parche" + ex);
+        }
+        
+         //// historial_orden_parches
+        
+        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlponchados);
+            while (rs.next()) {
+                datos5[0] = rs.getString("numero");
+                datos5[1] = rs.getString("cliente");
+                datos5[2] = "Ponchado";
+                datos5[3] = rs.getString("tipo");
+                datos5[4] = rs.getString("lugar");
+                datos5[5] = rs.getString("numero_venta");
+                datos5[6] = rs.getString("fecha");
+
+                modeloparches.addRow(datos5);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           JOptionPane.showMessageDialog(null,"sql orden ponchado" + ex);
         }
         
         
@@ -423,7 +457,7 @@ public class ordenesbordadogenerada extends javax.swing.JFrame {
         jLabel4.setText("Pantalon");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Parches");
+        jLabel5.setText("Parches \\ Ponchados \\ Corbata");
 
         tablaparches.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tablaparches.setModel(new javax.swing.table.DefaultTableModel(
@@ -473,38 +507,42 @@ public class ordenesbordadogenerada extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 443, Short.MAX_VALUE)
                         .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(272, 272, 272)
-                        .addComponent(btnactualizar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40))
+                        .addGap(520, 520, 520))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(lbinterface, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbtienda, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbtienda, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(57, 57, 57))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel2)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
                                     .addComponent(jScrollPane2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane3)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(0, 0, Short.MAX_VALUE)
+                                            .addComponent(btnfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(7, 7, 7)
+                                            .addComponent(btnactualizar))
+                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(jLabel4)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(144, 144, 144)))))
-                        .addGap(25, 25, 25))))
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGap(46, 46, 46))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -512,17 +550,15 @@ public class ordenesbordadogenerada extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnactualizar)
-                            .addComponent(lbnumero))
+                        .addComponent(lbnumero)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4))
-                            .addComponent(btnfrente, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(14, 14, 14))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -536,7 +572,11 @@ public class ordenesbordadogenerada extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(2, 2, 2)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnfrente)
+                    .addComponent(btnactualizar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbinterface)
                     .addComponent(lbtienda)))
@@ -696,7 +736,14 @@ public class ordenesbordadogenerada extends javax.swing.JFrame {
 
             int fila = tablaparches.getSelectedRow();
 
-            if (fila >= 0) {
+            if (fila >= 0) 
+            {
+                
+                    Object tipo = tablaparches.getValueAt(fila, 2);
+                    
+                    
+                    if(tipo.equals("Parche"))
+                    {
 
                     if (ordenparcheanteriores.ventanaordenparcheanteriores == true)
                     {
@@ -712,6 +759,42 @@ public class ordenesbordadogenerada extends javax.swing.JFrame {
                         this.setState(this.ICONIFIED);
                     }
                 
+                    }
+                    else if(tipo.equals("Ponchado"))
+                    {
+                        if (ordenponchadoanteriores.ventanaordenparcheanteriores == true)
+                    {
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de pantalon anteriores");
+
+                    }
+                    else
+                    {
+                        ordenponchadoanteriores orden = new ordenponchadoanteriores();
+                        orden.setVisible(true);
+                        ordenponchadoanteriores.lbfolio.setText(tablaparches.getValueAt(fila, 0).toString());
+                        
+                        this.setState(this.ICONIFIED);
+                    }
+                        
+                    }
+                    else 
+                    {
+                        if (ordencorbataanteriores.ventanaordencorbataanteriores == true)
+                    {
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de pantalon anteriores");
+
+                    }
+                    else
+                    {
+                        ordencorbataanteriores orden = new ordencorbataanteriores();
+                        orden.setVisible(true);
+                        ordencorbataanteriores.lbfolio.setText(tablaparches.getValueAt(fila, 0).toString());
+                        
+                        this.setState(this.ICONIFIED);
+                    }
+                        
+                    } 
+                    
 
             }
 

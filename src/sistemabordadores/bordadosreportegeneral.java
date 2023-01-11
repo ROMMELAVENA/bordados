@@ -2465,18 +2465,24 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             while (rs.next()) {
 
+                
+              
                 cantidadbordados = rs.getString("cantidad");
                 pechoizquierdo = rs.getString("pecho_izquierdo");
+                cantidadpechoizquierdo = rs.getString("cantidad_pecho_izquierdo");
                 pechoderecho = rs.getString("pecho_derecho");
+                cantidadpechoizquierdo = rs.getString("cantidad_pecho_derecho");
                 mangaizquierda = rs.getString("manga_izquierda");
+                cantidadpechoizquierdo = rs.getString("cantidad_manga_izquierda");
                 mangaderecha = rs.getString("manga_derecha");
+                cantidadpechoizquierdo = rs.getString("cantidad_manga_derecha");
                 espalda = rs.getString("espalda");
+                cantidadpechoizquierdo = rs.getString("cantidad_espalda");
                 otraubicacion = rs.getString("otra_ubicacion");
+                cantidadpechoizquierdo = rs.getString("cantidad_otra_ubicacion");
                 otraubicacion2 = rs.getString("otra_ubicacion2");
-                
-                
-                
-                
+                cantidadpechoizquierdo = rs.getString("cantidad_otra_ubicacion2");
+
                 aplicacionpechoizquierdo = rs.getString("aplicacion_pecho_izquierdo");
                 aplicacionpechoderecho = rs.getString("aplicacion_pecho_derecho");
                 aplicacionmangaizquierda = rs.getString("aplicacion_manga_izquierda");
@@ -2488,7 +2494,14 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                     cantidadbordados = "0";
                 }
 
-                int cantidad = Integer.parseInt(cantidadbordados);
+            int cantidad =  Integer.parseInt(cantidadbordados);   
+            int cantidadpechoizquierdoint = Integer.parseInt(cantidadpechoizquierdo);
+            int cantidadpechoderechoint = Integer.parseInt(cantidadpechoderecho);
+            int cantidadmangaizquierdaint = Integer.parseInt(cantidadmangaizquierda);
+            int cantidadmangaderechaint = Integer.parseInt(cantidadmangaderecha);
+            int cantidadespaldaint = Integer.parseInt(cantidadespalda);
+            int cantidadotraubicacionint = Integer.parseInt(cantidadotraubicacion);
+            int cantidadotraubicacion2int = Integer.parseInt(cantidadotraubicacion2);
 
                 //PECHO IZQUIERDO
                 double costopuntadapechoizquierdo = 0.0;
@@ -2508,7 +2521,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
 
-                importepechoizquierdo = cantidad * costopuntadapechoizquierdo;
+                importepechoizquierdo = cantidadpechoizquierdoint * costopuntadapechoizquierdo;
 
                 //PECHO DERECHO
                 double costopuntadapechoderecho = 0.0;
@@ -2529,7 +2542,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
 
-                importepechoderecho = cantidad * costopuntadapechoderecho;
+                importepechoderecho = cantidadpechoderechoint * costopuntadapechoderecho;
 
                 //MANGA IZQUIERDA
                 double costopuntadamangaizquierda = 0.0;
@@ -2550,7 +2563,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
 
-                importemangaizquierda = cantidad * costopuntadamangaizquierda;
+                importemangaizquierda = cantidadmangaizquierdaint * costopuntadamangaizquierda;
 
                 //MANGA DERECHA
                 double costopuntadamangaderecha = 0.0;
@@ -2571,7 +2584,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
 
-                importemangaderecha = cantidad * costopuntadamangaderecha;
+                importemangaderecha = cantidadmangaderechaint * costopuntadamangaderecha;
 
                 // ESPALDA
                 double costopuntadaespalda = 0.0;
@@ -2592,7 +2605,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
 
-                importeespalda = cantidad * costopuntadaespalda;
+                importeespalda = cantidadespaldaint * costopuntadaespalda;
 
                 // OTRA UBICACION
                 double costopuntadaotraubicacion = 0.0;
@@ -2615,7 +2628,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
 
-                importeotraubicacion = cantidad * costopuntadaotraubicacion;
+                importeotraubicacion = cantidadotraubicacionint * costopuntadaotraubicacion;
 
                 // OTRA UBICACION2
                 double costopuntadaotraubicacion2 = 0.0;
@@ -2638,7 +2651,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
 
-                importeotraubicacion2 = cantidad * costopuntadaotraubicacion2;
+                importeotraubicacion2 = cantidadotraubicacion2int * costopuntadaotraubicacion2;
 
                 if (aplicacionpechoizquierdo == null || aplicacionpechoizquierdo.equals("") || aplicacionpechoizquierdo.equals(" ")) {
                     aplicacionpechoizquierdo = "0";

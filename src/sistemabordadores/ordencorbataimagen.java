@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 public class ordencorbataimagen extends javax.swing.JPanel {
 
     public ordencorbataimagen(){    
-        this.setSize(500,500);
+        this.setSize(600,600);
     }
         
     @Override

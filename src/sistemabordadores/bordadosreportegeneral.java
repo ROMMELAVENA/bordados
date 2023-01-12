@@ -61,6 +61,9 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     String cantidadladoizquierdoatras="0";
     String cantidadladoderechoatras="0";
     
+    String cantidadponchado = "0";
+    String cantidadparche = "0";
+    
     
     
     PreparedStatement pst;
@@ -858,7 +861,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select numero,fecha,cliente,articulo,cantidad,numero_venta  from historial_ordenes_ponchados where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select numero,fecha,cliente,articulo,cantidad,numero_venta,cantidad_ponchado from historial_ordenes_ponchados where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -866,11 +869,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             while (rs.next()) {
 
+                cantidadponchado=rs.getString("cantidad_ponchado");
                 datos[0] = rs.getString("fecha");
                 datos[1] = rs.getString("cliente");
                 datos[2] = rs.getString("cantidad");
                 datos[3] = rs.getString("articulo");
                 datos[63] = rs.getString("numero_venta");
+                
                 modelo2.addRow(datos);
             }
 
@@ -952,8 +957,10 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             Object cantidadobject = tabla.getValueAt(i, 2);
             Object articulo = tabla.getValueAt(i, 3);
-            int cantidad = Integer.parseInt(cantidadobject.toString());
+            //int cantidad = Integer.parseInt(cantidadobject.toString());
             String articulobuscar = "";
+            int cantidadponchadoint  =Integer.parseInt(cantidadponchado);
+            
 
             if (articulo.toString().startsWith("PONCHADO")||articulo.toString().startsWith("MODIFICACION DE PONCHADO")) {
 
@@ -992,7 +999,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String costopuntadaponchadostring = String.format("%.02f ", costodelponchado);
                 tabla.setValueAt(costopuntadaponchadostring, i, 6);
 
-                double importeponchado = cantidad * costodelponchado;
+                double importeponchado = cantidadponchadoint * costodelponchado;
 
                 double sumabordados = importeponchado;
                 String sumabordadosstring = String.format("%.02f ", sumabordados);
@@ -1248,7 +1255,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             Object cantidadobject = tabla.getValueAt(i, 2);
             Object prenda = tabla.getValueAt(i, 3);
-            int cantidad = Integer.parseInt(cantidadobject.toString());
+            //int cantidad = Integer.parseInt(cantidadobject.toString());
+            int cantidadparcheint = Integer.parseInt(cantidadparche);
 
             if (prenda.equals("Parche")) {
 
@@ -1270,7 +1278,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
 
-                double sumabordados = costopuntada * cantidad;
+                double sumabordados = costopuntada * cantidadparcheint;
                 String sumabordadosstring = String.format("%.02f ", sumabordados);
                 tabla.setValueAt(costostring, i, 52);
                 tabla.setValueAt(sumabordadosstring, i, 62);
@@ -1686,7 +1694,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select fecha,cliente,cantidad,parche,articulo,puntadas,aplicacion,numero_venta from historial_ordenes_parche where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select fecha,cliente,cantidad,parche,articulo,puntadas,aplicacion,numero_venta,cantidad_parche from historial_ordenes_parche where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         int ultimafila = 0;
 
@@ -1708,6 +1716,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String aplicacion = rs.getString("aplicacion");
 
                 String numeroventa = rs.getString("numero_venta");
+                cantidadparche =rs.getString("cantidad_parche");
 
                 modelo.addRow(new Object[]{});
 

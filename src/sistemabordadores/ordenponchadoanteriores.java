@@ -3,6 +3,7 @@ package sistemabordadores;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -50,6 +51,9 @@ public static boolean ventanaordenparcheanteriores = false;
         String ubicacion = "";
         String aplicacion = "";
         String observacion = "";
+        String cantidadponchado ="";
+        String cantidadponchadosactualizar="";
+        String nombredelponchado="";
         int renglon = 0;
         
         String primero = "";
@@ -97,7 +101,7 @@ public static boolean ventanaordenparcheanteriores = false;
         renglon = 0;
        
      String sql = "SELECT numero,numero_venta,tipo,fecha,hora,cliente,estatus_orden,articulo,cantidad,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,"
-             + "lugar FROM historial_ordenes_ponchados WHERE numero = '" + numero + "'";
+             + "lugar,cantidad_ponchado FROM historial_ordenes_ponchados WHERE numero = '" + numero + "'";
      
 
         try {
@@ -117,7 +121,7 @@ public static boolean ventanaordenparcheanteriores = false;
                 
                 nombre = rs.getString("articulo");
                 cantidad = rs.getString("cantidad");
-                
+                cantidadponchado= rs.getString("cantidad_ponchado");
                 
                 renglon = renglon +1 ; 
                 mostrarrenglones();
@@ -142,6 +146,15 @@ public static boolean ventanaordenparcheanteriores = false;
         {
             lbcantidad1.setText(cantidad);
             lbparche1.setText(nombre);
+            
+            if(cantidadponchado.equals("0"))
+            {
+                bntcantidadponchado1.setEnabled(true);
+            }
+            else
+            {
+                bntcantidadponchado1.setEnabled(false);
+            }    
 
             
         }
@@ -152,7 +165,15 @@ public static boolean ventanaordenparcheanteriores = false;
         {
             lbcantidad2.setText(cantidad);
             lbparche2.setText(nombre);
-           
+            
+            if(cantidadponchado.equals("0"))
+            {
+                bntcantidadponchado2.setEnabled(true);
+            }
+            else
+            {
+                bntcantidadponchado2.setEnabled(false);
+            }   
             
         }
         
@@ -163,6 +184,15 @@ public static boolean ventanaordenparcheanteriores = false;
             lbcantidad3.setText(cantidad);
             lbparche3.setText(nombre);
             
+            if(cantidadponchado.equals("0"))
+            {
+                bntcantidadponchado3.setEnabled(true);
+            }
+            else
+            {
+                bntcantidadponchado3.setEnabled(false);
+            }  
+            
             
         }
            else
@@ -171,6 +201,15 @@ public static boolean ventanaordenparcheanteriores = false;
         {
             lbcantidad4.setText(cantidad);
             lbparche4.setText(nombre);
+            
+            if(cantidadponchado.equals("0"))
+            {
+                bntcantidadponchado4.setEnabled(true);
+            }
+            else
+            {
+                bntcantidadponchado4.setEnabled(false);
+            }  
             
             
         }
@@ -182,6 +221,15 @@ public static boolean ventanaordenparcheanteriores = false;
             lbcantidad5.setText(cantidad);
             lbparche5.setText(nombre);
             
+            if(cantidadponchado.equals("0"))
+            {
+                bntcantidadponchado5.setEnabled(true);
+            }
+            else
+            {
+                bntcantidadponchado5.setEnabled(false);
+            }  
+            
             
         }
         
@@ -190,52 +238,7 @@ public static boolean ventanaordenparcheanteriores = false;
       
         
     }
-    
-    /*
-    void datosfueratabla()
-    {
-        
-        String numero = txtbusqueda.getText();
-       
-      
-       String sql = "SELECT fecha,hora,tipo,estatus_pago,estatus_entrega,articulo,nombre_renglon1,nombre_renglon2,nombre_renglon3,numero_renglones,tipo_letra,cantidad_total,total,anticipo,adeuda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion FROM historial_ordenes_ponchados WHERE numero = '" + numero + "'";
-   
 
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-                
-                  lbfolio.setText(rs.getString("numero"));
-                lbnumeroventa.setText(rs.getString("numero_venta"));
-                lbfecha.setText(rs.getString("fecha"));
-                lbhora.setText(rs.getString("hora"));  
-                lbcliente.setText(rs.getString("cliente"));
-                
-                lbcantidadtotal.setText(rs.getString("cantidad_bordados")); 
-                lbtotal.setText(rs.getString("total")); 
-                lbanticipo.setText(rs.getString("anticipo"));      
-                lbadeuda.setText(rs.getString("adeuda")); 
-                lbsolicita.setText(rs.getString("nombre_persona_solicita")); 
-                lbtelefono.setText(rs.getString("telefono")); 
-                lbfechaentrega.setText(rs.getString("fecha_entrega")); 
-                lbhoraentrega.setText(rs.getString("hora_entrega")); 
-                lbobservacion.setText(rs.getString("observacion"));  
-                
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(entregasanteriores.class.getName()).log(Level.SEVERE, null, ex);
-        }
-   
-        
-    }
-    
-    */
-    
-    
-  
-    
    
      void limpiar()
              
@@ -265,7 +268,28 @@ public static boolean ventanaordenparcheanteriores = false;
     
     
  
-    
+    void actualizarlascantidadesbordadas(String cantidadponchadosactualizar,String nombredelponchado)
+    {
+        try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set cantidad_ponchado='" +cantidadponchadosactualizar+ "' where numero = '"+lbfolio.getText()+"' and articulo = '"+nombredelponchado+"'  ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+        
+        
+        String ubicacionsinguiones = ubicacion;
+        ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
+        
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Actualizado correctamente ");
+
+        datos();
+        
+        
+    }
     
     
   
@@ -293,6 +317,11 @@ public static boolean ventanaordenparcheanteriores = false;
         lbparche4 = new javax.swing.JLabel();
         lbcantidad5 = new javax.swing.JLabel();
         lbparche5 = new javax.swing.JLabel();
+        bntcantidadponchado1 = new javax.swing.JButton();
+        bntcantidadponchado2 = new javax.swing.JButton();
+        bntcantidadponchado3 = new javax.swing.JButton();
+        bntcantidadponchado4 = new javax.swing.JButton();
+        bntcantidadponchado5 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         lbfecha = new javax.swing.JLabel();
@@ -388,6 +417,41 @@ public static boolean ventanaordenparcheanteriores = false;
         lbparche5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbparche5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        bntcantidadponchado1.setText("Hecho");
+        bntcantidadponchado1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntcantidadponchado1ActionPerformed(evt);
+            }
+        });
+
+        bntcantidadponchado2.setText("Hecho");
+        bntcantidadponchado2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntcantidadponchado2ActionPerformed(evt);
+            }
+        });
+
+        bntcantidadponchado3.setText("Hecho");
+        bntcantidadponchado3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntcantidadponchado3ActionPerformed(evt);
+            }
+        });
+
+        bntcantidadponchado4.setText("Hecho");
+        bntcantidadponchado4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntcantidadponchado4ActionPerformed(evt);
+            }
+        });
+
+        bntcantidadponchado5.setText("Hecho");
+        bntcantidadponchado5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntcantidadponchado5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -404,13 +468,21 @@ public static boolean ventanaordenparcheanteriores = false;
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lbparche1, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbparche5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbparche2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbparche3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbparche4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbparche1, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbparche5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbparche2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbparche3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbparche4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bntcantidadponchado1)
+                            .addComponent(bntcantidadponchado2)
+                            .addComponent(bntcantidadponchado3)
+                            .addComponent(bntcantidadponchado4)
+                            .addComponent(bntcantidadponchado5))))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -436,19 +508,30 @@ public static boolean ventanaordenparcheanteriores = false;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lbcantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lbparche1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(lbparche2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(37, 37, 37))
-                                    .addComponent(lbparche3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(35, 35, 35))
-                            .addComponent(lbparche4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lbparche1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(bntcantidadponchado1))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(7, 7, 7)
+                                                .addComponent(lbparche2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(bntcantidadponchado2)))
+                                        .addGap(10, 10, 10)
+                                        .addComponent(bntcantidadponchado3))
+                                    .addComponent(lbparche3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(13, 13, 13)
+                                .addComponent(bntcantidadponchado4))
+                            .addComponent(lbparche4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbparche5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbparche5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bntcantidadponchado5))))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
 
@@ -495,6 +578,7 @@ public static boolean ventanaordenparcheanteriores = false;
         jLabel28.setText("No. de Venta");
 
         lbnumeroventa.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        lbnumeroventa.setText("00000000");
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel20.setText("Cliente:");
@@ -512,22 +596,6 @@ public static boolean ventanaordenparcheanteriores = false;
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(91, 91, 91)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(147, 147, 147)
-                        .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbarticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)
-                        .addComponent(lbnumeroventa, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -541,8 +609,8 @@ public static boolean ventanaordenparcheanteriores = false;
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel20)
                                 .addGap(10, 10, 10)
-                                .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(271, 271, 271)
+                                .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(75, 75, 75)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel17)
                                     .addComponent(jLabel7)
@@ -557,7 +625,26 @@ public static boolean ventanaordenparcheanteriores = false;
                                     .addComponent(lbfecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(lbhoraentrega, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbfechaentrega, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbhora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(lbhora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(91, 91, 91)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(147, 147, 147)
+                                .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbarticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14)
+                                .addComponent(lbnumeroventa, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -592,8 +679,7 @@ public static boolean ventanaordenparcheanteriores = false;
                                 .addComponent(jLabel20))
                             .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(146, 189, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -622,8 +708,8 @@ public static boolean ventanaordenparcheanteriores = false;
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbsolicita, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel7))))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         pack();
@@ -706,6 +792,39 @@ public static boolean ventanaordenparcheanteriores = false;
         datos();
     }//GEN-LAST:event_formWindowOpened
 
+    private void bntcantidadponchado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado1ActionPerformed
+    
+    cantidadponchadosactualizar = lbcantidad1.getText();
+    nombredelponchado = lbparche1.getText();
+    actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);  
+    
+    
+    }//GEN-LAST:event_bntcantidadponchado1ActionPerformed
+
+    private void bntcantidadponchado2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado2ActionPerformed
+    cantidadponchadosactualizar = lbcantidad2.getText();
+    nombredelponchado = lbparche2.getText();
+    actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);  
+    }//GEN-LAST:event_bntcantidadponchado2ActionPerformed
+
+    private void bntcantidadponchado3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado3ActionPerformed
+    cantidadponchadosactualizar = lbcantidad3.getText();
+    nombredelponchado = lbparche3.getText();
+    actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);  
+    }//GEN-LAST:event_bntcantidadponchado3ActionPerformed
+
+    private void bntcantidadponchado4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado4ActionPerformed
+     cantidadponchadosactualizar = lbcantidad4.getText();
+    nombredelponchado = lbparche4.getText();
+    actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);  
+    }//GEN-LAST:event_bntcantidadponchado4ActionPerformed
+
+    private void bntcantidadponchado5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado5ActionPerformed
+    cantidadponchadosactualizar = lbcantidad5.getText();
+    nombredelponchado = lbparche5.getText();
+    actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);  
+    }//GEN-LAST:event_bntcantidadponchado5ActionPerformed
+
     
     ResultSet rs;
     ResultSet rs2;
@@ -720,6 +839,11 @@ public static boolean ventanaordenparcheanteriores = false;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntcantidadponchado1;
+    private javax.swing.JButton bntcantidadponchado2;
+    private javax.swing.JButton bntcantidadponchado3;
+    private javax.swing.JButton bntcantidadponchado4;
+    private javax.swing.JButton bntcantidadponchado5;
     public static javax.swing.JButton btnsalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;

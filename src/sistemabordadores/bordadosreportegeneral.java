@@ -55,6 +55,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     ///
     String cantidadfrentecorbata = "0";
     
+    ///
+    String cantidadladoizquierdofrente="0";
+    String cantidadladoderechofrente="0";
+    String cantidadladoizquierdoatras="0";
+    String cantidadladoderechoatras="0";
+    
     
     
     PreparedStatement pst;
@@ -693,12 +699,18 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double importeladoderechoatras = 0.0;
 
         String costostring = "0";
+        
+        
+      int cantidadladoizquierdofrenteint=Integer.parseInt(cantidadladoizquierdofrente);   
+      int cantidadladoderechofrenteint=Integer.parseInt(cantidadladoderechofrente);
+      int cantidadladoizquierdoatrasint=Integer.parseInt(cantidadladoizquierdoatras);
+      int cantidadladoderechoatrasint=Integer.parseInt(cantidadladoderechoatras);
 
         for (int i = 0; i < tabla.getRowCount(); i++) {
 
             Object cantidadobject = tabla.getValueAt(i, 2);
             Object prenda = tabla.getValueAt(i, 3);
-            int cantidad = Integer.parseInt(cantidadobject.toString());
+            //int cantidad = Integer.parseInt(cantidadobject.toString());
 
             if (prenda.equals("Pantalon")) {
 
@@ -724,7 +736,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String costopuntadaladoizquierdostring = String.format("%.02f ", costopuntadaladoizquierdofrente);
                 tabla.setValueAt(costopuntadaladoizquierdostring, i, 40);
 
-                importeladoizquierdofrente = cantidad * costopuntadaladoizquierdofrente;
+                importeladoizquierdofrente = cantidadladoizquierdofrenteint * costopuntadaladoizquierdofrente;
 
                 //LADO DERECHO
                 double costopuntadaladoderechofrente = 0.0;
@@ -749,7 +761,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String costopuntadaladoderechostring = String.format("%.02f ", costopuntadaladoderechofrente);
                 tabla.setValueAt(costopuntadaladoderechostring, i, 43);
 
-                importeladoderechofrente = cantidad * costopuntadaladoderechofrente;
+                importeladoderechofrente = cantidadladoderechofrenteint * costopuntadaladoderechofrente;
 
 // ldo izquierdo atras
                 double costopuntadaladoizquierdoatras = 0.0;
@@ -776,7 +788,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String costopuntadamangaizquierdastring = String.format("%.02f ", costopuntadaladoizquierdoatras);
                 tabla.setValueAt(costopuntadamangaizquierdastring, i, 46);
 
-                importeladoizquierdoatras = cantidad * costopuntadaladoizquierdoatras;
+                importeladoizquierdoatras = cantidadladoizquierdoatrasint * costopuntadaladoizquierdoatras;
 
                 // lado derecho ATRAS
                 double costopuntadaladoderechoatras = 0.0;
@@ -802,7 +814,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String costopuntadaespaldastring = String.format("%.02f ", costopuntadaladoderechoatras);
                 tabla.setValueAt(costopuntadaespaldastring, i, 49);
 
-                importeladoderechoatras = cantidad * costopuntadaladoderechoatras;
+                importeladoderechoatras = cantidadladoderechoatrasint * costopuntadaladoderechoatras;
 
                 double sumabordados = importeladoizquierdoatras + importeladoizquierdofrente + importeladoderechoatras + importeladoderechofrente;
                 String sumabordadosstring = String.format("%.02f ", sumabordados);
@@ -1479,7 +1491,10 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select fecha,cliente,cantidad,prenda,lado_izquierdo_frente,lado_izquierdo_frente_puntadas,lado_derecho_frente,lado_derecho_frente_puntadas,lado_izquierdo_atras,lado_izquierdo_atras_puntadas,lado_derecho_atras,lado_derecho_atras_puntadas,numero_venta from historial_ordenes_pantalon where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select fecha,cliente,cantidad,prenda,cantidad_lado_izquierdo_frente,lado_izquierdo_frente,lado_izquierdo_frente_puntadas,"
+                + "cantidad_lado_derecho_frente,lado_derecho_frente,lado_derecho_frente_puntadas,"
+                + "cantidad_lado_izquierdo_atras,lado_izquierdo_atras,lado_izquierdo_atras_puntadas,"
+                + "cantidad_lado_derecho_atras,lado_derecho_atras,lado_derecho_atras_puntadas,numero_venta from historial_ordenes_pantalon where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         int ultimafila = 0;
 
@@ -1496,15 +1511,26 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String cantidad = rs.getString("cantidad");
                 String prenda = rs.getString("prenda");
 
+  
+    
+                
                 String ladoizquierdofrente = rs.getString("lado_izquierdo_frente");
                 String puntadasladoizquierdofrente = rs.getString("lado_izquierdo_frente_puntadas");
+                cantidadladoizquierdofrente= rs.getString("cantidad_lado_izquierdo_frente");
+                
+                
                 String ladoizquierdoatras = rs.getString("lado_izquierdo_atras");
                 String puntadasladoizquierdoatras = rs.getString("lado_izquierdo_atras_puntadas");
+                cantidadladoizquierdoatras= rs.getString("cantidad_lado_izquierdo_atras");
 
                 String ladoderechofrente = rs.getString("lado_derecho_frente");
                 String puntadasladoderechofrente = rs.getString("lado_derecho_frente_puntadas");
+                cantidadladoderechofrente= rs.getString("cantidad_lado_derecho_frente");
+                
                 String ladoderechoatras = rs.getString("lado_derecho_atras");
                 String puntadasladoderechoatras = rs.getString("lado_derecho_atras_puntadas");
+                cantidadladoderechoatras= rs.getString("cantidad_lado_derecho_atras");
+                
                 String numeroventa = rs.getString("numero_venta");
 
                 modelo.addRow(new Object[]{});

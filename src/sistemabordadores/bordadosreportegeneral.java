@@ -2510,7 +2510,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         ////////////CAMISAS
         
-        String sql = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho,manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha,espalda_nombre,espalda,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion,otra_ubicacion2 from historial_ordenes_camisa where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sql = "Select codigo,fecha,cliente,cantidad,prenda,cantidad_pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo,"
+                + "cantidad_pecho_derecho,pecho_derecho_nombre,pecho_derecho,"
+                + "cantidad_manga_izquierda,manga_izquierda_nombre,manga_izquierda,"
+                + "cantidad_manga_derecha,manga_derecha_nombre,manga_derecha,"
+                + "cantidad_espalda,espalda_nombre,espalda,"
+                + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,"
+                + "otra_ubicacion,cantidad_otra_ubicacion,otra_ubicacion2,cantidad_otra_ubicacion2 from historial_ordenes_camisa where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -2524,17 +2530,17 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 pechoizquierdo = rs.getString("pecho_izquierdo");
                 cantidadpechoizquierdo = rs.getString("cantidad_pecho_izquierdo");
                 pechoderecho = rs.getString("pecho_derecho");
-                cantidadpechoizquierdo = rs.getString("cantidad_pecho_derecho");
+                cantidadpechoderecho = rs.getString("cantidad_pecho_derecho");
                 mangaizquierda = rs.getString("manga_izquierda");
-                cantidadpechoizquierdo = rs.getString("cantidad_manga_izquierda");
+                cantidadmangaizquierda = rs.getString("cantidad_manga_izquierda");
                 mangaderecha = rs.getString("manga_derecha");
-                cantidadpechoizquierdo = rs.getString("cantidad_manga_derecha");
+                cantidadmangaderecha = rs.getString("cantidad_manga_derecha");
                 espalda = rs.getString("espalda");
-                cantidadpechoizquierdo = rs.getString("cantidad_espalda");
+                cantidadespalda = rs.getString("cantidad_espalda");
                 otraubicacion = rs.getString("otra_ubicacion");
-                cantidadpechoizquierdo = rs.getString("cantidad_otra_ubicacion");
+                cantidadotraubicacion = rs.getString("cantidad_otra_ubicacion");
                 otraubicacion2 = rs.getString("otra_ubicacion2");
-                cantidadpechoizquierdo = rs.getString("cantidad_otra_ubicacion2");
+                cantidadotraubicacion2 = rs.getString("cantidad_otra_ubicacion2");
 
                 aplicacionpechoizquierdo = rs.getString("aplicacion_pecho_izquierdo");
                 aplicacionpechoderecho = rs.getString("aplicacion_pecho_derecho");
@@ -4229,6 +4235,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     }
 
+    
+   
     void sumadelasaplicaciones() 
     {
         String costostring = "";

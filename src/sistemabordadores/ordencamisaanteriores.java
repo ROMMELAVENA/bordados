@@ -827,6 +827,12 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                 System.out.println(ex);
             }
 
+            
+           if(cantidadaplicacion==null || cantidadaplicacion.equals("") ||cantidadaplicacion.equals(" "))
+           {
+              cantidadaplicacion = "0"; 
+           }
+            
            int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
            
            

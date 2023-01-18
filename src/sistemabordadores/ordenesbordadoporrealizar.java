@@ -457,7 +457,8 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
 
             int fila = tablacamisa.getSelectedRow();
 
-            if (fila >= 0) {
+            if (fila >= 0) 
+            {
 
                 Object tipo = tablacamisa.getValueAt(fila, 3).toString();
 
@@ -473,13 +474,15 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
                         ordencamisaanteriores.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
                         ordencamisaanteriores.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
                         ordencamisaanteriores.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
-                         ordencamisaanteriores.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
-
+                        ordencamisaanteriores.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
+                        tablacamisa.clearSelection();
+                        this.setState(this.ICONIFIED);
                        
                     }
 
                 
-                } else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) {
+                } else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
+                {
                     if (ordengorraanteriores.ventanaordengorraanteriores == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
 
@@ -491,20 +494,19 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
                         ordengorraanteriores.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
                         ordengorraanteriores.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
                         ordengorraanteriores.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
-
+                         tablacamisa.clearSelection();
+                         this.setState(this.ICONIFIED);
                         
                     }
-                } else {
-
-                  
-
-                }
+                } 
 
             }
 
         } 
 
 
+       
+        
     }//GEN-LAST:event_tablacamisaMouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

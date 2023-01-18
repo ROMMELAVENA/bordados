@@ -696,7 +696,7 @@ public static String dia() {
                 
             }
         
-        ordenesbordadogenerada.btnactualizar.doClick();
+        ordenesbordadoporrealizar.btnactualizar.doClick();
 
         }
        

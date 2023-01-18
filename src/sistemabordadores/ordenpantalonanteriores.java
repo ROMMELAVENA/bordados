@@ -1408,7 +1408,7 @@ public static String dia() {
                 System.out.println(e);
             }
 
-            ordenesbordadogenerada.btnactualizar.doClick();
+            ordenesbordadoporrealizar.btnactualizar.doClick();
 
         }
 

@@ -2476,7 +2476,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
                 JOptionPane.showMessageDialog(null, e);
             }
 
-            ordenesbordadogenerada.btnactualizar.doClick();
+            ordenesbordadoporrealizar.btnactualizar.doClick();
 
         }
         else
@@ -2531,7 +2531,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
                 System.out.println(e);
             }
 
-            ordenesbordadogenerada.btnactualizar.doClick();
+            ordenesbordadoporrealizar.btnactualizar.doClick();
             this.dispose();
 
     }//GEN-LAST:event_btneliminarActionPerformed

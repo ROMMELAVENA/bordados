@@ -1595,7 +1595,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             }
            
         
-        ordenesbordadogenerada.btnactualizar.doClick();
+        ordenesbordadoporrealizar.btnactualizar.doClick();
         this.dispose();
 
         }

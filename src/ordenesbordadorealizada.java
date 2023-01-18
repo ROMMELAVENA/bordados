@@ -120,8 +120,8 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
         //// historial_orden_camisa
         
         String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  "
-                         + "FROM historial_ordenes_camisa where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') "
-                         + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'por solicitar') and fecha between '"+fechainicial+"' and '"+fechafinal+"'  ";
+                         + "FROM historial_ordenes_camisa where lugar = 'Esta sucursal' "
+                         + "and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"'  ";
 
         try {
             Statement st = cn.createStatement();
@@ -333,20 +333,11 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
         lbinterface = new javax.swing.JLabel();
         lbtienda = new javax.swing.JLabel();
         btnactualizar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tablagorra = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tablapantalon = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tablaparches = new javax.swing.JTable();
         btnfrente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Ordenes bordado generadas");
+        setTitle("Ordenes bordado realizadas");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -409,113 +400,8 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
             }
         });
 
-        tablagorra.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        tablagorra.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "numeroventa", "fecha"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tablagorra.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablagorraMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(tablagorra);
-        if (tablagorra.getColumnModel().getColumnCount() > 0) {
-            tablagorra.getColumnModel().getColumn(3).setMinWidth(0);
-            tablagorra.getColumnModel().getColumn(3).setPreferredWidth(0);
-            tablagorra.getColumnModel().getColumn(3).setMaxWidth(0);
-            tablagorra.getColumnModel().getColumn(4).setMinWidth(0);
-            tablagorra.getColumnModel().getColumn(4).setPreferredWidth(0);
-            tablagorra.getColumnModel().getColumn(4).setMaxWidth(0);
-        }
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("Gorra");
-
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Camisa \\ Chamarra \\ Camisola ");
-
-        tablapantalon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        tablapantalon.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "numeroventa", "fecha"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tablapantalon.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablapantalonMouseClicked(evt);
-            }
-        });
-        jScrollPane3.setViewportView(tablapantalon);
-        if (tablapantalon.getColumnModel().getColumnCount() > 0) {
-            tablapantalon.getColumnModel().getColumn(3).setMinWidth(100);
-            tablapantalon.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tablapantalon.getColumnModel().getColumn(3).setMaxWidth(100);
-            tablapantalon.getColumnModel().getColumn(4).setMinWidth(0);
-            tablapantalon.getColumnModel().getColumn(4).setPreferredWidth(0);
-            tablapantalon.getColumnModel().getColumn(4).setMaxWidth(0);
-        }
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("Pantalon");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Parches \\ Ponchados \\ Corbata");
-
-        tablaparches.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        tablaparches.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "numeroventa", "fecha"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tablaparches.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaparchesMouseClicked(evt);
-            }
-        });
-        jScrollPane4.setViewportView(tablaparches);
-        if (tablaparches.getColumnModel().getColumnCount() > 0) {
-            tablaparches.getColumnModel().getColumn(3).setMinWidth(100);
-            tablaparches.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tablaparches.getColumnModel().getColumn(3).setMaxWidth(100);
-            tablaparches.getColumnModel().getColumn(4).setMinWidth(0);
-            tablaparches.getColumnModel().getColumn(4).setPreferredWidth(0);
-            tablaparches.getColumnModel().getColumn(4).setMaxWidth(0);
-        }
 
         btnfrente.setText("frente");
         btnfrente.addActionListener(new java.awt.event.ActionListener() {
@@ -533,40 +419,26 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 443, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 445, Short.MAX_VALUE)
                         .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(520, 520, 520))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(lbinterface, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbtienda, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(57, 57, 57))
+                            .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(btnfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(btnactualizar))
-                                    .addComponent(jScrollPane4)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addGap(46, 46, 46))))
+                                .addComponent(btnfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(btnactualizar)))
+                        .addGap(46, 46, 46))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -576,27 +448,11 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbnumero)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(14, 14, 14))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(2, 2, 2)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel3))
+                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnfrente)
                     .addComponent(btnactualizar))
@@ -686,144 +542,6 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
        limpiartabla2();
        datos();
     }//GEN-LAST:event_btnactualizarActionPerformed
-
-    private void tablagorraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablagorraMouseClicked
-       if (evt.getClickCount() == 2) {
-
-            int fila = tablagorra.getSelectedRow();
-
-            if (fila >= 0) {
-
-                Object tipo = tablagorra.getValueAt(fila, 3).toString();
-
-                if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) {
-                    if (ordengorraanteriores.ventanaordengorraanteriores == true) {
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
-
-                    } else {
-                        ordengorraanteriores orden = new ordengorraanteriores();
-                        orden.setVisible(true);
-
-                        ordengorraanteriores.lbfolio.setText(tablagorra.getValueAt(fila, 0).toString());
-                        ordengorraanteriores.lbnumeroventa.setText(tablagorra.getValueAt(fila, 5).toString());
-                        ordengorraanteriores.lbprenda.setText(tablagorra.getValueAt(fila, 2).toString());
-                        ordengorraanteriores.lbtipo.setText(tablagorra.getValueAt(fila, 3).toString());
-
-                        this.setState(this.ICONIFIED);
-                    }
-                } else {
-
-                  
-
-                }
-
-            }
-
-        } else {
-           
-        }
-    }//GEN-LAST:event_tablagorraMouseClicked
-
-    private void tablapantalonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablapantalonMouseClicked
-       if (evt.getClickCount() == 2) 
-       {
-
-            int fila = tablapantalon.getSelectedRow();
-
-            if (fila >= 0) {
-
-                    if (ordenpantalonanteriores.ventanaordenpantalonanteriores == true)
-                    {
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de pantalon anteriores");
-
-                    }
-                    else
-                    {
-                        ordenpantalonanteriores orden = new ordenpantalonanteriores();
-                        orden.setVisible(true);
-
-                        ordenpantalonanteriores.lbfolio.setText(tablapantalon.getValueAt(fila, 0).toString());
-                        ordenpantalonanteriores.lbnumeroventa.setText(tablapantalon.getValueAt(fila, 5).toString());
-                        this.setState(this.ICONIFIED);
-                    }
-                
-
-            }
-
-        } 
-
-    }//GEN-LAST:event_tablapantalonMouseClicked
-
-    private void tablaparchesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaparchesMouseClicked
-        if (evt.getClickCount() == 2) 
-       {
-
-            int fila = tablaparches.getSelectedRow();
-
-            if (fila >= 0) 
-            {
-                
-                    Object tipo = tablaparches.getValueAt(fila, 2);
-                    
-                    
-                    if(tipo.equals("Parche"))
-                    {
-
-                    if (ordenparcheanteriores.ventanaordenparcheanteriores == true)
-                    {
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de pantalon anteriores");
-
-                    }
-                    else
-                    {
-                        ordenparcheanteriores orden = new ordenparcheanteriores();
-                        orden.setVisible(true);
-                        ordenparcheanteriores.lbfolio.setText(tablaparches.getValueAt(fila, 0).toString());
-                        
-                        this.setState(this.ICONIFIED);
-                    }
-                
-                    }
-                    else if(tipo.equals("Ponchado"))
-                    {
-                        if (ordenponchadoanteriores.ventanaordenparcheanteriores == true)
-                    {
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de pantalon anteriores");
-
-                    }
-                    else
-                    {
-                        ordenponchadoanteriores orden = new ordenponchadoanteriores();
-                        orden.setVisible(true);
-                        ordenponchadoanteriores.lbfolio.setText(tablaparches.getValueAt(fila, 0).toString());
-                        
-                        this.setState(this.ICONIFIED);
-                    }
-                        
-                    }
-                    else 
-                    {
-                        if (ordencorbataanteriores.ventanaordencorbataanteriores == true)
-                    {
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de pantalon anteriores");
-
-                    }
-                    else
-                    {
-                        ordencorbataanteriores orden = new ordencorbataanteriores();
-                        orden.setVisible(true);
-                        ordencorbataanteriores.lbfolio.setText(tablaparches.getValueAt(fila, 0).toString());
-                        
-                        this.setState(this.ICONIFIED);
-                    }
-                        
-                    } 
-                    
-
-            }
-
-        } 
-    }//GEN-LAST:event_tablaparchesMouseClicked
 
     private void btnfrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteActionPerformed
         this.toFront();
@@ -1123,21 +841,12 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
     public static javax.swing.JButton btnactualizar;
     public static javax.swing.JButton btnfrente;
     private javax.swing.JButton btnsalir;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JLabel lbinterface;
     public static javax.swing.JLabel lbnumero;
     public static javax.swing.JLabel lbtienda;
     private javax.swing.JTable tablacamisa;
-    private javax.swing.JTable tablagorra;
-    private javax.swing.JTable tablapantalon;
-    private javax.swing.JTable tablaparches;
     // End of variables declaration//GEN-END:variables
 connectar cc = new connectar();
 Connection cn = cc.conexion();

@@ -345,7 +345,7 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
         btnfrente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Ordenes bordado generadas");
+        setTitle("Ordenes bordado por realizar");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);

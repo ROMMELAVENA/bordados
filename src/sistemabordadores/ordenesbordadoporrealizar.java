@@ -4,11 +4,17 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 public class ordenesbordadoporrealizar extends javax.swing.JFrame {
 
@@ -277,6 +283,12 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
         }
         
         
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tablacamisa.getModel());
+        tablacamisa.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>(100);
+        sortKeys.add(new RowSorter.SortKey(5, SortOrder.DESCENDING));
+        sorter.setSortKeys(sortKeys);
+        
         
     }
     
@@ -345,12 +357,18 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablacamisa);
         if (tablacamisa.getColumnModel().getColumnCount() > 0) {
+            tablacamisa.getColumnModel().getColumn(1).setMinWidth(100);
+            tablacamisa.getColumnModel().getColumn(1).setPreferredWidth(600);
+            tablacamisa.getColumnModel().getColumn(1).setMaxWidth(800);
             tablacamisa.getColumnModel().getColumn(3).setMinWidth(0);
             tablacamisa.getColumnModel().getColumn(3).setPreferredWidth(0);
             tablacamisa.getColumnModel().getColumn(3).setMaxWidth(0);
             tablacamisa.getColumnModel().getColumn(4).setMinWidth(0);
             tablacamisa.getColumnModel().getColumn(4).setPreferredWidth(0);
             tablacamisa.getColumnModel().getColumn(4).setMaxWidth(0);
+            tablacamisa.getColumnModel().getColumn(5).setMinWidth(0);
+            tablacamisa.getColumnModel().getColumn(5).setPreferredWidth(0);
+            tablacamisa.getColumnModel().getColumn(5).setMaxWidth(0);
         }
 
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -411,14 +429,14 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
                     .addComponent(lbnumero)
                     .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 909, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 876, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbinterface)
                     .addComponent(btnfrente)
                     .addComponent(btnactualizar)
                     .addComponent(lbtienda))
-                .addGap(5, 5, 5))
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -484,9 +502,7 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
 
             }
 
-        } else {
-           
-        }
+        } 
 
 
     }//GEN-LAST:event_tablacamisaMouseClicked

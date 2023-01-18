@@ -114,7 +114,23 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
     
     String ubicacioninsertar = ""; 
     String aplicacioninsertar = "";
-        
+    
+    
+    String mangaderechanombre = "ninguno";
+    String mangaizquierdanombre = "ninguno";
+    String pechoderechonombre = "ninguno";
+    String pechoizquierdonombre = "ninguno";
+    String espaldanombre = "ninguno";
+    String otraubicacionnombre = "ninguno";
+    String otraubicacion2nombre = "ninguno";
+    
+    String aplicacionmangaderecha = "0";
+    String aplicacionmangaizquierda = "0";
+    String aplicacionpechoderecho = "0";
+    String aplicacionpechoizquierdo = "0"; 
+    String aplicacionespalda = "0";
+    String aplicacionotraubicacion = "0";
+    String aplicacionotraubicacion2 = "0";
     
 
     private PreparedStatement pst;
@@ -125,11 +141,6 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         initComponents();
         ventanaordencamisaanteriores = true;
 
-        lbmangaderecha.setEnabled(false);
-        lbmangaizquierda.setEnabled(false);
-        lbpechoderechonombre.setEnabled(false);
-        lbpechoizquierdonombre.setEnabled(false);
-        lbespalda.setEnabled(false);
         lbnumeroventa.setVisible(false);
         lbnumero.setVisible(false);
         lbrutaimagen.setVisible(false);
@@ -216,192 +227,106 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                     lbtitulo.setText("Orden de Filipina");
                 }
 
-                lbmangaderecha.setText(rs.getString("manga_derecha_nombre"));
-                lbmangaderechanombre.setText(rs.getString("manga_derecha_nombre"));
+                mangaderechanombre = rs.getString("manga_derecha_nombre");
                 Object mangaderecha = rs.getString("manga_derecha");
                 if (mangaderecha == null | mangaderecha.equals("")) {
-                    jLabel2.setVisible(false);
+                   
                     btnmangaderecha.setVisible(false);
                 }
 
-                lbmangaizquierda.setText(rs.getString("manga_izquierda"));
-                lbmangaizquierdanombre.setText(rs.getString("manga_izquierda_nombre"));
+               mangaizquierdanombre = rs.getString("manga_izquierda_nombre");
                 Object mangaizquierda = rs.getString("manga_izquierda");
                 if (mangaizquierda == null | mangaizquierda.equals("")) {
-                    jLabel3.setVisible(false);
+                    
                     btnmangaizquierda.setVisible(false);
                 }
 
-                lbpechoderecho.setText(rs.getString("pecho_derecho"));
-                lbpechoderechonombre.setText(rs.getString("pecho_derecho_nombre"));
+                
+                pechoderechonombre= rs.getString("pecho_derecho_nombre");
                 Object pechoderecho = rs.getString("pecho_derecho");
                 if (pechoderecho == null | pechoderecho.equals("")) {
-                    jLabel4.setVisible(false);
+                    
                     btnpechoderecho.setVisible(false);
                 }
 
-                lbpechoizquierdo.setText(rs.getString("pecho_izquierdo"));
-                lbpechoizquierdonombre.setText(rs.getString("pecho_izquierdo_nombre"));
+                pechoizquierdonombre= rs.getString("pecho_izquierdo");
                 Object pechoizquierdo = rs.getString("pecho_izquierdo");
                 if (pechoizquierdo == null | pechoizquierdo.equals("")) {
-                    jLabel5.setVisible(false);
+                    
                     btnpechoizquierdo.setVisible(false);
                 }
 
-                lbespalda.setText(rs.getString("espalda"));
-                lbespaldanombre.setText(rs.getString("espalda_nombre"));
+                espaldanombre= rs.getString("espalda");
                 Object espalda = rs.getString("espalda");
                 if (espalda == null | espalda.equals("")) {
-                    jLabel1.setVisible(false);
+                    
                     btnespalda.setVisible(false);
                 }
 
 
-                lbotraubicacion.setText(rs.getString("otra_ubicacion"));
-                lbotraubicacionnombre.setText(rs.getString("otra_ubicacion_nombre"));
+                otraubicacionnombre= rs.getString("otra_ubicacion");
                 Object otraubicacion = rs.getString("otra_ubicacion");
                 if (otraubicacion == null | otraubicacion.equals("")) {
-                    jLabel6.setVisible(false);
+                    
                     btnotraubicacion.setVisible(false);
                 }
                 
                 
-                lbotraubicacion.setText(rs.getString("otra_ubicacion2"));
-                //lbespaldanombre.setText(rs.getString("otra_ubicacion2_nombre"));
+                otraubicacion2nombre= rs.getString("otra_ubicacion2");
                 Object otraubicacion2 = rs.getString("otra_ubicacion2");
                 if (otraubicacion2 == null | otraubicacion2.equals("")) {
-                    jLabel7.setVisible(false);
+                   
                     btnotraubicacion2.setVisible(false);
                 }
 
                 
                 lbcantidad.setText(rs.getString("cantidad"));
 
-                String aplicacionpechoizquierdo = rs.getString("aplicacion_pecho_izquierdo");
+                aplicacionpechoizquierdo = rs.getString("aplicacion_pecho_izquierdo");
 
                 if (aplicacionpechoizquierdo.equals("ninguno")) {
                     aplicacionpechoizquierdo = "";
                 }
 
-                lbaplicacionpechoizquierdo.setText(aplicacionpechoizquierdo);
-
-                String aplicacionpechoizquierdocolor = rs.getString("aplicacion_pecho_izquierdo_color");
-
-                if (aplicacionpechoizquierdocolor.equals("ninguno")) {
-                    aplicacionpechoizquierdocolor = "";
-                }
-
-                lbaplicacionpechoizquierdocolor.setText(aplicacionpechoizquierdocolor);
-
-                /// pecho derecho
-                String aplicacionpechoderecho = rs.getString("aplicacion_pecho_derecho");
+                 aplicacionpechoderecho = rs.getString("aplicacion_pecho_derecho");
 
                 if (aplicacionpechoderecho.equals("ninguno")) {
                     aplicacionpechoderecho = "";
                 }
 
-                lbaplicacionpechoderecho.setText(aplicacionpechoderecho);
-
-                String aplicacionpechoderechocolor = rs.getString("aplicacion_pecho_derecho_color");
-
-                if (aplicacionpechoderechocolor.equals("ninguno")) {
-                    aplicacionpechoderechocolor = "";
-                }
-
-                lbaplicacionpechoderechocolor.setText(aplicacionpechoderechocolor);
-
-                /// manga izquierda
-                String aplicacionmangaizquierda = rs.getString("aplicacion_manga_izquierda");
+                 aplicacionmangaizquierda = rs.getString("aplicacion_manga_izquierda");
 
                 if (aplicacionmangaizquierda.equals("ninguno")) {
                     aplicacionmangaizquierda = "";
                 }
 
-                lbaplicacionmangaizquierda.setText(aplicacionmangaizquierda);
-
-                String aplicacionmangaizquierdacolor = rs.getString("aplicacion_manga_izquierda_color");
-
-                if (aplicacionmangaizquierdacolor.equals("ninguno")) {
-                    aplicacionmangaizquierdacolor = "";
-                }
-
-                lbaplicacionmangaizquierdacolor.setText(aplicacionmangaizquierdacolor);
-
-                ///manga derecha
-                String aplicacionmangaderecha = rs.getString("aplicacion_manga_derecha");
+                 aplicacionmangaderecha = rs.getString("aplicacion_manga_derecha");
 
                 if (aplicacionmangaderecha.equals("ninguno")) {
                     aplicacionmangaderecha = "";
                 }
 
-                lbaplicacionmangaderecha.setText(aplicacionmangaderecha);
-
-                String aplicacionmangaderechacolor = rs.getString("aplicacion_manga_derecha_color");
-
-                if (aplicacionmangaderechacolor.equals("ninguno")) {
-                    aplicacionmangaderechacolor = "";
-                }
-
-                lbaplicacionmangaderechacolor.setText(aplicacionmangaderechacolor);
-
-                /// espalda
-                String aplicacionespalda = rs.getString("aplicacion_espalda");
+                aplicacionespalda = rs.getString("aplicacion_espalda");
 
                 if (aplicacionespalda.equals("ninguno")) {
                     aplicacionespalda = "";
                 }
 
-                lbaplicacionespalda.setText(aplicacionespalda);
-
-                String aplicacionespaldacolor = rs.getString("aplicacion_espalda_color");
-
-                if (aplicacionespaldacolor.equals("ninguno")) {
-                    aplicacionespaldacolor = "";
-                }
-
-                lbaplicacionespaldacolor.setText(aplicacionespaldacolor);
                 
-                
-                /// otra ubicacion
-                
-                 String aplicacionotraubicacion = rs.getString("aplicacion_otra_ubicacion");
+                  aplicacionotraubicacion = rs.getString("aplicacion_otra_ubicacion");
 
                 if (aplicacionotraubicacion.equals("ninguno")) {
                     aplicacionotraubicacion = "";
                 }
 
                 
-                lbaplicacionotraubicacion.setText(aplicacionotraubicacion);
-
-                String aplicacionotraubicacioncolor = rs.getString("aplicacion_otra_ubicacion_color");
-
-                if (aplicacionotraubicacioncolor.equals("ninguno")) {
-                    aplicacionotraubicacioncolor = "";
-                }
-
-                lbaplicacionotraubicacioncolor.setText(aplicacionotraubicacioncolor);
-                
-                 /// otra ubicacion2
-                
-                 String aplicacionotraubicacion2 = rs.getString("aplicacion_otra_ubicacion2");
+                aplicacionotraubicacion2 = rs.getString("aplicacion_otra_ubicacion2");
 
                 if (aplicacionotraubicacion2.equals("ninguno")) {
                     aplicacionotraubicacion2 = "";
                 }
 
-                
-                lbaplicacionotraubicacion2.setText(aplicacionotraubicacion2);
 
-                String aplicacionotraubicacioncolor2 = rs.getString("aplicacion_otra_ubicacion2_color");
-
-                if (aplicacionotraubicacioncolor2.equals("ninguno")) {
-                    aplicacionotraubicacioncolor2 = "";
-                }
-
-                lbaplicacionotraubicacioncolor2.setText(aplicacionotraubicacioncolor2);
-                
-                
-                
                 
                 String nombreconcepto = rs.getString("nombre_concepto");
                 lbnombreconcepto.setText(nombreconcepto);
@@ -989,48 +914,13 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        lbaplicacionmangaderecha = new javax.swing.JLabel();
-        lbaplicacionmangaizquierda = new javax.swing.JLabel();
-        lbaplicacionpechoderecho = new javax.swing.JLabel();
-        lbaplicacionpechoizquierdo = new javax.swing.JLabel();
-        lbaplicacionespalda = new javax.swing.JLabel();
-        lbmangaderecha = new javax.swing.JLabel();
-        lbmangaizquierda = new javax.swing.JLabel();
-        lbpechoderechonombre = new javax.swing.JLabel();
-        lbpechoizquierdonombre = new javax.swing.JLabel();
-        lbespalda = new javax.swing.JLabel();
         btnmangaderecha = new javax.swing.JButton();
         btnmangaizquierda = new javax.swing.JButton();
         btnpechoizquierdo = new javax.swing.JButton();
         btnespalda = new javax.swing.JButton();
         btnpechoderecho = new javax.swing.JButton();
-        lbaplicacionespaldacolor = new javax.swing.JLabel();
-        lbaplicacionpechoizquierdocolor = new javax.swing.JLabel();
-        lbaplicacionpechoderechocolor = new javax.swing.JLabel();
-        lbaplicacionmangaderechacolor = new javax.swing.JLabel();
-        lbaplicacionmangaizquierdacolor = new javax.swing.JLabel();
-        lbpechoizquierdo = new javax.swing.JLabel();
-        lbpechoderecho = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         btnotraubicacion = new javax.swing.JButton();
-        lbotraubicacion = new javax.swing.JLabel();
-        lbaplicacionotraubicacion = new javax.swing.JLabel();
-        lbaplicacionotraubicacioncolor = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         btnotraubicacion2 = new javax.swing.JButton();
-        lbotraubicacion2 = new javax.swing.JLabel();
-        lbaplicacionotraubicacion2 = new javax.swing.JLabel();
-        lbaplicacionotraubicacioncolor2 = new javax.swing.JLabel();
-        lbmangaderechanombre = new javax.swing.JLabel();
-        lbmangaizquierdanombre = new javax.swing.JLabel();
-        lbespaldanombre = new javax.swing.JLabel();
-        lbotraubicacion2nombre = new javax.swing.JLabel();
-        lbotraubicacionnombre = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         lbfolio = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -1088,101 +978,6 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 800));
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setText("Espalda");
-        jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(460, 410, 64, 19);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel2.setText("Manga derecha");
-        jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 10, 100, 19);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel3.setText("Manga izquierda");
-        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(400, 10, 110, 19);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel4.setText("Pecho derecho");
-        jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(50, 230, 100, 19);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel5.setText("Pecho izquierdo");
-        jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(410, 220, 110, 19);
-
-        lbaplicacionmangaderecha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbaplicacionmangaderecha.setForeground(new java.awt.Color(255, 0, 0));
-        lbaplicacionmangaderecha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbaplicacionmangaderecha);
-        lbaplicacionmangaderecha.setBounds(20, 90, 80, 20);
-
-        lbaplicacionmangaizquierda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbaplicacionmangaizquierda.setForeground(new java.awt.Color(255, 0, 0));
-        lbaplicacionmangaizquierda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbaplicacionmangaizquierda);
-        lbaplicacionmangaizquierda.setBounds(350, 90, 90, 16);
-
-        lbaplicacionpechoderecho.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbaplicacionpechoderecho.setForeground(new java.awt.Color(255, 0, 0));
-        lbaplicacionpechoderecho.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbaplicacionpechoderecho);
-        lbaplicacionpechoderecho.setBounds(20, 310, 60, 21);
-
-        lbaplicacionpechoizquierdo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbaplicacionpechoizquierdo.setForeground(new java.awt.Color(255, 0, 0));
-        lbaplicacionpechoizquierdo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbaplicacionpechoizquierdo);
-        lbaplicacionpechoizquierdo.setBounds(410, 300, 80, 21);
-
-        lbaplicacionespalda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbaplicacionespalda.setForeground(new java.awt.Color(255, 0, 0));
-        lbaplicacionespalda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbaplicacionespalda);
-        lbaplicacionespalda.setBounds(400, 490, 90, 20);
-
-        lbmangaderecha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbmangaderecha.setForeground(new java.awt.Color(255, 0, 0));
-        lbmangaderecha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbmangaderecha);
-        lbmangaderecha.setBounds(20, 60, 260, 16);
-
-        lbmangaizquierda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbmangaizquierda.setForeground(new java.awt.Color(255, 0, 0));
-        lbmangaizquierda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbmangaizquierda);
-        lbmangaizquierda.setBounds(350, 60, 300, 20);
-
-        lbpechoderechonombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbpechoderechonombre.setForeground(new java.awt.Color(255, 0, 0));
-        lbpechoderechonombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbpechoderechonombre);
-        lbpechoderechonombre.setBounds(20, 280, 270, 20);
-
-        lbpechoizquierdonombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbpechoizquierdonombre.setForeground(new java.awt.Color(255, 0, 0));
-        lbpechoizquierdonombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbpechoizquierdonombre);
-        lbpechoizquierdonombre.setBounds(390, 280, 270, 20);
-
-        lbespalda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbespalda.setForeground(new java.awt.Color(255, 0, 0));
-        lbespalda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbespalda);
-        lbespalda.setBounds(400, 460, 310, 19);
-
         btnmangaderecha.setText("Manga Derecha");
         btnmangaderecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1190,7 +985,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnmangaderecha);
-        btnmangaderecha.setBounds(150, 10, 130, 25);
+        btnmangaderecha.setBounds(150, 10, 130, 23);
 
         btnmangaizquierda.setText("Manga izquierda");
         btnmangaizquierda.addActionListener(new java.awt.event.ActionListener() {
@@ -1199,7 +994,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnmangaizquierda);
-        btnmangaizquierda.setBounds(510, 10, 140, 25);
+        btnmangaizquierda.setBounds(510, 10, 140, 23);
 
         btnpechoizquierdo.setText("Pecho Izquierdo");
         btnpechoizquierdo.addActionListener(new java.awt.event.ActionListener() {
@@ -1208,7 +1003,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnpechoizquierdo);
-        btnpechoizquierdo.setBounds(520, 220, 130, 25);
+        btnpechoizquierdo.setBounds(520, 220, 130, 23);
 
         btnespalda.setText("Espalda");
         btnespalda.addActionListener(new java.awt.event.ActionListener() {
@@ -1217,7 +1012,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnespalda);
-        btnespalda.setBounds(520, 410, 130, 25);
+        btnespalda.setBounds(520, 410, 130, 23);
 
         btnpechoderecho.setText("Pecho derecho");
         btnpechoderecho.addActionListener(new java.awt.event.ActionListener() {
@@ -1226,56 +1021,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnpechoderecho);
-        btnpechoderecho.setBounds(150, 230, 140, 25);
-
-        lbaplicacionespaldacolor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbaplicacionespaldacolor.setForeground(new java.awt.Color(255, 0, 0));
-        lbaplicacionespaldacolor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbaplicacionespaldacolor);
-        lbaplicacionespaldacolor.setBounds(500, 490, 90, 20);
-
-        lbaplicacionpechoizquierdocolor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbaplicacionpechoizquierdocolor.setForeground(new java.awt.Color(255, 0, 0));
-        lbaplicacionpechoizquierdocolor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbaplicacionpechoizquierdocolor);
-        lbaplicacionpechoizquierdocolor.setBounds(500, 300, 160, 21);
-
-        lbaplicacionpechoderechocolor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbaplicacionpechoderechocolor.setForeground(new java.awt.Color(255, 0, 0));
-        lbaplicacionpechoderechocolor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbaplicacionpechoderechocolor);
-        lbaplicacionpechoderechocolor.setBounds(100, 310, 150, 21);
-
-        lbaplicacionmangaderechacolor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbaplicacionmangaderechacolor.setForeground(new java.awt.Color(255, 0, 0));
-        lbaplicacionmangaderechacolor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbaplicacionmangaderechacolor);
-        lbaplicacionmangaderechacolor.setBounds(110, 90, 170, 20);
-
-        lbaplicacionmangaizquierdacolor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbaplicacionmangaizquierdacolor.setForeground(new java.awt.Color(255, 0, 0));
-        lbaplicacionmangaizquierdacolor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbaplicacionmangaizquierdacolor);
-        lbaplicacionmangaizquierdacolor.setBounds(460, 90, 190, 16);
-
-        lbpechoizquierdo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbpechoizquierdo.setForeground(new java.awt.Color(255, 0, 0));
-        lbpechoizquierdo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbpechoizquierdo);
-        lbpechoizquierdo.setBounds(390, 260, 270, 20);
-
-        lbpechoderecho.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbpechoderecho.setForeground(new java.awt.Color(255, 0, 0));
-        lbpechoderecho.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbpechoderecho);
-        lbpechoderecho.setBounds(20, 260, 270, 20);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel6.setText("Otra ubicacion");
-        jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(24, 410, 110, 19);
+        btnpechoderecho.setBounds(150, 230, 140, 23);
 
         btnotraubicacion.setText("Otra ubicacion");
         btnotraubicacion.addActionListener(new java.awt.event.ActionListener() {
@@ -1284,32 +1030,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnotraubicacion);
-        btnotraubicacion.setBounds(130, 410, 130, 25);
-
-        lbotraubicacion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbotraubicacion.setForeground(new java.awt.Color(255, 0, 0));
-        lbotraubicacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbotraubicacion);
-        lbotraubicacion.setBounds(10, 460, 310, 19);
-
-        lbaplicacionotraubicacion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbaplicacionotraubicacion.setForeground(new java.awt.Color(255, 0, 0));
-        lbaplicacionotraubicacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbaplicacionotraubicacion);
-        lbaplicacionotraubicacion.setBounds(20, 480, 90, 20);
-
-        lbaplicacionotraubicacioncolor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbaplicacionotraubicacioncolor.setForeground(new java.awt.Color(255, 0, 0));
-        lbaplicacionotraubicacioncolor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbaplicacionotraubicacioncolor);
-        lbaplicacionotraubicacioncolor.setBounds(120, 480, 90, 20);
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel7.setText("Otra ubicacion");
-        jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(30, 510, 110, 19);
+        btnotraubicacion.setBounds(130, 410, 130, 23);
 
         btnotraubicacion2.setText("Otra ubicacion2");
         btnotraubicacion2.addActionListener(new java.awt.event.ActionListener() {
@@ -1318,55 +1039,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnotraubicacion2);
-        btnotraubicacion2.setBounds(130, 510, 130, 25);
-
-        lbotraubicacion2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbotraubicacion2.setForeground(new java.awt.Color(255, 0, 0));
-        lbotraubicacion2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbotraubicacion2);
-        lbotraubicacion2.setBounds(10, 560, 310, 19);
-
-        lbaplicacionotraubicacion2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbaplicacionotraubicacion2.setForeground(new java.awt.Color(255, 0, 0));
-        lbaplicacionotraubicacion2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbaplicacionotraubicacion2);
-        lbaplicacionotraubicacion2.setBounds(10, 590, 90, 20);
-
-        lbaplicacionotraubicacioncolor2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbaplicacionotraubicacioncolor2.setForeground(new java.awt.Color(255, 0, 0));
-        lbaplicacionotraubicacioncolor2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbaplicacionotraubicacioncolor2);
-        lbaplicacionotraubicacioncolor2.setBounds(110, 590, 90, 20);
-
-        lbmangaderechanombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbmangaderechanombre.setForeground(new java.awt.Color(255, 0, 0));
-        lbmangaderechanombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbmangaderechanombre);
-        lbmangaderechanombre.setBounds(20, 40, 260, 16);
-
-        lbmangaizquierdanombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbmangaizquierdanombre.setForeground(new java.awt.Color(255, 0, 0));
-        lbmangaizquierdanombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbmangaizquierdanombre);
-        lbmangaizquierdanombre.setBounds(350, 40, 300, 20);
-
-        lbespaldanombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbespaldanombre.setForeground(new java.awt.Color(255, 0, 0));
-        lbespaldanombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbespaldanombre);
-        lbespaldanombre.setBounds(400, 440, 310, 19);
-
-        lbotraubicacion2nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbotraubicacion2nombre.setForeground(new java.awt.Color(255, 0, 0));
-        lbotraubicacion2nombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbotraubicacion2nombre);
-        lbotraubicacion2nombre.setBounds(10, 540, 310, 19);
-
-        lbotraubicacionnombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbotraubicacionnombre.setForeground(new java.awt.Color(255, 0, 0));
-        lbotraubicacionnombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lbotraubicacionnombre);
-        lbotraubicacionnombre.setBounds(10, 440, 310, 19);
+        btnotraubicacion2.setBounds(130, 510, 130, 23);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel13.setText("Folio");
@@ -1782,8 +1455,8 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
 if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_manga_izquierda";
-            String nombrebordado = lbmangaizquierdanombre.getText();
-            String cantidadaplicacion = lbaplicacionmangaizquierda.getText();
+            String nombrebordado = mangaizquierdanombre;
+            String cantidadaplicacion = aplicacionmangaizquierda;
             String cantidad = lbcantidad.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
             
@@ -1854,8 +1527,8 @@ if(lugardondesebordara.equals("Esta sucursal"))
         {
             
            String ubicacion = "cantidad_pecho_izquierdo";
-           String nombrebordado =lbmangaderechanombre.getText();
-           String cantidadaplicacion = lbaplicacionmangaderecha.getText();
+           String nombrebordado =mangaderechanombre;
+           String cantidadaplicacion = aplicacionmangaderecha;
            String cantidad = lbcantidad.getText();
            actualizarlascantidadesbordadas((String) ubicacion);  
            
@@ -1929,8 +1602,8 @@ if(lugardondesebordara.equals("Esta sucursal"))
         if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_espalda";
-            String nombrebordado =lbespaldanombre.getText();
-           String cantidadaplicacion = lbaplicacionespalda.getText();
+            String nombrebordado =espaldanombre;
+           String cantidadaplicacion = aplicacionespalda;
            String cantidad = lbcantidad.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
             
@@ -2004,8 +1677,8 @@ if(lugardondesebordara.equals("Esta sucursal"))
         if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_pecho_derecho";
-            String nombrebordado =lbpechoderechonombre.getText();
-           String cantidadaplicacion = lbaplicacionpechoderecho.getText();
+            String nombrebordado =pechoderechonombre;
+           String cantidadaplicacion = aplicacionpechoderecho;
            String cantidad = lbcantidad.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
             
@@ -2080,8 +1753,8 @@ if(lugardondesebordara.equals("Esta sucursal"))
         {
 
            String ubicacion = "cantidad_manga_derecha";           
-           String nombrebordado =lbmangaderechanombre.getText();
-           String cantidadaplicacion = lbaplicacionmangaderecha.getText();
+           String nombrebordado =mangaderechanombre;
+           String cantidadaplicacion = aplicacionmangaderecha;
            String cantidad = lbcantidad.getText();
            actualizarlascantidadesbordadas((String) ubicacion); 
            
@@ -2640,8 +2313,8 @@ if(lugardondesebordara.equals("Esta sucursal"))
         if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_otra_ubicacion";
-            String nombrebordado =lbotraubicacionnombre.getText();
-           String cantidadaplicacion = lbotraubicacion.getText();
+            String nombrebordado =otraubicacionnombre;
+           String cantidadaplicacion = aplicacionotraubicacion;
            String cantidad = lbcantidad.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
             
@@ -2713,8 +2386,8 @@ if(lugardondesebordara.equals("Esta sucursal"))
         if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_otra_ubicacion2";
-            String nombrebordado =lbotraubicacion2nombre.getText();
-           String cantidadaplicacion = lbotraubicacion2.getText();
+            String nombrebordado =otraubicacion2nombre;
+           String cantidadaplicacion = aplicacionotraubicacion2;
            String cantidad = lbcantidad.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
             if (prenda.toUpperCase().equals("CAMISA")) {
@@ -2844,59 +2517,24 @@ if(lugardondesebordara.equals("Esta sucursal"))
     public static javax.swing.JButton btnsalir;
     private javax.swing.JButton btnverfotomontaje;
     private javax.swing.JComboBox<String> cbsucursal;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    public static javax.swing.JLabel lbaplicacionespalda;
-    public static javax.swing.JLabel lbaplicacionespaldacolor;
-    public static javax.swing.JLabel lbaplicacionmangaderecha;
-    public static javax.swing.JLabel lbaplicacionmangaderechacolor;
-    public static javax.swing.JLabel lbaplicacionmangaizquierda;
-    public static javax.swing.JLabel lbaplicacionmangaizquierdacolor;
-    public static javax.swing.JLabel lbaplicacionotraubicacion;
-    public static javax.swing.JLabel lbaplicacionotraubicacion2;
-    public static javax.swing.JLabel lbaplicacionotraubicacioncolor;
-    public static javax.swing.JLabel lbaplicacionotraubicacioncolor2;
-    public static javax.swing.JLabel lbaplicacionpechoderecho;
-    public static javax.swing.JLabel lbaplicacionpechoderechocolor;
-    public static javax.swing.JLabel lbaplicacionpechoizquierdo;
-    public static javax.swing.JLabel lbaplicacionpechoizquierdocolor;
     public static javax.swing.JLabel lbcantidad;
     public static javax.swing.JLabel lbcliente;
-    public static javax.swing.JLabel lbespalda;
-    public static javax.swing.JLabel lbespaldanombre;
     public static javax.swing.JLabel lbfecha;
     public static javax.swing.JLabel lbfolio;
     public static javax.swing.JLabel lbidentificador;
     private javax.swing.JLabel lblImagen;
-    public static javax.swing.JLabel lbmangaderecha;
-    public static javax.swing.JLabel lbmangaderechanombre;
-    public static javax.swing.JLabel lbmangaizquierda;
-    public static javax.swing.JLabel lbmangaizquierdanombre;
     private javax.swing.JLabel lbnombreconcepto;
     public static javax.swing.JLabel lbnumero;
     public static javax.swing.JLabel lbnumeroventa;
-    public static javax.swing.JLabel lbotraubicacion;
-    public static javax.swing.JLabel lbotraubicacion2;
-    public static javax.swing.JLabel lbotraubicacion2nombre;
-    public static javax.swing.JLabel lbotraubicacionnombre;
-    public static javax.swing.JLabel lbpechoderecho;
-    public static javax.swing.JLabel lbpechoderechonombre;
-    public static javax.swing.JLabel lbpechoizquierdo;
-    public static javax.swing.JLabel lbpechoizquierdonombre;
     public static javax.swing.JLabel lbprenda;
     private javax.swing.JLabel lbrutaespalda;
     private javax.swing.JLabel lbrutaimagen;

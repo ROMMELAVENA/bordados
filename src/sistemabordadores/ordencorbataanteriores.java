@@ -71,6 +71,12 @@ public class ordencorbataanteriores extends javax.swing.JFrame {
     String primero = "";
     String ultimo = "";
     String lugardondesebordara = "";
+    
+
+    String frentenombre = "";
+    String nombreconcepto = "";
+    String ubicacioninsertar ="";
+    String aplicacioninsertar = "";
 
     private PreparedStatement pst;
 
@@ -89,7 +95,7 @@ public class ordencorbataanteriores extends javax.swing.JFrame {
 
         String folio = lbfolio.getText();
 
-        String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,frente,lugar,frente_puntadas,frente_cantidad from historial_ordenes_corbata where numero = '" + folio + "'";
+        String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,nombre_concepto,frente,frente_nombre,frente_puntadas,frente_cantidad from historial_ordenes_corbata where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -111,6 +117,9 @@ public class ordencorbataanteriores extends javax.swing.JFrame {
 
                 lbfrente.setText(rs.getString("frente"));
                 String ladoizquierdofrente = rs.getString("frente");
+                frentenombre = rs.getString("frente_nombre");
+                nombreconcepto =rs.getString("nombre_concepto"); 
+                
                 
                 String frentecantidad = rs.getString("frente_cantidad");
                 if(frentecantidad.equals("0"))
@@ -205,6 +214,66 @@ public class ordencorbataanteriores extends javax.swing.JFrame {
         
         
     }
+    
+    
+    void agregarexistenciabordados(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion)
+    {
+        
+       
+        
+        //// bordado
+        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
+            
+                
+ 
+                pst.setString(1, lbnumeroventa.getText());
+                pst.setString(2, dia());
+                pst.setString(3, hora());
+                pst.setString(4, ubicacioninsertar);
+                pst.setString(5, nombreconcepto);
+                pst.setString(6, lbbordadosorden.getText());
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
+           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+           
+           
+           if(cantidadaplicacionint > 0)
+           {
+               int cantidadprendasint = Integer.parseInt(lbbordadosorden.getText());
+               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
+               
+               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
+            
+                
+ 
+                pst.setString(1, lbnumeroventa.getText());
+                pst.setString(2, dia());
+                pst.setString(3, hora());
+                pst.setString(4, aplicacioninsertar);
+                pst.setString(5, nombreconcepto);
+                pst.setString(6, String.valueOf(totalaplicaciones));
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+               
+           }
+        
+        
+    }  
 
     
 
@@ -549,12 +618,13 @@ public class ordencorbataanteriores extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbautorizado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jLabel23))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lbautorizado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel23)))
                         .addGap(19, 19, 19))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
@@ -664,6 +734,10 @@ public class ordencorbataanteriores extends javax.swing.JFrame {
         {
            String ubicacion = "cantidad_manga_derecha";
             actualizarlascantidadesbordadas((String) ubicacion); 
+            String cantidadaplicacion = "0";
+            ubicacioninsertar = "BORDADO CORBATA FRENTE "+frentenombre+ "";
+            aplicacioninsertar = "";
+            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
         }
         else
         {

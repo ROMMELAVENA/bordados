@@ -27,8 +27,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -108,6 +110,15 @@ public class ordengorraanteriores extends javax.swing.JFrame {
     String lugardondesebordara = "";
 
     int descargado = 0;
+    
+    String ladoizquierdonombre = "";
+    String ladoderechonombre = "";
+    String frentenombre = "";
+    String atrasnombre = "";
+    String nombreconcepto = "";
+    String ubicacioninsertar ="";
+    String aplicacioninsertar = "";
+    
 
  
 
@@ -139,7 +150,8 @@ public class ordengorraanteriores extends javax.swing.JFrame {
 
         String folio = lbfolio.getText();
 
-        String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras from historial_ordenes_gorra where numero = '" + folio + "'";
+        String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,"
+                + "lado_izquierdo,lado_izquierdo_nombre,lado_derecho,lado_derecho_nombre,frente,frente_nombre,atras,atras_nombre,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras,nombre_concepto from historial_ordenes_gorra where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -153,6 +165,12 @@ public class ordengorraanteriores extends javax.swing.JFrame {
                 lbfechaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
                 
+                ladoizquierdonombre = rs.getString("lado_izquierdo_nombre");
+                ladoderechonombre = rs.getString("lado_derecho_nombre");
+                frentenombre = rs.getString("frente_nombre");
+                atrasnombre = rs.getString("atras_nombre");
+                
+                nombreconcepto =rs.getString("nombre_concepto");
                 
                 lbfrente.setText(rs.getString("frente"));
                 String frente =  rs.getString("frente");
@@ -486,6 +504,80 @@ public class ordengorraanteriores extends javax.swing.JFrame {
         }
         
     }
+    
+    
+     public static String dia() {
+        Date fecha = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
+        return formatoFecha.format(fecha);
+    }
+
+    public static String hora() {
+        Date hora = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("HH:mm:ss");
+        return formatoFecha.format(hora);
+    }
+    
+    
+    void agregarexistenciabordados(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion)
+    {
+        
+       
+        
+        //// bordado
+        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
+            
+                
+ 
+                pst.setString(1, lbnumeroventa.getText());
+                pst.setString(2, dia());
+                pst.setString(3, hora());
+                pst.setString(4, ubicacioninsertar);
+                pst.setString(5, nombreconcepto);
+                pst.setString(6, lbcantidad.getText());
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
+           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+           
+           
+           if(cantidadaplicacionint > 0)
+           {
+               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
+               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
+               
+               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
+            
+                
+ 
+                pst.setString(1, lbnumeroventa.getText());
+                pst.setString(2, dia());
+                pst.setString(3, hora());
+                pst.setString(4, aplicacioninsertar);
+                pst.setString(5, nombreconcepto);
+                pst.setString(6, String.valueOf(totalaplicaciones));
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+               
+           }
+        
+        
+    }
+    
     
     
 
@@ -1021,6 +1113,10 @@ if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_lado_derecho";
             actualizarlascantidadesbordadas((String) ubicacion);
+            String cantidadaplicacion = "0";
+            ubicacioninsertar = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
+            aplicacioninsertar = "";
+            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion);
         }
         else
         {
@@ -1403,6 +1499,10 @@ if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_frente";
             actualizarlascantidadesbordadas((String) ubicacion);
+            String cantidadaplicacion = lbaplicacionfrente.getText();
+            ubicacioninsertar = "BORDADO GORRA FRENTE "+frentenombre+ "";
+            aplicacioninsertar = "APLICACION GORRA FRENTE";
+            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
         }
         else
         {
@@ -1430,6 +1530,10 @@ if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_lado_izquierdo";
             actualizarlascantidadesbordadas((String) ubicacion);
+            String cantidadaplicacion = "0";
+            ubicacioninsertar = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
+            aplicacioninsertar = "";
+            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion);
         }
         else
         {
@@ -1456,6 +1560,11 @@ if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_atras";
             actualizarlascantidadesbordadas((String) ubicacion);
+            String cantidadaplicacion = "0";
+            ubicacioninsertar = "BORDADO GORRA ATRAS "+atrasnombre+ "";
+            aplicacioninsertar = "";
+            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+
         }
         else
         {

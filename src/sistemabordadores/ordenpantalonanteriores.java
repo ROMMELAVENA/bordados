@@ -86,6 +86,21 @@ public class ordenpantalonanteriores extends javax.swing.JFrame {
     String numeropedido = "";
     String tiendaalaqueselesolicito = "";
     String lugardondesebordara = "";
+    
+    ///
+    String ubicacioninsertar = "";
+    String aplicacioninsertar = "";
+    
+    String ladoizquierdofrentenombre = "";
+    String ladoderechofrentenombre = "";
+    String ladoizquierdoatrasnombre = "";
+    String ladoderechoatrasnombre = "";
+    String nombreconcepto = "";
+    
+   
+    
+    
+    
 
     private PreparedStatement pst;
 
@@ -127,10 +142,10 @@ public class ordenpantalonanteriores extends javax.swing.JFrame {
         
 
         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,"
-                + "   lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,"
+                + "   lado_izquierdo_frente,lado_izquierdo_frente_nombre,lado_derecho_frente,lado_derecho_frente_nombre,lado_izquierdo_atras,lado_izquierdo_atras_nombre,lado_derecho_atras,lado_derecho_atras_nombre,"
                 + "   cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,"
                 + "   lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,"
-                + "   lugar from historial_ordenes_pantalon where numero = '" + folio + "'";
+                + "   lugar,nombre_concepto from historial_ordenes_pantalon where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -142,7 +157,13 @@ public class ordenpantalonanteriores extends javax.swing.JFrame {
                 numeroventa = rs.getString("numero_venta");
                 prenda = rs.getString("prenda");
                 
-
+                
+                ladoizquierdofrentenombre = rs.getString("lado_izquierdo_frente_nombre");
+                ladoderechofrentenombre = rs.getString("lado_derecho_frente_nombre");
+                ladoizquierdoatrasnombre = rs.getString("lado_izquierdo_atras_nombre");
+                ladoderechoatrasnombre = rs.getString("lado_derecho_atras_nombre");
+                nombreconcepto = rs.getString("nombre_concepto");
+                        
                 lbladoizquierdofrente.setText(rs.getString("lado_izquierdo_frente"));
                 String ladoizquierdofrente = rs.getString("lado_izquierdo_frente");
                 if (ladoizquierdofrente == null || ladoizquierdofrente.equals("")) 
@@ -452,6 +473,64 @@ public class ordenpantalonanteriores extends javax.swing.JFrame {
         
     }
 
+    void agregarexistenciabordados(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion)
+    {
+        
+       
+        
+        //// bordado
+        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
+            
+                
+ 
+                pst.setString(1, lbnumeroventa.getText());
+                pst.setString(2, dia());
+                pst.setString(3, hora());
+                pst.setString(4, ubicacioninsertar);
+                pst.setString(5, nombreconcepto);
+                pst.setString(6, lbcantidad.getText());
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
+           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+           
+           
+           if(cantidadaplicacionint > 0)
+           {
+               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
+               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
+               
+               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
+            
+                
+ 
+                pst.setString(1, lbnumeroventa.getText());
+                pst.setString(2, dia());
+                pst.setString(3, hora());
+                pst.setString(4, aplicacioninsertar);
+                pst.setString(5, nombreconcepto);
+                pst.setString(6, String.valueOf(totalaplicaciones));
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+               
+           }
+        
+        
+    }  
     
   
     @SuppressWarnings("unchecked")
@@ -1246,6 +1325,10 @@ public static String dia() {
         {
             String ubicacion = "cantidad_lado_izquierdo_frente";
             actualizarlascantidadesbordadas((String) ubicacion);
+            String cantidadaplicacion = "0";
+            ubicacioninsertar = "BORDADO PANTALON FRENTE LADO IZQUIERDO "+ladoizquierdofrentenombre + "";
+            aplicacioninsertar = "";
+            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             
         }
         else
@@ -1273,6 +1356,10 @@ public static String dia() {
         {
             String ubicacion = "cantidad_lado_izquierdo_atras";
             actualizarlascantidadesbordadas((String) ubicacion);
+            String cantidadaplicacion = "0";
+            ubicacioninsertar = "BORDADO PANTALON ATRAS LADO IZQUIERDO "+ladoizquierdoatrasnombre + "";
+            aplicacioninsertar = "";
+            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             
         }
         else
@@ -1299,6 +1386,10 @@ public static String dia() {
         {
             String ubicacion = "cantidad_lado_derecho_atras";
             actualizarlascantidadesbordadas((String) ubicacion);
+            String cantidadaplicacion = "0";
+            ubicacioninsertar = "BORDADO PANTALON ATRAS LADO DERECHO "+ladoderechoatrasnombre + "";
+            aplicacioninsertar = "";
+            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             
         }
         else
@@ -1325,6 +1416,10 @@ public static String dia() {
         {
             String ubicacion = "cantidad_lado_derecho_frente";
             actualizarlascantidadesbordadas((String) ubicacion);
+            String cantidadaplicacion = "0";
+            ubicacioninsertar = "BORDADO PANTALON FRENTE LADO DERECHO "+ladoderechofrentenombre + "";
+            aplicacioninsertar = "";
+            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             
         }
         else

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sistemabordadores;
 
 import java.sql.Connection;
@@ -16,10 +12,7 @@ import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author denniscanizo
- */
+
 public class principal extends javax.swing.JFrame {
 
 String fechafinal = "";
@@ -34,9 +27,7 @@ String fechafinal = "";
     int ultimomes = 0;
     int ultimoaño = 0;
 
-    /**
-     * Creates new form Principal
-     */
+
     public principal() {
         initComponents();
         
@@ -45,7 +36,7 @@ String fechafinal = "";
         
         this.setLocationRelativeTo(null);
         
-        
+        jLabel1.setVisible(false);
         
     }
 

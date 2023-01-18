@@ -107,9 +107,7 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
     void datos() {
 
         DefaultTableModel modelo = (DefaultTableModel) tablacamisa.getModel();
-        DefaultTableModel modelo2 = (DefaultTableModel) tablagorra.getModel();
-        DefaultTableModel modelopantalon = (DefaultTableModel) tablapantalon.getModel();
-        DefaultTableModel modeloparches = (DefaultTableModel) tablaparches.getModel();
+
 
         String[] datos = new String[10];
         String[] datos2 = new String[10];
@@ -162,7 +160,7 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
                 datos2[5] = rs.getString("numero_venta");
                 datos2[6] = rs.getString("fecha");
 
-                modelo2.addRow(datos2);
+                 modelo.addRow(datos2);
 
             }
 
@@ -188,7 +186,7 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
                 datos3[5] = rs.getString("numero_venta");
                 datos3[6] = rs.getString("fecha");
 
-                modelopantalon.addRow(datos3);
+                modelo.addRow(datos3);
 
             }
 
@@ -216,7 +214,7 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
                 datos4[5] = rs.getString("numero_venta");
                 datos4[6] = rs.getString("fecha");
 
-                modeloparches.addRow(datos4);
+                 modelo.addRow(datos4);
 
             }
 
@@ -243,7 +241,7 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
                 datos5[5] = rs.getString("numero_venta");
                 datos5[6] = rs.getString("fecha");
 
-                modeloparches.addRow(datos5);
+                modelo.addRow(datos5);
 
             }
 
@@ -268,7 +266,7 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
                 datos5[5] = rs.getString("numero_venta");
                 datos5[6] = rs.getString("fecha");
 
-                modeloparches.addRow(datos5);
+                modelo.addRow(datos5);
 
             }
 
@@ -297,29 +295,9 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
 }
     
     
-    void limpiartabla1() {
-        try {
-            DefaultTableModel modelo = (DefaultTableModel) tablagorra.getModel();
-            int filas = tablagorra.getRowCount();
-            for (int i = 0; filas > i; i++) {
-                modelo.removeRow(0);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al limpiar la tabla.");
-        }
-}
+
     
-    void limpiartabla2() {
-        try {
-            DefaultTableModel modelo = (DefaultTableModel) tablapantalon.getModel();
-            int filas = tablapantalon.getRowCount();
-            for (int i = 0; filas > i; i++) {
-                modelo.removeRow(0);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al limpiar la tabla.");
-        }
-}
+   
     
 
     @SuppressWarnings("unchecked")
@@ -538,8 +516,6 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
        limpiartabla();
-       limpiartabla1();
-       limpiartabla2();
        datos();
     }//GEN-LAST:event_btnactualizarActionPerformed
 

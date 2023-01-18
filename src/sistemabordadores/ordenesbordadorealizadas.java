@@ -322,7 +322,7 @@ public class ordenesbordadorealizadas extends javax.swing.JFrame {
             }
         });
 
-        tablacamisa.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tablacamisa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tablacamisa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -339,6 +339,7 @@ public class ordenesbordadorealizadas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablacamisa.setRowHeight(32);
         tablacamisa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablacamisaMouseClicked(evt);

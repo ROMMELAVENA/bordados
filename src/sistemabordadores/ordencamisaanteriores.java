@@ -859,6 +859,120 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
     }
     
     
+    void agregaralsurtidasalhistorialdeventas(String ubicacion, String cantidad) 
+      {
+
+        String numeroventa =  lbnumeroventa.getText();
+        Object cantidadstring ="";
+        String nuevacantidadstring = "";
+        String estatusentrega ="";
+        
+        String SQL2 = "select cantidad from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL2);
+
+        if (rs.next()) 
+        {
+
+        cantidadstring = rs.getString("cantidad");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+      if(cantidadstring ==null || cantidadstring.equals("")||cantidadstring.equals(" "))
+      {
+          cantidadstring ="0";
+      }
+       
+        
+        
+        int cantidadstringint = Integer.parseInt(cantidadstring.toString());
+        int cantidadint =  Integer.parseInt(cantidad);
+
+        int nuevacantidadint = cantidadint;
+        nuevacantidadstring =  String.valueOf(nuevacantidadint);
+            
+            
+            
+            try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevacantidadstring + "' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'      ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+
+        ////Actualiza el estatus
+
+      String cantidadsurtida = "";  
+      String cantidadvendida = "";  
+      String cantidadentregada = "";  
+       
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas from historial_ventas where numero = '"+numeroventa+"'  ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL3);
+
+        if (rs.next()) 
+        {
+
+        cantidadvendida = rs.getString("cantidad");
+        cantidadsurtida = rs.getString("surtida");
+        cantidadentregada = rs.getString("entregadas");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+        System.out.println (ex);
+        }
+      
+        
+      
+      /////
+      
+      double cantidadvendidadouble = Double.parseDouble(cantidadvendida);
+      double cantidadsurtidadouble = Double.parseDouble(cantidadsurtida);
+      double cantidadentregadadouble = Double.parseDouble(cantidadentregada);
+      
+        
+        if(cantidadvendidadouble == cantidadsurtidadouble && cantidadentregadadouble == 0 )
+        {
+          estatusentrega ="surtida totalmente no entregada";  
+        }
+        else  if(cantidadvendidadouble == (cantidadsurtidadouble + cantidadentregadadouble )  &&  cantidadentregadadouble <  cantidadvendidadouble  )
+        {
+          estatusentrega ="surtida totalmente entregada parcialmente";  
+        }
+        
+        else
+        {
+          estatusentrega ="surtida parcialmente no entregada";   
+        }    
+        
+          try {
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
+              pst.executeUpdate();
+              pst.close();
+          } catch (Exception e) {
+
+              System.out.println(e);
+          }
+      
+
+      
+      }  
+    
     
     
 
@@ -1655,8 +1769,9 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
 if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_manga_izquierda";
-            String nombrebordado =lbmangaizquierdanombre.getText();
-           String cantidadaplicacion = lbaplicacionmangaizquierda.getText();
+            String nombrebordado = lbmangaizquierdanombre.getText();
+            String cantidadaplicacion = lbaplicacionmangaizquierda.getText();
+            String cantidad = lbcantidad.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
             
              if (prenda.toUpperCase().equals("CAMISA")) {
@@ -1702,6 +1817,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             }
 
        agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
         
         }
         else
@@ -1727,6 +1843,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
            String ubicacion = "cantidad_pecho_izquierdo";
            String nombrebordado =lbmangaderechanombre.getText();
            String cantidadaplicacion = lbaplicacionmangaderecha.getText();
+           String cantidad = lbcantidad.getText();
            actualizarlascantidadesbordadas((String) ubicacion);  
            
            if (prenda.toUpperCase().equals("CAMISA")) {
@@ -1772,7 +1889,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             }
 
        agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-         
+       agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;   
              
              
             
@@ -1801,6 +1918,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             String ubicacion = "cantidad_espalda";
             String nombrebordado =lbespaldanombre.getText();
            String cantidadaplicacion = lbaplicacionespalda.getText();
+           String cantidad = lbcantidad.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
             
              if (prenda.toUpperCase().equals("CAMISA")) {
@@ -1846,7 +1964,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             }
 
        agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-         
+       agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;   
              
             
         }
@@ -1875,6 +1993,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             String ubicacion = "cantidad_pecho_derecho";
             String nombrebordado =lbpechoderechonombre.getText();
            String cantidadaplicacion = lbaplicacionpechoderecho.getText();
+           String cantidad = lbcantidad.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
             
              if (prenda.toUpperCase().equals("CAMISA")) {
@@ -1920,6 +2039,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             }
 
        agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
             
         }
         else
@@ -1949,6 +2069,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
            String ubicacion = "cantidad_manga_derecha";           
            String nombrebordado =lbmangaderechanombre.getText();
            String cantidadaplicacion = lbaplicacionmangaderecha.getText();
+           String cantidad = lbcantidad.getText();
            actualizarlascantidadesbordadas((String) ubicacion); 
            
             if (prenda.toUpperCase().equals("CAMISA")) {
@@ -1996,6 +2117,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
            
            
        agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
             
             
         }
@@ -2519,6 +2641,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             String ubicacion = "cantidad_otra_ubicacion";
             String nombrebordado =lbotraubicacionnombre.getText();
            String cantidadaplicacion = lbotraubicacion.getText();
+           String cantidad = lbcantidad.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
             
             if (prenda.toUpperCase().equals("CAMISA")) {
@@ -2564,7 +2687,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             }
 
        agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-         
+       agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;  
             
         }
         else
@@ -2591,6 +2714,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             String ubicacion = "cantidad_otra_ubicacion2";
             String nombrebordado =lbotraubicacion2nombre.getText();
            String cantidadaplicacion = lbotraubicacion2.getText();
+           String cantidad = lbcantidad.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
             if (prenda.toUpperCase().equals("CAMISA")) {
 
@@ -2635,7 +2759,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             }
 
        agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-         
+       agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;  
             
         }
         else

@@ -503,7 +503,122 @@ public static boolean ventanaordenparcheanteriores = false;
            }
         
         
-    }  
+    }
+    
+    
+    void agregaralsurtidasalhistorialdeventas(String ubicacion, String cantidad) 
+      {
+
+        
+        Object cantidadstring ="";
+        String nuevacantidadstring = "";
+        String estatusentrega ="";
+        
+        String SQL2 = "select cantidad from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL2);
+
+        if (rs.next()) 
+        {
+
+        cantidadstring = rs.getString("cantidad");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+      if(cantidadstring ==null || cantidadstring.equals("")||cantidadstring.equals(" "))
+      {
+          cantidadstring ="0";
+      }
+       
+        
+        
+        int cantidadstringint = Integer.parseInt(cantidadstring.toString());
+        int cantidadint =  Integer.parseInt(cantidad);
+
+        int nuevacantidadint = cantidadint;
+        nuevacantidadstring =  String.valueOf(nuevacantidadint);
+            
+            
+            
+            try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevacantidadstring + "' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'      ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+
+        ////Actualiza el estatus
+
+      String cantidadsurtida = "";  
+      String cantidadvendida = "";  
+      String cantidadentregada = "";  
+       
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas from historial_ventas where numero = '"+numeroventa+"'  ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL3);
+
+        if (rs.next()) 
+        {
+
+        cantidadvendida = rs.getString("cantidad");
+        cantidadsurtida = rs.getString("surtida");
+        cantidadentregada = rs.getString("entregadas");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+        System.out.println (ex);
+        }
+      
+        
+      
+      /////
+      
+      double cantidadvendidadouble = Double.parseDouble(cantidadvendida);
+      double cantidadsurtidadouble = Double.parseDouble(cantidadsurtida);
+      double cantidadentregadadouble = Double.parseDouble(cantidadentregada);
+      
+        
+        if(cantidadvendidadouble == cantidadsurtidadouble && cantidadentregadadouble == 0 )
+        {
+          estatusentrega ="surtida totalmente no entregada";  
+        }
+        else  if(cantidadvendidadouble == (cantidadsurtidadouble + cantidadentregadadouble )  &&  cantidadentregadadouble <  cantidadvendidadouble  )
+        {
+          estatusentrega ="surtida totalmente entregada parcialmente";  
+        }
+        
+        else
+        {
+          estatusentrega ="surtida parcialmente no entregada";   
+        }    
+        
+          try {
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
+              pst.executeUpdate();
+              pst.close();
+          } catch (Exception e) {
+
+              System.out.println(e);
+          }
+      
+
+      
+      }  
    
   
     @SuppressWarnings("unchecked")
@@ -1368,7 +1483,7 @@ public static boolean ventanaordenparcheanteriores = false;
         ubicacioninsertar = lbnombre1.getText();
         aplicacioninsertar = "APLICACION PARCHE1";
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
-        
+        agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
 
     }//GEN-LAST:event_bntcantidadparches1ActionPerformed
 
@@ -1381,6 +1496,7 @@ public static boolean ventanaordenparcheanteriores = false;
         ubicacioninsertar = lbnombre2.getText();
         aplicacioninsertar = "APLICACION PARCHE2";
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
+        agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
     }//GEN-LAST:event_bntcantidadparches2ActionPerformed
 
     private void bntcantidadparches3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadparches3ActionPerformed
@@ -1392,6 +1508,7 @@ public static boolean ventanaordenparcheanteriores = false;
         ubicacioninsertar = lbnombre3.getText();
         aplicacioninsertar = "APLICACION PARCHE3";
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
+        agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
     }//GEN-LAST:event_bntcantidadparches3ActionPerformed
 
     private void bntcantidadparches4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadparches4ActionPerformed
@@ -1403,6 +1520,7 @@ public static boolean ventanaordenparcheanteriores = false;
         ubicacioninsertar = lbnombre4.getText();
         aplicacioninsertar = "APLICACION PARCHE4";
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
+        agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
     }//GEN-LAST:event_bntcantidadparches4ActionPerformed
 
     private void bntcantidadparches5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadparches5ActionPerformed
@@ -1414,6 +1532,7 @@ public static boolean ventanaordenparcheanteriores = false;
         ubicacioninsertar = lbnombre5.getText();
         aplicacioninsertar = "APLICACION PARCHE5";
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
+        agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
     }//GEN-LAST:event_bntcantidadparches5ActionPerformed
 
     private void bntcantidadparches6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadparches6ActionPerformed
@@ -1425,6 +1544,7 @@ public static boolean ventanaordenparcheanteriores = false;
         ubicacioninsertar = lbnombre6.getText();
         aplicacioninsertar = "APLICACION PARCHE6";
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
+        agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
     }//GEN-LAST:event_bntcantidadparches6ActionPerformed
 
     private void bntcantidadparches7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadparches7ActionPerformed
@@ -1436,6 +1556,7 @@ public static boolean ventanaordenparcheanteriores = false;
         ubicacioninsertar = lbnombre7.getText();
         aplicacioninsertar = "APLICACION PARCHE7";
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
+        agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
     }//GEN-LAST:event_bntcantidadparches7ActionPerformed
 
     private void bntcantidadparches8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadparches8ActionPerformed
@@ -1447,6 +1568,7 @@ public static boolean ventanaordenparcheanteriores = false;
         ubicacioninsertar = lbnombre8.getText();
         aplicacioninsertar = "APLICACION PARCHE8";
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
+        agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
     }//GEN-LAST:event_bntcantidadparches8ActionPerformed
 
     private void bntcantidadparches9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadparches9ActionPerformed
@@ -1458,6 +1580,7 @@ public static boolean ventanaordenparcheanteriores = false;
         ubicacioninsertar = lbnombre9.getText();
         aplicacioninsertar = "APLICACION PARCHE9";
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
+        agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
     }//GEN-LAST:event_bntcantidadparches9ActionPerformed
 
     private void bntcantidadparches10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadparches10ActionPerformed
@@ -1469,6 +1592,7 @@ public static boolean ventanaordenparcheanteriores = false;
         ubicacioninsertar = lbnombre10.getText();
         aplicacioninsertar = "APLICACION PARCHE10";
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
+        agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
     }//GEN-LAST:event_bntcantidadparches10ActionPerformed
 
     

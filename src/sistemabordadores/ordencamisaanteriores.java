@@ -26,8 +26,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -105,6 +107,15 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
     String tiendalocal = "";
     String codigocliente = "";
     String lugardondesebordara = "";
+    String prenda ="";
+    
+    
+    ///// para insertar
+    
+    String ubicacioninsertar = ""; 
+    String aplicacioninsertar = "";
+        
+    
 
     private PreparedStatement pst;
 
@@ -157,7 +168,8 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                 + "   pecho_izquierdo,pecho_derecho,manga_izquierda,manga_derecha,espalda,otra_ubicacion,otra_ubicacion2,"
                 + "   cantidad_pecho_izquierdo,cantidad_pecho_derecho,cantidad_manga_izquierda,cantidad_manga_derecha,cantidad_espalda,"
                 + "   pecho_izquierdo_nombre,pecho_derecho_nombre,manga_izquierda_nombre,manga_derecha_nombre,espalda_nombre,"
-                + "   aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,   "
+                + "   otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion2,otra_ubicacion2_nombre,"
+                + "   aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,"
                 + "   aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,"
                 + "   lugar,estatus_orden,nombre_concepto from historial_ordenes_camisa where numero = '" + folio + "' ";
 
@@ -168,7 +180,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
 
                 lbcliente.setText(rs.getString("cliente"));
                 lbprenda.setText(rs.getString("prenda"));
-                String prenda =(rs.getString("prenda"));
+                prenda =(rs.getString("prenda"));
                 lbfecha.setText(rs.getString("fecha"));
                  
                 
@@ -202,8 +214,8 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                     lbtitulo.setText("Orden de Filipina");
                 }
 
-                lbmangaderecha.setText(rs.getString("manga_derecha"));
-                //lbmangaderechanombre.setText(rs.getString("manga_derecha_nombre"));
+                lbmangaderecha.setText(rs.getString("manga_derecha_nombre"));
+                lbmangaderechanombre.setText(rs.getString("manga_derecha_nombre"));
                 Object mangaderecha = rs.getString("manga_derecha");
                 if (mangaderecha == null | mangaderecha.equals("")) {
                     jLabel2.setVisible(false);
@@ -211,7 +223,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                 }
 
                 lbmangaizquierda.setText(rs.getString("manga_izquierda"));
-                //lbmangaizquierdanombre.setText(rs.getString("manga_izquierda_nombre"));
+                lbmangaizquierdanombre.setText(rs.getString("manga_izquierda_nombre"));
                 Object mangaizquierda = rs.getString("manga_izquierda");
                 if (mangaizquierda == null | mangaizquierda.equals("")) {
                     jLabel3.setVisible(false);
@@ -235,7 +247,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                 }
 
                 lbespalda.setText(rs.getString("espalda"));
-                //lbespaldanombre.setText(rs.getString("espalda_nombre"));
+                lbespaldanombre.setText(rs.getString("espalda_nombre"));
                 Object espalda = rs.getString("espalda");
                 if (espalda == null | espalda.equals("")) {
                     jLabel1.setVisible(false);
@@ -244,7 +256,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
 
 
                 lbotraubicacion.setText(rs.getString("otra_ubicacion"));
-                //lbespaldanombre.setText(rs.getString("espalda_nombre"));
+                lbotraubicacionnombre.setText(rs.getString("otra_ubicacion_nombre"));
                 Object otraubicacion = rs.getString("otra_ubicacion");
                 if (otraubicacion == null | otraubicacion.equals("")) {
                     jLabel6.setVisible(false);
@@ -253,7 +265,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                 
                 
                 lbotraubicacion.setText(rs.getString("otra_ubicacion2"));
-                //lbespaldanombre.setText(rs.getString("espalda_nombre"));
+                //lbespaldanombre.setText(rs.getString("otra_ubicacion2_nombre"));
                 Object otraubicacion2 = rs.getString("otra_ubicacion2");
                 if (otraubicacion2 == null | otraubicacion2.equals("")) {
                     jLabel7.setVisible(false);
@@ -773,6 +785,82 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         }
         
     }
+    
+     public static String dia() {
+        Date fecha = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
+        return formatoFecha.format(fecha);
+    }
+
+    public static String hora() {
+        Date hora = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("HH:mm:ss");
+        return formatoFecha.format(hora);
+    }
+    
+    
+    void agregarexistenciabordados(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion)
+    {
+        
+       
+        
+        //// bordado
+        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
+            
+                
+ 
+                pst.setString(1, lbnumeroventa.getText());
+                pst.setString(2, dia());
+                pst.setString(3, hora());
+                pst.setString(4, ubicacioninsertar);
+                pst.setString(5, lbnombreconcepto.getText());
+                pst.setString(6, lbcantidad.getText());
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
+           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+           
+           
+           if(cantidadaplicacionint > 0)
+           {
+               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
+               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
+               
+               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
+            
+                
+ 
+                pst.setString(1, lbnumeroventa.getText());
+                pst.setString(2, dia());
+                pst.setString(3, hora());
+                pst.setString(4, aplicacioninsertar);
+                pst.setString(5, lbnombreconcepto.getText());
+                pst.setString(6, String.valueOf(totalaplicaciones));
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+               
+           }
+        
+        
+    }
+    
+    
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -816,6 +904,11 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         lbotraubicacion2 = new javax.swing.JLabel();
         lbaplicacionotraubicacion2 = new javax.swing.JLabel();
         lbaplicacionotraubicacioncolor2 = new javax.swing.JLabel();
+        lbmangaderechanombre = new javax.swing.JLabel();
+        lbmangaizquierdanombre = new javax.swing.JLabel();
+        lbespaldanombre = new javax.swing.JLabel();
+        lbotraubicacion2nombre = new javax.swing.JLabel();
+        lbotraubicacionnombre = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         lbfolio = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -910,13 +1003,13 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         lbaplicacionmangaderecha.setForeground(new java.awt.Color(255, 0, 0));
         lbaplicacionmangaderecha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbaplicacionmangaderecha);
-        lbaplicacionmangaderecha.setBounds(20, 70, 80, 20);
+        lbaplicacionmangaderecha.setBounds(20, 90, 80, 20);
 
         lbaplicacionmangaizquierda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbaplicacionmangaizquierda.setForeground(new java.awt.Color(255, 0, 0));
         lbaplicacionmangaizquierda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbaplicacionmangaizquierda);
-        lbaplicacionmangaizquierda.setBounds(350, 70, 90, 16);
+        lbaplicacionmangaizquierda.setBounds(350, 90, 90, 16);
 
         lbaplicacionpechoderecho.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbaplicacionpechoderecho.setForeground(new java.awt.Color(255, 0, 0));
@@ -934,19 +1027,19 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         lbaplicacionespalda.setForeground(new java.awt.Color(255, 0, 0));
         lbaplicacionespalda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbaplicacionespalda);
-        lbaplicacionespalda.setBounds(400, 470, 90, 20);
+        lbaplicacionespalda.setBounds(400, 490, 90, 20);
 
         lbmangaderecha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbmangaderecha.setForeground(new java.awt.Color(255, 0, 0));
         lbmangaderecha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbmangaderecha);
-        lbmangaderecha.setBounds(20, 40, 260, 16);
+        lbmangaderecha.setBounds(20, 60, 260, 16);
 
         lbmangaizquierda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbmangaizquierda.setForeground(new java.awt.Color(255, 0, 0));
         lbmangaizquierda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbmangaizquierda);
-        lbmangaizquierda.setBounds(350, 40, 300, 20);
+        lbmangaizquierda.setBounds(350, 60, 300, 20);
 
         lbpechoderechonombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbpechoderechonombre.setForeground(new java.awt.Color(255, 0, 0));
@@ -964,7 +1057,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         lbespalda.setForeground(new java.awt.Color(255, 0, 0));
         lbespalda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbespalda);
-        lbespalda.setBounds(400, 440, 310, 19);
+        lbespalda.setBounds(400, 460, 310, 19);
 
         btnmangaderecha.setText("Manga Derecha");
         btnmangaderecha.addActionListener(new java.awt.event.ActionListener() {
@@ -1015,7 +1108,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         lbaplicacionespaldacolor.setForeground(new java.awt.Color(255, 0, 0));
         lbaplicacionespaldacolor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbaplicacionespaldacolor);
-        lbaplicacionespaldacolor.setBounds(500, 470, 90, 20);
+        lbaplicacionespaldacolor.setBounds(500, 490, 90, 20);
 
         lbaplicacionpechoizquierdocolor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbaplicacionpechoizquierdocolor.setForeground(new java.awt.Color(255, 0, 0));
@@ -1033,13 +1126,13 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         lbaplicacionmangaderechacolor.setForeground(new java.awt.Color(255, 0, 0));
         lbaplicacionmangaderechacolor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbaplicacionmangaderechacolor);
-        lbaplicacionmangaderechacolor.setBounds(110, 70, 170, 20);
+        lbaplicacionmangaderechacolor.setBounds(110, 90, 170, 20);
 
         lbaplicacionmangaizquierdacolor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbaplicacionmangaizquierdacolor.setForeground(new java.awt.Color(255, 0, 0));
         lbaplicacionmangaizquierdacolor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbaplicacionmangaizquierdacolor);
-        lbaplicacionmangaizquierdacolor.setBounds(460, 70, 190, 16);
+        lbaplicacionmangaizquierdacolor.setBounds(460, 90, 190, 16);
 
         lbpechoizquierdo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbpechoizquierdo.setForeground(new java.awt.Color(255, 0, 0));
@@ -1073,19 +1166,19 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         lbotraubicacion.setForeground(new java.awt.Color(255, 0, 0));
         lbotraubicacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbotraubicacion);
-        lbotraubicacion.setBounds(10, 440, 310, 19);
+        lbotraubicacion.setBounds(10, 460, 310, 19);
 
         lbaplicacionotraubicacion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbaplicacionotraubicacion.setForeground(new java.awt.Color(255, 0, 0));
         lbaplicacionotraubicacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbaplicacionotraubicacion);
-        lbaplicacionotraubicacion.setBounds(10, 470, 90, 20);
+        lbaplicacionotraubicacion.setBounds(20, 480, 90, 20);
 
         lbaplicacionotraubicacioncolor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbaplicacionotraubicacioncolor.setForeground(new java.awt.Color(255, 0, 0));
         lbaplicacionotraubicacioncolor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbaplicacionotraubicacioncolor);
-        lbaplicacionotraubicacioncolor.setBounds(110, 470, 90, 20);
+        lbaplicacionotraubicacioncolor.setBounds(120, 480, 90, 20);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
@@ -1107,19 +1200,49 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         lbotraubicacion2.setForeground(new java.awt.Color(255, 0, 0));
         lbotraubicacion2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbotraubicacion2);
-        lbotraubicacion2.setBounds(10, 540, 310, 19);
+        lbotraubicacion2.setBounds(10, 560, 310, 19);
 
         lbaplicacionotraubicacion2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbaplicacionotraubicacion2.setForeground(new java.awt.Color(255, 0, 0));
         lbaplicacionotraubicacion2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbaplicacionotraubicacion2);
-        lbaplicacionotraubicacion2.setBounds(10, 570, 90, 20);
+        lbaplicacionotraubicacion2.setBounds(10, 590, 90, 20);
 
         lbaplicacionotraubicacioncolor2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbaplicacionotraubicacioncolor2.setForeground(new java.awt.Color(255, 0, 0));
         lbaplicacionotraubicacioncolor2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbaplicacionotraubicacioncolor2);
-        lbaplicacionotraubicacioncolor2.setBounds(110, 570, 90, 20);
+        lbaplicacionotraubicacioncolor2.setBounds(110, 590, 90, 20);
+
+        lbmangaderechanombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbmangaderechanombre.setForeground(new java.awt.Color(255, 0, 0));
+        lbmangaderechanombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(lbmangaderechanombre);
+        lbmangaderechanombre.setBounds(20, 40, 260, 16);
+
+        lbmangaizquierdanombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbmangaizquierdanombre.setForeground(new java.awt.Color(255, 0, 0));
+        lbmangaizquierdanombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(lbmangaizquierdanombre);
+        lbmangaizquierdanombre.setBounds(350, 40, 300, 20);
+
+        lbespaldanombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbespaldanombre.setForeground(new java.awt.Color(255, 0, 0));
+        lbespaldanombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(lbespaldanombre);
+        lbespaldanombre.setBounds(400, 440, 310, 19);
+
+        lbotraubicacion2nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbotraubicacion2nombre.setForeground(new java.awt.Color(255, 0, 0));
+        lbotraubicacion2nombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(lbotraubicacion2nombre);
+        lbotraubicacion2nombre.setBounds(10, 540, 310, 19);
+
+        lbotraubicacionnombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbotraubicacionnombre.setForeground(new java.awt.Color(255, 0, 0));
+        lbotraubicacionnombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(lbotraubicacionnombre);
+        lbotraubicacionnombre.setBounds(10, 440, 310, 19);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 0, 0));
@@ -1374,7 +1497,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                                     .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbrutaespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbrutaimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbrutapechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbrutamangaderecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1477,6 +1600,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         }
         
         
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void lbprendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbprendaMouseClicked
@@ -1531,7 +1655,54 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
 if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_manga_izquierda";
+            String nombrebordado =lbmangaizquierdanombre.getText();
+           String cantidadaplicacion = lbaplicacionmangaizquierda.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
+            
+             if (prenda.toUpperCase().equals("CAMISA")) {
+
+                ubicacioninsertar = "BORDADO CAMISA MANGA IZQUIERDA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISA MANGA IZQUIERDA";
+
+            } //// playera
+            else if (lbtipo.getText().toString().equals("PLAYERA")) {
+
+                ubicacioninsertar = "BORDADO PLAYERA MANGA IZQUIERDA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION PLAYERA MANGA IZQUIERDA";
+
+            } //// chamarra desmontable
+            else if (lbtipo.getText().toString().startsWith("CHAMARRA DESMONTABLE")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE MANGA IZQUIERDA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE MANGA IZQUIERDA";
+
+            } /// chamarra rompevientos
+            else if (lbtipo.getText().toString().startsWith("CHAMARRA ROMPEVIENTOS")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS MANGA IZQUIERDA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS MANGA IZQUIERDA";
+
+            } ///camisola
+            else if (lbtipo.getText().toString().startsWith("CAMISOLA")) {
+
+                ubicacioninsertar = "BORDADO CAMISOLA MANGA IZQUIERDA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISOLA MANGA IZQUIERDA";
+
+            } else if (lbtipo.getText().toString().equals("FILIPINA")) {
+
+                ubicacioninsertar = "BORDADO FILIPINA MANGA IZQUIERDA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION FILIPINA MANGA IZQUIERDA";
+
+            } ///SACO
+            else if (lbtipo.getText().toString().equals("SACO")) {
+
+                ubicacioninsertar = "BORDADO SACO MANGA IZQUIERDA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION SACO MANGA IZQUIERDA";
+
+            }
+
+       agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+        
         }
         else
         {
@@ -1554,7 +1725,54 @@ if(lugardondesebordara.equals("Esta sucursal"))
         {
             
            String ubicacion = "cantidad_pecho_izquierdo";
+           String nombrebordado =lbmangaderechanombre.getText();
+           String cantidadaplicacion = lbaplicacionmangaderecha.getText();
            actualizarlascantidadesbordadas((String) ubicacion);  
+           
+           if (prenda.toUpperCase().equals("CAMISA")) {
+
+                ubicacioninsertar = "BORDADO CAMISA PECHO IZQUIERDO " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISA PECHO IZQUIERDO";
+
+            } //// playera
+            else if (lbtipo.getText().toString().equals("PLAYERA")) {
+
+                ubicacioninsertar = "BORDADO PLAYERA PECHO IZQUIERDO " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION PLAYERA PECHO IZQUIERDO";
+
+            } //// chamarra desmontable
+            else if (lbtipo.getText().toString().startsWith("CHAMARRA DESMONTABLE")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE PECHO IZQUIERDO " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE PECHO IZQUIERDO";
+
+            } /// chamarra rompevientos
+            else if (lbtipo.getText().toString().startsWith("CHAMARRA ROMPEVIENTOS")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS PECHO IZQUIERDO " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS PECHO IZQUIERDO";
+
+            } ///camisola
+            else if (lbtipo.getText().toString().startsWith("CAMISOLA")) {
+
+                ubicacioninsertar = "BORDADO CAMISOLA PECHO IZQUIERDO " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISOLA PECHO IZQUIERDO";
+
+            } else if (lbtipo.getText().toString().equals("FILIPINA")) {
+
+                ubicacioninsertar = "BORDADO FILIPINA PECHO IZQUIERDO " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION FILIPINA PECHO IZQUIERDO";
+
+            } ///SACO
+            else if (lbtipo.getText().toString().equals("SACO")) {
+
+                ubicacioninsertar = "BORDADO SACO PECHO IZQUIERDO " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION SACO PECHO IZQUIERDO";
+
+            }
+
+       agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+         
              
              
             
@@ -1581,7 +1799,55 @@ if(lugardondesebordara.equals("Esta sucursal"))
         if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_espalda";
+            String nombrebordado =lbespaldanombre.getText();
+           String cantidadaplicacion = lbaplicacionespalda.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
+            
+             if (prenda.toUpperCase().equals("CAMISA")) {
+
+                ubicacioninsertar = "BORDADO CAMISA ESPALDA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISA ESPALDA";
+
+            } //// playera
+            else if (lbtipo.getText().toString().equals("PLAYERA")) {
+
+                ubicacioninsertar = "BORDADO PLAYERA ESPALDA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION PLAYERA ESPALDA";
+
+            } //// chamarra desmontable
+            else if (lbtipo.getText().toString().startsWith("CHAMARRA DESMONTABLE")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE ESPALDA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE ESPALDA";
+
+            } /// chamarra rompevientos
+            else if (lbtipo.getText().toString().startsWith("CHAMARRA ROMPEVIENTOS")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS ESPALDA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS ESPALDA";
+
+            } ///camisola
+            else if (lbtipo.getText().toString().startsWith("CAMISOLA")) {
+
+                ubicacioninsertar = "BORDADO CAMISOLA ESPALDA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISOLA ESPALDA";
+
+            } else if (lbtipo.getText().toString().equals("FILIPINA")) {
+
+                ubicacioninsertar = "BORDADO FILIPINA ESPALDA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION FILIPINA ESPALDA";
+
+            } ///SACO
+            else if (lbtipo.getText().toString().equals("SACO")) {
+
+                ubicacioninsertar = "BORDADO SACO ESPALDA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION SACO ESPALDA";
+
+            }
+
+       agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+         
+             
             
         }
         else
@@ -1607,7 +1873,53 @@ if(lugardondesebordara.equals("Esta sucursal"))
         if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_pecho_derecho";
+            String nombrebordado =lbpechoderechonombre.getText();
+           String cantidadaplicacion = lbaplicacionpechoderecho.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
+            
+             if (prenda.toUpperCase().equals("CAMISA")) {
+
+                ubicacioninsertar = "BORDADO CAMISA PECHO DERECHO " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISA PECHO DERECHO";
+
+            } //// playera
+            else if (lbtipo.getText().toString().equals("PLAYERA")) {
+
+                ubicacioninsertar = "BORDADO PLAYERA PECHO DERECHO " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION PLAYERA PECHO DERECHO";
+
+            } //// chamarra desmontable
+            else if (lbtipo.getText().toString().startsWith("CHAMARRA DESMONTABLE")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE PECHO DERECHO " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE PECHO DERECHO";
+
+            } /// chamarra rompevientos
+            else if (lbtipo.getText().toString().startsWith("CHAMARRA ROMPEVIENTOS")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS PECHO DERECHO " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS PECHO DERECHO";
+
+            } ///camisola
+            else if (lbtipo.getText().toString().startsWith("CAMISOLA")) {
+
+                ubicacioninsertar = "BORDADO CAMISOLA PECHO DERECHO " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISOLA PECHO DERECHO";
+
+            } else if (lbtipo.getText().toString().equals("FILIPINA")) {
+
+                ubicacioninsertar = "BORDADO FILIPINA PECHO DERECHO " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION FILIPINA PECHO DERECHO";
+
+            } ///SACO
+            else if (lbtipo.getText().toString().equals("SACO")) {
+
+                ubicacioninsertar = "BORDADO SACO PECHO DERECHO " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION SACO PECHO DERECHO";
+
+            }
+
+       agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             
         }
         else
@@ -1633,8 +1945,59 @@ if(lugardondesebordara.equals("Esta sucursal"))
 
         if(lugardondesebordara.equals("Esta sucursal"))
         {
-           String ubicacion = "cantidad_manga_derecha";
-            actualizarlascantidadesbordadas((String) ubicacion); 
+
+           String ubicacion = "cantidad_manga_derecha";           
+           String nombrebordado =lbmangaderechanombre.getText();
+           String cantidadaplicacion = lbaplicacionmangaderecha.getText();
+           actualizarlascantidadesbordadas((String) ubicacion); 
+           
+            if (prenda.toUpperCase().equals("CAMISA")) {
+
+                ubicacioninsertar = "BORDADO CAMISA MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISA MANGA DERECHA";
+
+            } //// playera
+            else if (lbtipo.getText().toString().equals("PLAYERA")) {
+
+                ubicacioninsertar = "BORDADO PLAYERA MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION PLAYERA MANGA DERECHA";
+
+            } //// chamarra desmontable
+            else if (lbtipo.getText().toString().startsWith("CHAMARRA DESMONTABLE")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE MANGA DERECHA";
+
+            } /// chamarra rompevientos
+            else if (lbtipo.getText().toString().startsWith("CHAMARRA ROMPEVIENTOS")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS MANGA DERECHA";
+
+            } ///camisola
+            else if (lbtipo.getText().toString().startsWith("CAMISOLA")) {
+
+                ubicacioninsertar = "BORDADO CAMISOLA MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISOLA MANGA DERECHA";
+
+            } else if (lbtipo.getText().toString().equals("FILIPINA")) {
+
+                ubicacioninsertar = "BORDADO FILIPINA MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION FILIPINA MANGA DERECHA";
+
+            } ///SACO
+            else if (lbtipo.getText().toString().equals("SACO")) {
+
+                ubicacioninsertar = "BORDADO SACO MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION SACO MANGA DERECHA";
+
+            }
+
+           
+           
+       agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+            
+            
         }
         else
         {
@@ -2154,7 +2517,54 @@ if(lugardondesebordara.equals("Esta sucursal"))
         if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_otra_ubicacion";
+            String nombrebordado =lbotraubicacionnombre.getText();
+           String cantidadaplicacion = lbotraubicacion.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
+            
+            if (prenda.toUpperCase().equals("CAMISA")) {
+
+                ubicacioninsertar = "BORDADO CAMISA OTRA UBICACION " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISA OTRA UBICACION";
+
+            } //// playera
+            else if (lbtipo.getText().toString().equals("PLAYERA")) {
+
+                ubicacioninsertar = "BORDADO PLAYERA OTRA UBICACION " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION PLAYERA OTRA UBICACION";
+
+            } //// chamarra desmontable
+            else if (lbtipo.getText().toString().startsWith("CHAMARRA DESMONTABLE")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE OTRA UBICACION " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE OTRA UBICACION";
+
+            } /// chamarra rompevientos
+            else if (lbtipo.getText().toString().startsWith("CHAMARRA ROMPEVIENTOS")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS OTRA UBICACION " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS OTRA UBICACION";
+
+            } ///camisola
+            else if (lbtipo.getText().toString().startsWith("CAMISOLA")) {
+
+                ubicacioninsertar = "BORDADO CAMISOLA OTRA UBICACION " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISOLA OTRA UBICACION";
+
+            } else if (lbtipo.getText().toString().equals("FILIPINA")) {
+
+                ubicacioninsertar = "BORDADO FILIPINA OTRA UBICACION " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION FILIPINA OTRA UBICACION";
+
+            } ///SACO
+            else if (lbtipo.getText().toString().equals("SACO")) {
+
+                ubicacioninsertar = "BORDADO SACO OTRA UBICACION " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION SACO OTRA UBICACION";
+
+            }
+
+       agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+         
             
         }
         else
@@ -2179,7 +2589,53 @@ if(lugardondesebordara.equals("Esta sucursal"))
         if(lugardondesebordara.equals("Esta sucursal"))
         {
             String ubicacion = "cantidad_otra_ubicacion2";
+            String nombrebordado =lbotraubicacion2nombre.getText();
+           String cantidadaplicacion = lbotraubicacion2.getText();
             actualizarlascantidadesbordadas((String) ubicacion);
+            if (prenda.toUpperCase().equals("CAMISA")) {
+
+                ubicacioninsertar = "BORDADO CAMISA OTRA UBICACION2 " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISA OTRA UBICACION2";
+
+            } //// playera
+            else if (lbtipo.getText().toString().equals("PLAYERA")) {
+
+                ubicacioninsertar = "BORDADO PLAYERA OTRA UBICACION2 " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION PLAYERA OTRA UBICACION2";
+
+            } //// chamarra desmontable
+            else if (lbtipo.getText().toString().startsWith("CHAMARRA DESMONTABLE")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE OTRA UBICACION2 " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE OTRA UBICACION2";
+
+            } /// chamarra rompevientos
+            else if (lbtipo.getText().toString().startsWith("CHAMARRA ROMPEVIENTOS")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS OTRA UBICACION2 " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS OTRA UBICACION2";
+
+            } ///camisola
+            else if (lbtipo.getText().toString().startsWith("CAMISOLA")) {
+
+                ubicacioninsertar = "BORDADO CAMISOLA OTRA UBICACION2 " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISOLA OTRA UBICACION2";
+
+            } else if (lbtipo.getText().toString().equals("FILIPINA")) {
+
+                ubicacioninsertar = "BORDADO FILIPINA OTRA UBICACION2 " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION FILIPINA OTRA UBICACION2";
+
+            } ///SACO
+            else if (lbtipo.getText().toString().equals("SACO")) {
+
+                ubicacioninsertar = "BORDADO SACO OTRA UBICACION2 " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION SACO OTRA UBICACION2";
+
+            }
+
+       agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+         
             
         }
         else
@@ -2295,16 +2751,21 @@ if(lugardondesebordara.equals("Esta sucursal"))
     public static javax.swing.JLabel lbcantidad;
     public static javax.swing.JLabel lbcliente;
     public static javax.swing.JLabel lbespalda;
+    public static javax.swing.JLabel lbespaldanombre;
     public static javax.swing.JLabel lbfecha;
     public static javax.swing.JLabel lbfolio;
     private javax.swing.JLabel lblImagen;
     public static javax.swing.JLabel lbmangaderecha;
+    public static javax.swing.JLabel lbmangaderechanombre;
     public static javax.swing.JLabel lbmangaizquierda;
+    public static javax.swing.JLabel lbmangaizquierdanombre;
     private javax.swing.JLabel lbnombreconcepto;
     public static javax.swing.JLabel lbnumero;
     public static javax.swing.JLabel lbnumeroventa;
     public static javax.swing.JLabel lbotraubicacion;
     public static javax.swing.JLabel lbotraubicacion2;
+    public static javax.swing.JLabel lbotraubicacion2nombre;
+    public static javax.swing.JLabel lbotraubicacionnombre;
     public static javax.swing.JLabel lbpechoderecho;
     public static javax.swing.JLabel lbpechoderechonombre;
     public static javax.swing.JLabel lbpechoizquierdo;

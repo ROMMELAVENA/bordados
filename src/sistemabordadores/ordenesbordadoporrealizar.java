@@ -314,7 +314,36 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
         {
            JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
         }
-        
+
+
+
+         String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres_multiple where estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlportanombremultiple);
+            while (rs.next()) 
+            {
+                String numeroventa = rs.getString("numero_venta");
+                nombredelcliente((String) numeroventa);
+                datos6[0] = rs.getString("numero");
+                datos6[1] = nombrecliente;
+                datos6[2] = "Porta nombre multiple";
+                datos6[3] = rs.getString("tipo");
+                datos6[4] = "Esta sucursal";
+                datos6[5] = rs.getString("numero_venta");
+                datos6[6] = rs.getString("fecha");
+
+                modelo.addRow(datos6);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
+        }        
         
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tablacamisa.getModel());
         tablacamisa.setRowSorter(sorter);

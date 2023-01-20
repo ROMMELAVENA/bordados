@@ -463,35 +463,35 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
                 Object tipo = tablacamisa.getValueAt(fila, 3).toString();
 
                 if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) {
-                    if (ordencamisaanteriores.ventanaordencamisaanteriores == true) {
+                    if (ordencamisa.ventanaordencamisaanteriores == true) {
                         
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
 
                     } else {
-                        ordencamisaanteriores orden = new ordencamisaanteriores();
+                        ordencamisa orden = new ordencamisa();
                         orden.setVisible(true);
 
-                        ordencamisaanteriores.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordencamisaanteriores.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
-                        ordencamisaanteriores.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
-                         ordencamisaanteriores.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
+                        ordencamisa.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
+                        ordencamisa.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
+                        ordencamisa.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
+                         ordencamisa.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
 
                        
                     }
 
                 
                 } else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) {
-                    if (ordengorraanteriores.ventanaordengorraanteriores == true) {
+                    if (ordengorra.ventanaordengorraanteriores == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
 
                     } else {
-                        ordengorraanteriores orden = new ordengorraanteriores();
+                        ordengorra orden = new ordengorra();
                         orden.setVisible(true);
 
-                        ordengorraanteriores.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordengorraanteriores.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
-                        ordengorraanteriores.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
-                        ordengorraanteriores.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
+                        ordengorra.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
+                        ordengorra.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
+                        ordengorra.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
+                        ordengorra.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
 
                         
                     }

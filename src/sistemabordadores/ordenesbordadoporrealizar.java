@@ -548,18 +548,18 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
                 Object tipo = tablacamisa.getValueAt(fila, 3).toString();
 
                 if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) {
-                    if (ordencamisaanteriores.ventanaordencamisaanteriores == true) {
+                    if (ordencamisa.ventanaordencamisaanteriores == true) {
                         
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
 
                     } else {
-                        ordencamisaanteriores orden = new ordencamisaanteriores();
+                        ordencamisa orden = new ordencamisa();
                         orden.setVisible(true);
 
-                        ordencamisaanteriores.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordencamisaanteriores.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
-                        ordencamisaanteriores.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
-                        ordencamisaanteriores.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
+                        ordencamisa.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
+                        ordencamisa.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
+                        ordencamisa.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
+                        ordencamisa.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
                         tablacamisa.clearSelection();
                         this.setState(this.ICONIFIED);
                        
@@ -569,17 +569,17 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
                 } 
                 else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
                 {
-                    if (ordengorraanteriores.ventanaordengorraanteriores == true) {
+                    if (ordengorra.ventanaordengorraanteriores == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
 
                     } else {
-                        ordengorraanteriores orden = new ordengorraanteriores();
+                        ordengorra orden = new ordengorra();
                         orden.setVisible(true);
 
-                        ordengorraanteriores.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordengorraanteriores.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
-                        ordengorraanteriores.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
-                        ordengorraanteriores.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
+                        ordengorra.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
+                        ordengorra.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
+                        ordengorra.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
+                        ordengorra.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
                          tablacamisa.clearSelection();
                          this.setState(this.ICONIFIED);
                         
@@ -587,15 +587,15 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
                 }
                 else if (tipo.equals("Orden ponchado")) 
                 {
-                    if (ordenponchadoanteriores.ventanaordenparcheanteriores == true) {
+                    if (ordenponchado.ventanaordenparcheanteriores == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de ponchado anteriores");
 
                     } else {
-                        ordenponchadoanteriores orden = new ordenponchadoanteriores();
+                        ordenponchado orden = new ordenponchado();
                         orden.setVisible(true);
 
-                        ordenponchadoanteriores.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordenponchadoanteriores.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
+                        ordenponchado.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
+                        ordenponchado.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
                          tablacamisa.clearSelection();
                          this.setState(this.ICONIFIED);
                         
@@ -603,14 +603,14 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
                 }
                 else if (tipo.equals("Orden parche")) 
                 {
-                    if (ordenparcheanteriores.ventanaordenparcheanteriores == true) {
+                    if (ordenparche.ventanaordenparcheanteriores == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de ponchado anteriores");
 
                     } else {
-                        ordenparcheanteriores orden = new ordenparcheanteriores();
+                        ordenparche orden = new ordenparche();
                         orden.setVisible(true);
 
-                        ordenparcheanteriores.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
+                        ordenparche.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
                          tablacamisa.clearSelection();
                          this.setState(this.ICONIFIED);
                         
@@ -620,15 +620,15 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
                 {
                    
                         
-                        if (ordencorbataanteriores.ventanaordencorbataanteriores == true) {
+                        if (ordencorbata.ventanaordencorbataanteriores == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de corbata anteriores");
 
                     } else {
-                        ordencorbataanteriores orden = new ordencorbataanteriores();
+                        ordencorbata orden = new ordencorbata();
                         orden.setVisible(true);
 
-                        ordencorbataanteriores.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordencorbataanteriores.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
+                        ordencorbata.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
+                        ordencorbata.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
                         
                          tablacamisa.clearSelection();
                          this.setState(this.ICONIFIED);

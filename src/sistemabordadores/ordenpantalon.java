@@ -69,7 +69,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class ordenpantalonanteriores extends javax.swing.JFrame {
+public class ordenpantalon extends javax.swing.JFrame {
 
     public static boolean ventanaordenpantalonanteriores = false;
     public static String ordenbordadopantalon = "";
@@ -104,7 +104,7 @@ public class ordenpantalonanteriores extends javax.swing.JFrame {
 
     private PreparedStatement pst;
 
-    public ordenpantalonanteriores()
+    public ordenpantalon()
     {
         initComponents();
         ventanaordenpantalonanteriores = true;
@@ -467,7 +467,7 @@ public class ordenpantalonanteriores extends javax.swing.JFrame {
         try {
             datos();
         } catch (IOException ex) {
-            Logger.getLogger(ordenpantalonanteriores.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -831,7 +831,7 @@ public class ordenpantalonanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnladoizquierdofrente);
-        btnladoizquierdofrente.setBounds(510, 10, 230, 23);
+        btnladoizquierdofrente.setBounds(510, 10, 230, 25);
 
         btnladoderechofrente.setText("Lado Derecho Frente");
         btnladoderechofrente.addActionListener(new java.awt.event.ActionListener() {
@@ -840,7 +840,7 @@ public class ordenpantalonanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnladoderechofrente);
-        btnladoderechofrente.setBounds(20, 10, 230, 23);
+        btnladoderechofrente.setBounds(20, 10, 230, 25);
 
         btnladoizquierdoatras.setText("Lado Izquierdo Atras");
         btnladoizquierdoatras.addActionListener(new java.awt.event.ActionListener() {
@@ -849,7 +849,7 @@ public class ordenpantalonanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnladoizquierdoatras);
-        btnladoizquierdoatras.setBounds(20, 210, 230, 23);
+        btnladoizquierdoatras.setBounds(20, 210, 230, 25);
 
         btnladoderechoatras.setText("Lado Derecho Atras");
         btnladoderechoatras.addActionListener(new java.awt.event.ActionListener() {
@@ -858,7 +858,7 @@ public class ordenpantalonanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnladoderechoatras);
-        btnladoderechoatras.setBounds(510, 210, 230, 23);
+        btnladoderechoatras.setBounds(510, 210, 230, 25);
 
         btncancelarbordado.setText("cancelarbordado");
         btncancelarbordado.addActionListener(new java.awt.event.ActionListener() {
@@ -1420,7 +1420,7 @@ public static String dia() {
         try {     
             datos();
         } catch (IOException ex) {
-            Logger.getLogger(ordenpantalonanteriores.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowOpened
 
@@ -1585,14 +1585,78 @@ public static String dia() {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ordenpantalonanteriores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordenpantalon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ordenpantalonanteriores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordenpantalon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ordenpantalonanteriores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordenpantalon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ordenpantalonanteriores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordenpantalon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1661,7 +1725,7 @@ public static String dia() {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ordenpantalonanteriores().setVisible(true);
+                new ordenpantalon().setVisible(true);
             }
         });
     }

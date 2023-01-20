@@ -393,20 +393,20 @@ public class tallas extends javax.swing.JFrame {
         cantidadtalla67 = 0;
 
         String sql = "";
-        String prendadelaprenda = ordencamisaanteriores.lbprenda.getText();
+        String prendadelaprenda = ordencamisa.lbprenda.getText();
         String continuar = "no";
 
-        if (ordencamisaanteriores.lbprenda.getText().equals("Camisa")) {
-            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisaanteriores.lbnumeroventa.getText() + "' AND articulo LIKE 'CAMISA%' ORDER BY ARTICULO ";
+        if (ordencamisa.lbprenda.getText().equals("Camisa")) {
+            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisa.lbnumeroventa.getText() + "' AND articulo LIKE 'CAMISA%' ORDER BY ARTICULO ";
             continuar = "si";
-        } else if (ordencamisaanteriores.lbprenda.getText().equals("Chamarra desmontable")) {
-            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisaanteriores.lbnumeroventa.getText() + "' AND articulo LIKE 'CHAMARRA DE MANGAS DESMONTABLES%' ORDER BY ARTICULO ";
+        } else if (ordencamisa.lbprenda.getText().equals("Chamarra desmontable")) {
+            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisa.lbnumeroventa.getText() + "' AND articulo LIKE 'CHAMARRA DE MANGAS DESMONTABLES%' ORDER BY ARTICULO ";
             continuar = "si";
-        } else if (ordencamisaanteriores.lbprenda.getText().equals("Playera")) {
-            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisaanteriores.lbnumeroventa.getText() + "' AND articulo LIKE 'PLAYERA%' ORDER BY ARTICULO ";
+        } else if (ordencamisa.lbprenda.getText().equals("Playera")) {
+            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisa.lbnumeroventa.getText() + "' AND articulo LIKE 'PLAYERA%' ORDER BY ARTICULO ";
             continuar = "si";
-        } else if (ordencamisaanteriores.lbprenda.getText().equals("Camisola")) {
-            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisaanteriores.lbnumeroventa.getText() + "' AND articulo LIKE 'CAMISOLA%' ORDER BY ARTICULO ";
+        } else if (ordencamisa.lbprenda.getText().equals("Camisola")) {
+            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisa.lbnumeroventa.getText() + "' AND articulo LIKE 'CAMISOLA%' ORDER BY ARTICULO ";
             continuar = "si";
         } else {
             continuar = "no";
@@ -771,9 +771,9 @@ public class tallas extends javax.swing.JFrame {
         try {
                 JasperReport reporte = (JasperReport) JRLoader.loadObject("ticketnumeroaleatorio.jasper");
                 Map parametro = new HashMap();
-                parametro.put("prenda", ordencamisaanteriores.lbprenda.getText());
-                parametro.put("numerodeventa", ordencamisaanteriores.lbnumeroventa.getText());
-                parametro.put("nombrecliente", ordencamisaanteriores.lbcliente.getText());
+                parametro.put("prenda", ordencamisa.lbprenda.getText());
+                parametro.put("numerodeventa", ordencamisa.lbnumeroventa.getText());
+                parametro.put("nombrecliente", ordencamisa.lbcliente.getText());
                 
                 parametro.put("titulo", titulo);
                 parametro.put("talla", talla);
@@ -799,7 +799,7 @@ public class tallas extends javax.swing.JFrame {
                 exporter.setParameter(JRExporterParameter.JASPER_PRINT, jprint);
 
                 
-               JasperExportManager.exportReportToPdfFile(jprint, "C:\\ticketsbanco\\ticketnumeroaleatorio"+ordencamisaanteriores.lbnumeroventa.getText()+".pdf");
+               JasperExportManager.exportReportToPdfFile(jprint, "C:\\ticketsbanco\\ticketnumeroaleatorio"+ordencamisa.lbnumeroventa.getText()+".pdf");
                javax.print.PrintService services = PrintServiceLookup.lookupDefaultPrintService();
       
         

@@ -567,7 +567,7 @@ public class ordenesbordadorecibida extends javax.swing.JFrame {
 
                 if (tipo.equals("camisa")||tipo.equals("Camisa")||tipo.equals("Camisa2")||tipo.equals("Camisa3")||tipo.equals("Camisa4")||tipo.equals("Camisa5")||tipo.equals("Chamarra rompevientos")||tipo.equals("Chaleco")||tipo.equals("Chamarra desmontable")||tipo.equals("Chamarra2 desmontable")||tipo.equals("Playera")||tipo.equals("Playera2")||tipo.equals("Playera3")||tipo.equals("Playera4")||tipo.equals("Playera5")||tipo.equals("Camisola")) {
 
-               ordencamisarecibida descargar = new ordencamisarecibida();
+               ordencamisa ventana = new ordencamisa();
                
                
                String clienteordenrecibida = tabla.getValueAt(fila, 2).toString(); 
@@ -575,11 +575,11 @@ public class ordenesbordadorecibida extends javax.swing.JFrame {
                String numerofolio = tabla.getValueAt(fila, 1).toString();
                
                
-              ordencamisarecibida.lbcliente.setText(clienteordenrecibida);
-              ordencamisarecibida.lbnumero.setText(numeroordenrecibida);
-              ordencamisarecibida.lbfolio.setText(numeroordenrecibida);
+              ordencamisa.lbcliente.setText(clienteordenrecibida);
+              ordencamisa.lbnumero.setText(numeroordenrecibida);
+              ordencamisa.lbfolio.setText(numeroordenrecibida);
               
-              descargar.setVisible(true);
+              ventana.setVisible(true);
 
                 }
                
@@ -641,13 +641,13 @@ void limpiartabla() {
                  if (tipo.equals("gorra") || tipo.equals("Gorra") || tipo.equals("Gorra2") || tipo.equals("Gorra3")) 
                 {
 
-                    ordengorrarecibida ventana = new ordengorrarecibida();
+                    ordengorra ventana = new ordengorra();
 
                     String clienteordenrecibida = tabla1.getValueAt(fila, 2).toString();
                     String numeroordenrecibida = tabla1.getValueAt(fila, 0).toString();
-                    ordengorrarecibida.lbcliente.setText(clienteordenrecibida);
-                    ordengorrarecibida.lbnumero.setText(numeroordenrecibida);
-                    ordengorrarecibida.lbfolio.setText(numeroordenrecibida);
+                    ordengorra.lbcliente.setText(clienteordenrecibida);
+                    ordengorra.lbnumero.setText(numeroordenrecibida);
+                    ordengorra.lbfolio.setText(numeroordenrecibida);
 
                     ventana.setVisible(true);
 
@@ -673,13 +673,13 @@ void limpiartabla() {
             if (fila >= 0) 
             {
                 
-               ordenpantalonrecibida ventana = new ordenpantalonrecibida();
+               ordenpantalon ventana = new ordenpantalon();
                String clienteordenrecibida = tabla2.getValueAt(fila, 2).toString(); 
                String numeroordenrecibida = tabla2.getValueAt(fila, 0).toString();
                String tiendasolicita = tabla2.getValueAt(fila, 5).toString();
-               ordenpantalonrecibida.lbcliente.setText(clienteordenrecibida);
-               ordenpantalonrecibida.lbfolio.setText(numeroordenrecibida);
-               ordenpantalonrecibida.lbtiendasolicita.setText(tiendasolicita);
+               ordenpantalon.lbcliente.setText(clienteordenrecibida);
+               ordenpantalon.lbfolio.setText(numeroordenrecibida);
+             //  ordenpantalon.lbtiendasolicita.setText(tiendasolicita);
                ventana.setVisible(true);
 
             } else 

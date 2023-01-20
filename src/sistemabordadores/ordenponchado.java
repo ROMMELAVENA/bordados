@@ -35,7 +35,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class ordenponchadoanteriores extends javax.swing.JFrame {
+public class ordenponchado extends javax.swing.JFrame {
 public static boolean ventanaordenparcheanteriores = false;
 
         private PreparedStatement pst;
@@ -62,7 +62,7 @@ public static boolean ventanaordenparcheanteriores = false;
        
         
    
-    public ordenponchadoanteriores() {
+    public ordenponchado() {
         initComponents();
         ventanaordenparcheanteriores = true;
         
@@ -840,7 +840,7 @@ public static boolean ventanaordenparcheanteriores = false;
       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ordenponchadoanteriores().setVisible(true);
+                new ordenponchado().setVisible(true);
             }
         });
     }

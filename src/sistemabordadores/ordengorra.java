@@ -71,7 +71,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import static ordenesdebordado.ordencamisaanteriores.lbnumero;
 
-public class ordengorraanteriores extends javax.swing.JFrame {
+public class ordengorra extends javax.swing.JFrame {
 
     public static boolean ventanaordengorraanteriores = false;
     public static String ordenbordadocamisa = "";
@@ -122,7 +122,7 @@ public class ordengorraanteriores extends javax.swing.JFrame {
 
  
 
-    public ordengorraanteriores() {
+    public ordengorra() {
         initComponents();
         ventanaordengorraanteriores = true;
 
@@ -500,7 +500,7 @@ public class ordengorraanteriores extends javax.swing.JFrame {
         try {
             datos();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisaanteriores.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -906,7 +906,7 @@ public class ordengorraanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnatras);
-        btnatras.setBounds(460, 70, 80, 23);
+        btnatras.setBounds(460, 70, 80, 25);
 
         btnladoderecho.setText("Lado Derecho");
         btnladoderecho.addActionListener(new java.awt.event.ActionListener() {
@@ -915,7 +915,7 @@ public class ordengorraanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnladoderecho);
-        btnladoderecho.setBounds(60, 290, 110, 23);
+        btnladoderecho.setBounds(60, 290, 110, 25);
 
         btnfrente.setText("Frente");
         btnfrente.addActionListener(new java.awt.event.ActionListener() {
@@ -924,7 +924,7 @@ public class ordengorraanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnfrente);
-        btnfrente.setBounds(410, 480, 110, 23);
+        btnfrente.setBounds(410, 480, 110, 25);
 
         btnladoizquierdo.setText("Lado Izquierdo");
         btnladoizquierdo.addActionListener(new java.awt.event.ActionListener() {
@@ -933,7 +933,7 @@ public class ordengorraanteriores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnladoizquierdo);
-        btnladoizquierdo.setBounds(700, 280, 110, 23);
+        btnladoizquierdo.setBounds(700, 280, 110, 25);
 
         lbnumeroventa.setText("00000000");
 
@@ -1219,7 +1219,7 @@ public class ordengorraanteriores extends javax.swing.JFrame {
         try {
             datos();
         } catch (IOException ex) {
-            Logger.getLogger(ordengorraanteriores.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowOpened
 
@@ -1729,7 +1729,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             try {
                 img = ImageIO.read(adjuntar.getSelectedFile()); //it must be an image file, otherwise you'll get an exception
             } catch (IOException ex) {
-                Logger.getLogger(ordencamisaanteriores.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
             }
             JLabel label = new JLabel();
             lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
@@ -1870,14 +1870,46 @@ if(lugardondesebordara.equals("Esta sucursal"))
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ordengorraanteriores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordengorra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ordengorraanteriores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordengorra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ordengorraanteriores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordengorra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ordengorraanteriores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordengorra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1914,7 +1946,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ordengorraanteriores().setVisible(true);
+                new ordengorra().setVisible(true);
             }
         });
     }

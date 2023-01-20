@@ -69,7 +69,7 @@ import javax.print.attribute.standard.PrinterName;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporterParameter;
 
-public class ordenportanombremultipleanterior extends javax.swing.JFrame {
+public class ordenportanombre extends javax.swing.JFrame {
 
     public static boolean ventanaordenportanombremultipleanterior = false;
 
@@ -91,7 +91,7 @@ public class ordenportanombremultipleanterior extends javax.swing.JFrame {
     String ultimo = "";
     String tienebordado = "no";
 
-    public ordenportanombremultipleanterior() {
+    public ordenportanombre() {
         initComponents();
         topes();
         ventanaordenportanombremultipleanterior = true;
@@ -1456,7 +1456,7 @@ public class ordenportanombremultipleanterior extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ordenportanombremultipleanterior().setVisible(true);
+                new ordenportanombre().setVisible(true);
             }
         });
     }

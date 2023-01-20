@@ -670,7 +670,7 @@ public static String dia() {
             
             if(tipo.equals("Orden Camisa"))
             {
-             String modi = "UPDATE historial_ordenes_camisa SET ponchados_replicados='si'  WHERE numero = '" + ordencamisaanteriores.lbfolio.getText()+ "'";
+             String modi = "UPDATE historial_ordenes_camisa SET ponchados_replicados='si'  WHERE numero = '" + ordencamisa.lbfolio.getText()+ "'";
         try {
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
@@ -679,11 +679,11 @@ public static String dia() {
             System.out.println();
         }
         
-         ordencamisaanteriores.btnsalir.doClick();
+         ordencamisa.btnsalir.doClick();
             }
             else
             {
-                String modi = "UPDATE historial_ordenes_gorra SET ponchados_replicados='si'  WHERE numero = '" + ordengorraanteriores.lbfolio.getText()+ "'";
+                String modi = "UPDATE historial_ordenes_gorra SET ponchados_replicados='si'  WHERE numero = '" + ordengorra.lbfolio.getText()+ "'";
         try {
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
@@ -692,7 +692,7 @@ public static String dia() {
             System.out.println();
         }
         
-         ordengorraanteriores.btnsalir.doClick();
+         ordengorra.btnsalir.doClick();
                 
             }
         

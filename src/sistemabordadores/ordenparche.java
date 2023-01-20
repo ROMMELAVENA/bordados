@@ -10,7 +10,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 
-public class ordenparcheanteriores extends javax.swing.JFrame {
+public class ordenparche extends javax.swing.JFrame {
 public static boolean ventanaordenparcheanteriores = false;
 
         private PreparedStatement pst;
@@ -37,7 +37,7 @@ public static boolean ventanaordenparcheanteriores = false;
         String ubicacioninsertar = "";
         String aplicacioninsertar = "";
    
-    public ordenparcheanteriores() 
+    public ordenparche() 
     {
         initComponents();
         ventanaordenparcheanteriores = true;
@@ -1580,7 +1580,7 @@ public static boolean ventanaordenparcheanteriores = false;
       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ordenparcheanteriores().setVisible(true);
+                new ordenparche().setVisible(true);
             }
         });
     }

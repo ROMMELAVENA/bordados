@@ -69,7 +69,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class ordencamisaanteriores extends javax.swing.JFrame {
+public class ordencamisa extends javax.swing.JFrame {
 
     public static boolean ventanaordencamisaanteriores = false;
     public static String ordenbordadocamisa = "";
@@ -144,7 +144,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
 
     
 
-    public ordencamisaanteriores() {
+    public ordencamisa() {
         initComponents();
         ventanaordencamisaanteriores = true;
 
@@ -720,7 +720,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         try {
             datos();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisaanteriores.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -1498,7 +1498,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
      try {
             datos();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisaanteriores.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
      
      codigocliente();
@@ -1506,7 +1506,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
      try {    
             agregarfotomontaje();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisaanteriores.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         
@@ -2334,7 +2334,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             try {
                 img = ImageIO.read(adjuntar.getSelectedFile()); 
             } catch (IOException ex) {
-                Logger.getLogger(ordencamisaanteriores.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
             }
             JLabel label = new JLabel();
             lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
@@ -2619,14 +2619,30 @@ if(lugardondesebordara.equals("Esta sucursal"))
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ordencamisaanteriores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordencamisa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ordencamisaanteriores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordencamisa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ordencamisaanteriores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordencamisa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ordencamisaanteriores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordencamisa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -2647,7 +2663,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ordencamisaanteriores().setVisible(true);
+                new ordencamisa().setVisible(true);
             }
         });
     }

@@ -234,7 +234,7 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"sql orden parche" + ex);
         }
         
-         //// historial_orden_parches
+         //// historial_orden_ponchado
         
         String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
@@ -261,6 +261,8 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"sql orden ponchado" + ex);
         }
         
+        /// historial ordenes corbata
+        
         String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
@@ -286,7 +288,8 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
         }
         
-        ///
+        /// historial orden portanombres
+        
         String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres where estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
@@ -316,6 +319,7 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
         }
 
 
+        /// historial´ portanombre multiple
 
          String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres_multiple where estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
@@ -342,7 +346,7 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
+           JOptionPane.showMessageDialog(null,"sql orden portanombremultiple" + ex);
         }        
         
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tablacamisa.getModel());
@@ -444,9 +448,6 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
             tablacamisa.getColumnModel().getColumn(1).setMinWidth(100);
             tablacamisa.getColumnModel().getColumn(1).setPreferredWidth(600);
             tablacamisa.getColumnModel().getColumn(1).setMaxWidth(800);
-            tablacamisa.getColumnModel().getColumn(3).setMinWidth(0);
-            tablacamisa.getColumnModel().getColumn(3).setPreferredWidth(0);
-            tablacamisa.getColumnModel().getColumn(3).setMaxWidth(0);
             tablacamisa.getColumnModel().getColumn(4).setMinWidth(0);
             tablacamisa.getColumnModel().getColumn(4).setPreferredWidth(0);
             tablacamisa.getColumnModel().getColumn(4).setMaxWidth(0);
@@ -565,7 +566,8 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
                     }
 
                 
-                } else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
+                } 
+                else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
                 {
                     if (ordengorraanteriores.ventanaordengorraanteriores == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
@@ -582,9 +584,65 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
                          this.setState(this.ICONIFIED);
                         
                     }
-                } 
+                }
+                else if (tipo.equals("Orden ponchado")) 
+                {
+                    if (ordenponchadoanteriores.ventanaordenparcheanteriores == true) {
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de ponchado anteriores");
 
-            }
+                    } else {
+                        ordenponchadoanteriores orden = new ordenponchadoanteriores();
+                        orden.setVisible(true);
+
+                        ordenponchadoanteriores.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
+                        ordenponchadoanteriores.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
+                         tablacamisa.clearSelection();
+                         this.setState(this.ICONIFIED);
+                        
+                    }
+                }
+                else if (tipo.equals("Orden parche")) 
+                {
+                    if (ordenparcheanteriores.ventanaordenparcheanteriores == true) {
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de ponchado anteriores");
+
+                    } else {
+                        ordenparcheanteriores orden = new ordenparcheanteriores();
+                        orden.setVisible(true);
+
+                        ordenparcheanteriores.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
+                         tablacamisa.clearSelection();
+                         this.setState(this.ICONIFIED);
+                        
+                    }
+                }
+                else if (tipo.equals("Orden corbata")) 
+                {
+                    if (ordencorbataanteriores.ventanaordencorbataanteriores == true) {
+                        
+                        if (ordencorbataanteriores.ventanaordencorbataanteriores == true) {
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de corbata anteriores");
+
+                    } else {
+                        ordencorbataanteriores orden = new ordencorbataanteriores();
+                        orden.setVisible(true);
+
+                        ordencorbataanteriores.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
+                        ordencorbataanteriores.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
+                        
+                         tablacamisa.clearSelection();
+                         this.setState(this.ICONIFIED);
+                        
+                    }
+                        
+                    }
+                   
+                }
+                
+                
+                
+
+            } /// 
 
         } 
 

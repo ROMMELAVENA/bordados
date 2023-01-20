@@ -9,7 +9,22 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
+import javax.print.PrintServiceLookup;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JREmptyDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporter;
+import net.sf.jasperreports.engine.JRExporterParameter;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
+import net.sf.jasperreports.engine.export.JRPrintServiceExporterParameter;
+import net.sf.jasperreports.engine.util.JRLoader;
 
 /**
  *
@@ -33,6 +48,7 @@ public class tallas extends javax.swing.JFrame {
     String talla4 = "";
     String talla5 = "";
     String talla6 = "";
+    String talla7 = "";
 
     String cantidad1 = "";
     String cantidad2 = "";
@@ -40,6 +56,8 @@ public class tallas extends javax.swing.JFrame {
     String cantidad4 = "";
     String cantidad5 = "";
     String cantidad6 = "";
+    String cantidad7 = "";
+   
 
     String tallatitulo11 = "";
     String tallatitulo12 = "";
@@ -184,6 +202,15 @@ public class tallas extends javax.swing.JFrame {
     int cantidadtalla65 = 0;
     int cantidadtalla66 = 0;
     int cantidadtalla67 = 0;
+    
+    String titulo = "";
+    String talla = "talla";
+    String cantidad = "cantidad";
+    
+    
+    
+    
+    
 
     public tallas() {
         initComponents();
@@ -219,19 +246,7 @@ public class tallas extends javax.swing.JFrame {
         tallacantidad16 = "";
         tallacantidad17 = "";
 
-        talla1 = "";
-        talla2 = "";
-        talla3 = "";
-        talla4 = "";
-        talla5 = "";
-        talla6 = "";
-
-        cantidad1 = "";
-        cantidad2 = "";
-        cantidad3 = "";
-        cantidad4 = "";
-        cantidad5 = "";
-        cantidad6 = "";
+       
 
         tallatitulo11 = "";
         tallatitulo12 = "";
@@ -750,6 +765,60 @@ public class tallas extends javax.swing.JFrame {
         }
 
     }
+    
+    void imprimir()
+    {
+        try {
+                JasperReport reporte = (JasperReport) JRLoader.loadObject("ticketnumeroaleatorio.jasper");
+                Map parametro = new HashMap();
+                parametro.put("prenda", ordencamisaanteriores.lbprenda.getText());
+                parametro.put("numerodeventa", ordencamisaanteriores.lbnumeroventa.getText());
+                parametro.put("nombrecliente", ordencamisaanteriores.lbcliente.getText());
+                
+                parametro.put("titulo", titulo);
+                parametro.put("talla", talla);
+                parametro.put("talla1", talla1); 
+                parametro.put("talla2", talla2); 
+                parametro.put("talla3", talla3); 
+                parametro.put("talla4", talla4);
+                parametro.put("talla5", talla5);
+                parametro.put("talla6", talla6);
+                parametro.put("talla7", talla7);
+                
+                parametro.put("cantidad", cantidad); 
+                parametro.put("cantidad1", cantidad1); 
+                parametro.put("cantidad2", cantidad2); 
+                parametro.put("cantidad3", cantidad3); 
+                parametro.put("cantidad4", cantidad4);
+                parametro.put("cantidad5", cantidad5);
+                parametro.put("cantidad6", cantidad6);
+                parametro.put("cantidad7", cantidad7);
+               
+                JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, new JREmptyDataSource());
+                JRExporter exporter = new JRPdfExporter();
+                exporter.setParameter(JRExporterParameter.JASPER_PRINT, jprint);
+
+                
+               JasperExportManager.exportReportToPdfFile(jprint, "C:\\ticketsbanco\\ticketnumeroaleatorio"+ordencamisaanteriores.lbnumeroventa.getText()+".pdf");
+               javax.print.PrintService services = PrintServiceLookup.lookupDefaultPrintService();
+      
+        
+         JRPrintServiceExporter exporter2 = new JRPrintServiceExporter();
+        exporter2.setParameter(JRExporterParameter.JASPER_PRINT, jprint);
+         
+        //se selecciona servicio y se pasa atributos de impresion        
+        exporter2.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, services);
+        exporter2.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE_ATTRIBUTE_SET, services.getAttributes());
+        exporter2.setParameter(JRPrintServiceExporterParameter.DISPLAY_PAGE_DIALOG, Boolean.FALSE);
+        exporter2.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.FALSE);      
+        exporter2.exportReport();
+
+            } catch (JRException ex) {
+                System.out.println(ex);
+
+            }
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -869,7 +938,8 @@ public class tallas extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Tallas");
 
         lbtitulo1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lbtitulo1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1370,16 +1440,46 @@ public class tallas extends javax.swing.JFrame {
         lbtalla64.setPreferredSize(new java.awt.Dimension(24, 18));
 
         jButton1.setText("Imprimir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Imprimir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Imprimir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Imprimir");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Imprimir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Imprimir");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1753,6 +1853,135 @@ public class tallas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+     titulo = titulo1.toUpperCase();
+     talla1 = lbtalla11.getText();
+     talla2 = lbtalla12.getText();
+     talla3 = lbtalla13.getText();
+     talla4 = lbtalla14.getText();
+     talla5 = lbtalla15.getText();
+     talla6 = lbtalla16.getText();
+     talla7 = lbtalla17.getText();
+
+     cantidad1 = lbcantidad11.getText();
+     cantidad2 = lbcantidad12.getText();
+     cantidad3 = lbcantidad13.getText();
+     cantidad4 = lbcantidad14.getText();
+     cantidad5 = lbcantidad15.getText();
+     cantidad6 = lbcantidad16.getText();
+     cantidad7 = lbcantidad17.getText();
+     
+     imprimir();
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+     titulo = titulo2.toUpperCase();
+     talla1 = lbtalla21.getText();
+     talla2 = lbtalla22.getText();
+     talla3 = lbtalla23.getText();
+     talla4 = lbtalla24.getText();
+     talla5 = lbtalla25.getText();
+     talla6 = lbtalla26.getText();
+     talla7 = lbtalla27.getText();
+
+     cantidad1 = lbcantidad21.getText();
+     cantidad2 = lbcantidad22.getText();
+     cantidad3 = lbcantidad23.getText();
+     cantidad4 = lbcantidad24.getText();
+     cantidad5 = lbcantidad25.getText();
+     cantidad6 = lbcantidad26.getText();
+     cantidad7 = lbcantidad27.getText();
+     
+     imprimir();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+     titulo = titulo3.toUpperCase();
+     talla1 = lbtalla31.getText();
+     talla2 = lbtalla32.getText();
+     talla3 = lbtalla33.getText();
+     talla4 = lbtalla34.getText();
+     talla5 = lbtalla35.getText();
+     talla6 = lbtalla36.getText();
+     talla7 = lbtalla37.getText();
+
+     cantidad1 = lbcantidad31.getText();
+     cantidad2 = lbcantidad32.getText();
+     cantidad3 = lbcantidad33.getText();
+     cantidad4 = lbcantidad34.getText();
+     cantidad5 = lbcantidad35.getText();
+     cantidad6 = lbcantidad36.getText();
+     cantidad7 = lbcantidad37.getText();
+     
+     imprimir();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+     titulo = titulo4.toUpperCase();
+     talla1 = lbtalla41.getText();
+     talla2 = lbtalla42.getText();
+     talla3 = lbtalla43.getText();
+     talla4 = lbtalla44.getText();
+     talla5 = lbtalla45.getText();
+     talla6 = lbtalla46.getText();
+     talla7 = lbtalla47.getText();
+
+     cantidad1 = lbcantidad41.getText();
+     cantidad2 = lbcantidad42.getText();
+     cantidad3 = lbcantidad43.getText();
+     cantidad4 = lbcantidad44.getText();
+     cantidad5 = lbcantidad45.getText();
+     cantidad6 = lbcantidad46.getText();
+     cantidad7 = lbcantidad47.getText();
+     
+     imprimir();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+     titulo = titulo5.toUpperCase();
+     talla1 = lbtalla51.getText();
+     talla2 = lbtalla52.getText();
+     talla3 = lbtalla53.getText();
+     talla4 = lbtalla54.getText();
+     talla5 = lbtalla55.getText();
+     talla6 = lbtalla56.getText();
+     talla7 = lbtalla57.getText();
+
+     cantidad1 = lbcantidad51.getText();
+     cantidad2 = lbcantidad52.getText();
+     cantidad3 = lbcantidad53.getText();
+     cantidad4 = lbcantidad54.getText();
+     cantidad5 = lbcantidad55.getText();
+     cantidad6 = lbcantidad56.getText();
+     cantidad7 = lbcantidad57.getText();
+     
+     imprimir();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+     titulo = titulo6.toUpperCase();
+     talla1 = lbtalla61.getText();
+     talla2 = lbtalla62.getText();
+     talla3 = lbtalla63.getText();
+     talla4 = lbtalla64.getText();
+     talla5 = lbtalla65.getText();
+     talla6 = lbtalla66.getText();
+     talla7 = lbtalla67.getText();
+
+     cantidad1 = lbcantidad61.getText();
+     cantidad2 = lbcantidad62.getText();
+     cantidad3 = lbcantidad63.getText();
+     cantidad4 = lbcantidad64.getText();
+     cantidad5 = lbcantidad65.getText();
+     cantidad6 = lbcantidad66.getText();
+     cantidad7 = lbcantidad67.getText();
+     
+     imprimir();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

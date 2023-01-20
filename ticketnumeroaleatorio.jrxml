@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="226" pageHeight="235872" columnWidth="204" leftMargin="2" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="19bd3af1-428e-47d9-8e77-1f4d3f09a57c">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="133"/>
+	<subDataset name="Table Dataset 1" uuid="7f75b9c6-16ca-4abc-a046-8b5e68fb9cb9"/>
+	<subDataset name="dataset1" uuid="ce9108e2-dab4-4ed9-98ba-329d26a6e31c"/>
+	<parameter name="numerodeventa" class="java.lang.String"/>
+	<parameter name="nombrecliente" class="java.lang.String"/>
+	<parameter name="numeroaleatorio" class="java.lang.String"/>
+	<parameter name="prenda" class="java.lang.String"/>
+	<parameter name="titulo" class="java.lang.String"/>
+	<parameter name="talla" class="java.lang.String"/>
+	<parameter name="cantidad" class="java.lang.String"/>
+	<parameter name="talla1" class="java.lang.String"/>
+	<parameter name="talla2" class="java.lang.String"/>
+	<parameter name="talla3" class="java.lang.String"/>
+	<parameter name="talla4" class="java.lang.String"/>
+	<parameter name="talla5" class="java.lang.String"/>
+	<parameter name="talla6" class="java.lang.String"/>
+	<parameter name="talla7" class="java.lang.String"/>
+	<parameter name="cantidad1" class="java.lang.String"/>
+	<parameter name="cantidad2" class="java.lang.String"/>
+	<parameter name="cantidad3" class="java.lang.String"/>
+	<parameter name="cantidad4" class="java.lang.String"/>
+	<parameter name="cantidad5" class="java.lang.String"/>
+	<parameter name="cantidad6" class="java.lang.String"/>
+	<parameter name="cantidad7" class="java.lang.String"/>
+	<field name="cantidad" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="precio" class="java.lang.String"/>
+	<field name="importe" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="289" splitType="Stretch">
+			<staticText>
+				<reportElement x="16" y="1" width="29" height="13" uuid="473ee69b-71d1-4b51-959e-7f7e47e54057"/>
+				<textElement>
+					<font size="9" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Orden Camisa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="22" width="62" height="12" uuid="c551c83e-f208-4469-bacf-d7cc3e43fc85"/>
+				<textElement>
+					<font size="7" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Número de Venta:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="62" y="18" width="115" height="22" isRemoveLineWhenBlank="true" uuid="726aa0ad-0625-43e5-a8db-b36a828b0e02"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{numerodeventa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="38" width="62" height="12" uuid="bbf2d56c-f7ae-447d-ad94-1eec909bf106"/>
+				<textElement>
+					<font size="7" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Nombre Cliente:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="46" width="177" height="36" uuid="213beff4-0440-4caa-9a08-be4e1e4c46d9"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nombrecliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="1" width="123" height="12" uuid="f5a9f71c-699a-4770-9c6b-e4201cd383a7"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{prenda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="87" width="177" height="20" isRemoveLineWhenBlank="true" uuid="f868ab80-1fe6-4264-b83d-fdb7929a8b4c"/>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="107" width="113" height="20" uuid="4c79e15d-815b-42f4-b849-d8b7e0c0c6b7"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{talla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="107" width="64" height="20" isRemoveLineWhenBlank="true" uuid="558f9625-baef-445b-8a47-1488739a37c5"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="127" width="113" height="20" uuid="ca300e9a-ace1-4847-9981-75d85ad746f9"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{talla1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="147" width="113" height="20" uuid="4853fa3f-a7bd-4247-a19f-ccb3191ccc01"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{talla2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="167" width="113" height="20" uuid="76b06ba1-352b-4513-b5eb-d3987e747bac"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{talla3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="187" width="113" height="20" uuid="431b48e4-2764-4554-82af-8c9ee4965f89"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{talla4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="207" width="113" height="20" uuid="6f2c575a-a4a1-4264-bf52-c8982b8f5cc7"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{talla5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="227" width="113" height="20" uuid="53f78c19-9289-4d76-a851-6b3eafe1df32"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{talla6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="247" width="113" height="20" uuid="0f570e61-c21b-488a-a1d0-b0da7de10cb3"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{talla7}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="127" width="64" height="20" isRemoveLineWhenBlank="true" uuid="bff3edcb-656f-4799-bf0e-cdbd7cebe35f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cantidad1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="147" width="64" height="20" isRemoveLineWhenBlank="true" uuid="96f7dee6-58f4-44d1-93ed-395174f44798"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cantidad2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="167" width="64" height="20" isRemoveLineWhenBlank="true" uuid="c55d7b4e-4da3-4869-b83c-f989c5424a62"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cantidad3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="187" width="64" height="20" isRemoveLineWhenBlank="true" uuid="8d6a6490-2a3c-4d15-a92e-ea11f3c30440"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cantidad4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="207" width="64" height="20" isRemoveLineWhenBlank="true" uuid="f0cd415b-ee0e-4f05-8f5d-593d3a39ffbb"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cantidad5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="227" width="64" height="20" isRemoveLineWhenBlank="true" uuid="c8794215-80c9-40f2-b092-33194f013d69"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cantidad6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="247" width="64" height="20" isRemoveLineWhenBlank="true" uuid="76090cd4-79d4-4a68-8e51-4fc8063f656d"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cantidad7}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<pageFooter>
+		<band height="10" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

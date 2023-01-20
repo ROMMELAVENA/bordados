@@ -618,7 +618,7 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
                 }
                 else if (tipo.equals("Orden corbata")) 
                 {
-                    if (ordencorbataanteriores.ventanaordencorbataanteriores == true) {
+                   
                         
                         if (ordencorbataanteriores.ventanaordencorbataanteriores == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de corbata anteriores");
@@ -635,7 +635,7 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
                         
                     }
                         
-                    }
+                 
                    
                 }
                 

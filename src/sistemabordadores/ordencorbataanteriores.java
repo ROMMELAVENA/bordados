@@ -195,7 +195,7 @@ public class ordencorbataanteriores extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + lbbordadosorden.getText() + "' where numero = '"+lbfolio.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + lbbordadosorden.getText() + "' ,estatus_orden = 'realizada' where numero = '"+lbfolio.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -546,14 +546,16 @@ public class ordencorbataanteriores extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(800, 800));
         jPanel1.setName(""); // NOI18N
         jPanel1.setLayout(null);
+
+        lbtitulofrente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jPanel1.add(lbtitulofrente);
         lbtitulofrente.setBounds(500, 120, 360, 20);
 
-        lbfrente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbfrente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jPanel1.add(lbfrente);
         lbfrente.setBounds(500, 150, 360, 20);
 
-        lbfrentepuntadas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbfrentepuntadas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jPanel1.add(lbfrentepuntadas);
         lbfrentepuntadas.setBounds(500, 180, 360, 20);
 

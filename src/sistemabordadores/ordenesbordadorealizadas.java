@@ -1,20 +1,28 @@
 package sistemabordadores;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 public class ordenesbordadorealizadas extends javax.swing.JFrame {
 
     public static boolean ventanaordenesbordadogenerada = false;
     String fechainicial = "";
     String fechafinal = "";
+    String nombrecliente = "";
 
     public ordenesbordadorealizadas() {
         initComponents();
@@ -146,7 +154,7 @@ public class ordenesbordadorealizadas extends javax.swing.JFrame {
         
         //// historial_orden_gorra
         
-        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'por solicitar' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where lugar = 'Esta sucursal'  and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -172,7 +180,7 @@ public class ordenesbordadorealizadas extends javax.swing.JFrame {
         
         //// historial_orden_pantalon
         
-         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where lugar = 'Esta sucursal' and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -200,7 +208,7 @@ public class ordenesbordadorealizadas extends javax.swing.JFrame {
         
         //// historial_orden_parches
         
-        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where lugar = 'Esta sucursal' and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -225,9 +233,9 @@ public class ordenesbordadorealizadas extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"sql orden parche" + ex);
         }
         
-         //// historial_orden_parches
+         //// historial_orden_ponchados
         
-        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Esta sucursal' and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -252,7 +260,7 @@ public class ordenesbordadorealizadas extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"sql orden ponchado" + ex);
         }
         
-        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where lugar = 'Esta sucursal' and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -279,6 +287,73 @@ public class ordenesbordadorealizadas extends javax.swing.JFrame {
         
         
         
+        /// historial orden portanombres
+        
+        String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres where estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlportanombre);
+            while (rs.next()) 
+            {
+                String numeroventa = rs.getString("numero_venta");
+                nombredelcliente((String) numeroventa);
+                datos6[0] = rs.getString("numero");
+                datos6[1] = nombrecliente;
+                datos6[2] = "Porta nombre";
+                datos6[3] = rs.getString("tipo");
+                datos6[4] = "Esta sucursal";
+                datos6[5] = rs.getString("numero_venta");
+                datos6[6] = rs.getString("fecha");
+
+                modelo.addRow(datos6);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
+        }
+
+
+        /// historial´ portanombre multiple
+
+         String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres_multiple where estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlportanombremultiple);
+            while (rs.next()) 
+            {
+                String numeroventa = rs.getString("numero_venta");
+                nombredelcliente((String) numeroventa);
+                datos6[0] = rs.getString("numero");
+                datos6[1] = nombrecliente;
+                datos6[2] = "Porta nombre multiple";
+                datos6[3] = rs.getString("tipo");
+                datos6[4] = "Esta sucursal";
+                datos6[5] = rs.getString("numero_venta");
+                datos6[6] = rs.getString("fecha");
+
+                modelo.addRow(datos6);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           JOptionPane.showMessageDialog(null,"sql orden portanombremultiple" + ex);
+        }        
+        
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tablacamisa.getModel());
+        tablacamisa.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>(100);
+        sortKeys.add(new RowSorter.SortKey(5, SortOrder.DESCENDING));
+        sorter.setSortKeys(sortKeys);
+        
     }
     
     
@@ -294,7 +369,27 @@ public class ordenesbordadorealizadas extends javax.swing.JFrame {
         }
 }
     
-    
+    void nombredelcliente(String numeroventa)
+    {
+        
+        String sql1 = "SELECT nombre_cliente from historial_Ventas where numero = '"+numeroventa+"' ";
+
+                    try {
+                        PreparedStatement prst = cn.prepareStatement(sql1);
+                        ResultSet rs2 = prst.executeQuery();
+                        if (rs2.next()) 
+                        {
+                            nombrecliente = rs2.getString("nombre_cliente");
+                           
+                            
+                        }
+                        rs2.close();
+                    } catch (Exception exx) {
+                        JOptionPane.showMessageDialog(null, exx);
+
+                    }
+                
+    }
    
     
 

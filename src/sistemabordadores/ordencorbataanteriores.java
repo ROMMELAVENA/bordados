@@ -195,7 +195,7 @@ public class ordencorbataanteriores extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + lbbordadosorden.getText() + "' ,estatus_orden = 'realizada' where numero = '"+lbfolio.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + lbbordadosorden.getText() + "'  where numero = '"+lbfolio.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 

@@ -784,8 +784,9 @@ public class ordencamisa extends javax.swing.JFrame {
         Object cantidadstring ="";
         String nuevacantidadstring = "";
         String estatusentrega ="";
+        String estatusentregaventa = "";
         
-        String SQL2 = "select cantidad from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
+        String SQL2 = "select cantidad,estatus_entrega from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -794,7 +795,7 @@ public class ordencamisa extends javax.swing.JFrame {
         {
 
         cantidadstring = rs.getString("cantidad");
-        
+        estatusentregaventa= rs.getString("estatus_entrega");
 
         }
         
@@ -802,6 +803,13 @@ public class ordencamisa extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println (ex);
         }
+        
+        if(estatusentregaventa.equals("surtida totalmente entregada totalmente"))
+        {
+            
+        }
+        else
+        {
         
       if(cantidadstring ==null || cantidadstring.equals("")||cantidadstring.equals(" "))
       {
@@ -888,6 +896,8 @@ public class ordencamisa extends javax.swing.JFrame {
           }
       
 
+        }
+      
       
       }  
     
@@ -2383,6 +2393,8 @@ if(lugardondesebordara.equals("Esta sucursal"))
 
        agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
        agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+       estacompletalaorden(); 
+       sumapuntos();
             
         }
         else

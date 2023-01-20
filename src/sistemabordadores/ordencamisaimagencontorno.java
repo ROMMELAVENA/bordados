@@ -13,9 +13,9 @@ import javax.swing.ImageIcon;
  *
  * @author Mouse
  */
-public class ordencamisaimagen extends javax.swing.JPanel {
+public class ordencamisaimagencontorno extends javax.swing.JPanel {
 
-    public ordencamisaimagen(){    
+    public ordencamisaimagencontorno(){    
         this.setSize(800,800);
     }
         

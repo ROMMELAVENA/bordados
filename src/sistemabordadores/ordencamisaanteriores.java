@@ -131,7 +131,14 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
     String aplicacionespalda = "0";
     String aplicacionotraubicacion = "0";
     String aplicacionotraubicacion2 = "0";
+    String tienefotomontaje = "no";
     
+    String rutaimagen = "";
+    String rutamangaderecha= "";
+    String rutamangaizquierda= "";
+    String rutapechoizquierdo= "";
+    String rutapechoderecho= "";
+    String rutaespalda= "";
 
     private PreparedStatement pst;
 
@@ -141,20 +148,26 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         initComponents();
         ventanaordencamisaanteriores = true;
 
-        lbnumeroventa.setVisible(false);
-        lbnumero.setVisible(false);
-        lbrutaimagen.setVisible(false);
-        lbrutamangaderecha.setVisible(false);
-        lbrutapechoizquierdo.setVisible(false);
-        lbrutapechoderecho.setVisible(false);
-        lbrutaespalda.setVisible(false);
+        lbnumeroventa.setVisible(false);       
         lbtipo.setVisible(false);
         lbnombreconcepto.setVisible(false);
         btneliminar.setVisible(false);
-        
-        lbtipo.setVisible(false);
 
-        topes();
+       
+        
+        
+    BufferedImage image = null;
+    try 
+    {
+        image = ImageIO.read(new File("C:\\sistema\\tallas.png"));
+
+    } catch (Exception e) 
+    {
+        e.printStackTrace();
+    }
+
+    ImageIcon imageIcon = new ImageIcon(image.getScaledInstance(lbltallas.getWidth(), lbltallas.getHeight(), Image.SCALE_DEFAULT));
+    lbltallas.setIcon(imageIcon);
 
         
         File file = new File("C:\\sistema\\configuracion.txt");
@@ -434,8 +447,7 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, ex);
         }
 
-        codigocliente();
-        agregarfotomontaje();
+       
         
 
     }
@@ -491,36 +503,11 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         String prenda =lbprenda.getText().toUpperCase();
         String nombreconcepto =lbnombreconcepto.getText();
         BufferedImage img = null;
-        String codigocliente ="";
         
         String prendasql ="";
         String prendanombresql="";
         btnverfotomontaje.setEnabled(false);
         btnimagen.setEnabled(true);
-                
-                               
-          
-        String sqlcodigo = "Select codigo_cliente from historial_ventas where numero = '" + numeroventa + "'  ";
-
-        try {
-
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sqlcodigo);
-            if (rs.next()) 
-            {
-               
-                      codigocliente = rs.getString("codigo_cliente");
-            }
-
-            rs.close();
-        } catch (SQLException ex) 
-        {
-             JOptionPane.showMessageDialog(null, ex);
-
-        }         
-                
-                
-                
 
        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_prenda= '"+nombreconcepto+"' and tipo = '"+prenda+"'   ";  ///
 
@@ -531,14 +518,16 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
             while (rs.next()) 
             {
                 Imagen imagen = new Imagen();
-                Blob blob = rs.getBlob(2);
+                Blob blob = rs.getBlob("imagen");
                 if (blob == null) 
                 {
 
-                    lblImagen.setText("NO HAY IMAGEN");
-                    lblImagen.setHorizontalAlignment(SwingConstants.CENTER);
-                    lblImagen.setVerticalAlignment(SwingConstants.CENTER);
-                    btnimagen.setEnabled(true);
+                    ordencamisaimagencontorno p = new ordencamisaimagencontorno();
+                    jPanel1.add(p);
+                    jPanel1.repaint();
+                    lblImagen.setVisible(false);
+                    tienefotomontaje = "no";
+                    
                 } 
                 
                 else 
@@ -555,32 +544,32 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                     }
 
                     imagen.setImagen(img);
-                    lblImagen.setIcon(new ImageIcon(
-                            img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
-                    repaint();
+                    lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
                     btnverfotomontaje.setEnabled(true);
                     btnimagen.setEnabled(false);
+                    tienefotomontaje = "si";
+                    
+                    
+                    
                     
                     /// *******
-                    
-                    String ext = rs.getString(1);
+                    Blob archivo = rs.getBlob("imagen");
+                    String ext = rs.getString("extension_imagen");
                     String path = "C:\\archivospdf\\FOTOMONTAJE"+ext+" ";
-                    lbrutaimagen.setText(path);
+                    rutaimagen=path;
                     File file = new File(path);
                     FileOutputStream output = new FileOutputStream(file);
-                    Blob archivo = rs.getBlob(1);
                     InputStream inStream = archivo.getBinaryStream();
                     int length = -1;
                     int size = (int) archivo.length();
                     byte[] buffer = new byte[size];
                     while ((length = inStream.read(buffer)) != -1) {
                         output.write(buffer, 0, length);
-                        // output.flush();
+                   
                     }
-                    // inStream.close();
+                   
                     output.close();
-                    
-
+ 
                 }
 
             } //end while
@@ -941,22 +930,16 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         lbpechoderechonombre = new javax.swing.JLabel();
         lbpechoizquierdonombre = new javax.swing.JLabel();
         lbespalda = new javax.swing.JLabel();
-        btnmangaderecha = new javax.swing.JButton();
-        btnmangaizquierda = new javax.swing.JButton();
-        btnpechoizquierdo = new javax.swing.JButton();
-        btnespalda = new javax.swing.JButton();
-        btnpechoderecho = new javax.swing.JButton();
         lbpechoizquierdo = new javax.swing.JLabel();
         lbpechoderecho = new javax.swing.JLabel();
-        btnotraubicacion = new javax.swing.JButton();
         lbotraubicacion = new javax.swing.JLabel();
-        btnotraubicacion2 = new javax.swing.JButton();
         lbotraubicacion2 = new javax.swing.JLabel();
         lbmangaderechanombre = new javax.swing.JLabel();
         lbmangaizquierdanombre = new javax.swing.JLabel();
         lbespaldanombre = new javax.swing.JLabel();
         lbotraubicacion2nombre = new javax.swing.JLabel();
         lbotraubicacionnombre = new javax.swing.JLabel();
+        lblImagen = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         lbfolio = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -966,17 +949,10 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         lbprenda = new javax.swing.JLabel();
         lbnumeroventa = new javax.swing.JLabel();
-        lblImagen = new javax.swing.JLabel();
         btninsertarponchados = new javax.swing.JButton();
-        lbrutapechoizquierdo = new javax.swing.JLabel();
-        lbrutamangaderecha = new javax.swing.JLabel();
-        lbrutapechoderecho = new javax.swing.JLabel();
-        lbrutamangaizquierda = new javax.swing.JLabel();
-        lbrutaespalda = new javax.swing.JLabel();
         lbtipo = new javax.swing.JLabel();
         lbnumero = new javax.swing.JLabel();
         btnimagen = new javax.swing.JButton();
-        lbrutaimagen = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         btneliminar = new javax.swing.JButton();
         cbsucursal = new javax.swing.JComboBox<>();
@@ -989,6 +965,14 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         lbidentificador = new javax.swing.JLabel();
+        btnmangaderecha = new javax.swing.JButton();
+        btnmangaizquierda = new javax.swing.JButton();
+        btnpechoderecho = new javax.swing.JButton();
+        btnpechoizquierdo = new javax.swing.JButton();
+        btnespalda = new javax.swing.JButton();
+        btnotraubicacion = new javax.swing.JButton();
+        btnotraubicacion2 = new javax.swing.JButton();
+        lbltallas = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden de bordado generada");
@@ -1039,51 +1023,6 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         jPanel1.add(lbespalda);
         lbespalda.setBounds(520, 460, 310, 19);
 
-        btnmangaderecha.setText("Manga Derecha");
-        btnmangaderecha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnmangaderechaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnmangaderecha);
-        btnmangaderecha.setBounds(150, 10, 130, 23);
-
-        btnmangaizquierda.setText("Manga izquierda");
-        btnmangaizquierda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnmangaizquierdaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnmangaizquierda);
-        btnmangaizquierda.setBounds(510, 10, 140, 23);
-
-        btnpechoizquierdo.setText("Pecho Izquierdo");
-        btnpechoizquierdo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpechoizquierdoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnpechoizquierdo);
-        btnpechoizquierdo.setBounds(520, 220, 130, 23);
-
-        btnespalda.setText("Espalda");
-        btnespalda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnespaldaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnespalda);
-        btnespalda.setBounds(520, 410, 130, 23);
-
-        btnpechoderecho.setText("Pecho derecho");
-        btnpechoderecho.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpechoderechoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnpechoderecho);
-        btnpechoderecho.setBounds(150, 230, 140, 23);
-
         lbpechoizquierdo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbpechoizquierdo.setForeground(new java.awt.Color(255, 0, 0));
         jPanel1.add(lbpechoizquierdo);
@@ -1094,28 +1033,10 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         jPanel1.add(lbpechoderecho);
         lbpechoderecho.setBounds(80, 260, 270, 20);
 
-        btnotraubicacion.setText("Otra ubicacion");
-        btnotraubicacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnotraubicacionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnotraubicacion);
-        btnotraubicacion.setBounds(130, 410, 130, 23);
-
         lbotraubicacion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbotraubicacion.setForeground(new java.awt.Color(255, 0, 0));
         jPanel1.add(lbotraubicacion);
         lbotraubicacion.setBounds(70, 460, 310, 19);
-
-        btnotraubicacion2.setText("Otra ubicacion2");
-        btnotraubicacion2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnotraubicacion2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnotraubicacion2);
-        btnotraubicacion2.setBounds(130, 510, 130, 23);
 
         lbotraubicacion2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbotraubicacion2.setForeground(new java.awt.Color(255, 0, 0));
@@ -1146,6 +1067,13 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         lbotraubicacionnombre.setForeground(new java.awt.Color(255, 0, 0));
         jPanel1.add(lbotraubicacionnombre);
         lbotraubicacionnombre.setBounds(70, 440, 310, 19);
+
+        lblImagen.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblImagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImagen.setToolTipText("");
+        lblImagen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(lblImagen);
+        lblImagen.setBounds(0, 0, 870, 710);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel13.setText("Folio");
@@ -1186,12 +1114,6 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
 
         lbnumeroventa.setText("00000000");
 
-        lblImagen.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblImagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblImagen.setText("Sin Imagen");
-        lblImagen.setToolTipText("");
-        lblImagen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
         btninsertarponchados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btninsertarponchados.setText("Replicar Ponchados");
         btninsertarponchados.addActionListener(new java.awt.event.ActionListener() {
@@ -1199,16 +1121,6 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                 btninsertarponchadosActionPerformed(evt);
             }
         });
-
-        lbrutapechoizquierdo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        lbrutamangaderecha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        lbrutapechoderecho.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        lbrutamangaizquierda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        lbrutaespalda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbtipo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -1222,8 +1134,6 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                 btnimagenActionPerformed(evt);
             }
         });
-
-        lbrutaimagen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel22.setText("Sucursal a que Replica");
@@ -1275,48 +1185,69 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
         lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        btnmangaderecha.setText("Manga Derecha");
+        btnmangaderecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmangaderechaActionPerformed(evt);
+            }
+        });
+
+        btnmangaizquierda.setText("Manga izquierda");
+        btnmangaizquierda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmangaizquierdaActionPerformed(evt);
+            }
+        });
+
+        btnpechoderecho.setText("Pecho derecho");
+        btnpechoderecho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpechoderechoActionPerformed(evt);
+            }
+        });
+
+        btnpechoizquierdo.setText("Pecho Izquierdo");
+        btnpechoizquierdo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpechoizquierdoActionPerformed(evt);
+            }
+        });
+
+        btnespalda.setText("Espalda");
+        btnespalda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnespaldaActionPerformed(evt);
+            }
+        });
+
+        btnotraubicacion.setText("Otra ubicacion");
+        btnotraubicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnotraubicacionActionPerformed(evt);
+            }
+        });
+
+        btnotraubicacion2.setText("Otra ubicacion2");
+        btnotraubicacion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnotraubicacion2ActionPerformed(evt);
+            }
+        });
+
+        lbltallas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbltallasMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnimagen)
-                                    .addComponent(btneliminar))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btninsertarponchados)
-                                .addGap(60, 60, 60))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1330,33 +1261,63 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                         .addComponent(cbsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbrutaespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbrutaimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbrutamangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbnombreconcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(lbrutapechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbrutapechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbrutamangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbnumeroventa)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 872, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(btnimagen)
+                                                    .addComponent(btneliminar))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btninsertarponchados))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(btnpechoizquierdo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(btnpechoderecho, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(btnmangaizquierda, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                                .addComponent(btnmangaderecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(btnespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbnombreconcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbnumeroventa, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(lbltallas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -1383,50 +1344,52 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
                         .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lbtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(btnmangaderecha)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnmangaizquierda)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnpechoderecho)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnpechoizquierdo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnespalda)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnotraubicacion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnotraubicacion2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnimagen, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                             .addComponent(btnverfotomontaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btninsertarponchados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbltallas, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbnombreconcepto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbnumeroventa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbfolio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbrutapechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbrutamangaderecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbrutapechoderecho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(5, 5, 5)
-                            .addComponent(lbnumeroventa)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbrutaespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbrutaimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbrutamangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbnombreconcepto, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)))
-                .addContainerGap())
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        ordencamisaimagen p = new ordencamisaimagen();
-        jPanel1.add(p);
-        jPanel1.repaint();
+        
     }//GEN-LAST:event_formWindowActivated
 
     private void rbextrachicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbextrachicaActionPerformed
@@ -1499,13 +1462,48 @@ public class ordencamisaanteriores extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try {
+         
+     try {
             datos();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisaanteriores.class.getName()).log(Level.SEVERE, null, ex);
         }
+     
+     codigocliente();
+     
+     try {    
+            agregarfotomontaje();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisaanteriores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+        if(tienefotomontaje.equals("si"))
+        {
+          
+            lbmangaderechanombre.setVisible(false);
+            lbmangaderecha.setVisible(false);
+            
+            lbmangaizquierdanombre.setVisible(false);
+            lbmangaizquierda.setVisible(false);
+            
+            lbpechoderechonombre.setVisible(false);
+            lbpechoderecho.setVisible(false);
+            
+            lbpechoizquierdonombre.setVisible(false);
+            lbpechoizquierdo.setVisible(false);
+            
+            lbespaldanombre.setVisible(false);
+            lbespalda.setVisible(false);
+            
+            lbotraubicacionnombre.setVisible(false);
+            lbotraubicacion.setVisible(false);
+            
+            lbotraubicacion2nombre.setVisible(false);
+            lbotraubicacion2.setVisible(false);
         
         
+        }
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -1621,7 +1619,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             File archivoelegido = adjuntar.getSelectedFile();
             String fl = archivoelegido.toString();
 
-            lbrutamangaizquierda.setText(fl);
+            rutamangaizquierda=fl;
             btnmangaizquierda.setEnabled(false);
 
         }
@@ -1696,7 +1694,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             File archivoelegido = adjuntar.getSelectedFile();
             String fl = archivoelegido.toString();
 
-            lbrutapechoizquierdo.setText(fl);
+            rutapechoizquierdo =fl;
             btnpechoizquierdo.setEnabled(false);
 
         }
@@ -1770,7 +1768,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             File archivoelegido = adjuntar.getSelectedFile();
             String fl = archivoelegido.toString();
 
-            lbrutaespalda.setText(fl);
+            rutaespalda = fl ;
             btnespalda.setEnabled(false);
 
         }
@@ -1844,7 +1842,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             File archivoelegido = adjuntar.getSelectedFile();
             String fl = archivoelegido.toString();
 
-            lbrutapechoderecho.setText(fl);
+            rutapechoderecho = fl;
             btnpechoderecho.setEnabled(false);
 
         }
@@ -1928,8 +1926,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             archivoextension= archivoelegido.getName();
             String fl = archivoelegido.toString();
 
-            lbrutamangaderecha.setText(fl);
-            
+            rutamangaderecha= fl;
             btnmangaderecha.setEnabled(false);
 
         }
@@ -2026,13 +2023,13 @@ if(lugardondesebordara.equals("Esta sucursal"))
             conn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tienda_traspaso + "", "root", "sistemas");
 
             //primerponchado   
-            Object ponchado1 = lbrutamangaizquierda.getText();
+            Object ponchado1 = rutamangaizquierda;
             if (ponchado1 == null || ponchado1.equals("")) 
             {
 
             } else {
                 try {
-                    String filePath = lbrutamangaizquierda.getText();
+                    String filePath = rutamangaizquierda;
                     File archivo = new File(filePath);
                     nombrearchivo1 = archivo.getName();
                     input = new FileInputStream(new File(filePath));
@@ -2063,12 +2060,12 @@ if(lugardondesebordara.equals("Esta sucursal"))
             }
 
             ///ponchado2
-            Object ponchado2 = lbrutapechoizquierdo.getText();
+            Object ponchado2 = rutapechoizquierdo;
             if (ponchado2 == null || ponchado2.equals("") || ponchado2.equals(" ")) {
 
             } else {
                 try {
-                    String filePath2 = lbrutapechoizquierdo.getText();
+                    String filePath2 = rutapechoizquierdo;
                     File archivo2 = new File(filePath2);
                     nombrearchivo2 = archivo2.getName();
                     input2 = new FileInputStream(new File(filePath2));
@@ -2102,12 +2099,12 @@ if(lugardondesebordara.equals("Esta sucursal"))
             }
 
             ///ponchado3
-            Object ponchado3 = lbrutaespalda.getText();
+            Object ponchado3 = rutaespalda;
             if (ponchado3 == null || ponchado3.equals("") || ponchado3.equals(" ")) {
 
             } else {
                 try {
-                    String filePath3 = lbrutaespalda.getText();
+                    String filePath3 = rutaespalda;
                     File archivo3 = new File(filePath3);
                     nombrearchivo3 = archivo3.getName();
                     input3 = new FileInputStream(new File(filePath3));
@@ -2139,13 +2136,13 @@ if(lugardondesebordara.equals("Esta sucursal"))
             }
 
             //ponchado 4
-            Object ponchado4 = lbrutamangaderecha.getText();
+            Object ponchado4 = rutamangaderecha;
 
             if (ponchado4 == null || ponchado4.equals("") || ponchado4.equals(" ")) {
 
             } else {
                 try {
-                    String filePath4 = lbrutamangaderecha.getText();
+                    String filePath4 = rutamangaderecha;
                     File archivo4 = new File(filePath4);
                     nombrearchivo4 = archivo4.getName();
                     input4 = new FileInputStream(new File(filePath4));
@@ -2176,13 +2173,13 @@ if(lugardondesebordara.equals("Esta sucursal"))
             }
 
             //ponchado5
-            Object ponchado5 = lbrutapechoderecho.getText();
+            Object ponchado5 = rutapechoderecho;
 
             if (ponchado5 == null || ponchado5.equals("") || ponchado5.equals(" ")) {
 
             } else {
                 try {
-                    String filePath5 = lbrutapechoderecho.getText();
+                    String filePath5 = rutapechoderecho;
                     File archivo5 = new File(filePath5);
                     nombrearchivo5 = archivo5.getName();
                     input5 = new FileInputStream(new File(filePath5));
@@ -2213,13 +2210,13 @@ if(lugardondesebordara.equals("Esta sucursal"))
             }
 
            /// imagen jlabel
-            Object imagen = lbrutaimagen.getText();
+            Object imagen = rutaimagen;
 
             if (imagen == null || imagen.equals("") || imagen.equals(" ")) {
 
             } else {
                 try {
-                    String filePath6 = lbrutaimagen.getText();
+                    String filePath6 = rutaimagen;
                     File archivo6 = new File(filePath6);
                     nombrearchivo6 = archivo6.getName();
                     input6 = new FileInputStream(new File(filePath6));
@@ -2297,10 +2294,10 @@ if(lugardondesebordara.equals("Esta sucursal"))
             File archivoelegido = adjuntar.getSelectedFile();
             String fl = archivoelegido.toString();
 
-            lbrutaimagen.setText(fl);
+            rutaimagen=fl;
 
             try {
-                img = ImageIO.read(adjuntar.getSelectedFile()); //it must be an image file, otherwise you'll get an exception
+                img = ImageIO.read(adjuntar.getSelectedFile()); 
             } catch (IOException ex) {
                 Logger.getLogger(ordencamisaanteriores.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -2480,7 +2477,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             File archivoelegido = adjuntar.getSelectedFile();
             String fl = archivoelegido.toString();
 
-            lbrutaespalda.setText(fl);
+            rutaespalda = fl;
             btnotraubicacion.setEnabled(false);
 
         }
@@ -2552,13 +2549,24 @@ if(lugardondesebordara.equals("Esta sucursal"))
             File archivoelegido = adjuntar.getSelectedFile();
             String fl = archivoelegido.toString();
 
-            lbrutaespalda.setText(fl);
+            rutaespalda = fl;
             btnotraubicacion.setEnabled(false);
 
         }
         
         }
     }//GEN-LAST:event_btnotraubicacion2ActionPerformed
+
+    private void lbltallasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbltallasMouseClicked
+        if (evt.getClickCount() == 2) {
+
+            tallas ventana = new tallas();
+            ventana.setVisible(true);
+            ventana.setLocationRelativeTo(null);
+            this.setState(this.ICONIFIED);
+
+        }
+    }//GEN-LAST:event_lbltallasMouseClicked
 
 
 
@@ -2634,34 +2642,29 @@ if(lugardondesebordara.equals("Esta sucursal"))
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JLabel lbcantidad;
     public static javax.swing.JLabel lbcliente;
-    private javax.swing.JLabel lbespalda;
-    private javax.swing.JLabel lbespaldanombre;
+    public static javax.swing.JLabel lbespalda;
+    public static javax.swing.JLabel lbespaldanombre;
     public static javax.swing.JLabel lbfecha;
     public static javax.swing.JLabel lbfolio;
     public static javax.swing.JLabel lbidentificador;
     private javax.swing.JLabel lblImagen;
-    private javax.swing.JLabel lbmangaderecha;
-    private javax.swing.JLabel lbmangaderechanombre;
-    private javax.swing.JLabel lbmangaizquierda;
-    private javax.swing.JLabel lbmangaizquierdanombre;
+    private javax.swing.JLabel lbltallas;
+    public static javax.swing.JLabel lbmangaderecha;
+    public static javax.swing.JLabel lbmangaderechanombre;
+    public static javax.swing.JLabel lbmangaizquierda;
+    public static javax.swing.JLabel lbmangaizquierdanombre;
     private javax.swing.JLabel lbnombreconcepto;
     public static javax.swing.JLabel lbnumero;
     public static javax.swing.JLabel lbnumeroventa;
-    private javax.swing.JLabel lbotraubicacion;
-    private javax.swing.JLabel lbotraubicacion2;
-    private javax.swing.JLabel lbotraubicacion2nombre;
-    private javax.swing.JLabel lbotraubicacionnombre;
-    private javax.swing.JLabel lbpechoderecho;
-    private javax.swing.JLabel lbpechoderechonombre;
-    private javax.swing.JLabel lbpechoizquierdo;
-    private javax.swing.JLabel lbpechoizquierdonombre;
+    public static javax.swing.JLabel lbotraubicacion;
+    public static javax.swing.JLabel lbotraubicacion2;
+    public static javax.swing.JLabel lbotraubicacion2nombre;
+    public static javax.swing.JLabel lbotraubicacionnombre;
+    public static javax.swing.JLabel lbpechoderecho;
+    public static javax.swing.JLabel lbpechoderechonombre;
+    public static javax.swing.JLabel lbpechoizquierdo;
+    public static javax.swing.JLabel lbpechoizquierdonombre;
     public static javax.swing.JLabel lbprenda;
-    private javax.swing.JLabel lbrutaespalda;
-    private javax.swing.JLabel lbrutaimagen;
-    private javax.swing.JLabel lbrutamangaderecha;
-    private javax.swing.JLabel lbrutamangaizquierda;
-    private javax.swing.JLabel lbrutapechoderecho;
-    private javax.swing.JLabel lbrutapechoizquierdo;
     public static javax.swing.JLabel lbtipo;
     private javax.swing.JLabel lbtitulo;
     // End of variables declaration//GEN-END:variables

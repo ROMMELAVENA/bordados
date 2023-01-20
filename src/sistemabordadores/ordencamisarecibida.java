@@ -820,7 +820,7 @@ public class ordencamisarecibida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        ordencamisaimagen p = new ordencamisaimagen();
+        ordencamisaimagencontorno p = new ordencamisaimagencontorno();
         jPanel1.add(p);
         jPanel1.repaint();
     }//GEN-LAST:event_formWindowActivated

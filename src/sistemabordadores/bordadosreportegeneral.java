@@ -358,7 +358,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                   + "cantidad_espalda,espalda_nombre,espalda,"
                   + "cantidad_otra_ubicacion,otra_ubicacion,otra_ubicacion_nombre,"
                   + "cantidad_otra_ubicacion2,otra_ubicacion2,otra_ubicacion2_nombre,"
-                  + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2 from historial_ordenes_camisa where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
+                  + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2 from historial_ordenes_camisa where (estatus_orden = 'generada' or estatus_orden = 'realizada') and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -691,9 +691,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     }
 
-    ///  /////////////////////////////
-    ////////////////////////////////
-    ///////////////////////////////
+
     void calcularcostosdebordadospantalon() {
 
         double importeladoizquierdofrente = 0.0;
@@ -861,7 +859,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select numero,fecha,cliente,articulo,cantidad,numero_venta,cantidad_ponchado from historial_ordenes_ponchados where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select numero,fecha,cliente,articulo,cantidad,numero_venta,cantidad_ponchado from historial_ordenes_ponchados where estatus_orden = 'generada'  and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -2097,13 +2095,10 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         
         String añostring = lbaño.getText();
         int año = Integer.parseInt(añostring);
-
+        int ultimafila = 0;
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select fecha,cliente,cantidad_bordados,articulo,frente,frente_puntadas,numero_venta from historial_ordenes_corbata where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
-
-        int ultimafila = 0;
-
+        String sql = "Select fecha,cliente,cantidad_frente,articulo,frente,frente_puntadas,numero_venta from historial_ordenes_corbata where (estatus_orden = 'generada' or estatus_orden = 'realizada') and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
         ultimafila = tabla.getRowCount();
 
         try {
@@ -2114,7 +2109,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 String fecha = rs.getString("fecha");
                 String cliente = rs.getString("cliente");
-                String cantidad = rs.getString("cantidad_bordados");
+                String cantidad = rs.getString("cantidad_frente");
                 String prenda = rs.getString("articulo");
 
                 String frente = rs.getString("frente");
@@ -2516,7 +2511,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 + "cantidad_manga_derecha,manga_derecha_nombre,manga_derecha,"
                 + "cantidad_espalda,espalda_nombre,espalda,"
                 + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,"
-                + "otra_ubicacion,cantidad_otra_ubicacion,otra_ubicacion2,cantidad_otra_ubicacion2 from historial_ordenes_camisa where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
+                + "otra_ubicacion,cantidad_otra_ubicacion,otra_ubicacion2,cantidad_otra_ubicacion2 from historial_ordenes_camisa where (estatus_orden = 'generada' or estatus_orden = 'realizada')and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -2798,7 +2793,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         }
 
         ///////// CAMISAS RECIBIDAS
-        String sqlcamisasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho,manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha,espalda_nombre,espalda,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion from historial_ordenes_camisa_recibidas where estatus_orden = 'generada'  and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlcamisasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho,manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha,espalda_nombre,espalda,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion from historial_ordenes_camisa_recibidas where (estatus_orden = 'generada' or estatus_orden = 'realizada') and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -3044,7 +3039,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         
 //////////////////////        
 ////////////////////// GORRAS
-        String sqlgorras = "Select codigo,fecha,cliente,cantidad,prenda,puntadas_lado_izquierdo,puntadas_lado_derecho,puntadas_frente,puntadas_atras,aplicacion_frente from historial_ordenes_gorra where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlgorras = "Select codigo,fecha,cliente,cantidad,prenda,puntadas_lado_izquierdo,puntadas_lado_derecho,puntadas_frente,puntadas_atras,aplicacion_frente from historial_ordenes_gorra where (estatus_orden = 'generada' or estatus_orden = 'realizada')and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -3194,7 +3189,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         }
 
         ///////// GORRA recibidas
-        String sqlgorrasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,puntadas_lado_izquierdo,puntadas_lado_derecho,puntadas_frente,puntadas_atras,aplicacion_frente from historial_ordenes_gorra_recibidas where estatus_orden = 'generada' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlgorrasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,puntadas_lado_izquierdo,puntadas_lado_derecho,puntadas_frente,puntadas_atras,aplicacion_frente from historial_ordenes_gorra_recibidas where (estatus_orden = 'generada' or estatus_orden = 'realizada')and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -3487,7 +3482,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         /////////////////////////////
         ////////////////////////////
         /////////////////////////// PANTALON
-        String sqlpantalon = "Select codigo,fecha,cliente,cantidad,prenda,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas from historial_ordenes_pantalon where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlpantalon = "Select codigo,fecha,cliente,cantidad,prenda,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas from historial_ordenes_pantalon where (estatus_orden = 'generada' or estatus_orden = 'realizada')and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -3601,7 +3596,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         }
 
         ///////// PANTALON recibidas
-        String sqlpantalonrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas from historial_ordenes_pantalon_recibidas where estatus_orden = 'generada' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlpantalonrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas from historial_ordenes_pantalon_recibidas where (estatus_orden = 'generada' or estatus_orden = 'realizada')and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -3728,7 +3723,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         Double importedelparche = 0.00;
         Double sumatotaldelosbordadosparche = 0.00;
 
-        String sqlparches = "Select codigo,fecha,cliente,cantidad,parche,puntadas from historial_ordenes_parche where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlparches = "Select codigo,fecha,cliente,cantidad,parche,puntadas from historial_ordenes_parche where (estatus_orden = 'generada' or estatus_orden = 'realizada')and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -3783,7 +3778,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         Double importedelparcherecibido = 0.00;
         Double sumatotaldelosbordadosparcherecibidos = 0.00;
 
-        String sqlparchesrecibidos = "Select codigo,fecha,cliente,cantidad,parche from historial_ordenes_parche_recibidos where estatus_orden = 'generada' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlparchesrecibidos = "Select codigo,fecha,cliente,cantidad,parche from historial_ordenes_parche_recibidos where (estatus_orden = 'generada' or estatus_orden = 'realizada')and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -3831,7 +3826,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         }
 
         ///// corbata
-        String sqlcorbatas = "Select codigo,fecha,cliente,cantidad_bordados,prenda,frente_puntadas from historial_ordenes_corbata where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlcorbatas = "Select codigo,fecha,cliente,cantidad_bordados,prenda,frente_puntadas from historial_ordenes_corbata where (estatus_orden = 'generada' or estatus_orden = 'realizada')and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -4002,7 +3997,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double costoponchados = 0;
         double importeponchado = 0;
 
-        String sqlponchados = "Select numero,fecha,cliente,articulo,cantidad  from historial_ordenes_ponchados where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sqlponchados = "Select numero,fecha,cliente,articulo,cantidad  from historial_ordenes_ponchados where (estatus_orden = 'generada' or estatus_orden = 'realizada')and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -4954,9 +4949,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         mesfinal = -1;
         ventanareportedebordadosgeneral = false;
-
         actualizarlasuma();
-
         this.dispose();
 
 

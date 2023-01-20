@@ -32,7 +32,7 @@ String fechafinal = "";
         initComponents();
         
         jScrollPane2.setVisible(false);
-        lbsumapuntos.setVisible(false);
+        //lbsumapuntos.setVisible(false);
         
         this.setLocationRelativeTo(null);
         
@@ -2340,7 +2340,7 @@ String fechafinal = "";
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lbsumapuntos;
+    public static javax.swing.JLabel lbsumapuntos;
     private javax.swing.JTable tablafecha;
     // End of variables declaration//GEN-END:variables
 

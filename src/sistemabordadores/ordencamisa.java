@@ -481,7 +481,6 @@ public class ordencamisa extends javax.swing.JFrame {
         String prendasql ="";
         String prendanombresql="";
         btnverfotomontaje.setEnabled(false);
-        btnimagen.setEnabled(true);
 
        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_prenda= '"+nombreconcepto+"' and tipo = '"+prenda+"'   ";  ///
 
@@ -520,7 +519,6 @@ public class ordencamisa extends javax.swing.JFrame {
                     imagen.setImagen(img);
                     lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
                     btnverfotomontaje.setEnabled(true);
-                    btnimagen.setEnabled(false);
                     tienefotomontaje = "si";
                     
                     
@@ -1477,7 +1475,6 @@ public class ordencamisa extends javax.swing.JFrame {
         btninsertarponchados = new javax.swing.JButton();
         lbtipo = new javax.swing.JLabel();
         lbnumero = new javax.swing.JLabel();
-        btnimagen = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         btneliminar = new javax.swing.JButton();
         cbsucursal = new javax.swing.JComboBox<>();
@@ -1640,7 +1637,7 @@ public class ordencamisa extends javax.swing.JFrame {
         lbnumeroventa.setText("00000000");
 
         btninsertarponchados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btninsertarponchados.setText("Replicar Ponchados");
+        btninsertarponchados.setText("Replicar Fotomontajes y Ponchados");
         btninsertarponchados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btninsertarponchadosActionPerformed(evt);
@@ -1651,14 +1648,6 @@ public class ordencamisa extends javax.swing.JFrame {
 
         lbnumero.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbnumero.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        btnimagen.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnimagen.setText("Agregar fotomontaje");
-        btnimagen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnimagenActionPerformed(evt);
-            }
-        });
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel22.setText("Sucursal a que Replica");
@@ -1853,7 +1842,7 @@ public class ordencamisa extends javax.swing.JFrame {
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 135, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbtitulo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1862,9 +1851,7 @@ public class ordencamisa extends javax.swing.JFrame {
                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                                .addComponent(btnimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btninsertarponchados)
@@ -1892,7 +1879,6 @@ public class ordencamisa extends javax.swing.JFrame {
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lbtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btninsertarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2850,31 +2836,6 @@ if(lugardondesebordara.equals("Esta sucursal"))
         ventanaordencamisaanteriores = false;
     }//GEN-LAST:event_formWindowClosed
 
-    private void btnimagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnimagenActionPerformed
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
-
-        int respuesta = adjuntar.showOpenDialog(this);
-        if (respuesta == JFileChooser.APPROVE_OPTION) {
-
-            BufferedImage img = null;
-
-            File archivoelegido = adjuntar.getSelectedFile();
-            String fl = archivoelegido.toString();
-
-            rutaimagen=fl;
-
-            try {
-                img = ImageIO.read(adjuntar.getSelectedFile()); 
-            } catch (IOException ex) {
-                Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            JLabel label = new JLabel();
-            lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
-            repaint();
-
-        }
-    }//GEN-LAST:event_btnimagenActionPerformed
-
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
 
         String numero = lbfolio.getText();
@@ -3207,7 +3168,6 @@ if(lugardondesebordara.equals("Esta sucursal"))
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnespalda;
-    private javax.swing.JButton btnimagen;
     private javax.swing.JButton btninsertarponchados;
     private javax.swing.JButton btnmangaderecha;
     private javax.swing.JButton btnmangaizquierda;

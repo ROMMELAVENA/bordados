@@ -1201,7 +1201,7 @@ public class ordencamisa extends javax.swing.JFrame {
             try {
                 PreparedStatement prst = cn.prepareStatement(sql1a);
                 ResultSet rs2 = prst.executeQuery();
-                if (rs3.next()) {
+                if (rs2.next()) {
 
                     costoaplicacionesgrandesstring = rs2.getString("costo");
                     costopuntadasaplicacionesgrandes = Double.parseDouble(costoaplicacionesgrandesstring);

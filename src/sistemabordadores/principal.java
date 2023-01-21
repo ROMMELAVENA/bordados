@@ -2019,6 +2019,8 @@ String fechafinal = "";
      if(ordenesbordadoporrealizar.ventanaordenesbordadogenerada == true)
     {
      
+        
+       JOptionPane.showMessageDialog(null, "LA ventana de bordados por realizar ya está abierta");
         ordenesbordadoporrealizar.btnfrente.doClick();
         
     }
@@ -2034,6 +2036,8 @@ String fechafinal = "";
        if(ordenesbordadorecibida.ventanaordenbordadorecibida == true)
     {
      
+        
+        JOptionPane.showMessageDialog(null, "LA ventana de bordados de ordenes de envio ya está abierta");
         ordenesbordadorecibida.btnfrente.doClick();
         
     }
@@ -2051,7 +2055,7 @@ String fechafinal = "";
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if (bordadosreportegeneral.ventanareportedebordadosgeneral== true) {
 
-            JOptionPane.showMessageDialog(null, "Ya hay una ventana de historial de bordador abierta");
+            JOptionPane.showMessageDialog(null, "LA ventana de historial de bordador ya está abierta");
         }
         else
         {
@@ -2269,6 +2273,9 @@ String fechafinal = "";
     private void btnordenesbordadosucursalrealizadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnordenesbordadosucursalrealizadasActionPerformed
         if(ordenesbordadorealizadas.ventanaordenesbordadogenerada == true)
     {
+        
+        
+         JOptionPane.showMessageDialog(null, "LA ventana de bordados realizados ya está abierta");
      
         ordenesbordadorealizadas.btnfrente.doClick();
         

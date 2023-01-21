@@ -1240,6 +1240,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
         String cantidad = "0";
         int tienecantidad = 0;
+        botonesactivados = 0;
         
          String sql = "Select cantidad,cantidad_pecho_izquierdo,pecho_izquierdo,"
                   + "cantidad_pecho_derecho,pecho_derecho,"

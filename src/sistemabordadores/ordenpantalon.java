@@ -1201,7 +1201,7 @@ public static String dia() {
                     nombrearchivo1 = archivo.getName();
                     input = new FileInputStream(new File(filePath));
                 } catch (FileNotFoundException ex) {
-                    Logger.getLogger(ordenbordadosolicitarotrasucursal.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 try {
@@ -1239,7 +1239,7 @@ public static String dia() {
                     nombrearchivo2 = archivo2.getName();
                     input2 = new FileInputStream(new File(filePath2));
                 } catch (FileNotFoundException ex) {
-                    Logger.getLogger(ordenbordadosolicitarotrasucursal.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 try {
@@ -1277,7 +1277,7 @@ public static String dia() {
                     nombrearchivo3 = archivo3.getName();
                     input3 = new FileInputStream(new File(filePath3));
                 } catch (FileNotFoundException ex) {
-                    Logger.getLogger(ordenbordadosolicitarotrasucursal.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 try {
@@ -1316,7 +1316,7 @@ public static String dia() {
                     nombrearchivo4 = archivo4.getName();
                     input4 = new FileInputStream(new File(filePath4));
                 } catch (FileNotFoundException ex) {
-                    Logger.getLogger(ordenbordadosolicitarotrasucursal.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 try {
@@ -1359,7 +1359,7 @@ public static String dia() {
                     nombrearchivo6 = archivo6.getName();
                     input6 = new FileInputStream(new File(filePath6));
                 } catch (FileNotFoundException ex) {
-                    Logger.getLogger(ordenbordadosolicitarotrasucursal.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 try {
@@ -1408,7 +1408,7 @@ public static String dia() {
                 System.out.println(e);
             }
 
-            ordenesbordadoporrealizar.btnactualizar.doClick();
+            ordenesporrealizar.btnactualizar.doClick();
 
         }
 

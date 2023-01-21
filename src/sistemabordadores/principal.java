@@ -2016,17 +2016,17 @@ String fechafinal = "";
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnordenesbordadosucursalporrealizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnordenesbordadosucursalporrealizarActionPerformed
-     if(ordenesbordadoporrealizar.ventanaordenesbordadogenerada == true)
+     if(ordenesporrealizar.ventanaordenesbordadogenerada == true)
     {
      
         
        JOptionPane.showMessageDialog(null, "LA ventana de bordados por realizar ya está abierta");
-        ordenesbordadoporrealizar.btnfrente.doClick();
+        ordenesporrealizar.btnfrente.doClick();
         
     }
     else    
     {    
-    ordenesbordadoporrealizar  ventana = new ordenesbordadoporrealizar();
+    ordenesporrealizar  ventana = new ordenesporrealizar();
     ventana.setVisible(true);
     ventana.setLocationRelativeTo(null);
     }
@@ -2271,18 +2271,18 @@ String fechafinal = "";
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnordenesbordadosucursalrealizadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnordenesbordadosucursalrealizadasActionPerformed
-        if(ordenesbordadorealizadas.ventanaordenesbordadogenerada == true)
+        if(ordenesrealizadas.ventanaordenesbordadogenerada == true)
     {
         
         
          JOptionPane.showMessageDialog(null, "LA ventana de bordados realizados ya está abierta");
      
-        ordenesbordadorealizadas.btnfrente.doClick();
+        ordenesrealizadas.btnfrente.doClick();
         
     }
     else    
     {    
-    ordenesbordadorealizadas  ventana = new ordenesbordadorealizadas();
+    ordenesrealizadas  ventana = new ordenesrealizadas();
     ventana.setVisible(true);
     ventana.setLocationRelativeTo(null);
     }

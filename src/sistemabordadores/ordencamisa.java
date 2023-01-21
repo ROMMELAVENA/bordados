@@ -2600,7 +2600,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
                     nombrearchivo1 = archivo.getName();
                     input = new FileInputStream(new File(filePath));
                 } catch (FileNotFoundException ex) {
-                    Logger.getLogger(ordenbordadosolicitarotrasucursal.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 try {
@@ -2831,7 +2831,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
                 JOptionPane.showMessageDialog(null, e);
             }
 
-            ordenesbordadoporrealizar.btnactualizar.doClick();
+            ordenesporrealizar.btnactualizar.doClick();
 
         }
         else
@@ -2886,7 +2886,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
                 System.out.println(e);
             }
 
-            ordenesbordadoporrealizar.btnactualizar.doClick();
+            ordenesporrealizar.btnactualizar.doClick();
             this.dispose();
 
     }//GEN-LAST:event_btneliminarActionPerformed

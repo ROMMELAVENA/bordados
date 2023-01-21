@@ -1068,7 +1068,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 ResultSet rs2 = prst.executeQuery();
                 if (rs2.next()) {
 
-                    costostring = rs.getString("costo");
+                    costostring = rs2.getString("costo");
                     costopuntadaespalda = Double.parseDouble(costostring);
 
                 }
@@ -1090,7 +1090,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 ResultSet rs2 = prst.executeQuery();
                 if (rs2.next()) {
 
-                    costostring = rs.getString("costo");
+                    costostring = rs2.getString("costo");
                     costopuntadaotraubicacion = Double.parseDouble(costostring);
 
                 }
@@ -1200,10 +1200,10 @@ public class ordencamisa extends javax.swing.JFrame {
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql1a);
-                ResultSet rs3 = prst.executeQuery();
+                ResultSet rs2 = prst.executeQuery();
                 if (rs3.next()) {
 
-                    costoaplicacionesgrandesstring = rs3.getString("costo");
+                    costoaplicacionesgrandesstring = rs2.getString("costo");
                     costopuntadasaplicacionesgrandes = Double.parseDouble(costoaplicacionesgrandesstring);
 
                 }

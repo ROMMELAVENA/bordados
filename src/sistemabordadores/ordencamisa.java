@@ -2191,8 +2191,8 @@ if(lugardondesebordara.equals("Esta sucursal"))
         {
             
            String ubicacion = "cantidad_pecho_izquierdo";
-           String nombrebordado =mangaderechanombre;
-           String cantidadaplicacion = aplicacionmangaderecha;
+           String nombrebordado =pechoizquierdonombre;
+           String cantidadaplicacion = aplicacionpechoizquierdo;
            String cantidad = lbcantidad.getText();
            actualizarlascantidadesbordadas((String) ubicacion);  
            

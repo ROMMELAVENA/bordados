@@ -1,16 +1,8 @@
 package sistemabordadores;
 
 import java.awt.Desktop;
-import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import static java.awt.print.Printable.NO_SUCH_PAGE;
-import static java.awt.print.Printable.PAGE_EXISTS;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,8 +10,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,48 +18,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
-import net.sf.jasperreports.engine.JREmptyDataSource;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JRExporter;
-import net.sf.jasperreports.engine.JRExporterParameter;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.print.Doc;
-import javax.print.DocFlavor;
-import javax.print.DocPrintJob;
-import javax.print.PrintService;
-import javax.print.PrintServiceLookup;
-import javax.print.SimpleDoc;
-import javax.print.attribute.AttributeSet;
-import javax.print.attribute.HashAttributeSet;
-import javax.print.attribute.HashPrintRequestAttributeSet;
-import javax.print.attribute.PrintRequestAttributeSet;
-import javax.print.attribute.standard.ColorSupported;
-import javax.print.attribute.standard.PrinterName;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import static ordenesdebordado.ordencamisaanteriores.lbnumero;
 
 public class ordengorra extends javax.swing.JFrame {
 
@@ -269,7 +227,7 @@ public class ordengorra extends javax.swing.JFrame {
         }
         
         datostienda();
-        agregarfotomontaje();
+        
 
     }
 
@@ -371,17 +329,7 @@ public class ordengorra extends javax.swing.JFrame {
                     prendasql = "gorra";
                     prendanombresql = "gorraextension";
                 }
-                else if(prenda.equals("Gorra2"))
-                {
-                    prendasql = "gorra2";
-                    prendanombresql = "gorra2extension";
-                }
-                else if(prenda.equals("Gorra3"))
-                {
-                    prendasql = "gorra3";
-                    prendanombresql = "gorra3extension";
-                }
-               
+                               
                 
           
         String sqlcodigo = "Select codigo_cliente from historial_ventas where numero = '" + numeroventa + "'  ";
@@ -1219,6 +1167,15 @@ public class ordengorra extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+        try {
+            agregarfotomontaje();
+        } catch (IOException ex) {
+            Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void btnladoderechoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechoActionPerformed

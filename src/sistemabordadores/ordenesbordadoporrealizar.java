@@ -638,6 +638,25 @@ public class ordenesbordadoporrealizar extends javax.swing.JFrame {
                  
                    
                 }
+                else if (tipo.equals("Porta nombre escolar")) 
+                {
+                   
+                        
+                        if (ordenportanombremultiple.ventanaordenportanombremultipleanterior == true) {
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de portanombre");
+
+                    } else {
+                            ordenportanombreescolar orden = new ordenportanombreescolar();
+                            orden.setVisible(true);
+                            ordenportanombreescolar.lbnumero.setText(tablacamisa.getValueAt(fila, 0).toString());
+                            tablacamisa.clearSelection();
+                            this.setState(this.ICONIFIED);
+                        
+                    }
+                        
+                 
+                   
+                }
                 
                 
                 

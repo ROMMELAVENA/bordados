@@ -120,16 +120,12 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
        
-
-        String[] datos = new String[10];
-        String[] datos2 = new String[10];
-        String[] datos3 = new String[10];
-        String[] datos4 = new String[10];
-        String[] datos5 = new String[10];
-        String[] datos6 = new String[10];
-        String[] datos7 = new String[10];
-
+        
+        
         //// historial_orden_camisa
+        
+        String[] datos = new String[10];
+        
         
         String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  "
                          + "FROM historial_ordenes_camisa where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') "
@@ -160,6 +156,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         //// historial_orden_gorra
         
+        String[] datos2 = new String[10];
+        
         String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
@@ -185,6 +183,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         }
         
         //// historial_orden_pantalon
+        
+        
+        String[] datos3 = new String[10];
         
          String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
@@ -214,6 +215,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         //// historial_orden_parches
         
+        String[] datos4 = new String[10];
+        
         String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
@@ -240,6 +243,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         }
         
          //// historial_orden_ponchado
+         
+         
+         String[] datos5 = new String[10];
         
         String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
@@ -268,6 +274,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         /// historial ordenes corbata
         
+         String[] datos6 = new String[10];
+        
         String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
@@ -295,6 +303,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         /// historial orden portanombres
         
+        String[] datos7 = new String[10];
+        
         String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres where (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
@@ -304,15 +314,15 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             {
                 String numeroventa = rs.getString("numero_venta");
                 nombredelcliente((String) numeroventa);
-                datos6[0] = rs.getString("numero");
-                datos6[1] = nombrecliente;
-                datos6[2] = "Porta nombre";
-                datos6[3] = rs.getString("tipo");
-                datos6[4] = "Esta sucursal";
-                datos6[5] = rs.getString("numero_venta");
-                datos6[6] = rs.getString("fecha");
+                datos7[0] = rs.getString("numero");
+                datos7[1] = nombrecliente;
+                datos7[2] = "Porta nombre";
+                datos7[3] = rs.getString("tipo");
+                datos7[4] = "Esta sucursal";
+                datos7[5] = rs.getString("numero_venta");
+                datos7[6] = rs.getString("fecha");
 
-                modelo.addRow(datos6);
+                modelo.addRow(datos7);
 
             }
 
@@ -325,6 +335,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
 
         /// historial´ portanombre multiple
+        
+        String[] datos8 = new String[10];
 
          String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres_multiple where (estatus_orden = 'generada' or estatus_orden = 'solicitada' ) and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
@@ -335,13 +347,13 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             {
                 String numeroventa = rs.getString("numero_venta");
                 nombredelcliente((String) numeroventa);
-                datos6[0] = rs.getString("numero");
-                datos6[1] = nombrecliente;
-                datos6[2] = "Porta nombre multiple";
-                datos6[3] = rs.getString("tipo");
-                datos6[4] = "Esta sucursal";
-                datos6[5] = rs.getString("numero_venta");
-                datos6[6] = rs.getString("fecha");
+                datos8[0] = rs.getString("numero");
+                datos8[1] = nombrecliente;
+                datos8[2] = "Porta nombre multiple";
+                datos8[3] = rs.getString("tipo");
+                datos8[4] = "Esta sucursal";
+                datos8[5] = rs.getString("numero_venta");
+                datos8[6] = rs.getString("fecha");
 
                 modelo.addRow(datos6);
 
@@ -353,8 +365,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         {
            JOptionPane.showMessageDialog(null,"sql orden portanombremultiple" + ex);
         }        
-        
-        
+     
         
         
         
@@ -366,62 +377,61 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         //CAMISA
         
-          DefaultTableModel modelocamisas = (DefaultTableModel) tabla.getModel();
+        
+        String[] datos9 = new String[10];
 
-        String[] datos = new String[10];
-
-        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda  FROM historial_ordenes_camisa_recibidas where estatus = 'por guardar' ";
+        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda  FROM historial_ordenes_camisa_recibidas where estatus = 'por guardar' ";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql3);
             while (rs.next()) {
-                datos[0] = rs.getString("numero");
-                datos[1] = rs.getString("numero_sucursal");
-                datos[2] = rs.getString("cliente");
-                datos[3] = rs.getString("prenda");
-                datos[4] = rs.getString("tipo");
-                datos[5] = rs.getString("tienda");
+                datos9[0] = rs.getString("numero");
+                datos9[1] = rs.getString("cliente");
+                datos9[2] = rs.getString("prenda");
+                datos9[3] = rs.getString("tipo");
+                datos9[4] = "lugar??";
+                datos9[5] = "venta??";
+                datos9[6] = "fecha??";
+                datos9[7] = rs.getString("tienda");
+                datos9[8] = rs.getString("numero_sucursal");
 
-                modelocamisas.addRow(datos);
+                modelo.addRow(datos9);
 
             }
 
-            tabla.setModel(modelocamisas);
+            tabla.setModel(modelo);
 
         } catch (SQLException ex) {
             System.out.println(ex);
         }
         
-        tieneponchados();
+      //  tieneponchados();
         
         
         
         // GORRA
         
-        
-         DefaultTableModel modelogorras = (DefaultTableModel) tabla1.getModel();
+        String[] datos10 = new String[10];
 
-        String[] datos = new String[10];
-
-        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda  FROM historial_ordenes_gorra_recibidas  where estatus = 'por guardar' order by numero  ";
+        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda  FROM historial_ordenes_gorra_recibidas  where estatus = 'por guardar' order by numero  ";
 
         try {
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql3);
+            ResultSet rs = st.executeQuery(sql4);
             while (rs.next()) {
-                datos[0] = rs.getString("numero");
-                datos[1] = rs.getString("numero_sucursal");
-                datos[2] = rs.getString("cliente");
-                datos[3] = rs.getString("prenda");
-                datos[4] = rs.getString("tipo");
-                datos[5] = rs.getString("tienda");
+                datos10[0] = rs.getString("numero");
+                datos10[1] = rs.getString("numero_sucursal");
+                datos10[2] = rs.getString("cliente");
+                datos10[3] = rs.getString("prenda");
+                datos10[4] = rs.getString("tipo");
+                datos10[5] = rs.getString("tienda");
 
-                modelogorras.addRow(datos);
+                modelo.addRow(datos);
 
             }
 
-            tabla1.setModel(modelogorras);
+            tabla.setModel(modelo);
 
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -434,40 +444,32 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         /// PANTALON
         
-        
-        
-        DefaultTableModel modelopantalon = (DefaultTableModel) tabla2.getModel();
+        String[] datos11 = new String[10];
 
-        String[] datos = new String[10];
-
-        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda  FROM historial_ordenes_pantalon_recibidas  where estatus = 'por guardar' order by numero  ";
+        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda  FROM historial_ordenes_pantalon_recibidas  where estatus = 'por guardar' order by numero  ";
 
         try {
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql3);
+            ResultSet rs = st.executeQuery(sql15);
             while (rs.next()) {
-                datos[0] = rs.getString("numero");
-                datos[1] = rs.getString("numero_sucursal");
-                datos[2] = rs.getString("cliente");
-                datos[3] = rs.getString("prenda");
-                datos[4] = rs.getString("tipo");
-                datos[5] = rs.getString("tienda");
+                datos11[0] = rs.getString("numero");
+                datos11[1] = rs.getString("numero_sucursal");
+                datos11[2] = rs.getString("cliente");
+                datos11[3] = rs.getString("prenda");
+                datos11[4] = rs.getString("tipo");
+                datos11[5] = rs.getString("tienda");
 
-                modelopantalon.addRow(datos);
+                modelo.addRow(datos11);
 
             }
 
-            
+            tabla.setModel(modelo);
 
         } catch (SQLException ex) {
             System.out.println(ex);
         }
         
         tieneponchados();
-        
-        
-        
-        
         
         
         
@@ -481,6 +483,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
     }
+    
+    
+    
+    
+    
     
      void nombredelcliente(String numeroventa)
     {
@@ -607,13 +614,13 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         }
         
-         for(int i =0; i < tabla1.getRowCount();i++)
+         for(int i =0; i < tabla.getRowCount();i++)
             
         {   
             
             
-            Object tipogorra =  tabla1.getValueAt(i, 3);
-            Object numerogorra =  tabla1.getValueAt(i, 0);
+            Object tipogorra =  tabla.getValueAt(i, 3);
+            Object numerogorra =  tabla.getValueAt(i, 0);
          
            //// sql gorra 
             
@@ -674,11 +681,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             
             if(tieneponchadosgorra.equals("si"))
             {
-                tabla1.setValueAt("si", i,6);
+                tabla.setValueAt("si", i,6);
             }
             else
             {
-                tabla1.setValueAt("no", i,6);
+                tabla.setValueAt("no", i,6);
             }    
 
            
@@ -763,11 +770,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "numeroventa", "fecha"
+                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -785,12 +792,6 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(1).setMinWidth(100);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(600);
             tabla.getColumnModel().getColumn(1).setMaxWidth(800);
-            tabla.getColumnModel().getColumn(4).setMinWidth(0);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(4).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(5).setMinWidth(0);
-            tabla.getColumnModel().getColumn(5).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(5).setMaxWidth(0);
         }
 
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

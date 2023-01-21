@@ -112,8 +112,13 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     
 
     void datos() {
+        
+        
+        
+        
+        limpiartabla();
 
-        DefaultTableModel modelo = (DefaultTableModel) tablacamisa.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
        
 
         String[] datos = new String[10];
@@ -128,7 +133,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  "
                          + "FROM historial_ordenes_camisa where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') "
-                         + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'por solicitar') and fecha between '"+fechainicial+"' and '"+fechafinal+"'  ";
+                         + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"'  ";
 
         try {
             Statement st = cn.createStatement();
@@ -155,7 +160,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         //// historial_orden_gorra
         
-        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'por solicitar' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -181,7 +186,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         //// historial_orden_pantalon
         
-         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -209,7 +214,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         //// historial_orden_parches
         
-        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -236,7 +241,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
          //// historial_orden_ponchado
         
-        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -263,7 +268,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         /// historial ordenes corbata
         
-        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -290,7 +295,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         /// historial orden portanombres
         
-        String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres where estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres where (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -321,7 +326,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         /// historial´ portanombre multiple
 
-         String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres_multiple where estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+         String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres_multiple where (estatus_orden = 'generada' or estatus_orden = 'solicitada' ) and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -349,8 +354,127 @@ public class ordenesporrealizar extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"sql orden portanombremultiple" + ex);
         }        
         
-        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tablacamisa.getModel());
-        tablacamisa.setRowSorter(sorter);
+        
+        
+        
+        
+        // ORDENES DE OTRAS SUCURSALES
+        //////////////////////////////
+        /////////////////////////////
+        
+        
+        
+        //CAMISA
+        
+          DefaultTableModel modelocamisas = (DefaultTableModel) tabla.getModel();
+
+        String[] datos = new String[10];
+
+        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda  FROM historial_ordenes_camisa_recibidas where estatus = 'por guardar' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql3);
+            while (rs.next()) {
+                datos[0] = rs.getString("numero");
+                datos[1] = rs.getString("numero_sucursal");
+                datos[2] = rs.getString("cliente");
+                datos[3] = rs.getString("prenda");
+                datos[4] = rs.getString("tipo");
+                datos[5] = rs.getString("tienda");
+
+                modelocamisas.addRow(datos);
+
+            }
+
+            tabla.setModel(modelocamisas);
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+        tieneponchados();
+        
+        
+        
+        // GORRA
+        
+        
+         DefaultTableModel modelogorras = (DefaultTableModel) tabla1.getModel();
+
+        String[] datos = new String[10];
+
+        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda  FROM historial_ordenes_gorra_recibidas  where estatus = 'por guardar' order by numero  ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql3);
+            while (rs.next()) {
+                datos[0] = rs.getString("numero");
+                datos[1] = rs.getString("numero_sucursal");
+                datos[2] = rs.getString("cliente");
+                datos[3] = rs.getString("prenda");
+                datos[4] = rs.getString("tipo");
+                datos[5] = rs.getString("tienda");
+
+                modelogorras.addRow(datos);
+
+            }
+
+            tabla1.setModel(modelogorras);
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+        tieneponchados();
+
+        
+        
+        
+        /// PANTALON
+        
+        
+        
+        DefaultTableModel modelopantalon = (DefaultTableModel) tabla2.getModel();
+
+        String[] datos = new String[10];
+
+        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda  FROM historial_ordenes_pantalon_recibidas  where estatus = 'por guardar' order by numero  ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql3);
+            while (rs.next()) {
+                datos[0] = rs.getString("numero");
+                datos[1] = rs.getString("numero_sucursal");
+                datos[2] = rs.getString("cliente");
+                datos[3] = rs.getString("prenda");
+                datos[4] = rs.getString("tipo");
+                datos[5] = rs.getString("tienda");
+
+                modelopantalon.addRow(datos);
+
+            }
+
+            
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+        tieneponchados();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tabla.getModel());
+        tabla.setRowSorter(sorter);
         List<RowSorter.SortKey> sortKeys = new ArrayList<>(100);
         sortKeys.add(new RowSorter.SortKey(5, SortOrder.DESCENDING));
         sorter.setSortKeys(sortKeys);
@@ -379,12 +503,225 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                     }
                 
     }
+     
+     
+     
+     
+     
+     
+     
+     
+    
+    
+    void tieneponchados() {
+
+   String tieneponchadoscamisa ="";
+   String tieneponchadosgorra ="";
+        
+        for(int i =0; i < tabla.getRowCount();i++)
+            
+        {   
+            
+            Object tipocamisa =  tabla.getValueAt(i, 3);
+            Object numerocamisa =  tabla.getValueAt(i, 0);
+
+            
+          
+            String sqlcamisas  = "SELECT manga_izquierda_ponchado, manga_derecha_ponchado,pecho_izquierdo_ponchado,pecho_derecho_ponchado,espalda_ponchado  FROM historial_ordenes_camisa_recibidas where numero =  '"+numerocamisa+"'  ";
+            
+              
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlcamisas);
+            while (rs.next()) {
+               
+                  tieneponchadoscamisa ="";
+                 String boton1 = rs.getString("manga_izquierda_ponchado");
+              if (boton1==null||boton1.equals(""))
+              {
+              
+              }
+              else
+              {
+                  tieneponchadoscamisa ="si";
+              }    
+              
+              String boton2 = rs.getString("manga_derecha_ponchado");
+              if (boton2==null||boton2.equals(""))
+              {
+             
+              }
+              else
+              {
+                  tieneponchadoscamisa ="si";
+              } 
+              
+              
+              String boton3 = rs.getString("pecho_izquierdo_ponchado");
+              if (boton3==null||boton3.equals(""))
+              {
+              
+              }
+              else
+              {
+                  tieneponchadoscamisa ="si";
+              } 
+              
+              String boton4 = rs.getString("pecho_derecho_ponchado");
+              if (boton4==null||boton4.equals(""))
+              {
+              
+              }
+              else
+              {
+                  tieneponchadoscamisa ="si";
+              } 
+              
+              String boton5 = rs.getString("espalda_ponchado");
+              if (boton5==null||boton5.equals(""))
+              {
+            
+              }
+              else
+              {
+                  tieneponchadoscamisa ="si";
+              } 
+
+            }
+            
+            
+            if(tieneponchadoscamisa.equals("si"))
+            {
+                tabla.setValueAt("si", i,6);
+            }
+            else
+            {
+                tabla.setValueAt("no", i,6);
+            }    
+
+           
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        }
+        
+         for(int i =0; i < tabla1.getRowCount();i++)
+            
+        {   
+            
+            
+            Object tipogorra =  tabla1.getValueAt(i, 3);
+            Object numerogorra =  tabla1.getValueAt(i, 0);
+         
+           //// sql gorra 
+            
+          String  sqlgorra  = "SELECT frente_ponchado, lado_izquierdo_ponchado,lado_derecho_ponchado,atras_ponchado  FROM historial_ordenes_gorra_recibidas where numero =  '"+numerogorra+"'  ";
+            
+              
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlgorra);
+            while (rs.next()) {
+               
+                  tieneponchadosgorra ="";
+                 String boton1 = rs.getString("frente_ponchado");
+              if (boton1==null||boton1.equals(""))
+              {
+              
+              }
+              else
+              {
+                  tieneponchadosgorra ="si";
+              }    
+              
+              String boton2 = rs.getString("lado_izquierdo_ponchado");
+              if (boton2==null||boton2.equals(""))
+              {
+             
+              }
+              else
+              {
+                  tieneponchadosgorra ="si";
+              } 
+              
+              
+              String boton3 = rs.getString("lado_derecho_ponchado");
+              if (boton3==null||boton3.equals(""))
+              {
+              
+              }
+              else
+              {
+                  tieneponchadosgorra ="si";
+              } 
+              
+              String boton4 = rs.getString("atras_ponchado");
+              if (boton4==null||boton4.equals(""))
+              {
+              
+              }
+              else
+              {
+                  tieneponchadosgorra ="si";
+              } 
+              
+              
+
+            }
+            
+            
+            if(tieneponchadosgorra.equals("si"))
+            {
+                tabla1.setValueAt("si", i,6);
+            }
+            else
+            {
+                tabla1.setValueAt("no", i,6);
+            }    
+
+           
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+               
+        }     
+        
+
+        
+       
+
+    }
+    
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
     
     
     void limpiartabla() {
         try {
-            DefaultTableModel modelo = (DefaultTableModel) tablacamisa.getModel();
-            int filas = tablacamisa.getRowCount();
+            DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+            int filas = tabla.getRowCount();
             for (int i = 0; filas > i; i++) {
                 modelo.removeRow(0);
             }
@@ -401,7 +738,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablacamisa = new javax.swing.JTable();
+        tabla = new javax.swing.JTable();
         btnsalir = new javax.swing.JButton();
         lbnumero = new javax.swing.JLabel();
         lbinterface = new javax.swing.JLabel();
@@ -420,8 +757,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             }
         });
 
-        tablacamisa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        tablacamisa.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -437,23 +774,23 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tablacamisa.setRowHeight(32);
-        tablacamisa.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabla.setRowHeight(32);
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablacamisaMouseClicked(evt);
+                tablaMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tablacamisa);
-        if (tablacamisa.getColumnModel().getColumnCount() > 0) {
-            tablacamisa.getColumnModel().getColumn(1).setMinWidth(100);
-            tablacamisa.getColumnModel().getColumn(1).setPreferredWidth(600);
-            tablacamisa.getColumnModel().getColumn(1).setMaxWidth(800);
-            tablacamisa.getColumnModel().getColumn(4).setMinWidth(0);
-            tablacamisa.getColumnModel().getColumn(4).setPreferredWidth(0);
-            tablacamisa.getColumnModel().getColumn(4).setMaxWidth(0);
-            tablacamisa.getColumnModel().getColumn(5).setMinWidth(0);
-            tablacamisa.getColumnModel().getColumn(5).setPreferredWidth(0);
-            tablacamisa.getColumnModel().getColumn(5).setMaxWidth(0);
+        jScrollPane1.setViewportView(tabla);
+        if (tabla.getColumnModel().getColumnCount() > 0) {
+            tabla.getColumnModel().getColumn(1).setMinWidth(100);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(600);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(800);
+            tabla.getColumnModel().getColumn(4).setMinWidth(0);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(5).setMinWidth(0);
+            tabla.getColumnModel().getColumn(5).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(5).setMaxWidth(0);
         }
 
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -536,16 +873,16 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowOpened
 
-    private void tablacamisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablacamisaMouseClicked
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
 
         if (evt.getClickCount() == 2) {
 
-            int fila = tablacamisa.getSelectedRow();
+            int fila = tabla.getSelectedRow();
 
             if (fila >= 0) 
             {
 
-                Object tipo = tablacamisa.getValueAt(fila, 3).toString();
+                Object tipo = tabla.getValueAt(fila, 3).toString();
 
                 if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) {
                     if (ordencamisa.ventanaordencamisaanteriores == true) {
@@ -556,11 +893,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordencamisa orden = new ordencamisa();
                         orden.setVisible(true);
 
-                        ordencamisa.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordencamisa.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
-                        ordencamisa.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
-                        ordencamisa.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
-                        tablacamisa.clearSelection();
+                        ordencamisa.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencamisa.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordencamisa.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
+                        ordencamisa.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        tabla.clearSelection();
                         this.setState(this.ICONIFIED);
                        
                     }
@@ -576,11 +913,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordengorra orden = new ordengorra();
                         orden.setVisible(true);
 
-                        ordengorra.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordengorra.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
-                        ordengorra.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
-                        ordengorra.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
-                         tablacamisa.clearSelection();
+                        ordengorra.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordengorra.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordengorra.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
+                        ordengorra.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                         tabla.clearSelection();
                          this.setState(this.ICONIFIED);
                         
                     }
@@ -594,9 +931,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordenponchado orden = new ordenponchado();
                         orden.setVisible(true);
 
-                        ordenponchado.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordenponchado.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
-                         tablacamisa.clearSelection();
+                        ordenponchado.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenponchado.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                         tabla.clearSelection();
                          this.setState(this.ICONIFIED);
                         
                     }
@@ -610,8 +947,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordenparche orden = new ordenparche();
                         orden.setVisible(true);
 
-                        ordenparche.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
-                         tablacamisa.clearSelection();
+                        ordenparche.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                         tabla.clearSelection();
                          this.setState(this.ICONIFIED);
                         
                     }
@@ -627,10 +964,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordencorbata orden = new ordencorbata();
                         orden.setVisible(true);
 
-                        ordencorbata.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordencorbata.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
+                        ordencorbata.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencorbata.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                         
-                         tablacamisa.clearSelection();
+                         tabla.clearSelection();
                          this.setState(this.ICONIFIED);
                         
                     }
@@ -648,8 +985,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                     } else {
                             ordenportanombreescolar orden = new ordenportanombreescolar();
                             orden.setVisible(true);
-                            ordenportanombreescolar.lbnumero.setText(tablacamisa.getValueAt(fila, 0).toString());
-                            tablacamisa.clearSelection();
+                            ordenportanombreescolar.lbnumero.setText(tabla.getValueAt(fila, 0).toString());
+                            tabla.clearSelection();
                             this.setState(this.ICONIFIED);
                         
                     }
@@ -668,7 +1005,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
        
         
-    }//GEN-LAST:event_tablacamisaMouseClicked
+    }//GEN-LAST:event_tablaMouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         ventanaordenesbordadogenerada = false;
@@ -982,7 +1319,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     public static javax.swing.JLabel lbinterface;
     public static javax.swing.JLabel lbnumero;
     public static javax.swing.JLabel lbtienda;
-    private javax.swing.JTable tablacamisa;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 connectar cc = new connectar();
 Connection cn = cc.conexion();

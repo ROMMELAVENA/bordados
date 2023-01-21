@@ -1705,7 +1705,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             }  
             
             this.dispose();
-            ordenesbordadorecibida.btnactualizar.doClick();
+            ordenesrecibidas.btnactualizar.doClick();
     }//GEN-LAST:event_btnreplicar1ActionPerformed
 
     private void btnverfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverfotomontajeActionPerformed

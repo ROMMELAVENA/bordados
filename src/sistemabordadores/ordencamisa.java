@@ -1673,7 +1673,7 @@ public class ordencamisa extends javax.swing.JFrame {
         lblImagen.setToolTipText("");
         lblImagen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lblImagen);
-        lblImagen.setBounds(0, 0, 870, 710);
+        lblImagen.setBounds(0, 10, 870, 700);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel13.setText("Folio");

@@ -499,6 +499,7 @@ public class ordencamisa extends javax.swing.JFrame {
                     jPanel1.add(p);
                     jPanel1.repaint();
                     lblImagen.setVisible(false);
+                    btnverfotomontaje.setEnabled(false);
                     tienefotomontaje = "no";
                     
                 } 
@@ -520,7 +521,7 @@ public class ordencamisa extends javax.swing.JFrame {
                     lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
                     btnverfotomontaje.setEnabled(true);
                     tienefotomontaje = "si";
-                    
+                    btnverfotomontaje.setEnabled(true);
                     
                     
                     

@@ -430,7 +430,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos10[7] = rs.getString("tienda");
                 datos10[8] = rs.getString("numero_sucursal_orden");
 
-                modelo.addRow(datos);
+                modelo.addRow(datos10);
 
             }
 

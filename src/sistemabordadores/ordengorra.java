@@ -77,6 +77,9 @@ public class ordengorra extends javax.swing.JFrame {
     String ubicacioninsertar ="";
     String aplicacioninsertar = "";
     
+    String tienefotomontaje = "";
+    String rutaimagen = "";
+    
 
  
 
@@ -109,7 +112,7 @@ public class ordengorra extends javax.swing.JFrame {
         String folio = lbfolio.getText();
 
         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,"
-                + "lado_izquierdo,lado_izquierdo_nombre,lado_derecho,lado_derecho_nombre,frente,frente_nombre,atras,atras_nombre,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras,nombre_concepto from historial_ordenes_gorra where numero = '" + folio + "'";
+                + "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras,nombre_concepto from historial_ordenes_gorra where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -123,10 +126,10 @@ public class ordengorra extends javax.swing.JFrame {
                 lbfechaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
                 
-                ladoizquierdonombre = rs.getString("lado_izquierdo_nombre");
-                ladoderechonombre = rs.getString("lado_derecho_nombre");
-                frentenombre = rs.getString("frente_nombre");
-                atrasnombre = rs.getString("atras_nombre");
+                //ladoizquierdonombre = rs.getString("lado_izquierdo_nombre");
+                //ladoderechonombre = rs.getString("lado_derecho_nombre");
+                //frentenombre = rs.getString("frente_nombre");
+                //atrasnombre = rs.getString("atras_nombre");
                 
                 nombreconcepto =rs.getString("nombre_concepto");
                 
@@ -314,61 +317,41 @@ public class ordengorra extends javax.swing.JFrame {
 
     }
     
-    void agregarfotomontaje() throws FileNotFoundException, IOException
+    void agregarfotomontaje() throws FileNotFoundException, IOException  
     {
         
         String numero = lbnumero.getText();
         String numeroventa = lbnumeroventa.getText();
+        String prenda =lbprenda.getText().toUpperCase();
         BufferedImage img = null;
-        String prenda =lbprenda.getText();
+        
         String prendasql ="";
         String prendanombresql="";
-                
-                if(prenda.equals("Gorra"))
-                {
-                    prendasql = "gorra";
-                    prendanombresql = "gorraextension";
-                }
-                               
-                
-          
-        String sqlcodigo = "Select codigo_cliente from historial_ventas where numero = '" + numeroventa + "'  ";
+        btnverfotomontaje.setEnabled(false);
 
-        try {
-
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sqlcodigo);
-            if (rs.next()) 
-            {
-               
-                      codigocliente = rs.getString("codigo_cliente");
-            }
-
-            rs.close();
-        } catch (SQLException ex) 
-        {
-             JOptionPane.showMessageDialog(null, ex);
-
-        }         
-                
-                
-                
-
-       String sql = "Select "+prendasql+","+prendanombresql+" from catalogo_clientes where codigo = '" + codigocliente + "'  ";
+       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_prenda= '"+nombreconcepto+"' and tipo = '"+prenda+"'   ";  ///
 
         try {
 
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
+            while (rs.next()) 
+            {
                 Imagen imagen = new Imagen();
-                Blob blob = rs.getBlob(""+prendasql+"");
+                Blob blob = rs.getBlob("imagen");
                 if (blob == null) 
                 {
 
-                    lblImagen.setText("NO HAY IMAGEN");
-                    lblImagen.setHorizontalAlignment(SwingConstants.CENTER);
-                    lblImagen.setVerticalAlignment(SwingConstants.CENTER);
+                    ordencamisaimagencontorno p = new ordencamisaimagencontorno();
+                    jPanel1.add(p);
+                    jPanel1.repaint();
+                    lblImagen.setVisible(false);
+                    btnverfotomontaje.setEnabled(false);
+                    tienefotomontaje = "no";
+                   // btnagregarfotomontaje.setEnabled(true);
+                    
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
+                    
                 } 
                 
                 else 
@@ -385,30 +368,30 @@ public class ordengorra extends javax.swing.JFrame {
                     }
 
                     imagen.setImagen(img);
-                    lblImagen.setIcon(new ImageIcon(
-                            img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
-                    repaint();
-                    
-                    /// *******
-                    
-                    String ext = rs.getString(""+prendanombresql+"");
-                    String path = "C:\\\\archivospdf\\"+prendasql+"." + ext + " ";
-                    lbrutaimagen.setText(path);
+                    lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
+                    lblImagen.setVisible(true);
+                    btnverfotomontaje.setEnabled(true);
+                    tienefotomontaje = "si";
+                    btnverfotomontaje.setEnabled(true);
+                    //btnagregarfotomontaje.setEnabled(false);
+
+                    Blob archivo = rs.getBlob("imagen");
+                    String ext = rs.getString("extension_imagen");
+                    String path = "C:\\archivospdf\\FOTOMONTAJE"+ext+" ";
+                    rutaimagen=path;
                     File file = new File(path);
                     FileOutputStream output = new FileOutputStream(file);
-                    Blob archivo = rs.getBlob(1);
                     InputStream inStream = archivo.getBinaryStream();
                     int length = -1;
                     int size = (int) archivo.length();
                     byte[] buffer = new byte[size];
                     while ((length = inStream.read(buffer)) != -1) {
                         output.write(buffer, 0, length);
-                        // output.flush();
+                   
                     }
-                    // inStream.close();
+                   
                     output.close();
-                    
-
+ 
                 }
 
             } //end while
@@ -420,7 +403,31 @@ public class ordengorra extends javax.swing.JFrame {
         
         
         
+        if(tienefotomontaje.equals("si"))
+        {
+          
+            lbaplicacionatras.setVisible(false);
+            lbaplicacionladoderecho.setVisible(false);
+            lbaplicacionladoizquierdo.setVisible(false);
+            lbaplicacionfrente.setVisible(false);
+            lbatras.setVisible(false);
+            lbladoderecho.setVisible(false);
+            lbladoizquierdo.setVisible(false);
+            lbfrente.setVisible(false);
+            lbaplicacionfrentecolor.setVisible(false);
+            
+            
         
+        }
+        else
+        {
+            btnatras.setEnabled(false);
+            btnladoizquierdo.setEnabled(false);
+            btnladoderecho.setEnabled(false);
+            btnfrente.setEnabled(false);
+            
+            
+        }  
 
         
         
@@ -641,6 +648,26 @@ public class ordengorra extends javax.swing.JFrame {
       
       }  
     
+    
+     void codigocliente()
+    {
+        String sql = "SELECT codigo_cliente FROM historial_ventas WHERE numero = '" + lbnumeroventa.getText() + "' ";
+
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                
+               codigocliente = rs.getString("codigo_cliente");
+                
+            }
+
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+    }
     
     
 
@@ -1024,7 +1051,7 @@ public class ordengorra extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -1052,8 +1079,6 @@ public class ordengorra extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnimagen, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                                     .addComponent(btnverfotomontaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -1077,7 +1102,9 @@ public class ordengorra extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                                    .addComponent(lbsumapuntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(lbsumapuntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jSeparator1)
+                            .addComponent(jSeparator2))
                         .addGap(0, 15, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -1120,10 +1147,10 @@ public class ordengorra extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1261,6 +1288,7 @@ public class ordengorra extends javax.swing.JFrame {
             Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        codigocliente();
         
         try {
             agregarfotomontaje();
@@ -1762,6 +1790,11 @@ if(lugardondesebordara.equals("Esta sucursal"))
     }//GEN-LAST:event_formWindowClosed
 
     private void btnimagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnimagenActionPerformed
+
+
+
+
+
         JSystemFileChooser adjuntar = new JSystemFileChooser();
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -1901,8 +1934,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
         }
     }//GEN-LAST:event_btnverfotomontajeActionPerformed
 
-    ResultSet rs;
-    ResultSet rs2;
+ 
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

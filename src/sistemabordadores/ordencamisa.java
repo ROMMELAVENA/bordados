@@ -222,6 +222,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (mangaderecha == null | mangaderecha.equals("")) {
                    
                     btnmangaderecha.setVisible(false);
+                    lbcolormangaderecha.setVisible(false);
                    
                 }
 
@@ -233,6 +234,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 {
                     
                     btnmangaizquierda.setVisible(false);
+                    lbcolormangaizquierda.setVisible(false);
                     
                 }
 
@@ -244,6 +246,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (pechoderecho == null | pechoderecho.equals("")) {
                     
                     btnpechoderecho.setVisible(false);
+                    lbcolorpechoderecho.setVisible(false);
                     
                 }
 
@@ -254,6 +257,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (pechoizquierdo == null | pechoizquierdo.equals("")) {
                     
                     btnpechoizquierdo.setVisible(false);
+                    lbcolorpechoizquierdo.setVisible(false);
                     
                 }
 
@@ -264,6 +268,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (espalda == null | espalda.equals("")) {
                     
                     btnespalda.setVisible(false);
+                    lbcolorespalda.setVisible(false);
                     
                 }
 
@@ -275,6 +280,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (otraubicacion == null | otraubicacion.equals("")) {
                     
                     btnotraubicacion.setVisible(false);
+                    lbcolorotraubicacion.setVisible(false);
                     
                 }
                 
@@ -286,6 +292,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (otraubicacion2 == null | otraubicacion2.equals("")) {
                    
                     btnotraubicacion2.setVisible(false);
+                    lbcolorotraubicacion2.setVisible(false);
                     
                 }
 
@@ -1559,12 +1566,12 @@ public class ordencamisa extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnagregarfotomontaje = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        lbcolormangaderecha1 = new javax.swing.JLabel();
-        lbcolormangaderecha2 = new javax.swing.JLabel();
-        lbcolormangaderecha3 = new javax.swing.JLabel();
-        lbcolormangaderecha4 = new javax.swing.JLabel();
-        lbcolormangaderecha5 = new javax.swing.JLabel();
-        lbcolormangaderecha6 = new javax.swing.JLabel();
+        lbcolormangaizquierda = new javax.swing.JLabel();
+        lbcolorpechoderecho = new javax.swing.JLabel();
+        lbcolorpechoizquierdo = new javax.swing.JLabel();
+        lbcolorespalda = new javax.swing.JLabel();
+        lbcolorotraubicacion = new javax.swing.JLabel();
+        lbcolorotraubicacion2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden de bordado generada");
@@ -1877,23 +1884,23 @@ public class ordencamisa extends javax.swing.JFrame {
             }
         });
 
-        lbcolormangaderecha1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbcolormangaderecha1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcolormangaizquierda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcolormangaizquierda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolormangaderecha2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbcolormangaderecha2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcolorpechoderecho.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcolorpechoderecho.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolormangaderecha3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbcolormangaderecha3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcolorpechoizquierdo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcolorpechoizquierdo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolormangaderecha4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbcolormangaderecha4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcolorespalda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcolorespalda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolormangaderecha5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbcolormangaderecha5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcolorotraubicacion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcolorotraubicacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolormangaderecha6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbcolormangaderecha6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcolorotraubicacion2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcolorotraubicacion2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1940,7 +1947,7 @@ public class ordencamisa extends javax.swing.JFrame {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(btnotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lbcolormangaderecha5, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(lbcolorotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(layout.createSequentialGroup()
@@ -1950,20 +1957,20 @@ public class ordencamisa extends javax.swing.JFrame {
                                                         .addComponent(btnpechoizquierdo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addGap(34, 34, 34)))
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lbcolormangaderecha3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(lbcolormangaderecha4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addComponent(lbcolorpechoizquierdo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lbcolorespalda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                     .addComponent(btnpechoderecho, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(btnmangaizquierda, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lbcolormangaderecha1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(lbcolormangaderecha2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addComponent(lbcolormangaizquierda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lbcolorpechoderecho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                                 .addComponent(btnotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lbcolormangaderecha6, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(lbcolorotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                                 .addComponent(btnmangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2075,32 +2082,32 @@ public class ordencamisa extends javax.swing.JFrame {
                                                                 .addGap(16, 16, 16)
                                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                     .addComponent(btnmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                    .addComponent(lbcolormangaderecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                    .addComponent(lbcolormangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                 .addComponent(btnpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             .addGroup(layout.createSequentialGroup()
                                                                 .addGap(0, 0, Short.MAX_VALUE)
-                                                                .addComponent(lbcolormangaderecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                .addComponent(lbcolorpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                         .addComponent(btnpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addGap(0, 0, Short.MAX_VALUE)
-                                                        .addComponent(lbcolormangaderecha3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addComponent(lbcolorpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(btnespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(lbcolormangaderecha4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(lbcolorespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(lbcolormangaderecha5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(lbcolorotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lbcolormangaderecha6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lbcolorotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3463,13 +3470,13 @@ if(lugardondesebordara.equals("Esta sucursal"))
     public static javax.swing.JLabel lbcantidad1;
     public static javax.swing.JLabel lbcliente;
     public static javax.swing.JLabel lbcliente1;
+    public javax.swing.JLabel lbcolorespalda;
     public javax.swing.JLabel lbcolormangaderecha;
-    public javax.swing.JLabel lbcolormangaderecha1;
-    public javax.swing.JLabel lbcolormangaderecha2;
-    public javax.swing.JLabel lbcolormangaderecha3;
-    public javax.swing.JLabel lbcolormangaderecha4;
-    public javax.swing.JLabel lbcolormangaderecha5;
-    public javax.swing.JLabel lbcolormangaderecha6;
+    public javax.swing.JLabel lbcolormangaizquierda;
+    public javax.swing.JLabel lbcolorotraubicacion;
+    public javax.swing.JLabel lbcolorotraubicacion2;
+    public javax.swing.JLabel lbcolorpechoderecho;
+    public javax.swing.JLabel lbcolorpechoizquierdo;
     public static javax.swing.JLabel lbespalda;
     public static javax.swing.JLabel lbespaldanombre;
     public static javax.swing.JLabel lbfecha;

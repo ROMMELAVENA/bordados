@@ -143,6 +143,7 @@ public class ordencamisa extends javax.swing.JFrame {
     
     String rutaarchivo = "";
     String  nombrearchivo = "";
+   public static String ordencamisaautorizacion = "";
 
     private PreparedStatement pst;
 
@@ -3260,8 +3261,11 @@ if(lugardondesebordara.equals("Esta sucursal"))
     private void btnagregarfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarfotomontajeActionPerformed
 
         
+         if (ordencamisaautorizacion.equals("si")) 
+         {
         
         
+        ordencamisaautorizacion="no";
         JSystemFileChooser elegirImagen = new JSystemFileChooser();
         elegirImagen.setMultiSelectionEnabled(false);
         int o = elegirImagen.showOpenDialog(this);
@@ -3329,9 +3333,36 @@ if(lugardondesebordara.equals("Esta sucursal"))
           
         
        sumapuntos();
+       
            
 
         }
+        
+        
+        
+         }
+         else
+         {
+             
+              if (autorizacion.ventanaautorizacion == true)
+            {
+          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de autorización");
+            }
+            
+            else
+            {
+            autorizacion ventana = new autorizacion();
+            ventana.setVisible(true);
+            ventana.setLocationRelativeTo(null);
+            
+            autorizacion.lbinterfaz.setText("ordencamisa");
+            
+             
+            }
+             
+         }    
+                 
+         
     }//GEN-LAST:event_btnagregarfotomontajeActionPerformed
 
 
@@ -3400,7 +3431,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnagregarfotomontaje;
+    public static javax.swing.JButton btnagregarfotomontaje;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnespalda;
     private javax.swing.JButton btninsertarponchados;

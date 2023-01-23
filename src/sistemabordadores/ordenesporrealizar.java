@@ -355,7 +355,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos8[5] = rs.getString("numero_venta");
                 datos8[6] = rs.getString("fecha");
 
-                modelo.addRow(datos6);
+                modelo.addRow(datos8);
 
             }
 
@@ -380,7 +380,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos9 = new String[10];
 
-        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda  FROM historial_ordenes_camisa_recibidas where estatus = 'por guardar' ";
+        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus = 'por guardar' ";
 
         try {
             Statement st = cn.createStatement();
@@ -390,9 +390,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos9[1] = rs.getString("cliente");
                 datos9[2] = rs.getString("prenda");
                 datos9[3] = rs.getString("tipo");
-                datos9[4] = "lugar??";
-                datos9[5] = "venta??";
-                datos9[6] = "fecha??";
+                datos9[4] = rs.getString("lugar");
+                datos9[5] = "00000000";
+                datos9[6] = rs.getString("fecha");
                 datos9[7] = rs.getString("tienda");
                 datos9[8] = rs.getString("numero_sucursal");
 
@@ -414,18 +414,21 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos10 = new String[10];
 
-        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda  FROM historial_ordenes_gorra_recibidas  where estatus = 'por guardar' order by numero  ";
+        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_gorra_recibidas  where estatus = 'por guardar' order by numero  ";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql4);
             while (rs.next()) {
                 datos10[0] = rs.getString("numero");
-                datos10[1] = rs.getString("numero_sucursal");
-                datos10[2] = rs.getString("cliente");
-                datos10[3] = rs.getString("prenda");
-                datos10[4] = rs.getString("tipo");
-                datos10[5] = rs.getString("tienda");
+                datos10[1] = rs.getString("cliente");
+                datos10[2] = rs.getString("prenda");
+                datos10[3] = rs.getString("tipo");
+                datos10[4] = rs.getString("lugar");
+                datos10[5] = "0000000";  
+                datos10[6] = rs.getString("fecha");
+                datos10[7] = rs.getString("tienda");
+                datos10[8] = rs.getString("numero_sucursal_orden");
 
                 modelo.addRow(datos);
 
@@ -446,19 +449,22 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos11 = new String[10];
 
-        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda  FROM historial_ordenes_pantalon_recibidas  where estatus = 'por guardar' order by numero  ";
+        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha  FROM historial_ordenes_pantalon_recibidas  where estatus = 'por guardar' order by numero  ";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql15);
             while (rs.next()) {
                 datos11[0] = rs.getString("numero");
-                datos11[1] = rs.getString("numero_sucursal");
-                datos11[2] = rs.getString("cliente");
-                datos11[3] = rs.getString("prenda");
-                datos11[4] = rs.getString("tipo");
-                datos11[5] = rs.getString("tienda");
-
+                datos11[1] = rs.getString("cliente");
+                datos11[2] = rs.getString("prenda");
+                datos11[3] = rs.getString("tipo");
+                datos11[4] = rs.getString("lugar");
+                datos11[5] = "0000000";  
+                datos11[6] = rs.getString("fecha");
+                datos11[7] = rs.getString("tienda");
+                datos11[8] = rs.getString("numero_sucursal_orden");
+            
                 modelo.addRow(datos11);
 
             }
@@ -599,11 +605,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             
             if(tieneponchadoscamisa.equals("si"))
             {
-                tabla.setValueAt("si", i,6);
+                tabla.setValueAt("si", i,9);
             }
             else
             {
-                tabla.setValueAt("no", i,6);
+                tabla.setValueAt("no", i,9);
             }    
 
            
@@ -681,11 +687,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             
             if(tieneponchadosgorra.equals("si"))
             {
-                tabla.setValueAt("si", i,6);
+                tabla.setValueAt("si", i,9);
             }
             else
             {
-                tabla.setValueAt("no", i,6);
+                tabla.setValueAt("no", i,9);
             }    
 
            
@@ -770,11 +776,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal"
+                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tieneponchados"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1014,7 +1020,6 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
        limpiartabla();
-      
        datos();
     }//GEN-LAST:event_btnactualizarActionPerformed
 

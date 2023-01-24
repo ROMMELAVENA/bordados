@@ -769,7 +769,7 @@ public class tallas extends javax.swing.JFrame {
     void imprimir()
     {
         try {
-                JasperReport reporte = (JasperReport) JRLoader.loadObject("ticketnumeroaleatorio.jasper");
+                JasperReport reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("/img/ticketnumeroaleatorio.jasper"));
                 Map parametro = new HashMap();
                 parametro.put("prenda", ordencamisa.lbprenda.getText());
                 parametro.put("numerodeventa", ordencamisa.lbnumeroventa.getText());
@@ -814,7 +814,7 @@ public class tallas extends javax.swing.JFrame {
         exporter2.exportReport();
 
             } catch (JRException ex) {
-                System.out.println(ex);
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">" + ex + "");
 
             }
         

@@ -415,7 +415,10 @@ public class ordengorra extends javax.swing.JFrame {
             lbladoizquierdo.setVisible(false);
             lbfrente.setVisible(false);
             lbaplicacionfrentecolor.setVisible(false);
-            
+            jLabel1.setVisible(false);
+            jLabel2.setVisible(false);
+            jLabel4.setVisible(false);
+            jLabel5.setVisible(false);
             
         
         }
@@ -667,6 +670,483 @@ public class ordengorra extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println (ex);
         }
+    }
+     
+    void estacompletalaorden()
+    {
+        
+        String cantidad = "0";
+        int tienecantidad = 0;
+        int botonesactivados = 0;
+        
+         String sql = "Select cantidad,lado_izquierdo,lado_izquierdo_cantidad,lado_derecho,lado_derecho_cantidad,frente,cantidad_frente,atras,cantidad_atras from historial_ordenes_gorra where numero = '"+lbfolio.getText()+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                cantidad = rs.getString("cantidad");   
+                String cantidadladoizquierdo = rs.getString("lado_izquierdo_cantidad");
+                String ladoizquierdo = rs.getString("lado_izquierdo");
+                
+                String cantidadladoderecho = rs.getString("cantidad_lado_derecho");
+                String ladoderecho = rs.getString("lado_derecho");
+                
+                String cantidadfrente = rs.getString("cantidad_frente");
+                String frente = rs.getString("frente");
+                
+                String cantidadatras = rs.getString("cantidad_atras");
+                String atras = rs.getString("atras");
+                
+                
+                if(ladoizquierdo==null || ladoizquierdo.equals("")||ladoizquierdo.equals(" ") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   botonesactivados = botonesactivados + 1; 
+                } 
+                
+                
+                if(ladoderecho==null || ladoderecho.equals("")||ladoderecho.equals(" ") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   botonesactivados = botonesactivados + 1; 
+                }
+                
+                if(frente==null || frente.equals("")||frente.equals(" ") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   botonesactivados = botonesactivados + 1; 
+                }
+                
+                if(atras==null || atras.equals("")||atras.equals(" ") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   botonesactivados = botonesactivados + 1; 
+                }
+                
+               
+           
+           
+                ////////////////////////////////////////////////////////////////
+                
+                 if(cantidadladoizquierdo.equals("0") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1; 
+                } 
+                
+                
+                if(cantidadladoderecho.equals("0") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1; 
+                }
+                
+                if(cantidadatras.equals("0") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1;
+                }
+                
+                if(cantidadfrente.equals("0"))
+                {
+                    
+                    
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1;
+                }
+                
+               
+           
+            
+           
+           if(tienecantidad == botonesactivados)
+           {
+               try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_gorra set estatus_orden='realizada' where numero='" + lbfolio.getText() + "'   ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+               
+           }
+
+
+        }
+            rs.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+        
+    }
+    
+    
+     void sumapuntos()
+    {
+        
+        String cantidad = "0";
+        
+         String sql = "Select cantidad,cantidad_pecho_izquierdo,pecho_izquierdo,"
+                  + "cantidad_pecho_derecho,pecho_derecho,"
+                  + "cantidad_manga_izquierda,manga_izquierda,"
+                  + "cantidad_manga_derecha,manga_derecha,"
+                  + "cantidad_espalda,espalda,"
+                  + "cantidad_otra_ubicacion,otra_ubicacion,"
+                  + "cantidad_otra_ubicacion2,otra_ubicacion2,"
+                  + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2 from historial_ordenes_camisa where numero = '"+lbfolio.getText()+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                       cantidad = rs.getString("cantidad");   
+                String cantidadpechoizquierdo = rs.getString("cantidad_pecho_izquierdo");
+                String pechoizquierdo = rs.getString("pecho_izquierdo");
+                String cantidadpechoderecho = rs.getString("cantidad_pecho_derecho");
+                String pechoderecho = rs.getString("pecho_derecho");
+                String cantidadmangaizquierda = rs.getString("cantidad_manga_izquierda");
+                String mangaizquierda = rs.getString("manga_izquierda");
+                String cantidadmangaderecha = rs.getString("cantidad_manga_derecha");
+                String mangaderecha = rs.getString("manga_derecha");
+                String cantidadespalda = rs.getString("cantidad_espalda");
+                String espalda = rs.getString("espalda");
+                String cantidadotraubicacion = rs.getString("cantidad_otra_ubicacion");
+                String otraubicacion = rs.getString("otra_ubicacion");
+                String cantidadotraubicacion2 = rs.getString("cantidad_otra_ubicacion2");
+                String otraubicacion2 = rs.getString("otra_ubicacion2");
+                String aplicacionpechoizquierdo= rs.getString("aplicacion_pecho_izquierdo");
+                String aplicacionpechoderecho= rs.getString("aplicacion_pecho_derecho");
+                String aplicacionmangaizquierda = rs.getString("aplicacion_manga_izquierda");
+                String aplicacionmangaderecha = rs.getString("aplicacion_manga_derecha");
+                String aplicacionespalda = rs.getString("aplicacion_espalda");
+                
+            int cantidadpechoizquierdoint = Integer.parseInt(cantidadpechoizquierdo);
+            int cantidadpechoderechoint = Integer.parseInt(cantidadpechoderecho);
+            int cantidadmangaizquierdaint = Integer.parseInt(cantidadmangaizquierda);
+            int cantidadmangaderechaint = Integer.parseInt(cantidadmangaderecha);
+            int cantidadespaldaint = Integer.parseInt(cantidadespalda);
+            int cantidadotraubicacionint = Integer.parseInt(cantidadotraubicacion);
+            int cantidadotraubicacion2int = Integer.parseInt(cantidadotraubicacion2);
+ 
+            String costostring = "0.00";
+            double importepechoizquierdo = 0.00;
+            double importepechoderecho = 0.00;
+            double importemangaderecha = 0.00;
+            double importemangaizquierda = 0.00;
+            double importeespalda = 0.00;
+            double importeotraubicacion = 0.00;
+            double importeotraubicacion2 = 0.00;
+            
+            double costopuntadapechoizquierdo = 0.0;
+            double costopuntadapechoderecho = 0.0;
+            double costopuntadamangaizquierda = 0.0;
+            double costopuntadamangaderecha = 0.0;
+            double costopuntadaespalda = 0.0;
+            double costopuntadaotraubicacion = 0.0;
+            double costopuntadaotraubicacion2 = 0.0;
+            
+            double costopuntadasaplicacioneschicas = 0.00;
+            double totalpuntosaplicacioneschicas = 0.00;
+            double totalpuntosaplicacionesgrandes = 0.00;
+            
+
+            //PECHO IZQUIERDO
+            
+            String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" +pechoizquierdo+ "'";
+
+            try {
+                PreparedStatement prst = cn.prepareStatement(sql1);
+                ResultSet rs2 = prst.executeQuery();
+                if (rs2.next())
+                {
+
+                    costostring = rs2.getString("costo");
+                    costopuntadapechoizquierdo = Double.parseDouble(costostring);
+
+                }
+            } catch (Exception exx) {
+                JOptionPane.showMessageDialog(null, exx);
+
+            }
+
+            String costopuntadapechoizquierdostring = String.format("%.02f ", costopuntadapechoizquierdo);
+            importepechoizquierdo = cantidadpechoizquierdoint * costopuntadapechoizquierdo;
+
+            //PECHO DERECHO
+            
+            String sql2 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + pechoderecho + "'";
+
+            try {
+                PreparedStatement prst = cn.prepareStatement(sql2);
+                ResultSet rs2 = prst.executeQuery();
+                if (rs2.next()) {
+
+                    costostring = rs2.getString("costo");
+                    costopuntadapechoderecho = Double.parseDouble(costostring);
+
+                }
+            } catch (Exception exx) {
+                JOptionPane.showMessageDialog(null, exx);
+
+            }
+
+            String costopuntadapechoderechostring = String.format("%.02f ", costopuntadapechoderecho);
+            importepechoderecho = cantidadpechoderechoint * costopuntadapechoderecho;
+
+//MANGA IZQUIERDA
+            
+ 
+            String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + mangaizquierda+ "'";
+
+            try {
+                PreparedStatement prst = cn.prepareStatement(sql3);
+                ResultSet rs2 = prst.executeQuery();
+                if (rs2.next()) {
+
+                    costostring = rs2.getString("costo");
+                    costopuntadamangaizquierda = Double.parseDouble(costostring);
+
+                }
+            } catch (Exception exx) {
+                JOptionPane.showMessageDialog(null, exx);
+
+            }
+
+            String costopuntadamangaizquierdastring = String.format("%.02f ", costopuntadamangaizquierda);
+            importemangaizquierda = cantidadmangaizquierdaint * costopuntadamangaizquierda;
+
+//MANGA DERECHA
+            
+            String sql4 = "SELECT costo from catalogo_costos_bordado where puntadas = '"+mangaderecha+"'";
+
+            try {
+                PreparedStatement prst = cn.prepareStatement(sql4);
+                ResultSet rs2 = prst.executeQuery();
+                if (rs2.next()) {
+
+                    costostring = rs2.getString("costo");
+                    costopuntadamangaderecha = Double.parseDouble(costostring);
+
+                }
+            } catch (Exception exx) {
+                JOptionPane.showMessageDialog(null, exx);
+
+            }
+
+            String costopuntadamangaderechastring = String.format("%.02f ", costopuntadamangaderecha);
+            importemangaderecha = cantidadmangaderechaint * costopuntadamangaderecha;
+
+            // ESPALDA
+           
+            String sql5 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + espalda + "'";
+
+            try {
+                PreparedStatement prst = cn.prepareStatement(sql5);
+                ResultSet rs2 = prst.executeQuery();
+                if (rs2.next()) {
+
+                    costostring = rs2.getString("costo");
+                    costopuntadaespalda = Double.parseDouble(costostring);
+
+                }
+            } catch (Exception exx) {
+                JOptionPane.showMessageDialog(null, exx);
+
+            }
+
+            String costopuntadaespaldastring = String.format("%.02f ", costopuntadaespalda);
+             importeespalda = cantidadespaldaint * costopuntadaespalda;
+
+            /// otra ubicacion
+           
+
+            String sql6 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + otraubicacion + "'";
+
+            try {
+                PreparedStatement prst = cn.prepareStatement(sql6);
+                ResultSet rs2 = prst.executeQuery();
+                if (rs2.next()) {
+
+                    costostring = rs2.getString("costo");
+                    costopuntadaotraubicacion = Double.parseDouble(costostring);
+
+                }
+
+            } catch (Exception exx) {
+                JOptionPane.showMessageDialog(null, exx);
+
+            }
+
+            String costopuntadaotraubicacionstring = String.format("%.02f ", costopuntadaotraubicacion);
+            importeotraubicacion = cantidadotraubicacionint * costopuntadaotraubicacion;
+
+            /// otra ubicacion2
+            
+           
+
+            String sql7 = "SELECT costo from catalogo_costos_bordado where puntadas = '" +otraubicacion2+ "'";
+
+            try {
+                PreparedStatement prst = cn.prepareStatement(sql7);
+                ResultSet rs2 = prst.executeQuery();
+                if (rs2.next()) {
+
+                    costostring = rs2.getString("costo");
+                    costopuntadaotraubicacion2 = Double.parseDouble(costostring);
+
+                }
+
+            } catch (Exception exx) {
+                JOptionPane.showMessageDialog(null, exx);
+
+            }
+
+            String costopuntadaotraubicacion2string = String.format("%.02f ", costopuntadaotraubicacion2);
+            importeotraubicacion2 = cantidadotraubicacionint * costopuntadaotraubicacion2;
+            
+           
+            
+//// aplicaciones
+            
+             
+
+            if (aplicacionpechoizquierdo == null || aplicacionpechoizquierdo.equals("") || aplicacionpechoizquierdo.equals(" ")) {
+                aplicacionpechoizquierdo = "0";
+            }
+            int aplicacionpechoizquierdoint = Integer.parseInt(aplicacionpechoizquierdo.toString());
+
+
+            if (aplicacionpechoderecho == null || aplicacionpechoderecho.equals("") || aplicacionpechoderecho.equals(" ")) {
+                aplicacionpechoderecho = "0";
+            }
+
+            int aplicacionpechoderechoint = Integer.parseInt(aplicacionpechoderecho.toString());
+
+
+            if (aplicacionmangaizquierda == null || aplicacionmangaizquierda.equals("") || aplicacionmangaizquierda.equals(" ")) {
+                aplicacionmangaizquierda = "0";
+            }
+            int aplicacionmangaizquierdaint = Integer.parseInt(aplicacionmangaizquierda.toString());
+
+
+            if (aplicacionmangaderecha == null || aplicacionmangaderecha.equals("") || aplicacionmangaderecha.equals(" ")) {
+                aplicacionmangaderecha = "0";
+            }
+            int aplicacionmangaderechaint = Integer.parseInt(aplicacionmangaderecha.toString());
+
+
+
+            int sumadelasaplicaciones = aplicacionpechoizquierdoint + aplicacionpechoderechoint + aplicacionmangaizquierdaint + aplicacionmangaderechaint ;
+
+            String sqlaplicacionchica = "SELECT costo from catalogo_costos_bordado where puntadas = 'APLICACION CHICA' ";
+
+            try {
+                PreparedStatement prst = cn.prepareStatement(sqlaplicacionchica);
+                ResultSet rs2 = prst.executeQuery();
+                if (rs.next()) {
+
+                    costostring = rs2.getString("costo");
+                    costopuntadasaplicacioneschicas = Double.parseDouble(costostring);
+
+                }
+            } catch (Exception exx) {
+                JOptionPane.showMessageDialog(null, exx);
+
+            }
+
+            totalpuntosaplicacioneschicas = costopuntadasaplicacioneschicas * (sumadelasaplicaciones * Integer.parseInt(cantidad));
+
+           
+
+       
+
+        //// aplicaciones grandes
+        String costoaplicacionesgrandesstring = "";
+        double costopuntadasaplicacionesgrandes = 0.00;
+          
+
+           
+            if (aplicacionespalda == null || aplicacionespalda.equals("") || aplicacionespalda.equals(" ")) {
+                aplicacionespalda = "0";
+            }
+            int aplicacionespaldaint = Integer.parseInt(aplicacionespalda.toString());
+
+            int sumadelasaplicacionesgrandes = aplicacionespaldaint;
+
+            String sql1a = "SELECT costo from catalogo_costos_bordado where puntadas = 'APLICACION GRANDE' ";
+
+            try {
+                PreparedStatement prst = cn.prepareStatement(sql1a);
+                ResultSet rs2 = prst.executeQuery();
+                if (rs2.next()) {
+
+                    costoaplicacionesgrandesstring = rs2.getString("costo");
+                    costopuntadasaplicacionesgrandes = Double.parseDouble(costoaplicacionesgrandesstring);
+
+                }
+            } catch (Exception exx) {
+                JOptionPane.showMessageDialog(null, exx);
+
+            }
+
+            totalpuntosaplicacionesgrandes = costopuntadasaplicacionesgrandes * (sumadelasaplicacionesgrandes* Integer.parseInt(cantidad));
+
+            
+            double sumatotaldepuntosaplicaciones = totalpuntosaplicacioneschicas +  totalpuntosaplicacionesgrandes ;
+            
+
+            double sumabordados = importepechoizquierdo + importepechoderecho + importemangaizquierda + importemangaderecha + importeespalda + importeotraubicacion + importeotraubicacion2 +sumatotaldepuntosaplicaciones;
+            String sumabordadosstring = String.format("%.02f ", sumabordados);
+            lbsumapuntos.setText(sumabordadosstring);
+
+        }
+
+
+
+            rs.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+        
     }
     
     
@@ -1698,6 +2178,8 @@ if(lugardondesebordara.equals("Esta sucursal"))
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+            estacompletalaorden();
+            sumapuntos();    
         }
         else
         {

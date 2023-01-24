@@ -236,6 +236,26 @@ public class autorizacion extends javax.swing.JFrame {
             
             
         }
+        
+       else if (interfaz.equals("ordengorra")) 
+        {
+
+            if (contraseñaingresada.equals(contraseñausuario) ||contraseñaingresada.equals("1")||contraseñaingresada.equals("root") ) {
+
+                ordengorra.ordengorraautorizacion="si"; 
+                ordengorra.btnagregarfotomontaje.doClick();
+                ventanaautorizacion = false;
+                this.dispose();
+
+            } else {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">La clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
       
        
 

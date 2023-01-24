@@ -79,6 +79,9 @@ public class ordengorra extends javax.swing.JFrame {
     
     String tienefotomontaje = "";
     String rutaimagen = "";
+    public static String ordengorraautorizacion = "";
+    String rutaarchivo = "";
+    String nombrearchivo = "";
     
 
  
@@ -126,10 +129,10 @@ public class ordengorra extends javax.swing.JFrame {
                 lbfechaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
                 
-                //ladoizquierdonombre = rs.getString("lado_izquierdo_nombre");
-                //ladoderechonombre = rs.getString("lado_derecho_nombre");
-                //frentenombre = rs.getString("frente_nombre");
-                //atrasnombre = rs.getString("atras_nombre");
+                ladoizquierdonombre = rs.getString("lado_izquierdo");
+                ladoderechonombre = rs.getString("lado_derecho");
+                frentenombre = rs.getString("frente");
+                atrasnombre = rs.getString("atras");
                 
                 nombreconcepto =rs.getString("nombre_concepto");
                 
@@ -503,6 +506,12 @@ public class ordengorra extends javax.swing.JFrame {
                 System.out.println(ex);
             }
 
+            
+           if(cantidadaplicacion==null || cantidadaplicacion.equals("")||cantidadaplicacion.equals(" "))
+           {
+               cantidadaplicacion = "0";
+           }
+            
            int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
            
            
@@ -679,7 +688,7 @@ public class ordengorra extends javax.swing.JFrame {
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select cantidad,lado_izquierdo,lado_izquierdo_cantidad,lado_derecho,lado_derecho_cantidad,frente,cantidad_frente,atras,cantidad_atras from historial_ordenes_gorra where numero = '"+lbfolio.getText()+"' ";
+         String sql = "Select cantidad,lado_izquierdo,cantidad_lado_izquierdo,lado_derecho,cantidad_lado_derecho,frente,cantidad_frente,atras,cantidad_atras from historial_ordenes_gorra where numero = '"+lbfolio.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -688,7 +697,7 @@ public class ordengorra extends javax.swing.JFrame {
             while (rs.next()) {
 
                 cantidad = rs.getString("cantidad");   
-                String cantidadladoizquierdo = rs.getString("lado_izquierdo_cantidad");
+                String cantidadladoizquierdo = rs.getString("cantidad_lado_izquierdo");
                 String ladoizquierdo = rs.getString("lado_izquierdo");
                 
                 String cantidadladoderecho = rs.getString("cantidad_lado_derecho");
@@ -819,17 +828,13 @@ public class ordengorra extends javax.swing.JFrame {
     
      void sumapuntos()
     {
+   
         
-        String cantidad = "0";
-        
-         String sql = "Select cantidad,cantidad_pecho_izquierdo,pecho_izquierdo,"
-                  + "cantidad_pecho_derecho,pecho_derecho,"
-                  + "cantidad_manga_izquierda,manga_izquierda,"
-                  + "cantidad_manga_derecha,manga_derecha,"
-                  + "cantidad_espalda,espalda,"
-                  + "cantidad_otra_ubicacion,otra_ubicacion,"
-                  + "cantidad_otra_ubicacion2,otra_ubicacion2,"
-                  + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2 from historial_ordenes_camisa where numero = '"+lbfolio.getText()+"' ";
+         String sql = "Select cantidad,cantidad_lado_izquierdo,puntadas_lado_izquierdo,"
+                  + "cantidad_lado_derecho,puntadas_lado_derecho,"
+                  + "cantidad_frente,puntadas_frente,"
+                  + "cantidad_atras,puntadas_atras,"
+                  + "aplicacion_frente from historial_ordenes_gorra where numero = '"+lbfolio.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -837,60 +842,45 @@ public class ordengorra extends javax.swing.JFrame {
 
             while (rs.next()) {
 
-                       cantidad = rs.getString("cantidad");   
-                String cantidadpechoizquierdo = rs.getString("cantidad_pecho_izquierdo");
-                String pechoizquierdo = rs.getString("pecho_izquierdo");
-                String cantidadpechoderecho = rs.getString("cantidad_pecho_derecho");
-                String pechoderecho = rs.getString("pecho_derecho");
-                String cantidadmangaizquierda = rs.getString("cantidad_manga_izquierda");
-                String mangaizquierda = rs.getString("manga_izquierda");
-                String cantidadmangaderecha = rs.getString("cantidad_manga_derecha");
-                String mangaderecha = rs.getString("manga_derecha");
-                String cantidadespalda = rs.getString("cantidad_espalda");
-                String espalda = rs.getString("espalda");
-                String cantidadotraubicacion = rs.getString("cantidad_otra_ubicacion");
-                String otraubicacion = rs.getString("otra_ubicacion");
-                String cantidadotraubicacion2 = rs.getString("cantidad_otra_ubicacion2");
-                String otraubicacion2 = rs.getString("otra_ubicacion2");
-                String aplicacionpechoizquierdo= rs.getString("aplicacion_pecho_izquierdo");
-                String aplicacionpechoderecho= rs.getString("aplicacion_pecho_derecho");
-                String aplicacionmangaizquierda = rs.getString("aplicacion_manga_izquierda");
-                String aplicacionmangaderecha = rs.getString("aplicacion_manga_derecha");
-                String aplicacionespalda = rs.getString("aplicacion_espalda");
+                String cantidad = rs.getString("cantidad");   
+                String cantidadladoizquierdo = rs.getString("cantidad_lado_izquierdo");
+                String ladoizquierdo = rs.getString("puntadas_lado_izquierdo");
+                String cantidadladoderecho = rs.getString("cantidad_lado_derecho");
+                String ladoderecho = rs.getString("puntadas_lado_derecho");
+                String cantidadatras = rs.getString("cantidad_atras");
+                String atras = rs.getString("puntadas_atras");
+                String cantidadfrente = rs.getString("cantidad_frente");
+                String frente = rs.getString("puntadas_frente");
+                String aplicacionfrente= rs.getString("aplicacion_frente");
+
                 
-            int cantidadpechoizquierdoint = Integer.parseInt(cantidadpechoizquierdo);
-            int cantidadpechoderechoint = Integer.parseInt(cantidadpechoderecho);
-            int cantidadmangaizquierdaint = Integer.parseInt(cantidadmangaizquierda);
-            int cantidadmangaderechaint = Integer.parseInt(cantidadmangaderecha);
-            int cantidadespaldaint = Integer.parseInt(cantidadespalda);
-            int cantidadotraubicacionint = Integer.parseInt(cantidadotraubicacion);
-            int cantidadotraubicacion2int = Integer.parseInt(cantidadotraubicacion2);
+            int cantidadladoizquierdoint = Integer.parseInt(cantidadladoizquierdo);
+            int cantidadladoderechoint = Integer.parseInt(cantidadladoderecho);
+            int cantidadatrasint = Integer.parseInt(cantidadatras);
+            int cantidadfrenteint = Integer.parseInt(cantidadfrente);
+            
  
             String costostring = "0.00";
-            double importepechoizquierdo = 0.00;
-            double importepechoderecho = 0.00;
-            double importemangaderecha = 0.00;
-            double importemangaizquierda = 0.00;
-            double importeespalda = 0.00;
-            double importeotraubicacion = 0.00;
-            double importeotraubicacion2 = 0.00;
+            double importeladoizquierdo = 0.00;
+            double importeladoderecho = 0.00;
+            double importeatras = 0.00;
+            double importefrente= 0.00;
             
-            double costopuntadapechoizquierdo = 0.0;
-            double costopuntadapechoderecho = 0.0;
-            double costopuntadamangaizquierda = 0.0;
-            double costopuntadamangaderecha = 0.0;
-            double costopuntadaespalda = 0.0;
-            double costopuntadaotraubicacion = 0.0;
-            double costopuntadaotraubicacion2 = 0.0;
+            double costopuntadaladoizquierdo = 0.0;
+            double costopuntadaladoderecho = 0.0;
+            double costopuntadaatras = 0.0;
+            double costopuntadafrente = 0.0;
+            
             
             double costopuntadasaplicacioneschicas = 0.00;
+            double costopuntadasaplicacionesgrandes = 0.00;
             double totalpuntosaplicacioneschicas = 0.00;
             double totalpuntosaplicacionesgrandes = 0.00;
             
 
             //PECHO IZQUIERDO
             
-            String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" +pechoizquierdo+ "'";
+            String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" +ladoizquierdo+ "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql1);
@@ -899,7 +889,7 @@ public class ordengorra extends javax.swing.JFrame {
                 {
 
                     costostring = rs2.getString("costo");
-                    costopuntadapechoizquierdo = Double.parseDouble(costostring);
+                    costopuntadaladoizquierdo = Double.parseDouble(costostring);
 
                 }
             } catch (Exception exx) {
@@ -907,12 +897,12 @@ public class ordengorra extends javax.swing.JFrame {
 
             }
 
-            String costopuntadapechoizquierdostring = String.format("%.02f ", costopuntadapechoizquierdo);
-            importepechoizquierdo = cantidadpechoizquierdoint * costopuntadapechoizquierdo;
+            String costopuntadapechoizquierdostring = String.format("%.02f ", costopuntadaladoizquierdo);
+            importeladoizquierdo = cantidadladoizquierdoint * costopuntadaladoizquierdo;
 
             //PECHO DERECHO
             
-            String sql2 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + pechoderecho + "'";
+            String sql2 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + ladoderecho + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql2);
@@ -920,7 +910,7 @@ public class ordengorra extends javax.swing.JFrame {
                 if (rs2.next()) {
 
                     costostring = rs2.getString("costo");
-                    costopuntadapechoderecho = Double.parseDouble(costostring);
+                    costopuntadaladoderecho = Double.parseDouble(costostring);
 
                 }
             } catch (Exception exx) {
@@ -928,13 +918,13 @@ public class ordengorra extends javax.swing.JFrame {
 
             }
 
-            String costopuntadapechoderechostring = String.format("%.02f ", costopuntadapechoderecho);
-            importepechoderecho = cantidadpechoderechoint * costopuntadapechoderecho;
+            String costopuntadapechoderechostring = String.format("%.02f ", costopuntadaladoderecho);
+            importeladoderecho = cantidadladoderechoint * costopuntadaladoderecho;
 
 //MANGA IZQUIERDA
             
  
-            String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + mangaizquierda+ "'";
+            String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + atras+ "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql3);
@@ -942,7 +932,7 @@ public class ordengorra extends javax.swing.JFrame {
                 if (rs2.next()) {
 
                     costostring = rs2.getString("costo");
-                    costopuntadamangaizquierda = Double.parseDouble(costostring);
+                    costopuntadaatras = Double.parseDouble(costostring);
 
                 }
             } catch (Exception exx) {
@@ -950,12 +940,12 @@ public class ordengorra extends javax.swing.JFrame {
 
             }
 
-            String costopuntadamangaizquierdastring = String.format("%.02f ", costopuntadamangaizquierda);
-            importemangaizquierda = cantidadmangaizquierdaint * costopuntadamangaizquierda;
+            String costopuntadamangaizquierdastring = String.format("%.02f ", costopuntadaatras);
+            importeatras = cantidadatrasint * costopuntadaatras;
 
 //MANGA DERECHA
             
-            String sql4 = "SELECT costo from catalogo_costos_bordado where puntadas = '"+mangaderecha+"'";
+            String sql4 = "SELECT costo from catalogo_costos_bordado where puntadas = '"+frente+"'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql4);
@@ -963,7 +953,7 @@ public class ordengorra extends javax.swing.JFrame {
                 if (rs2.next()) {
 
                     costostring = rs2.getString("costo");
-                    costopuntadamangaderecha = Double.parseDouble(costostring);
+                    costopuntadafrente = Double.parseDouble(costostring);
 
                 }
             } catch (Exception exx) {
@@ -971,110 +961,29 @@ public class ordengorra extends javax.swing.JFrame {
 
             }
 
-            String costopuntadamangaderechastring = String.format("%.02f ", costopuntadamangaderecha);
-            importemangaderecha = cantidadmangaderechaint * costopuntadamangaderecha;
+            String costopuntadafrentestring = String.format("%.02f ", costopuntadafrente);
+            importefrente = cantidadfrenteint * costopuntadafrente;
 
             // ESPALDA
            
-            String sql5 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + espalda + "'";
-
-            try {
-                PreparedStatement prst = cn.prepareStatement(sql5);
-                ResultSet rs2 = prst.executeQuery();
-                if (rs2.next()) {
-
-                    costostring = rs2.getString("costo");
-                    costopuntadaespalda = Double.parseDouble(costostring);
-
-                }
-            } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
-
-            }
-
-            String costopuntadaespaldastring = String.format("%.02f ", costopuntadaespalda);
-             importeespalda = cantidadespaldaint * costopuntadaespalda;
-
-            /// otra ubicacion
            
-
-            String sql6 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + otraubicacion + "'";
-
-            try {
-                PreparedStatement prst = cn.prepareStatement(sql6);
-                ResultSet rs2 = prst.executeQuery();
-                if (rs2.next()) {
-
-                    costostring = rs2.getString("costo");
-                    costopuntadaotraubicacion = Double.parseDouble(costostring);
-
-                }
-
-            } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
-
-            }
-
-            String costopuntadaotraubicacionstring = String.format("%.02f ", costopuntadaotraubicacion);
-            importeotraubicacion = cantidadotraubicacionint * costopuntadaotraubicacion;
-
-            /// otra ubicacion2
-            
-           
-
-            String sql7 = "SELECT costo from catalogo_costos_bordado where puntadas = '" +otraubicacion2+ "'";
-
-            try {
-                PreparedStatement prst = cn.prepareStatement(sql7);
-                ResultSet rs2 = prst.executeQuery();
-                if (rs2.next()) {
-
-                    costostring = rs2.getString("costo");
-                    costopuntadaotraubicacion2 = Double.parseDouble(costostring);
-
-                }
-
-            } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
-
-            }
-
-            String costopuntadaotraubicacion2string = String.format("%.02f ", costopuntadaotraubicacion2);
-            importeotraubicacion2 = cantidadotraubicacionint * costopuntadaotraubicacion2;
-            
            
             
 //// aplicaciones
             
              
 
-            if (aplicacionpechoizquierdo == null || aplicacionpechoizquierdo.equals("") || aplicacionpechoizquierdo.equals(" ")) {
-                aplicacionpechoizquierdo = "0";
+            if (aplicacionfrente == null || aplicacionfrente.equals("") || aplicacionfrente.equals(" ")) {
+                aplicacionfrente = "0";
             }
-            int aplicacionpechoizquierdoint = Integer.parseInt(aplicacionpechoizquierdo.toString());
+            int aplicacionfrenteint = Integer.parseInt(aplicacionfrente.toString());
 
 
-            if (aplicacionpechoderecho == null || aplicacionpechoderecho.equals("") || aplicacionpechoderecho.equals(" ")) {
-                aplicacionpechoderecho = "0";
-            }
-
-            int aplicacionpechoderechoint = Integer.parseInt(aplicacionpechoderecho.toString());
-
-
-            if (aplicacionmangaizquierda == null || aplicacionmangaizquierda.equals("") || aplicacionmangaizquierda.equals(" ")) {
-                aplicacionmangaizquierda = "0";
-            }
-            int aplicacionmangaizquierdaint = Integer.parseInt(aplicacionmangaizquierda.toString());
-
-
-            if (aplicacionmangaderecha == null || aplicacionmangaderecha.equals("") || aplicacionmangaderecha.equals(" ")) {
-                aplicacionmangaderecha = "0";
-            }
-            int aplicacionmangaderechaint = Integer.parseInt(aplicacionmangaderecha.toString());
+            
 
 
 
-            int sumadelasaplicaciones = aplicacionpechoizquierdoint + aplicacionpechoderechoint + aplicacionmangaizquierdaint + aplicacionmangaderechaint ;
+            int sumadelasaplicaciones = aplicacionfrenteint  ;
 
             String sqlaplicacionchica = "SELECT costo from catalogo_costos_bordado where puntadas = 'APLICACION CHICA' ";
 
@@ -1094,46 +1003,7 @@ public class ordengorra extends javax.swing.JFrame {
 
             totalpuntosaplicacioneschicas = costopuntadasaplicacioneschicas * (sumadelasaplicaciones * Integer.parseInt(cantidad));
 
-           
-
-       
-
-        //// aplicaciones grandes
-        String costoaplicacionesgrandesstring = "";
-        double costopuntadasaplicacionesgrandes = 0.00;
-          
-
-           
-            if (aplicacionespalda == null || aplicacionespalda.equals("") || aplicacionespalda.equals(" ")) {
-                aplicacionespalda = "0";
-            }
-            int aplicacionespaldaint = Integer.parseInt(aplicacionespalda.toString());
-
-            int sumadelasaplicacionesgrandes = aplicacionespaldaint;
-
-            String sql1a = "SELECT costo from catalogo_costos_bordado where puntadas = 'APLICACION GRANDE' ";
-
-            try {
-                PreparedStatement prst = cn.prepareStatement(sql1a);
-                ResultSet rs2 = prst.executeQuery();
-                if (rs2.next()) {
-
-                    costoaplicacionesgrandesstring = rs2.getString("costo");
-                    costopuntadasaplicacionesgrandes = Double.parseDouble(costoaplicacionesgrandesstring);
-
-                }
-            } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
-
-            }
-
-            totalpuntosaplicacionesgrandes = costopuntadasaplicacionesgrandes * (sumadelasaplicacionesgrandes* Integer.parseInt(cantidad));
-
-            
-            double sumatotaldepuntosaplicaciones = totalpuntosaplicacioneschicas +  totalpuntosaplicacionesgrandes ;
-            
-
-            double sumabordados = importepechoizquierdo + importepechoderecho + importemangaizquierda + importemangaderecha + importeespalda + importeotraubicacion + importeotraubicacion2 +sumatotaldepuntosaplicaciones;
+            double sumabordados = importeladoizquierdo + importeladoderecho + importeatras + importefrente + totalpuntosaplicacioneschicas ;
             String sumabordadosstring = String.format("%.02f ", sumabordados);
             lbsumapuntos.setText(sumabordadosstring);
 
@@ -1194,9 +1064,8 @@ public class ordengorra extends javax.swing.JFrame {
         lbrutaladoizquierdo = new javax.swing.JLabel();
         lbrutaatras = new javax.swing.JLabel();
         lbtipo = new javax.swing.JLabel();
-        btnimagen = new javax.swing.JButton();
+        btnagregarfotomontaje = new javax.swing.JButton();
         lbtiendaalaquereplicara = new javax.swing.JLabel();
-        btnreplicar1 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         btnverfotomontaje = new javax.swing.JButton();
         btnatras = new javax.swing.JButton();
@@ -1261,7 +1130,7 @@ public class ordengorra extends javax.swing.JFrame {
         jLabel19.setText("ORDEN DE BORDADO DE GORRA");
 
         btnreplicar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnreplicar.setText("Replicar");
+        btnreplicar.setText("Replicar fotomontaje y ponchados");
         btnreplicar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnreplicarActionPerformed(evt);
@@ -1385,23 +1254,15 @@ public class ordengorra extends javax.swing.JFrame {
 
         lbtipo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnimagen.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnimagen.setText("Agregar Fotomontaje");
-        btnimagen.addActionListener(new java.awt.event.ActionListener() {
+        btnagregarfotomontaje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnagregarfotomontaje.setText("Agregar Fotomontaje");
+        btnagregarfotomontaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnimagenActionPerformed(evt);
+                btnagregarfotomontajeActionPerformed(evt);
             }
         });
 
         lbtiendaalaquereplicara.setText("00000000");
-
-        btnreplicar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnreplicar1.setText("Eliminar");
-        btnreplicar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnreplicar1ActionPerformed(evt);
-            }
-        });
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 0, 0));
@@ -1486,79 +1347,26 @@ public class ordengorra extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(5, 5, 5)
-                                        .addComponent(jLabel16)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbprenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel12)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lbfechaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel15)
-                                        .addGap(19, 19, 19)
-                                        .addComponent(lbcantidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lbtipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbrutaladoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnreplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbrutaladoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnreplicar1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(lbtipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lbrutaladoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lbrutaatras, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lbrutaladoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(lbrutaatras, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(lbrutafrente, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(lbrutaimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(lbtiendaalaquereplicara)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lbtienda)
-                                        .addComponent(lbnumeroventa)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnimagen, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                                    .addComponent(btnverfotomontaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(lbrutafrente, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lbrutaimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbtiendaalaquereplicara)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lbtienda)
+                                .addComponent(lbnumeroventa))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -1585,7 +1393,59 @@ public class ordengorra extends javax.swing.JFrame {
                                     .addComponent(lbsumapuntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jSeparator1)
                             .addComponent(jSeparator2))
-                        .addGap(0, 15, Short.MAX_VALUE))))
+                        .addGap(0, 15, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnreplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnagregarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(5, 5, 5)
+                                                .addComponent(jLabel16)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel21)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lbprenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel12)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(lbfechaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel14)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel15)
+                                                .addGap(19, 19, 19)
+                                                .addComponent(lbcantidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(24, 24, 24))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1624,7 +1484,12 @@ public class ordengorra extends javax.swing.JFrame {
                                     .addComponent(lbfolio)
                                     .addComponent(jLabel17)
                                     .addComponent(lbnumero))))))
-                .addGap(36, 36, 36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnagregarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnreplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1655,30 +1520,22 @@ public class ordengorra extends javax.swing.JFrame {
                             .addComponent(lbcolormangaderecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnreplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnreplicar1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnimagen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addComponent(lbnumeroventa, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbtienda)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbtiendaalaquereplicara)
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbrutaimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbnumeroventa, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbtienda)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lbtiendaalaquereplicara)
-                                .addGap(23, 23, 23)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbrutaimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbrutaladoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbrutaladoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbrutaatras, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbrutafrente, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(lbrutaladoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbrutaladoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbrutaatras, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbrutafrente, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
@@ -1776,7 +1633,7 @@ public class ordengorra extends javax.swing.JFrame {
             Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
+        sumapuntos();
     }//GEN-LAST:event_formWindowOpened
 
     private void btnladoderechoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechoActionPerformed
@@ -1790,6 +1647,8 @@ if(lugardondesebordara.equals("Esta sucursal"))
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion);
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+            estacompletalaorden();
+            sumapuntos();    
         }
         else
         {
@@ -2213,6 +2072,8 @@ if(lugardondesebordara.equals("Esta sucursal"))
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion);
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+            estacompletalaorden();
+            sumapuntos();    
         }
         else
         {
@@ -2245,6 +2106,8 @@ if(lugardondesebordara.equals("Esta sucursal"))
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+            estacompletalaorden();
+            sumapuntos();    
 
         }
         else
@@ -2271,119 +2134,154 @@ if(lugardondesebordara.equals("Esta sucursal"))
          ventanaordengorraanteriores = false;
     }//GEN-LAST:event_formWindowClosed
 
-    private void btnimagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnimagenActionPerformed
-
-
-
-
-
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
-
-        int respuesta = adjuntar.showOpenDialog(this);
-        if (respuesta == JFileChooser.APPROVE_OPTION) {
-
-            BufferedImage img = null;
-
-            File archivoelegido = adjuntar.getSelectedFile();
-            String fl = archivoelegido.toString();
-
-            lbrutaimagen.setText(fl);
-
+    private void btnagregarfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarfotomontajeActionPerformed
+ 
+        if (ordengorraautorizacion.equals("si")) 
+         {
+        
+        
+        ordengorraautorizacion="no";
+        JSystemFileChooser elegirImagen = new JSystemFileChooser();
+        elegirImagen.setMultiSelectionEnabled(false);
+        int o = elegirImagen.showOpenDialog(this);
+        if (o == JFileChooser.APPROVE_OPTION) 
+        {
+            rutaarchivo = elegirImagen.getSelectedFile().getAbsolutePath();
+            nombrearchivo = elegirImagen.getSelectedFile().getName();
+            
+            
+            PreparedStatement myStmt = null;
+            FileInputStream input = null;
             try {
-                img = ImageIO.read(adjuntar.getSelectedFile()); //it must be an image file, otherwise you'll get an exception
-            } catch (IOException ex) {
-                Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+
+                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and nombre_prenda = '"+nombreconcepto+"' and tipo = '"+lbprenda.getText()+"' ";
+
+                myStmt = cn.prepareStatement(sql);
+                File theFile = new File(rutaarchivo);
+                input = new FileInputStream(theFile);
+                myStmt.setBinaryStream(1, input);
+                myStmt.executeUpdate();
+                myStmt.close();
+               
+                
+               
+                btnagregarfotomontaje.setEnabled(false);        
+                
+                
+            } catch (Exception e) {
+                System.out.println(e);
             }
-            JLabel label = new JLabel();
-            lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
-            repaint();
 
-        }
-    }//GEN-LAST:event_btnimagenActionPerformed
-
-    private void btnreplicar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreplicar1ActionPerformed
-         String numero = lbfolio.getText();
             try {
-
-                PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_gorra SET estatus_orden='generada' WHERE numero='" + numero + "'");
+                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"' where codigo='"+codigocliente+"' and nombre_prenda = '"+nombreconcepto+"' and tipo = '"+lbprenda.getText()+"'  ");
                 pst.executeUpdate();
                 pst.close();
             } catch (Exception e) {
                 System.out.println(e);
-            }  
+            }
             
-            this.dispose();
-            ordenesrecibidas.btnactualizar.doClick();
-    }//GEN-LAST:event_btnreplicar1ActionPerformed
+
+            
+              try {
+            datos();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+     codigocliente();
+     
+     try {    
+            agregarfotomontaje();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+          
+        
+       sumapuntos();
+       
+           
+
+        }
+        
+        
+        
+         }
+         else
+         {
+             
+              if (autorizacion.ventanaautorizacion == true)
+            {
+          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de autorización");
+            }
+            
+            else
+            {
+            autorizacion ventana = new autorizacion();
+            ventana.setVisible(true);
+            ventana.setLocationRelativeTo(null);
+            
+            autorizacion.lbinterfaz.setText("ordengorra");
+            
+             
+            }
+             
+         }    
+    }//GEN-LAST:event_btnagregarfotomontajeActionPerformed
 
     private void btnverfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverfotomontajeActionPerformed
 
-        String cliente = lbcliente.getText();
-        String prenda = lbprenda.getText();
+       String cliente = lbcliente.getText();
+        String tipo = lbprenda.getText();
+        String prenda =lbprenda.getText().toUpperCase();
         String prendafotomontaje = "";
         String nombreprendafotomontaje = "";
         String rutadelarchivo = "";
         String existe = "";
-
-        //// prenda del fotomontaje
-
-        if(prenda.equals("Gorra"))
-                {
-                    prendafotomontaje = "gorra";
-                    nombreprendafotomontaje = "gorraextension";
-                }
-                else if(prenda.equals("Gorra2"))
-                {
-                    prendafotomontaje = "gorra2";
-                    nombreprendafotomontaje = "gorra2extension";
-                }
-                else if(prenda.equals("Gorra3"))
-                {
-                    prendafotomontaje = "gorra3";
-                    nombreprendafotomontaje = "gorra3extension";
-                }
- 
         
-        String SQL = "SELECT "+prendafotomontaje+","+nombreprendafotomontaje+" FROM catalogo_clientes where codigo = '"+codigocliente+"' ";
+        //// prenda del fotomontaje
+        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_prenda= '"+nombreconcepto+"' and tipo = '"+prenda+"'   ";
 
         try {
             Statement st1 = cn.createStatement();
-            ResultSet rs1 = st1.executeQuery(SQL);
-            if (rs1.next())
+            ResultSet rs1 = st1.executeQuery(sql);
+            if (rs1.next()) 
             {
-                Object camisa1 = rs1.getString(1);
-                if (camisa1 == null||camisa1.equals("")||camisa1.equals(" "))
+                Object camisa1 = rs1.getString("imagen");
+                if (camisa1 == null||camisa1.equals("")||camisa1.equals(" ")) 
                 {
                     existe = "no";
-                } else
-
+                    
+                } else 
+                
                 {
-                    String nombredelarchivo = rs1.getString(2);
+                    String nombredelarchivo = rs1.getString("extension_imagen");
                     if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
                     {
-
-                        rutadelarchivo = "C://archivospdf/fotomontaje."+nombredelarchivo+" ";
-
+                        
+                     rutadelarchivo = "C:\\archivospdf\\fotomontajegorra."+nombredelarchivo+" ";   
+                   
                     }
                     else
                     {
-
-                        rutadelarchivo = "C://archivospdf/"+nombredelarchivo+" ";
-
+                        
+                   nombredelarchivo = nombredelarchivo.replace(" ","");
+                   rutadelarchivo = "C:\\archivospdf\\"+nombredelarchivo+" ";
+                    
                     }
                     existe = "si";
                     File file = new File(rutadelarchivo);
                     FileOutputStream output = new FileOutputStream(file);
-                    Blob archivo = rs1.getBlob(1);
+                    Blob archivo = rs1.getBlob("imagen");
                     InputStream inStream = archivo.getBinaryStream();
                     int length = -1;
                     int size = (int) archivo.length();
                     byte[] buffer = new byte[size];
                     while ((length = inStream.read(buffer)) != -1) {
                         output.write(buffer, 0, length);
-                        // output.flush();
                     }
-                    // inStream.close();
+ 
                     output.close();
                 }
             }
@@ -2397,7 +2295,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             System.out.println(ex);
         }
 
-        if (existe.equals("si"))
+        if (existe.equals("si")) 
         {
             String fileLocal = new String(rutadelarchivo);
             try {
@@ -2412,8 +2310,8 @@ if(lugardondesebordara.equals("Esta sucursal"))
                 JOptionPane.showMessageDialog(null, "No se pudo encontrar el archivo","Error",JOptionPane.ERROR_MESSAGE);
                 System.out.println(e);
             }
-
-        }
+        
+        } 
     }//GEN-LAST:event_btnverfotomontajeActionPerformed
 
  
@@ -2514,13 +2412,12 @@ if(lugardondesebordara.equals("Esta sucursal"))
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JButton btnagregarfotomontaje;
     private javax.swing.JButton btnatras;
     private javax.swing.JButton btnfrente;
-    private javax.swing.JButton btnimagen;
     private javax.swing.JButton btnladoderecho;
     private javax.swing.JButton btnladoizquierdo;
     private javax.swing.JButton btnreplicar;
-    private javax.swing.JButton btnreplicar1;
     public static javax.swing.JButton btnsalir;
     private javax.swing.JButton btnverfotomontaje;
     private javax.swing.JLabel jLabel1;

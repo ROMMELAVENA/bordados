@@ -763,6 +763,13 @@ public class tallas extends javax.swing.JFrame {
             }
 
         }
+        else 
+        {
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">No existen datos");
+            this.dispose();
+            
+        }
 
     }
     

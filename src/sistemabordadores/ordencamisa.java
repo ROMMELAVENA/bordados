@@ -143,7 +143,7 @@ public class ordencamisa extends javax.swing.JFrame {
     
     String rutaarchivo = "";
     String  nombrearchivo = "";
-   public static String ordencamisaautorizacion = "";
+    public static String ordencamisaautorizacion = "";
 
     private PreparedStatement pst;
 
@@ -436,6 +436,255 @@ public class ordencamisa extends javax.swing.JFrame {
         
 
     }
+    
+    void datosotrasucursal() throws IOException {
+
+        String folio = lbfolio.getText();
+        
+        datostienda();
+
+        String sql = "Select fecha,hora,cliente,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,\n"
+                + "pecho_izquierdo,pecho_derecho,manga_izquierda,manga_derecha,espalda,otra_ubicacion,otra_ubicacion2,\n"
+                + "cantidad_pecho_izquierdo,cantidad_pecho_derecho,cantidad_manga_izquierda,cantidad_manga_derecha,cantidad_espalda,\n"
+                + "pecho_izquierdo_nombre,pecho_derecho_nombre,manga_izquierda_nombre,manga_derecha_nombre,espalda_nombre,\n"
+                + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion2,otra_ubicacion2_nombre,\n"
+                + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,\n"
+                + "aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,\n"
+                + "lugar,estatus_orden,nombre_concepto from historial_ordenes_camisa_recibidas where numero = '" + folio + "' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+
+                lbcliente.setText(rs.getString("cliente"));
+                lbprenda.setText(rs.getString("prenda"));
+                prenda =(rs.getString("prenda"));
+                lbfecha.setText(rs.getString("fecha"));
+
+                mangaderechanombre = rs.getString("manga_derecha_nombre");
+                Object mangaderecha = rs.getString("manga_derecha");
+                lbmangaderechanombre.setText(mangaderechanombre);
+                lbmangaderecha.setText(rs.getString("manga_derecha"));
+                if (mangaderecha == null | mangaderecha.equals("")) {
+                   
+                    btnmangaderecha.setVisible(false);
+                    lbcolormangaderecha.setVisible(false);
+                   
+                }
+
+                mangaizquierdanombre = rs.getString("manga_izquierda_nombre");
+                Object mangaizquierda = rs.getString("manga_izquierda");
+                lbmangaizquierdanombre.setText(mangaizquierdanombre);
+                lbmangaizquierda.setText(rs.getString("manga_izquierda"));
+                if (mangaizquierda == null | mangaizquierda.equals("")) 
+                {
+                    
+                    btnmangaizquierda.setVisible(false);
+                    lbcolormangaizquierda.setVisible(false);
+                    
+                }
+
+                
+                pechoderechonombre = rs.getString("pecho_derecho_nombre");
+                Object pechoderecho = rs.getString("pecho_derecho");
+                lbpechoderechonombre.setText(pechoderechonombre);
+                lbpechoderecho.setText(rs.getString("pecho_derecho"));
+                if (pechoderecho == null | pechoderecho.equals("")) {
+                    
+                    btnpechoderecho.setVisible(false);
+                    lbcolorpechoderecho.setVisible(false);
+                    
+                }
+
+                pechoizquierdonombre= rs.getString("pecho_izquierdo_nombre");
+                Object pechoizquierdo = rs.getString("pecho_izquierdo");
+                lbpechoizquierdonombre.setText(pechoizquierdonombre);
+                lbpechoizquierdo.setText(rs.getString("pecho_izquierdo"));
+                if (pechoizquierdo == null | pechoizquierdo.equals("")) {
+                    
+                    btnpechoizquierdo.setVisible(false);
+                    lbcolorpechoizquierdo.setVisible(false);
+                    
+                }
+
+                espaldanombre= rs.getString("espalda_nombre");
+                Object espalda = rs.getString("espalda");
+                lbespaldanombre.setText(espaldanombre);
+                lbespalda.setText(rs.getString("espalda"));
+                if (espalda == null | espalda.equals("")) {
+                    
+                    btnespalda.setVisible(false);
+                    lbcolorespalda.setVisible(false);
+                    
+                }
+
+
+                otraubicacionnombre= rs.getString("otra_ubicacion_nombre");
+                Object otraubicacion = rs.getString("otra_ubicacion");
+                lbotraubicacionnombre.setText(otraubicacionnombre);
+                lbotraubicacion.setText(rs.getString("otra_ubicacion"));
+                if (otraubicacion == null | otraubicacion.equals("")) {
+                    
+                    btnotraubicacion.setVisible(false);
+                    lbcolorotraubicacion.setVisible(false);
+                    
+                }
+                
+                
+                otraubicacion2nombre= rs.getString("otra_ubicacion2_nombre");
+                Object otraubicacion2 = rs.getString("otra_ubicacion2");
+                lbotraubicacion2nombre.setText(otraubicacion2nombre);
+                lbotraubicacion2.setText(rs.getString("otra_ubicacion2"));
+                if (otraubicacion2 == null | otraubicacion2.equals("")) {
+                   
+                    btnotraubicacion2.setVisible(false);
+                    lbcolorotraubicacion2.setVisible(false);
+                    
+                }
+
+                
+                lbcantidad.setText(rs.getString("cantidad"));
+
+                aplicacionpechoizquierdo = rs.getString("aplicacion_pecho_izquierdo");
+
+                if (aplicacionpechoizquierdo.equals("ninguno")) {
+                    aplicacionpechoizquierdo = "";
+                }
+
+                 aplicacionpechoderecho = rs.getString("aplicacion_pecho_derecho");
+
+                if (aplicacionpechoderecho.equals("ninguno")) {
+                    aplicacionpechoderecho = "";
+                }
+
+                 aplicacionmangaizquierda = rs.getString("aplicacion_manga_izquierda");
+
+                if (aplicacionmangaizquierda.equals("ninguno")) {
+                    aplicacionmangaizquierda = "";
+                }
+
+                 aplicacionmangaderecha = rs.getString("aplicacion_manga_derecha");
+
+                if (aplicacionmangaderecha.equals("ninguno")) {
+                    aplicacionmangaderecha = "";
+                }
+
+                aplicacionespalda = rs.getString("aplicacion_espalda");
+
+                if (aplicacionespalda.equals("ninguno")) {
+                    aplicacionespalda = "";
+                }
+
+                
+                  aplicacionotraubicacion = rs.getString("aplicacion_otra_ubicacion");
+
+                if (aplicacionotraubicacion.equals("ninguno")) {
+                    aplicacionotraubicacion = "";
+                }
+
+                
+                aplicacionotraubicacion2 = rs.getString("aplicacion_otra_ubicacion2");
+
+                if (aplicacionotraubicacion2.equals("ninguno")) {
+                    aplicacionotraubicacion2 = "";
+                }
+
+
+                
+                String nombreconcepto = rs.getString("nombre_concepto");
+                lbnombreconcepto.setText(nombreconcepto);
+                
+                lugardondesebordara = rs.getString("lugar");
+                
+                String cantidadpechoizquiedo =rs.getString("cantidad_pecho_izquierdo");
+                String cantidadpechoderecho =rs.getString("cantidad_pecho_derecho");         
+                String cantidadmangaizquierda =rs.getString("cantidad_manga_izquierda"); 
+                String cantidadmangaderecha =rs.getString("cantidad_manga_derecha");
+                String cantidadespalda =rs.getString("cantidad_espalda");
+                
+                
+                if(lugardondesebordara.equals("Esta sucursal"))
+                {
+                
+                    
+                    btninsertarponchados.setEnabled(false);
+                    cbsucursal.setEnabled(false);
+                
+                
+                if(cantidadpechoizquiedo.equals("0"))
+                {
+                   btnpechoizquierdo.setEnabled(true);
+                }
+                else
+                {
+                    btnpechoizquierdo.setEnabled(false);
+                } 
+                
+                if(cantidadpechoderecho.equals("0"))
+                {
+                   btnpechoderecho.setEnabled(true);
+                }
+                else
+                {
+                    btnpechoderecho.setEnabled(false);
+                } 
+                
+                if(cantidadmangaizquierda.equals("0"))
+                {
+                   btnmangaizquierda.setEnabled(true);
+                }
+                else
+                {
+                    btnmangaizquierda.setEnabled(false);
+                } 
+                    
+                if(cantidadmangaderecha.equals("0"))
+                {
+                   btnmangaderecha.setEnabled(true);
+                   
+                   
+                }
+                else
+                {
+                    btnmangaderecha.setEnabled(false);
+                } 
+                
+                if(cantidadespalda.equals("0"))
+                {
+                   btnespalda.setEnabled(true);
+                   
+                }
+                else
+                {
+                    btnespalda.setEnabled(false);
+                } 
+                
+                
+                
+                }
+                else
+                {
+                    
+                    btninsertarponchados.setEnabled(true);
+                    cbsucursal.setEnabled(true);
+                    
+                }    
+                
+
+            }
+
+        } catch (SQLException ex) 
+        {
+             JOptionPane.showMessageDialog(null, ex);
+        }
+
+       
+        
+
+    }
+    
+    
     
      void codigocliente()
     {
@@ -2212,7 +2461,10 @@ public class ordencamisa extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-         
+   
+    if()    
+        
+        
      try {
             datos();
         } catch (IOException ex) {

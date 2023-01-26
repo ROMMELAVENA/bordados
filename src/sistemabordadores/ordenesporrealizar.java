@@ -192,7 +192,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sqlpantalon);
-            while (rs.next()) {
+            while (rs.next()) 
+            {
                 datos3[0] = rs.getString("numero");
                 datos3[1] = rs.getString("cliente");
                 datos3[2] = rs.getString("prenda");
@@ -380,7 +381,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos9 = new String[10];
 
-        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus = 'por guardar' ";
+        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus = 'por guardar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -414,7 +415,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos10 = new String[10];
 
-        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_gorra_recibidas  where estatus = 'por guardar' order by numero  ";
+        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_gorra_recibidas  where estatus = 'por guardar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by numero  ";
 
         try {
             Statement st = cn.createStatement();
@@ -449,7 +450,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos11 = new String[10];
 
-        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha  FROM historial_ordenes_pantalon_recibidas  where estatus = 'por guardar' order by numero  ";
+        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_pantalon_recibidas  where estatus = 'por guardar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by numero  ";
 
         try {
             Statement st = cn.createStatement();
@@ -892,7 +893,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 Object tipo = tabla.getValueAt(fila, 3).toString();
 
                 if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) {
-                    if (ordencamisa.ventanaordencamisaanteriores == true) {
+                    if (ordencamisa.ventanaordencamisaanteriores == true) 
+                    {
                         
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
 

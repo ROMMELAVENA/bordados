@@ -1,5 +1,7 @@
 package sistemabordadores;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.RowSorter;
 import javax.swing.SortOrder;
@@ -23,6 +26,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     String fechainicial = "";
     String fechafinal = "";
     String nombrecliente = "";
+    String tiendalocal = "";
 
     public ordenesporrealizar() {
         initComponents();
@@ -31,6 +35,19 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         lbtienda.setVisible(false);
         btnactualizar.setVisible(false);
         btnfrente.setVisible(false);
+        
+        File file = new File("C:\\sistema\\configuracion.txt");
+        try {
+            Scanner sc = new Scanner(file);
+            while (sc.hasNext()) {
+                String line = sc.nextLine();
+                String str[] = line.split(":");
+                tiendalocal = str[1];
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+        
         fechas();
         datos();
 
@@ -124,7 +141,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         //// historial_orden_camisa
         
-        String[] datos = new String[10];
+        String[] datos = new String[12];
         
         
         String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  "
@@ -142,6 +159,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos[4] = rs.getString("lugar");
                 datos[5] = rs.getString("numero_venta");
                 datos[6] = rs.getString("fecha");
+                datos[7] = "";
+                datos[8] = "";
+                datos[9] = "";
+                datos[10] = "Local";
 
                 modelo.addRow(datos);
 
@@ -156,7 +177,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         //// historial_orden_gorra
         
-        String[] datos2 = new String[10];
+        String[] datos2 = new String[12];
         
         String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
@@ -171,6 +192,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos2[4] = rs.getString("lugar");
                 datos2[5] = rs.getString("numero_venta");
                 datos2[6] = rs.getString("fecha");
+                datos2[7] = "";
+                datos2[8] = "";
+                datos2[9] = "";
+                datos2[10] = "Local";
 
                 modelo.addRow(datos2);
 
@@ -185,7 +210,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         //// historial_orden_pantalon
         
         
-        String[] datos3 = new String[10];
+        String[] datos3 = new String[12];
         
          String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
@@ -201,6 +226,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos3[4] = rs.getString("lugar");
                 datos3[5] = rs.getString("numero_venta");
                 datos3[6] = rs.getString("fecha");
+                datos3[7] = "";
+                datos3[8] = "";
+                datos3[9] = "";
+                datos3[10] = "Local";
 
                 modelo.addRow(datos3);
 
@@ -216,7 +245,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         //// historial_orden_parches
         
-        String[] datos4 = new String[10];
+        String[] datos4 = new String[12];
         
         String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
@@ -231,6 +260,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos4[4] = rs.getString("lugar");
                 datos4[5] = rs.getString("numero_venta");
                 datos4[6] = rs.getString("fecha");
+                datos4[7] = "";
+                datos4[8] = "";
+                datos4[9] = "";
+                datos4[10] = "Local";
 
                 modelo.addRow(datos4);
 
@@ -246,7 +279,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
          //// historial_orden_ponchado
          
          
-         String[] datos5 = new String[10];
+         String[] datos5 = new String[12];
         
         String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
@@ -261,6 +294,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos5[4] = rs.getString("lugar");
                 datos5[5] = rs.getString("numero_venta");
                 datos5[6] = rs.getString("fecha");
+                datos5[7] = "";
+                datos5[8] = "";
+                datos5[9] = "";
+                datos5[10] = "Local";
 
                 modelo.addRow(datos5);
 
@@ -275,7 +312,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         /// historial ordenes corbata
         
-         String[] datos6 = new String[10];
+         String[] datos6 = new String[12];
         
         String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where (lugar = 'Esta sucursal' OR lugar = 'Otra sucursal') and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
@@ -290,6 +327,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos6[4] = rs.getString("lugar");
                 datos6[5] = rs.getString("numero_venta");
                 datos6[6] = rs.getString("fecha");
+                datos6[7] = "";
+                datos6[8] = "";
+                datos6[9] = "";
+                datos6[10] = "Local";
 
                 modelo.addRow(datos6);
 
@@ -304,7 +345,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         /// historial orden portanombres
         
-        String[] datos7 = new String[10];
+        String[] datos7 = new String[12];
         
         String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres where (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
@@ -322,6 +363,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos7[4] = "Esta sucursal";
                 datos7[5] = rs.getString("numero_venta");
                 datos7[6] = rs.getString("fecha");
+                datos7[7] = "";
+                datos7[8] = "";
+                datos7[9] = "";
+                datos7[10] = "Local";
 
                 modelo.addRow(datos7);
 
@@ -337,7 +382,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         /// historial´ portanombre multiple
         
-        String[] datos8 = new String[10];
+        String[] datos8 = new String[12];
 
          String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres_multiple where (estatus_orden = 'generada' or estatus_orden = 'solicitada' ) and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
@@ -355,6 +400,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos8[4] = "Esta sucursal";
                 datos8[5] = rs.getString("numero_venta");
                 datos8[6] = rs.getString("fecha");
+                datos8[7] = "";
+                datos8[8] = "";
+                datos8[9] = "";
+                datos8[10] = "Local";
 
                 modelo.addRow(datos8);
 
@@ -370,6 +419,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         
+        
+        
+        
         // ORDENES DE OTRAS SUCURSALES
         //////////////////////////////
         /////////////////////////////
@@ -379,9 +431,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         //CAMISA
         
         
-        String[] datos9 = new String[10];
+        String[] datos9 = new String[12];
 
-        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus = 'por guardar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus = 'por guardar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' and tienda not in('"+tiendalocal+"') ";
 
         try {
             Statement st = cn.createStatement();
@@ -396,6 +448,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos9[6] = rs.getString("fecha");
                 datos9[7] = rs.getString("tienda");
                 datos9[8] = rs.getString("numero_sucursal");
+                datos9[9] = "";
+                datos9[10] = "Recibida";
 
                 modelo.addRow(datos9);
 
@@ -407,15 +461,15 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             System.out.println(ex);
         }
         
-      //  tieneponchados();
+     
         
         
         
         // GORRA
         
-        String[] datos10 = new String[10];
+        String[] datos10 = new String[12];
 
-        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_gorra_recibidas  where estatus = 'por guardar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by numero  ";
+        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_gorra_recibidas  where estatus = 'por guardar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' and tienda not in('"+tiendalocal+"')  order by numero  ";
 
         try {
             Statement st = cn.createStatement();
@@ -430,6 +484,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos10[6] = rs.getString("fecha");
                 datos10[7] = rs.getString("tienda");
                 datos10[8] = rs.getString("numero_sucursal_orden");
+                datos10[9] = "";
+                datos10[10] = "Recibida";
 
                 modelo.addRow(datos10);
 
@@ -448,9 +504,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         /// PANTALON
         
-        String[] datos11 = new String[10];
+        String[] datos11 = new String[12];
 
-        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_pantalon_recibidas  where estatus = 'por guardar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by numero  ";
+        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_pantalon_recibidas  where estatus = 'por guardar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' and tienda not in('"+tiendalocal+"')  order by numero  ";
 
         try {
             Statement st = cn.createStatement();
@@ -465,6 +521,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos11[6] = rs.getString("fecha");
                 datos11[7] = rs.getString("tienda");
                 datos11[8] = rs.getString("numero_sucursal_orden");
+                datos11[9] = "";
+                datos11[10] = "Recibida";
             
                 modelo.addRow(datos11);
 
@@ -709,29 +767,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
     }
     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-    
-    
+
     void limpiartabla() {
         try {
             DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -777,11 +813,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tieneponchados"
+                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tieneponchados", "tabla"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -799,6 +835,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(1).setMinWidth(100);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(600);
             tabla.getColumnModel().getColumn(1).setMaxWidth(800);
+            tabla.getColumnModel().getColumn(3).setMinWidth(0);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
         }
 
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -906,6 +945,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordencamisa.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordencamisa.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordencamisa.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         this.setState(this.ICONIFIED);
                        
@@ -926,6 +967,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordengorra.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordengorra.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordengorra.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        //ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        //ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
                          tabla.clearSelection();
                          this.setState(this.ICONIFIED);
                         
@@ -975,6 +1018,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
                         ordencorbata.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
                         ordencorbata.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        //ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        //ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         
                          tabla.clearSelection();
                          this.setState(this.ICONIFIED);
@@ -999,13 +1044,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                             this.setState(this.ICONIFIED);
                         
                     }
-                        
-                 
-                   
+                                           
                 }
-                
-                
-                
 
             } /// 
 

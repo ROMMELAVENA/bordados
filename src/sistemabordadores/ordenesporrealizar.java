@@ -547,7 +547,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tabla.getModel());
         tabla.setRowSorter(sorter);
         List<RowSorter.SortKey> sortKeys = new ArrayList<>(100);
-        sortKeys.add(new RowSorter.SortKey(6, SortOrder.DESCENDING));
+        sortKeys.add(new RowSorter.SortKey(0, SortOrder.DESCENDING));
         sorter.setSortKeys(sortKeys);
         
         Colorear ft = new Colorear();

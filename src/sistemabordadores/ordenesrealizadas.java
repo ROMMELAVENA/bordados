@@ -1,5 +1,6 @@
 package sistemabordadores;
 
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -351,7 +352,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tablacamisa.getModel());
         tablacamisa.setRowSorter(sorter);
         List<RowSorter.SortKey> sortKeys = new ArrayList<>(100);
-        sortKeys.add(new RowSorter.SortKey(5, SortOrder.DESCENDING));
+        sortKeys.add(new RowSorter.SortKey(0, SortOrder.DESCENDING));
         sorter.setSortKeys(sortKeys);
         
     }
@@ -416,6 +417,11 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         tablacamisa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tablacamisa.setModel(new javax.swing.table.DefaultTableModel(
@@ -438,6 +444,11 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         tablacamisa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablacamisaMouseClicked(evt);
+            }
+        });
+        tablacamisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tablacamisaKeyPressed(evt);
             }
         });
         jScrollPane1.setViewportView(tablacamisa);
@@ -604,6 +615,20 @@ public class ordenesrealizadas extends javax.swing.JFrame {
     private void btnfrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteActionPerformed
         this.toFront();
     }//GEN-LAST:event_btnfrenteActionPerformed
+
+    private void tablacamisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablacamisaKeyPressed
+      if (evt.getKeyCode() == KeyEvent.VK_F5) 
+        {
+            btnactualizar.doClick();
+        }
+    }//GEN-LAST:event_tablacamisaKeyPressed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+       if (evt.getKeyCode() == KeyEvent.VK_F5) 
+        {
+            btnactualizar.doClick();
+        }
+    }//GEN-LAST:event_formKeyPressed
 
     /**
      * @param args the command line arguments

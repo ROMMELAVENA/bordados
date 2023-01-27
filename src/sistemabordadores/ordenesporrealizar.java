@@ -29,6 +29,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     String fechafinal = "";
     String nombrecliente = "";
     String tiendalocal = "";
+    public static String localuotrasucursal ="";
 
     public ordenesporrealizar() {
         initComponents();
@@ -51,7 +52,17 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         }
         
         fechas();
-        datos();
+        
+        if(localuotrasucursal.equals("Local"))
+        {
+           datos(); 
+        }
+        else
+        {
+           datos2(); 
+        }    
+        
+        
 
     }
     
@@ -555,6 +566,233 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     }
     
     
+     void datos2() {
+        
+        
+        
+        
+        limpiartabla();
+
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+       
+        
+        
+        //// historial_orden_camisa
+        
+        String[] datos = new String[12];
+        
+        
+        String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  "
+                         + "FROM historial_ordenes_camisa where lugar = 'Otra sucursal' "
+                         + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"'  ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlcamisa);
+            while (rs.next()) {
+                datos[0] = rs.getString("numero");
+                datos[1] = rs.getString("cliente");
+                datos[2] = rs.getString("prenda");
+                datos[3] = rs.getString("tipo");
+                datos[4] = rs.getString("lugar");
+                datos[5] = rs.getString("numero_venta");
+                datos[6] = rs.getString("fecha");
+                datos[7] = "";
+                datos[8] = "";
+                datos[9] = "";
+                datos[10] = "Local";
+
+                modelo.addRow(datos);
+
+            }
+
+            
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "sql orden camisa" +  ex);
+        }
+
+        
+        //// historial_orden_gorra
+        
+        String[] datos2 = new String[12];
+        
+        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlgorra);
+            while (rs.next()) {
+                datos2[0] = rs.getString("numero");
+                datos2[1] = rs.getString("cliente");
+                datos2[2] = rs.getString("prenda");
+                datos2[3] = rs.getString("tipo");
+                datos2[4] = rs.getString("lugar");
+                datos2[5] = rs.getString("numero_venta");
+                datos2[6] = rs.getString("fecha");
+                datos2[7] = "";
+                datos2[8] = "";
+                datos2[9] = "";
+                datos2[10] = "Local";
+
+                modelo.addRow(datos2);
+
+            }
+
+           
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"sql orden gorra" +  ex);
+        }
+        
+        //// historial_orden_pantalon
+        
+        
+        String[] datos3 = new String[12];
+        
+         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlpantalon);
+            while (rs.next()) 
+            {
+                datos3[0] = rs.getString("numero");
+                datos3[1] = rs.getString("cliente");
+                datos3[2] = rs.getString("prenda");
+                datos3[3] = rs.getString("tipo");
+                datos3[4] = rs.getString("lugar");
+                datos3[5] = rs.getString("numero_venta");
+                datos3[6] = rs.getString("fecha");
+                datos3[7] = "";
+                datos3[8] = "";
+                datos3[9] = "";
+                datos3[10] = "Local";
+
+                modelo.addRow(datos3);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           JOptionPane.showMessageDialog(null,"sql orden pantalon" + ex);
+        }
+        
+        
+        //// historial_orden_parches
+        
+        String[] datos4 = new String[12];
+        
+        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlparches);
+            while (rs.next()) {
+                datos4[0] = rs.getString("numero");
+                datos4[1] = rs.getString("cliente");
+                datos4[2] = "Parche";
+                datos4[3] = rs.getString("tipo");
+                datos4[4] = rs.getString("lugar");
+                datos4[5] = rs.getString("numero_venta");
+                datos4[6] = rs.getString("fecha");
+                datos4[7] = "";
+                datos4[8] = "";
+                datos4[9] = "";
+                datos4[10] = "Local";
+
+                modelo.addRow(datos4);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           JOptionPane.showMessageDialog(null,"sql orden parche" + ex);
+        }
+        
+         //// historial_orden_ponchado
+         
+         
+         String[] datos5 = new String[12];
+        
+        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlponchados);
+            while (rs.next()) {
+                datos5[0] = rs.getString("numero");
+                datos5[1] = rs.getString("cliente");
+                datos5[2] = "Ponchado";
+                datos5[3] = rs.getString("tipo");
+                datos5[4] = rs.getString("lugar");
+                datos5[5] = rs.getString("numero_venta");
+                datos5[6] = rs.getString("fecha");
+                datos5[7] = "";
+                datos5[8] = "";
+                datos5[9] = "";
+                datos5[10] = "Local";
+
+                modelo.addRow(datos5);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           JOptionPane.showMessageDialog(null,"sql orden ponchado" + ex);
+        }
+        
+        /// historial ordenes corbata
+        
+         String[] datos6 = new String[12];
+        
+        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlcorbata);
+            while (rs.next()) {
+                datos6[0] = rs.getString("numero");
+                datos6[1] = rs.getString("cliente");
+                datos6[2] = "Corbata";
+                datos6[3] = rs.getString("tipo");
+                datos6[4] = rs.getString("lugar");
+                datos6[5] = rs.getString("numero_venta");
+                datos6[6] = rs.getString("fecha");
+                datos6[7] = "";
+                datos6[8] = "";
+                datos6[9] = "";
+                datos6[10] = "Local";
+
+                modelo.addRow(datos6);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
+        }
+        
+
+        
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tabla.getModel());
+        tabla.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>(100);
+        sortKeys.add(new RowSorter.SortKey(6, SortOrder.DESCENDING));
+        sorter.setSortKeys(sortKeys);
+        
+       
+        
+        
+    }
     
     
     
@@ -1075,13 +1313,30 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 {
                    
                         
-                        if (ordenportanombremultiple.ventanaordenportanombremultipleanterior == true) {
+                        if (ordenportanombreescolar.ventanaordenportanombreanterior == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de portanombre");
 
                     } else {
                             ordenportanombreescolar orden = new ordenportanombreescolar();
                             orden.setVisible(true);
                             ordenportanombreescolar.lbnumero.setText(tabla.getValueAt(fila, 0).toString());
+                            tabla.clearSelection();
+                            this.setState(this.ICONIFIED);
+                        
+                    }
+                                           
+                }
+                else if (tipo.equals("porta nombre multiple")) 
+                {
+                   
+                        
+                        if (ordenportanombremultiple.ventanaordenportanombremultipleanterior == true) {
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de portanombre");
+
+                    } else {
+                            ordenportanombremultiple orden = new ordenportanombremultiple();
+                            orden.setVisible(true);
+                            ordenportanombremultiple.lbnumerohistorialordenesbordados.setText(tabla.getValueAt(fila, 0).toString());
                             tabla.clearSelection();
                             this.setState(this.ICONIFIED);
                         
@@ -1104,7 +1359,14 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
        limpiartabla();
-       datos();
+       if(localuotrasucursal.equals("Local"))
+        {
+           datos(); 
+        }
+        else
+        {
+           datos2(); 
+        }    
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void btnfrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteActionPerformed

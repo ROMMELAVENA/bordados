@@ -257,12 +257,10 @@ public class ordenpantalon extends javax.swing.JFrame {
             System.out.println(ex);
 
         }         
-                
-             
-        
-       
 
         datostienda();
+
+        agregarfotomontaje();
 
     }
     
@@ -453,6 +451,14 @@ public class ordenpantalon extends javax.swing.JFrame {
             btnladoizquierdofrente.setEnabled(false);
             btnladoizquierdoatras.setEnabled(false);
             
+            ordenpantalonimagen p = new ordenpantalonimagen();
+            jPanel1.add(p);
+            jPanel1.repaint();
+            lblImagen.setVisible(false);
+            btnverfotomontaje.setEnabled(false);
+            btnagregarfotomontaje.setEnabled(true);
+
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
             
         }  
 

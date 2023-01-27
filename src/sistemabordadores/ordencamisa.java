@@ -784,6 +784,15 @@ public class ordencamisa extends javax.swing.JFrame {
             btnotraubicacion.setEnabled(false);
             btnotraubicacion2.setEnabled(false);
             
+            ordencamisaimagencontorno p = new ordencamisaimagencontorno();
+            jPanel1.add(p);
+            jPanel1.repaint();
+            lblImagen.setVisible(false);
+            btnverfotomontaje.setEnabled(false);
+            btnagregarfotomontaje.setEnabled(true);
+
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
+            
         }  
 
         

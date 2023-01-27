@@ -2730,7 +2730,15 @@ public class ordencamisa extends javax.swing.JFrame {
     }//GEN-LAST:event_lbprendaMouseClicked
 
     private void btnmangaizquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmangaizquierdaActionPerformed
-if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+
+         if(lbcantidad.getText().equals("0"))
+        {
+           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
+        }
+        else
+        { 
+        
+        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
         
             String ubicacion = "cantidad_manga_izquierda";
@@ -2863,12 +2871,20 @@ if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
             
         }
     
-
+        }
 
     }//GEN-LAST:event_btnmangaizquierdaActionPerformed
 
     private void btnpechoizquierdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoizquierdoActionPerformed
-    if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+
+         if(lbcantidad.getText().equals("0"))
+        {
+           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
+        }
+        else
+        { 
+        
+        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             
            String ubicacion = "cantidad_pecho_izquierdo";
@@ -3000,12 +3016,19 @@ if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
             
         }
     
-    
+        }
     
     
     }//GEN-LAST:event_btnpechoizquierdoActionPerformed
 
     private void btnespaldaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnespaldaActionPerformed
+
+        if(lbcantidad.getText().equals("0"))
+        {
+           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
+        }
+        else
+        {
         
         if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
@@ -3137,10 +3160,18 @@ if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
             
         }
         
-        
+        } 
     }//GEN-LAST:event_btnespaldaActionPerformed
 
     private void btnpechoderechoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoderechoActionPerformed
+     
+         if(lbcantidad.getText().equals("0"))
+        {
+           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
+        }
+        else
+        { 
+
         
         if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
@@ -3273,10 +3304,20 @@ if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
             sumapuntos();
        
         }
+        
+        }
+        
     }//GEN-LAST:event_btnpechoderechoActionPerformed
 
     private void btnmangaderechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmangaderechaActionPerformed
 
+        if(lbcantidad.getText().equals("0"))
+        {
+           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
+        }
+        else
+        {    
+        
         if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
 
@@ -3420,7 +3461,7 @@ if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         }
             
             
-            
+        }    
            
         
         
@@ -3866,6 +3907,15 @@ if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
     }//GEN-LAST:event_btnverfotomontajeActionPerformed
 
     private void btnotraubicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnotraubicacionActionPerformed
+
+        if(lbcantidad.getText().equals("0"))
+        {
+           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
+        }
+        else
+        {
+        
+
         if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "cantidad_otra_ubicacion";
@@ -3997,9 +4047,20 @@ if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
             
         }
         
+        
+        }
+        
     }//GEN-LAST:event_btnotraubicacionActionPerformed
 
     private void btnotraubicacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnotraubicacion2ActionPerformed
+       
+        if(lbcantidad.getText().equals("0"))
+        {
+           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
+        }
+        else
+        {
+        
         if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "cantidad_otra_ubicacion2";
@@ -4128,7 +4189,7 @@ if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
             
         }
         
-        
+        }
     }//GEN-LAST:event_btnotraubicacion2ActionPerformed
 
     private void lbltallasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbltallasMouseClicked

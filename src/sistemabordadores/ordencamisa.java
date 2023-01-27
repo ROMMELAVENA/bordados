@@ -4123,12 +4123,22 @@ if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
     }//GEN-LAST:event_btnotraubicacion2ActionPerformed
 
     private void lbltallasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbltallasMouseClicked
-        if (evt.getClickCount() == 2) {
+        if (evt.getClickCount() == 2) 
+        {
 
-            tallas ventana = new tallas();
-            ventana.setVisible(true);
-            ventana.setLocationRelativeTo(null);
-            this.setState(this.ICONIFIED);
+            if (lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local")) 
+            {
+            }
+            else if (lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Recibida")) 
+            {
+            }
+            else 
+            {
+                tallas ventana = new tallas();
+                ventana.setVisible(true);
+                ventana.setLocationRelativeTo(null);
+                this.setState(this.ICONIFIED);
+            }
 
         }
     }//GEN-LAST:event_lbltallasMouseClicked

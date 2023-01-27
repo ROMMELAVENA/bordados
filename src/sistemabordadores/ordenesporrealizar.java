@@ -433,7 +433,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos9 = new String[12];
 
-        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus = 'por guardar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' and tienda not in('"+tiendalocal+"') ";
+        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus_orden = 'por generar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' and tienda not in('"+tiendalocal+"') ";
 
         try {
             Statement st = cn.createStatement();
@@ -469,7 +469,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos10 = new String[12];
 
-        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_gorra_recibidas  where estatus = 'por guardar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' and tienda not in('"+tiendalocal+"')  order by numero  ";
+        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_gorra_recibidas  where estatus_orden = 'por generar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' and tienda not in('"+tiendalocal+"')  order by numero  ";
 
         try {
             Statement st = cn.createStatement();
@@ -506,7 +506,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos11 = new String[12];
 
-        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_pantalon_recibidas  where estatus = 'por guardar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' and tienda not in('"+tiendalocal+"')  order by numero  ";
+        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_pantalon_recibidas  where estatus_orden = 'por generar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' and tienda not in('"+tiendalocal+"')  order by numero  ";
 
         try {
             Statement st = cn.createStatement();

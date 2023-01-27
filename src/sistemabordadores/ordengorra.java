@@ -84,6 +84,8 @@ public class ordengorra extends javax.swing.JFrame {
     String nombrearchivo = "";
     public static String enquesucursalsebordara = "";
     public static String tipotabla = "";
+    String sucursalqueenvia ="";
+    String nombredelatabla = "";
     
 
  
@@ -125,7 +127,6 @@ public class ordengorra extends javax.swing.JFrame {
             if (rs.next()) {
 
                 lbcliente.setText(rs.getString("cliente"));
-
                 lbprenda.setText(rs.getString("prenda"));
                 lbcantidad.setText(rs.getString("cantidad"));
                 lbfechaentrega.setText(rs.getString("fecha_entrega"));
@@ -432,7 +433,7 @@ public class ordengorra extends javax.swing.JFrame {
         String folio = lbfolio.getText();
 
         String sql = "Select fecha,hora,cliente,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,numero_sucursal_orden,\n" +
-                     "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras from historial_ordenes_gorra_recibidas where numero = '" + folio + "'";
+                     "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras,tienda from historial_ordenes_gorra_recibidas where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -451,6 +452,8 @@ public class ordengorra extends javax.swing.JFrame {
                 ladoderechonombre = rs.getString("lado_derecho");
                 frentenombre = rs.getString("frente");
                 atrasnombre = rs.getString("atras");
+                sucursalqueenvia= rs.getString("tienda");
+                
                                
                 lbfrente.setText(rs.getString("frente"));
                 String frente =  rs.getString("frente");
@@ -700,6 +703,34 @@ public class ordengorra extends javax.swing.JFrame {
     }
     
     
+    void actualizarlascantidadesbordadasotrasucursal(String ubicacion)
+    {
+        try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_gorra_recibidas set "+ubicacion+"='" + lbcantidad.getText() + "' where numero = '"+lbfolio.getText()+"'  ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+        
+        
+        String ubicacionsinguiones = ubicacion;
+        ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
+        
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+        
+        
+        try {
+            datosotrasucursal();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
      public static String dia() {
         Date fecha = new Date();
         SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
@@ -766,6 +797,73 @@ public class ordengorra extends javax.swing.JFrame {
                 pst.setString(4, aplicacioninsertar);
                 pst.setString(5, nombreconcepto);
                 pst.setString(6, String.valueOf(totalaplicaciones));
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+               
+           }
+        
+        
+    }
+    
+    void agregarexistenciabordadosotrasucursal(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion)
+    {
+        
+       
+        
+        //// bordado
+       String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
+            
+                
+ 
+                pst.setString(1, lbnumero.getText());
+                pst.setString(2, sucursalqueenvia);
+                pst.setString(3, dia());
+                pst.setString(4, hora());
+                pst.setString(5, ubicacioninsertar);
+                pst.setString(6, "ninguno");
+                pst.setString(7, lbcantidad.getText());
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
+            
+           if(cantidadaplicacion==null || cantidadaplicacion.equals("")||cantidadaplicacion.equals(" "))
+           {
+               cantidadaplicacion = "0";
+           }
+            
+           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+           
+           
+           if(cantidadaplicacionint > 0)
+           {
+               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
+               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
+               
+               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
+            
+                
+ 
+                pst.setString(1, lbnumero.getText());
+                pst.setString(2, sucursalqueenvia);
+                pst.setString(3, dia());
+                pst.setString(4, hora());
+                pst.setString(5, aplicacioninsertar);
+                pst.setString(6, nombreconcepto);
+                pst.setString(7, String.valueOf(totalaplicaciones));
                 pst.executeUpdate();
                 pst.close();
 
@@ -921,7 +1019,7 @@ public class ordengorra extends javax.swing.JFrame {
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select cantidad,lado_izquierdo,cantidad_lado_izquierdo,lado_derecho,cantidad_lado_derecho,frente,cantidad_frente,atras,cantidad_atras from historial_ordenes_gorra where numero = '"+lbfolio.getText()+"' ";
+         String sql = "Select cantidad,lado_izquierdo,cantidad_lado_izquierdo,lado_derecho,cantidad_lado_derecho,frente,cantidad_frente,atras,cantidad_atras from "+nombredelatabla+" where numero = '"+lbfolio.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -1038,7 +1136,7 @@ public class ordengorra extends javax.swing.JFrame {
            {
                try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_gorra set estatus_orden='realizada' where numero='" + lbfolio.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada' where numero='" + lbfolio.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1067,7 +1165,7 @@ public class ordengorra extends javax.swing.JFrame {
                   + "cantidad_lado_derecho,puntadas_lado_derecho,"
                   + "cantidad_frente,puntadas_frente,"
                   + "cantidad_atras,puntadas_atras,"
-                  + "aplicacion_frente from historial_ordenes_gorra where numero = '"+lbfolio.getText()+"' ";
+                  + "aplicacion_frente from "+nombredelatabla+" where numero = '"+lbfolio.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -1864,6 +1962,7 @@ public class ordengorra extends javax.swing.JFrame {
 if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
     {
       
+         nombredelatabla = "historial_ordenes_gorra";
 
         try {
             datos();
@@ -1884,6 +1983,8 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equa
     }
 else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
     {
+        nombredelatabla = "historial_ordenes_gorra_recibidas";
+        
          try {
             datosotrasucursal();
         } catch (IOException ex) {
@@ -1896,25 +1997,27 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         } 
         
+         sumapuntos();
     }   
         
     }//GEN-LAST:event_formWindowOpened
 
     private void btnladoderechoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechoActionPerformed
-if(lugardondesebordara.equals("Esta sucursal"))
+        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "cantidad_lado_derecho";
             actualizarlascantidadesbordadas((String) ubicacion);
             String cantidadaplicacion = "0";
             ubicacioninsertar = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
             aplicacioninsertar = "";
+            nombredelatabla = "historial_ordenes_gorra";
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion);
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();    
         }
-        else
+         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
         JSystemFileChooser adjuntar = new JSystemFileChooser();
@@ -1931,6 +2034,20 @@ if(lugardondesebordara.equals("Esta sucursal"))
 
         }
         
+        }
+        else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+        {
+            String ubicacion = "cantidad_lado_derecho";
+            actualizarlascantidadesbordadasotrasucursal((String) ubicacion);
+            String cantidadaplicacion = "0";
+            ubicacioninsertar = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
+            aplicacioninsertar = "";
+            nombredelatabla = "historial_ordenes_gorra_recibidas";
+            String cantidad = lbcantidad.getText();
+            agregarexistenciabordadosotrasucursal((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion);
+            estacompletalaorden();
+            sumapuntos();  
+            
         }
     }//GEN-LAST:event_btnladoderechoActionPerformed
 
@@ -2291,7 +2408,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
     }//GEN-LAST:event_btnreplicarActionPerformed
 
     private void btnfrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteActionPerformed
-    if(lugardondesebordara.equals("Esta sucursal"))
+    if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "cantidad_frente";
             actualizarlascantidadesbordadas((String) ubicacion);
@@ -2299,12 +2416,13 @@ if(lugardondesebordara.equals("Esta sucursal"))
             ubicacioninsertar = "BORDADO GORRA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "APLICACION GORRA FRENTE";
             String cantidad = lbcantidad.getText();
+            nombredelatabla = "historial_ordenes_gorra";
             agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();    
         }
-        else
+         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
 
         JSystemFileChooser adjuntar = new JSystemFileChooser();
@@ -2322,24 +2440,40 @@ if(lugardondesebordara.equals("Esta sucursal"))
         }
         
         }
+         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+        {
+            String ubicacion = "cantidad_frente";
+            actualizarlascantidadesbordadasotrasucursal((String) ubicacion);
+            String cantidadaplicacion = lbaplicacionfrente.getText();
+            ubicacioninsertar = "BORDADO GORRA FRENTE "+frentenombre+ "";
+            aplicacioninsertar = "APLICACION GORRA FRENTE";
+            nombredelatabla = "historial_ordenes_gorra_recibidas";
+            String cantidad = lbcantidad.getText();
+            agregarexistenciabordadosotrasucursal((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+            estacompletalaorden();
+            sumapuntos();    
+            
+        }
+    
     }//GEN-LAST:event_btnfrenteActionPerformed
 
     private void btnladoizquierdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdoActionPerformed
 
-        if(lugardondesebordara.equals("Esta sucursal"))
+        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "cantidad_lado_izquierdo";
             actualizarlascantidadesbordadas((String) ubicacion);
             String cantidadaplicacion = "0";
             ubicacioninsertar = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
             aplicacioninsertar = "";
+            nombredelatabla = "historial_ordenes_gorra";
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion);
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();    
         }
-        else
+         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
         JSystemFileChooser adjuntar = new JSystemFileChooser();
@@ -2356,17 +2490,32 @@ if(lugardondesebordara.equals("Esta sucursal"))
 
         }
        }
+        else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+        {
+            nombredelatabla = "historial_ordenes_gorra_recibidas";
+            String ubicacion = "cantidad_lado_izquierdo";
+            actualizarlascantidadesbordadasotrasucursal((String) ubicacion);
+            String cantidadaplicacion = "0";
+            ubicacioninsertar = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
+            aplicacioninsertar = "";
+            String cantidad = lbcantidad.getText();
+            agregarexistenciabordadosotrasucursal((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion);
+            estacompletalaorden();
+            sumapuntos(); 
+            
+        }
     }//GEN-LAST:event_btnladoizquierdoActionPerformed
 
     private void btnatrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasActionPerformed
 
-        if(lugardondesebordara.equals("Esta sucursal"))
+       if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "cantidad_atras";
             actualizarlascantidadesbordadas((String) ubicacion);
             String cantidadaplicacion = "0";
             ubicacioninsertar = "BORDADO GORRA ATRAS "+atrasnombre+ "";
             aplicacioninsertar = "";
+            nombredelatabla = "historial_ordenes_gorra";
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
@@ -2374,7 +2523,7 @@ if(lugardondesebordara.equals("Esta sucursal"))
             sumapuntos();    
 
         }
-        else
+         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
         JSystemFileChooser adjuntar = new JSystemFileChooser();
@@ -2392,6 +2541,21 @@ if(lugardondesebordara.equals("Esta sucursal"))
         }
         
         }
+        else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+        {
+            String ubicacion = "cantidad_atras";
+            actualizarlascantidadesbordadasotrasucursal((String) ubicacion);
+            String cantidadaplicacion = "0";
+            ubicacioninsertar = "BORDADO GORRA ATRAS "+atrasnombre+ "";
+            aplicacioninsertar = "";
+            nombredelatabla = "historial_ordenes_gorra_recibidas";
+            String cantidad = lbcantidad.getText();
+            agregarexistenciabordadosotrasucursal((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+            estacompletalaorden();
+            sumapuntos();    
+            
+        }
+       
     }//GEN-LAST:event_btnatrasActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed

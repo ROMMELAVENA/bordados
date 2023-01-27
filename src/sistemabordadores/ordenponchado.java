@@ -1,38 +1,13 @@
 package sistemabordadores;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
-import net.sf.jasperreports.engine.JREmptyDataSource;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JRExporter;
-import net.sf.jasperreports.engine.JRExporterParameter;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
-import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 
 public class ordenponchado extends javax.swing.JFrame {
@@ -303,6 +278,174 @@ public static boolean ventanaordenparcheanteriores = false;
     }
     
     
+     void agregarexistenciabordados(String ubicacioninsertar,String cantidad)
+    {
+        
+       
+        
+        //// bordado
+        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
+            
+                
+ 
+                pst.setString(1, lbnumeroventa.getText());
+                pst.setString(2, dia());
+                pst.setString(3, hora());
+                pst.setString(4, ubicacioninsertar);
+                pst.setString(5, "");
+                pst.setString(6, cantidad);
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
+    }
+     
+    void agregaralsurtidasalhistorialdeventas(String ubicacion, String cantidad) 
+      {
+      
+
+        String numeroventa =  lbnumeroventa.getText();
+        Object cantidadstring ="";
+        String nuevacantidadstring = "";
+        String estatusentrega ="";
+        String estatusentregaventa = "";
+        
+        String SQL2 = "select cantidad,estatus_entrega from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL2);
+
+        if (rs.next()) 
+        {
+
+        cantidadstring = rs.getString("cantidad");
+        estatusentregaventa= rs.getString("estatus_entrega");
+
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+        if(estatusentregaventa.equals("surtida totalmente entregada totalmente"))
+        {
+            
+        }
+        else
+        {
+        
+      if(cantidadstring ==null || cantidadstring.equals("")||cantidadstring.equals(" "))
+      {
+          cantidadstring ="0";
+      }
+       
+        
+        
+        int cantidadstringint = Integer.parseInt(cantidadstring.toString());
+        int cantidadint =  Integer.parseInt(cantidad);
+
+        int nuevacantidadint = cantidadint;
+        nuevacantidadstring =  String.valueOf(nuevacantidadint);
+            
+            
+            
+            try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevacantidadstring + "' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'      ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+
+        ////Actualiza el estatus
+
+      String cantidadsurtida = "";  
+      String cantidadvendida = "";  
+      String cantidadentregada = "";  
+       
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas from historial_ventas where numero = '"+numeroventa+"'  ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL3);
+
+        if (rs.next()) 
+        {
+
+        cantidadvendida = rs.getString("cantidad");
+        cantidadsurtida = rs.getString("surtida");
+        cantidadentregada = rs.getString("entregadas");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+        System.out.println (ex);
+        }
+      
+        
+      
+      /////
+      
+      double cantidadvendidadouble = Double.parseDouble(cantidadvendida);
+      double cantidadsurtidadouble = Double.parseDouble(cantidadsurtida);
+      double cantidadentregadadouble = Double.parseDouble(cantidadentregada);
+      
+        
+        if(cantidadvendidadouble == cantidadsurtidadouble && cantidadentregadadouble == 0 )
+        {
+          estatusentrega ="surtida totalmente no entregada";  
+        }
+        else  if(cantidadvendidadouble == (cantidadsurtidadouble + cantidadentregadadouble )  &&  cantidadentregadadouble <  cantidadvendidadouble  )
+        {
+          estatusentrega ="surtida totalmente entregada parcialmente";  
+        }
+        
+        else
+        {
+          estatusentrega ="surtida parcialmente no entregada";   
+        }    
+        
+          try {
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
+              pst.executeUpdate();
+              pst.close();
+          } catch (Exception e) {
+
+              System.out.println(e);
+          }
+      
+
+        }
+      
+      
+      }   
+     
+     
+     
+    public static String dia() {
+        Date fecha = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
+        return formatoFecha.format(fecha);
+    }
+
+    public static String hora() {
+        Date hora = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("HH:mm:ss");
+        return formatoFecha.format(hora);
+    } 
+    
+    
   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -364,22 +507,26 @@ public static boolean ventanaordenparcheanteriores = false;
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(204, 0, 0));
         jLabel7.setText("Solicitó:");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(204, 0, 0));
         jLabel8.setText("Celular:");
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(204, 0, 0));
         jLabel12.setText("Fecha Entrega:");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(204, 0, 0));
         jLabel13.setText("Folio");
 
-        lbfolio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbfolio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbfolio.setForeground(new java.awt.Color(204, 0, 0));
         lbfolio.setText("00000000");
 
+        btnsalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnsalir.setText("Salir");
         btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -428,6 +575,7 @@ public static boolean ventanaordenparcheanteriores = false;
         lbparche5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbparche5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        bntcantidadponchado1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         bntcantidadponchado1.setText("Hecho");
         bntcantidadponchado1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -435,6 +583,7 @@ public static boolean ventanaordenparcheanteriores = false;
             }
         });
 
+        bntcantidadponchado2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         bntcantidadponchado2.setText("Hecho");
         bntcantidadponchado2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -442,6 +591,7 @@ public static boolean ventanaordenparcheanteriores = false;
             }
         });
 
+        bntcantidadponchado3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         bntcantidadponchado3.setText("Hecho");
         bntcantidadponchado3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -449,6 +599,7 @@ public static boolean ventanaordenparcheanteriores = false;
             }
         });
 
+        bntcantidadponchado4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         bntcantidadponchado4.setText("Hecho");
         bntcantidadponchado4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -456,6 +607,7 @@ public static boolean ventanaordenparcheanteriores = false;
             }
         });
 
+        bntcantidadponchado5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         bntcantidadponchado5.setText("Hecho");
         bntcantidadponchado5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -493,7 +645,7 @@ public static boolean ventanaordenparcheanteriores = false;
                             .addComponent(bntcantidadponchado3)
                             .addComponent(bntcantidadponchado4)
                             .addComponent(bntcantidadponchado5))))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -543,9 +695,11 @@ public static boolean ventanaordenparcheanteriores = false;
         );
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(204, 0, 0));
         jLabel17.setText("Fecha:");
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(204, 0, 0));
         jLabel18.setText("Hora:");
 
         lbfecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -575,22 +729,27 @@ public static boolean ventanaordenparcheanteriores = false;
         lbarticulo.setForeground(new java.awt.Color(204, 0, 0));
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(204, 0, 0));
         jLabel30.setText("Hora Entrega:");
 
         lbhoraentrega.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbhoraentrega.setForeground(new java.awt.Color(204, 0, 0));
         lbhoraentrega.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(204, 0, 0));
         jLabel28.setText("No. de Venta");
 
-        lbnumeroventa.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        lbnumeroventa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbnumeroventa.setForeground(new java.awt.Color(204, 0, 0));
         lbnumeroventa.setText("00000000");
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(204, 0, 0));
         jLabel20.setText("Cliente:");
 
-        lbcliente.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        lbcliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbcliente.setForeground(new java.awt.Color(204, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -599,7 +758,7 @@ public static boolean ventanaordenparcheanteriores = false;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(460, 460, 460))
+                .addGap(406, 406, 406))
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -716,7 +875,7 @@ public static boolean ventanaordenparcheanteriores = false;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbsolicita, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         pack();
@@ -803,7 +962,9 @@ public static boolean ventanaordenparcheanteriores = false;
     
     cantidadponchadosactualizar = lbcantidad1.getText();
     nombredelponchado = lbparche1.getText();
-    actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);  
+    actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);
+    agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
+    agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
     
     
     }//GEN-LAST:event_bntcantidadponchado1ActionPerformed
@@ -812,24 +973,34 @@ public static boolean ventanaordenparcheanteriores = false;
     cantidadponchadosactualizar = lbcantidad2.getText();
     nombredelponchado = lbparche2.getText();
     actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);  
+    agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
+    agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
+    
+    
     }//GEN-LAST:event_bntcantidadponchado2ActionPerformed
 
     private void bntcantidadponchado3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado3ActionPerformed
     cantidadponchadosactualizar = lbcantidad3.getText();
     nombredelponchado = lbparche3.getText();
     actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);  
+    agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
+    agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
     }//GEN-LAST:event_bntcantidadponchado3ActionPerformed
 
     private void bntcantidadponchado4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado4ActionPerformed
      cantidadponchadosactualizar = lbcantidad4.getText();
     nombredelponchado = lbparche4.getText();
     actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);  
+    agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
+    agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
     }//GEN-LAST:event_bntcantidadponchado4ActionPerformed
 
     private void bntcantidadponchado5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado5ActionPerformed
     cantidadponchadosactualizar = lbcantidad5.getText();
     nombredelponchado = lbparche5.getText();
     actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);  
+    agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
+    agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
     }//GEN-LAST:event_bntcantidadponchado5ActionPerformed
 
     

@@ -1,16 +1,8 @@
 package sistemabordadores;
 
 import java.awt.Desktop;
-import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import static java.awt.print.Printable.NO_SUCH_PAGE;
-import static java.awt.print.Printable.PAGE_EXISTS;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,7 +10,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,47 +18,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
-import net.sf.jasperreports.engine.JREmptyDataSource;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JRExporter;
-import net.sf.jasperreports.engine.JRExporterParameter;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.print.Doc;
-import javax.print.DocFlavor;
-import javax.print.DocPrintJob;
-import javax.print.PrintService;
-import javax.print.PrintServiceLookup;
-import javax.print.SimpleDoc;
-import javax.print.attribute.AttributeSet;
-import javax.print.attribute.HashAttributeSet;
-import javax.print.attribute.HashPrintRequestAttributeSet;
-import javax.print.attribute.PrintRequestAttributeSet;
-import javax.print.attribute.standard.ColorSupported;
-import javax.print.attribute.standard.PrinterName;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 
 public class ordencamisa extends javax.swing.JFrame {
 
@@ -147,6 +105,7 @@ public class ordencamisa extends javax.swing.JFrame {
     public static String enquesucursalsebordara ="";
     public static String tipotabla ="";
     String nombredelatabla ="";
+    String tiendaenvia = "";
 
     private PreparedStatement pst;
 
@@ -448,7 +407,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion2,otra_ubicacion2_nombre,\n"
                 + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,\n"
                 + "aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,\n"
-                + "lugar,estatus_orden  from historial_ordenes_camisa_recibidas where numero = '" + folio + "' ";
+                + "lugar,estatus_orden,numero_sucursal_orden,tienda  from historial_ordenes_camisa_recibidas where numero = '" + folio + "' ";
 
         try {
             Statement st = cn.createStatement();
@@ -459,6 +418,8 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
                 lbfecha.setText(rs.getString("fecha"));
+                lbnumero.setText(rs.getString("numero_sucursal_orden"));
+                tiendaenvia = rs.getString("numero_sucursal_orden");
 
                 mangaderechanombre = rs.getString("manga_derecha_nombre");
                 Object mangaderecha = rs.getString("manga_derecha");
@@ -605,7 +566,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 String cantidadmangaderecha = rs.getString("cantidad_manga_derecha");
                 String cantidadespalda = rs.getString("cantidad_espalda");
 
-                if (lugardondesebordara.equals("Esta sucursal")) {
+              
 
                     btninsertarponchados.setEnabled(false);
                     cbsucursal.setEnabled(false);
@@ -642,12 +603,7 @@ public class ordencamisa extends javax.swing.JFrame {
                         btnespalda.setEnabled(false);
                     }
 
-                } else {
-
-                    btninsertarponchados.setEnabled(true);
-                    cbsucursal.setEnabled(true);
-
-                }
+                
 
 
             }
@@ -944,13 +900,7 @@ public class ordencamisa extends javax.swing.JFrame {
             lbotraubicacion2nombre.setVisible(false);
             lbotraubicacion2.setVisible(false);
         
-            btnmangaderecha.setEnabled(true);
-            btnmangaizquierda.setEnabled(true);
-            btnpechoderecho.setEnabled(true);
-            btnpechoizquierdo.setEnabled(true);
-            btnespalda.setEnabled(true);
-            btnotraubicacion.setEnabled(true);
-            btnotraubicacion2.setEnabled(true);
+           
             
         
         }
@@ -1125,7 +1075,7 @@ public class ordencamisa extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa_recibida set "+ubicacion+"='" + lbcantidad.getText() + "' where numero = '"+lbfolio.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set "+ubicacion+"='" + lbcantidad.getText() + "' where numero = '"+lbfolio.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1141,7 +1091,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
         
         try {
-            datos();
+            datosotrasucursal();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1233,15 +1183,15 @@ public class ordencamisa extends javax.swing.JFrame {
        
         
         //// bordado
-        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
             
                 
  
-                pst.setString(1, lbnumeroventa.getText());
-                pst.setString(2, lbnumeroventa.getText());
+                pst.setString(1, lbnumero.getText());
+                pst.setString(2, tiendaenvia);
                 pst.setString(3, dia());
                 pst.setString(4, hora());
                 pst.setString(5, ubicacioninsertar);
@@ -1268,19 +1218,20 @@ public class ordencamisa extends javax.swing.JFrame {
                int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
                int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
                
-               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
             
                 
  
-                pst.setString(1, lbnumeroventa.getText());
-                pst.setString(2, dia());
-                pst.setString(3, hora());
-                pst.setString(4, aplicacioninsertar);
-                pst.setString(5, lbnombreconcepto.getText());
-                pst.setString(6, String.valueOf(totalaplicaciones));
+                 pst.setString(1, lbnumero.getText());
+                pst.setString(2, tiendaenvia);
+                pst.setString(3, dia());
+                pst.setString(4, hora());
+                pst.setString(5, ubicacioninsertar);
+                pst.setString(6, lbnombreconcepto.getText());
+                pst.setString(7, lbcantidad.getText());
                 pst.executeUpdate();
                 pst.close();
 
@@ -2678,6 +2629,8 @@ public class ordencamisa extends javax.swing.JFrame {
     if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
     {
         
+        nombredelatabla = "historial_ordenes_camisa";
+        
      try {
             datos();
         } catch (IOException ex) {
@@ -2692,12 +2645,15 @@ public class ordencamisa extends javax.swing.JFrame {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-      sumapuntos();
+      
         
     } 
     
     else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
     {
+        
+        nombredelatabla = "historial_ordenes_camisa_recibidas";
+        
          try {
             datosotrasucursal();
         } catch (IOException ex) {
@@ -2712,7 +2668,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
     }   
         
-      
+      sumapuntos();
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -3901,14 +3857,15 @@ if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
     }//GEN-LAST:event_btnverfotomontajeActionPerformed
 
     private void btnotraubicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnotraubicacionActionPerformed
-        if(lugardondesebordara.equals("Esta sucursal"))
+        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "cantidad_otra_ubicacion";
-            String nombrebordado =otraubicacionnombre;
-           String cantidadaplicacion = aplicacionotraubicacion;
-           String cantidad = lbcantidad.getText();
+            String nombrebordado = otraubicacionnombre;
+            String cantidadaplicacion = aplicacionotraubicacion;
+            String cantidad = lbcantidad.getText();
+            nombredelatabla = "historial_ordenes_camisa";
             actualizarlascantidadesbordadas((String) ubicacion);
-            
+
             if (prenda.toUpperCase().equals("CAMISA")) {
 
                 ubicacioninsertar = "BORDADO CAMISA OTRA UBICACION " + nombrebordado + "";
@@ -3951,13 +3908,13 @@ if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
 
             }
 
-       agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-       agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;  
-       estacompletalaorden();
-       sumapuntos(); 
+            agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
+            estacompletalaorden();
+            sumapuntos();
             
         }
-        else
+        else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
         JSystemFileChooser adjuntar = new JSystemFileChooser();
@@ -3973,15 +3930,74 @@ if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         }
         
         }
+         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+        {
+            String ubicacion = "cantidad_otra_ubicacion";
+            String nombrebordado = otraubicacionnombre;
+            String cantidadaplicacion = aplicacionotraubicacion;
+            nombredelatabla = "historial_ordenes_camisa_recibidas";
+            String cantidad = lbcantidad.getText();
+            actualizarlascantidadesbordadasotrasucursal((String) ubicacion);
+
+            if (prenda.toUpperCase().equals("CAMISA")) {
+
+                ubicacioninsertar = "BORDADO CAMISA OTRA UBICACION " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISA OTRA UBICACION";
+
+            } //// playera
+            else if (prenda.toUpperCase().equals("PLAYERA")) {
+
+                ubicacioninsertar = "BORDADO PLAYERA OTRA UBICACION " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION PLAYERA OTRA UBICACION";
+
+            } //// chamarra desmontable
+            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE OTRA UBICACION " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE OTRA UBICACION";
+
+            } /// chamarra rompevientos
+            else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS OTRA UBICACION " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS OTRA UBICACION";
+
+            } ///camisola
+            else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
+
+                ubicacioninsertar = "BORDADO CAMISOLA OTRA UBICACION " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISOLA OTRA UBICACION";
+
+            } else if (prenda.toUpperCase().equals("FILIPINA")) {
+
+                ubicacioninsertar = "BORDADO FILIPINA OTRA UBICACION " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION FILIPINA OTRA UBICACION";
+
+            } ///SACO
+            else if (prenda.toUpperCase().equals("SACO")) {
+
+                ubicacioninsertar = "BORDADO SACO OTRA UBICACION " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION SACO OTRA UBICACION";
+
+            }
+
+            agregarexistenciabordadosotrasucursal((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            estacompletalaorden();
+            sumapuntos();
+            
+            
+        }
+        
     }//GEN-LAST:event_btnotraubicacionActionPerformed
 
     private void btnotraubicacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnotraubicacion2ActionPerformed
-        if(lugardondesebordara.equals("Esta sucursal"))
+        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "cantidad_otra_ubicacion2";
-            String nombrebordado =otraubicacion2nombre;
-           String cantidadaplicacion = aplicacionotraubicacion2;
-           String cantidad = lbcantidad.getText();
+            String nombrebordado = otraubicacion2nombre;
+            String cantidadaplicacion = aplicacionotraubicacion2;
+            String cantidad = lbcantidad.getText();
+            nombredelatabla = "historial_ordenes_camisa";
             actualizarlascantidadesbordadas((String) ubicacion);
             if (prenda.toUpperCase().equals("CAMISA")) {
 
@@ -4025,13 +4041,13 @@ if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
 
             }
 
-       agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-       agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;  
-       estacompletalaorden();
-       sumapuntos(); 
+            agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
+            estacompletalaorden();
+            sumapuntos();
             
         }
-        else
+        else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
         JSystemFileChooser adjuntar = new JSystemFileChooser();
@@ -4047,6 +4063,63 @@ if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         }
         
         }
+        else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+        {
+             String ubicacion = "cantidad_otra_ubicacion2";
+            String nombrebordado = otraubicacion2nombre;
+            String cantidadaplicacion = aplicacionotraubicacion2;
+            String cantidad = lbcantidad.getText();
+            nombredelatabla = "historial_ordenes_camisa_recibidas";
+            actualizarlascantidadesbordadasotrasucursal((String) ubicacion);
+            if (prenda.toUpperCase().equals("CAMISA")) {
+
+                ubicacioninsertar = "BORDADO CAMISA OTRA UBICACION2 " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISA OTRA UBICACION2";
+
+            } //// playera
+            else if (prenda.toUpperCase().equals("PLAYERA")) {
+
+                ubicacioninsertar = "BORDADO PLAYERA OTRA UBICACION2 " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION PLAYERA OTRA UBICACION2";
+
+            } //// chamarra desmontable
+            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE OTRA UBICACION2 " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE OTRA UBICACION2";
+
+            } /// chamarra rompevientos
+            else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS OTRA UBICACION2 " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS OTRA UBICACION2";
+
+            } ///camisola
+            else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
+
+                ubicacioninsertar = "BORDADO CAMISOLA OTRA UBICACION2 " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISOLA OTRA UBICACION2";
+
+            } else if (prenda.toUpperCase().equals("FILIPINA")) {
+
+                ubicacioninsertar = "BORDADO FILIPINA OTRA UBICACION2 " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION FILIPINA OTRA UBICACION2";
+
+            } ///SACO
+            else if (prenda.toUpperCase().equals("SACO")) {
+
+                ubicacioninsertar = "BORDADO SACO OTRA UBICACION2 " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION SACO OTRA UBICACION2";
+
+            }
+
+            agregarexistenciabordadosotrasucursal((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            estacompletalaorden();
+            sumapuntos();
+            
+        }
+        
+        
     }//GEN-LAST:event_btnotraubicacion2ActionPerformed
 
     private void lbltallasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbltallasMouseClicked

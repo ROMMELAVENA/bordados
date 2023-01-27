@@ -1,73 +1,14 @@
 package sistemabordadores;
 
-import java.awt.AWTException;
-import java.awt.Graphics;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import static java.awt.print.Printable.PAGE_EXISTS;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
-import java.io.ByteArrayInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
-import net.sf.jasperreports.engine.JREmptyDataSource;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JRExporter;
-import net.sf.jasperreports.engine.JRExporterParameter;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JRExporter;
-import net.sf.jasperreports.engine.JRExporterParameter;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
-import net.sf.jasperreports.engine.export.JRPrintServiceExporterParameter;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
-import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.print.Doc;
-import javax.print.DocFlavor;
-import javax.print.DocPrintJob;
-import javax.print.PrintService;
-import javax.print.PrintServiceLookup;
-import javax.print.SimpleDoc;
-import javax.print.attribute.AttributeSet;
-import javax.print.attribute.HashAttributeSet;
-import javax.print.attribute.HashPrintRequestAttributeSet;
-import javax.print.attribute.PrintRequestAttributeSet;
-import javax.print.attribute.standard.ColorSupported;
-import javax.print.attribute.standard.PrinterName;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
+
 
 public class ordenportanombreescolar extends javax.swing.JFrame {
 
@@ -89,6 +30,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
     String ultimo = "";
     
     String soloesportanombres = "";
+    String nombreconcepto ="";
     
 
     public ordenportanombreescolar() {
@@ -102,29 +44,11 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         
        
                 
-        topes();
+        
 
     }
 
-    void topes() {
-
-        String sql = "SELECT min(numero) as min_numero, max(numero) as max_numero FROM historial_ordenes_portanombres";
-
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-
-            rs.last();
-
-            primero = rs.getString("min_numero");
-            ultimo = rs.getString("max_numero");
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-
-        }
-
-    }
+   
 
     void datos() {
 
@@ -334,558 +258,165 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         
     }
     
+      void agregaralsurtidasalhistorialdeventas(String ubicacion, String cantidad) 
+      {
 
+        String numeroventa =  lbnumerodeventa.getText();
+        Object cantidadstring ="";
+        String nuevacantidadstring = "";
+        String estatusentrega ="";
+        
+        String SQL2 = "select cantidad from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL2);
 
+        if (rs.next()) 
+        {
 
-/*
+        cantidadstring = rs.getString("cantidad");
+        
 
+        }
+        
 
-         void cancelarbordado() {
-
-    
-        String prenda = lbprenda.getText();
-        String cantidadprendas = lbcantidad.getText();
-        int cantidadprendasint = Integer.parseInt(cantidadprendas);
-        String lugar = lblugar.getText();
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+      if(cantidadstring ==null || cantidadstring.equals("")||cantidadstring.equals(" "))
+      {
+          cantidadstring ="0";
+      }
        
+        
+        
+        int cantidadstringint = Integer.parseInt(cantidadstring.toString());
+        int cantidadint =  Integer.parseInt(cantidad);
+
+        int nuevacantidadint = cantidadint;
+        nuevacantidadstring =  String.valueOf(nuevacantidadint);
+            
+            
+            
+            try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevacantidadstring + "' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'      ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+
+        ////Actualiza el estatus
+
+      String cantidadsurtida = "";  
+      String cantidadvendida = "";  
+      String cantidadentregada = "";  
+       
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas from historial_ventas where numero = '"+numeroventa+"'  ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL3);
+
+        if (rs.next()) 
+        {
+
+        cantidadvendida = rs.getString("cantidad");
+        cantidadsurtida = rs.getString("surtida");
+        cantidadentregada = rs.getString("entregadas");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+        System.out.println (ex);
+        }
+      
         
       
-    
-        String estatusorden = lbestatus.getText();
-        String ubicacion = "";
-        String aplicacion = "";
-        String cantidad = "";
-
-        String ubicacion1 = "";
-        String ubicacion2 = "";
-        String ubicacion3 = "";
-        String ubicacion4 = "";
-        String ubicacion5 = "";
-
-        String aplicacion1 = "";
-        String aplicacion2 = "";
-        String aplicacion3 = "";
-        String aplicacion4 = "";
-        String aplicacion5 = "";
+      /////
+      
+      double cantidadvendidadouble = Double.parseDouble(cantidadvendida);
+      double cantidadsurtidadouble = Double.parseDouble(cantidadsurtida);
+      double cantidadentregadadouble = Double.parseDouble(cantidadentregada);
+      
         
-        
-        
-       
-       
-        if (prenda.equals("Camisa")) {
-            
-            
-            
-            ubicacion1 = "BORDADO CAMISA "+concepto+" MANGA DERECHA";
-            ubicacion2 = "BORDADO CAMISA "+concepto+" MANGA IZQUIERDA";
-            ubicacion3 = "BORDADO CAMISA "+concepto+" PECHO DERECHO";
-            ubicacion4 = "BORDADO CAMISA "+concepto+" PECHO IZQUIERDO";
-            ubicacion5 = "BORDADO CAMISA "+concepto+" ESPALDA";
-
-            aplicacion1 = "APLICACION CAMISA MANGA DERECHA";
-            aplicacion2 = "APLICACION CAMISA MANGA IZQUIERDA";
-            aplicacion3 = "APLICACION CAMISA PECHO DERECHO";
-            aplicacion4 = "APLICACION CAMISA PECHO IZQUIERDO";
-            aplicacion5 = "APLICACION CAMISA ESPALDA";
-
-        } 
-        else if (prenda.equals("Camisola")) {
-            ubicacion1 = "BORDADO CAMISOLA "+concepto+" MANGA DERECHA";
-            ubicacion2 = "BORDADO CAMISOLA "+concepto+" MANGA IZQUIERDA";
-            ubicacion3 = "BORDADO CAMISOLA "+concepto+" PECHO DERECHO";
-            ubicacion4 = "BORDADO CAMISOLA "+concepto+" PECHO IZQUIERDO";
-            ubicacion5 = "BORDADO CAMISOLA "+concepto+" ESPALDA";
-
-            aplicacion1 = "APLICACION CAMISOLA MANGA DERECHA";
-            aplicacion2 = "APLICACION CAMISOLA MANGA IZQUIERDA";
-            aplicacion3 = "APLICACION CAMISOLA PECHO DERECHO";
-            aplicacion4 = "APLICACION CAMISOLA PECHO IZQUIERDO";
-            aplicacion5 = "APLICACION CAMISOLA ESPALDA";
-
-        } else if (prenda.equals("Chamarra desmontable")) {
-            ubicacion1 = "BORDADO CHAMARRA DESMONTABLE "+concepto+" MANGA DERECHA ";
-            ubicacion2 = "BORDADO CHAMARRA DESMONTABLE "+concepto+" MANGA IZQUIERDA";
-            ubicacion3 = "BORDADO CHAMARRA DESMONTABLE "+concepto+" PECHO DERECHO";
-            ubicacion4 = "BORDADO CHAMARRA DESMONTABLE "+concepto+" PECHO IZQUIERDO";
-            ubicacion5 = "BORDADO CHAMARRA DESMONTABLE "+concepto+" ESPALDA";
-
-            aplicacion1 = "APLICACION CHAMARRA DESMONTABLE MANGA DERECHA";
-            aplicacion2 = "APLICACION CHAMARRA DESMONTABLE MANGA IZQUIERDA";
-            aplicacion3 = "APLICACION CHAMARRA DESMONTABLE PECHO DERECHO";
-            aplicacion4 = "APLICACION CHAMARRA DESMONTABLE PECHO IZQUIERDO";
-            aplicacion5 = "APLICACION CHAMARRA DESMONTABLE ESPALDA";
-
-        }
-
-        if (prenda.equals("Chamarra rompevientos")) {
-            ubicacion1 = "BORDADO CHAMARRA ROMPEVIENTOS "+concepto+" MANGA DERECHA ";
-            ubicacion2 = "BORDADO CHAMARRA ROMPEVIENTOS "+concepto+" MANGA IZQUIERDA";
-            ubicacion3 = "BORDADO CHAMARRA ROMPEVIENTOS "+concepto+" PECHO DERECHO";
-            ubicacion4 = "BORDADO CHAMARRA ROMPEVIENTOS "+concepto+" PECHO IZQUIERDO";
-            ubicacion5 = "BORDADO CHAMARRA ROMPEVIENTOS "+concepto+" ESPALDA";
-
-            aplicacion1 = "APLICACION CHAMARRA ROMPEVIENTOS MANGA DERECHA";
-            aplicacion2 = "APLICACION CHAMARRA ROMPEVIENTOS MANGA IZQUIERDA";
-            aplicacion3 = "APLICACION CHAMARRA ROMPEVIENTOS PECHO DERECHO";
-            aplicacion4 = "APLICACION CHAMARRA ROMPEVIENTOS PECHO IZQUIERDO";
-            aplicacion5 = "APLICACION CHAMARRA ROMPEVIENTOS ESPALDA";
-
-        } else if (prenda.equals("Chaleco")) {
-
-            ubicacion3 = "BORDADO CHALECO "+concepto+" PECHO DERECHO";
-            ubicacion4 = "BORDADO CHALECO "+concepto+" PECHO IZQUIERDO";
-            ubicacion5 = "BORDADO CHALECO "+concepto+" ESPALDA";
-
-            aplicacion3 = "APLICACION CHALECO PECHO DERECHO";
-            aplicacion4 = "APLICACION CHALECO PECHO IZQUIERDO";
-            aplicacion5 = "APLICACION CHALECO ESPALDA";
-
-        } else if (prenda.equals("Playera")) {
-            ubicacion1 = "BORDADO PLAYERA "+concepto+" MANGA DERECHA";
-            ubicacion2 = "BORDADO PLAYERA "+concepto+" MANGA IZQUIERDA";
-            ubicacion3 = "BORDADO PLAYERA "+concepto+" PECHO DERECHO";
-            ubicacion4 = "BORDADO PLAYERA "+concepto+" PECHO IZQUIERDO";
-            ubicacion5 = "BORDADO PLAYERA "+concepto+" ESPALDA";
-
-            aplicacion1 = "APLICACION PLAYERA MANGA DERECHA";
-            aplicacion2 = "APLICACION PLAYERA MANGA IZQUIERDA";
-            aplicacion3 = "APLICACION PLAYERA PECHO DERECHO";
-            aplicacion4 = "APLICACION PLAYERA PECHO IZQUIERDO";
-            aplicacion5 = "APLICACION PLAYERA ESPALDA";
-
-        }
-         else  if (prenda.equals("Saco")) {
-            ubicacion1 = "BORDADO SACO "+concepto+" MANGA DERECHA";
-            ubicacion2 = "BORDADO SACO "+concepto+" MANGA IZQUIERDA";
-            ubicacion3 = "BORDADO SACO "+concepto+" PECHO DERECHO";
-            ubicacion4 = "BORDADO SACO "+concepto+" PECHO IZQUIERDO";
-
-            aplicacion1 = "APLICACION SACO MANGA DERECHA";
-            aplicacion2 = "APLICACION SACO MANGA IZQUIERDA";
-            aplicacion3 = "APLICACION SACO PECHO DERECHO";
-            aplicacion4 = "APLICACION SACO PECHO IZQUIERDO";
-
-        } else if (prenda.equals("Filipina")) {
-            ubicacion1 = "BORDADO FILIPINA "+concepto+" PECHO DERECHO";
-            ubicacion2 = "BORDADO FILIPINA "+concepto+" PECHO IZQUIERDO";
-
-            aplicacion1 = "APLICACION FILIPINA MANGA DERECHA";
-            aplicacion2 = "APLICACION FILIPINA MANGA IZQUIERDA";
-        }
-
-        for (int i = 1; i <= 5; i++) {
-            cantidad = "0";
-
-            String mangaderecha = lbmangaderecha.getText();
-            String mangaizquierda = lbmangaizquierdanombre.getText();
-            String pechoderecho = lbpechoderecho.getText();
-            String pechoizquierdo = lbpechoizquierdo.getText();
-            String espalda = lbespalda.getText();
-
-            if (i == 1) {
-                ubicacion = ubicacion1;
-                if (mangaderecha.equals("")) {
-                } else {
-                    cantidad = cantidadprendas;
-                }
-            } else if (i == 2) {
-                ubicacion = ubicacion2;
-                if (mangaizquierda.equals("")) {
-                } else {
-                    cantidad = cantidadprendas;
-                }
-            } else if (i == 3) {
-                ubicacion = ubicacion3;
-                if (pechoderecho.equals("")) {
-                } else {
-                    cantidad = cantidadprendas;
-                }
-            } else if (i == 4) {
-                ubicacion = ubicacion4;
-                if (pechoizquierdo.equals("")) {
-                } else {
-                    cantidad = cantidadprendas;
-                }
-            } else if (i == 5) {
-                ubicacion = ubicacion5;
-                if (espalda.equals("")) {
-                } else {
-                    cantidad = cantidadprendas;
-                }
-            }
-
-            if (estatusorden.equals("Por solicitar")) {
-
-            } else {
-
-                modificarexistenciaykardexcancelar((String) ubicacion, (String) cantidad);
-
-            }
-
-        }
-
-        for (int i = 1; i <= 5; i++) {
-
-            cantidad = "0";
-
-            String mangaderechaaplicacion = lbaplicacionmangaderechacolor.getText();
-            String mangaizquierdaaplicacion = lbaplicacionmangaizquierdacolor.getText();
-            String pechoderechoaplicacion = lbaplicacionpechoderechocolor.getText();
-            String pechoizquierdoaplicacion = lbaplicacionpechoizquierdocolor.getText();
-            String espaldaaplicacion = lbaplicacionespaldacolor.getText();
-
-            if (i == 1) {
-                aplicacion = aplicacion1;
-                if (mangaderechaaplicacion.equals("")) {
-                } else {
-                    cantidad = lbaplicacionmangaderecha.getText();
-                    
-                    
-                    
-                    
-                    
-                }
-            } else if (i == 2) {
-                aplicacion = aplicacion2;
-                if (mangaizquierdaaplicacion.equals("")) {
-                } else {
-                    cantidad = lbaplicacionmangaizquierda.getText();
-                  
-                    
-                    
-                    
-                }
-            } else if (i == 3) {
-                aplicacion = aplicacion3;
-                if (pechoderechoaplicacion.equals("")) {
-                } else {
-                    cantidad = lbaplicacionpechoderecho.getText();
-                }
-            } else if (i == 4) {
-                aplicacion = aplicacion4;
-                if (pechoizquierdoaplicacion.equals("")) {
-                } else {
-                    cantidad = lbaplicacionpechoizquierdo.getText();
-                }
-            } else if (i == 5) {
-                aplicacion = aplicacion5;
-                if (espaldaaplicacion.equals("")) {
-                } else {
-                    cantidad = lbaplicacionespalda.getText();
-                }
-            }
-            
-            int cantidadint = Integer.parseInt(cantidad);
-               int cantidadaplicaciones =  cantidadint * cantidadprendasint;  
-               cantidad = String.valueOf(cantidadaplicaciones);
-            
-            
-            
-            
-            
-
-            if (lugar.equals("Esta sucursal")) 
-            
-            
-            {
-                modificarexistenciaykardexcancelar((String) aplicacion, (String) cantidad);
-
-            }
-
-        }
-
-        String modi = "UPDATE historial_ordenes_camisa SET estatus_orden='cancelada' WHERE numero = '" + lbfolio.getText() + "'";
-        try {
-            PreparedStatement pst = cn.prepareStatement(modi);
-            pst.executeUpdate();
-        } catch (Exception e) {
-        }
-
-        btncancelar.setEnabled(false);
-
-        if (venderanterior.ventanavenderanterior == true) {
-
-            venderanterior.txtbusqueda.setText(lbnumeroventa.getText());
-            venderanterior.btndatos2.doClick();
-
-        }
-    }
-        
-        
-        
-        */
-        
-        
-            
-    
-    
-    
-    
-    
-    /*
-    
-    
-     
-    void sonsolobordadosenlaventa()
-    {   
-         
-         String numeroventa = lbnumeroventa.getText();
-         String estatusentrega ="";
-         sonsolobordados ="";
-         
-         String sql = "select articulo  from historial_ventas where numero = '"+numeroventa+"'  ";
-
-                    try {
-                        Statement st1 = cn.createStatement();
-                        ResultSet rs1 = st1.executeQuery(sql);
-                        while (rs1.next()) 
-                        {
-
-                            String articulo = rs1.getString("articulo");
-                            if(articulo.startsWith("CAMISA")||articulo.startsWith("CAMISOLA")||articulo.startsWith("CHALECO DE GABARDINA")||articulo.startsWith("CHAMARRA ROMPEVIENTOS")||articulo.startsWith("CHAMARRA DE MANGAS"))
-                            {
-                                sonsolobordados ="no";
-                                break;
-                            }
-                            
-   
-
-                        }
-
-                    } catch (SQLException ex) 
-                    
-                    {
-                        System.out.println(ex);
-                    }
-        
-                    
-                    
-        if(sonsolobordados.equals("no"))
+        if(cantidadvendidadouble == cantidadsurtidadouble && cantidadentregadadouble == 0 )
         {
-            
-        }            
+          estatusentrega ="surtida totalmente no entregada";  
+        }
+        else  if(cantidadvendidadouble == (cantidadsurtidadouble + cantidadentregadadouble )  &&  cantidadentregadadouble <  cantidadvendidadouble  )
+        {
+          estatusentrega ="surtida totalmente entregada parcialmente";  
+        }
+        
         else
         {
-            
-            
-            String articuloconbordado = lbprenda.getText().toUpperCase();
-            String nombrebordado ="";
-            
-            if (articuloconbordado.contains("CAMISA")) 
-                {
-                    nombrebordado = "BORDADO CAMISA";
-                    
-                } 
-                else if (articuloconbordado.contains("CAMISA2"))
-                {
-                    nombrebordado = "BORDADO CAMISA2";
-                    
-                } 
-                else if (articuloconbordado.contains("CAMISA3")) 
-                {
-                    nombrebordado = "BORDADO CAMISA3";
-                    
-                } 
-                 else if (articuloconbordado.contains("CAMISA4")) 
-                {
-                    nombrebordado = "BORDADO CAMISA4";
-                    
-                } 
-                 
-                 else if (articuloconbordado.contains("CAMISA5")) 
-                {
-                    nombrebordado = "BORDADO CAMISA5";
-                   
-                }  
-                 
-                else if (articuloconbordado.contains("CHAMARRA DESMONTABLE")) 
-                {
-                    nombrebordado = "BORDADO CHAMARRA DESMONTABLE";
-                    
-                } 
-                else if (articuloconbordado.contains("CHAMARRA2 DESMONTABLE")) 
-                {
-                    nombrebordado = "BORDADO CHAMARRA2 DESMONTABLE";
-                    
-                } 
-                else if (articuloconbordado.contains("CHAMARRA ROMPEVIENTOS2"))
-                {
-                    nombrebordado = "BORDADO CHAMARRA ROMPEVIENTOS2";
-                   
-                } 
-                else if (articuloconbordado.contains("CHAMARRA ROMPEVIENTOS"))
-                {
-                    nombrebordado = "BORDADO CHAMARRA ROMPEVIENTOS";
-                    
-                } 
-                else if (articuloconbordado.contains("CAMISOLA")) 
-                {
-                    nombrebordado = "BORDADO CAMISOLA";
-                    
-                } 
-                else if (articuloconbordado.contains("PLAYERA"))
-                {
-                    nombrebordado = "BORDADO PLAYERA ";
-                    
-                } 
-                else if (articuloconbordado.contains("PLAYERA2"))
-                {
-                    nombrebordado = "BORDADO PLAYERA2";
-                    
-                } 
-                else if (articuloconbordado.contains("PLAYERA3"))
-                {
-                    nombrebordado = "BORDADO PLAYERA3";
-                    
-                } 
-                else if (articuloconbordado.contains("PLAYERA4"))
-                {
-                    nombrebordado = "BORDADO PLAYERA4";
-                    
-                }
-                else if (articuloconbordado.contains("PLAYERA5"))
-                {
-                    nombrebordado = "BORDADO PLAYERA5";
-                   
-                } 
-                else if (articuloconbordado.contains("SACO")) 
-                {
-                    nombrebordado = "BORDADO SACO";
-                   
-                }
-                else if (articuloconbordado.contains("CHALECO2")) 
-                {
-                    nombrebordado = "BORDADO CHALECO2";
-                    
-                }
-                 else if (articuloconbordado.contains("CHALECO")) 
-                {
-                    nombrebordado = "BORDADO CHALECO";
-                    
-                }
-                else if (articuloconbordado.contains("FILIPINA")) {
-                    nombrebordado = "BORDADO FILIPINA";
-                   
-                }
-            
-
-            String modi = "UPDATE historial_ventas SET surtida='0'  WHERE numero = '"+lbnumeroventa.getText()+"' and articulo like '"+nombrebordado+"%'  ";
-        try {
-            PreparedStatement pst = cn.prepareStatement(modi);
-            pst.executeUpdate();
-            pst.close();
-        } catch (Exception e) 
-        {
-          System.out.println(e);  
-        }
-        
-        //// cambia el estatus
-        
-        int totalvendidasint = 0;
-        int totalsolicitadaint = 0;
-        int totalordenint = 0;
-        int totalcambiadaint = 0;
-        int totalcantidadvirtualint = 0;
-        int totalsurtidaint = 0;
-        int totalentregadasint = 0;
-        
-        String totalvendidas = "";
-        String totalsolicitada = "";
-        String totalorden = "";
-        String totalcambiada ="";
-        String totalcantidadvirtual ="";
-        String totalsurtida = "";
-        String totalentregadas ="";
-        
-        try {
-                
-                String sql2 = "SELECT sum(cantidad)as cantidad,sum(solicitada)as solicitada,sum(orden)as orden,sum(cambiada) as cambiada,sum(cantidad_virtual) as cantidadvirtual,sum(surtida)as surtida,sum(entregadas) as entregadas FROM historial_ventas where numero = '" +numeroventa+"' ";
-                Statement st = cn.prepareStatement(sql2);
-                ResultSet rs = st.executeQuery(sql2);
-
-                if (rs.next()) 
-                {
-
-                   totalvendidas = rs.getString("cantidad");
-                   totalsolicitada = rs.getString("solicitada");
-                   totalorden = rs.getString("orden");
-                   totalcambiada = rs.getString("cambiada");
-                   totalcantidadvirtual = rs.getString("cantidadvirtual");
-                   totalsurtida = rs.getString("surtida");
-                   totalentregadas = rs.getString("entregadas");
-                    
-
-                } 
-
-                st.close();
-            } catch (SQLException ex) {
-
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error "+ex+" ");
-            }
-        
-        
-        totalvendidasint = Integer.parseInt(totalvendidas);
-        totalsurtidaint = Integer.parseInt(totalsurtida);
-        
- 
-         if (totalvendidasint == totalsurtidaint ) 
-        {
-
-            estatusentrega = "surtida totalmente no entregada";
-        } 
-         else  if ( totalsurtidaint > 0 && totalsurtidaint < totalvendidasint   ) 
-        {
-
-           estatusentrega = "surtida parcialmente no entregada";
-        }  
-
-        else 
-        {
-
-           estatusentrega = "no surtida no entregada";
-        }
-        
-        
-        
-        try 
-        {
-            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega='" + estatusentrega + "' WHERE numero='"+numeroventa+"' ");
-            pst.executeUpdate();
-            pst.close();
-
-        } 
-        catch (SQLException ex) 
-        {
-            System.out.println(ex);
-        }
-        
-        
+          estatusentrega ="surtida parcialmente no entregada";   
         }    
         
-        if(venderanterior.ventanavenderanterior==true)
-        {
-            venderanterior.btndatos2.doClick();
-        }
+          try {
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
+              pst.executeUpdate();
+              pst.close();
+          } catch (Exception e) {
+
+              System.out.println(e);
+          }
+      
+
+      
+      }  
+
+
+      
+       void agregarexistenciabordados(String ubicacioninsertar)
+    {
+        
+       
+        
+        //// bordado
+        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
+            
+                
+ 
+                pst.setString(1, lbnumerodeventa.getText());
+                pst.setString(2, dia());
+                pst.setString(3, hora());
+                pst.setString(4, ubicacioninsertar);
+                pst.setString(5, nombreconcepto);
+                pst.setString(6, lbcantidadtotal.getText());
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
+           
         
         
     }
-    
-    
-    
-    */
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public static String dia() {
+        Date fecha = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
+        return formatoFecha.format(fecha);
+    }
+
+    public static String hora() {
+        Date hora = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("HH:mm:ss");
+        return formatoFecha.format(hora);
+    }
+       
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -933,6 +464,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         lbsolicita = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lbobservacion = new javax.swing.JLabel();
+        btnrealizada = new javax.swing.JButton();
         lbtipo = new javax.swing.JLabel();
         lbarticulo = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -945,7 +477,6 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         lbcantidadtotal = new javax.swing.JLabel();
         lbnumerodeventa = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        txtbusqueda = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -1123,6 +654,14 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         lbobservacion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbobservacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        btnrealizada.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnrealizada.setText("Portanombre ");
+        btnrealizada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrealizadaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1202,14 +741,16 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(lbtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbfechaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnrealizada, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbfechaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1235,9 +776,10 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbcantidad4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1267,14 +809,13 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                                                     .addComponent(lbprenda3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(lbubicacion3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(lbcolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(lbcantidad3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(lbcantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(13, 13, 13)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lbprenda4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lbubicacion4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(lbcantidad4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(lbcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(13, 13, 13)
@@ -1305,7 +846,8 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbobservacion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnrealizada, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
@@ -1363,19 +905,6 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel21.setText("Venta");
         jLabel21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        txtbusqueda.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        txtbusqueda.setForeground(new java.awt.Color(153, 0, 0));
-        txtbusqueda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtbusquedaActionPerformed(evt);
-            }
-        });
-        txtbusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtbusquedaKeyTyped(evt);
-            }
-        });
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("Primer renglon");
@@ -1447,7 +976,6 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                         .addComponent(lbarticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1476,29 +1004,23 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(2, 2, 2)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbnumerodeventa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(10, 10, 10))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(lbhora, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lbfecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap())))
+                                        .addComponent(lbnumerodeventa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lbhora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbfecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10, 10, 10))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbarticulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
@@ -1591,17 +1113,51 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
      
     }//GEN-LAST:event_formWindowClosed
 
-    private void txtbusquedaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbusquedaKeyTyped
-      
-    }//GEN-LAST:event_txtbusquedaKeyTyped
-
-    private void txtbusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbusquedaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtbusquedaActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
       datos();
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnrealizadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrealizadaActionPerformed
+      
+      String articulo ="";  
+      String cantidad ="";  
+      
+    
+      String sql = "SELECT articulo,cantidad FROM historial_ventas WHERE numero = '"+lbnumerodeventa.getText()+"' and articulo LIKE '%PORTA NOMBRE%' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) 
+            {
+
+                articulo = rs.getString("articulo");
+                cantidad =rs.getString("cantidad");
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } 
+        
+        
+         try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set estatus_orden='realizada' where numero='" + lbnumero.getText() + "'   ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+        
+        
+        agregarexistenciabordados((String) articulo); 
+        agregaralsurtidasalhistorialdeventas((String) articulo, (String) cantidad) ;
+        
+        
+        
+    }//GEN-LAST:event_btnrealizadaActionPerformed
 
     ResultSet rs;
     ResultSet rs2;
@@ -1616,6 +1172,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnrealizada;
     public static javax.swing.JButton btnsalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
@@ -1677,7 +1234,6 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
     private javax.swing.JLabel lbubicacion3;
     private javax.swing.JLabel lbubicacion4;
     private javax.swing.JLabel lbubicacion5;
-    public static javax.swing.JTextField txtbusqueda;
     // End of variables declaration//GEN-END:variables
 
     connectar cc = new connectar();

@@ -1200,7 +1200,7 @@ public static String dia() {
 
     public static String hora() {
         Date hora = new Date();
-        SimpleDateFormat formatoFecha = new SimpleDateFormat(" HH:mm:ss  ");
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("HH:mm:ss");
         return formatoFecha.format(hora);
     }
 

@@ -660,7 +660,7 @@ public class ordengorra extends javax.swing.JFrame {
             btnladoderecho.setEnabled(false);
             btnfrente.setEnabled(false);
             
-            ordencamisaimagencontorno p = new ordencamisaimagencontorno();
+            ordengorraimagen p = new ordengorraimagen();
             jPanel1.add(p);
             jPanel1.repaint();
             lblImagen.setVisible(false);

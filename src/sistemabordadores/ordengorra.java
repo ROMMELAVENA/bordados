@@ -82,6 +82,8 @@ public class ordengorra extends javax.swing.JFrame {
     public static String ordengorraautorizacion = "";
     String rutaarchivo = "";
     String nombrearchivo = "";
+    public static String enquesucursalsebordara = "";
+    public static String tipotabla = "";
     
 
  
@@ -237,25 +239,7 @@ public class ordengorra extends javax.swing.JFrame {
 
     }
 
-    void topes() {
-
-        String sql = "SELECT min(numero) as min_numero, max(numero) as max_numero FROM historial_ordenes_gorra";
-
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-
-            rs.last();
-
-            primero = rs.getString("min_numero");
-            ultimo = rs.getString("max_numero");
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-
-        }
-
-    }
+    
     
     void datostienda() {
         /// busca las ordenes de camisa generadas 
@@ -438,6 +422,255 @@ public class ordengorra extends javax.swing.JFrame {
         
         
     }
+    
+    
+     void datosotrasucursal() throws IOException 
+     {
+
+        btnreplicar.setEnabled(true);
+
+        String folio = lbfolio.getText();
+
+        String sql = "Select fecha,hora,cliente,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,numero_sucursal_orden,\n" +
+                     "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras from historial_ordenes_gorra_recibidas where numero = '" + folio + "'";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+
+                lbcliente.setText(rs.getString("cliente"));
+
+                lbprenda.setText(rs.getString("prenda"));
+                lbcantidad.setText(rs.getString("cantidad"));
+                lbfechaentrega.setText(rs.getString("fecha_entrega"));
+                lbhoraentrega.setText(rs.getString("hora_entrega"));
+                lbnumero.setText(rs.getString("numero_sucursal_orden"));
+                
+                ladoizquierdonombre = rs.getString("lado_izquierdo");
+                ladoderechonombre = rs.getString("lado_derecho");
+                frentenombre = rs.getString("frente");
+                atrasnombre = rs.getString("atras");
+                               
+                lbfrente.setText(rs.getString("frente"));
+                String frente =  rs.getString("frente");
+                if(frente ==null||frente.equals(""))
+                {
+                    btnfrente.setVisible(false);
+                    lbfrente.setVisible(false);
+                }
+                
+                lbladoizquierdo.setText(rs.getString("lado_izquierdo"));
+                String ladoizquierdo =  rs.getString("lado_izquierdo");
+                if(ladoizquierdo ==null||ladoizquierdo.equals(""))
+                {
+                    btnladoizquierdo.setVisible(false);
+                    lbladoizquierdo.setVisible(false);
+                }
+                
+                
+                lbladoderecho.setText(rs.getString("lado_derecho"));
+                 String ladoderecho =  rs.getString("lado_derecho");
+                if(ladoderecho ==null||ladoderecho.equals(""))
+                {
+                    btnladoderecho.setVisible(false);
+                    lbladoderecho.setVisible(false);
+                }
+                
+                lbatras.setText(rs.getString("atras"));
+                String atras =  rs.getString("atras");
+                if(atras ==null||atras.equals(""))
+                {
+                    btnatras.setVisible(false);
+                    lbatras.setVisible(false);
+                }
+               
+                String aplicacionfrente = rs.getString("aplicacion_frente");
+
+                if (aplicacionfrente.equals("ninguno")) {
+                    aplicacionfrente = "";
+                }
+
+                lbaplicacionfrente.setText(aplicacionfrente);
+                
+                
+                String aplicacionfrentecolor = rs.getString("aplicacion_frente_color");
+
+                if (aplicacionfrentecolor.equals("ninguno")) {
+                    aplicacionfrentecolor = "";
+                }
+
+                lbaplicacionfrentecolor.setText(aplicacionfrentecolor);
+                
+                lugardondesebordara = rs.getString("lugar");
+                
+                String cantidadfrente = rs.getString("cantidad_frente");
+                String cantidadladoderecho = rs.getString("cantidad_lado_derecho");
+                String cantidadladoizquierdo = rs.getString("cantidad_lado_izquierdo");
+                String cantidadatras = rs.getString("cantidad_atras");
+                
+                if(cantidadfrente.equals("0"))
+                {
+                   btnfrente.setEnabled(true);  
+                }
+                else
+                {
+                   btnfrente.setEnabled(false);  
+                }  
+                
+                 if(cantidadladoderecho.equals("0"))
+                {
+                    btnladoderecho.setEnabled(true); 
+                }
+                else
+                {
+                   btnladoderecho.setEnabled(false);  
+                } 
+                 
+                 if(cantidadladoizquierdo.equals("0"))
+                {
+                   btnladoizquierdo.setEnabled(true); 
+                }
+                else
+                {
+                    btnladoizquierdo.setEnabled(false);
+                }
+                 
+                  if(cantidadatras.equals("0"))
+                {
+                    btnatras.setEnabled(true);
+                }
+                else
+                {
+                    btnatras.setEnabled(false);
+                } 
+                
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+
+ }
+     
+ void agregarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
+    {
+        
+        String numero = lbfolio.getText();
+        String prenda =lbprenda.getText();
+        BufferedImage img = null;
+        btnverfotomontaje.setEnabled(false);
+
+       String sql = "Select imagen_nombre,imagen from historial_ordenes_gorra_recibidas where numero = '"+numero+"'  and prenda = 'Gorra'    ";  ///
+
+        try {
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                Imagen imagen = new Imagen();
+                Blob blob = rs.getBlob("imagen");
+                if (blob == null) 
+                {
+
+                    tienefotomontaje = "no";
+                   // btnagregarfotomontaje.setEnabled(true);
+
+                    
+                } 
+                
+                else 
+                
+                {
+                    byte[] data = blob.getBytes(1, (int) blob.length());
+
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (IOException ex) 
+                    {
+                      JOptionPane.showMessageDialog(null, ex); 
+
+                    }
+
+                    imagen.setImagen(img);
+                    lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
+                    lblImagen.setVisible(true);
+                    btnverfotomontaje.setEnabled(true);
+                    tienefotomontaje = "si";
+                    btnverfotomontaje.setEnabled(true);
+                    //btnagregarfotomontaje.setEnabled(false);
+
+                    Blob archivo = rs.getBlob("imagen");
+                    String ext = rs.getString("imagen_nombre");
+                    String path = "C:\\archivospdf\\FOTOMONTAJE"+ext+" ";
+                    rutaimagen=path;
+                    File file = new File(path);
+                    FileOutputStream output = new FileOutputStream(file);
+                    InputStream inStream = archivo.getBinaryStream();
+                    int length = -1;
+                    int size = (int) archivo.length();
+                    byte[] buffer = new byte[size];
+                    while ((length = inStream.read(buffer)) != -1) {
+                        output.write(buffer, 0, length);
+                   
+                    }
+                   
+                    output.close();
+ 
+                }
+
+            } //end while
+            rs.close();
+        } catch (SQLException ex) 
+        {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        
+        
+        
+        if(tienefotomontaje.equals("si"))
+        {
+          
+            lbaplicacionatras.setVisible(false);
+            lbaplicacionladoderecho.setVisible(false);
+            lbaplicacionladoizquierdo.setVisible(false);
+            lbaplicacionfrente.setVisible(false);
+            lbatras.setVisible(false);
+            lbladoderecho.setVisible(false);
+            lbladoizquierdo.setVisible(false);
+            lbfrente.setVisible(false);
+            lbaplicacionfrentecolor.setVisible(false);
+            jLabel1.setVisible(false);
+            jLabel2.setVisible(false);
+            jLabel4.setVisible(false);
+            jLabel5.setVisible(false);
+            
+        
+        }
+        else
+        {
+            btnatras.setEnabled(false);
+            btnladoizquierdo.setEnabled(false);
+            btnladoderecho.setEnabled(false);
+            btnfrente.setEnabled(false);
+            
+            ordencamisaimagencontorno p = new ordencamisaimagencontorno();
+            jPanel1.add(p);
+            jPanel1.repaint();
+            lblImagen.setVisible(false);
+            btnverfotomontaje.setEnabled(false);
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
+            
+            
+        }  
+
+        
+        
+    }    
+    
     
     void actualizarlascantidadesbordadas(String ubicacion)
     {
@@ -1101,10 +1334,11 @@ public class ordengorra extends javax.swing.JFrame {
         });
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(204, 0, 0));
         jLabel12.setText("Fecha Entrega");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel13.setForeground(new java.awt.Color(204, 0, 0));
         jLabel13.setText("Folio");
 
         lbfolio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -1116,6 +1350,7 @@ public class ordengorra extends javax.swing.JFrame {
         jLabel15.setText("Cantidad de Prendas:");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(204, 0, 0));
         jLabel16.setText("Cliente:");
 
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -1138,16 +1373,21 @@ public class ordengorra extends javax.swing.JFrame {
         });
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(204, 0, 0));
         jLabel14.setText("Hora Entrega");
 
         lbcliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbcliente.setForeground(new java.awt.Color(204, 0, 0));
 
         lbfechaentrega.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbfechaentrega.setForeground(new java.awt.Color(204, 0, 0));
 
         lbhoraentrega.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbhoraentrega.setForeground(new java.awt.Color(204, 0, 0));
 
         lbcantidad.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lbcantidad.setText("00000000");
+        lbcantidad.setForeground(new java.awt.Color(204, 0, 0));
+        lbcantidad.setText("0");
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(204, 0, 0));
@@ -1240,6 +1480,7 @@ public class ordengorra extends javax.swing.JFrame {
         lbtienda.setText("00000000");
 
         lbnumero.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbnumero.setForeground(new java.awt.Color(204, 0, 0));
         lbnumero.setText("00000000");
 
         lbrutaladoderecho.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1265,8 +1506,8 @@ public class ordengorra extends javax.swing.JFrame {
         lbtiendaalaquereplicara.setText("00000000");
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel17.setText("Numero Sucursal");
+        jLabel17.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel17.setText("Numero Sucursal:");
 
         btnverfotomontaje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnverfotomontaje.setText("Ampliar Imagen");
@@ -1397,13 +1638,6 @@ public class ordengorra extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnreplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnagregarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
@@ -1417,8 +1651,8 @@ public class ordengorra extends javax.swing.JFrame {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
+                                                .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -1427,35 +1661,40 @@ public class ordengorra extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel21)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lbprenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(lbprenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(205, 205, 205))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel12)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(lbfechaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel14)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel15)
                                                 .addGap(19, 19, 19)
-                                                .addComponent(lbcantidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addGap(18, 18, 18)
-                                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel12)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(lbfechaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel14)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnreplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnagregarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(24, 24, 24))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel21)
@@ -1463,27 +1702,29 @@ public class ordengorra extends javax.swing.JFrame {
                                 .addGap(5, 5, 5)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel15)
-                                    .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbfechaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14)))
+                                    .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel16)
-                                    .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel13)
-                                    .addComponent(lbfolio)
-                                    .addComponent(jLabel17)
-                                    .addComponent(lbnumero))))))
+                                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbfechaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel14)
+                            .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel16)
+                            .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(lbfolio)
+                            .addComponent(jLabel17)
+                            .addComponent(lbnumero))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1619,6 +1860,11 @@ public class ordengorra extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+
+if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
+    {
+      
+
         try {
             datos();
         } catch (IOException ex) {
@@ -1634,6 +1880,24 @@ public class ordengorra extends javax.swing.JFrame {
         }
         
         sumapuntos();
+        
+    }
+else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
+    {
+         try {
+            datosotrasucursal();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         try {    
+            agregarfotomontajeotrasucursal();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+    }   
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void btnladoderechoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechoActionPerformed

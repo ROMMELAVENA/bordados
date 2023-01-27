@@ -967,8 +967,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordengorra.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordengorra.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordengorra.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
-                        //ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        //ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordengorra.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordengorra.tipotabla=(tabla.getValueAt(fila, 10).toString());
                          tabla.clearSelection();
                          this.setState(this.ICONIFIED);
                         

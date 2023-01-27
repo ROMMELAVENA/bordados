@@ -112,7 +112,7 @@ public static boolean ventanaordenparcheanteriores = false;
         }
    
         
-        
+        sumapuntos();
       
         
     }
@@ -478,6 +478,19 @@ public static boolean ventanaordenparcheanteriores = false;
             }
                
            }
+           
+           
+           
+            try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set estatus_orden='realizada' where numero='" + lbfolio.getText() + "'   ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+        
         
         
     }
@@ -595,7 +608,65 @@ public static boolean ventanaordenparcheanteriores = false;
       
 
       
-      }  
+      }
+    
+    
+    void sumapuntos()
+    {
+        
+        double importebordado = 0.0;
+
+        String costostring = "0";
+        String costodelapuntada = "";
+
+        
+
+        Object cantidadobject = lbcantidad1.getText();
+        int cantidadparcheint = Integer.parseInt(cantidadparche);
+        double costopuntada = 0.0;
+        Object puntadaobject = "";
+        
+        String sql = "SELECT puntadas from historial_ordenes_parche where numero = ' "+lbfolio.getText()+"' ";
+
+        try {
+            PreparedStatement prst = cn.prepareStatement(sql);
+            ResultSet rs = prst.executeQuery();
+            if (rs.next()) {
+
+                puntadaobject = rs.getString("puntadas");
+                
+
+            }
+        } catch (Exception exx) {
+            JOptionPane.showMessageDialog(null, exx);
+
+        }
+        
+        
+        String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + puntadaobject + "'";
+
+        try {
+            PreparedStatement prst = cn.prepareStatement(sql1);
+            ResultSet rs = prst.executeQuery();
+            if (rs.next()) {
+
+                costostring = rs.getString("costo");
+                costopuntada = Double.parseDouble(costostring);
+
+            }
+        } catch (Exception exx) {
+            JOptionPane.showMessageDialog(null, exx);
+
+        }
+
+        double sumabordados = costopuntada * cantidadparcheint;
+        String sumabordadosstring = String.format("%.02f ", sumabordados);
+        lbsumapuntos.setText(sumabordadosstring);
+
+            
+        
+        
+    }
    
   
     @SuppressWarnings("unchecked")
@@ -677,7 +748,6 @@ public static boolean ventanaordenparcheanteriores = false;
         bntcantidadparches8 = new javax.swing.JButton();
         bntcantidadparches9 = new javax.swing.JButton();
         bntcantidadparches10 = new javax.swing.JButton();
-        btncancelar = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         lbfecha = new javax.swing.JLabel();
@@ -693,6 +763,8 @@ public static boolean ventanaordenparcheanteriores = false;
         lbcliente = new javax.swing.JLabel();
         lbestatusentrega = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lbsumapuntos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden de parche anteriores");
@@ -1180,13 +1252,6 @@ public static boolean ventanaordenparcheanteriores = false;
                         .addGap(111, 111, 111))))
         );
 
-        btncancelar.setText("Cancelar");
-        btncancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncancelarActionPerformed(evt);
-            }
-        });
-
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setText("Fecha:");
 
@@ -1236,6 +1301,15 @@ public static boolean ventanaordenparcheanteriores = false;
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel29.setText("Estatus Entrega:");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Puntos");
+        jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbsumapuntos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbsumapuntos.setText("0.00");
+        lbsumapuntos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1265,35 +1339,34 @@ public static boolean ventanaordenparcheanteriores = false;
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(189, 189, 189))
+                                .addGap(43, 43, 43)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel30))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(43, 43, 43)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel18)
-                                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(38, 38, 38)
-                                        .addComponent(jLabel30))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(34, 34, 34)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel17)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel29))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbestatusentrega, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbsolicita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbtelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbhoraentrega, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbfechaentrega, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbhora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbfecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel29))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbestatusentrega, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbsolicita, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                            .addComponent(lbtelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbhoraentrega, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbfechaentrega, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbhora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbfecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lbsumapuntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -1355,8 +1428,10 @@ public static boolean ventanaordenparcheanteriores = false;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel29)
                             .addComponent(lbestatusentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(113, 113, 113)
-                        .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbsumapuntos))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1439,13 +1514,6 @@ public static boolean ventanaordenparcheanteriores = false;
         ventanaordenparcheanteriores = false;
     }//GEN-LAST:event_formWindowClosing
 
-    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
-      
-    
-        
-        
-    }//GEN-LAST:event_btncancelarActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         datos();
     }//GEN-LAST:event_formWindowOpened
@@ -1461,6 +1529,7 @@ public static boolean ventanaordenparcheanteriores = false;
         aplicacioninsertar = "APLICACION PARCHE1";
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
         agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+        sumapuntos();
 
     }//GEN-LAST:event_bntcantidadparches1ActionPerformed
 
@@ -1596,7 +1665,6 @@ public static boolean ventanaordenparcheanteriores = false;
     private javax.swing.JButton bntcantidadparches7;
     private javax.swing.JButton bntcantidadparches8;
     private javax.swing.JButton bntcantidadparches9;
-    private javax.swing.JButton btncancelar;
     public static javax.swing.JButton btnsalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
@@ -1611,6 +1679,7 @@ public static boolean ventanaordenparcheanteriores = false;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1675,6 +1744,7 @@ public static boolean ventanaordenparcheanteriores = false;
     private javax.swing.JLabel lbparche8;
     private javax.swing.JLabel lbparche9;
     private javax.swing.JLabel lbsolicita;
+    public javax.swing.JLabel lbsumapuntos;
     private javax.swing.JLabel lbtelefono;
     private javax.swing.JLabel lbtipo;
     // End of variables declaration//GEN-END:variables

@@ -146,7 +146,7 @@
                               <Component id="btninsertarponchados" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnagregarfotomontaje" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="btneliminar" min="-2" pref="205" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -196,11 +196,11 @@
                   <Component id="lbtitulo" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbcantidad" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="btnverfotomontaje" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="btneliminar" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btninsertarponchados" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="btneliminar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="btnagregarfotomontaje" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="btninsertarponchados" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbcantidad1" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel15" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>

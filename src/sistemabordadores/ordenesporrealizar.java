@@ -974,6 +974,30 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                     }
                 }
+                if (tipo.equals("Orden pantalon")) {
+                    if (ordenpantalon.ventanaordenpantalonanteriores == true) 
+                    {
+                        
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
+
+                    } else {
+                        ordenpantalon orden = new ordenpantalon();
+                        orden.setVisible(true);
+
+                        ordenpantalon.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenpantalon.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordenpantalon.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        ordenpantalon.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordenpantalon.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        tabla.clearSelection();
+                        this.setState(this.ICONIFIED);
+                       
+                    }
+
+                
+                } 
+                
+                
                 else if (tipo.equals("Orden ponchado")) 
                 {
                     if (ordenponchado.ventanaordenparcheanteriores == true) {
@@ -1018,8 +1042,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
                         ordencorbata.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
                         ordencorbata.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                        //ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        //ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         
                          tabla.clearSelection();
                          this.setState(this.ICONIFIED);

@@ -118,7 +118,7 @@ public static boolean ventanaordenparcheanteriores = false;
             System.out.println(ex);
         }
    
-        
+        sumapuntos();
         
       //  datosfueratabla();
         
@@ -265,6 +265,17 @@ public static boolean ventanaordenparcheanteriores = false;
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex);
                 }
+        
+        try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set estatus_orden='realizada' where numero='" + lbfolio.getText() + "'   ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+        
         
         
         String ubicacionsinguiones = ubicacion;
@@ -445,7 +456,83 @@ public static boolean ventanaordenparcheanteriores = false;
         return formatoFecha.format(hora);
     } 
     
-    
+     void sumapuntos()
+    {
+        Object cantidadponchado = "";
+        Object articulo = "";
+        String articulobuscar = "";
+        double costodelponchado = 0.0;
+        String costostring = "";
+        
+        
+         String sql = "Select articulo,cantidad_ponchado from historial_ordenes_ponchados where numero = '"+lbfolio.getText()+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                cantidadponchado=rs.getString("cantidad_ponchado");
+                articulo = rs.getString("articulo");
+ 
+                
+               
+            }
+
+            rs.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+
+           
+            int cantidadponchadoint  =Integer.parseInt(cantidadponchado.toString());
+            
+
+            if (articulo.toString().startsWith("PONCHADO")||articulo.toString().startsWith("MODIFICACION DE PONCHADO")) {
+
+                if (articulo.toString().startsWith("PONCHADO FACIL")||articulo.toString().contains("MODIFICACION DE PONCHADO FACIL")) 
+                {
+                    articulobuscar = "PONCHADO FACIL";
+                } else if (articulo.toString().startsWith("PONCHADO MEDIO")||articulo.toString().contains("MODIFICACION DE PONCHADO MEDIO")) {
+                    articulobuscar = "PONCHADO MEDIO";
+                } else if (articulo.toString().startsWith("PONCHADO DIFICIL")||articulo.toString().contains("MODIFICACION DE PONCHADO DIFICIL")) {
+                    articulobuscar = "PONCHADO DIFICIL";
+                }
+                else if (articulo.toString().startsWith("PONCHADO EXTRA DIFICIL")||articulo.toString().contains("MODIFICACION DE PONCHADO EXTRA DIFICIL")) {
+                        articulobuscar = "PONCHADO EXTRA DIFICIL";
+                    }
+
+                
+
+                
+
+                String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + articulobuscar + "'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql1);
+                    ResultSet rs = prst.executeQuery();
+                    if (rs.next()) {
+
+                        costostring = rs.getString("costo");
+                        costodelponchado = Double.parseDouble(costostring);
+
+                    }
+                } catch (Exception exx) {
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                String costopuntadaponchadostring = String.format("%.02f ", costodelponchado);
+                double importeponchado = cantidadponchadoint * costodelponchado;
+
+                double sumabordados = importeponchado;
+                String sumabordadosstring = String.format("%.02f ", sumabordados);
+                lbsumapuntos.setText(sumabordadosstring);
+
+            }
+    }
   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -491,6 +578,8 @@ public static boolean ventanaordenparcheanteriores = false;
         lbnumeroventa = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         lbcliente = new javax.swing.JLabel();
+        lbsumapuntos = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden de ponchados anteriores");
@@ -751,6 +840,15 @@ public static boolean ventanaordenparcheanteriores = false;
         lbcliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbcliente.setForeground(new java.awt.Color(204, 0, 0));
 
+        lbsumapuntos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbsumapuntos.setText("0.00");
+        lbsumapuntos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Puntos");
+        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -783,15 +881,19 @@ public static boolean ventanaordenparcheanteriores = false;
                                     .addComponent(jLabel8))))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lbsolicita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-                                    .addComponent(lbtelefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbfecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(lbhoraentrega, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbfechaentrega, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbhora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(lbhora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(lbsolicita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                                        .addComponent(lbtelefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lbfecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -836,7 +938,7 @@ public static boolean ventanaordenparcheanteriores = false;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel28)
                     .addComponent(lbnumeroventa, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -874,8 +976,12 @@ public static boolean ventanaordenparcheanteriores = false;
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbsolicita, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))))
-                .addContainerGap(102, Short.MAX_VALUE))
+                            .addComponent(jLabel7))
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         pack();
@@ -965,7 +1071,7 @@ public static boolean ventanaordenparcheanteriores = false;
     actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);
     agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
     agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
-    
+    sumapuntos();
     
     }//GEN-LAST:event_bntcantidadponchado1ActionPerformed
 
@@ -975,7 +1081,7 @@ public static boolean ventanaordenparcheanteriores = false;
     actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);  
     agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
     agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
-    
+    sumapuntos();
     
     }//GEN-LAST:event_bntcantidadponchado2ActionPerformed
 
@@ -985,6 +1091,7 @@ public static boolean ventanaordenparcheanteriores = false;
     actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);  
     agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
     agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
+    sumapuntos();
     }//GEN-LAST:event_bntcantidadponchado3ActionPerformed
 
     private void bntcantidadponchado4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado4ActionPerformed
@@ -993,6 +1100,7 @@ public static boolean ventanaordenparcheanteriores = false;
     actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);  
     agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
     agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
+    sumapuntos();
     }//GEN-LAST:event_bntcantidadponchado4ActionPerformed
 
     private void bntcantidadponchado5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado5ActionPerformed
@@ -1001,6 +1109,7 @@ public static boolean ventanaordenparcheanteriores = false;
     actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);  
     agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
     agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
+    sumapuntos();
     }//GEN-LAST:event_bntcantidadponchado5ActionPerformed
 
     
@@ -1032,6 +1141,7 @@ public static boolean ventanaordenparcheanteriores = false;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1055,6 +1165,7 @@ public static boolean ventanaordenparcheanteriores = false;
     private javax.swing.JLabel lbparche4;
     private javax.swing.JLabel lbparche5;
     private javax.swing.JLabel lbsolicita;
+    public javax.swing.JLabel lbsumapuntos;
     private javax.swing.JLabel lbtelefono;
     private javax.swing.JLabel lbtipo;
     // End of variables declaration//GEN-END:variables

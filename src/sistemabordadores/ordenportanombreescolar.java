@@ -195,11 +195,6 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                  txtrenglon1.append("\n");
                  txtrenglon1.append(renglon3);
            
-                      
-               // lbnombrerenglon1.setText(rs.getString("nombre_renglon1"));
-                lbnombrerenglon2.setText(rs.getString("nombre_renglon2"));
-                lbnombrerenglon3.setText(rs.getString("nombre_renglon3"));
-
                 lbletra.setText(rs.getString("tipo_letra"));
                 lbcantidadtotal.setText(rs.getString("cantidad_total"));
              
@@ -485,15 +480,10 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         lbtipo = new javax.swing.JLabel();
         lbarticulo = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        lbnombrerenglon2 = new javax.swing.JLabel();
-        lbnombrerenglon3 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         lbletra = new javax.swing.JLabel();
         lbnumerodeventa = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         lbfecha = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -897,16 +887,6 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         jLabel20.setText("Nombre a Bordar:");
         jLabel20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbnombrerenglon2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbnombrerenglon2.setForeground(new java.awt.Color(153, 0, 0));
-        lbnombrerenglon2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbnombrerenglon2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        lbnombrerenglon3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbnombrerenglon3.setForeground(new java.awt.Color(153, 0, 0));
-        lbnombrerenglon3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbnombrerenglon3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel28.setText("Tipo de Letra:");
         jLabel28.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -923,15 +903,6 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel21.setText("Venta");
         jLabel21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel13.setText("Primer renglon");
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel14.setText("Segundo renglon");
-
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel19.setText("Tercer renglon");
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setText("Fecha:");
@@ -980,27 +951,15 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                         .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(154, 154, 154)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel28)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbletra, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbnombrerenglon3, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbnombrerenglon2, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
+                        .addComponent(jLabel28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbletra, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 505, Short.MAX_VALUE)
                         .addComponent(btnsalir)))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
@@ -1015,23 +974,8 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                     .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbletra, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lbnombrerenglon2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbnombrerenglon3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(14, 14, 14)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1205,13 +1149,10 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
     public static javax.swing.JButton btnsalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -1245,8 +1186,6 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
     private javax.swing.JLabel lbhora;
     private javax.swing.JLabel lbhoraentrega;
     private javax.swing.JLabel lbletra;
-    private javax.swing.JLabel lbnombrerenglon2;
-    private javax.swing.JLabel lbnombrerenglon3;
     public static javax.swing.JLabel lbnumero;
     public static javax.swing.JLabel lbnumerodeventa;
     private javax.swing.JLabel lbobservacion;

@@ -291,10 +291,8 @@
                                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                                   <Group type="102" attributes="0">
                                                                       <Group type="103" groupAlignment="0" attributes="0">
-                                                                          <Group type="103" groupAlignment="3" attributes="0">
-                                                                              <Component id="btnmangaizquierda" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                                                              <Component id="cancelar2" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                                                          </Group>
+                                                                          <Component id="cancelar2" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                                                                          <Component id="btnmangaizquierda" min="-2" pref="30" max="-2" attributes="0"/>
                                                                           <Component id="lbcolormangaizquierda" min="-2" pref="30" max="-2" attributes="0"/>
                                                                       </Group>
                                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1490,6 +1488,9 @@
           <Image iconType="3" name="/img/cancel.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cancelar2MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="cancelar3">
       <Properties>
@@ -1497,6 +1498,9 @@
           <Image iconType="3" name="/img/cancel.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cancelar3MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="cancelar4">
       <Properties>
@@ -1504,6 +1508,9 @@
           <Image iconType="3" name="/img/cancel.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cancelar4MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="cancelar5">
       <Properties>
@@ -1511,6 +1518,9 @@
           <Image iconType="3" name="/img/cancel.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cancelar5MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="cancelar6">
       <Properties>
@@ -1518,6 +1528,9 @@
           <Image iconType="3" name="/img/cancel.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cancelar6MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="cancelar7">
       <Properties>
@@ -1525,6 +1538,9 @@
           <Image iconType="3" name="/img/cancel.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cancelar7MouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

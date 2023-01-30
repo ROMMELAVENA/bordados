@@ -1199,7 +1199,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordencamisa orden = new ordencamisa();
                         orden.setVisible(true);
 
-                        ordencamisa.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencamisa.lbnumeroorden.setText(tabla.getValueAt(fila, 0).toString());
                         ordencamisa.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordencamisa.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordencamisa.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
@@ -1214,7 +1214,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 } 
                 else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
                 {
-                    if (ordengorra.ventanaordengorraanteriores == true) {
+                    if (ordengorra.ventanaordengorra == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
 
                     } else {

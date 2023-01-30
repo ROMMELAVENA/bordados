@@ -18,6 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -68,6 +69,8 @@ public class ordenpantalon extends javax.swing.JFrame {
     
     public static String enquesucursalsebordara = "";
     public static String tipotabla = "";
+    String terminetodo ="";
+    ArrayList<String> listabotones = new ArrayList<String>();
     
 
     private PreparedStatement pst;
@@ -138,6 +141,9 @@ public class ordenpantalon extends javax.swing.JFrame {
                     lbladoizquierdofrentepuntadas.setText(rs.getString("lado_izquierdo_frente_puntadas"));
                     btnladoizquierdofrente.setEnabled(true);
                     activadoladoizquierdofrente ="si";
+                   
+                    
+                    
                 }
 
                 
@@ -157,6 +163,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                     lbladoderechofrentepuntadas.setText(rs.getString("lado_derecho_frente_puntadas"));
                     btnladoderechofrente.setEnabled(true);
                     activadoladoderechofrente ="si";
+                    
                 }
 
                 lbdadoizquierdoatras.setText(rs.getString("lado_izquierdo_atras"));
@@ -169,6 +176,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                     lbladoizquierdoatraspuntadas.setText(rs.getString("lado_izquierdo_atras_puntadas"));
                     btnladoizquierdoatras.setEnabled(true);
                     activadoladoizquierdoatras ="si";
+                    
                 }
 
                 lbladoderechoatras.setText(rs.getString("lado_derecho_atras"));
@@ -180,8 +188,9 @@ public class ordenpantalon extends javax.swing.JFrame {
                     lbtituloladoderechoatras.setText("Lado derecho atras");
                     String a = rs.getString("lado_derecho_atras_puntadas");
                     lbladoderechoatraspuntadas.setText(rs.getString("lado_derecho_atras_puntadas"));
-                     btnladoderechoatras.setEnabled(true);
-                      activadoladoderechoatras ="si";
+                    btnladoderechoatras.setEnabled(true);
+                    activadoladoderechoatras ="si";
+                    
                 }
                 
                 
@@ -190,11 +199,14 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 if(lugardondesebordara.equals("Esta sucursal"))
                 {
+                    
+                  
                 
                 String cantidadladoizquierdofrente = rs.getString("cantidad_lado_izquierdo_frente");
                 if(cantidadladoizquierdofrente.equals("0") && activadoladoizquierdofrente.equals("si"))
                 {
                     btnladoizquierdofrente.setEnabled(true);
+                     listabotones.add("btnladoizquierdofrente");
                 }
                 else
                 {
@@ -206,6 +218,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 if(cantidadladoizquierdofrente.equals("0")&& activadoladoderechofrente.equals("si"))
                 {
                    btnladoderechofrente.setEnabled(true);
+                   listabotones.add("btnladoderechofrente");
                 }
                 else
                 {
@@ -215,6 +228,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 if(cantidadladoizquierdoatras.equals("0") && activadoladoizquierdoatras.equals("si"))
                 {
                     btnladoizquierdoatras.setEnabled(true);
+                    listabotones.add("btnladoizquierdoatras");
                 }
                 else
                 {
@@ -224,6 +238,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 if(cantidadladoderechoatras.equals("0")&& activadoladoderechoatras.equals("si"))
                 {
                     btnladoderechoatras.setEnabled(true);
+                    listabotones.add("btnladoderechoatras");
                 }
                 else
                 {
@@ -720,6 +735,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         btnagregarfotomontaje = new javax.swing.JButton();
         btnverfotomontaje = new javax.swing.JButton();
         lbtipo = new javax.swing.JLabel();
+        btnterminetodo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden Pantalon anteriores");
@@ -958,6 +974,14 @@ public class ordenpantalon extends javax.swing.JFrame {
         lbtipo.setForeground(new java.awt.Color(204, 0, 0));
         lbtipo.setText("00000000");
 
+        btnterminetodo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnterminetodo.setText("Termine todo");
+        btnterminetodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnterminetodoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -984,13 +1008,13 @@ public class ordenpantalon extends javax.swing.JFrame {
                                     .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(btnladoizquierdofrente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnladoderechoatras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnladoderechofrente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnladoizquierdofrente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnladoderechoatras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnladoderechofrente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnladoizquierdoatras, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnladoizquierdoatras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnterminetodo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(14, 14, 14)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lbcolorpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1106,6 +1130,8 @@ public class ordenpantalon extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lbcolorpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btnladoizquierdoatras))
+                        .addGap(41, 41, 41)
+                        .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btncancelarbordado)
                         .addGap(105, 105, 105))
@@ -1816,6 +1842,48 @@ public static String dia() {
         */
     }//GEN-LAST:event_btnverfotomontajeActionPerformed
 
+    private void btnterminetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnterminetodoActionPerformed
+
+        terminetodo = "si";
+
+        for(int i = 0; i < listabotones.size(); i++)
+        {
+            Object boton =  listabotones.get(i);
+
+            if(boton.equals("btnladoizquierdofrente"))
+            {
+                btnladoizquierdofrente.doClick();
+            }
+            else if(boton.equals("btnladoderechofrente"))
+            {
+                btnladoderechofrente.doClick();
+            }
+            else if(boton.equals("btnladoizquierdoatras"))
+            {
+                btnladoizquierdoatras.doClick();
+            }
+            else if(boton.equals("btnladoderechoatras"))
+            {
+                btnladoderechoatras.doClick();
+            }
+            
+
+        }
+
+        terminetodo = "no";
+        btnterminetodo.setEnabled(false);
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se actualizo");
+        
+         if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        {
+            ordenesporrealizar.btnactualizar.doClick();
+        }
+
+        
+        this.dispose();
+
+    }//GEN-LAST:event_btnterminetodoActionPerformed
+
     ResultSet rs;
     ResultSet rs2;
 
@@ -1986,6 +2054,7 @@ public static String dia() {
     private javax.swing.JButton btnladoizquierdoatras;
     private javax.swing.JButton btnladoizquierdofrente;
     private javax.swing.JButton btnreplicar;
+    private javax.swing.JButton btnterminetodo;
     private javax.swing.JButton btnverfotomontaje;
     public static javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

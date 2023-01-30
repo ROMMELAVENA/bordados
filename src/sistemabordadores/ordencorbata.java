@@ -1175,6 +1175,14 @@ public class ordencorbata extends javax.swing.JFrame {
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();
+            
+             if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        {
+            ordenesporrealizar.btnactualizar.doClick();
+        }
+        
+      
+            
         }
         else
         {
@@ -1186,6 +1194,9 @@ public class ordencorbata extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+        this.dispose();
     }//GEN-LAST:event_btnfrenteActionPerformed
 
     private void btnverfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverfotomontajeActionPerformed

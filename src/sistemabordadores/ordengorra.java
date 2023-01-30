@@ -2793,6 +2793,12 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
         terminetodo = "no";
         btnterminetodo.setEnabled(false);
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se actualizo");
+        
+        if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        {
+            ordenesporrealizar.btnactualizar.doClick();
+        }
+        
         this.dispose();
 
     }//GEN-LAST:event_btnterminetodoActionPerformed

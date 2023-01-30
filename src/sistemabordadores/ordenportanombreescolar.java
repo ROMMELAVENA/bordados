@@ -1130,10 +1130,16 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         agregarexistenciabordados((String) articulo); 
         agregaralsurtidasalhistorialdeventas((String) articulo, (String) cantidad) ;
         
+        
+        
         if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
         {
             ordenesporrealizar.btnactualizar.doClick();
         }
+        
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Porta nombre realizado con exito");
+        
+         this.dispose();
         
     }//GEN-LAST:event_btnrealizadaActionPerformed
 

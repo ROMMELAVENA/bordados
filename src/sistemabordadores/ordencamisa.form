@@ -76,14 +76,14 @@
                                                   <Component id="btnpechoderecho" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="btnmangaizquierda" alignment="0" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
                                                       <Component id="cancelar2" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
                                                       <Component id="lbcolormangaizquierda" min="-2" pref="154" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
+                                                  <Group type="102" attributes="0">
                                                       <Component id="cancelar3" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="32767" attributes="0"/>
                                                       <Component id="lbcolorpechoderecho" min="-2" pref="154" max="-2" attributes="0"/>
@@ -293,19 +293,14 @@
                                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                                           <Group type="103" groupAlignment="3" attributes="0">
                                                                               <Component id="btnmangaizquierda" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                                                              <Component id="cancelar2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                                                              <Component id="cancelar2" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                                                                           </Group>
                                                                           <Component id="lbcolormangaizquierda" min="-2" pref="30" max="-2" attributes="0"/>
                                                                       </Group>
+                                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                                       <Group type="103" groupAlignment="0" attributes="0">
-                                                                          <Group type="102" attributes="0">
-                                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                                              <Component id="btnpechoderecho" min="-2" pref="30" max="-2" attributes="0"/>
-                                                                          </Group>
-                                                                          <Group type="102" attributes="0">
-                                                                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                                                              <Component id="cancelar3" min="-2" pref="30" max="-2" attributes="0"/>
-                                                                          </Group>
+                                                                          <Component id="btnpechoderecho" min="-2" pref="30" max="-2" attributes="0"/>
+                                                                          <Component id="cancelar3" min="-2" pref="30" max="-2" attributes="0"/>
                                                                       </Group>
                                                                   </Group>
                                                                   <Group type="102" attributes="0">
@@ -401,7 +396,7 @@
                   </Group>
                   <Component id="jPanel1" min="-2" pref="712" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="11" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lbtipo" alignment="1" min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="lbnombreconcepto" alignment="1" min="-2" pref="15" max="-2" attributes="0"/>
@@ -1481,37 +1476,54 @@
     </Component>
     <Component class="javax.swing.JLabel" name="cancelar1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel6"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/img/cancel.png"/>
+        </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cancelar1MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="cancelar2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel6"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/img/cancel.png"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="cancelar3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel6"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/img/cancel.png"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="cancelar4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel6"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/img/cancel.png"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="cancelar5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel6"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/img/cancel.png"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="cancelar6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel6"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/img/cancel.png"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="cancelar7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel6"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/img/cancel.png"/>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>

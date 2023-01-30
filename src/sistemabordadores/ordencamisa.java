@@ -123,6 +123,14 @@ public class ordencamisa extends javax.swing.JFrame {
         lbnombreconcepto.setVisible(false);
         lbtitulo.setVisible(false);
         btneliminar.setVisible(false);
+        
+        cancelar1.setVisible(false);
+        cancelar2.setVisible(false);
+        cancelar3.setVisible(false);
+        cancelar4.setVisible(false);
+        cancelar5.setVisible(false);
+        cancelar6.setVisible(false);
+        cancelar7.setVisible(false);
 
        
         
@@ -1081,6 +1089,43 @@ public class ordencamisa extends javax.swing.JFrame {
         }
 
     }
+    
+    
+    void actualizarlascantidadesbordadascancelar(String ubicacion)
+    {
+        try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set "+ubicacion+"='0' where numero = '"+lbfolio.getText()+"'  ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+        
+        
+        String ubicacionsinguiones = ubicacion;
+        ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
+        
+        
+        if(terminetodo.equals("si"))
+        {
+            
+        }
+        else
+        {    
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+        }
+        
+        try {
+            datos();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
     
     
     void actualizarlascantidadesbordadas(String ubicacion)
@@ -2537,19 +2582,24 @@ public class ordencamisa extends javax.swing.JFrame {
             }
         });
 
-        cancelar1.setText("jLabel6");
+        cancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
+        cancelar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelar1MouseClicked(evt);
+            }
+        });
 
-        cancelar2.setText("jLabel6");
+        cancelar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
 
-        cancelar3.setText("jLabel6");
+        cancelar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
 
-        cancelar4.setText("jLabel6");
+        cancelar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
 
-        cancelar5.setText("jLabel6");
+        cancelar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
 
-        cancelar6.setText("jLabel6");
+        cancelar6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
 
-        cancelar7.setText("jLabel6");
+        cancelar7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2594,13 +2644,13 @@ public class ordencamisa extends javax.swing.JFrame {
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                     .addComponent(btnpechoderecho, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(btnmangaizquierda, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
                                                         .addComponent(cancelar2)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(lbcolormangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                    .addGroup(layout.createSequentialGroup()
                                                         .addComponent(cancelar3)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(lbcolorpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -2772,13 +2822,10 @@ public class ordencamisa extends javax.swing.JFrame {
                                                                                 .addComponent(btnmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                 .addComponent(cancelar2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                             .addComponent(lbcolormangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                            .addGroup(layout.createSequentialGroup()
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                .addComponent(btnpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                            .addGroup(layout.createSequentialGroup()
-                                                                                .addGap(11, 11, 11)
-                                                                                .addComponent(cancelar3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                                            .addComponent(btnpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                            .addComponent(cancelar3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                                     .addGroup(layout.createSequentialGroup()
                                                                         .addComponent(lbcodigomangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2842,7 +2889,7 @@ public class ordencamisa extends javax.swing.JFrame {
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbtipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbnombreconcepto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4665,9 +4712,75 @@ public class ordencamisa extends javax.swing.JFrame {
          terminetodo = "no";
          btnterminetodo.setEnabled(false);
          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se actualizo");
-         
+         this.dispose();
          
     }//GEN-LAST:event_btnterminetodoActionPerformed
+
+    private void cancelar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelar1MouseClicked
+       
+     if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        {
+
+           String ubicacion = "cantidad_manga_derecha";           
+           String nombrebordado =mangaderechanombre;
+           String cantidadaplicacion = aplicacionmangaderecha;
+           String cantidad = lbcantidad.getText();
+           nombredelatabla = "historial_ordenes_camisa";
+           actualizarlascantidadesbordadascancelar((String) ubicacion); 
+           
+            if (prenda.toUpperCase().equals("CAMISA")) {
+
+                ubicacioninsertar = "BORDADO CAMISA MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISA MANGA DERECHA";
+
+            } //// playera
+            else if (prenda.toUpperCase().equals("PLAYERA")) {
+
+                ubicacioninsertar = "BORDADO PLAYERA MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION PLAYERA MANGA DERECHA";
+
+            } //// chamarra desmontable
+            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE MANGA DERECHA";
+
+            } /// chamarra rompevientos
+            else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS MANGA DERECHA";
+
+            } ///camisola
+            else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
+
+                ubicacioninsertar = "BORDADO CAMISOLA MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISOLA MANGA DERECHA";
+
+            } else if (prenda.toUpperCase().equals("FILIPINA")) {
+
+                ubicacioninsertar = "BORDADO FILIPINA MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION FILIPINA MANGA DERECHA";
+
+            } ///SACO
+            else if (prenda.toUpperCase().equals("SACO")) {
+
+                ubicacioninsertar = "BORDADO SACO MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION SACO MANGA DERECHA";
+
+            }
+
+           
+           
+       //agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       //agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad) ;
+       estacompletalaorden();
+       sumapuntos();     
+            
+        }
+        
+        
+    }//GEN-LAST:event_cancelar1MouseClicked
 
 
 

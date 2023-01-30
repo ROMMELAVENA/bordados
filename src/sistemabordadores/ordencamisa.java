@@ -124,13 +124,7 @@ public class ordencamisa extends javax.swing.JFrame {
         lbtitulo.setVisible(false);
         btneliminar.setVisible(false);
         
-        cancelar1.setVisible(false);
-        cancelar2.setVisible(false);
-        cancelar3.setVisible(false);
-        cancelar4.setVisible(false);
-        cancelar5.setVisible(false);
-        cancelar6.setVisible(false);
-        cancelar7.setVisible(false);
+        
 
        
         
@@ -166,6 +160,14 @@ public class ordencamisa extends javax.swing.JFrame {
     void datos() throws IOException {
 
         String folio = lbfolio.getText();
+        
+        cancelar1.setVisible(false);
+        cancelar2.setVisible(false);
+        cancelar3.setVisible(false);
+        cancelar4.setVisible(false);
+        cancelar5.setVisible(false);
+        cancelar6.setVisible(false);
+        cancelar7.setVisible(false);
         
         datostienda();
 
@@ -339,13 +341,13 @@ public class ordencamisa extends javax.swing.JFrame {
                 
                 if(cantidadpechoizquiedo.equals("0"))
                 {
-                   btnpechoizquierdo.setEnabled(true);
-                   
+                   btnpechoizquierdo.setEnabled(true);               
                    listabotones.add("btnpechoizquierdo");
                 }
                 else
                 {
                     btnpechoizquierdo.setEnabled(false);
+                    cancelar1.setVisible(true);
                 } 
                 
                 if(cantidadpechoderecho.equals("0"))
@@ -356,6 +358,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 else
                 {
                     btnpechoderecho.setEnabled(false);
+                    cancelar2.setVisible(true);
                 } 
                 
                 
@@ -367,6 +370,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 else
                 {
                     btnmangaizquierda.setEnabled(false);
+                    cancelar3.setVisible(true);
                 } 
                     
                 if(cantidadmangaderecha.equals("0"))
@@ -379,6 +383,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 else
                 {
                     btnmangaderecha.setEnabled(false);
+                    cancelar4.setVisible(true);
                 } 
                 
                 
@@ -391,6 +396,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 else
                 {
                     btnespalda.setEnabled(false);
+                    cancelar5.setVisible(true);
                 } 
                 
                 
@@ -403,6 +409,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 else
                 {
                     btnotraubicacion.setEnabled(false);
+                    cancelar6.setVisible(true);
                 } 
                 
                 if(cantidadotraubicacion2.equals("0"))
@@ -414,6 +421,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 else
                 {
                     btnotraubicacion2.setEnabled(false);
+                    cancelar7.setVisible(true);
                 } 
                 
                 
@@ -1114,7 +1122,7 @@ public class ordencamisa extends javax.swing.JFrame {
         }
         else
         {    
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" cancelada correctamente ");
         }
         
         try {
@@ -1335,6 +1343,53 @@ public class ordencamisa extends javax.swing.JFrame {
         
     }
     
+    
+    void agregarexistenciabordadoscancelar(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion)
+    {
+        
+      
+       
+        
+        //// bordado
+        
+        try {
+                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumeroventa.getText()+"' and articulo ='"+ubicacioninsertar+"'   ");
+                pst.executeUpdate();
+                pst.close();
+            
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+      
+
+       //// aplicacion      
+           if(cantidadaplicacion==null || cantidadaplicacion.equals("") ||cantidadaplicacion.equals(" "))
+           {
+              cantidadaplicacion = "0"; 
+           }
+            
+           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+           
+           
+           if(cantidadaplicacionint > 0)
+           {
+               
+               
+                try {
+                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumeroventa.getText()+"' and articulo ='"+aplicacioninsertar+"'   ");
+                pst.executeUpdate();
+                pst.close();
+            
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+               
+               
+           }
+        
+        
+    }
+    
 
     
     void agregaralsurtidasalhistorialdeventas(String ubicacion, String cantidad) 
@@ -1457,6 +1512,126 @@ public class ordencamisa extends javax.swing.JFrame {
       
 
         }
+      
+      
+      }  
+    
+    
+     void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad) 
+      {
+
+        String numeroventa =  lbnumeroventa.getText();
+        Object cantidadstring ="";
+        String nuevacantidadstring = "";
+        String estatusentrega ="";
+        String estatusentregaventa = "";
+        
+        String SQL2 = "select cantidad,estatus_entrega from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL2);
+
+        if (rs.next()) 
+        {
+
+        cantidadstring = rs.getString("cantidad");
+        estatusentregaventa= rs.getString("estatus_entrega");
+
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+     
+        
+      if(cantidadstring ==null || cantidadstring.equals("")||cantidadstring.equals(" "))
+      {
+          cantidadstring ="0";
+      }
+       
+        
+        
+        int cantidadstringint = Integer.parseInt(cantidadstring.toString());
+        int cantidadint =  Integer.parseInt(cantidad);
+
+        int nuevacantidadint = cantidadstringint - cantidadint ;
+        nuevacantidadstring =  String.valueOf(nuevacantidadint);
+            
+            
+            
+            try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+nuevacantidadstring+"' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'      ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+
+        ////Actualiza el estatus
+
+      String cantidadsurtida = "";  
+      String cantidadvendida = "";  
+      String cantidadentregada = "";  
+       
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas from historial_ventas where numero = '"+numeroventa+"'  ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL3);
+
+        if (rs.next()) 
+        {
+
+        cantidadvendida = rs.getString("cantidad");
+        cantidadsurtida = rs.getString("surtida");
+        cantidadentregada = rs.getString("entregadas");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+        System.out.println (ex);
+        }
+      
+        
+      
+      /////
+      
+      double cantidadvendidadouble = Double.parseDouble(cantidadvendida);
+      double cantidadsurtidadouble = Double.parseDouble(cantidadsurtida);
+      double cantidadentregadadouble = Double.parseDouble(cantidadentregada);
+      
+        
+        if(cantidadvendidadouble == cantidadsurtidadouble && cantidadentregadadouble == 0 )
+        {
+          estatusentrega ="surtida totalmente no entregada";  
+        }
+        else  if(cantidadvendidadouble == (cantidadsurtidadouble + cantidadentregadadouble )  &&  cantidadentregadadouble <  cantidadvendidadouble  )
+        {
+          estatusentrega ="surtida totalmente entregada parcialmente";  
+        }
+        
+        else
+        {
+          estatusentrega ="surtida parcialmente no entregada";   
+        }    
+        
+          try {
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
+              pst.executeUpdate();
+              pst.close();
+          } catch (Exception e) {
+
+              System.out.println(e);
+          }
+      
+
+        
       
       
       }  
@@ -2128,7 +2303,52 @@ public class ordencamisa extends javax.swing.JFrame {
         
     }
     
-    
+    void queubicacionvaainsertar(String nombrebordado)
+    {
+        if (prenda.toUpperCase().equals("CAMISA")) {
+
+                ubicacioninsertar = "BORDADO CAMISA MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISA MANGA DERECHA";
+
+            } //// playera
+            else if (prenda.toUpperCase().equals("PLAYERA")) {
+
+                ubicacioninsertar = "BORDADO PLAYERA MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION PLAYERA MANGA DERECHA";
+
+            } //// chamarra desmontable
+            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE MANGA DERECHA";
+
+            } /// chamarra rompevientos
+            else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
+
+                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS MANGA DERECHA";
+
+            } ///camisola
+            else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
+
+                ubicacioninsertar = "BORDADO CAMISOLA MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISOLA MANGA DERECHA";
+
+            } else if (prenda.toUpperCase().equals("FILIPINA")) {
+
+                ubicacioninsertar = "BORDADO FILIPINA MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION FILIPINA MANGA DERECHA";
+
+            } ///SACO
+            else if (prenda.toUpperCase().equals("SACO")) {
+
+                ubicacioninsertar = "BORDADO SACO MANGA DERECHA " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION SACO MANGA DERECHA";
+
+            }
+        
+        
+    }
     
 
     @SuppressWarnings("unchecked")
@@ -2590,16 +2810,46 @@ public class ordencamisa extends javax.swing.JFrame {
         });
 
         cancelar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
+        cancelar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelar2MouseClicked(evt);
+            }
+        });
 
         cancelar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
+        cancelar3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelar3MouseClicked(evt);
+            }
+        });
 
         cancelar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
+        cancelar4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelar4MouseClicked(evt);
+            }
+        });
 
         cancelar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
+        cancelar5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelar5MouseClicked(evt);
+            }
+        });
 
         cancelar6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
+        cancelar6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelar6MouseClicked(evt);
+            }
+        });
 
         cancelar7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
+        cancelar7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelar7MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2818,9 +3068,8 @@ public class ordencamisa extends javax.swing.JFrame {
                                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                                     .addGroup(layout.createSequentialGroup()
                                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                .addComponent(btnmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(cancelar2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                            .addComponent(cancelar2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                            .addComponent(btnmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                             .addComponent(lbcolormangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3090,53 +3339,13 @@ public class ordencamisa extends javax.swing.JFrame {
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
             actualizarlascantidadesbordadas((String) ubicacion);
-            
-             if (prenda.toUpperCase().equals("CAMISA")) {
 
-                ubicacioninsertar = "BORDADO CAMISA MANGA IZQUIERDA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISA MANGA IZQUIERDA";
+            queubicacionvaainsertar((String) nombrebordado);
 
-            } //// playera
-            else if (prenda.toUpperCase().equals("PLAYERA")) {
-
-                ubicacioninsertar = "BORDADO PLAYERA MANGA IZQUIERDA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION PLAYERA MANGA IZQUIERDA";
-
-            } //// chamarra desmontable
-            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE MANGA IZQUIERDA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE MANGA IZQUIERDA";
-
-            } /// chamarra rompevientos
-            else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS MANGA IZQUIERDA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS MANGA IZQUIERDA";
-
-            } ///camisola
-            else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
-
-                ubicacioninsertar = "BORDADO CAMISOLA MANGA IZQUIERDA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISOLA MANGA IZQUIERDA";
-
-            } else if (prenda.toUpperCase().equals("FILIPINA")) {
-
-                ubicacioninsertar = "BORDADO FILIPINA MANGA IZQUIERDA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION FILIPINA MANGA IZQUIERDA";
-
-            } ///SACO
-            else if (prenda.toUpperCase().equals("SACO")) {
-
-                ubicacioninsertar = "BORDADO SACO MANGA IZQUIERDA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION SACO MANGA IZQUIERDA";
-
-            }
-
-       agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-       agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
-       estacompletalaorden(); 
-       sumapuntos(); 
+            agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
+            estacompletalaorden();
+            sumapuntos();
        
         }
  else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
@@ -3237,47 +3446,7 @@ public class ordencamisa extends javax.swing.JFrame {
            nombredelatabla = "historial_ordenes_camisa";
            actualizarlascantidadesbordadas((String) ubicacion);  
            
-           if (prenda.toUpperCase().equals("CAMISA")) {
-
-                ubicacioninsertar = "BORDADO CAMISA PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISA PECHO IZQUIERDO";
-
-            } //// playera
-            else if (prenda.toUpperCase().equals("PLAYERA")) {
-
-                ubicacioninsertar = "BORDADO PLAYERA PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION PLAYERA PECHO IZQUIERDO";
-
-            } //// chamarra desmontable
-            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE PECHO IZQUIERDO";
-
-            } /// chamarra rompevientos
-            else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS PECHO IZQUIERDO";
-
-            } ///camisola
-            else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
-
-                ubicacioninsertar = "BORDADO CAMISOLA PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISOLA PECHO IZQUIERDO";
-
-            } else if (prenda.toUpperCase().equals("FILIPINA")) {
-
-                ubicacioninsertar = "BORDADO FILIPINA PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION FILIPINA PECHO IZQUIERDO";
-
-            } ///SACO
-            else if (prenda.toUpperCase().equals("SACO")) {
-
-                ubicacioninsertar = "BORDADO SACO PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION SACO PECHO IZQUIERDO";
-
-            }
+           queubicacionvaainsertar((String)nombrebordado);
 
        agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
        agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;   
@@ -3382,47 +3551,7 @@ public class ordencamisa extends javax.swing.JFrame {
            nombredelatabla = "historial_ordenes_camisa";
             actualizarlascantidadesbordadas((String) ubicacion);
             
-             if (prenda.toUpperCase().equals("CAMISA")) {
-
-                ubicacioninsertar = "BORDADO CAMISA ESPALDA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISA ESPALDA";
-
-            } //// playera
-            else if (prenda.toUpperCase().equals("PLAYERA")) {
-
-                ubicacioninsertar = "BORDADO PLAYERA ESPALDA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION PLAYERA ESPALDA";
-
-            } //// chamarra desmontable
-            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE ESPALDA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE ESPALDA";
-
-            } /// chamarra rompevientos
-            else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS ESPALDA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS ESPALDA";
-
-            } ///camisola
-            else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
-
-                ubicacioninsertar = "BORDADO CAMISOLA ESPALDA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISOLA ESPALDA";
-
-            } else if (prenda.toUpperCase().equals("FILIPINA")) {
-
-                ubicacioninsertar = "BORDADO FILIPINA ESPALDA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION FILIPINA ESPALDA";
-
-            } ///SACO
-            else if (prenda.toUpperCase().equals("SACO")) {
-
-                ubicacioninsertar = "BORDADO SACO ESPALDA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION SACO ESPALDA";
-
-            }
+             queubicacionvaainsertar((String)nombrebordado);
 
        agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
        agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;   
@@ -3519,58 +3648,18 @@ public class ordencamisa extends javax.swing.JFrame {
         if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "cantidad_pecho_derecho";
-            String nombrebordado =pechoderechonombre;
-           String cantidadaplicacion = aplicacionpechoderecho;
-           String cantidad = lbcantidad.getText();
-           nombredelatabla = "historial_ordenes_camisa";
+            String nombrebordado = pechoderechonombre;
+            String cantidadaplicacion = aplicacionpechoderecho;
+            String cantidad = lbcantidad.getText();
+            nombredelatabla = "historial_ordenes_camisa";
             actualizarlascantidadesbordadas((String) ubicacion);
-            
-             if (prenda.toUpperCase().equals("CAMISA")) {
 
-                ubicacioninsertar = "BORDADO CAMISA PECHO DERECHO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISA PECHO DERECHO";
+            queubicacionvaainsertar((String) nombrebordado);
 
-            } //// playera
-            else if (prenda.toUpperCase().equals("PLAYERA")) {
-
-                ubicacioninsertar = "BORDADO PLAYERA PECHO DERECHO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION PLAYERA PECHO DERECHO";
-
-            } //// chamarra desmontable
-            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE PECHO DERECHO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE PECHO DERECHO";
-
-            } /// chamarra rompevientos
-            else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS PECHO DERECHO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS PECHO DERECHO";
-
-            } ///camisola
-            else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
-
-                ubicacioninsertar = "BORDADO CAMISOLA PECHO DERECHO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISOLA PECHO DERECHO";
-
-            } else if (prenda.toUpperCase().equals("FILIPINA")) {
-
-                ubicacioninsertar = "BORDADO FILIPINA PECHO DERECHO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION FILIPINA PECHO DERECHO";
-
-            } ///SACO
-            else if (prenda.toUpperCase().equals("SACO")) {
-
-                ubicacioninsertar = "BORDADO SACO PECHO DERECHO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION SACO PECHO DERECHO";
-
-            }
-
-       agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-       agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
-       estacompletalaorden(); 
-       sumapuntos();
+            agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
+            estacompletalaorden();
+            sumapuntos();
             
         }
          else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
@@ -3664,61 +3753,19 @@ public class ordencamisa extends javax.swing.JFrame {
         if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
 
-           String ubicacion = "cantidad_manga_derecha";           
-           String nombrebordado =mangaderechanombre;
-           String cantidadaplicacion = aplicacionmangaderecha;
-           String cantidad = lbcantidad.getText();
-           nombredelatabla = "historial_ordenes_camisa";
-           actualizarlascantidadesbordadas((String) ubicacion); 
-           
-            if (prenda.toUpperCase().equals("CAMISA")) {
+            String ubicacion = "cantidad_manga_derecha";
+            String nombrebordado = mangaderechanombre;
+            String cantidadaplicacion = aplicacionmangaderecha;
+            String cantidad = lbcantidad.getText();
+            nombredelatabla = "historial_ordenes_camisa";
+            actualizarlascantidadesbordadas((String) ubicacion);
 
-                ubicacioninsertar = "BORDADO CAMISA MANGA DERECHA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISA MANGA DERECHA";
+            queubicacionvaainsertar((String) nombrebordado);
 
-            } //// playera
-            else if (prenda.toUpperCase().equals("PLAYERA")) {
-
-                ubicacioninsertar = "BORDADO PLAYERA MANGA DERECHA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION PLAYERA MANGA DERECHA";
-
-            } //// chamarra desmontable
-            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE MANGA DERECHA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE MANGA DERECHA";
-
-            } /// chamarra rompevientos
-            else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS MANGA DERECHA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS MANGA DERECHA";
-
-            } ///camisola
-            else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
-
-                ubicacioninsertar = "BORDADO CAMISOLA MANGA DERECHA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISOLA MANGA DERECHA";
-
-            } else if (prenda.toUpperCase().equals("FILIPINA")) {
-
-                ubicacioninsertar = "BORDADO FILIPINA MANGA DERECHA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION FILIPINA MANGA DERECHA";
-
-            } ///SACO
-            else if (prenda.toUpperCase().equals("SACO")) {
-
-                ubicacioninsertar = "BORDADO SACO MANGA DERECHA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION SACO MANGA DERECHA";
-
-            }
-
-           
-           
-       agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-       agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
-       estacompletalaorden();
-       sumapuntos();     
+            agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
+            estacompletalaorden();
+            sumapuntos();  
             
         }
         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
@@ -4268,47 +4315,7 @@ public class ordencamisa extends javax.swing.JFrame {
             nombredelatabla = "historial_ordenes_camisa";
             actualizarlascantidadesbordadas((String) ubicacion);
 
-            if (prenda.toUpperCase().equals("CAMISA")) {
-
-                ubicacioninsertar = "BORDADO CAMISA OTRA UBICACION " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISA OTRA UBICACION";
-
-            } //// playera
-            else if (prenda.toUpperCase().equals("PLAYERA")) {
-
-                ubicacioninsertar = "BORDADO PLAYERA OTRA UBICACION " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION PLAYERA OTRA UBICACION";
-
-            } //// chamarra desmontable
-            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE OTRA UBICACION " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE OTRA UBICACION";
-
-            } /// chamarra rompevientos
-            else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS OTRA UBICACION " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS OTRA UBICACION";
-
-            } ///camisola
-            else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
-
-                ubicacioninsertar = "BORDADO CAMISOLA OTRA UBICACION " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISOLA OTRA UBICACION";
-
-            } else if (prenda.toUpperCase().equals("FILIPINA")) {
-
-                ubicacioninsertar = "BORDADO FILIPINA OTRA UBICACION " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION FILIPINA OTRA UBICACION";
-
-            } ///SACO
-            else if (prenda.toUpperCase().equals("SACO")) {
-
-                ubicacioninsertar = "BORDADO SACO OTRA UBICACION " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION SACO OTRA UBICACION";
-
-            }
+           queubicacionvaainsertar((String)nombrebordado);
 
             agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
@@ -4412,47 +4419,8 @@ public class ordencamisa extends javax.swing.JFrame {
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
             actualizarlascantidadesbordadas((String) ubicacion);
-            if (prenda.toUpperCase().equals("CAMISA")) {
-
-                ubicacioninsertar = "BORDADO CAMISA OTRA UBICACION2 " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISA OTRA UBICACION2";
-
-            } //// playera
-            else if (prenda.toUpperCase().equals("PLAYERA")) {
-
-                ubicacioninsertar = "BORDADO PLAYERA OTRA UBICACION2 " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION PLAYERA OTRA UBICACION2";
-
-            } //// chamarra desmontable
-            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE OTRA UBICACION2 " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE OTRA UBICACION2";
-
-            } /// chamarra rompevientos
-            else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS OTRA UBICACION2 " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS OTRA UBICACION2";
-
-            } ///camisola
-            else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
-
-                ubicacioninsertar = "BORDADO CAMISOLA OTRA UBICACION2 " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISOLA OTRA UBICACION2";
-
-            } else if (prenda.toUpperCase().equals("FILIPINA")) {
-
-                ubicacioninsertar = "BORDADO FILIPINA OTRA UBICACION2 " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION FILIPINA OTRA UBICACION2";
-
-            } ///SACO
-            else if (prenda.toUpperCase().equals("SACO")) {
-
-                ubicacioninsertar = "BORDADO SACO OTRA UBICACION2 " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION SACO OTRA UBICACION2";
-
-            }
+           
+            queubicacionvaainsertar((String)nombrebordado);
 
             agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
@@ -4717,7 +4685,11 @@ public class ordencamisa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnterminetodoActionPerformed
 
     private void cancelar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelar1MouseClicked
-       
+
+     if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado?", "WARNING",
+     JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {   
+        
+        
      if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
 
@@ -4727,60 +4699,176 @@ public class ordencamisa extends javax.swing.JFrame {
            String cantidad = lbcantidad.getText();
            nombredelatabla = "historial_ordenes_camisa";
            actualizarlascantidadesbordadascancelar((String) ubicacion); 
-           
-            if (prenda.toUpperCase().equals("CAMISA")) {
-
-                ubicacioninsertar = "BORDADO CAMISA MANGA DERECHA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISA MANGA DERECHA";
-
-            } //// playera
-            else if (prenda.toUpperCase().equals("PLAYERA")) {
-
-                ubicacioninsertar = "BORDADO PLAYERA MANGA DERECHA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION PLAYERA MANGA DERECHA";
-
-            } //// chamarra desmontable
-            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA DESMONTABLE MANGA DERECHA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE MANGA DERECHA";
-
-            } /// chamarra rompevientos
-            else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
-
-                ubicacioninsertar = "BORDADO CHAMARRA ROMPEVIENTOS MANGA DERECHA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS MANGA DERECHA";
-
-            } ///camisola
-            else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
-
-                ubicacioninsertar = "BORDADO CAMISOLA MANGA DERECHA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISOLA MANGA DERECHA";
-
-            } else if (prenda.toUpperCase().equals("FILIPINA")) {
-
-                ubicacioninsertar = "BORDADO FILIPINA MANGA DERECHA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION FILIPINA MANGA DERECHA";
-
-            } ///SACO
-            else if (prenda.toUpperCase().equals("SACO")) {
-
-                ubicacioninsertar = "BORDADO SACO MANGA DERECHA " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION SACO MANGA DERECHA";
-
-            }
-
-           
-           
-       //agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-       //agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad) ;
+           queubicacionvaainsertar((String)nombrebordado);
+       agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad) ;
        estacompletalaorden();
        sumapuntos();     
             
         }
         
-        
+     }
     }//GEN-LAST:event_cancelar1MouseClicked
+
+    private void cancelar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelar2MouseClicked
+
+        if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado?", "WARNING",
+     JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) { 
+        
+        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        {
+        
+            String ubicacion = "cantidad_manga_izquierda";
+            String nombrebordado = mangaizquierdanombre;
+            String cantidadaplicacion = aplicacionmangaizquierda;
+            String cantidad = lbcantidad.getText();
+            nombredelatabla = "historial_ordenes_camisa";
+            actualizarlascantidadesbordadascancelar((String) ubicacion);
+            
+             queubicacionvaainsertar((String)nombrebordado);
+
+       agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad) ;
+       estacompletalaorden(); 
+       sumapuntos(); 
+       
+        }
+        }
+    }//GEN-LAST:event_cancelar2MouseClicked
+
+    private void cancelar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelar3MouseClicked
+
+        if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado?", "WARNING",
+     JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) { 
+        
+        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        {
+            String ubicacion = "cantidad_pecho_derecho";
+            String nombrebordado =pechoderechonombre;
+           String cantidadaplicacion = aplicacionpechoderecho;
+           String cantidad = lbcantidad.getText();
+           nombredelatabla = "historial_ordenes_camisa";
+            actualizarlascantidadesbordadascancelar((String) ubicacion);
+            
+             queubicacionvaainsertar((String)nombrebordado);
+       agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad) ;
+       estacompletalaorden(); 
+       sumapuntos();
+            
+        }
+        
+        
+        }
+    }//GEN-LAST:event_cancelar3MouseClicked
+
+    private void cancelar4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelar4MouseClicked
+
+        if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado?", "WARNING",
+     JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) { 
+        
+        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        {
+            
+           String ubicacion = "cantidad_pecho_izquierdo";
+           String nombrebordado =pechoizquierdonombre;
+           String cantidadaplicacion = aplicacionpechoizquierdo;
+           String cantidad = lbcantidad.getText();
+           nombredelatabla = "historial_ordenes_camisa";
+           actualizarlascantidadesbordadascancelar((String) ubicacion);  
+           
+          queubicacionvaainsertar((String)nombrebordado);
+
+       agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad) ;   
+       estacompletalaorden(); 
+       sumapuntos();   
+        
+             
+            
+        }
+        
+        }
+    }//GEN-LAST:event_cancelar4MouseClicked
+
+    private void cancelar5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelar5MouseClicked
+
+        if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado?", "WARNING",
+     JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) { 
+        
+        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        {
+            String ubicacion = "cantidad_espalda";
+            String nombrebordado =espaldanombre;
+           String cantidadaplicacion = aplicacionespalda;
+           String cantidad = lbcantidad.getText();
+           nombredelatabla = "historial_ordenes_camisa";
+            actualizarlascantidadesbordadascancelar((String) ubicacion);
+            
+             queubicacionvaainsertar((String)nombrebordado);
+
+       agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad) ;   
+       estacompletalaorden();
+       sumapuntos();       
+            
+        }
+        
+        }
+    }//GEN-LAST:event_cancelar5MouseClicked
+
+    private void cancelar6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelar6MouseClicked
+
+        if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado?", "WARNING",
+     JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) { 
+        
+        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        {
+            String ubicacion = "cantidad_otra_ubicacion";
+            String nombrebordado = otraubicacionnombre;
+            String cantidadaplicacion = aplicacionotraubicacion;
+            String cantidad = lbcantidad.getText();
+            nombredelatabla = "historial_ordenes_camisa";
+            actualizarlascantidadesbordadascancelar((String) ubicacion);
+
+           queubicacionvaainsertar((String)nombrebordado);
+
+            agregarexistenciabordadoscancelar((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad);
+            estacompletalaorden();
+            sumapuntos();
+            
+        }
+        
+        }
+    }//GEN-LAST:event_cancelar6MouseClicked
+
+    private void cancelar7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelar7MouseClicked
+
+        if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado?", "WARNING",
+     JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) { 
+        
+        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        {
+            String ubicacion = "cantidad_otra_ubicacion2";
+            String nombrebordado = otraubicacion2nombre;
+            String cantidadaplicacion = aplicacionotraubicacion2;
+            String cantidad = lbcantidad.getText();
+            nombredelatabla = "historial_ordenes_camisa";
+            actualizarlascantidadesbordadascancelar((String) ubicacion);
+           
+           queubicacionvaainsertar((String)nombrebordado);
+
+            agregarexistenciabordadoscancelar((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad);
+            estacompletalaorden();
+            sumapuntos();
+            
+        }
+        
+        
+        }
+    }//GEN-LAST:event_cancelar7MouseClicked
 
 
 

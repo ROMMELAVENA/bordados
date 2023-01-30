@@ -32,7 +32,9 @@ import javax.swing.SwingConstants;
 
 public class ordengorra extends javax.swing.JFrame {
 
-    public static boolean ventanaordengorraanteriores = false;
+    public static boolean ventanaordengorra = false;
+   
+    
     public static String ordenbordadocamisa = "";
 
     String codigocliente ="";
@@ -95,7 +97,7 @@ public class ordengorra extends javax.swing.JFrame {
 
     public ordengorra() {
         initComponents();
-        ventanaordengorraanteriores = true;
+        ventanaordengorra = true;
 
         lbatras.setEnabled(false);
         lbladoderecho.setEnabled(false);
@@ -1421,6 +1423,8 @@ public class ordengorra extends javax.swing.JFrame {
         lbcolormangaderecha2 = new javax.swing.JLabel();
         lbcolormangaderecha3 = new javax.swing.JLabel();
         btnterminetodo = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        lbnumeroorden = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden De Bordado Gorra anteriores");
@@ -1694,6 +1698,13 @@ public class ordengorra extends javax.swing.JFrame {
             }
         });
 
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel18.setText("No.Orden");
+        jLabel18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbnumeroorden.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbnumeroorden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1749,7 +1760,11 @@ public class ordengorra extends javax.swing.JFrame {
                                         .addComponent(lbsumapuntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addComponent(jSeparator1)
                                 .addComponent(jSeparator2))
-                            .addComponent(btnterminetodo))
+                            .addComponent(btnterminetodo)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbnumeroorden, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 15, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1847,7 +1862,10 @@ public class ordengorra extends javax.swing.JFrame {
                     .addComponent(btnagregarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnreplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1894,9 +1912,12 @@ public class ordengorra extends javax.swing.JFrame {
                             .addComponent(lbrutaladoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbrutaladoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbrutaatras, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbrutafrente, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                            .addComponent(lbrutafrente, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbnumeroorden, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36))))
         );
 
         pack();
@@ -1967,13 +1988,13 @@ public class ordengorra extends javax.swing.JFrame {
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
 
-        ventanaordengorraanteriores = false;
+        ventanaordengorra = false;
         this.dispose();
 
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        ventanaordengorraanteriores = false;
+        ventanaordengorra = false;
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
@@ -2579,7 +2600,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     }//GEN-LAST:event_btnatrasActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-         ventanaordengorraanteriores = false;
+       
     }//GEN-LAST:event_formWindowClosed
 
     private void btnagregarfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarfotomontajeActionPerformed
@@ -2917,6 +2938,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
@@ -2948,6 +2970,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     public static javax.swing.JLabel lbladoderecho;
     public static javax.swing.JLabel lbladoizquierdo;
     public static javax.swing.JLabel lbnumero;
+    public static javax.swing.JLabel lbnumeroorden;
     public static javax.swing.JLabel lbnumeroventa;
     public static javax.swing.JLabel lbprenda;
     private javax.swing.JLabel lbrutaatras;

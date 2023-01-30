@@ -574,7 +574,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
                 
                 } else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) {
-                    if (ordengorra.ventanaordengorraanteriores == true) {
+                    if (ordengorra.ventanaordengorra == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
 
                     } else {

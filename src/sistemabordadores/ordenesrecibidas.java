@@ -577,7 +577,7 @@ public class ordenesrecibidas extends javax.swing.JFrame {
                
               ordencamisa.lbcliente.setText(clienteordenrecibida);
               ordencamisa.lbnumero.setText(numeroordenrecibida);
-              ordencamisa.lbnumeroorden.setText(numeroordenrecibida);
+              ordencamisa.lbfolio.setText(numeroordenrecibida);
               
               ventana.setVisible(true);
 

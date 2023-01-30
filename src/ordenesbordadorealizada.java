@@ -471,7 +471,7 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
                         ordencamisa orden = new ordencamisa();
                         orden.setVisible(true);
 
-                        ordencamisa.lbnumeroorden.setText(tablacamisa.getValueAt(fila, 0).toString());
+                        ordencamisa.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
                         ordencamisa.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
                         ordencamisa.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
                          ordencamisa.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
@@ -481,7 +481,7 @@ public class ordenesbordadorealizada extends javax.swing.JFrame {
 
                 
                 } else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) {
-                    if (ordengorra.ventanaordengorraanteriores == true) {
+                    if (ordengorra.ventanaordengorra == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
 
                     } else {

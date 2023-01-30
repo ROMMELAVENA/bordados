@@ -1199,7 +1199,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordencamisa orden = new ordencamisa();
                         orden.setVisible(true);
 
-                        ordencamisa.lbnumeroorden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencamisa.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
                         ordencamisa.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordencamisa.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordencamisa.lbtipo.setText(tabla.getValueAt(fila, 3).toString());

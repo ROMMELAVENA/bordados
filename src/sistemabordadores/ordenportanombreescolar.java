@@ -661,7 +661,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         lbobservacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnrealizada.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnrealizada.setText("Portanombre ");
+        btnrealizada.setText("Portanombre Realizado");
         btnrealizada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnrealizadaActionPerformed(evt);
@@ -1115,7 +1115,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         
          try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set estatus_orden='realizada' where numero='" + lbnumero.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_portanombres set estatus_orden='realizada' where numero='" + lbnumero.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1123,11 +1123,17 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, ex);
                 }
         
+         
+        btnrealizada.setEnabled(false);
+         
         
         agregarexistenciabordados((String) articulo); 
         agregaralsurtidasalhistorialdeventas((String) articulo, (String) cantidad) ;
         
-        
+        if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        {
+            ordenesporrealizar.btnactualizar.doClick();
+        }
         
     }//GEN-LAST:event_btnrealizadaActionPerformed
 

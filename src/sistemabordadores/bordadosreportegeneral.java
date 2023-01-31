@@ -2712,7 +2712,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select fecha,cantidad,prenda,numero_venta from historial_ordenes_portanombres where fecha = '" + fechabusqueda + "'  order by numero ";
+        String sql = "Select fecha,cantidad,prenda,numero_venta from historial_ordenes_portanombres where fecha = '" + fechabusqueda + "' and estatus_orden not in ('cancelada')  order by numero ";
 
         int ultimafila = 0;
 
@@ -2791,7 +2791,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select fecha,cantidad_total,prenda,numero_venta from historial_ordenes_portanombres_multiple where fecha = '" + fechabusqueda + "'  order by numero ";
+        String sql = "Select fecha,cantidad_total,prenda,numero_venta from historial_ordenes_portanombres_multiple and estatus_orden not in ('cancelada') where fecha = '" + fechabusqueda + "'  order by numero ";
 
         int ultimafila = 0;
 
@@ -2901,7 +2901,6 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 double importeatras = 0.0;
                 double costopuntadafrente = 0.0;
                 String costostring = "0";
-                Object cantidadobject = tabla.getValueAt(i, 2);
                 int cantidadint = Integer.parseInt(cantidad);
 
                 // FRENTE
@@ -4695,7 +4694,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double importeportanombres = 0;
         double costopuntadaportanombre = 0;
 
-        String sqlportanombre = "Select fecha,cantidad,prenda from historial_ordenes_portanombres where fecha = '" + fechabusqueda + "'  order by numero   ";
+        String sqlportanombre = "Select fecha,cantidad,prenda from historial_ordenes_portanombres where fecha = '" + fechabusqueda + "' and estatus_orden not in ('cancelada')  order by numero   ";
 
         try {
             Statement st = cn.createStatement();
@@ -4752,7 +4751,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double importeportanombresmultiple = 0;
         double costopuntadaportanombremultiple = 0;
 
-        String sqlportanombremultiple = "Select fecha,cantidad_total from historial_ordenes_portanombres_multiple where fecha = '" + fechabusqueda + "'  order by numero   ";
+        String sqlportanombremultiple = "Select fecha,cantidad_total from historial_ordenes_portanombres_multiple where fecha = '" + fechabusqueda + "' and estatus_orden not in ('cancelada')   order by numero   ";
 
         try {
             Statement st = cn.createStatement();

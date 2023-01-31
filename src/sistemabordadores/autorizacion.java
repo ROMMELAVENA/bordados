@@ -23,6 +23,12 @@ public class autorizacion extends javax.swing.JFrame {
     String interfaz = "";
     public static String autorizo ="";
     String stringBDlocal = "";
+    
+    private String contraseñaadministracion = "";
+    private String contraseñaauditoria = "";
+    private String contraseñacompras = "";
+    private String contraseñaventas = "";
+    private String contraseñadireccion = "";
 
     public static boolean ventanaautorizacion = false;
 
@@ -96,6 +102,45 @@ public class autorizacion extends javax.swing.JFrame {
                 } catch (SQLException ex) {
                    System.out.println(ex);
                 }
+                
+                
+                
+                
+                
+                
+                 String sqlcontra2 = "SELECT direccion,administracion,auditoria,compras,ventas FROM catalogo_claves WHERE codigo='1'";
+
+                try {
+                    Statement st = cn.createStatement();
+                    ResultSet rs = st.executeQuery(sqlcontra2);
+
+                    while (rs.next()) {
+
+                        contraseñadireccion = rs.getString("direccion");
+                        contraseñaadministracion = rs.getString("administracion");
+                        contraseñaauditoria = rs.getString("auditoria");
+                        contraseñacompras = rs.getString("compras");
+                        contraseñaventas = rs.getString("ventas");
+                        
+
+                    }
+                    rs.close();
+                } catch (SQLException ex) {
+                   System.out.println(ex);
+                }
+          
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
         
     }
     

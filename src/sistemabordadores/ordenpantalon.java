@@ -303,14 +303,14 @@ public class ordenpantalon extends javax.swing.JFrame {
         }
 
         if (pedirarticulos.equals("si")) {
-            String sql3 = "Select numero,tienda from historial_pedidos_sucursal_solicitados where numventa = '" + numero + "' and estatus_entrega = 'Por confirmar' ";
+            String sql3 = "Select numero,sucursal from historial_pedidos_sucursal_solicitados where numventa = '" + numero + "' and estatus_entrega = 'Por confirmar' ";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql3);
                 ResultSet rs = prst.executeQuery();
                 if (rs.next()) {
                     numeropedido = rs.getString("numero");
-                    tiendaalaqueselesolicito = rs.getString("tienda");
+                    tiendaalaqueselesolicito = rs.getString("sucursal");
                    
                 }
             } catch (Exception exx) {

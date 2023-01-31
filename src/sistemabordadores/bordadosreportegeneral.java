@@ -5825,7 +5825,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             }
             
-            //sumadelasaplicaciones();
+            sumadelasaplicaciones();
             suma();
 
         }

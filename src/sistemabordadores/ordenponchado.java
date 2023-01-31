@@ -1009,7 +1009,10 @@ public static boolean ventanaordenparcheanteriores = false;
     agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
     agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
     sumapuntos();
-    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">Ponchado actualizado correctamente");
+    if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        {
+            ordenesporrealizar.btnactualizar.doClick();
+        }
     }//GEN-LAST:event_bntcantidadponchado1ActionPerformed
 
     private void bntcantidadponchado2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado2ActionPerformed
@@ -1019,7 +1022,10 @@ public static boolean ventanaordenparcheanteriores = false;
     agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
     agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
     sumapuntos();
-    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">Ponchado actualizado correctamente");
+    if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        {
+            ordenesporrealizar.btnactualizar.doClick();
+        }
     }//GEN-LAST:event_bntcantidadponchado2ActionPerformed
 
     private void bntcantidadponchado3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado3ActionPerformed
@@ -1029,6 +1035,10 @@ public static boolean ventanaordenparcheanteriores = false;
     agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
     agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
     sumapuntos();
+    if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        {
+            ordenesporrealizar.btnactualizar.doClick();
+        }
     }//GEN-LAST:event_bntcantidadponchado3ActionPerformed
 
     private void bntcantidadponchado4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado4ActionPerformed
@@ -1038,7 +1048,10 @@ public static boolean ventanaordenparcheanteriores = false;
     agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
     agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
     sumapuntos();
-    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">Ponchado actualizado correctamente");
+    if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        {
+            ordenesporrealizar.btnactualizar.doClick();
+        }
     }//GEN-LAST:event_bntcantidadponchado4ActionPerformed
 
     private void bntcantidadponchado5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado5ActionPerformed
@@ -1048,13 +1061,16 @@ public static boolean ventanaordenparcheanteriores = false;
     agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
     agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
     sumapuntos();
-    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">Ponchado actualizado correctamente");
+    if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        {
+            ordenesporrealizar.btnactualizar.doClick();
+        }
     }//GEN-LAST:event_bntcantidadponchado5ActionPerformed
 
     private void bntcantidadponchado6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadponchado6ActionPerformed
       
-    cantidadponchadosactualizar = lbcantidad1.getText();
-    nombredelponchado = lbparche1.getText();   
+    cantidadponchadosactualizar = "";
+    nombredelponchado = "";   
         
     for (int i = 0; i < 5; i++)
     {
@@ -1087,12 +1103,8 @@ public static boolean ventanaordenparcheanteriores = false;
             nombredelponchado = lbparche5.getText();    
             
         } 
-                
-    }
         
-        
-    
-   if(cantidadponchadosactualizar == null || cantidadponchadosactualizar.equals("") ||cantidadponchadosactualizar.equals(" ")||cantidadponchadosactualizar.equals("0") )    
+         if(cantidadponchadosactualizar == null || cantidadponchadosactualizar.equals("") ||cantidadponchadosactualizar.equals(" ")||cantidadponchadosactualizar.equals("0") )    
    {
        
    } 
@@ -1102,11 +1114,22 @@ public static boolean ventanaordenparcheanteriores = false;
     agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
     agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
     sumapuntos();
-    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">Ponchado actualizado correctamente");
-    
+
+    if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        {
+            ordenesporrealizar.btnactualizar.doClick();
+        }
+        
     this.dispose();
     
-   }    
+   }   
+        
+                
+    }
+        
+        
+    
+   
     }//GEN-LAST:event_bntcantidadponchado6ActionPerformed
 
     

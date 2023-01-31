@@ -1,6 +1,8 @@
 package sistemabordadores;
 
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.RowSorter;
 import javax.swing.SortOrder;
@@ -17,6 +20,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import static sistemabordadores.ordenesrealizadas.btnactualizar;
 
 public class ordenesrealizadas extends javax.swing.JFrame {
 
@@ -24,6 +28,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
     String fechainicial = "";
     String fechafinal = "";
     String nombrecliente = "";
+    String tiendalocal = "";
+    public static String localuotrasucursal ="";
 
     public ordenesrealizadas() {
         initComponents();
@@ -32,8 +38,22 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         lbtienda.setVisible(false);
         btnactualizar.setVisible(false);
         btnfrente.setVisible(false);
-        fechas();
-        datos();
+        
+        File file = new File("C:\\sistema\\configuracion.txt");
+        try {
+            Scanner sc = new Scanner(file);
+            while (sc.hasNext()) {
+                String line = sc.nextLine();
+                String str[] = line.split(":");
+                tiendalocal = str[1];
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+        
+          
+        
+        
 
     }
     
@@ -113,22 +133,24 @@ public class ordenesrealizadas extends javax.swing.JFrame {
     
 
     void datos() {
+        
+        
+        
+        
+        limpiartabla();
 
-        DefaultTableModel modelo = (DefaultTableModel) tablacamisa.getModel();
-
-
-        String[] datos = new String[10];
-        String[] datos2 = new String[10];
-        String[] datos3 = new String[10];
-        String[] datos4 = new String[10];
-        String[] datos5 = new String[10];
-        String[] datos6 = new String[10];
-
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+       
+        
+        
         //// historial_orden_camisa
+        
+        String[] datos = new String[12];
+        
         
         String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  "
                          + "FROM historial_ordenes_camisa where lugar = 'Esta sucursal' "
-                         + "and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"'  ";
+                         + "and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora  ";
 
         try {
             Statement st = cn.createStatement();
@@ -141,6 +163,10 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                 datos[4] = rs.getString("lugar");
                 datos[5] = rs.getString("numero_venta");
                 datos[6] = rs.getString("fecha");
+                datos[7] = "";
+                datos[8] = "";
+                datos[9] = "";
+                datos[10] = "Local";
 
                 modelo.addRow(datos);
 
@@ -155,7 +181,9 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         
         //// historial_orden_gorra
         
-        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where lugar = 'Esta sucursal'  and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String[] datos2 = new String[12];
+        
+        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where lugar = 'Esta sucursal'  and estatus_orden = 'realizada'  and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
@@ -168,6 +196,10 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                 datos2[4] = rs.getString("lugar");
                 datos2[5] = rs.getString("numero_venta");
                 datos2[6] = rs.getString("fecha");
+                datos2[7] = "";
+                datos2[8] = "";
+                datos2[9] = "";
+                datos2[10] = "Local";
 
                 modelo.addRow(datos2);
 
@@ -181,12 +213,16 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         
         //// historial_orden_pantalon
         
-         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where lugar = 'Esta sucursal' and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        
+        String[] datos3 = new String[12];
+        
+         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where lugar = 'Esta sucursal' and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sqlpantalon);
-            while (rs.next()) {
+            while (rs.next()) 
+            {
                 datos3[0] = rs.getString("numero");
                 datos3[1] = rs.getString("cliente");
                 datos3[2] = rs.getString("prenda");
@@ -194,8 +230,12 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                 datos3[4] = rs.getString("lugar");
                 datos3[5] = rs.getString("numero_venta");
                 datos3[6] = rs.getString("fecha");
+                datos3[7] = "";
+                datos3[8] = "";
+                datos3[9] = "";
+                datos3[10] = "Local";
 
-                 modelo.addRow(datos3);
+                modelo.addRow(datos3);
 
             }
 
@@ -209,7 +249,9 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         
         //// historial_orden_parches
         
-        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where lugar = 'Esta sucursal' and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String[] datos4 = new String[12];
+        
+        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
@@ -222,6 +264,10 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                 datos4[4] = rs.getString("lugar");
                 datos4[5] = rs.getString("numero_venta");
                 datos4[6] = rs.getString("fecha");
+                datos4[7] = "";
+                datos4[8] = "";
+                datos4[9] = "";
+                datos4[10] = "Local";
 
                 modelo.addRow(datos4);
 
@@ -234,9 +280,12 @@ public class ordenesrealizadas extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"sql orden parche" + ex);
         }
         
-         //// historial_orden_ponchados
+         //// historial_orden_ponchado
+         
+         
+         String[] datos5 = new String[12];
         
-        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Esta sucursal' and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Esta sucursal'  and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
@@ -249,8 +298,12 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                 datos5[4] = rs.getString("lugar");
                 datos5[5] = rs.getString("numero_venta");
                 datos5[6] = rs.getString("fecha");
+                datos5[7] = "";
+                datos5[8] = "";
+                datos5[9] = "";
+                datos5[10] = "Local";
 
-                 modelo.addRow(datos5);
+                modelo.addRow(datos5);
 
             }
 
@@ -261,7 +314,11 @@ public class ordenesrealizadas extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"sql orden ponchado" + ex);
         }
         
-        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where lugar = 'Esta sucursal' and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        /// historial ordenes corbata
+        
+         String[] datos6 = new String[12];
+        
+        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where lugar = 'Esta sucursal'  and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
 
         try {
             Statement st = cn.createStatement();
@@ -274,8 +331,12 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                 datos6[4] = rs.getString("lugar");
                 datos6[5] = rs.getString("numero_venta");
                 datos6[6] = rs.getString("fecha");
+                datos6[7] = "";
+                datos6[8] = "";
+                datos6[9] = "";
+                datos6[10] = "Local";
 
-                 modelo.addRow(datos6);
+                modelo.addRow(datos6);
 
             }
 
@@ -286,11 +347,11 @@ public class ordenesrealizadas extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
         }
         
-        
-        
         /// historial orden portanombres
         
-        String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres where estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String[] datos7 = new String[12];
+        
+        String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres where  estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
 
         try {
             Statement st = cn.createStatement();
@@ -299,15 +360,19 @@ public class ordenesrealizadas extends javax.swing.JFrame {
             {
                 String numeroventa = rs.getString("numero_venta");
                 nombredelcliente((String) numeroventa);
-                datos6[0] = rs.getString("numero");
-                datos6[1] = nombrecliente;
-                datos6[2] = "Porta nombre";
-                datos6[3] = rs.getString("tipo");
-                datos6[4] = "Esta sucursal";
-                datos6[5] = rs.getString("numero_venta");
-                datos6[6] = rs.getString("fecha");
+                datos7[0] = rs.getString("numero");
+                datos7[1] = nombrecliente;
+                datos7[2] = "Porta nombre";
+                datos7[3] = rs.getString("tipo");
+                datos7[4] = "Esta sucursal";
+                datos7[5] = rs.getString("numero_venta");
+                datos7[6] = rs.getString("fecha");
+                datos7[7] = "";
+                datos7[8] = "";
+                datos7[9] = "";
+                datos7[10] = "Local";
 
-                modelo.addRow(datos6);
+                modelo.addRow(datos7);
 
             }
 
@@ -320,8 +385,10 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
 
         /// historial´ portanombre multiple
+        
+        String[] datos8 = new String[12];
 
-         String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres_multiple where estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+         String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres_multiple where estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
 
         try {
             Statement st = cn.createStatement();
@@ -330,15 +397,19 @@ public class ordenesrealizadas extends javax.swing.JFrame {
             {
                 String numeroventa = rs.getString("numero_venta");
                 nombredelcliente((String) numeroventa);
-                datos6[0] = rs.getString("numero");
-                datos6[1] = nombrecliente;
-                datos6[2] = "Porta nombre multiple";
-                datos6[3] = rs.getString("tipo");
-                datos6[4] = "Esta sucursal";
-                datos6[5] = rs.getString("numero_venta");
-                datos6[6] = rs.getString("fecha");
+                datos8[0] = rs.getString("numero");
+                datos8[1] = nombrecliente;
+                datos8[2] = "Porta nombre multiple";
+                datos8[3] = rs.getString("tipo");
+                datos8[4] = "Esta sucursal";
+                datos8[5] = rs.getString("numero_venta");
+                datos8[6] = rs.getString("fecha");
+                datos8[7] = "";
+                datos8[8] = "";
+                datos8[9] = "";
+                datos8[10] = "Local";
 
-                modelo.addRow(datos6);
+                modelo.addRow(datos8);
 
             }
 
@@ -348,29 +419,378 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         {
            JOptionPane.showMessageDialog(null,"sql orden portanombremultiple" + ex);
         }        
+     
         
-        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tablacamisa.getModel());
-        tablacamisa.setRowSorter(sorter);
+        
+        
+        
+        
+        
+        // ORDENES DE OTRAS SUCURSALES
+        //////////////////////////////
+        /////////////////////////////
+        
+        
+        
+        //CAMISA
+        
+        
+        String[] datos9 = new String[12];
+
+        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora "; //and tienda not in('"+tiendalocal+"')
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql3);
+            while (rs.next()) {
+                datos9[0] = rs.getString("numero");
+                datos9[1] = rs.getString("cliente");
+                datos9[2] = rs.getString("prenda");
+                datos9[3] = rs.getString("tipo");
+                datos9[4] = rs.getString("lugar");
+                datos9[5] = "00000000";
+                datos9[6] = rs.getString("fecha");
+                datos9[7] = rs.getString("tienda");
+                datos9[8] = rs.getString("numero_sucursal");
+                datos9[9] = "";
+                datos9[10] = "Recibida";
+
+                modelo.addRow(datos9);
+
+            }
+
+            tabla.setModel(modelo);
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+     
+        
+        
+        
+        // GORRA
+        
+        String[] datos10 = new String[12];
+
+        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_gorra_recibidas  where estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by hora  ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql4);
+            while (rs.next()) {
+                datos10[0] = rs.getString("numero");
+                datos10[1] = rs.getString("cliente");
+                datos10[2] = rs.getString("prenda");
+                datos10[3] = rs.getString("tipo");
+                datos10[4] = rs.getString("lugar");
+                datos10[5] = "0000000";  
+                datos10[6] = rs.getString("fecha");
+                datos10[7] = rs.getString("tienda");
+                datos10[8] = rs.getString("numero_sucursal_orden");
+                datos10[9] = "";
+                datos10[10] = "Recibida";
+
+                modelo.addRow(datos10);
+
+            }
+
+            tabla.setModel(modelo);
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+        tieneponchados();
+
+        
+        
+        
+        /// PANTALON
+        
+        String[] datos11 = new String[12];
+
+        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_pantalon_recibidas  where estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql15);
+            while (rs.next()) {
+                datos11[0] = rs.getString("numero");
+                datos11[1] = rs.getString("cliente");
+                datos11[2] = rs.getString("prenda");
+                datos11[3] = rs.getString("tipo");
+                datos11[4] = rs.getString("lugar");
+                datos11[5] = "0000000";  
+                datos11[6] = rs.getString("fecha");
+                datos11[7] = rs.getString("tienda");
+                datos11[8] = rs.getString("numero_sucursal_orden");
+                datos11[9] = "";
+                datos11[10] = "Recibida";
+            
+                modelo.addRow(datos11);
+
+            }
+
+            tabla.setModel(modelo);
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+        tieneponchados();
+        
+        
+        
+        
+      /*  
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tabla.getModel());
+        tabla.setRowSorter(sorter);
         List<RowSorter.SortKey> sortKeys = new ArrayList<>(100);
-        sortKeys.add(new RowSorter.SortKey(0, SortOrder.DESCENDING));
+        sortKeys.add(new RowSorter.SortKey(6, SortOrder.DESCENDING));
         sorter.setSortKeys(sortKeys);
+        
+     */   
+        
+        Colorear ft = new Colorear();
+        tabla.setDefaultRenderer(Object.class, ft);
+        
         
     }
     
     
-    void limpiartabla() {
+     void datos2() {
+        
+        
+        
+        
+        limpiartabla();
+
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+       
+        
+        
+        //// historial_orden_camisa
+        
+        String[] datos = new String[12];
+        
+        
+        String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  "
+                         + "FROM historial_ordenes_camisa where lugar = 'Otra sucursal' "
+                         + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"'  ";
+
         try {
-            DefaultTableModel modelo = (DefaultTableModel) tablacamisa.getModel();
-            int filas = tablacamisa.getRowCount();
-            for (int i = 0; filas > i; i++) {
-                modelo.removeRow(0);
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlcamisa);
+            while (rs.next()) {
+                datos[0] = rs.getString("numero");
+                datos[1] = rs.getString("cliente");
+                datos[2] = rs.getString("prenda");
+                datos[3] = rs.getString("tipo");
+                datos[4] = rs.getString("lugar");
+                datos[5] = rs.getString("numero_venta");
+                datos[6] = rs.getString("fecha");
+                datos[7] = "";
+                datos[8] = "";
+                datos[9] = "";
+                datos[10] = "Local";
+
+                modelo.addRow(datos);
+
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al limpiar la tabla.");
+
+            
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "sql orden camisa" +  ex);
         }
-}
+
+        
+        //// historial_orden_gorra
+        
+        String[] datos2 = new String[12];
+        
+        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlgorra);
+            while (rs.next()) {
+                datos2[0] = rs.getString("numero");
+                datos2[1] = rs.getString("cliente");
+                datos2[2] = rs.getString("prenda");
+                datos2[3] = rs.getString("tipo");
+                datos2[4] = rs.getString("lugar");
+                datos2[5] = rs.getString("numero_venta");
+                datos2[6] = rs.getString("fecha");
+                datos2[7] = "";
+                datos2[8] = "";
+                datos2[9] = "";
+                datos2[10] = "Local";
+
+                modelo.addRow(datos2);
+
+            }
+
+           
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"sql orden gorra" +  ex);
+        }
+        
+        //// historial_orden_pantalon
+        
+        
+        String[] datos3 = new String[12];
+        
+         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlpantalon);
+            while (rs.next()) 
+            {
+                datos3[0] = rs.getString("numero");
+                datos3[1] = rs.getString("cliente");
+                datos3[2] = rs.getString("prenda");
+                datos3[3] = rs.getString("tipo");
+                datos3[4] = rs.getString("lugar");
+                datos3[5] = rs.getString("numero_venta");
+                datos3[6] = rs.getString("fecha");
+                datos3[7] = "";
+                datos3[8] = "";
+                datos3[9] = "";
+                datos3[10] = "Local";
+
+                modelo.addRow(datos3);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           JOptionPane.showMessageDialog(null,"sql orden pantalon" + ex);
+        }
+        
+        
+        //// historial_orden_parches
+        
+        String[] datos4 = new String[12];
+        
+        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlparches);
+            while (rs.next()) {
+                datos4[0] = rs.getString("numero");
+                datos4[1] = rs.getString("cliente");
+                datos4[2] = "Parche";
+                datos4[3] = rs.getString("tipo");
+                datos4[4] = rs.getString("lugar");
+                datos4[5] = rs.getString("numero_venta");
+                datos4[6] = rs.getString("fecha");
+                datos4[7] = "";
+                datos4[8] = "";
+                datos4[9] = "";
+                datos4[10] = "Local";
+
+                modelo.addRow(datos4);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           JOptionPane.showMessageDialog(null,"sql orden parche" + ex);
+        }
+        
+         //// historial_orden_ponchado
+         
+         
+         String[] datos5 = new String[12];
+        
+        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlponchados);
+            while (rs.next()) {
+                datos5[0] = rs.getString("numero");
+                datos5[1] = rs.getString("cliente");
+                datos5[2] = "Ponchado";
+                datos5[3] = rs.getString("tipo");
+                datos5[4] = rs.getString("lugar");
+                datos5[5] = rs.getString("numero_venta");
+                datos5[6] = rs.getString("fecha");
+                datos5[7] = "";
+                datos5[8] = "";
+                datos5[9] = "";
+                datos5[10] = "Local";
+
+                modelo.addRow(datos5);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           JOptionPane.showMessageDialog(null,"sql orden ponchado" + ex);
+        }
+        
+        /// historial ordenes corbata
+        
+         String[] datos6 = new String[12];
+        
+        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlcorbata);
+            while (rs.next()) {
+                datos6[0] = rs.getString("numero");
+                datos6[1] = rs.getString("cliente");
+                datos6[2] = "Corbata";
+                datos6[3] = rs.getString("tipo");
+                datos6[4] = rs.getString("lugar");
+                datos6[5] = rs.getString("numero_venta");
+                datos6[6] = rs.getString("fecha");
+                datos6[7] = "";
+                datos6[8] = "";
+                datos6[9] = "";
+                datos6[10] = "Local";
+
+                modelo.addRow(datos6);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
+        }
+        
+
+       /* 
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tabla.getModel());
+        tabla.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>(100);
+        sortKeys.add(new RowSorter.SortKey(6, SortOrder.DESCENDING));
+        sorter.setSortKeys(sortKeys);
+        
+       */
+        
+        
+    }
     
-    void nombredelcliente(String numeroventa)
+    
+    
+    
+     void nombredelcliente(String numeroventa)
     {
         
         String sql1 = "SELECT nombre_cliente from historial_Ventas where numero = '"+numeroventa+"' ";
@@ -391,7 +811,212 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                     }
                 
     }
-   
+     
+     
+     
+     
+     
+     
+     
+     
+    
+    
+    void tieneponchados() {
+
+   String tieneponchadoscamisa ="";
+   String tieneponchadosgorra ="";
+        
+        for(int i =0; i < tabla.getRowCount();i++)
+            
+        {   
+            
+            Object tipocamisa =  tabla.getValueAt(i, 3);
+            Object numerocamisa =  tabla.getValueAt(i, 0);
+
+            
+          
+            String sqlcamisas  = "SELECT manga_izquierda_ponchado, manga_derecha_ponchado,pecho_izquierdo_ponchado,pecho_derecho_ponchado,espalda_ponchado  FROM historial_ordenes_camisa_recibidas where numero =  '"+numerocamisa+"'  ";
+            
+              
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlcamisas);
+            while (rs.next()) {
+               
+                  tieneponchadoscamisa ="";
+                 String boton1 = rs.getString("manga_izquierda_ponchado");
+              if (boton1==null||boton1.equals(""))
+              {
+              
+              }
+              else
+              {
+                  tieneponchadoscamisa ="si";
+              }    
+              
+              String boton2 = rs.getString("manga_derecha_ponchado");
+              if (boton2==null||boton2.equals(""))
+              {
+             
+              }
+              else
+              {
+                  tieneponchadoscamisa ="si";
+              } 
+              
+              
+              String boton3 = rs.getString("pecho_izquierdo_ponchado");
+              if (boton3==null||boton3.equals(""))
+              {
+              
+              }
+              else
+              {
+                  tieneponchadoscamisa ="si";
+              } 
+              
+              String boton4 = rs.getString("pecho_derecho_ponchado");
+              if (boton4==null||boton4.equals(""))
+              {
+              
+              }
+              else
+              {
+                  tieneponchadoscamisa ="si";
+              } 
+              
+              String boton5 = rs.getString("espalda_ponchado");
+              if (boton5==null||boton5.equals(""))
+              {
+            
+              }
+              else
+              {
+                  tieneponchadoscamisa ="si";
+              } 
+
+            }
+            
+            
+            if(tieneponchadoscamisa.equals("si"))
+            {
+                tabla.setValueAt("si", i,9);
+            }
+            else
+            {
+                tabla.setValueAt("no", i,9);
+            }    
+
+           
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        }
+        
+         for(int i =0; i < tabla.getRowCount();i++)
+            
+        {   
+            
+            
+            Object tipogorra =  tabla.getValueAt(i, 3);
+            Object numerogorra =  tabla.getValueAt(i, 0);
+         
+           //// sql gorra 
+            
+          String  sqlgorra  = "SELECT frente_ponchado, lado_izquierdo_ponchado,lado_derecho_ponchado,atras_ponchado  FROM historial_ordenes_gorra_recibidas where numero =  '"+numerogorra+"'  ";
+            
+              
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlgorra);
+            while (rs.next()) {
+               
+                  tieneponchadosgorra ="";
+                 String boton1 = rs.getString("frente_ponchado");
+              if (boton1==null||boton1.equals(""))
+              {
+              
+              }
+              else
+              {
+                  tieneponchadosgorra ="si";
+              }    
+              
+              String boton2 = rs.getString("lado_izquierdo_ponchado");
+              if (boton2==null||boton2.equals(""))
+              {
+             
+              }
+              else
+              {
+                  tieneponchadosgorra ="si";
+              } 
+              
+              
+              String boton3 = rs.getString("lado_derecho_ponchado");
+              if (boton3==null||boton3.equals(""))
+              {
+              
+              }
+              else
+              {
+                  tieneponchadosgorra ="si";
+              } 
+              
+              String boton4 = rs.getString("atras_ponchado");
+              if (boton4==null||boton4.equals(""))
+              {
+              
+              }
+              else
+              {
+                  tieneponchadosgorra ="si";
+              } 
+              
+              
+
+            }
+            
+            
+            if(tieneponchadosgorra.equals("si"))
+            {
+                tabla.setValueAt("si", i,9);
+            }
+            else
+            {
+                tabla.setValueAt("no", i,9);
+            }    
+
+           
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+               
+        }     
+        
+
+        
+       
+
+    }
+    
+
+    void limpiartabla() {
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+            int filas = tabla.getRowCount();
+            for (int i = 0; filas > i; i++) {
+                modelo.removeRow(0);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al limpiar la tabla.");
+        }
+}
+    
+    
     
 
     @SuppressWarnings("unchecked")
@@ -399,7 +1024,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablacamisa = new javax.swing.JTable();
+        tabla = new javax.swing.JTable();
         btnsalir = new javax.swing.JButton();
         lbnumero = new javax.swing.JLabel();
         lbinterface = new javax.swing.JLabel();
@@ -408,7 +1033,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         btnfrente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Ordenes bordado realizadas");
+        setTitle("Ordenes bordado por realizar");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -423,42 +1048,45 @@ public class ordenesrealizadas extends javax.swing.JFrame {
             }
         });
 
-        tablacamisa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        tablacamisa.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "numeroventa", "fecha"
+                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tieneponchados", "tabla"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tablacamisa.setRowHeight(32);
-        tablacamisa.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabla.setRowHeight(32);
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablacamisaMouseClicked(evt);
+                tablaMouseClicked(evt);
             }
         });
-        tablacamisa.addKeyListener(new java.awt.event.KeyAdapter() {
+        tabla.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                tablacamisaKeyPressed(evt);
+                tablaKeyPressed(evt);
             }
         });
-        jScrollPane1.setViewportView(tablacamisa);
-        if (tablacamisa.getColumnModel().getColumnCount() > 0) {
-            tablacamisa.getColumnModel().getColumn(3).setMinWidth(0);
-            tablacamisa.getColumnModel().getColumn(3).setPreferredWidth(0);
-            tablacamisa.getColumnModel().getColumn(3).setMaxWidth(0);
-            tablacamisa.getColumnModel().getColumn(4).setMinWidth(0);
-            tablacamisa.getColumnModel().getColumn(4).setPreferredWidth(0);
-            tablacamisa.getColumnModel().getColumn(4).setMaxWidth(0);
+        jScrollPane1.setViewportView(tabla);
+        if (tabla.getColumnModel().getColumnCount() > 0) {
+            tabla.getColumnModel().getColumn(1).setMinWidth(100);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(600);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(800);
+            tabla.getColumnModel().getColumn(3).setMinWidth(0);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(10).setMinWidth(0);
+            tabla.getColumnModel().getColumn(10).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(10).setMaxWidth(0);
         }
 
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -494,24 +1122,22 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(834, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(397, 397, 397)
-                                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lbinterface, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbtienda, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnactualizar))))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
+                        .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnactualizar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbinterface, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(210, 210, 210)
+                        .addComponent(lbtienda, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1380, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -521,16 +1147,14 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                     .addComponent(lbnumero)
                     .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 876, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbinterface)
-                        .addComponent(lbtienda))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnfrente)
-                        .addComponent(btnactualizar)))
-                .addGap(5, 5, 5))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbinterface)
+                    .addComponent(btnfrente)
+                    .addComponent(btnactualizar)
+                    .addComponent(lbtienda))
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -542,21 +1166,26 @@ public class ordenesrealizadas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
+        fechas();
+        datos(); 
+        
+        
     }//GEN-LAST:event_formWindowOpened
 
-    private void tablacamisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablacamisaMouseClicked
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
 
         if (evt.getClickCount() == 2) {
 
-            int fila = tablacamisa.getSelectedRow();
+            int fila = tabla.getSelectedRow();
 
-            if (fila >= 0) {
+            if (fila >= 0) 
+            {
 
-                Object tipo = tablacamisa.getValueAt(fila, 3).toString();
+                Object tipo = tabla.getValueAt(fila, 3).toString();
 
                 if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) {
-                    if (ordencamisa.ventanaordencamisaanteriores == true) {
+                    if (ordencamisa.ventanaordencamisaanteriores == true) 
+                    {
                         
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
 
@@ -564,16 +1193,21 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                         ordencamisa orden = new ordencamisa();
                         orden.setVisible(true);
 
-                        ordencamisa.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordencamisa.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
-                        ordencamisa.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
-                         ordencamisa.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
-
+                        ordencamisa.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencamisa.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordencamisa.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
+                        ordencamisa.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        tabla.clearSelection();
+                        this.setState(this.ICONIFIED);
                        
                     }
 
                 
-                } else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) {
+                } 
+                else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
+                {
                     if (ordengorra.ventanaordengorra == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
 
@@ -581,27 +1215,139 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                         ordengorra orden = new ordengorra();
                         orden.setVisible(true);
 
-                        ordengorra.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordengorra.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
-                        ordengorra.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
-                        ordengorra.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
-
+                        ordengorra.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordengorra.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordengorra.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
+                        ordengorra.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        ordengorra.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordengorra.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                         tabla.clearSelection();
+                         this.setState(this.ICONIFIED);
                         
                     }
-                } else {
+                }
+                if (tipo.equals("Orden pantalon")) {
+                    if (ordenpantalon.ventanaordenpantalonanteriores == true) 
+                    {
+                        
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
 
-                  
+                    } else {
+                        ordenpantalon orden = new ordenpantalon();
+                        orden.setVisible(true);
 
+                        ordenpantalon.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenpantalon.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordenpantalon.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        ordenpantalon.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordenpantalon.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        tabla.clearSelection();
+                        this.setState(this.ICONIFIED);
+                       
+                    }
+
+                
+                } 
+                
+                
+                else if (tipo.equals("Orden ponchado")) 
+                {
+                    if (ordenponchado.ventanaordenparcheanteriores == true) {
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de ponchado anteriores");
+
+                    } else {
+                        ordenponchado orden = new ordenponchado();
+                        orden.setVisible(true);
+
+                        ordenponchado.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenponchado.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                         tabla.clearSelection();
+                         this.setState(this.ICONIFIED);
+                        
+                    }
+                }
+                else if (tipo.equals("Orden parche")) 
+                {
+                    if (ordenparche.ventanaordenparcheanteriores == true) {
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de ponchado anteriores");
+
+                    } else {
+                        ordenparche orden = new ordenparche();
+                        orden.setVisible(true);
+
+                        ordenparche.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                         tabla.clearSelection();
+                         this.setState(this.ICONIFIED);
+                        
+                    }
+                }
+                else if (tipo.equals("Orden corbata")) 
+                {
+                   
+                        
+                        if (ordencorbata.ventanaordencorbataanteriores == true) {
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de corbata anteriores");
+
+                    } else {
+                        ordencorbata orden = new ordencorbata();
+                        orden.setVisible(true);
+
+                        ordencorbata.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencorbata.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        
+                         tabla.clearSelection();
+                         this.setState(this.ICONIFIED);
+                        
+                    }
+                        
+                 
+                   
+                }
+                else if (tipo.equals("Porta nombre escolar")) 
+                {
+                   
+                        
+                        if (ordenportanombreescolar.ventanaordenportanombreanterior == true) {
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de portanombre");
+
+                    } else {
+                            ordenportanombreescolar orden = new ordenportanombreescolar();
+                            orden.setVisible(true);
+                            ordenportanombreescolar.lbnumero.setText(tabla.getValueAt(fila, 0).toString());
+                            tabla.clearSelection();
+                            this.setState(this.ICONIFIED);
+                        
+                    }
+                                           
+                }
+                else if (tipo.equals("porta nombre multiple")) 
+                {
+                   
+                        
+                        if (ordenportanombremultiple.ventanaordenportanombremultipleanterior == true) {
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de portanombre");
+
+                    } else {
+                            ordenportanombremultiple orden = new ordenportanombremultiple();
+                            orden.setVisible(true);
+                            ordenportanombremultiple.lbnumerohistorialordenesbordados.setText(tabla.getValueAt(fila, 0).toString());
+                            tabla.clearSelection();
+                            this.setState(this.ICONIFIED);
+                        
+                    }
+                                           
                 }
 
-            }
+            } /// 
 
-        } else {
-           
-        }
+        } 
 
 
-    }//GEN-LAST:event_tablacamisaMouseClicked
+       
+        
+    }//GEN-LAST:event_tablaMouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         ventanaordenesbordadogenerada = false;
@@ -609,22 +1355,29 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
        limpiartabla();
-       datos();
+       if(localuotrasucursal.equals("Local"))
+        {
+           datos(); 
+        }
+        else
+        {
+           datos2(); 
+        }    
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void btnfrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteActionPerformed
         this.toFront();
     }//GEN-LAST:event_btnfrenteActionPerformed
 
-    private void tablacamisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablacamisaKeyPressed
-      if (evt.getKeyCode() == KeyEvent.VK_F5) 
+    private void tablaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaKeyPressed
+         if (evt.getKeyCode() == KeyEvent.VK_F5) 
         {
             btnactualizar.doClick();
         }
-    }//GEN-LAST:event_tablacamisaKeyPressed
+    }//GEN-LAST:event_tablaKeyPressed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-       if (evt.getKeyCode() == KeyEvent.VK_F5) 
+          if (evt.getKeyCode() == KeyEvent.VK_F5) 
         {
             btnactualizar.doClick();
         }
@@ -1167,518 +1920,6 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1696,7 +1937,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
     public static javax.swing.JLabel lbinterface;
     public static javax.swing.JLabel lbnumero;
     public static javax.swing.JLabel lbtienda;
-    private javax.swing.JTable tablacamisa;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 connectar cc = new connectar();
 Connection cn = cc.conexion();

@@ -4562,7 +4562,7 @@ public class ordencamisa extends javax.swing.JFrame {
             FileInputStream input = null;
             try {
 
-                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and nombre_prenda = '"+lbnombreconcepto.getText()+"' and tipo = '"+lbprenda.getText()+"' ";
+                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and nombre_prenda = '"+lbnombreconcepto.getText()+"' and tipo = '"+lbprenda.getText().toUpperCase()+"' ";
 
                 myStmt = cn.prepareStatement(sql);
                 File theFile = new File(rutaarchivo);

@@ -1461,7 +1461,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             Object prenda = tabla.getValueAt(i, 3);
             int cantidad = Integer.parseInt(cantidadobject.toString());
 
-            if (prenda.equals("Gorra") || prenda.equals("Gorra2")|| prenda.equals("Gorra3")) {
+            if (prenda.equals("Gorra") ) {
                 //lado IZQUIERDO
 
                 double costopuntadaladoizquierdo = 0.0;
@@ -4179,12 +4179,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         try {
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sqlgorrasinternas);
+            ResultSet rs8 = st.executeQuery(sqlgorrasinternas);
 
-            while (rs.next()) {
+            while (rs8.next()) 
+            {
 
-                cantidadbordadosordeninterna = rs.getString("cantidad");
-                descripcion = rs.getString("descripcion");
+                cantidadbordadosordeninterna = rs8.getString("cantidad_entregada");
+                descripcion = rs8.getString("descripcion");
 
                 if (descripcion.startsWith("\"SEGURIDAD\" ")) {
                     frente = "SEGURIDAD";
@@ -4231,7 +4232,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             }
 
-            rs.close();
+          
         } catch (SQLException ex) {
             System.out.println(ex);
         }

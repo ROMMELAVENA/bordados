@@ -638,7 +638,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos2 = new String[12];
         
-        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where lugar = 'Otra sucursal' and (estatus_orden = 'por solicitar' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
 
         try {
             Statement st = cn.createStatement();

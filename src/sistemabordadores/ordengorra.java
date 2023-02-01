@@ -325,6 +325,7 @@ public class ordengorra extends javax.swing.JFrame {
         String prendasql ="";
         String prendanombresql="";
         btnverfotomontaje.setEnabled(false);
+        String path ="";
 
        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_prenda= '"+nombreconcepto+"' and tipo = '"+prenda+"'   ";  ///
 
@@ -373,10 +374,18 @@ public class ordengorra extends javax.swing.JFrame {
                     //btnagregarfotomontaje.setEnabled(false);
 
                     Blob archivo = rs.getBlob("imagen");
-                    String ext = rs.getString("extension_imagen");
-                    String path = "C:\\archivospdf\\FOTOMONTAJE"+ext+" ";
-                    rutaimagen=path;
-                    File file = new File(path);
+                    String nombredelarchivo = rs.getString("extension_imagen");
+                    if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
+                    {
+                     rutaimagen = "C:\\archivospdf\\Fotomontajegorra."+nombredelarchivo+" ";
+                    }
+                    else
+                    {
+                   nombredelarchivo = nombredelarchivo.replace(" ","");
+                    rutaimagen = "C:\\archivospdf\\"+nombredelarchivo+" ";
+                    }    
+                    
+                    File file = new File(rutaimagen);
                     FileOutputStream output = new FileOutputStream(file);
                     InputStream inStream = archivo.getBinaryStream();
                     int length = -1;
@@ -2116,7 +2125,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
         if (tiendaalaquesereplicara.equals("cdmxcentro")) {
             path = "C:\\sistema\\cdmxcentro.txt";
         } else if (tiendaalaquesereplicara.equals("cdmxsur")) {
-            path = "C:\\sistema\\dfsur.txt";
+            path = "C:\\sistema\\cdmxsur.txt";
         } else if (tiendaalaquesereplicara.equals("guadalajara")) {
             path = "C:\\sistema\\guadalajara.txt";
         } else if (tiendaalaquesereplicara.equals("monterrey")) {
@@ -2340,13 +2349,13 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
                 
            /// imagen jlabel
         
-        Object imagen = lbrutaimagen.getText();
+        Object imagen =rutaimagen;
 
         if (imagen == null || imagen.equals("") || imagen.equals(" ")) {
 
         } else {
             try {
-                String filePath6 = lbrutaimagen.getText();
+                String filePath6 = rutaimagen;
                 File archivo6 = new File(filePath6);
                  nombrearchivo6 =archivo6.getName();
                 input6 = new FileInputStream(new File(filePath6));

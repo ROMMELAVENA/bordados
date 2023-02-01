@@ -2023,6 +2023,133 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 tabla.setValueAt(atras, ultimafila, 34);
                 tabla.setValueAt(puntadasatras, ultimafila, 35);
                 tabla.setValueAt(aplicacionfrente, ultimafila, 57);
+                
+                ///
+                ///Calculo v
+                     
+                String costostring = "";
+                double importeladoizquierdo = 0.0;
+                double importeladoderecho = 0.0;
+                double importefrente = 0.0;
+                double importeatras = 0.0;
+                
+                int cantidadfrenteint = Integer.parseInt(cantidad);
+                int cantidadladoderechoint = Integer.parseInt(cantidad);
+                int cantidadladoizquierdoint = Integer.parseInt(cantidad);
+                int cantidadatrasint = Integer.parseInt(cantidad);
+
+                int cantidadint = Integer.parseInt(cantidad.toString());
+
+                double costopuntadaladoizquierdo = 0.0;
+                Object ladoizquierdoobject = rs.getString("puntadas_lado_izquierdo");
+                String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + ladoizquierdoobject + "'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql1);
+                    ResultSet rs2 = prst.executeQuery();
+                    if (rs2.next()) {
+
+                        costostring = rs2.getString("costo");
+                        costopuntadaladoizquierdo = Double.parseDouble(costostring);
+
+                    }
+                } catch (Exception exx) {
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                String costopuntadaladoizquierdostring = String.format("%.02f ", costopuntadaladoizquierdo);
+                tabla.setValueAt(costopuntadaladoizquierdostring, ultimafila, 30);
+
+                importeladoizquierdo = cantidadladoizquierdoint * costopuntadaladoizquierdo;
+
+                //LADO DERECHO
+                double costopuntadaladoderecho = 0.0;
+                Object ladoderechoobject = rs.getString("puntadas_lado_derecho");
+
+                String sql2 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + ladoderechoobject + "'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql2);
+                    ResultSet rs2 = prst.executeQuery();
+                    if (rs2.next()) {
+
+                        costostring = rs2.getString("costo");
+                        costopuntadaladoderecho = Double.parseDouble(costostring);
+
+                    }
+                } catch (Exception exx) {
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                String costopuntadaladoderechostring = String.format("%.02f ", costopuntadaladoderecho);
+                tabla.setValueAt(costopuntadaladoderechostring, ultimafila, 33);
+
+                importeladoderecho = cantidadladoderechoint * costopuntadaladoderecho;
+
+// FRENTE
+                double costopuntadafrente = 0.0;
+
+                Object frenteobject = rs.getString("puntadas_frente");
+
+                String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + frenteobject + "'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql3);
+                    ResultSet rs2 = prst.executeQuery();
+                    if (rs2.next()) {
+
+                        costostring = rs2.getString("costo");
+                        costopuntadafrente = Double.parseDouble(costostring);
+
+                    }
+                } catch (Exception exx) {
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                String costopuntadafrentestring = String.format("%.02f ", costopuntadafrente);
+                tabla.setValueAt(costopuntadafrentestring, ultimafila, 27);
+                importefrente = cantidadfrenteint * costopuntadafrente;
+
+                // ATRAS
+                double costopuntadaatras = 0.0;
+
+                Object atrasobject = rs.getString("puntadas_atras");
+
+                String sql5 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + atrasobject + "'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql5);
+                    ResultSet rs2 = prst.executeQuery();
+                    if (rs2.next()) {
+
+                        costostring = rs2.getString("costo");
+                        costopuntadaatras = Double.parseDouble(costostring);
+
+                    }
+                } catch (Exception exx) {
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                String costopuntadaespaldastring = String.format("%.02f ", costopuntadaatras);
+                tabla.setValueAt(costopuntadaespaldastring, ultimafila, 36);
+
+                importeatras = cantidadatrasint * costopuntadaatras;
+
+                double sumabordados = importeladoizquierdo + importeladoderecho + importefrente + importeatras;
+                String sumabordadosstring = String.format("%.02f ", sumabordados);
+                if(sumabordadosstring.equals("3.30"))
+                {
+                    int a = 0;
+                }
+                tabla.setValueAt(sumabordadosstring, ultimafila, 62);
+
+                        
+                        
+                ///        
 
                 ultimafila = ultimafila + 1;
 
@@ -2033,7 +2160,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             System.out.println(ex);
         }
 
-        calcularcostosdebordadosgorra();
+        
 
     }
 

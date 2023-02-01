@@ -625,10 +625,17 @@ public class ordengorra extends javax.swing.JFrame {
                     //btnagregarfotomontaje.setEnabled(false);
 
                     Blob archivo = rs.getBlob("imagen");
-                    String ext = rs.getString("imagen_nombre");
-                    String path = "C:\\archivospdf\\FOTOMONTAJE"+ext+" ";
-                    rutaimagen=path;
-                    File file = new File(path);
+                    String nombredelarchivo = rs.getString("imagen_nombre");
+                     if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
+                    {
+                    rutaimagen = "C:\\archivospdf\\FOTOMONTAJE."+nombredelarchivo+" ";
+                    }
+                    else
+                    {
+                   nombredelarchivo = nombredelarchivo.replace(" ","");
+                    rutaimagen = "C:\\archivospdf\\"+nombredelarchivo+" ";
+                    } 
+                    File file = new File(rutaimagen);
                     FileOutputStream output = new FileOutputStream(file);
                     InputStream inStream = archivo.getBinaryStream();
                     int length = -1;

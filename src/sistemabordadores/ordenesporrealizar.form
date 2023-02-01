@@ -88,7 +88,7 @@
               <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="11" rowCount="0">
+              <Table columnCount="12" rowCount="0">
                 <Column editable="false" title="Numero Orden" type="java.lang.Object"/>
                 <Column editable="false" title="cliente" type="java.lang.Object"/>
                 <Column editable="false" title="prenda" type="java.lang.Object"/>
@@ -100,6 +100,7 @@
                 <Column editable="false" title="No. sucursal" type="java.lang.Object"/>
                 <Column editable="false" title="tieneponchados" type="java.lang.Object"/>
                 <Column editable="false" title="tabla" type="java.lang.Object"/>
+                <Column editable="false" title="Nombre bordado" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -109,7 +110,32 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="800" minWidth="100" prefWidth="600" resizable="true">
+                <Column maxWidth="700" minWidth="100" prefWidth="350" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -129,32 +155,12 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
                 <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="800" minWidth="100" prefWidth="450" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>

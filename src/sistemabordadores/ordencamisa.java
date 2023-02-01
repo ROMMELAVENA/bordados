@@ -449,6 +449,15 @@ public class ordencamisa extends javax.swing.JFrame {
     }
     
     void datosotrasucursal() throws IOException {
+        
+        
+        cancelar1.setVisible(false);
+        cancelar2.setVisible(false);
+        cancelar3.setVisible(false);
+        cancelar4.setVisible(false);
+        cancelar5.setVisible(false);
+        cancelar6.setVisible(false);
+        cancelar7.setVisible(false);
 
         String folio = lbfolio.getText();
         
@@ -627,18 +636,21 @@ public class ordencamisa extends javax.swing.JFrame {
                         btnpechoizquierdo.setEnabled(true);
                     } else {
                         btnpechoizquierdo.setEnabled(false);
+                        cancelar4.setVisible(true);
                     }
 
                     if (cantidadpechoderecho.equals("0")) {
                         btnpechoderecho.setEnabled(true);
                     } else {
                         btnpechoderecho.setEnabled(false);
+                        cancelar3.setVisible(true);
                     }
 
                     if (cantidadmangaizquierda.equals("0")) {
                         btnmangaizquierda.setEnabled(true);
                     } else {
                         btnmangaizquierda.setEnabled(false);
+                        cancelar2.setVisible(true);
                     }
 
                     if (cantidadmangaderecha.equals("0")) {
@@ -646,6 +658,7 @@ public class ordencamisa extends javax.swing.JFrame {
 
                     } else {
                         btnmangaderecha.setEnabled(false);
+                        cancelar1.setVisible(true);
                     }
 
                     if (cantidadespalda.equals("0")) {
@@ -653,9 +666,10 @@ public class ordencamisa extends javax.swing.JFrame {
 
                     } else {
                         btnespalda.setEnabled(false);
+                        cancelar5.setVisible(true);
                     }
 
-                
+                    
 
 
             }
@@ -961,13 +975,17 @@ public class ordencamisa extends javax.swing.JFrame {
         }
         else
         {
-            btnmangaderecha.setEnabled(false);
+          /*  btnmangaderecha.setEnabled(false);
             btnmangaizquierda.setEnabled(false);
             btnpechoderecho.setEnabled(false);
             btnpechoizquierdo.setEnabled(false);
             btnespalda.setEnabled(false);
             btnotraubicacion.setEnabled(false);
             btnotraubicacion2.setEnabled(false);
+         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
+
+            */
+            
             
             ordencamisaimagencontorno p = new ordencamisaimagencontorno();
             jPanel1.add(p);
@@ -975,8 +993,6 @@ public class ordencamisa extends javax.swing.JFrame {
             lblImagen.setVisible(false);
             btnverfotomontaje.setEnabled(false);
             btnagregarfotomontaje.setEnabled(true);
-
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
 
             
             
@@ -2008,7 +2024,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 String otraubicacion2 = rs.getString("otra_ubicacion2");
 
                 
-                if(pechoizquierdo==null || pechoizquierdo.equals("")||pechoizquierdo.equals(" ") )
+                if(pechoizquierdo==null || pechoizquierdo.equals("")||pechoizquierdo.equals(" ")||pechoizquierdo.equals("ninguno") )
                 {
                     
                     
@@ -2019,7 +2035,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 } 
                 
                 
-                if(pechoderecho==null || pechoderecho.equals("")||pechoderecho.equals(" ") )
+                if(pechoderecho==null || pechoderecho.equals("")||pechoderecho.equals(" ")||pechoderecho.equals("ninguno") )
                 {
                     
                     
@@ -2029,7 +2045,7 @@ public class ordencamisa extends javax.swing.JFrame {
                    botonesactivados = botonesactivados + 1; 
                 }
                 
-                if(mangaderecha==null || mangaderecha.equals("")||mangaderecha.equals(" ") )
+                if(mangaderecha==null || mangaderecha.equals("")||mangaderecha.equals(" ")||mangaderecha.equals("ninguno") )
                 {
                     
                     
@@ -2039,7 +2055,7 @@ public class ordencamisa extends javax.swing.JFrame {
                    botonesactivados = botonesactivados + 1; 
                 }
                 
-                if(mangaizquierda==null || mangaizquierda.equals("")||mangaizquierda.equals(" ") )
+                if(mangaizquierda==null || mangaizquierda.equals("")||mangaizquierda.equals(" ")||mangaizquierda.equals("ninguno") )
                 {
                     
                     
@@ -2049,7 +2065,7 @@ public class ordencamisa extends javax.swing.JFrame {
                    botonesactivados = botonesactivados + 1; 
                 }
                 
-                if(espalda==null || espalda.equals("")||espalda.equals(" ") )
+                if(espalda==null || espalda.equals("")||espalda.equals(" ")||espalda.equals("ninguno") )
                 {
                     
                     
@@ -2060,7 +2076,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 }
             
                 
-                if(otraubicacion==null || otraubicacion.equals("")||otraubicacion.equals(" ") )
+                if(otraubicacion==null || otraubicacion.equals("")||otraubicacion.equals(" ")||otraubicacion.equals("ninguno") )
                 {
                     
                     
@@ -2070,7 +2086,7 @@ public class ordencamisa extends javax.swing.JFrame {
                    botonesactivados = botonesactivados + 1; 
                 }
             
-           if(otraubicacion2==null || otraubicacion2.equals("")||otraubicacion2.equals(" ") )
+           if(otraubicacion2==null || otraubicacion2.equals("")||otraubicacion2.equals(" ")||otraubicacion2.equals("ninguno") )
                 {
                     
                     
@@ -2161,7 +2177,7 @@ public class ordencamisa extends javax.swing.JFrame {
            {
                try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set estatus_orden='realizada' where numero='" + lbfolio.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada' where numero='" + lbfolio.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -3477,8 +3493,8 @@ public class ordencamisa extends javax.swing.JFrame {
            String nombrebordado =pechoizquierdonombre;
            String cantidadaplicacion = aplicacionpechoizquierdo;
            String cantidad = lbcantidad.getText();
-           nombredelatabla = "historial_ordenes_camisa";
-           actualizarlascantidadesbordadas((String) ubicacion);  
+           nombredelatabla = "historial_ordenes_camisa_recibidas";
+           actualizarlascantidadesbordadasotrasucursal((String) ubicacion);  
            
            if (prenda.toUpperCase().equals("CAMISA")) {
 
@@ -3687,7 +3703,8 @@ public class ordencamisa extends javax.swing.JFrame {
             String nombrebordado = pechoderechonombre;
             String cantidadaplicacion = aplicacionpechoderecho;
             String cantidad = lbcantidad.getText();
-            actualizarlascantidadesbordadas((String) ubicacion);
+            nombredelatabla = "historial_ordenes_camisa_recibidas";
+            actualizarlascantidadesbordadasotrasucursal((String) ubicacion);
 
             if (prenda.toUpperCase().equals("CAMISA")) {
 
@@ -4693,17 +4710,17 @@ public class ordencamisa extends javax.swing.JFrame {
      if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
 
-           String ubicacion = "cantidad_manga_derecha";           
-           String nombrebordado =mangaderechanombre;
-           String cantidadaplicacion = aplicacionmangaderecha;
-           String cantidad = lbcantidad.getText();
-           nombredelatabla = "historial_ordenes_camisa";
-           actualizarlascantidadesbordadascancelar((String) ubicacion); 
-           queubicacionvaainsertar((String)nombrebordado);
-       agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-       agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad) ;
-       estacompletalaorden();
-       sumapuntos();     
+            String ubicacion = "cantidad_manga_derecha";
+            String nombrebordado = mangaderechanombre;
+            String cantidadaplicacion = aplicacionmangaderecha;
+            String cantidad = lbcantidad.getText();
+            nombredelatabla = "historial_ordenes_camisa";
+            actualizarlascantidadesbordadascancelar((String) ubicacion);
+            queubicacionvaainsertar((String) nombrebordado);
+            agregarexistenciabordadoscancelar((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad);
+            estacompletalaorden();
+            sumapuntos();
             
         }
         

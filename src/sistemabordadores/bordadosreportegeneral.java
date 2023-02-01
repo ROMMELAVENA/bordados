@@ -3341,7 +3341,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 + "cantidad_manga_derecha,manga_derecha_nombre,manga_derecha,"
                 + "cantidad_espalda,espalda_nombre,espalda,"
                 + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,"
-                + "otra_ubicacion,cantidad_otra_ubicacion,otra_ubicacion2,cantidad_otra_ubicacion2 from historial_ordenes_camisa where estatus_orden = 'realizada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
+                + "otra_ubicacion,cantidad_otra_ubicacion,otra_ubicacion2,cantidad_otra_ubicacion2 from historial_ordenes_camisa where (estatus_orden = 'realizada' or estatus_orden = 'generada') and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -3623,7 +3623,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         }
 
         ///////// CAMISAS RECIBIDAS
-        String sqlcamisasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho,manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha,espalda_nombre,espalda,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion from historial_ordenes_camisa_recibidas where estatus_orden = 'realizada' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlcamisasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho,manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha,espalda_nombre,espalda,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion from historial_ordenes_camisa_recibidas where (estatus_orden = 'realizada' or estatus_orden = 'generada') and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();

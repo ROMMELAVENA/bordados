@@ -2938,7 +2938,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select fecha,cantidad_total,prenda,numero_venta from historial_ordenes_portanombres_multiple and estatus_orden not in ('cancelada') where fecha = '" + fechabusqueda + "'  order by numero ";
+        String sql = "Select fecha,cantidad_total,prenda,numero_venta from historial_ordenes_portanombres_multiple where estatus_orden not in ('cancelada') and fecha = '" + fechabusqueda + "'  order by numero ";
 
         int ultimafila = 0;
 

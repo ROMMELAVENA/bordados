@@ -58,73 +58,86 @@ public class ordenesrealizadas extends javax.swing.JFrame {
     }
     
     
-    void fechas()
+     void fechas()
     {
     
         Calendar now = Calendar.getInstance();
         int año = now.get(Calendar.YEAR);
         int mes = now.get(Calendar.MONTH) + 1 ;
+        cbaño.setSelectedItem(String.valueOf(año));
         
         
                if(mes ==1)
                {
                    fechainicial = ""+año+"-01-01";
-                   fechafinal = ""+año+"-01-31";      
+                   fechafinal = ""+año+"-01-31";   
+                   cbmes.setSelectedItem("Enero");
                }
                else if(mes ==2)
                {
                    fechainicial = ""+año+"-02-01";
-                   fechafinal = ""+año+"-02-29";       
+                   fechafinal = ""+año+"-02-29";  
+                   cbmes.setSelectedItem("Febrero");
                }
                else if(mes ==3)
                {
                    fechainicial = ""+año+"-03-01";  
-                   fechafinal = ""+año+"-03-31";       
+                   fechafinal = ""+año+"-03-31";  
+                   cbmes.setSelectedItem("Marzo");
                }
                else if(mes ==4)
                {
                    fechainicial = ""+año+"-04-01";
-                   fechafinal = ""+año+"-04-30";     
+                   fechafinal = ""+año+"-04-30"; 
+                   cbmes.setSelectedItem("Abril");
                }
                else if(mes ==5)
                {
                    fechainicial = ""+año+"-05-01";  
-                   fechafinal = ""+año+"-05-31";         
+                   fechafinal = ""+año+"-05-31"; 
+                   cbmes.setSelectedItem("Mayo");
                }
                else if(mes ==6)
                {
                    fechainicial = ""+año+"-06-01";  
-                   fechafinal = ""+año+"-06-30";         
+                   fechafinal = ""+año+"-06-30"; 
+                   cbmes.setSelectedItem("Junio");
                }
                else if(mes ==7)
                {
                    fechainicial = ""+año+"-07-01"; 
-                   fechafinal = ""+año+"-07-31";        
+                   fechafinal = ""+año+"-07-31"; 
+                   cbmes.setSelectedItem("Julio");
                }
                else if(mes ==8)
                {
                    fechainicial = ""+año+"-08-01";
-                   fechafinal = ""+año+"-08-31" ;       
+                   fechafinal = ""+año+"-08-31" ;
+                   cbmes.setSelectedItem("Agosto");
                }
                else if(mes ==9)
                {
                    fechainicial = ""+año+"-09-01"; 
-                   fechafinal = ""+año+"-09-30";       
+                   fechafinal = ""+año+"-09-30";  
+                   cbmes.setSelectedItem("Septiembre");
                }
                else if(mes ==10)
                {
                    fechainicial = ""+año+"-10-01"; 
-                   fechafinal = ""+año+"-10-31";      
+                   fechafinal = ""+año+"-10-31"; 
+                   cbmes.setSelectedItem("Octubre");
                }
                else if(mes ==11)
                {
                    fechainicial = ""+año+"-11-01"; 
-                   fechafinal = ""+año+"-11-30";        
+                   fechafinal = ""+año+"-11-30";  
+                   cbmes.setSelectedItem("Noviembre");
                }
                else if(mes ==12)
                {
                    fechainicial = ""+año+"-12-01"; 
-                   fechafinal = ""+año+"-12-31";        
+                   fechafinal = ""+año+"-12-31"; 
+                   cbmes.setSelectedItem("Diciembre");
                }
                
         
@@ -1031,7 +1044,80 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         }
 }
     
-    
+    void datoscombos()
+     {
+         Object mescombo = cbmes.getSelectedItem();
+        Object año = cbaño.getSelectedItem();
+        
+          if(mescombo.equals("Enero"))
+               {
+                   fechainicial = ""+año+"-01-01";
+                   fechafinal = ""+año+"-01-31";      
+               }
+               else if(mescombo.equals("Febrero"))
+               {
+                   fechainicial = ""+año+"-02-01";
+                   fechafinal = ""+año+"-02-29";       
+               }
+               else if(mescombo.equals("Marzo"))
+               {
+                   fechainicial = ""+año+"-03-01";  
+                   fechafinal = ""+año+"-03-31";       
+               }
+               else if(mescombo.equals("Abril"))
+               {
+                   fechainicial = ""+año+"-04-01";
+                   fechafinal = ""+año+"-04-30";     
+               }
+               else if(mescombo.equals("Mayo"))
+               {
+                   fechainicial = ""+año+"-05-01";  
+                   fechafinal = ""+año+"-05-31";         
+               }
+               else if(mescombo.equals("Junio"))
+               {
+                   fechainicial = ""+año+"-06-01";  
+                   fechafinal = ""+año+"-06-30";         
+               }
+               else if(mescombo.equals("Julio"))
+               {
+                   fechainicial = ""+año+"-07-01"; 
+                   fechafinal = ""+año+"-07-31";        
+               }
+               else if(mescombo.equals("Agosto"))
+               {
+                   fechainicial = ""+año+"-08-01";
+                   fechafinal = ""+año+"-08-31" ;       
+               }
+               else if(mescombo.equals("Septiembre"))
+               {
+                   fechainicial = ""+año+"-09-01"; 
+                   fechafinal = ""+año+"-09-30";       
+               }
+               else if(mescombo.equals("Octubre"))
+               {
+                   fechainicial = ""+año+"-10-01"; 
+                   fechafinal = ""+año+"-10-31";      
+               }
+               else if(mescombo.equals("Noviembre"))
+               {
+                   fechainicial = ""+año+"-11-01"; 
+                   fechafinal = ""+año+"-11-30";        
+               }
+               else if(mescombo.equals("Diciembre"))
+               {
+                   fechainicial = ""+año+"-12-01"; 
+                   fechafinal = ""+año+"-12-31";        
+               }
+          
+          
+             
+       
+           datos(); 
+        
+        
+         
+     }
     
 
     @SuppressWarnings("unchecked")
@@ -1046,6 +1132,10 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         lbtienda = new javax.swing.JLabel();
         btnactualizar = new javax.swing.JButton();
         btnfrente = new javax.swing.JButton();
+        cbmes = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        cbaño = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ordenes bordado por realizar");
@@ -1147,6 +1237,44 @@ public class ordenesrealizadas extends javax.swing.JFrame {
             }
         });
 
+        cbmes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        cbmes.setSelectedIndex(-1);
+        cbmes.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                cbmesPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                cbmesPopupMenuWillBecomeVisible(evt);
+            }
+        });
+        cbmes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbmesActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("Mes");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setText("Año");
+
+        cbaño.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cbaño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030" }));
+        cbaño.setSelectedIndex(-1);
+        cbaño.setToolTipText("");
+        cbaño.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                cbañoPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1155,8 +1283,16 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel10)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbaño, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1178, Short.MAX_VALUE)
                         .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1172,10 +1308,20 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbnumero)
-                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lbnumero)
+                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cbaño, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(16, 16, 16)))
                 .addGap(5, 5, 5)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 876, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1412,6 +1558,25 @@ public class ordenesrealizadas extends javax.swing.JFrame {
             btnactualizar.doClick();
         }
     }//GEN-LAST:event_formKeyPressed
+
+    private void cbmesPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbmesPopupMenuWillBecomeInvisible
+
+        datoscombos();
+
+    }//GEN-LAST:event_cbmesPopupMenuWillBecomeInvisible
+
+    private void cbmesPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbmesPopupMenuWillBecomeVisible
+
+    }//GEN-LAST:event_cbmesPopupMenuWillBecomeVisible
+
+    private void cbmesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbmesActionPerformed
+
+    private void cbañoPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbañoPopupMenuWillBecomeInvisible
+
+        datoscombos();
+    }//GEN-LAST:event_cbañoPopupMenuWillBecomeInvisible
 
     /**
      * @param args the command line arguments
@@ -1963,6 +2128,10 @@ public class ordenesrealizadas extends javax.swing.JFrame {
     public static javax.swing.JButton btnactualizar;
     public static javax.swing.JButton btnfrente;
     private javax.swing.JButton btnsalir;
+    private javax.swing.JComboBox<String> cbaño;
+    private javax.swing.JComboBox<String> cbmes;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel lbinterface;
     public static javax.swing.JLabel lbnumero;

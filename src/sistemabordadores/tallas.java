@@ -951,122 +951,122 @@ public class tallas extends javax.swing.JFrame {
         lbtitulo1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lbtitulo1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbtitulotalla.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtitulotalla.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtitulotalla.setText("Talla");
         lbtitulotalla.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtitulotalla.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtitulotalla.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtitulocantidad.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbtitulocantidad.setText("Cantidad");
+        lbtitulocantidad.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbtitulocantidad.setText("Cant.");
         lbtitulocantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbtalla11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla11.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla11.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla11.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla12.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla12.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla12.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla13.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla13.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla13.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla14.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla14.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla14.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla15.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla15.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla16.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla16.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla16.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla17.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla17.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla17.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad11.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad11.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad11.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad12.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad12.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad12.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad13.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad13.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad13.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad14.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad14.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad14.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad15.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad15.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad16.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad16.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad16.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad17.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad17.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad17.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla24.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla24.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla24.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla24.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla23.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla23.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla23.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla21.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla21.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla21.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad25.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad25.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad25.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad25.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtitulocantidad2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbtitulocantidad2.setText("Cantidad");
+        lbtitulocantidad2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbtitulocantidad2.setText("Cant.");
         lbtitulocantidad2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcantidad24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad24.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad24.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad24.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad24.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtitulotalla2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtitulotalla2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtitulotalla2.setText("Talla");
         lbtitulotalla2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtitulotalla2.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtitulotalla2.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad23.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad23.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad23.setPreferredSize(new java.awt.Dimension(24, 18));
@@ -1074,42 +1074,42 @@ public class tallas extends javax.swing.JFrame {
         lbtitulo2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbtitulo2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcantidad21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad21.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad21.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad21.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad22.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad22.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad22.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad22.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla27.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla27.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla27.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla27.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla26.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla26.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla26.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla26.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla25.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla25.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla25.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla25.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad27.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad27.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad27.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad27.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla22.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla22.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla22.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla22.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad26.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad26.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad26.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad26.setPreferredSize(new java.awt.Dimension(24, 18));
@@ -1117,127 +1117,127 @@ public class tallas extends javax.swing.JFrame {
         lbtitulo3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbtitulo3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcantidad34.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad34.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad34.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad34.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad34.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtitulocantidad3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbtitulocantidad3.setText("Cantidad");
+        lbtitulocantidad3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbtitulocantidad3.setText("Cant.");
         lbtitulocantidad3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcantidad35.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad35.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad35.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad35.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad35.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla31.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla31.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla31.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla31.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla33.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla33.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla33.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla33.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla34.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla34.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla34.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla34.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla34.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad33.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad33.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad33.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad33.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtitulotalla3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtitulotalla3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtitulotalla3.setText("Talla");
         lbtitulotalla3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtitulotalla3.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtitulotalla3.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad36.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad36.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad36.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad36.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad36.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla32.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla32.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla32.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla32.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla32.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad37.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad37.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad37.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad37.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad37.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla35.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla35.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla35.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla35.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla35.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla36.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla36.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla36.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla36.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla36.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla37.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla37.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla37.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla37.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla37.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad32.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad32.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad32.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad32.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad32.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad31.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad31.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad31.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad31.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad46.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad46.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad46.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad46.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad46.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtitulotalla4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtitulotalla4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtitulotalla4.setText("Talla");
         lbtitulotalla4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtitulotalla4.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtitulotalla4.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad43.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad43.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad43.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad43.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad43.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla44.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla44.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla44.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla44.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla44.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla43.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla43.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla43.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla43.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla43.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla41.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla41.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla41.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla41.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla41.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad45.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad45.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad45.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad45.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad45.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtitulocantidad4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbtitulocantidad4.setText("Cantidad");
+        lbtitulocantidad4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbtitulocantidad4.setText("Cant.");
         lbtitulocantidad4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcantidad44.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad44.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad44.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad44.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad44.setPreferredSize(new java.awt.Dimension(24, 18));
@@ -1245,83 +1245,83 @@ public class tallas extends javax.swing.JFrame {
         lbtitulo4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbtitulo4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcantidad41.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad41.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad41.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad41.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad41.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad42.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad42.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad42.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad42.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad42.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla47.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla47.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla47.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla47.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla47.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla46.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla46.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla46.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla46.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla46.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla45.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla45.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla45.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla45.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla45.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad47.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad47.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad47.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad47.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad47.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla42.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla42.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla42.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla42.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla42.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla54.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla54.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla54.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla54.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla54.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad53.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad53.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad53.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad53.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad53.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtitulotalla5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtitulotalla5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtitulotalla5.setText("Talla");
         lbtitulotalla5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtitulotalla5.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtitulotalla5.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad56.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad56.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad56.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad56.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad56.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla55.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla55.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla55.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla55.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla55.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla56.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla56.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla56.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla56.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla56.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla57.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla57.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla57.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla57.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla57.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad52.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad52.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad52.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad52.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad52.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad51.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad51.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad51.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad51.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad51.setPreferredSize(new java.awt.Dimension(24, 18));
@@ -1329,67 +1329,67 @@ public class tallas extends javax.swing.JFrame {
         lbtitulo5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbtitulo5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcantidad54.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad54.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad54.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad54.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad54.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtitulocantidad5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbtitulocantidad5.setText("Cantidad");
+        lbtitulocantidad5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbtitulocantidad5.setText("Cant.");
         lbtitulocantidad5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcantidad55.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad55.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad55.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad55.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad55.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla51.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla51.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla51.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla51.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla51.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla53.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla53.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla53.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla53.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla53.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla52.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla52.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla52.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla52.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla52.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad57.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad57.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad57.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad57.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad57.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla66.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla66.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla66.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla66.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla66.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla65.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla65.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla65.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla65.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla65.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad66.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad66.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad66.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad66.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad66.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtitulotalla6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtitulotalla6.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtitulotalla6.setText("Talla");
         lbtitulotalla6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtitulotalla6.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtitulotalla6.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad63.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad63.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad63.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad63.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad63.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad64.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad64.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad64.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad64.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad64.setPreferredSize(new java.awt.Dimension(24, 18));
@@ -1397,51 +1397,51 @@ public class tallas extends javax.swing.JFrame {
         lbtitulo6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbtitulo6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcantidad61.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad61.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad61.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad61.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad61.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad62.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad62.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad62.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad62.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad62.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla67.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla67.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla67.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla67.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla67.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad67.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad67.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad67.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad67.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad67.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla62.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla62.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla62.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla62.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla62.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla63.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla63.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla63.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla63.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla63.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtalla61.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla61.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla61.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla61.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla61.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbcantidad65.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcantidad65.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbcantidad65.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbcantidad65.setMaximumSize(new java.awt.Dimension(24, 18));
         lbcantidad65.setPreferredSize(new java.awt.Dimension(24, 18));
 
-        lbtitulocantidad6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbtitulocantidad6.setText("Cantidad");
+        lbtitulocantidad6.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbtitulocantidad6.setText("Cant.");
         lbtitulocantidad6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbtalla64.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbtalla64.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbtalla64.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbtalla64.setMaximumSize(new java.awt.Dimension(24, 18));
         lbtalla64.setPreferredSize(new java.awt.Dimension(24, 18));
@@ -1495,81 +1495,186 @@ public class tallas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbtitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbtitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(lbtitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbtitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbtitulo4, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(lbtitulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                        .addComponent(lbtitulo6, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbtitulotalla, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(lbtitulocantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbtalla17, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(lbcantidad17, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lbtalla16, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(lbcantidad16, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbtalla15, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(lbcantidad15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbtalla14, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(lbcantidad14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbtalla13, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(lbcantidad13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbtalla12, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(lbcantidad12, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbtalla11, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(lbcantidad11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbtitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbtalla17, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(lbcantidad17, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(lbtalla27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbtalla16, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(lbcantidad16, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(lbtalla26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbtalla15, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(lbcantidad15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(lbtalla25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbtalla14, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(lbcantidad14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(lbtalla24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbtalla13, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(lbcantidad13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(lbtalla23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbtalla12, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(lbcantidad12, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(lbtalla22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbtalla11, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(lbcantidad11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(lbtalla21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbtitulotalla, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(lbtitulocantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(lbtitulotalla2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lbtalla27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbtalla26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbtalla25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbtalla24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbtalla23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbtalla22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbtalla21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbtitulotalla2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbtitulocantidad2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbcantidad21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbcantidad22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbcantidad23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbcantidad24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbcantidad25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbcantidad26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbcantidad27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbtitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lbtitulotalla3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbtitulocantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla31, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad31, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla32, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad32, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla33, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad33, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla34, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad34, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla35, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad35, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla36, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad36, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla37, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad37, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbtitulo4, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lbtitulotalla4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbtitulocantidad4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla41, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad41, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla42, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad42, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla43, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad43, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla44, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad44, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla45, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad45, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla46, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad46, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla47, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad47, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(76, 76, 76)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbtitulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lbtitulotalla5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbtitulocantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla51, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad51, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla52, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad52, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla53, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad53, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla54, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad54, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla55, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad55, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla56, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad56, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbtalla57, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(lbcantidad57, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(75, 75, 75)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbtitulo6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1578,149 +1683,40 @@ public class tallas extends javax.swing.JFrame {
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(lbtitulocantidad2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(6, 6, 6)
-                                                        .addComponent(lbtitulotalla3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(10, 10, 10)
-                                                        .addComponent(lbtitulocantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(6, 6, 6)
-                                                        .addComponent(lbtitulotalla4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(10, 10, 10)
-                                                        .addComponent(lbtitulocantidad4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(10, 10, 10)
-                                                        .addComponent(lbtitulotalla5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(10, 10, 10)
-                                                        .addComponent(lbtitulocantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(6, 6, 6)
                                                         .addComponent(lbtitulotalla6, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(10, 10, 10)
                                                         .addComponent(lbtitulocantidad6, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                        .addComponent(lbcantidad21, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(6, 6, 6)
-                                                        .addComponent(lbtalla31, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(10, 10, 10)
-                                                        .addComponent(lbcantidad31, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(6, 6, 6)
-                                                        .addComponent(lbtalla41, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(10, 10, 10)
-                                                        .addComponent(lbcantidad41, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(10, 10, 10)
-                                                        .addComponent(lbtalla51, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(10, 10, 10)
-                                                        .addComponent(lbcantidad51, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(6, 6, 6)
                                                         .addComponent(lbtalla61, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(10, 10, 10)
                                                         .addComponent(lbcantidad61, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                    .addComponent(lbcantidad22, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(6, 6, 6)
-                                                    .addComponent(lbtalla32, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(10, 10, 10)
-                                                    .addComponent(lbcantidad32, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(6, 6, 6)
-                                                    .addComponent(lbtalla42, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(10, 10, 10)
-                                                    .addComponent(lbcantidad42, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(10, 10, 10)
-                                                    .addComponent(lbtalla52, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(10, 10, 10)
-                                                    .addComponent(lbcantidad52, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(6, 6, 6)
                                                     .addComponent(lbtalla62, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGap(10, 10, 10)
                                                     .addComponent(lbcantidad62, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(lbcantidad23, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(lbtalla33, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(lbcantidad33, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(lbtalla43, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(lbcantidad43, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(lbtalla53, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(lbcantidad53, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
                                                 .addComponent(lbtalla63, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(10, 10, 10)
                                                 .addComponent(lbcantidad63, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(lbcantidad24, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(6, 6, 6)
-                                            .addComponent(lbtalla34, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(10, 10, 10)
-                                            .addComponent(lbcantidad34, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(6, 6, 6)
-                                            .addComponent(lbtalla44, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(10, 10, 10)
-                                            .addComponent(lbcantidad44, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(10, 10, 10)
-                                            .addComponent(lbtalla54, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(10, 10, 10)
-                                            .addComponent(lbcantidad54, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(6, 6, 6)
                                             .addComponent(lbtalla64, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(10, 10, 10)
                                             .addComponent(lbcantidad64, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(lbcantidad25, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(lbtalla35, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(lbcantidad35, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(lbtalla45, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(lbcantidad45, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(lbtalla55, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(lbcantidad55, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
                                         .addComponent(lbtalla65, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(10, 10, 10)
                                         .addComponent(lbcantidad65, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(lbcantidad26, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(6, 6, 6)
-                                    .addComponent(lbtalla36, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(lbcantidad36, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(6, 6, 6)
-                                    .addComponent(lbtalla46, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(lbcantidad46, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(lbtalla56, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(lbcantidad56, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(6, 6, 6)
                                     .addComponent(lbtalla66, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(10, 10, 10)
                                     .addComponent(lbcantidad66, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lbcantidad27, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(lbtalla37, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(lbcantidad37, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(lbtalla47, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(lbcantidad47, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(lbtalla57, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(lbcantidad57, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
                                 .addComponent(lbtalla67, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
-                                .addComponent(lbcantidad67, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(lbcantidad67, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(2, 2, 2)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(4, 4, 4))
         );
         layout.setVerticalGroup(
@@ -1736,116 +1732,116 @@ public class tallas extends javax.swing.JFrame {
                     .addComponent(lbtitulo6, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbtitulotalla, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtitulocantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtitulotalla2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtitulocantidad2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtitulotalla3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtitulocantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtitulotalla4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtitulocantidad4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtitulotalla5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtitulocantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtitulotalla6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtitulocantidad6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbtitulotalla, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtitulocantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtitulotalla2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtitulocantidad2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtitulotalla3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtitulocantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtitulotalla4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtitulocantidad4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtitulotalla5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtitulocantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtitulotalla6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtitulocantidad6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbtalla11, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad11, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla21, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad21, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla31, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad31, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla41, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad41, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla51, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad51, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla61, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad61, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbtalla11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla21, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad21, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla31, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad31, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla41, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad41, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla51, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad51, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla61, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad61, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbtalla12, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad12, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla22, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad22, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla32, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad32, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla42, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad42, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla52, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad52, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla62, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad62, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbtalla12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla32, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad32, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla42, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad42, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla52, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad52, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla62, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad62, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbtalla13, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad13, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla23, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad23, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla33, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad33, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla43, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad43, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla53, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad53, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla63, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad63, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbtalla13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla23, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad23, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla33, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad33, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla43, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad43, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla53, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad53, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla63, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad63, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbtalla14, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad14, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla24, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad24, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla34, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad34, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla44, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad44, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla54, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad54, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla64, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad64, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbtalla14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla24, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad24, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla34, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad34, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla44, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad44, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla54, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad54, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla64, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad64, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbtalla15, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad15, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla25, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad25, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla35, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad35, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla45, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad45, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla55, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad55, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla65, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad65, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbtalla15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla25, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad25, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla35, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad35, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla45, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad45, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla55, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad55, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla65, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad65, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbtalla16, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad16, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla26, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad26, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla36, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad36, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla46, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad46, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla56, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad56, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla66, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad66, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbtalla16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla26, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad26, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla36, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad36, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla46, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad46, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla56, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad56, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla66, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad66, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbtalla17, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad17, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla27, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad27, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla37, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad37, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla47, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad47, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla57, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad57, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbtalla67, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad67, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbtalla17, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad17, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla27, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad27, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla37, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad37, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla47, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad47, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla57, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad57, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtalla67, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad67, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)

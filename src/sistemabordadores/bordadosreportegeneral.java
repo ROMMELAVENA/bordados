@@ -1298,9 +1298,75 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 datos[0] = rs.getString("fecha");
                 datos[1] = rs.getString("cliente");
                 datos[2] = rs.getString("cantidad");
+                Object cantidadobject = rs.getString("cantidad");
                 datos[3] = rs.getString("articulo");
+                Object articulo = rs.getString("articulo");
                 datos[63] = rs.getString("numero_venta");
                 
+                ///
+                
+                double importedelponchado = 0.0;
+                String costostring = "0";
+
+            
+            
+            //int cantidad = Integer.parseInt(cantidadobject.toString());
+            String articulobuscar = "";
+            int cantidadponchadoint  =Integer.parseInt(cantidadponchado);
+            
+
+            if (articulo.toString().startsWith("PONCHADO")||articulo.toString().startsWith("MODIFICACION DE PONCHADO")) {
+
+                if (articulo.toString().startsWith("PONCHADO FACIL")||articulo.toString().contains("MODIFICACION DE PONCHADO FACIL")) 
+                {
+                    articulobuscar = "PONCHADO FACIL";
+                } else if (articulo.toString().startsWith("PONCHADO MEDIO")||articulo.toString().contains("MODIFICACION DE PONCHADO MEDIO")) {
+                    articulobuscar = "PONCHADO MEDIO";
+                } else if (articulo.toString().startsWith("PONCHADO DIFICIL")||articulo.toString().contains("MODIFICACION DE PONCHADO DIFICIL")) {
+                    articulobuscar = "PONCHADO DIFICIL";
+                }
+                else if (articulo.toString().startsWith("PONCHADO EXTRA DIFICIL")||articulo.toString().contains("MODIFICACION DE PONCHADO EXTRA DIFICIL")) {
+                        articulobuscar = "PONCHADO EXTRA DIFICIL";
+                    }
+
+                datos[5] =articulobuscar;
+
+                double costodelponchado = 0.0;
+
+                String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + articulobuscar + "'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql1);
+                    ResultSet rs2 = prst.executeQuery();
+                    if (rs2.next()) {
+
+                        costostring = rs2.getString("costo");
+                        costodelponchado = Double.parseDouble(costostring);
+
+                    }
+                } catch (Exception exx) {
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                String costopuntadaponchadostring = String.format("%.02f ", costodelponchado);
+        
+                datos[6] =costopuntadaponchadostring;
+
+                double importeponchado = cantidadponchadoint * costodelponchado;
+
+                double sumabordados = importeponchado;
+                String sumabordadosstring = String.format("%.02f ", sumabordados);
+                if(sumabordadosstring.equals("3.30"))
+                {
+                    int a = 0;
+                }
+                datos[62] =sumabordadosstring;
+
+            }
+                
+                
+               /// 
                 modelo2.addRow(datos);
             }
 
@@ -1309,7 +1375,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             System.out.println(ex);
         }
 
-        calcularcostoponchados();
+        //calcularcostoponchados();gfgdfg
 
     }
 
@@ -1356,8 +1422,74 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 datos[0] = rs.getString("fecha");
                 datos[1] = rs.getString("nombre_cliente");
                 datos[2] = rs.getString("cantidad");
+                 Object cantidadobject = rs.getString("cantidad");
                 datos[3] = rs.getString("articulo");
+                Object articulo = rs.getString("articulo");
                 datos[63] = rs.getString("numero");
+                
+                //
+                
+                double importedelponchado = 0.0;
+                String costostring = "0";
+
+            
+            
+            //int cantidad = Integer.parseInt(cantidadobject.toString());
+            String articulobuscar = "";
+            int cantidadponchadoint  =Integer.parseInt(cantidadponchado);
+            
+
+            if (articulo.toString().startsWith("PONCHADO")||articulo.toString().startsWith("MODIFICACION DE PONCHADO")) {
+
+                if (articulo.toString().startsWith("PONCHADO FACIL")||articulo.toString().contains("MODIFICACION DE PONCHADO FACIL")) 
+                {
+                    articulobuscar = "PONCHADO FACIL";
+                } else if (articulo.toString().startsWith("PONCHADO MEDIO")||articulo.toString().contains("MODIFICACION DE PONCHADO MEDIO")) {
+                    articulobuscar = "PONCHADO MEDIO";
+                } else if (articulo.toString().startsWith("PONCHADO DIFICIL")||articulo.toString().contains("MODIFICACION DE PONCHADO DIFICIL")) {
+                    articulobuscar = "PONCHADO DIFICIL";
+                }
+                else if (articulo.toString().startsWith("PONCHADO EXTRA DIFICIL")||articulo.toString().contains("MODIFICACION DE PONCHADO EXTRA DIFICIL")) {
+                        articulobuscar = "PONCHADO EXTRA DIFICIL";
+                    }
+
+                datos[5] =articulobuscar;
+
+                double costodelponchado = 0.0;
+
+                String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + articulobuscar + "'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql1);
+                    ResultSet rs2 = prst.executeQuery();
+                    if (rs2.next()) {
+
+                        costostring = rs2.getString("costo");
+                        costodelponchado = Double.parseDouble(costostring);
+
+                    }
+                } catch (Exception exx) {
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                String costopuntadaponchadostring = String.format("%.02f ", costodelponchado);
+        
+                datos[6] =costopuntadaponchadostring;
+
+                double importeponchado = cantidadponchadoint * costodelponchado;
+
+                double sumabordados = importeponchado;
+                String sumabordadosstring = String.format("%.02f ", sumabordados);
+                if(sumabordadosstring.equals("3.30"))
+                {
+                    int a = 0;
+                }
+                datos[62] =sumabordadosstring;
+
+            }
+                
+                //
                 modelo2.addRow(datos);
             }
 
@@ -1366,7 +1498,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             System.out.println(ex);
         }
 
-        calcularcostoponchados();
+        
 
     }
     

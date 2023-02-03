@@ -2223,6 +2223,9 @@ public static String dia() {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         } 
         
+         
+        btnreplicar.setEnabled(false);
+         
     }   
         
      // sumapuntos();
@@ -2601,74 +2604,7 @@ public static String dia() {
 
     private void btnverfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverfotomontajeActionPerformed
 
-        /*
-        String cliente = lbcliente.getText();
-        String tipo = lbprenda.getText();
-        String prenda =lbprenda.getText().toUpperCase();
-        String nombreconcepto =lbnombreconcepto.getText();
-        String prendafotomontaje = "";
-        String nombreprendafotomontaje = "";
-        String rutadelarchivo = "";
-        String existe = "";
-
-        //// prenda del fotomontaje
-        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_prenda= '"+nombreconcepto+"' and tipo = '"+prenda+"'   ";
-
-        try {
-            Statement st1 = cn.createStatement();
-            ResultSet rs1 = st1.executeQuery(sql);
-            if (rs1.next())
-            {
-                Object camisa1 = rs1.getString("imagen");
-                if (camisa1 == null||camisa1.equals("")||camisa1.equals(" "))
-                {
-                    existe = "no";
-
-                } else
-
-                {
-                    String nombredelarchivo = rs1.getString("extension_imagen");
-                    if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
-                    {
-
-                        rutadelarchivo = "C:\\archivospdf\\fotomontaje."+nombredelarchivo+" ";
-
-                    }
-                    else
-                    {
-
-                        nombredelarchivo = nombredelarchivo.replace(" ","");
-                        rutadelarchivo = "C:\\archivospdf\\"+nombredelarchivo+" ";
-
-                    }
-                    existe = "si";
-                    File file = new File(rutadelarchivo);
-                    FileOutputStream output = new FileOutputStream(file);
-                    Blob archivo = rs1.getBlob("imagen");
-                    InputStream inStream = archivo.getBinaryStream();
-                    int length = -1;
-                    int size = (int) archivo.length();
-                    byte[] buffer = new byte[size];
-                    while ((length = inStream.read(buffer)) != -1) {
-                        output.write(buffer, 0, length);
-                    }
-
-                    output.close();
-                }
-            }
-            rs1.close();
-
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex);
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
-
-        if (existe.equals("si"))
-        {
-            String fileLocal = new String(rutadelarchivo);
+            String fileLocal = new String(rutaimagen);
             try {
 
                 File path = new File(fileLocal);
@@ -2682,9 +2618,9 @@ public static String dia() {
                 System.out.println(e);
             }
 
-        }
         
-        */
+        
+        
     }//GEN-LAST:event_btnverfotomontajeActionPerformed
 
     private void btnterminetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnterminetodoActionPerformed

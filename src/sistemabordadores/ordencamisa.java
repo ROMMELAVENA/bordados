@@ -197,8 +197,8 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbmangaderecha.setText(rs.getString("manga_derecha"));
                 if (mangaderecha == null | mangaderecha.equals("")) {
 
-                    btnmangaderecha.setVisible(false);
-                    lbcolormangaderecha.setVisible(false);
+                    btnmangaderecha.setEnabled(false);
+                    
 
                 }
 
@@ -208,8 +208,8 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbmangaizquierda.setText(rs.getString("manga_izquierda"));
                 if (mangaizquierda == null | mangaizquierda.equals("")) {
 
-                    btnmangaizquierda.setVisible(false);
-                    lbcolormangaizquierda.setVisible(false);
+                    btnmangaizquierda.setEnabled(false);
+                    
 
                 }
 
@@ -219,8 +219,8 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbpechoderecho.setText(rs.getString("pecho_derecho"));
                 if (pechoderecho == null | pechoderecho.equals("")) {
 
-                    btnpechoderecho.setVisible(false);
-                    lbcolorpechoderecho.setVisible(false);
+                    btnpechoderecho.setEnabled(false);
+                   
 
                 }
 
@@ -230,9 +230,8 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbpechoizquierdo.setText(rs.getString("pecho_izquierdo"));
                 if (pechoizquierdo == null | pechoizquierdo.equals("")) {
 
-                    btnpechoizquierdo.setVisible(false);
-                    lbcolorpechoizquierdo.setVisible(false);
-
+                    btnpechoizquierdo.setEnabled(false);
+                    
                 }
 
                 espaldanombre = rs.getString("espalda_nombre");
@@ -241,8 +240,8 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbespalda.setText(rs.getString("espalda"));
                 if (espalda == null | espalda.equals("")) {
 
-                    btnespalda.setVisible(false);
-                    lbcolorespalda.setVisible(false);
+                    btnespalda.setEnabled(false);
+                    
 
                 }
 
@@ -253,8 +252,8 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbotraubicacion.setText(rs.getString("otra_ubicacion"));
                 if (otraubicacion == null | otraubicacion.equals("")) {
 
-                    btnotraubicacion.setVisible(false);
-                    lbcolorotraubicacion.setVisible(false);
+                    btnotraubicacion.setEnabled(false);
+                    
 
                 }
 
@@ -264,8 +263,8 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbotraubicacion2.setText(rs.getString("otra_ubicacion2"));
                 if (otraubicacion2 == null | otraubicacion2.equals("")) {
 
-                    btnotraubicacion2.setVisible(false);
-                    lbcolorotraubicacion2.setVisible(false);
+                    btnotraubicacion2.setEnabled(false);
+                    
 
                 }
 

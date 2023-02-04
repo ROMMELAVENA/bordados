@@ -7,7 +7,7 @@
 	<subDataset name="dataset1" uuid="ce9108e2-dab4-4ed9-98ba-329d26a6e31c"/>
 	<parameter name="numerodeventa" class="java.lang.String"/>
 	<parameter name="nombrecliente" class="java.lang.String"/>
-	<parameter name="numeroaleatorio" class="java.lang.String"/>
+	<parameter name="identificador" class="java.lang.String"/>
 	<parameter name="prenda" class="java.lang.String"/>
 	<parameter name="titulo" class="java.lang.String"/>
 	<parameter name="talla" class="java.lang.String"/>
@@ -259,6 +259,13 @@
 				</textElement>
 				<text><![CDATA[Identificador]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="54" y="31" width="140" height="12" uuid="2e607f16-85e2-4e0a-8cf6-98750b666b0f"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{identificador}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>

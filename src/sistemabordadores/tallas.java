@@ -781,6 +781,7 @@ public class tallas extends javax.swing.JFrame {
                 parametro.put("prenda", ordencamisa.lbprenda.getText());
                 parametro.put("numerodeventa", ordencamisa.lbnumeroventa.getText());
                 parametro.put("nombrecliente", ordencamisa.lbcliente.getText());
+                parametro.put("identificador", ordencamisa.lbidentificador.getText());
                 
                 parametro.put("titulo", titulo);
                 parametro.put("talla", talla);

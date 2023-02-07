@@ -722,7 +722,7 @@ public class ordencamisa extends javax.swing.JFrame {
         String prendanombresql="";
         btnverfotomontaje.setEnabled(false);
 
-       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_prenda= '"+nombreconcepto+"' and tipo = '"+prenda+"'   ";  ///
+       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+nombreconcepto+"' and tipo = '"+prenda+"'   ";  ///
 
         try {
 
@@ -4646,7 +4646,7 @@ public class ordencamisa extends javax.swing.JFrame {
         String existe = "";
         
         //// prenda del fotomontaje
-        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_prenda= '"+nombreconcepto+"' and tipo = '"+prenda+"'   ";
+        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+nombreconcepto+"' and tipo = '"+prenda+"'   ";
 
         try {
             Statement st1 = cn.createStatement();

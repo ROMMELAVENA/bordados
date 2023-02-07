@@ -353,7 +353,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         BufferedImage img = null;
         btnverfotomontaje.setEnabled(false);
 
-       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_prenda= '"+nombreconcepto+"' and tipo = 'PANTALON'   ";  ///
+       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+nombreconcepto+"' and tipo = 'PANTALON'   ";  ///
 
         try {
 
@@ -1708,9 +1708,8 @@ public class ordenpantalon extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2251,6 +2250,7 @@ public static String dia() {
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+            estacompletalaorden();
             
         }
         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
@@ -2326,6 +2326,7 @@ public static String dia() {
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+            estacompletalaorden();
             
         }
          else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
@@ -2401,7 +2402,7 @@ public static String dia() {
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
-            
+            estacompletalaorden();
         }
         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
@@ -2475,6 +2476,7 @@ public static String dia() {
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+            estacompletalaorden();
             
         }
         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))

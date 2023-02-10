@@ -170,6 +170,15 @@ public class ordencamisa extends javax.swing.JFrame {
         cancelar6.setVisible(false);
         cancelar7.setVisible(false);
         
+        String botonhabilitado1 = "si";
+        String botonhabilitado2 = "si";
+        String botonhabilitado3 = "si";
+        String botonhabilitado4 = "si";
+        String botonhabilitado5 = "si";
+        String botonhabilitado6 = "si";
+        String botonhabilitado7 = "si";
+        
+        
         datostienda();
 
         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
@@ -195,9 +204,11 @@ public class ordencamisa extends javax.swing.JFrame {
                 Object mangaderecha = rs.getString("manga_derecha");
                 lbmangaderechanombre.setText(mangaderechanombre);
                 lbmangaderecha.setText(rs.getString("manga_derecha"));
-                if (mangaderecha == null | mangaderecha.equals("")) {
+                if (mangaderecha == null | mangaderecha.equals("")) 
+                {
 
                     btnmangaderecha.setEnabled(false);
+                    botonhabilitado1 = "no";
                     
 
                 }
@@ -209,7 +220,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (mangaizquierda == null | mangaizquierda.equals("")) {
 
                     btnmangaizquierda.setEnabled(false);
-                    
+                    botonhabilitado2 = "no";
 
                 }
 
@@ -220,7 +231,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (pechoderecho == null | pechoderecho.equals("")) {
 
                     btnpechoderecho.setEnabled(false);
-                   
+                    botonhabilitado3 = "no";
 
                 }
 
@@ -231,6 +242,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (pechoizquierdo == null | pechoizquierdo.equals("")) {
 
                     btnpechoizquierdo.setEnabled(false);
+                    botonhabilitado4 = "no";
                     
                 }
 
@@ -241,6 +253,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (espalda == null | espalda.equals("")) {
 
                     btnespalda.setEnabled(false);
+                    botonhabilitado5 = "no";
                     
 
                 }
@@ -253,7 +266,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (otraubicacion == null | otraubicacion.equals("")) {
 
                     btnotraubicacion.setEnabled(false);
-                    
+                    botonhabilitado6 = "no";
 
                 }
 
@@ -264,6 +277,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (otraubicacion2 == null | otraubicacion2.equals("")) {
 
                     btnotraubicacion2.setEnabled(false);
+                    botonhabilitado7 = "no";
                     
 
                 }
@@ -341,8 +355,12 @@ public class ordencamisa extends javax.swing.JFrame {
                 
                 if(cantidadpechoizquiedo.equals("0"))
                 {
-                   btnpechoizquierdo.setEnabled(true);               
+                   btnpechoizquierdo.setEnabled(true);
+                   if(botonhabilitado4.equals("si"))
+                   {
                    listabotones.add("btnpechoizquierdo");
+                   }
+                   cancelar1.setVisible(false);
                 }
                 else
                 {
@@ -350,10 +368,15 @@ public class ordencamisa extends javax.swing.JFrame {
                     cancelar1.setVisible(true);
                 } 
                 
-                if(cantidadpechoderecho.equals("0"))
+                if(cantidadpechoderecho.equals("0") )
                 {
                    btnpechoderecho.setEnabled(true);
+                   if(botonhabilitado3.equals("si"))
+                   {
                    listabotones.add("btnpechoderecho");
+                   
+                   }
+                   cancelar2.setVisible(false);
                 }
                 else
                 {
@@ -365,7 +388,11 @@ public class ordencamisa extends javax.swing.JFrame {
                 if(cantidadmangaizquierda.equals("0"))
                 {
                    btnmangaizquierda.setEnabled(true);
+                   if(botonhabilitado3.equals("si"))
+                   {
                    listabotones.add("btnmangaizquierda");
+                   }
+                   cancelar3.setVisible(false);
                 }
                 else
                 {
@@ -373,10 +400,14 @@ public class ordencamisa extends javax.swing.JFrame {
                     cancelar3.setVisible(true);
                 } 
                     
-                if(cantidadmangaderecha.equals("0"))
+                if(cantidadmangaderecha.equals("0") )
                 {
                    btnmangaderecha.setEnabled(true);
+                    if(botonhabilitado1.equals("si"))
+                   {
                    listabotones.add("btnmangaderecha");
+                   }
+                   cancelar4.setVisible(false);
                    
                    
                 }
@@ -387,10 +418,14 @@ public class ordencamisa extends javax.swing.JFrame {
                 } 
                 
                 
-                if(cantidadespalda.equals("0"))
+                if(cantidadespalda.equals("0") )
                 {
                    btnespalda.setEnabled(true);
+                   if(botonhabilitado5.equals("si"))
+                   {
                    listabotones.add("btnespalda");
+                   }
+                   cancelar5.setVisible(false);
                    
                 }
                 else
@@ -400,10 +435,14 @@ public class ordencamisa extends javax.swing.JFrame {
                 } 
                 
                 
-                if(cantidadotraubicacion.equals("0"))
+                if(cantidadotraubicacion.equals("0") )
                 {
                    btnotraubicacion.setEnabled(true);
+                   if(botonhabilitado6.equals("si"))
+                   {
                    listabotones.add("btnotraubicacion");
+                   }
+                   cancelar6.setVisible(false);
                    
                 }
                 else
@@ -412,10 +451,14 @@ public class ordencamisa extends javax.swing.JFrame {
                     cancelar6.setVisible(true);
                 } 
                 
-                if(cantidadotraubicacion2.equals("0"))
+                if(cantidadotraubicacion2.equals("0") )
                 {
                    btnotraubicacion2.setEnabled(true);
-                   listabotones.add("btnotraubicacion2");
+                   if(botonhabilitado7.equals("si"))
+                   {
+                       listabotones.add("btnotraubicacion2");
+                   }
+                   cancelar7.setVisible(false);
                    
                 }
                 else
@@ -5237,6 +5280,12 @@ public class ordencamisa extends javax.swing.JFrame {
          terminetodo = "no";
          btnterminetodo.setEnabled(false);
          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se actualizo");
+         
+         if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         {
+             ordenesporrealizar.btnactualizar.doClick();
+         }
+         
          this.dispose();
          
     }//GEN-LAST:event_btnterminetodoActionPerformed

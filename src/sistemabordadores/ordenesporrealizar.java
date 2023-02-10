@@ -1452,7 +1452,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                     }
                 }
-                else if (tipo.equals("Orden parche")) 
+                else if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
                 {
                     if (ordenparche.ventanaordenparcheanteriores == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado anteriores");

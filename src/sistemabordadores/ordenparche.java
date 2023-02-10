@@ -1,5 +1,14 @@
 package sistemabordadores;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,6 +16,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 
@@ -36,6 +49,11 @@ public static boolean ventanaordenparcheanteriores = false;
         String numeroventa = "";
         String ubicacioninsertar = "";
         String aplicacioninsertar = "";
+        
+        String tienefotomontaje = "";
+        String rutaimagen = "";
+        String codigocliente = "";
+        String nombreconcepto = "";
    
     public ordenparche() 
     {
@@ -58,7 +76,7 @@ public static boolean ventanaordenparcheanteriores = false;
         renglon = 0;
         
      String folio = lbfolio.getText();
-     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,tipo,estatus_entrega,articulo,parche,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar FROM historial_ordenes_parche WHERE numero = '"+folio+"' ";
+     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,tipo,estatus_entrega,articulo,parche,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,nombre_concepto FROM historial_ordenes_parche WHERE numero = '"+folio+"' ";
      
 
         try {
@@ -68,22 +86,20 @@ public static boolean ventanaordenparcheanteriores = false;
                 
                 lbfolio.setText(rs.getString("numero"));
                 lbfecha.setText(rs.getString("fecha"));
-                lbhora.setText(rs.getString("hora"));  
+                lbhora.setText(rs.getString("hora"));
                 lbcliente.setText(rs.getString("cliente"));
-            
-                lbfechaentrega.setText(rs.getString("fecha_entrega")); 
-                lbhoraentrega.setText(rs.getString("hora_entrega")); 
-                lbobservacion.setText(rs.getString("observaciongeneral"));  
-                
-                numeroventa =rs.getString("numero_venta");
-                        
-                        
-                 parche = rs.getString("parche");
-                 nombre = rs.getString("articulo");
-                 cantidad = rs.getString("cantidad");
-                 cantidadparche = rs.getString("cantidad_parche");
-                 aplicacion = rs.getString("aplicacion");
-                 observacion = rs.getString("observacion");
+                lbfechaentrega.setText(rs.getString("fecha_entrega"));
+                lbhoraentrega.setText(rs.getString("hora_entrega"));
+                lbobservacion.setText(rs.getString("observaciongeneral"));
+                numeroventa = rs.getString("numero_venta");
+                parche = rs.getString("parche");
+                nombre = rs.getString("articulo");
+                cantidad = rs.getString("cantidad");
+                cantidadparche = rs.getString("cantidad_parche");
+                aplicacion = rs.getString("aplicacion");
+                observacion = rs.getString("observacion");
+                nombreconcepto = rs.getString("nombre_concepto");
+                numeroventa = rs.getString("numero_venta");
                 
                  renglon = renglon +1 ; 
            
@@ -99,8 +115,14 @@ public static boolean ventanaordenparcheanteriores = false;
         {
            JOptionPane.showMessageDialog(null,"orden parche anteriores datos" + ex);
         }
-   
         
+        
+   
+    try {
+        agregarfotomontaje();
+    } catch (IOException ex) {
+        Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
+    }
         sumapuntos();
       
         
@@ -449,6 +471,113 @@ public static boolean ventanaordenparcheanteriores = false;
         
         
     }
+    
+     void codigocliente()
+    {
+        String sql = "SELECT codigo_cliente FROM historial_ventas WHERE numero = '"+numeroventa+"' ";
+
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                
+               codigocliente = rs.getString("codigo_cliente");
+                
+            }
+
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+    }
+    
+    
+     void agregarfotomontaje() throws FileNotFoundException, IOException  
+    {
+        codigocliente();
+        String numero = lbfolio.getText();
+        BufferedImage img = null;
+
+        String prendasql = "";
+        String prendanombresql = "";
+
+        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '" + nombreconcepto + "' and tipo = 'PARCHE'   ";  ///
+
+        try {
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+
+                Blob blob = rs.getBlob("imagen");
+                if (blob == null) {
+
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
+
+                } else {
+                    byte[] data = blob.getBytes(1, (int) blob.length());
+
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null, ex);
+
+                    }
+
+                    if (img == null) {
+                        tienefotomontaje = "no";
+                    } else {
+
+                        Imagen imagen = new Imagen();
+                        imagen.setImagen(img);
+                        lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
+                        lblImagen.setVisible(true);
+                        tienefotomontaje = "si";
+
+                        Blob archivo = rs.getBlob("imagen");
+                        String nombredelarchivo = rs.getString("extension_imagen");
+                        if (nombredelarchivo.equals("jpg") || nombredelarchivo.equals("png") || nombredelarchivo.equals("jpeg") || nombredelarchivo.equals("JPEG") || nombredelarchivo.equals("PNG") || nombredelarchivo.equals("JPG")) {
+                            rutaimagen = "C:\\archivospdf\\FOTOMONTAJE." + nombredelarchivo + " ";
+                        } else {
+                            nombredelarchivo = nombredelarchivo.replace(" ", "");
+                            rutaimagen = "C:\\archivospdf\\" + nombredelarchivo + " ";
+                        }
+
+                        File file = new File(rutaimagen);
+                        FileOutputStream output = new FileOutputStream(file);
+                        InputStream inStream = archivo.getBinaryStream();
+                        int length = -1;
+                        int size = (int) archivo.length();
+                        byte[] buffer = new byte[size];
+                        while ((length = inStream.read(buffer)) != -1) {
+                            output.write(buffer, 0, length);
+
+                        }
+
+                        output.close();
+
+                    }
+
+                }
+
+            } //end while
+            rs.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+        if (tienefotomontaje.equals("si")) {
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
+
+        }
+
+        
+        
+    }
    
   
     @SuppressWarnings("unchecked")
@@ -460,6 +589,7 @@ public static boolean ventanaordenparcheanteriores = false;
         lbfolio = new javax.swing.JLabel();
         btnsalir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        lblImagen = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         lbfecha = new javax.swing.JLabel();
         lbhora = new javax.swing.JLabel();
@@ -531,11 +661,17 @@ public static boolean ventanaordenparcheanteriores = false;
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 820, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -978,6 +1114,7 @@ public static boolean ventanaordenparcheanteriores = false;
     public static javax.swing.JLabel lbfolio;
     private javax.swing.JLabel lbhora;
     private javax.swing.JLabel lbhoraentrega;
+    private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lbnombre1;
     private javax.swing.JLabel lbobservacion;
     private javax.swing.JLabel lbobservacion1;

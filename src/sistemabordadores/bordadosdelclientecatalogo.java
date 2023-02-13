@@ -2937,196 +2937,108 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         
         
         
-           if(prenda.equals("TODOS"))
-    {
-           
-        nombredelbordado = tabla.getValueAt(filaseleccionada, 1);
-        consecutivo = tabla.getValueAt(filaseleccionada, 18).toString();
-        prenda = tabla.getValueAt(filaseleccionada, 0).toString();
-       
-    }
-           
-         
-          else
-                      
-          {
-              nombredelbordado = tabla.getValueAt(filaseleccionada, 0);
-            consecutivo = tabla.getValueAt(filaseleccionada, 11).toString();
-            String codigocliente = lbcodigocliente.getText();
-             
-             
-             
-               String SQL = "SELECT tipo FROM bordados_puntadas where nombre_bordado = '"+nombredelbordado+"' and numero_consecutivo = '"+consecutivo+"' and  codigo = '"+codigocliente+"'  ";
+                if (prenda.equals("TODOS")) {
 
-            try {
-                Statement st = cn.createStatement();
-                ResultSet rs = st.executeQuery(SQL);
-                if (rs.next()) 
-                {
-                    prenda = rs.getString(1);
-                } 
-                
-               
-               
+                    nombredelbordado = tabla.getValueAt(filaseleccionada, 1);
+                    consecutivo = tabla.getValueAt(filaseleccionada, 18).toString();
+                    prenda = tabla.getValueAt(filaseleccionada, 0).toString();
 
-            } catch (Exception e) {
-               System.out.println(e);
+                } else {
+                    nombredelbordado = tabla.getValueAt(filaseleccionada, 0);
+                    consecutivo = tabla.getValueAt(filaseleccionada, 11).toString();
+                    String codigocliente = lbcodigocliente.getText();
+
+                    String SQL = "SELECT tipo FROM bordados_puntadas where nombre_bordado = '" + nombredelbordado + "' and numero_consecutivo = '" + consecutivo + "' and  codigo = '" + codigocliente + "'  ";
+
+                    try {
+                        Statement st = cn.createStatement();
+                        ResultSet rs = st.executeQuery(SQL);
+                        if (rs.next()) {
+                            prenda = rs.getString(1);
+                        }
+
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+
+                }
+
+                if (prenda.equals("CAMISA") || prenda.equals("CAMISOLA") || prenda.equals("CORBATA") || prenda.equals("CHALECO") || prenda.equals("CHAMARRA DESMONTABLE") || prenda.equals("CHAMARRA ROMPEVIENTOS") || prenda.equals("FILIPINA") || prenda.equals("GORRA") || prenda.equals("MANDIL") || prenda.equals("PANTALON") || prenda.equals("PARCHE") || prenda.equals("PLAYERA") || prenda.equals("SACO")) {
+
+                    if (bordadosdelclienteeditarnuevo.ventanabordadosdelclienteeditarnuevo == true) {
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados del cliente editar ya est� abierta");
+                    } else {
+
+                        bordadosdelclienteeditarnuevo ventana = new bordadosdelclienteeditarnuevo();
+                        ventana.setVisible(true);
+                        ventana.setLocationRelativeTo(null);
+                        bordadosdelclienteeditarnuevo.lbcliente.setText(cbcomboclientes.getSelectedItem().toString());
+                        bordadosdelclienteeditarnuevo.lbnombrecomercial.setText(lbnombrecomercial.getText());
+                        bordadosdelclienteeditarnuevo.lbcodigocliente.setText(lbcodigocliente.getText());
+                        bordadosdelclienteeditarnuevo.txtidentificadordeprenda.setText(nombredelbordado.toString());
+                        bordadosdelclienteeditarnuevo.txtcodigocatalogobordados.setText(consecutivo.toString());
+
+                        if (prenda.equals("TODOS")) {
+                            bordadosdelclienteeditarnuevo.lbprenda.setText(prenda.toString());
+
+                        } else {
+                            bordadosdelclienteeditarnuevo.lbprenda.setText(prenda.toString());
+                        }
+
+                        if (prenda.equals("TODOS")) {
+
+                            if (prenda == null || prenda.equals("") || prenda.equals(" ")) {
+
+                            } else {
+
+                                cbprenda.setSelectedItem(prenda);
+                                cbprenda.firePopupMenuWillBecomeInvisible();
+                            }
+
+                        }
+
+                        /////////////////////////
+                    }
+
+                } else {
+
+                    if (bordadosdelclienteeditardistinta.ventanabordadosdelclienteeditardistinta == true) {
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados del cliente editar distinta ya est� abierta");
+                    } else {
+
+                        bordadosdelclienteeditardistinta ventana = new bordadosdelclienteeditardistinta();
+                        ventana.setVisible(true);
+                        ventana.setLocationRelativeTo(null);
+
+                        bordadosdelclienteeditardistinta.lbcliente.setText(cbcomboclientes.getSelectedItem().toString());
+                        bordadosdelclienteeditardistinta.lbnombrecomercial.setText(lbnombrecomercial.getText());
+                        bordadosdelclienteeditardistinta.lbcodigocliente.setText(lbcodigocliente.getText());
+                        bordadosdelclienteeditardistinta.txtidentificadordeprenda.setText(nombredelbordado.toString());
+                        bordadosdelclienteeditardistinta.txtconsecutivo.setText(consecutivo.toString());
+
+                        bordadosdelclienteeditardistinta.lbtipo.setText("DISTINTA");
+                        bordadosdelclienteeditardistinta.lbprenda.setText(prenda);
+
+                    }
+
+                    if (prenda.equals("TODOS")) {
+
+                        if (prenda == null || prenda.equals("") || prenda.equals(" ")) {
+
+                        } else {
+
+                            cbprenda.setSelectedItem("DISTINTA");
+                            cbprenda.firePopupMenuWillBecomeInvisible();
+                        }
+
+                    }
+
+                }
+
+                //   }
             }
-            
-             
-             
-             
-             
-             
-         }  
-           
-           
 
-         
-           
-        
-        if(  prenda.equals("CAMISA") ||  prenda.equals("CAMISOLA")   ||  prenda.equals("CORBATA")   ||  prenda.equals("CHALECO")   ||  prenda.equals("CHAMARRA DESMONTABLE")   ||  prenda.equals("CHAMARRA ROMPEVIENTOS")   ||  prenda.equals("FILIPINA")   ||  prenda.equals("GORRA")   ||  prenda.equals("MANDIL")   ||  prenda.equals("PANTALON")   ||  prenda.equals("PARCHE")   ||  prenda.equals("PLAYERA")   ||  prenda.equals("SACO")  )
-    {
-           
-          
-        
-        
-          if (bordadosdelclienteeditarnuevo.ventanabordadosdelclienteeditarnuevo == true) 
-              
-          {
-          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados del cliente editar ya est� abierta");
-          }
-          else
-              
-          {
-              
-              
-          
-           
-        bordadosdelclienteeditarnuevo ventana = new bordadosdelclienteeditarnuevo();
-        ventana.setVisible(true);
-        ventana.setLocationRelativeTo(null);
-        bordadosdelclienteeditarnuevo.lbcliente.setText(cbcomboclientes.getSelectedItem().toString());
-        bordadosdelclienteeditarnuevo.lbnombrecomercial.setText(lbnombrecomercial.getText());
-        bordadosdelclienteeditarnuevo.lbcodigocliente.setText(lbcodigocliente.getText());
-        bordadosdelclienteeditarnuevo.txtidentificadordeprenda.setText(nombredelbordado.toString());
-        bordadosdelclienteeditarnuevo.txtcodigocatalogobordados.setText(consecutivo.toString());
-        
-              if (prenda.equals("TODOS")) {
-                  bordadosdelclienteeditarnuevo.lbprenda.setText(prenda.toString());
-
-              }
-              else
-              {
-                  bordadosdelclienteeditarnuevo.lbprenda.setText(prenda.toString());
-              }   
-       
-        
-        
-              
-              
-              
-               if(prenda.equals("TODOS") )  
- 
-          {          
-              
-          
-            
-              
-              
-    if(prenda ==null || prenda.equals("") || prenda.equals(" "))
-    {
-        
-    }
-        else
-    {
-    
-        cbprenda.setSelectedItem(prenda);
-        cbprenda.firePopupMenuWillBecomeInvisible();
-    }     
-           
-    }  
-        
-        /////////////////////////
-        
-          }
-        
-    }
-        
-        
-        else
-            
-            
-        {
-      
-   
-                
-                
-                
-                
-                  if (bordadosdelclienteeditardistinta.ventanabordadosdelclienteeditardistinta == true) 
-              
-          {
-          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados del cliente editar distinta ya est� abierta");
-          }
-          else
-              
-          {
-              
-              
-          
-           
-        bordadosdelclienteeditardistinta ventana = new bordadosdelclienteeditardistinta();
-        ventana.setVisible(true);
-        ventana.setLocationRelativeTo(null);
-        
-        bordadosdelclienteeditardistinta.lbcliente.setText(cbcomboclientes.getSelectedItem().toString());
-        bordadosdelclienteeditardistinta.lbnombrecomercial.setText(lbnombrecomercial.getText());
-        bordadosdelclienteeditardistinta.lbcodigocliente.setText(lbcodigocliente.getText());
-        bordadosdelclienteeditardistinta.txtidentificadordeprenda.setText(nombredelbordado.toString());
-        bordadosdelclienteeditardistinta.txtconsecutivo.setText(consecutivo.toString());
-        
-        bordadosdelclienteeditardistinta.lbtipo.setText("DISTINTA");
-        bordadosdelclienteeditardistinta.cbprenda.setSelectedItem(prenda);
-       
-       } 
-              
-               
-          if(prenda.equals("TODOS") )  
- 
-          {          
-              
-          
-            
-              
-              
-    if(prenda ==null || prenda.equals("") || prenda.equals(" "))
-    {
-        
-    }
-        else
-    {
-    
-        cbprenda.setSelectedItem("DISTINTA");
-        cbprenda.firePopupMenuWillBecomeInvisible();
-    }     
-           
-    }  
-           
-       
-       } 
-       
-    //   }
-  
-        
-          
-       
-    }
-        
-  
-        
-      
-    }
+        }
     
     
     

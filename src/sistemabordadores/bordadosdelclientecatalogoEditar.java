@@ -170,7 +170,7 @@ public class bordadosdelclientecatalogoEditar extends AbstractCellEditor impleme
            {
                
            bordadosdelclienteeditardistinta.lbtipo.setText("DISTINTA");
-           bordadosdelclienteeditardistinta.cbprenda.setSelectedItem(nombre.toString());
+           bordadosdelclienteeditardistinta.lbprenda.setText(nombre.toString());
            bordadosdelclienteeditardistinta.lbanuncio.setText(nombre.toString());
            
            }

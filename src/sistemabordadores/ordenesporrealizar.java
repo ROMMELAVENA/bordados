@@ -1125,9 +1125,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
      }
              
     
-     void autorizaciondelfotomontaje(String numerofolio)
+     void autorizaciondelfotomontaje(String numerofolio,String nombre_tabla)
      {
-         String sqlcamisa = "SELECT fotomontaje_autorizado FROM historial_ordenes_camisa where numero = '"+numerofolio+"'  ";
+         String sqlcamisa = "SELECT fotomontaje_autorizado FROM "+nombre_tabla+" where numero = '"+numerofolio+"'  ";
 
         try {
             Statement st = cn.createStatement();
@@ -1401,7 +1401,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                     {
                         
                         Object numerodefolio = tabla.getValueAt(fila, 0);
-                        autorizaciondelfotomontaje((String)numerodefolio);
+                        Object nombre_tabla = "historial_ordenes_camisa";
+                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
                         
                         
                         if(fotomontajeautorizado.equals("si"))
@@ -1422,7 +1423,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         }
                         else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se a autorizado; consulte al encargado");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
                         }    
                         
                         
@@ -1436,7 +1437,18 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                     if (ordengorra.ventanaordengorra == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de gorra anteriores");
 
-                    } else {
+                    }
+                    else 
+                    {
+                        
+                        Object numerodefolio = tabla.getValueAt(fila, 0);
+                        Object nombre_tabla = "historial_ordenes_gorra";
+                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        
+                        
+                        if(fotomontajeautorizado.equals("si"))
+                        {
+
                         ordengorra orden = new ordengorra();
                         orden.setVisible(true);
 
@@ -1446,8 +1458,14 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordengorra.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
                         ordengorra.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
                         ordengorra.tipotabla=(tabla.getValueAt(fila, 10).toString());
-                         tabla.clearSelection();
-                         this.setState(this.ICONIFIED);
+                        tabla.clearSelection();
+                        this.setState(this.ICONIFIED);
+                         
+                        } 
+                        else
+                        {
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                        }    
                         
                     }
                 }
@@ -1457,17 +1475,35 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\"> Favor de cerrar la ventana de orden de pantalones");
 
-                    } else {
-                        ordenpantalon orden = new ordenpantalon();
-                        orden.setVisible(true);
+                    } 
+                    
+                    else
+                    {
+                        
+                        
+                        Object numerodefolio = tabla.getValueAt(fila, 0);
+                        Object nombre_tabla = "historial_ordenes_pantalon";
+                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        
+                        
+                        if(fotomontajeautorizado.equals("si"))
+                        {
+                             ordenpantalon orden = new ordenpantalon();
+                            orden.setVisible(true);
 
-                        ordenpantalon.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
-                        ordenpantalon.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordenpantalon.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
-                        ordenpantalon.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordenpantalon.tipotabla=(tabla.getValueAt(fila, 10).toString());
-                        tabla.clearSelection();
-                        this.setState(this.ICONIFIED);
+                            ordenpantalon.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                            ordenpantalon.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                            ordenpantalon.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                            ordenpantalon.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                            ordenpantalon.tipotabla = (tabla.getValueAt(fila, 10).toString());
+                            tabla.clearSelection();
+                            this.setState(this.ICONIFIED);
+                            
+                        }
+                        else
+                        {
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                        }
                        
                     }
 
@@ -1477,17 +1513,31 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 
                 else if (tipo.equals("Orden ponchado")) 
                 {
-                    if (ordenponchado.ventanaordenparcheanteriores == true) {
+                    if (ordenponchado.ventanaordenparcheanteriores == true) 
+                    {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado anteriores");
 
-                    } else {
-                        ordenponchado orden = new ordenponchado();
-                        orden.setVisible(true);
+                    }
+                    else 
+                    {
+                        
+                        Object numerodefolio = tabla.getValueAt(fila, 0);
+                        Object nombre_tabla = "historial_ordenes_gorra";
+                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        
+                         if (fotomontajeautorizado.equals("si")) {
+                            ordenponchado orden = new ordenponchado();
+                            orden.setVisible(true);
 
-                        ordenponchado.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
-                        ordenponchado.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                         tabla.clearSelection();
-                         this.setState(this.ICONIFIED);
+                            ordenponchado.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                            ordenponchado.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                            tabla.clearSelection();
+                            this.setState(this.ICONIFIED);
+                         }
+                         else
+                        {
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                        }  
                         
                     }
                 }
@@ -1510,10 +1560,22 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 {
                    
                         
-                        if (ordencorbata.ventanaordencorbataanteriores == true) {
+                        if (ordencorbata.ventanaordencorbataanteriores == true) 
+                        {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de corbata anteriores");
 
-                    } else {
+                        }
+                        else 
+                        {
+                        
+                        Object numerodefolio = tabla.getValueAt(fila, 0);
+                        Object nombre_tabla = "historial_ordenes_corbata";
+                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        
+                        
+                        if(fotomontajeautorizado.equals("si"))
+                        {    
+                            
                         ordencorbata orden = new ordencorbata();
                         orden.setVisible(true);
 
@@ -1525,6 +1587,12 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                          tabla.clearSelection();
                          this.setState(this.ICONIFIED);
                         
+                        }
+                         else
+                        {
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                        }   
+                         
                     }
                         
                  
@@ -1534,15 +1602,32 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 {
                    
                         
-                        if (ordenportanombreescolar.ventanaordenportanombreanterior == true) {
+                   if (ordenportanombreescolar.ventanaordenportanombreanterior == true) 
+                   {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de portanombre");
 
-                    } else {
+                   } else 
+                   
+                   {
+                       Object numerodefolio = tabla.getValueAt(fila, 0);
+                        Object nombre_tabla = "historial_ordenes_portanombres";
+                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        
+                        
+                        if(fotomontajeautorizado.equals("si"))
+                        {
+                       
                             ordenportanombreescolar orden = new ordenportanombreescolar();
                             orden.setVisible(true);
                             ordenportanombreescolar.lbnumero.setText(tabla.getValueAt(fila, 0).toString());
                             tabla.clearSelection();
                             this.setState(this.ICONIFIED);
+                        }
+                         else
+                        {
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                        }     
+                            
                         
                     }
                                            
@@ -1551,15 +1636,32 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 {
                    
                         
-                        if (ordenportanombremultiple.ventanaordenportanombremultipleanterior == true) {
+                    if (ordenportanombremultiple.ventanaordenportanombremultipleanterior == true) 
+                    {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de portanombre");
 
-                    } else {
+                    } 
+                    else 
+                    {
+                         Object numerodefolio = tabla.getValueAt(fila, 0);
+                        Object nombre_tabla = "historial_ordenes_portanombres_multiple";
+                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        
+                        
+                        if(fotomontajeautorizado.equals("si"))
+                        {
+                        
                             ordenportanombremultiple orden = new ordenportanombremultiple();
                             orden.setVisible(true);
                             ordenportanombremultiple.lbnumerohistorialordenesbordados.setText(tabla.getValueAt(fila, 0).toString());
                             tabla.clearSelection();
                             this.setState(this.ICONIFIED);
+                        }    
+                          else
+                        {
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                        }     
+                            
                         
                     }
                                            

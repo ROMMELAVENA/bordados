@@ -148,11 +148,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         String nombre = "";
 
          try {
-                
-           
-
             String sql = "SELECT DISTINCT nombre FROM bordados_puntadas ORDER BY nombre";
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
@@ -184,7 +180,6 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         cbcomboclientes.setModel(modelocombo);
         AutoCompleteDecorator.decorate(cbcomboclientes);
         cbcomboclientes.setSelectedIndex(-1);
-        cbcomboclientes.setEditable(false);
         
         
     }
@@ -3254,6 +3249,21 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         tabla.getColumnModel().getColumn(0).setCellRenderer(letrita);
         tabla.setRowHeight(32);
         
+        
+        tabla.getColumnModel().getColumn(2).setMinWidth(0);
+        tabla.getColumnModel().getColumn(2).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(2).setWidth(0);
+        
+        
+        tabla.getColumnModel().getColumn(3).setMinWidth(0);
+        tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(3).setWidth(0);
+        
+        
+        
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(4).setWidth(0);
         
         
     }//GEN-LAST:event_cbcomboclientesPopupMenuWillBecomeInvisible

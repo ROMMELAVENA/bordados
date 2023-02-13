@@ -1711,7 +1711,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
 
         btnguardar.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnguardar.setForeground(new java.awt.Color(0, 102, 0));
-        btnguardar.setText("Guardar");
+        btnguardar.setText("Autorizar puntadas");
         btnguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnguardarActionPerformed(evt);
@@ -1775,6 +1775,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         lbnombrecomercial.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbnombrecomercial.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        txtidentificadordeprenda.setEditable(false);
         txtidentificadordeprenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtidentificadordeprenda.setForeground(new java.awt.Color(153, 0, 0));
         txtidentificadordeprenda.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -1853,9 +1854,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
                                 .addComponent(lbconsecutivo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1876,12 +1875,6 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                 .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtcodigocatalogobordados, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lbcodigocliente, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(cbpuntadas7, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(cbpuntadas2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1900,7 +1893,13 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                             .addComponent(txt4, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txt2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtcodigocatalogobordados, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lbcodigocliente, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(lbidentificadordeprendaanterior, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
@@ -2297,6 +2296,16 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                     } catch (Exception e) {
                                         System.out.println(e);
                                     }
+                                    
+                                    
+                                    try {
+                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
+                                        pst.executeUpdate();
+                                        pst.close();
+                                    } catch (Exception e) {
+                                        System.out.println(e);
+
+                                    }
 
 
 
@@ -2334,6 +2343,15 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
 
                                     try {
                                         PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '" + txtidentificadordeprenda.getText().trim() + "' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
+                                        pst.executeUpdate();
+                                        pst.close();
+                                    } catch (Exception e) {
+                                        System.out.println(e);
+
+                                    }
+                                    
+                                    try {
+                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
                                         pst.executeUpdate();
                                         pst.close();
                                     } catch (Exception e) {
@@ -2387,6 +2405,15 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                     } catch (Exception e) {
                                         System.out.println(e);
                                     }
+                                    
+                                    try {
+                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
+                                        pst.executeUpdate();
+                                        pst.close();
+                                    } catch (Exception e) {
+                                        System.out.println(e);
+
+                                    }
 
                                 }
 
@@ -2413,6 +2440,15 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                     } catch (Exception e) {
                                         System.out.println(e);
                                     }
+                                    
+                                    try {
+                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
+                                        pst.executeUpdate();
+                                        pst.close();
+                                    } catch (Exception e) {
+                                        System.out.println(e);
+
+                                    }
 
                                 }
 
@@ -2438,6 +2474,15 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                         pst.close();
                                     } catch (Exception e) {
                                         System.out.println(e);
+                                    }
+                                    
+                                    try {
+                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
+                                        pst.executeUpdate();
+                                        pst.close();
+                                    } catch (Exception e) {
+                                        System.out.println(e);
+
                                     }
 
                                 }
@@ -2478,6 +2523,15 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                     } catch (Exception e) {
                                         System.out.println(e);
                                     }
+                                    
+                                    try {
+                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
+                                        pst.executeUpdate();
+                                        pst.close();
+                                    } catch (Exception e) {
+                                        System.out.println(e);
+
+                                    }
 
                                 }
 
@@ -2507,6 +2561,15 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                         System.out.println(e);
                                     }
 
+                                    
+                                    try {
+                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
+                                        pst.executeUpdate();
+                                        pst.close();
+                                    } catch (Exception e) {
+                                        System.out.println(e);
+
+                                    }
                                    
                                   
 

@@ -1405,7 +1405,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
                         
                         
-                        if(fotomontajeautorizado.equals("si"))
+                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
                         {
                         
                         ordencamisa orden = new ordencamisa();
@@ -1446,7 +1446,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
                         
                         
-                        if(fotomontajeautorizado.equals("si"))
+                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
                         {
 
                         ordengorra orden = new ordengorra();
@@ -1486,7 +1486,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
                         
                         
-                        if(fotomontajeautorizado.equals("si"))
+                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
                         {
                              ordenpantalon orden = new ordenpantalon();
                             orden.setVisible(true);
@@ -1525,7 +1525,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         Object nombre_tabla = "historial_ordenes_gorra";
                         autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
                         
-                         if (fotomontajeautorizado.equals("si")) {
+                         if (fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")) {
                             ordenponchado orden = new ordenponchado();
                             orden.setVisible(true);
 
@@ -1573,7 +1573,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
                         
                         
-                        if(fotomontajeautorizado.equals("si"))
+                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
                         {    
                             
                         ordencorbata orden = new ordencorbata();
@@ -1614,7 +1614,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
                         
                         
-                        if(fotomontajeautorizado.equals("si"))
+                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
                         {
                        
                             ordenportanombreescolar orden = new ordenportanombreescolar();
@@ -1648,7 +1648,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
                         
                         
-                        if(fotomontajeautorizado.equals("si"))
+                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
                         {
                         
                             ordenportanombremultiple orden = new ordenportanombremultiple();

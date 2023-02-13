@@ -1116,7 +1116,8 @@ public class ordencamisa extends javax.swing.JFrame {
         }
         else 
         {
-            if (ordenenvio.equals("si")) {
+            if (ordenenvio.equals("si")) 
+            {
 
                 
                 
@@ -1138,37 +1139,46 @@ public class ordencamisa extends javax.swing.JFrame {
                 }
                 
                 
-                if(tiendaordenenvio.equals(tiendalocal))
-                {
-                    
-            String sql4 = "Select numero,sucursal from historial_pedidos_sucursal_solicitados where numero_orden_envio = '" + numeroordenenvio + "' and estatus_entrega not in ('cancelada')  ";
-
-            try {
-                PreparedStatement prst = cn.prepareStatement(sql4);
-                ResultSet rs = prst.executeQuery();
-                if (rs.next()) {
-                    numerosolicitoarticulos = rs.getString("numero");
-                    tiendasolicitoarticulos = rs.getString("sucursal");
-                    
-                    
-                    cbsucursal.addItem(tiendasolicitoarticulos);
-                    lbnumero.setText(numerosolicitoarticulos);
-                }
-            } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                cbsucursal.addItem(tiendaordenenvio);
+                lbnumero.setText(numeroordenenvio);
 
             }
-                    
-                }
-                else
-                {
-                     cbsucursal.addItem(tiendaordenenvio);
-                     lbnumero.setText(numeroordenenvio);
-                } 
-                
-                
+            
+            
+            
+            if (tiendaordenenvio.equals(tiendalocal)) 
+            {
 
+                String sql4 = "Select numero,sucursal from historial_pedidos_sucursal_solicitados where numero = '" + numeroordenenvio + "' and estatus_entrega not in ('cancelada')  ";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql4);
+                    ResultSet rs = prst.executeQuery();
+                    if (rs.next())
+                    {
+                        numerosolicitoarticulos = rs.getString("numero");
+                        tiendasolicitoarticulos = rs.getString("sucursal");
+
+                        cbsucursal.addItem(tiendasolicitoarticulos);
+                        lbnumero.setText(numerosolicitoarticulos);
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+                    
+                } catch (Exception exx) {
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+            } else {
+                cbsucursal.addItem(tiendaordenenvio);
+                lbnumero.setText(numeroordenenvio);
             }
+
+            
         }
 
     }
@@ -2763,6 +2773,8 @@ public class ordencamisa extends javax.swing.JFrame {
         });
 
         cbsucursal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cbsucursal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cdmxsur", "cdmxcentro", "guadalajara", "monterrey", "tijuana" }));
+        cbsucursal.setSelectedIndex(-1);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel14.setText("Numero Sucursal");

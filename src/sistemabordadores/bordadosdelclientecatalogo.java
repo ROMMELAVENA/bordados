@@ -144,13 +144,12 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
     void comboclientes(){
 
         cbcomboclientes.removeAllItems();
+        DefaultComboBoxModel modelocombo = new DefaultComboBoxModel();
+        String nombre = "";
 
          try {
                 
-            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
            
-            
-            String nombre = "";
 
             String sql = "SELECT DISTINCT nombre FROM bordados_puntadas ORDER BY nombre";
 
@@ -159,7 +158,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
             while (rs.next()) {
                 
                 
-              nombre = rs.getString("descripcion");
+              nombre = rs.getString("nombre");
               
               
                 if (nombre.equals("")  ||   nombre.equals(" "))
@@ -168,7 +167,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
                 else
                 {
 
-                modelo.addElement(nombre);
+                modelocombo.addElement(nombre);
               
                 
                 }
@@ -181,6 +180,11 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
             System.out.println(ex);
         }
 
+         
+        cbcomboclientes.setModel(modelocombo);
+        AutoCompleteDecorator.decorate(cbcomboclientes);
+        cbcomboclientes.setSelectedIndex(-1);
+        cbcomboclientes.setEditable(false);
         
         
     }
@@ -2547,6 +2551,15 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         });
 
         cbcomboclientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbcomboclientes.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                cbcomboclientesPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2664,77 +2677,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
-        dedondevengo = lbinterface.getText();
-        
-        
-         modelo = new DefaultTableModel(){
-        
-         @Override
-    public boolean isCellEditable(int row, int column) {
-       //all cells false
-      // return column == 1 ;
-        return column == 2 || column == 3|| column == 4;
-       
-    }
-};
-         
-         DefaultTableCellRenderer letrita = new DefaultTableCellRenderer() {
-    Font font =  new Font("Arial", Font.BOLD,16);
 
-    public Component getTableCellRendererComponent(JTable table,
-            Object value, boolean isSelected, boolean hasFocus,
-            int row, int column) {
-        super.getTableCellRendererComponent(table, value, isSelected, hasFocus,
-                row, column);
-        setFont(font);
-        return this;
-    }
-    
-    
-
-};
-         
-         
-         
-        modelo.addColumn("tipo");//0
-        modelo.addColumn("nombre");//1
-        modelo.addColumn("Agregar");//2
-        modelo.addColumn("boton2");//3
-        modelo.addColumn("Ver");//4
-        modelo.addColumn("pecho_izquierdo");//5
-        modelo.addColumn("pecho_derecho");//6
-        modelo.addColumn("manga_derecha");//7
-        modelo.addColumn("manga_izquierda");//8
-        modelo.addColumn("espalda");//9
-        modelo.addColumn("otra_ubicacion");//10
-        modelo.addColumn("lado_izquierdo_frente_nombre");//11
-        modelo.addColumn("lado_izquierdo_atras_nombre");//12
-        modelo.addColumn("lado_derecho_atras_nombre");//13
-        modelo.addColumn("frente_nombre");//14
-        modelo.addColumn("lado_izquierdo_nombre");//15
-        modelo.addColumn("lado_derecho_nombre");//16 
-        modelo.addColumn("atras_nombre");//17
-        modelo.addColumn("frente_nombre");//18
-        modelo.addColumn("numero consecutivo");//19
-       
-     
-        
-        
-        tabla.setModel(modelo); 
-        
-        
-        
-        datosdetodoslosbordadosdetodaslasprendas();
-     
-        cbprenda.setSelectedItem("TODOS");
-     
-        tabla.getColumnModel().getColumn(0).setCellRenderer(letrita);
-        tabla.setRowHeight(32);
-        
-        
-        
-        
-        
     }//GEN-LAST:event_formWindowOpened
 
     private void btngorra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngorra1ActionPerformed
@@ -3223,6 +3166,97 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btncomboActionPerformed
+
+    private void cbcomboclientesPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbcomboclientesPopupMenuWillBecomeInvisible
+       
+    Object nombredelcliente = cbcomboclientes.getSelectedItem();
+    String codigocliente = "";
+        
+   String  sql = "SELECT codigo FROM bordados_puntadas where nombre = '" + nombredelcliente + "'  ";    
+         
+        
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                codigocliente = rs.getString("codigo"); 
+
+            }
+
+            st.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+        
+        lbcodigocliente.setText(codigocliente);
+       
+        modelo = new DefaultTableModel(){
+        
+         @Override
+    public boolean isCellEditable(int row, int column) {
+       //all cells false
+      // return column == 1 ;
+        return column == 2 || column == 3|| column == 4;
+       
+    }
+};
+         
+         DefaultTableCellRenderer letrita = new DefaultTableCellRenderer() {
+    Font font =  new Font("Arial", Font.BOLD,16);
+
+    public Component getTableCellRendererComponent(JTable table,
+            Object value, boolean isSelected, boolean hasFocus,
+            int row, int column) {
+        super.getTableCellRendererComponent(table, value, isSelected, hasFocus,
+                row, column);
+        setFont(font);
+        return this;
+    }
+    
+    
+
+};
+         
+         
+         
+        modelo.addColumn("tipo");//0
+        modelo.addColumn("nombre");//1
+        modelo.addColumn("Agregar");//2
+        modelo.addColumn("boton2");//3
+        modelo.addColumn("Ver");//4
+        modelo.addColumn("pecho_izquierdo");//5
+        modelo.addColumn("pecho_derecho");//6
+        modelo.addColumn("manga_derecha");//7
+        modelo.addColumn("manga_izquierda");//8
+        modelo.addColumn("espalda");//9
+        modelo.addColumn("otra_ubicacion");//10
+        modelo.addColumn("lado_izquierdo_frente_nombre");//11
+        modelo.addColumn("lado_izquierdo_atras_nombre");//12
+        modelo.addColumn("lado_derecho_atras_nombre");//13
+        modelo.addColumn("frente_nombre");//14
+        modelo.addColumn("lado_izquierdo_nombre");//15
+        modelo.addColumn("lado_derecho_nombre");//16 
+        modelo.addColumn("atras_nombre");//17
+        modelo.addColumn("frente_nombre");//18
+        modelo.addColumn("numero consecutivo");//19
+       
+     
+        
+        
+        tabla.setModel(modelo); 
+        
+        
+        
+        datosdetodoslosbordadosdetodaslasprendas();
+        cbprenda.setSelectedItem("TODOS");
+        tabla.getColumnModel().getColumn(0).setCellRenderer(letrita);
+        tabla.setRowHeight(32);
+        
+        
+        
+    }//GEN-LAST:event_cbcomboclientesPopupMenuWillBecomeInvisible
 
  
     public static void main(String args[]) {

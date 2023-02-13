@@ -2299,7 +2299,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                     
                                     
                                     try {
-                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
+                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si'  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
                                         pst.executeUpdate();
                                         pst.close();
                                     } catch (Exception e) {
@@ -2351,7 +2351,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                     }
                                     
                                     try {
-                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
+                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
                                         pst.executeUpdate();
                                         pst.close();
                                     } catch (Exception e) {
@@ -2407,7 +2407,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                     }
                                     
                                     try {
-                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
+                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
                                         pst.executeUpdate();
                                         pst.close();
                                     } catch (Exception e) {
@@ -2442,7 +2442,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                     }
                                     
                                     try {
-                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
+                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
                                         pst.executeUpdate();
                                         pst.close();
                                     } catch (Exception e) {
@@ -2477,7 +2477,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                     }
                                     
                                     try {
-                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
+                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
                                         pst.executeUpdate();
                                         pst.close();
                                     } catch (Exception e) {
@@ -2525,7 +2525,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                     }
                                     
                                     try {
-                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
+                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
                                         pst.executeUpdate();
                                         pst.close();
                                     } catch (Exception e) {
@@ -2563,7 +2563,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
 
                                     
                                     try {
-                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE  WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
+                                        PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE codigo='" + codigodelcliente + "' and  tipo = '" + prenda + "' AND numero_consecutivo = '" + consecutivo + "'  ");
                                         pst.executeUpdate();
                                         pst.close();
                                     } catch (Exception e) {

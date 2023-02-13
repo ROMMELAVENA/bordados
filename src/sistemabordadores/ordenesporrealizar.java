@@ -29,6 +29,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     String fechafinal = "";
     String nombrecliente = "";
     String tiendalocal = "";
+    String fotomontajeautorizado = "";
     public static String localuotrasucursal ="";
 
     public ordenesporrealizar() {
@@ -1124,6 +1125,26 @@ public class ordenesporrealizar extends javax.swing.JFrame {
      }
              
     
+     void autorizaciondelfotomontaje(String numerofolio)
+     {
+         String sqlcamisa = "SELECT fotomontaje_autorizado FROM historial_ordenes_camisa where numero = '"+numerofolio+"'  ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlcamisa);
+            if (rs.next()) 
+            {
+               fotomontajeautorizado = rs.getString("fotomontaje_autorizado");
+                
+            }
+
+            
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "sql fotomontajeautorizado" +  ex);
+        }
+  
+     }
     
     
     
@@ -1375,7 +1396,17 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de camisa anteriores");
 
-                    } else {
+                    }
+                    else 
+                    {
+                        
+                        Object numerodefolio = tabla.getValueAt(fila, 0);
+                        autorizaciondelfotomontaje((String)numerodefolio);
+                        
+                        
+                        if(fotomontajeautorizado.equals("si"))
+                        {
+                        
                         ordencamisa orden = new ordencamisa();
                         orden.setVisible(true);
 
@@ -1387,6 +1418,14 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         this.setState(this.ICONIFIED);
+                        
+                        }
+                        else
+                        {
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se a autorizado; consulte al encargado");   
+                        }    
+                        
+                        
                        
                     }
 

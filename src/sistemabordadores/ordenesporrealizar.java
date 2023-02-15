@@ -1430,7 +1430,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 Object tipo = tabla.getValueAt(fila, 3).toString();
                 Object tablanombre = tabla.getValueAt(fila, 10).toString();
 
-                if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) {
+                if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) 
+                {
                     if (ordencamisa.ventanaordencamisaanteriores == true) 
                     {
                         
@@ -1472,52 +1473,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
                 
                 }
-                if (tipo.equals("Orden distinta")||tipo.equals("Orden Distinta")) 
-                {
-                   
-                    
-                    
-                    if (ordendistinta.ventanaordencamisaanteriores == true) 
-                    {
-                        
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden distinta");
-
-                    }
-                    else 
-                    {
-                        
-                        Object numerodefolio = tabla.getValueAt(fila, 0);
-                        Object nombre_tabla = "historial_ordenes_distinta";
-                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
-                        
-                        
-                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
-                        {
-                        
-                        ordendistinta orden = new ordendistinta();
-                        orden.setVisible(true);
-
-                        ordendistinta.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
-                        ordendistinta.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordendistinta.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
-                        ordendistinta.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
-                        ordendistinta.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordendistinta.tipotabla=(tabla.getValueAt(fila, 10).toString());
-                        tabla.clearSelection();
-                        this.setState(this.ICONIFIED);
-                        
-                        }
-                        else
-                        {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
-                        }    
-                        
-                        
-                       
-                    }
-                        
-                
-                } 
+               
                 
                 else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
                 {
@@ -1556,7 +1512,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                     }
                 }
-                if (tipo.equals("Orden pantalon")) {
+                
+                else if (tipo.equals("Orden pantalon")) {
                     if (ordenpantalon.ventanaordenpantalonanteriores == true) 
                     {
                         
@@ -1628,6 +1585,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                     }
                 }
+                
                 else if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
                 {
                     if (ordenparche.ventanaordenparcheanteriores == true) {
@@ -1753,6 +1711,52 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                     }
                                            
                 }
+                else
+                {
+                   
+                    
+                    
+                    if (ordendistinta.ventanaordencamisaanteriores == true) 
+                    {
+                        
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden distinta");
+
+                    }
+                    else 
+                    {
+                        
+                        Object numerodefolio = tabla.getValueAt(fila, 0);
+                        Object nombre_tabla = "historial_ordenes_distinta";
+                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        
+                        
+                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
+                        {
+                        
+                        ordendistinta orden = new ordendistinta();
+                        orden.setVisible(true);
+
+                        ordendistinta.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordendistinta.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordendistinta.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
+                        ordendistinta.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        ordendistinta.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordendistinta.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        tabla.clearSelection();
+                        this.setState(this.ICONIFIED);
+                        
+                        }
+                        else
+                        {
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                        }    
+                        
+                        
+                       
+                    }
+                        
+                
+                } 
 
             } /// 
 

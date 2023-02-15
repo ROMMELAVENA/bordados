@@ -232,11 +232,13 @@ public class ordendistinta extends javax.swing.JFrame {
 
                 
                 tipoprenda = rs.getString("tipo");
+               
+                
                 distinta1nombre = rs.getString("distinta1_nombre");
                 distinta1ubicacion = rs.getString("distinta1_ubicacion");
                 distinta1 = rs.getString("distinta1");
                 lbdistinta1nombre.setText(distinta1nombre);
-                lbdistinta1.setText(rs.getString(distinta1));
+                lbdistinta1.setText(distinta1);
                 if (distinta1 == null | distinta1.equals("")) 
                 {
 
@@ -271,8 +273,8 @@ public class ordendistinta extends javax.swing.JFrame {
 
                 }
 
-                distinta4nombre = rs.getString("pecho_izquierdo_nombre");
-                distinta4 = rs.getString("pecho_izquierdo");
+                distinta4nombre = rs.getString("distinta4_nombre");
+                distinta4 = rs.getString("distinta4");
                 lbdistinta4nombre.setText(distinta4nombre);
                 lbdistinta4.setText(distinta4);
                 if (distinta4 == null | distinta4.equals("")) {
@@ -388,121 +390,142 @@ public class ordendistinta extends javax.swing.JFrame {
                     cbsucursal.setEnabled(false);
                 
                 
-                if(distinta1cantidad.equals("0"))
+                if(distinta1nombre==null||distinta1nombre.equals("")||distinta1nombre.equals(" "))
                 {
-                   btndistinta4.setEnabled(true);
-                   if(botonhabilitado4.equals("si"))
+                   btndistinta1.setEnabled(false);
+                   
+                }
+                else
+                {
+                    
+                    
+                    btndistinta1.setEnabled(true);
+                   if(botonhabilitado1.equals("si"))
                    {
                    listabotones.add("btndistinta1");
                    }
                    cancelar1.setVisible(false);
+                    
+                    
+                } 
+                
+                 if(distinta2nombre==null||distinta2nombre.equals("")||distinta2nombre.equals(" "))
+                {
+                   btndistinta2.setEnabled(false);
+                   
                 }
                 else
                 {
-                    btndistinta4.setEnabled(false);
-                    cancelar1.setVisible(true);
-                } 
-                
-                
-                
-                if(distinta2cantidad.equals("0") )
-                {
-                   btndistinta3.setEnabled(true);
-                   if(botonhabilitado3.equals("si"))
+                    
+                    
+                    btndistinta2.setEnabled(true);
+                   if(botonhabilitado2.equals("si"))
                    {
                    listabotones.add("btndistinta2");
-                   
                    }
                    cancelar2.setVisible(false);
+                    
+                    
+                } 
+                
+                 if(distinta3nombre==null||distinta3nombre.equals("")||distinta3nombre.equals(" "))
+                {
+                   btndistinta3.setEnabled(false);
+                   
                 }
                 else
                 {
-                    btndistinta3.setEnabled(false);
-                    cancelar2.setVisible(true);
-                } 
-                
-                
-                if(distinta3cantidad.equals("0"))
-                {
-                   btndistinta2.setEnabled(true);
+                    
+                    
+                    btndistinta3.setEnabled(true);
                    if(botonhabilitado3.equals("si"))
                    {
                    listabotones.add("btndistinta3");
                    }
                    cancelar3.setVisible(false);
+                    
+                    
+                } 
+                
+                if(distinta4nombre==null||distinta4nombre.equals("")||distinta4nombre.equals(" "))
+                {
+                   btndistinta4.setEnabled(false);
+                   
                 }
                 else
                 {
-                    btndistinta2.setEnabled(false);
-                    cancelar3.setVisible(true);
-                } 
                     
-                if(distinta4cantidad.equals("0") )
-                {
-                   btndistinta1.setEnabled(true);
-                    if(botonhabilitado1.equals("si"))
+                    
+                    btndistinta4.setEnabled(true);
+                   if(botonhabilitado4.equals("si"))
                    {
                    listabotones.add("btndistinta4");
                    }
                    cancelar4.setVisible(false);
-                   
+                    
+                    
+                } 
+                
+                if(distinta5nombre==null||distinta5nombre.equals("")||distinta5nombre.equals(" "))
+                {
+                   btndistinta5.setEnabled(false);
                    
                 }
                 else
                 {
-                    btndistinta1.setEnabled(false);
-                    cancelar4.setVisible(true);
-                } 
-                
-                
-                if(distinta5cantidad.equals("0") )
-                {
-                   btndistinta5.setEnabled(true);
+                    
+                    
+                    btndistinta5.setEnabled(true);
                    if(botonhabilitado5.equals("si"))
                    {
                    listabotones.add("btndistinta5");
                    }
                    cancelar5.setVisible(false);
+                    
+                    
+                } 
+                
+                if(distinta6nombre==null||distinta6nombre.equals("")||distinta6nombre.equals(" "))
+                {
+                   btndistinta6.setEnabled(false);
                    
                 }
                 else
                 {
-                    btndistinta5.setEnabled(false);
-                    cancelar5.setVisible(true);
-                } 
-                
-                
-                if(distinta6cantidad.equals("0") )
-                {
-                   btndistinta6.setEnabled(true);
+                    
+                    
+                    btndistinta6.setEnabled(true);
                    if(botonhabilitado6.equals("si"))
                    {
                    listabotones.add("btndistinta6");
                    }
                    cancelar6.setVisible(false);
+                    
+                    
+                }
+                
+                
+                if(distinta7nombre==null||distinta7nombre.equals("")||distinta7nombre.equals(" "))
+                {
+                   btndistinta7.setEnabled(false);
                    
                 }
                 else
                 {
-                    btndistinta6.setEnabled(false);
-                    cancelar6.setVisible(true);
-                } 
-                
-                if(distinta7cantidad.equals("0") )
-                {
-                   btndistinta7.setEnabled(true);
+                    
+                    
+                    btndistinta7.setEnabled(true);
                    if(botonhabilitado7.equals("si"))
                    {
-                       listabotones.add("btndistinta7");
+                   listabotones.add("btndistinta7");
                    }
                    cancelar7.setVisible(false);
-                   
-                }
-                else
-                {
-                    btndistinta7.setEnabled(false);
-                    cancelar7.setVisible(true);
+                    
+                    
                 } 
+                
+                
+                
                 
                 
                 
@@ -555,17 +578,16 @@ public class ordendistinta extends javax.swing.JFrame {
     void agregarfotomontaje() throws FileNotFoundException, IOException  
     {
         
-        String numero = lbnumero.getText();
-        String numeroventa = lbnumeroventa.getText();
-        String prenda =lbprenda.getText().toUpperCase();
-        String nombreconcepto =lbnombreconcepto.getText();
+        Object numero = lbnumero.getText();
+        Object numeroventa = lbnumeroventa.getText();
+        Object nombreconcepto =lbnombreconcepto.getText();
         BufferedImage img = null;
         
         String prendasql ="";
         String prendanombresql="";
         btnverfotomontaje.setEnabled(false);
 
-       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+nombreconcepto+"' and tipo = '"+prenda+"'   ";  ///
+       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+nombreconcepto+"' and prenda_especial = 'DISTINTA'   ";  ///
 
         try {
 
@@ -1025,7 +1047,7 @@ public class ordendistinta extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set "+ubicacion+"='" + lbcantidad.getText() + "' where numero = '"+lbfolio.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='" + lbcantidad.getText() + "' where numero = '"+lbfolio.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -2043,13 +2065,13 @@ public class ordendistinta extends javax.swing.JFrame {
     
     void hilosycolor()
     {
-          String cliente = lbcliente.getText();
-        String tipo = lbprenda.getText();
-        String prenda =lbprenda.getText().toUpperCase();
-        String nombreconcepto =lbnombreconcepto.getText();
+        Object cliente = lbcliente.getText();
+        Object tipo = lbprenda.getText();
+        Object prenda =lbprenda.getText();
+        Object nombreconcepto =lbnombreconcepto.getText();
        
 
-        String sql = "Select hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,color1,color2,color3,color4,color5,color6,color7 from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_prenda= '"+nombreconcepto+"' and tipo = '"+prenda+"'   ";
+        String sql = "Select hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,color1,color2,color3,color4,color5,color6,color7 from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_prenda= '"+nombreconcepto+"' and prenda_especial = 'DISTINTA'   ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -2165,92 +2187,7 @@ public class ordendistinta extends javax.swing.JFrame {
     
    
     
-     void verfotomontajerecibido()
-    {
-        
-        String cliente = lbcliente.getText();
-        String tipo = lbprenda.getText();
-        String prenda =lbprenda.getText().toUpperCase();
-        String prendafotomontaje = "";
-        String nombreprendafotomontaje = "";
-        String rutadelarchivo = "";
-        String existe = "";
-        
-        //// prenda del fotomontaje
-        String sql = "Select imagen,imagen_nombre from historial_ordenes_camisa_recibidas where numero = '"+lbfolio.getText()+"'   ";
-
-        try {
-            Statement st1 = cn.createStatement();
-            ResultSet rs1 = st1.executeQuery(sql);
-            if (rs1.next()) 
-            {
-                Object camisa1 = rs1.getString("imagen");
-                if (camisa1 == null||camisa1.equals("")||camisa1.equals(" ")) 
-                {
-                    existe = "no";
-                    
-                } else 
-                
-                {
-                    String nombredelarchivo = rs1.getString("imagen_nombre");
-                    if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
-                    {
-                        
-                     rutadelarchivo = "C:\\archivospdf\\fotomontajegorra."+nombredelarchivo+" ";   
-                   
-                    }
-                    else
-                    {
-                        
-                   nombredelarchivo = nombredelarchivo.replace(" ","");
-                   rutadelarchivo = "C:\\archivospdf\\"+nombredelarchivo+" ";
-                    
-                    }
-                    existe = "si";
-                    File file = new File(rutadelarchivo);
-                    FileOutputStream output = new FileOutputStream(file);
-                    Blob archivo = rs1.getBlob("imagen");
-                    InputStream inStream = archivo.getBinaryStream();
-                    int length = -1;
-                    int size = (int) archivo.length();
-                    byte[] buffer = new byte[size];
-                    while ((length = inStream.read(buffer)) != -1) {
-                        output.write(buffer, 0, length);
-                    }
- 
-                    output.close();
-                }
-            }
-            rs1.close();
-
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex);
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
-
-        if (existe.equals("si")) 
-        {
-            String fileLocal = new String(rutadelarchivo);
-            try {
-
-                File path = new File(fileLocal);
-                Desktop.getDesktop().open(path);
-
-            } catch (IOException e) {
-                System.out.println(e);
-            } catch (IllegalArgumentException e) {
-
-                JOptionPane.showMessageDialog(null, "No se pudo encontrar el archivo","Error",JOptionPane.ERROR_MESSAGE);
-                System.out.println(e);
-            }
-        
-        } 
-        
-        
-    }
+    
     
      
      void descargarponchado(String ubicacion,String ubicacionnombre)
@@ -3181,7 +3118,7 @@ public class ordendistinta extends javax.swing.JFrame {
     if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
     {
         
-        nombredelatabla = "historial_ordenes_camisa";
+        nombredelatabla = "historial_ordenes_distinta";
         
      try {
             datos();
@@ -3207,7 +3144,7 @@ public class ordendistinta extends javax.swing.JFrame {
     
      
         
-      sumapuntos();
+   //sumapuntos();
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -3282,7 +3219,7 @@ public class ordendistinta extends javax.swing.JFrame {
             agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
             estacompletalaorden();
-            sumapuntos(); 
+            //sumapuntos(); 
             
         }    
          
@@ -3312,7 +3249,7 @@ public class ordendistinta extends javax.swing.JFrame {
             agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
             estacompletalaorden();
-            sumapuntos(); 
+        //sumapuntos(); 
             
         } 
     
@@ -3341,7 +3278,7 @@ public class ordendistinta extends javax.swing.JFrame {
             agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
             estacompletalaorden();
-            sumapuntos(); 
+            //sumapuntos(); 
             
         } 
          
@@ -3370,7 +3307,7 @@ public class ordendistinta extends javax.swing.JFrame {
             agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
             estacompletalaorden();
-            sumapuntos(); 
+            //sumapuntos(); 
             
         }  
         
@@ -3399,7 +3336,7 @@ public class ordendistinta extends javax.swing.JFrame {
             agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
             estacompletalaorden();
-            sumapuntos(); 
+            //sumapuntos(); 
             
         }
             
@@ -3870,7 +3807,7 @@ public class ordendistinta extends javax.swing.JFrame {
             agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
             estacompletalaorden();
-            sumapuntos(); 
+            //sumapuntos(); 
             
         } 
         
@@ -3899,7 +3836,7 @@ public class ordendistinta extends javax.swing.JFrame {
             agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
             agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
             estacompletalaorden();
-            sumapuntos(); 
+            //sumapuntos(); 
             
         } 
     }//GEN-LAST:event_btndistinta7ActionPerformed
@@ -3997,7 +3934,7 @@ public class ordendistinta extends javax.swing.JFrame {
         
           
         
-       sumapuntos();
+       //sumapuntos();
        
            
 
@@ -4041,31 +3978,31 @@ public class ordendistinta extends javax.swing.JFrame {
             
             
             
-            if(boton.equals("btnpechoizquierdo"))
-            {
-                btndistinta4.doClick();
-            }
-            else if(boton.equals("btnpechoderecho"))
-            {
-                btndistinta3.doClick();
-            }
-            else if(boton.equals("btnmangaizquierda"))
-            {
-                btndistinta2.doClick();
-            }
-            else if(boton.equals("btnmangaderecha"))
+            if(boton.equals("btndistinta1"))
             {
                 btndistinta1.doClick();
             }
-            else if(boton.equals("btnespalda"))
+            else if(boton.equals("btndistinta2"))
+            {
+                btndistinta2.doClick();
+            }
+            else if(boton.equals("btndistinta3"))
+            {
+                btndistinta3.doClick();
+            }
+            else if(boton.equals("btndistinta4"))
+            {
+                btndistinta4.doClick();
+            }
+            else if(boton.equals("btndistinta5"))
             {
                 btndistinta5.doClick();
             }
-            else if(boton.equals("btnotraubicacion"))
+            else if(boton.equals("btndistinta6"))
             {
                 btndistinta6.doClick();
             }
-            else if(boton.equals("btnotraubicacion2"))
+            else if(boton.equals("btndistinta7"))
             {
                 btndistinta7.doClick();
             }
@@ -4083,6 +4020,8 @@ public class ordendistinta extends javax.swing.JFrame {
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
+         
+         listabotones.clear();
          
          this.dispose();
          

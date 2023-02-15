@@ -59,7 +59,7 @@ public class bordadosdelclientecatalogoEditar extends AbstractCellEditor impleme
         
         
         bordadosdelclienteeditarnuevo.lbcliente.setText(bordadosdelclientecatalogo.cbcomboclientes.getSelectedItem().toString());
-        bordadosdelclienteeditarnuevo.lbnombrecomercial.setText(bordadosdelclientecatalogo.lbnombrecomercial.getText());
+        bordadosdelclienteeditarnuevo.lbnombrecomercial.setText(bordadosdelclientecatalogo.cbnombrecomercial.getSelectedItem().toString());
         bordadosdelclienteeditarnuevo.lbcodigocliente.setText(bordadosdelclientecatalogo.lbcodigocliente.getText());
         bordadosdelclienteeditarnuevo.txtidentificadordeprenda.setText(nombre.toString());
        

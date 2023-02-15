@@ -2398,15 +2398,16 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         lbcodigocliente = new javax.swing.JLabel();
         btndatos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        lbnombrecomercial = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         cbprenda = new javax.swing.JComboBox<>();
         btnnombres = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        lbidentificador = new javax.swing.JLabel();
         btncombo = new javax.swing.JButton();
         cbcomboclientes = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        cbnombrecomercial = new javax.swing.JComboBox<>();
+        lbidentificador = new javax.swing.JComboBox<>();
 
         btngorra1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btngorra1.setText("Gorra");
@@ -2419,8 +2420,11 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Bordados del cliente catalogo nuevo");
+        setTitle("Bordados del cliente catalogo");
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
@@ -2429,9 +2433,6 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
             }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
-            }
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
             }
         });
 
@@ -2464,15 +2465,6 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Cliente");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        lbnombrecomercial.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lbnombrecomercial.setForeground(new java.awt.Color(153, 0, 0));
-        lbnombrecomercial.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        lbnombrecomercial.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbnombrecomercialMouseClicked(evt);
-            }
-        });
 
         tabla.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -2534,10 +2526,6 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         jLabel2.setText("Identificador");
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lbidentificador.setForeground(new java.awt.Color(153, 0, 0));
-        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
         btncombo.setText("Combo");
         btncombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2545,12 +2533,35 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
             }
         });
 
-        cbcomboclientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbcomboclientes.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
                 cbcomboclientesPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Nombre comercial");
+        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        cbnombrecomercial.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                cbnombrecomercialPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
+
+        lbidentificador.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                lbidentificadorPopupMenuWillBecomeInvisible(evt);
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -2582,13 +2593,15 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbcomboclientes, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbcomboclientes, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(108, 108, 108)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(209, 209, 209)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
@@ -2600,40 +2613,34 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(cbcomboclientes, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbcomboclientes, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(cbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(5, 5, 5)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 823, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lbcodigocliente, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(bntmaximizar)
-                                    .addComponent(btndatos)
-                                    .addComponent(btncombo)
-                                    .addComponent(btnnombres)))))
+                            .addComponent(lbcodigocliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(bntmaximizar)
+                                .addComponent(btndatos)
+                                .addComponent(btncombo)
+                                .addComponent(btnnombres))))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbinterface, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2973,7 +2980,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
                         ventana.setVisible(true);
                         ventana.setLocationRelativeTo(null);
                         bordadosdelclienteeditarnuevo.lbcliente.setText(cbcomboclientes.getSelectedItem().toString());
-                        bordadosdelclienteeditarnuevo.lbnombrecomercial.setText(lbnombrecomercial.getText());
+                        bordadosdelclienteeditarnuevo.lbnombrecomercial.setText(cbnombrecomercial.getSelectedItem().toString());
                         bordadosdelclienteeditarnuevo.lbcodigocliente.setText(lbcodigocliente.getText());
                         bordadosdelclienteeditarnuevo.txtidentificadordeprenda.setText(nombredelbordado.toString());
                         bordadosdelclienteeditarnuevo.txtcodigocatalogobordados.setText(consecutivo.toString());
@@ -3011,7 +3018,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
                         ventana.setLocationRelativeTo(null);
 
                         bordadosdelclienteeditardistinta.lbcliente.setText(cbcomboclientes.getSelectedItem().toString());
-                        bordadosdelclienteeditardistinta.lbnombrecomercial.setText(lbnombrecomercial.getText());
+                        bordadosdelclienteeditardistinta.lbnombrecomercial.setText(cbnombrecomercial.getSelectedItem().toString());
                         bordadosdelclienteeditardistinta.lbcodigocliente.setText(lbcodigocliente.getText());
                         bordadosdelclienteeditardistinta.txtidentificadordeprenda.setText(nombredelbordado.toString());
                         bordadosdelclienteeditardistinta.txtconsecutivo.setText(consecutivo.toString());
@@ -3050,14 +3057,6 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
     private void formWindowIconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowIconified
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowIconified
-
-    private void lbnombrecomercialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbnombrecomercialMouseClicked
-      
-       
-           
-           
-           
-    }//GEN-LAST:event_lbnombrecomercialMouseClicked
 
     
     private void btnnombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnombresActionPerformed
@@ -3180,6 +3179,14 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cbcomboclientesPopupMenuWillBecomeInvisible
 
+    private void cbnombrecomercialPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbnombrecomercialPopupMenuWillBecomeInvisible
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbnombrecomercialPopupMenuWillBecomeInvisible
+
+    private void lbidentificadorPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_lbidentificadorPopupMenuWillBecomeInvisible
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbidentificadorPopupMenuWillBecomeInvisible
+
  
     public static void main(String args[]) {
    
@@ -3218,9 +3225,11 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
     public static javax.swing.JButton btnnombres;
     public static javax.swing.JButton btnsalir;
     public static javax.swing.JComboBox<String> cbcomboclientes;
+    public static javax.swing.JComboBox<String> cbnombrecomercial;
     public static javax.swing.JComboBox<String> cbprenda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator16;
@@ -3231,9 +3240,8 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator22;
     private javax.swing.JTextField jTextField1;
     public static javax.swing.JLabel lbcodigocliente;
-    public static javax.swing.JLabel lbidentificador;
+    public static javax.swing.JComboBox<String> lbidentificador;
     public static javax.swing.JLabel lbinterface;
-    public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 connectar cc = new connectar();

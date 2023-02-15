@@ -1476,7 +1476,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 {
                    
                     
-                    /*
+                    
                     if (ordendistinta.ventanaordencamisaanteriores == true) 
                     {
                         
@@ -1515,7 +1515,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                        
                     }
-                      */   
+                        
                 
                 } 
                 

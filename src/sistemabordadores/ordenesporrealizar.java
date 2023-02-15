@@ -505,7 +505,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos9 = new String[12];
 
-        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus_orden = 'por generar' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora "; //and tienda not in('"+tiendalocal+"')
+        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora "; //and tienda not in('"+tiendalocal+"')
 
         try {
             Statement st = cn.createStatement();
@@ -541,21 +541,22 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos10 = new String[12];
 
-        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_gorra_recibidas  where estatus_orden = 'por generar' and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by hora  ";
+        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden FROM historial_ordenes_gorra_recibidas  where estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by hora  ";
 
         try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql4);
-            while (rs.next()) {
-                datos10[0] = rs.getString("numero");
-                datos10[1] = rs.getString("cliente");
-                datos10[2] = rs.getString("prenda");
-                datos10[3] = rs.getString("tipo");
-                datos10[4] = rs.getString("lugar");
+            Statement st2 = cn.createStatement();
+            ResultSet rs2 = st2.executeQuery(sql4);
+            while (rs2.next()) 
+            {
+                datos10[0] = rs2.getString("numero");
+                datos10[1] = rs2.getString("cliente");
+                datos10[2] = rs2.getString("prenda");
+                datos10[3] = rs2.getString("tipo");
+                datos10[4] = rs2.getString("lugar");
                 datos10[5] = "0000000";  
-                datos10[6] = rs.getString("fecha");
-                datos10[7] = rs.getString("tienda");
-                datos10[8] = rs.getString("numero_sucursal_orden");
+                datos10[6] = rs2.getString("fecha");
+                datos10[7] = rs2.getString("tienda");
+                datos10[8] = rs2.getString("numero_sucursal_orden");
                 datos10[9] = "";
                 datos10[10] = "Recibida";
 
@@ -563,7 +564,6 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
             }
 
-            tabla.setModel(modelo);
 
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -578,7 +578,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos11 = new String[12];
 
-        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_pantalon_recibidas  where (estatus_orden = 'por generar' or estatus_orden = 'generada' ) and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
+        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_pantalon_recibidas  where estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
 
         try {
             Statement st = cn.createStatement();
@@ -1428,6 +1428,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             {
 
                 Object tipo = tabla.getValueAt(fila, 3).toString();
+                Object tablanombre = tabla.getValueAt(fila, 10).toString();
 
                 if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) {
                     if (ordencamisa.ventanaordencamisaanteriores == true) 
@@ -1444,7 +1445,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
                         
                         
-                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
+                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida"))
                         {
                         
                         ordencamisa orden = new ordencamisa();
@@ -1471,7 +1472,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
                 
                 }
-                if (tipo.equals("Orden distinta")||tipo.equals("Orden Distinta")) {
+                if (tipo.equals("Orden distinta")||tipo.equals("Orden Distinta")) 
+                {
+                   
+                    
+                    /*
                     if (ordendistinta.ventanaordencamisaanteriores == true) 
                     {
                         
@@ -1510,7 +1515,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                        
                     }
-
+                      */   
                 
                 } 
                 
@@ -1528,7 +1533,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
                         
                         
-                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
+                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida"))
                         {
 
                         ordengorra orden = new ordengorra();
@@ -1568,7 +1573,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
                         
                         
-                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
+                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida"))
                         {
                              ordenpantalon orden = new ordenpantalon();
                             orden.setVisible(true);
@@ -1607,7 +1612,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         Object nombre_tabla = "historial_ordenes_gorra";
                         autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
                         
-                         if (fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")) {
+                         if (fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida")) {
                             ordenponchado orden = new ordenponchado();
                             orden.setVisible(true);
 

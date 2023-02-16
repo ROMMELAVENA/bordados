@@ -1943,7 +1943,7 @@ String fechafinal = "";
         });
 
         btnordenesbordadosucursalrealizadas1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnordenesbordadosucursalrealizadas1.setText("Autorizar puntadas");
+        btnordenesbordadosucursalrealizadas1.setText("Catalogo de cliente");
         btnordenesbordadosucursalrealizadas1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnordenesbordadosucursalrealizadas1ActionPerformed(evt);

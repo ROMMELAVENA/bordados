@@ -448,6 +448,38 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         }
         
         
+        /// distinta
+        
+         String sqldistinta = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,nombre_concepto  "
+                         + "FROM historial_ordenes_distinta where lugar = 'Esta sucursal' "
+                         + "and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora  ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqldistinta);
+            while (rs.next()) {
+                datos[0] = rs.getString("numero");
+                datos[1] = rs.getString("cliente");
+                datos[2] = "Distinta";
+                datos[3] = rs.getString("tipo");
+                datos[4] = rs.getString("lugar");
+                datos[5] = rs.getString("numero_venta");
+                datos[6] = rs.getString("fecha");
+                datos[7] = "";
+                datos[8] = "";
+                datos[9] = "";
+                datos[10] = "Local";
+                datos[11] = rs.getString("nombre_concepto");
+
+                modelo.addRow(datos);
+
+            }
+
+            
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "sql orden camisa" +  ex);
+        }
         
         
         
@@ -1515,6 +1547,29 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                     }
                                            
                 }
+                else
+                {
+                     if (ordendistinta.ventanaordencamisaanteriores == true) 
+                    {
+                        
+                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
+
+                    } else {
+                        ordendistinta orden = new ordendistinta();
+                        orden.setVisible(true);
+
+                        ordendistinta.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordendistinta.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordendistinta.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
+                        ordendistinta.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        ordendistinta.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordendistinta.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        tabla.clearSelection();
+                        this.setState(this.ICONIFIED);
+                       
+                    }
+                } 
+                
 
             } /// 
 

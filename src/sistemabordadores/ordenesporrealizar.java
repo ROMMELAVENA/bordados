@@ -842,6 +842,42 @@ public class ordenesporrealizar extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
         }
         
+        
+        //// DISTINTA 
+        
+         String sqldistinta = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,nombre_concepto  "
+                         + "FROM historial_ordenes_distinta where lugar = 'Esta sucursal' "
+                         + "and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora  ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqldistinta);
+            while (rs.next()) {
+                datos[0] = rs.getString("numero");
+                datos[1] = rs.getString("cliente");
+                datos[2] = "Distinta";
+                datos[3] = rs.getString("tipo");
+                datos[4] = rs.getString("lugar");
+                datos[5] = rs.getString("numero_venta");
+                datos[6] = rs.getString("fecha");
+                datos[7] = "";
+                datos[8] = "";
+                datos[9] = "";
+                datos[10] = "Local";
+                datos[11] = rs.getString("nombre_concepto");
+
+                modelo.addRow(datos);
+
+            }
+
+            
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "sql orden camisa" +  ex);
+        }
+        
+        
+        
 
        /* 
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tabla.getModel());

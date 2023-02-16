@@ -1414,7 +1414,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
                         ordenpantalon.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
                         ordenpantalon.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordenpantalon.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                     
                         ordenpantalon.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
                         ordenpantalon.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();

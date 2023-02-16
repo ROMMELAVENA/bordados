@@ -1567,7 +1567,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                     {
                         
                         Object numerodefolio = tabla.getValueAt(fila, 0);
-                        Object nombre_tabla = "historial_ordenes_gorra";
+                        Object nombre_tabla = "historial_ordenes_ponchados";
                         autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
                         
                          if (fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida")) {

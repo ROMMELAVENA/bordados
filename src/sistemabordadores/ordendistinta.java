@@ -1069,11 +1069,14 @@ public class ordendistinta extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
         }
         
+        
+        /*
         try {
             datos();
         } catch (IOException ex) {
             Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
         }
+        */
         
     }
     
@@ -1859,13 +1862,9 @@ public class ordendistinta extends javax.swing.JFrame {
         int tienecantidad = 0;
         botonesactivados = 0;
         
-         String sql = "Select cantidad,cantidad_pecho_izquierdo,pecho_izquierdo,"
-                  + "cantidad_pecho_derecho,pecho_derecho,"
-                  + "cantidad_manga_izquierda,manga_izquierda,"
-                  + "cantidad_manga_derecha,manga_derecha,"
-                  + "cantidad_espalda,espalda,"
-                  + "cantidad_otra_ubicacion,otra_ubicacion,"
-                  + "cantidad_otra_ubicacion2,otra_ubicacion2 from "+nombredelatabla+" where numero = '"+lbfolio.getText()+"' ";
+         String sql = "Select cantidad,distinta1_cantidad,distinta1,distinta2_cantidad,distinta2,"
+                  + "distinta3_cantidad,distinta3,distinta4_cantidad,distinta4,distinta4_cantidad,distinta4,"
+                  + "distinta5_cantidad,distinta5,distinta6_cantidad,distinta6,distinta7_cantidad,distinta7 from "+nombredelatabla+" where numero = '"+lbfolio.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -1874,23 +1873,23 @@ public class ordendistinta extends javax.swing.JFrame {
             while (rs.next()) {
 
                 cantidad = rs.getString("cantidad");   
-                String cantidadpechoizquierdo = rs.getString("cantidad_pecho_izquierdo");
-                String pechoizquierdo = rs.getString("pecho_izquierdo");
-                String cantidadpechoderecho = rs.getString("cantidad_pecho_derecho");
-                String pechoderecho = rs.getString("pecho_derecho");
-                String cantidadmangaizquierda = rs.getString("cantidad_manga_izquierda");
-                String mangaizquierda = rs.getString("manga_izquierda");
-                String cantidadmangaderecha = rs.getString("cantidad_manga_derecha");
-                String mangaderecha = rs.getString("manga_derecha");
-                String cantidadespalda = rs.getString("cantidad_espalda");
-                String espalda = rs.getString("espalda");
-                String cantidadotraubicacion = rs.getString("cantidad_otra_ubicacion");
-                String otraubicacion = rs.getString("otra_ubicacion");
-                String cantidadotraubicacion2 = rs.getString("cantidad_otra_ubicacion2");
-                String otraubicacion2 = rs.getString("otra_ubicacion2");
+                String distinta1cantidad = rs.getString("distinta1_cantidad");
+                String distinta1 = rs.getString("distinta1");
+                String distinta2cantidad = rs.getString("distinta2_cantidad");
+                String distinta2 = rs.getString("distinta2");
+                String distinta3cantidad = rs.getString("distinta3_cantidad");
+                String distinta3 = rs.getString("distinta3");
+                String distinta4cantidad = rs.getString("distinta4_cantidad");
+                String distinta4 = rs.getString("distinta4");
+                String distinta5cantidad = rs.getString("distinta5_cantidad");
+                String distinta5 = rs.getString("distinta4");
+                String distinta6cantidad = rs.getString("distinta6_cantidad");
+                String distinta6 = rs.getString("distinta6");
+                String distinta7cantidad = rs.getString("distinta7_cantidad");
+                String distinta7 = rs.getString("distinta7");
 
                 
-                if(pechoizquierdo==null || pechoizquierdo.equals("")||pechoizquierdo.equals(" ")||pechoizquierdo.equals("ninguno") )
+                if(distinta1==null || distinta1.equals("")||distinta1.equals(" ")||distinta1.equals("ninguno") )
                 {
                     
                     
@@ -1901,7 +1900,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 } 
                 
                 
-                if(pechoderecho==null || pechoderecho.equals("")||pechoderecho.equals(" ")||pechoderecho.equals("ninguno") )
+                if(distinta2==null || distinta2.equals("")||distinta2.equals(" ")||distinta2.equals("ninguno") )
                 {
                     
                     
@@ -1911,7 +1910,7 @@ public class ordendistinta extends javax.swing.JFrame {
                    botonesactivados = botonesactivados + 1; 
                 }
                 
-                if(mangaderecha==null || mangaderecha.equals("")||mangaderecha.equals(" ")||mangaderecha.equals("ninguno") )
+                if(distinta3==null || distinta3.equals("")||distinta3.equals(" ")||distinta3.equals("ninguno") )
                 {
                     
                     
@@ -1921,7 +1920,7 @@ public class ordendistinta extends javax.swing.JFrame {
                    botonesactivados = botonesactivados + 1; 
                 }
                 
-                if(mangaizquierda==null || mangaizquierda.equals("")||mangaizquierda.equals(" ")||mangaizquierda.equals("ninguno") )
+                if(distinta4==null || distinta4.equals("")||distinta4.equals(" ")||distinta4.equals("ninguno") )
                 {
                     
                     
@@ -1931,7 +1930,7 @@ public class ordendistinta extends javax.swing.JFrame {
                    botonesactivados = botonesactivados + 1; 
                 }
                 
-                if(espalda==null || espalda.equals("")||espalda.equals(" ")||espalda.equals("ninguno") )
+                if(distinta5==null || distinta5.equals("")||distinta5.equals(" ")||distinta5.equals("ninguno") )
                 {
                     
                     
@@ -1942,7 +1941,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 }
             
                 
-                if(otraubicacion==null || otraubicacion.equals("")||otraubicacion.equals(" ")||otraubicacion.equals("ninguno") )
+                if(distinta6==null || distinta6.equals("")||distinta6.equals(" ")||distinta6.equals("ninguno") )
                 {
                     
                     
@@ -1952,7 +1951,7 @@ public class ordendistinta extends javax.swing.JFrame {
                    botonesactivados = botonesactivados + 1; 
                 }
             
-           if(otraubicacion2==null || otraubicacion2.equals("")||otraubicacion2.equals(" ")||otraubicacion2.equals("ninguno") )
+           if(distinta7==null || distinta7.equals("")||distinta7.equals(" ")||distinta7.equals("ninguno") )
                 {
                     
                     
@@ -1965,7 +1964,7 @@ public class ordendistinta extends javax.swing.JFrame {
            
                 ////////////////////////////////////////////////////////////////
                 
-                 if(cantidadpechoizquierdo.equals("0") )
+                 if(distinta1cantidad.equals("0") )
                 {
                     
                     
@@ -1976,7 +1975,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 } 
                 
                 
-                if(cantidadpechoderecho.equals("0") )
+                if(distinta2cantidad.equals("0") )
                 {
                     
                     
@@ -1986,7 +1985,7 @@ public class ordendistinta extends javax.swing.JFrame {
                    tienecantidad = tienecantidad + 1; 
                 }
                 
-                if(cantidadmangaderecha.equals("0") )
+                if(distinta3cantidad.equals("0") )
                 {
                     
                     
@@ -1996,7 +1995,7 @@ public class ordendistinta extends javax.swing.JFrame {
                    tienecantidad = tienecantidad + 1;
                 }
                 
-                if(cantidadmangaizquierda.equals("0"))
+                if(distinta4cantidad.equals("0"))
                 {
                     
                     
@@ -2006,7 +2005,7 @@ public class ordendistinta extends javax.swing.JFrame {
                    tienecantidad = tienecantidad + 1;
                 }
                 
-                if(cantidadespalda.equals("0") )
+                if(distinta5cantidad.equals("0") )
                 {
                     
                     
@@ -2017,7 +2016,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 }
             
                 
-                if(cantidadotraubicacion.equals("0") )
+                if(distinta6cantidad.equals("0") )
                 {
                     
                     
@@ -2027,7 +2026,7 @@ public class ordendistinta extends javax.swing.JFrame {
                    tienecantidad = tienecantidad + 1; 
                 }
             
-           if(cantidadotraubicacion2.equals("0") )
+           if(distinta7cantidad.equals("0") )
                 {
                     
                     

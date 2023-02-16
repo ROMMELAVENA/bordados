@@ -118,6 +118,7 @@ public class ordendistinta extends javax.swing.JFrame {
     String distinta7cantidad = "0";
     
     String tipoprenda = "";
+    String estatusorden = "";
 
     
     String rutaimagen = "";
@@ -209,7 +210,7 @@ public class ordendistinta extends javax.swing.JFrame {
         
         datostienda();
 
-        String sql = "Select codigo,tipo,numero,numero_venta,fecha,hora,cliente,tipo,nombre_concepto,estatus_orden,estatus_entrega,articulo,cantidad,prenda,cantidad_bordados,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,\n" +
+        String sql = "Select codigo,tipo,estatus_orden,numero,numero_venta,fecha,hora,cliente,tipo,nombre_concepto,estatus_orden,estatus_entrega,articulo,cantidad,prenda,cantidad_bordados,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,\n" +
 "	   distinta1,distinta1_ubicacion,distinta1_nombre,distinta1_cantidad,distinta1_aplicacion,distinta1_aplicacion_color,\n" +
 "	   distinta2,distinta2_ubicacion,distinta2_nombre,distinta2_cantidad,distinta2_aplicacion,distinta2_aplicacion_color, \n" +
 "	   distinta3,distinta3_ubicacion,distinta3_nombre,distinta3_cantidad,distinta3_aplicacion,distinta3_aplicacion_color, \n" +
@@ -232,6 +233,17 @@ public class ordendistinta extends javax.swing.JFrame {
 
                 
                 tipoprenda = rs.getString("tipo");
+                estatusorden = rs.getString("estatus_orden");
+                
+                
+                
+                distinta1cantidad =rs.getString("distinta1_cantidad");
+                distinta2cantidad =rs.getString("distinta2_cantidad");         
+                distinta3cantidad =rs.getString("distinta3_cantidad"); 
+                distinta4cantidad =rs.getString("distinta4_cantidad");
+                distinta5cantidad =rs.getString("distinta5_cantidad");
+                distinta6cantidad =rs.getString("distinta6_cantidad");
+                distinta7cantidad =rs.getString("distinta7_cantidad");
                
                 
                 distinta1nombre = rs.getString("distinta1_nombre");
@@ -247,6 +259,7 @@ public class ordendistinta extends javax.swing.JFrame {
                     
 
                 }
+                  
 
                 
                 
@@ -367,19 +380,11 @@ public class ordendistinta extends javax.swing.JFrame {
 
                 
                 lbcantidad.setText(rs.getString("cantidad"));
-
                 String nombreconcepto = rs.getString("nombre_concepto");
-                lbnombreconcepto.setText(nombreconcepto);
-                
+                lbnombreconcepto.setText(nombreconcepto);  
                 lugardondesebordara = rs.getString("lugar");
                 
-                distinta1cantidad =rs.getString("distinta1_cantidad");
-                distinta2cantidad =rs.getString("distinta2_cantidad");         
-                distinta3cantidad =rs.getString("distinta3_cantidad"); 
-                distinta4cantidad =rs.getString("distinta4_cantidad");
-                distinta5cantidad =rs.getString("distinta5_cantidad");
-                distinta6cantidad =rs.getString("distinta6_cantidad");
-                distinta7cantidad =rs.getString("distinta7_cantidad");
+                
                 
                 
                 if(lugardondesebordara.equals("Esta sucursal"))
@@ -404,10 +409,17 @@ public class ordendistinta extends javax.swing.JFrame {
                    {
                    listabotones.add("btndistinta1");
                    }
+                   
+                   
+                   
                    cancelar1.setVisible(false);
                     
                     
                 } 
+                
+                
+                
+                /// distinta2
                 
                  if(distinta2nombre==null||distinta2nombre.equals("")||distinta2nombre.equals(" "))
                 {
@@ -416,9 +428,10 @@ public class ordendistinta extends javax.swing.JFrame {
                 }
                 else
                 {
-                    
-                    
-                    btndistinta2.setEnabled(true);
+
+                 
+                   
+                   btndistinta2.setEnabled(true);
                    if(botonhabilitado2.equals("si"))
                    {
                    listabotones.add("btndistinta2");

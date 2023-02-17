@@ -1328,7 +1328,7 @@ public class ordenpantalon extends javax.swing.JFrame {
          String sql = "Select cantidad,cantidad_lado_izquierdo_frente,lado_izquierdo_frente,"
                   + "cantidad_lado_derecho_frente,lado_derecho_frente,"
                   + "cantidad_lado_izquierdo_atras,lado_izquierdo_atras,"
-                  + "cantidad_lado_derecho_atras,lado_derecho_atras from "+nombredelatabla+" where numero = '"+lbfolio.getText()+"' ";
+                  + "cantidad_lado_derecho_atras,lado_derecho_atras from historial_ordenes_pantalon where numero = '"+lbfolio.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -1446,7 +1446,7 @@ public class ordenpantalon extends javax.swing.JFrame {
            {
                try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada' where numero='" + lbfolio.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set estatus_orden='realizada' where numero='" + lbfolio.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 

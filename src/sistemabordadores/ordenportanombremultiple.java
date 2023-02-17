@@ -1,73 +1,16 @@
 package sistemabordadores;
 
 import javax.swing.JOptionPane;
-
-import com.inet.jortho.FileUserDictionary;
-import com.inet.jortho.SpellChecker;
-import java.awt.Desktop;
-import java.awt.Graphics;
-import java.awt.event.KeyEvent;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import javax.print.DocFlavor;
-
+import java.applet.AudioClip;
 import javax.swing.JTextField;
-
-import static java.awt.print.Printable.NO_SUCH_PAGE;
-import static java.awt.print.Printable.PAGE_EXISTS;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
-import net.sf.jasperreports.engine.JREmptyDataSource;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JRExporter;
-import net.sf.jasperreports.engine.JRExporterParameter;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.util.JRLoader;
-
-import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.print.Doc;
-import javax.print.DocFlavor;
-import javax.print.DocPrintJob;
-import javax.print.PrintService;
-import javax.print.PrintServiceLookup;
-import javax.print.SimpleDoc;
-import javax.print.attribute.AttributeSet;
-import javax.print.attribute.HashAttributeSet;
-import javax.print.attribute.HashPrintRequestAttributeSet;
-import javax.print.attribute.PrintRequestAttributeSet;
-import javax.print.attribute.standard.ColorSupported;
-import javax.print.attribute.standard.PrinterName;
-import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
-import net.sf.jasperreports.engine.export.JRPrintServiceExporterParameter;
 
 public class ordenportanombremultiple extends javax.swing.JFrame {
 
@@ -90,6 +33,7 @@ public class ordenportanombremultiple extends javax.swing.JFrame {
     String primero = "";
     String ultimo = "";
     String tienebordado = "no";
+    String tieneunaobservacion = "";
 
     public ordenportanombremultiple() {
         initComponents();
@@ -186,7 +130,6 @@ public class ordenportanombremultiple extends javax.swing.JFrame {
         String telefono = "";
         String fechaentrega = "";
         String horaentrega = "";
-        String observacion = "";
         String lugar = "";
 
         String sql = "Select numero,numero_venta,fecha,hora,tipo,cliente,estatus_orden,nombre,tipo_letra,cantidad,prenda,color,ubicacion,cantidad_total,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lugar from historial_ordenes_portanombres_multiple where numero = '" + numero + "'   ";
@@ -213,8 +156,22 @@ public class ordenportanombremultiple extends javax.swing.JFrame {
             
                 txtdia.setText(rs.getString("fecha_entrega"));
                 txthora.setText(rs.getString("hora_entrega"));
-                txtobservacion.setText(rs.getString("observacion"));
                 txtlugar.setText(rs.getString("lugar"));
+                
+                String observacion = rs.getString("observacion");
+                
+                if(observacion == null || observacion.equals("")||observacion.equals(" ") )
+                {
+                    
+                }
+                else
+                {
+                
+                 
+                tieneunaobservacion="si";    
+                txtobservacion.setText(observacion);
+                
+                }
 
                 renglon = renglon + 1;
                 mostrarrenglonesordenportanombre();
@@ -1235,6 +1192,15 @@ public class ordenportanombremultiple extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         datosportanombres();
+        
+         AudioClip sonido;
+      if(tieneunaobservacion.equals("si"))
+        {
+            sonido= java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));    
+            sonido.play();
+            
+        }
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed

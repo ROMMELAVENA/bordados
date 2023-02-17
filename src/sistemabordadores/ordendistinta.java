@@ -2172,7 +2172,7 @@ public class ordendistinta extends javax.swing.JFrame {
         Object nombreconcepto =lbnombreconcepto.getText();
        
 
-        String sql = "Select hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,color1,color2,color3,color4,color5,color6,color7 from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_prenda= '"+nombreconcepto+"' and prenda_especial = 'DISTINTA'   ";
+        String sql = "Select hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,color1,color2,color3,color4,color5,color6,color7 from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+nombreconcepto+"' and prenda_especial = 'DISTINTA'   ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -3981,7 +3981,7 @@ public class ordendistinta extends javax.swing.JFrame {
             FileInputStream input = null;
             try {
 
-                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and nombre_prenda = '"+lbnombreconcepto.getText()+"' and tipo = '"+lbprenda.getText().toUpperCase()+"' ";
+                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and nombre_bordado = '"+lbnombreconcepto.getText()+"' and tipo = '"+lbprenda.getText().toUpperCase()+"' ";
 
                 myStmt = cn.prepareStatement(sql);
                 File theFile = new File(rutaarchivo);
@@ -4000,7 +4000,7 @@ public class ordendistinta extends javax.swing.JFrame {
             }
 
             try {
-                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"' where codigo='"+codigocliente+"' and nombre_prenda = '"+lbnombreconcepto.getText()+"' and tipo = '"+lbprenda.getText()+"'  ");
+                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"' where codigo='"+codigocliente+"' and nombre_bordado = '"+lbnombreconcepto.getText()+"' and tipo = '"+lbprenda.getText()+"'  ");
                 pst.executeUpdate();
                 pst.close();
             } catch (Exception e) {

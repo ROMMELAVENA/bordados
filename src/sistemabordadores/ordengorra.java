@@ -705,7 +705,7 @@ public class ordengorra extends javax.swing.JFrame {
     {
        
 
-        String sql = "Select hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,color1,color2,color3,color4,color5,color6,color7,numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_prenda= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";
+        String sql = "Select hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,color1,color2,color3,color4,color5,color6,color7,numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -1662,6 +1662,38 @@ public class ordengorra extends javax.swing.JFrame {
         
     }
     
+    
+    
+      
+     void cliente(){
+        
+        
+        String cliente = lbcliente.getText();
+        
+          String sql = "SELECT nombre_comercial,identificador FROM catalogo_clientes WHERE nombre = '" + cliente + "' ";
+
+                try {
+                    Statement st = cn.createStatement();
+                    ResultSet rs = st.executeQuery(sql);
+                    if (rs.next()) {
+
+                        
+                      
+                        lbnombrecomercial.setText(rs.getString("nombre_comercial"));
+                        lbidentificador.setText(rs.getString("identificador"));
+
+                    }
+
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+
+                }
+        
+    }
+             
+             
+             
+    
      
      void descargarponchado(String ubicacion,String ubicacionnombre)
      {
@@ -2396,6 +2428,8 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equa
         }
         
         codigocliente();
+        
+        cliente();
         
          hilosycolor();
         

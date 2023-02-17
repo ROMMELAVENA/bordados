@@ -21,6 +21,9 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import static sistemabordadores.ordencamisa.lbcliente;
+import static sistemabordadores.ordencamisa.lbidentificador;
+import static sistemabordadores.ordencamisa.lbnombrecomercial;
 
 
 public class ordenparche extends javax.swing.JFrame {
@@ -176,7 +179,7 @@ public static boolean ventanaordenparcheanteriores = false;
     {
        
 
-        String sql = "numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_prenda= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";
+        String sql = "numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'PARCHE'   ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -455,6 +458,37 @@ public static boolean ventanaordenparcheanteriores = false;
 
       
       }
+    
+    
+    
+    void cliente(){
+        
+        
+        String cliente = lbcliente.getText();
+        
+          String sql = "SELECT nombre_comercial,identificador FROM catalogo_clientes WHERE nombre = '" + cliente + "' ";
+
+                try {
+                    Statement st = cn.createStatement();
+                    ResultSet rs = st.executeQuery(sql);
+                    if (rs.next()) {
+
+                        
+                      
+                        lbnombrecomercial.setText(rs.getString("nombre_comercial"));
+                        lbidentificador.setText(rs.getString("identificador"));
+
+                    }
+
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+
+                }
+        
+    }
+    
+    
+    
     
     
     void sumapuntos()
@@ -1054,6 +1088,8 @@ public static boolean ventanaordenparcheanteriores = false;
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         datos();
         
+        cliente();
+        
         hilosycolor();
         
         
@@ -1096,7 +1132,7 @@ public static boolean ventanaordenparcheanteriores = false;
             bordadosdelclienteeditarnuevo.lbconsecutivo.setText(consecutivo);
             bordadosdelclienteeditarnuevo.txtidentificadordeprenda.setText(identificadordeprenda);
 
-            bordadosdelclienteeditarnuevo.lbprenda.setText("GORRA");
+            bordadosdelclienteeditarnuevo.lbprenda.setText("PARCHE");
 
         }
     }//GEN-LAST:event_btneliminarActionPerformed

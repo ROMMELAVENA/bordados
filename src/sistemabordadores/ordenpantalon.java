@@ -1157,9 +1157,7 @@ public class ordenpantalon extends javax.swing.JFrame {
 
         if (rs.next()) 
         {
-
         cantidadstring = rs.getString("cantidad");
-        
 
         }
         

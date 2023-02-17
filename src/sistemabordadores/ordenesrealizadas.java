@@ -1391,7 +1391,17 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
                 Object tipo = tabla.getValueAt(fila, 3).toString();
 
-                if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) {
+                
+                
+                
+                
+                
+                
+                if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa"))
+                
+                
+                
+                {
                     if (ordencamisa.ventanaordencamisaanteriores == true) 
                     {
                         
@@ -1414,7 +1424,10 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
                 
                 } 
-                else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
+                else 
+                    
+                    
+                    if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
                 {
                     if (ordengorra.ventanaordengorra == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
@@ -1434,7 +1447,14 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                         
                     }
                 }
-                if (tipo.equals("Orden pantalon")) {
+                
+                else
+                        
+                
+                if (tipo.equals("Orden pantalon"))
+                
+                
+                {
                     if (ordenpantalon.ventanaordenpantalonanteriores == true) 
                     {
                         
@@ -1458,7 +1478,10 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                 } 
                 
                 
-                else if (tipo.equals("Orden ponchado")) 
+                else
+                    
+                    
+                    if (tipo.equals("Orden ponchado")) 
                 {
                     if (ordenponchado.ventanaordenparcheanteriores == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de ponchado anteriores");
@@ -1474,7 +1497,12 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                         
                     }
                 }
-                else if (tipo.equals("Orden parche")) 
+                    
+                    
+                else
+                        
+                        
+                        if (tipo.equals("Orden parche")) 
                 {
                     if (ordenparche.ventanaordenparcheanteriores == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de ponchado anteriores");
@@ -1489,7 +1517,12 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                         
                     }
                 }
-                else if (tipo.equals("Orden corbata")) 
+                        
+                        
+                else 
+                            
+                            
+                            if (tipo.equals("Orden corbata")) 
                 {
                    
                         
@@ -1513,7 +1546,13 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                  
                    
                 }
-                else if (tipo.equals("Porta nombre escolar")) 
+                            
+                            
+                            
+                else 
+                                
+                                
+                                if (tipo.equals("Porta nombre escolar")) 
                 {
                    
                         
@@ -1530,7 +1569,12 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                     }
                                            
                 }
-                else if (tipo.equals("porta nombre multiple")) 
+                                
+                                
+                else
+                                    
+                                    
+                                    if (tipo.equals("porta nombre multiple")) 
                 {
                    
                         
@@ -1547,6 +1591,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                     }
                                            
                 }
+                                    
+                                    
                 else
                 {
                      if (ordendistinta.ventanaordencamisaanteriores == true) 

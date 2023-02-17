@@ -2651,7 +2651,7 @@ public class ordencamisa extends javax.swing.JFrame {
         lbnumerodelaotrasucursal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Orden de camisa");
+        setTitle("Orden camisa");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);

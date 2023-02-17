@@ -696,7 +696,7 @@ public static boolean ventanaordenparcheanteriores = false;
         lborden = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Orden parche");
+        setTitle("Orden de parche");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);

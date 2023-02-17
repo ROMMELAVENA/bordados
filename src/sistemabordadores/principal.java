@@ -2317,7 +2317,10 @@ String fechafinal = "";
     }//GEN-LAST:event_formWindowClosing
 
     private void btnordenesbordadosucursalporrealizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnordenesbordadosucursalporrealizar1ActionPerformed
-     if(ordenesporrealizar.ventanaordenesbordadogenerada == true)
+   
+        
+        
+        if(ordenesporrealizar.ventanaordenesbordadogenerada == true)
     {
      
         

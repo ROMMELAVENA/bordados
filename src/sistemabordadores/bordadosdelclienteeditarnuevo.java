@@ -396,7 +396,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
          btneliminarfotomontaje.setEnabled(false);
          btnagregarfotomontaje.setEnabled(false);
          
-         
+         txtcodigocatalogobordados.setVisible(false);
          
     
     }

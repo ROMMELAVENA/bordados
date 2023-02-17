@@ -27,14 +27,23 @@ public class Colorear extends DefaultTableCellRenderer{
         table.setForeground(Color.black);
        
         Object tablanombre =table.getValueAt(row,10);
-        Object lugar =table.getValueAt(row,4);
+        Object observacion =table.getValueAt(row,12);
+        
+        
+        
                
         
-        if( tablanombre.equals("Recibida") && lugar.equals("Otra sucursal") )
+        if( observacion ==null || observacion.equals("") || observacion.equals(" ") )
         {
-            setBackground(Color.yellow.brighter());
+           
             
         }
+        else
+        {
+             setBackground(Color.yellow.brighter());
+        }    
+
+        
         
         
         

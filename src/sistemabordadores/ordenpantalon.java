@@ -516,10 +516,17 @@ public class ordenpantalon extends javax.swing.JFrame {
               
 
                     Blob archivo = rs.getBlob("imagen");
-                    String ext = rs.getString("extension_imagen");
-                    String path = "C:\\archivospdf\\FOTOMONTAJE"+ext+" ";
-                    rutaimagen=path;
-                    File file = new File(path);
+                    String nombredelarchivo = rs.getString("extension_imagen");
+                    if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
+                    {
+                     rutaimagen = "C://archivospdf/fotomontaje."+nombredelarchivo+" ";   
+                    }
+                    else
+                    {   
+                    rutaimagen = "C://archivospdf/"+nombredelarchivo+" ";
+                    }
+                    
+                    File file = new File(rutaimagen);
                     FileOutputStream output = new FileOutputStream(file);
                     InputStream inStream = archivo.getBinaryStream();
                     int length = -1;

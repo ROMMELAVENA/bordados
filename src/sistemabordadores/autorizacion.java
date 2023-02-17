@@ -262,6 +262,9 @@ public class autorizacion extends javax.swing.JFrame {
         contraseñaingresada = txtpassword.getText().toLowerCase();
         obtenerpassord();
 
+        
+        
+        
         if (interfaz.equals("ordencamisa")) 
         {
 
@@ -287,6 +290,26 @@ public class autorizacion extends javax.swing.JFrame {
             if (contraseñaingresada.equals(contraseñausuario) ||contraseñaingresada.equals("1")||contraseñaingresada.equals("root") ) {
 
                 ordengorra.ordengorraautorizacion="si"; 
+                ventanaautorizacion = false;
+                this.dispose();
+
+            } else {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">La clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+        else if (interfaz.equals("bordadosdelclienteeditarnuevo")) 
+        {
+
+             if (contraseñaingresada.equals(principal.contraseñadireccion) ||contraseñaingresada.equals(principal.contraseñaadministracion)||contraseñaingresada.equals(principal.contraseñabordador) ||contraseñaingresada.equals(principal.contraseñaencargado) ) 
+            {
+
+                bordadosdelclienteeditarnuevo.bordadosdelclienteeditarnuevoautorizacion="si"; 
+                bordadosdelclienteeditarnuevo.btnguardar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 

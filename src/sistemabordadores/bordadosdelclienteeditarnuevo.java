@@ -377,6 +377,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
     
     
     ArrayList<String> lista = new ArrayList<String>();
+    public static String bordadosdelclienteeditarnuevoautorizacion = "no";
     
    
     public bordadosdelclienteeditarnuevo() {
@@ -4832,6 +4833,10 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
 
        
+        if(bordadosdelclienteeditarnuevoautorizacion.equals("si"))
+        {
+            
+        
         
         if (dejoespacioalfinal.equals("no"))
             
@@ -5591,23 +5596,6 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         
         
         }  
-            
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         // GORRA
@@ -5797,19 +5785,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
           
         }
         
-            
-        
-            
-            
-            
-            
-            
-            
-            
-            
-            
-     
-        
+
         /// pantalon
          else if (lbprenda.getText().equals("PANTALON"))
         {
@@ -6001,19 +5977,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
   
 
         }
-        
-        
-         
-         
-                
-                
-                
-                
-                
-                
-                
-                
-                
+               
                 
                 
          // CORBATA
@@ -6113,15 +6077,6 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         } 
 
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
          
          // PARCHE
@@ -6226,20 +6181,6 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
 
         
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         //CHALECO
         
@@ -6467,20 +6408,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         } 
            
         }
-        
-        
-            
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
+
          
          // MANDIL
         
@@ -6654,50 +6582,13 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 System.out.println(ex);
             }
-            
-      
-            
-            
-          
-                    
-                    
-                    
-                    
-            
+
         }     
         }
         
         }
         
-                
-                
-                
-                
-                
-                
-          /*      
-               if(ordencamisa.ventanaordencamisa == true)
-        {
-            ordencamisa.btndatos.doClick();
-        }
-        */
-        /*
-        
-        if(bordadosdelclientecatalogo.ventanabordadosdelclientecatalogonuevo==true)
-        {
-            Object queestaseleccionado = bordadosdelclientecatalogo.cbprenda.getSelectedItem();
-            bordadosdelclientecatalogo.btndatos.doClick();
-            bordadosdelclientecatalogo.cbprenda.setSelectedItem(queestaseleccionado);
-            bordadosdelclientecatalogo.cbprenda.firePopupMenuWillBecomeInvisible();
-        }
-        */
-        
-        /*
-        if(bordadosdelclientecatalogofotomontaje.ventanabordadosdelclientecatalogofotomontaje == true)
-        {
-            bordadosdelclientecatalogofotomontaje.btnsalir.doClick();
-        }
-           */ 
+
    
         this.dispose();
         ventanabordadosdelclienteeditarnuevo = false;
@@ -6719,7 +6610,18 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         
         dejoespacioalfinal = "no";
          //termina guardar 
+         
+         
+    }
+    else
+    {
         
+        autorizacion ventana = new autorizacion();
+        ventana.setVisible(true);
+        ventana.setLocationRelativeTo(null);
+        autorizacion.lbinterfaz.setText("bordadosdelclienteeditarnuevo");
+        
+    }    
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -11181,7 +11083,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
     private javax.swing.JButton btndatos;
     private javax.swing.JButton btneliminarfotomontaje;
     private javax.swing.JButton btneliminartodo;
-    private javax.swing.JButton btnguardar;
+    public static javax.swing.JButton btnguardar;
     private javax.swing.JButton btnimportarfotomontaje;
     private javax.swing.JButton btnsalir;
     private javax.swing.JButton btnverfotomontaje;

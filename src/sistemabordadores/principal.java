@@ -26,6 +26,12 @@ String fechafinal = "";
 
     int ultimomes = 0;
     int ultimoaño = 0;
+    
+    public static String contraseñadireccion  = "";
+    public static String contraseñaadministracion  = "";
+    public static String contraseñaauditoria  = "";
+    public static String contraseñabordador  = "";
+    public static String contraseñaencargado  = "";
 
 
     public principal() {
@@ -36,11 +42,43 @@ String fechafinal = "";
         
         this.setLocationRelativeTo(null);
         
-        jLabel1.setVisible(false);
+        lbnumero.setVisible(false);
+        
+        contraseñas();
         
     }
 
-    public int obtenerUltimoDiaMes(int anio, int mes) {
+    
+    void contraseñas()
+    {
+         String sqlcontra = "SELECT direccion,administracion,bordador,encargado FROM catalogo_claves WHERE codigo='1' ";
+
+                try {
+                    Statement st = cn.createStatement();
+                    ResultSet rs = st.executeQuery(sqlcontra);
+
+                    while (rs.next()) 
+                    {
+
+                        contraseñadireccion = rs.getString("direccion");
+                        contraseñaadministracion = rs.getString("administracion");
+                        contraseñabordador = rs.getString("bordador");
+                        contraseñaencargado = rs.getString("encargado");
+                        
+
+                        
+
+                    }
+                    rs.close();
+                } catch (SQLException ex) {
+                   System.out.println(ex);
+                }
+        
+    }
+    
+    
+    public int obtenerUltimoDiaMes(int anio, int mes) 
+    {
 
         Calendar cal = new GregorianCalendar();
 
@@ -1830,7 +1868,7 @@ String fechafinal = "";
 
         btnordenesbordadosucursalporrealizar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lbnumero = new javax.swing.JLabel();
         lbsumapuntos = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablafecha = new javax.swing.JTable();
@@ -1866,8 +1904,8 @@ String fechafinal = "";
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("20222410");
+        lbnumero.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbnumero.setText("20222410");
 
         lbsumapuntos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lbsumapuntos.setText("0.00");
@@ -1956,22 +1994,22 @@ String fechafinal = "";
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnordenesbordadosucursalrealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnordenesbordadosucursalporrealizar, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnordenesbordadosucursalporrealizar1, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(btnordenesbordadosucursalporrealizar1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnordenesbordadosucursalrealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnordenesbordadosucursalporrealizar, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lbnumero)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1995,7 +2033,7 @@ String fechafinal = "";
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(lbnumero)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
@@ -2371,10 +2409,10 @@ String fechafinal = "";
     private javax.swing.JButton btnsalir;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lbnumero;
     public static javax.swing.JLabel lbsumapuntos;
     private javax.swing.JTable tablafecha;
     // End of variables declaration//GEN-END:variables

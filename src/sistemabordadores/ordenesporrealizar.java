@@ -1637,7 +1637,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                     }
                 }
-                else if (tipo.equals("Orden corbata")) 
+                else if (tipo.equals("Orden corbata")||tipo.equals("Corbata")) 
                 {
                    
                         

@@ -1495,7 +1495,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
                         ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
-                        this.setState(this.ICONIFIED);
+                        
                         
                         }
                         else
@@ -1538,7 +1538,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordengorra.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
                         ordengorra.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
-                        this.setState(this.ICONIFIED);
+                        
                          
                         } 
                         else
@@ -1577,7 +1577,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                             ordenpantalon.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
                             ordenpantalon.tipotabla = (tabla.getValueAt(fila, 10).toString());
                             tabla.clearSelection();
-                            this.setState(this.ICONIFIED);
+                           
                             
                         }
                         else
@@ -1612,7 +1612,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                             ordenponchado.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
                             ordenponchado.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                             tabla.clearSelection();
-                            this.setState(this.ICONIFIED);
+                           
                          }
                          else
                         {
@@ -1666,7 +1666,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         
                          tabla.clearSelection();
-                         this.setState(this.ICONIFIED);
+                         
                         
                         }
                          else
@@ -1702,7 +1702,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                             orden.setVisible(true);
                             ordenportanombreescolar.lbnumero.setText(tabla.getValueAt(fila, 0).toString());
                             tabla.clearSelection();
-                            this.setState(this.ICONIFIED);
+                           
                         }
                          else
                         {
@@ -1736,7 +1736,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                             orden.setVisible(true);
                             ordenportanombremultiple.lbnumerohistorialordenesbordados.setText(tabla.getValueAt(fila, 0).toString());
                             tabla.clearSelection();
-                            this.setState(this.ICONIFIED);
+                           
                         }    
                           else
                         {
@@ -1779,7 +1779,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordendistinta.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
                         ordendistinta.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
-                        this.setState(this.ICONIFIED);
+                        
                         
                         }
                         else

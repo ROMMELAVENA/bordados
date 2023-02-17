@@ -54,6 +54,7 @@ public static boolean ventanaordenparcheanteriores = false;
         String rutaimagen = "";
         String codigocliente = "";
     
+        String numerodeorden = "";
         
         String identificadordeprenda = "";
     
@@ -78,9 +79,12 @@ public static boolean ventanaordenparcheanteriores = false;
         
         limpiar();
         renglon = 0;
+        String folio = lbnumerootrasucursal.getText();
+        numerodeorden = lborden.getText();
         
-     String folio = lbnumerootrasucursal.getText();
-     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,tipo,estatus_entrega,articulo,parche,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,nombre_concepto FROM historial_ordenes_parche WHERE numero = '"+folio+"' ";
+        
+     
+     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,tipo,estatus_entrega,articulo,parche,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,nombre_concepto FROM historial_ordenes_parche WHERE numero = '"+numerodeorden+"' ";
      
 
         try {
@@ -217,7 +221,7 @@ public static boolean ventanaordenparcheanteriores = false;
               
                
                 lbestatusentrega.setText("");
-                lbarticulo.setText("");
+            
               
               
                 lbfechaentrega.setText("");
@@ -631,7 +635,6 @@ public static boolean ventanaordenparcheanteriores = false;
         lbfecha = new javax.swing.JLabel();
         lbhora = new javax.swing.JLabel();
         lbfechaentrega = new javax.swing.JLabel();
-        lbarticulo = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         lbhoraentrega = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -656,6 +659,7 @@ public static boolean ventanaordenparcheanteriores = false;
         btneliminar = new javax.swing.JButton();
         btneliminar1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        lborden = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden parche");
@@ -724,9 +728,6 @@ public static boolean ventanaordenparcheanteriores = false;
         lbfechaentrega.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbfechaentrega.setForeground(new java.awt.Color(204, 0, 0));
         lbfechaentrega.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        lbarticulo.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        lbarticulo.setForeground(new java.awt.Color(204, 0, 0));
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel30.setText("Hora Entrega:");
@@ -823,14 +824,12 @@ public static boolean ventanaordenparcheanteriores = false;
         jLabel2.setText("No. de orden");
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        lborden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbarticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(652, 652, 652))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -850,7 +849,9 @@ public static boolean ventanaordenparcheanteriores = false;
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lborden, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -939,10 +940,11 @@ public static boolean ventanaordenparcheanteriores = false;
                     .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbaplicacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btneliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(bntcantidadparches1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -970,8 +972,6 @@ public static boolean ventanaordenparcheanteriores = false;
                             .addComponent(lbnumerootrasucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbarticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1138,7 +1138,6 @@ public static boolean ventanaordenparcheanteriores = false;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbaplicacion1;
-    private javax.swing.JLabel lbarticulo;
     private javax.swing.JLabel lbcantidad1;
     public static javax.swing.JLabel lbcliente;
     private javax.swing.JLabel lbestatusentrega;
@@ -1152,6 +1151,7 @@ public static boolean ventanaordenparcheanteriores = false;
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumerootrasucursal;
     private javax.swing.JLabel lbobservacion;
+    public static javax.swing.JLabel lborden;
     private javax.swing.JLabel lbparche1;
     public javax.swing.JLabel lbsumapuntos;
     // End of variables declaration//GEN-END:variables

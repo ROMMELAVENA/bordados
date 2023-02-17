@@ -576,8 +576,8 @@ public class ordenesrecibidas extends javax.swing.JFrame {
                
                
               ordencamisa.lbcliente.setText(clienteordenrecibida);
-              ordencamisa.lbnumero.setText(numeroordenrecibida);
-              ordencamisa.lbfolio.setText(numeroordenrecibida);
+              ordencamisa.lborden.setText(numeroordenrecibida);
+              ordencamisa.lbnumerodelaotrasucursal.setText(numeroordenrecibida);
               
               ventana.setVisible(true);
 
@@ -647,7 +647,7 @@ void limpiartabla() {
                     String numeroordenrecibida = tabla1.getValueAt(fila, 0).toString();
                     ordengorra.lbcliente.setText(clienteordenrecibida);
                     ordengorra.lbnumero.setText(numeroordenrecibida);
-                    ordengorra.lbfolio.setText(numeroordenrecibida);
+                    ordengorra.lborden.setText(numeroordenrecibida);
 
                     ventana.setVisible(true);
 

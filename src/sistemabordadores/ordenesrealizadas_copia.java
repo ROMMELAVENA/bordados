@@ -564,7 +564,7 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
                         ordencamisa orden = new ordencamisa();
                         orden.setVisible(true);
 
-                        ordencamisa.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
+                        ordencamisa.lborden.setText(tablacamisa.getValueAt(fila, 0).toString());
                         ordencamisa.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
                         ordencamisa.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
                          ordencamisa.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
@@ -584,9 +584,9 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
                         ordengorra orden = new ordengorra();
                         orden.setVisible(true);
 
-                        ordengorra.lbfolio.setText(tablacamisa.getValueAt(fila, 0).toString());
+                        ordengorra.lborden.setText(tablacamisa.getValueAt(fila, 0).toString());
                         ordengorra.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
-                        ordengorra.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
+                      //  ordengorra.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
                         ordengorra.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
 
                         

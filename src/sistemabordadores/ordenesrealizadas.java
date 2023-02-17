@@ -1401,7 +1401,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                         ordencamisa orden = new ordencamisa();
                         orden.setVisible(true);
 
-                        ordencamisa.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencamisa.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         ordencamisa.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordencamisa.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordencamisa.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
@@ -1423,9 +1423,9 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                         ordengorra orden = new ordengorra();
                         orden.setVisible(true);
 
-                        ordengorra.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordengorra.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         ordengorra.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordengorra.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
+                     //   ordengorra.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordengorra.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
                         ordengorra.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
                         ordengorra.tipotabla=(tabla.getValueAt(fila, 10).toString());
@@ -1483,7 +1483,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                         ordenparche orden = new ordenparche();
                         orden.setVisible(true);
 
-                        ordenparche.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenparche.lborden.setText(tabla.getValueAt(fila, 0).toString());
                          tabla.clearSelection();
                          this.setState(this.ICONIFIED);
                         

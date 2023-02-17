@@ -5806,7 +5806,7 @@ public class ordencamisa extends javax.swing.JFrame {
     public static javax.swing.JLabel lbmangaizquierda;
     public static javax.swing.JLabel lbmangaizquierdanombre;
     public static javax.swing.JLabel lbnombrecomercial;
-    public javax.swing.JLabel lbnumerodelaotrasucursal;
+    public static javax.swing.JLabel lbnumerodelaotrasucursal;
     public static javax.swing.JLabel lbnumeroventa;
     public static javax.swing.JTextArea lbobservaciones;
     public static javax.swing.JLabel lborden;

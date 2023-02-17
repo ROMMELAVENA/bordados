@@ -2030,7 +2030,7 @@ String fechafinal = "";
     {
      
         
-       JOptionPane.showMessageDialog(null, "LA ventana de bordados por realizar ya está abierta");
+       JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados por realizar ya está abierta");
         ordenesporrealizar.btnfrente.doClick();
         
     }
@@ -2046,7 +2046,7 @@ String fechafinal = "";
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if (bordadosreportegeneral.ventanareportedebordadosgeneral== true) {
 
-            JOptionPane.showMessageDialog(null, "LA ventana de historial de bordador ya está abierta");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de historial de bordador ya está abierta");
         }
         else
         {
@@ -2266,7 +2266,7 @@ String fechafinal = "";
     {
         
         
-         JOptionPane.showMessageDialog(null, "LA ventana de bordados realizados ya está abierta");
+         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados realizados ya está abierta");
      
         ordenesrealizadas.btnfrente.doClick();
         
@@ -2324,7 +2324,7 @@ String fechafinal = "";
     {
      
         
-       JOptionPane.showMessageDialog(null, "LA ventana de bordados por realizar ya está abierta");
+       JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados por realizar ya está abierta");
         ordenesporrealizar.btnfrente.doClick();
         
     }

@@ -5308,7 +5308,346 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         
        }
         
+       
+       
+       ////
+       
+        String distinta1 = "";
+        String distinta2 = "";
+        String distinta3 = "";
+        String distinta4 = "";
+        String distinta5 = "";
+        String distinta6 = "";
+        String distinta7 = "";
+
+        String cantidaddistinta1 = "";
+        String cantidaddistinta2 = "";
+        String cantidaddistinta3 = "";
+        String cantidaddistinta4 = "";
+        String cantidaddistinta5 = "";
+        String cantidaddistinta6 = "";
+        String cantidaddistinta7 = "";
         
+        String aplicaciondistinta1 ="";
+        String aplicaciondistinta2 ="";
+        String aplicaciondistinta3 ="";
+        String aplicaciondistinta4 ="";
+        String aplicaciondistinta5 ="";
+        String aplicaciondistinta6 ="";
+        String aplicaciondistinta7 ="";
+        
+        
+        
+       
+        
+        String sqldistinta = "Select codigo,tipo,estatus_orden,numero,numero_venta,fecha,hora,cliente,tipo,nombre_concepto,estatus_orden,estatus_entrega,articulo,cantidad,prenda,cantidad_bordados,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,\n" +
+"distinta1,distinta1_ubicacion,distinta1_nombre,distinta1_cantidad,distinta1_aplicacion,distinta1_aplicacion_color,\n" +
+"distinta2,distinta2_ubicacion,distinta2_nombre,distinta2_cantidad,distinta2_aplicacion,distinta2_aplicacion_color, \n" +
+"distinta3,distinta3_ubicacion,distinta3_nombre,distinta3_cantidad,distinta3_aplicacion,distinta3_aplicacion_color, \n" +
+"distinta4,distinta4_ubicacion,distinta4_nombre,distinta4_cantidad,distinta4_aplicacion,distinta4_aplicacion_color, \n" +
+"distinta5,distinta5_ubicacion,distinta5_nombre,distinta5_cantidad,distinta5_aplicacion,distinta5_aplicacion_color,\n" +
+"distinta6,distinta6_ubicacion,distinta6_nombre,distinta6_cantidad,distinta6_aplicacion,distinta6_aplicacion_color,\n" +
+"distinta7,distinta7_ubicacion,distinta7_nombre,distinta7_cantidad,distinta7_aplicacion,distinta7_aplicacion_color,\n" +
+"lugar,fotomontaje_autorizado from historial_ordenes_distinta where estatus_orden = 'realizada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqldistinta);
+
+            while (rs.next()) {
+
+                
+              
+                cantidadbordados = rs.getString("cantidad");
+                distinta1 = rs.getString("distinta1");
+                cantidaddistinta1 = rs.getString("distinta1_cantidad");
+                distinta2 = rs.getString("distinta2");
+                cantidaddistinta2 = rs.getString("distinta2_cantidad");
+                distinta3 = rs.getString("distinta3");
+                cantidaddistinta3 = rs.getString("distinta3_cantidad");
+                distinta4 = rs.getString("distinta4");
+                cantidaddistinta4 = rs.getString("distinta4_cantidad");
+                distinta5 = rs.getString("distinta5");
+                cantidaddistinta5 = rs.getString("distinta5_cantidad");
+                distinta6 = rs.getString("distinta6");
+                cantidaddistinta6 = rs.getString("distinta6_cantidad");
+                distinta7 = rs.getString("distinta7");
+                cantidaddistinta7 = rs.getString("distinta7_cantidad");
+
+                aplicaciondistinta1 = rs.getString("distinta1_aplicacion");
+                aplicaciondistinta2 = rs.getString("distinta2_aplicacion");
+                aplicaciondistinta3 = rs.getString("distinta3_aplicacion");
+                aplicaciondistinta4 = rs.getString("distinta4_aplicacion");
+                aplicaciondistinta5 = rs.getString("distinta5_aplicacion"); 
+                aplicaciondistinta6 = rs.getString("distinta6_aplicacion");
+                aplicaciondistinta7 = rs.getString("distinta7_aplicacion");
+                
+
+                /////////////////////////////////////////////////////////////////////////////
+                if (cantidadbordados == null || cantidadbordados.equals("")) {
+                    cantidadbordados = "0";
+                }
+
+            int cantidad =  Integer.parseInt(cantidadbordados);   
+            int cantidaddistinta1int = Integer.parseInt(cantidaddistinta1);
+            int cantidaddistinta2int = Integer.parseInt(cantidaddistinta2);
+            int cantidaddistinta3int = Integer.parseInt(cantidaddistinta3);
+            int cantidaddistinta4int = Integer.parseInt(cantidaddistinta4);
+            int cantidaddistinta5int = Integer.parseInt(cantidaddistinta5);
+            int cantidaddistinta6int = Integer.parseInt(cantidaddistinta6);
+            int cantidaddistinta7int = Integer.parseInt(cantidaddistinta7);
+            
+            double costopuntadadistinta1 = 0.0;
+            double costopuntadadistinta2 = 0.0;
+            double costopuntadadistinta3 = 0.0;
+            double costopuntadadistinta4 = 0.0;
+            double costopuntadadistinta5 = 0.0;
+            double costopuntadadistinta6 = 0.0;
+            double costopuntadadistinta7 = 0.0;
+            
+             double importedistinta1 = 0.0;
+            double importedistinta2 = 0.0;
+            double importedistinta3 = 0.0;
+            double importedistinta4 = 0.0;
+            double importedistinta5 = 0.0;
+            double importedistinta6 = 0.0;
+            double importedistinta7 = 0.0;
+            
+
+                //PECHO IZQUIERDO
+                
+                String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + distinta1 + "'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql1);
+                    ResultSet rs1 = prst.executeQuery();
+                    if (rs1.next()) {
+
+                        costostring = rs1.getString("costo");
+                        costopuntadadistinta1 = Double.parseDouble(costostring);
+
+                    }
+                } catch (Exception exx) {
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                importedistinta1 = cantidaddistinta1int * costopuntadadistinta1;
+
+              
+               
+
+                String sql2 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + distinta2 + "'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql2);
+                    ResultSet rs2 = prst.executeQuery();
+                    if (rs2.next()) {
+
+                        costostring = rs2.getString("costo");
+                        costopuntadadistinta2 = Double.parseDouble(costostring);
+
+                    }
+                } catch (Exception exx) {
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                importedistinta2 = cantidaddistinta2int * costopuntadadistinta2;
+
+                
+
+                String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + distinta3 + "'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql3);
+                    ResultSet rs3 = prst.executeQuery();
+                    if (rs3.next()) {
+
+                        costostring = rs3.getString("costo");
+                        costopuntadadistinta3 = Double.parseDouble(costostring);
+
+                    }
+                } catch (Exception exx) {
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                importedistinta3 = cantidaddistinta3int * costopuntadadistinta3;
+
+              
+
+                String sql4 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + distinta4 + "'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql4);
+                    ResultSet rs4 = prst.executeQuery();
+                    if (rs4.next()) {
+
+                        costostring = rs4.getString("costo");
+                        costopuntadadistinta4 = Double.parseDouble(costostring);
+
+                    }
+                } catch (Exception exx) {
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                importemangaderecha = cantidaddistinta4int * costopuntadadistinta4;
+
+              
+
+                String sql5 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + distinta5 + "'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql5);
+                    ResultSet rs5 = prst.executeQuery();
+                    if (rs5.next()) {
+
+                        costostring = rs5.getString("costo");
+                        costopuntadadistinta5 = Double.parseDouble(costostring);
+
+                    }
+                } catch (Exception exx) {
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                importedistinta5 = cantidaddistinta5int * costopuntadadistinta5;
+
+              
+
+                String sql6 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + distinta6 + "'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql6);
+                    ResultSet rs5 = prst.executeQuery();
+                    if (rs5.next()) {
+
+                        costostring = rs5.getString("costo");
+                        costopuntadadistinta6 = Double.parseDouble(costostring);
+
+                    }
+
+                } catch (Exception exx) {
+
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                importeotraubicacion = cantidaddistinta6int * costopuntadadistinta6;
+
+               
+
+                String sql7 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + distinta7 + "'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql7);
+                    ResultSet rs5 = prst.executeQuery();
+                    if (rs5.next()) {
+
+                        costostring = rs5.getString("costo");
+                        costopuntadadistinta7 = Double.parseDouble(costostring);
+
+                    }
+
+                } catch (Exception exx) {
+
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                importeotraubicacion2 = cantidaddistinta7int * costopuntadadistinta7;
+
+                if (aplicacionpechoizquierdo == null || aplicacionpechoizquierdo.equals("") || aplicacionpechoizquierdo.equals(" ")) {
+                    aplicacionpechoizquierdo = "0";
+                }
+
+                double aplicacionpechoizquierdodouble = Double.parseDouble(aplicacionpechoizquierdo);
+
+                if (aplicacionpechoderecho == null || aplicacionpechoderecho.equals("") || aplicacionpechoderecho.equals(" ")) {
+                    aplicacionpechoderecho = "0";
+                }
+
+                double aplicacionpechoderechodouble = Double.parseDouble(aplicacionpechoderecho);
+
+                if (aplicacionmangaizquierda == null || aplicacionmangaizquierda.equals("") || aplicacionmangaizquierda.equals(" ")) {
+                    aplicacionmangaizquierda = "0";
+                }
+
+                double aplicacionmangaizquierdadouble = Double.parseDouble(aplicacionmangaizquierda);
+
+                if (aplicacionmangaderecha == null || aplicacionmangaderecha.equals("") || aplicacionmangaderecha.equals(" ")) {
+                    aplicacionmangaderecha = "0";
+                }
+
+                double aplicacionmangaderechadouble = Double.parseDouble(aplicacionmangaderecha);
+
+                double sumadelasaplicioneschicasdouble = aplicacionpechoizquierdodouble + aplicacionpechoderechodouble + aplicacionmangaderechadouble + aplicacionmangaizquierdadouble;
+
+                double costopuntadaaplicacionchica = 0.0;
+
+                String sql10 = "SELECT costo from catalogo_costos_bordado where puntadas = 'APLICACION CHICA' ";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql10);
+                    ResultSet rs5 = prst.executeQuery();
+                    if (rs5.next()) {
+
+                        costostring = rs5.getString("costo");
+                        costopuntadaaplicacionchica = Double.parseDouble(costostring);
+
+                    }
+
+                } catch (Exception exx) {
+
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                sumadelasaplicioneschicasdouble = (sumadelasaplicioneschicasdouble * cantidad) * costopuntadaaplicacionchica;
+
+                if (aplicacionespalda == null || aplicacionespalda.equals("") || aplicacionespalda.equals(" ")) {
+                    aplicacionespalda = "0";
+                }
+
+                double aplicacionespaldadouble = Double.parseDouble(aplicacionespalda);
+                double costopuntadaaplicaciongrande = 0.0;
+
+                String sql11 = "SELECT costo from catalogo_costos_bordado where puntadas = 'APLICACION GRANDE' ";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql11);
+                    ResultSet rs5 = prst.executeQuery();
+                    if (rs5.next()) {
+
+                        costostring = rs5.getString("costo");
+                        costopuntadaaplicaciongrande = Double.parseDouble(costostring);
+
+                    }
+
+                } catch (Exception exx) {
+
+                    JOptionPane.showMessageDialog(null, exx);
+
+                }
+
+                double sumadelasaplicionesgrandesdouble = (aplicacionespaldadouble * cantidad) * costopuntadaaplicaciongrande;
+
+                double sumabordados = importepechoizquierdo + importepechoderecho + importemangaizquierda + importemangaderecha + importeespalda + importeotraubicacion + importeotraubicacion2 + sumadelasaplicionesgrandesdouble + sumadelasaplicioneschicasdouble;
+               // sumatotaldelosbordadosdistinta = sumatotaldelosbordados + sumabordados;
+
+            }
+
+            rs.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+       
+       
+       
+       
+       ////
 
         /////
         //suma de los bordados

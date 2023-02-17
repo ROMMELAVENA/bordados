@@ -1,5 +1,5 @@
 package sistemabordadores;
-
+import java.applet.AudioClip;
 import java.awt.Desktop;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -138,7 +138,7 @@ public class ordendistinta extends javax.swing.JFrame {
     String tiendaenvia = "";
     String terminetodo = "";
     String tienefotomontaje = "";
-
+    String tieneunaobservacion = "";
     
     ArrayList<String> listabotones = new ArrayList<String>();
 
@@ -234,6 +234,21 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                 tipoprenda = rs.getString("tipo");
                 estatusorden = rs.getString("estatus_orden");
+                
+                String observacion = rs.getString("observacion");
+                
+                if(observacion == null || observacion.equals("")||observacion.equals(" ") )
+                {
+                    
+                }
+                else
+                {
+                
+                 
+                tieneunaobservacion="si";    
+                lbobservaciones.setText(observacion);
+                
+                }
                 
                 
                 
@@ -3242,6 +3257,15 @@ public class ordendistinta extends javax.swing.JFrame {
         
         
     } 
+    
+    
+     AudioClip sonido;
+      if(tieneunaobservacion.equals("si"))
+        {
+            sonido= java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));    
+            sonido.play();
+            
+        }
     
      
         

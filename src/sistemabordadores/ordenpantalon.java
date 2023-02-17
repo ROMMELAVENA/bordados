@@ -2440,7 +2440,7 @@ public static String dia() {
     }   
          
          
-         hilosycolor();
+     hilosycolor();
          
       AudioClip sonido;
       if(tieneunaobservacion.equals("si"))

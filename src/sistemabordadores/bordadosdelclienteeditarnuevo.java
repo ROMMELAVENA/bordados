@@ -1092,7 +1092,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                         + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
                         + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7 "
-                        + " FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' and numero_consecutivo = '"+consecutivo+"'"; 
+                        + " FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'"; 
             
 
         
@@ -1256,7 +1256,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                         + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
                         + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,hilo1,hilo2,hilo3 "
-                        + "FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+consecutivo+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + "FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
 
             try {
@@ -1401,7 +1401,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                          + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
                         + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,hilo1,hilo2,hilo3 "
-                        + "FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+consecutivo+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + "FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
 
             try {
@@ -1540,7 +1540,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                         + "lado_derecho,lado_derecho_nombre,"
                         + "atras,atras_nombre,"
                         + "color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4 "
-                        + " FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+consecutivo+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + " FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
             
             
@@ -1660,7 +1660,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
             
                 sql = "SELECT nombre_bordado,parche,parche_nombre,parche_aplicacion,parche_aplicacion_color,numero_consecutivo,"
                         + "color1,hilo1"
-                        + " FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+consecutivo+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + " FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
             
             
@@ -1783,7 +1783,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                            + "pantalon_lado_izquierdo_atras,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_izquierdo_atras_aplicacion,pantalon_lado_izquierdo_atras_aplicacion_color,"
                            + "pantalon_lado_derecho_atras,pantalon_lado_derecho_atras_nombre,pantalon_lado_derecho_atras_aplicacion,pantalon_lado_derecho_atras_aplicacion_color,"
                        + "color1,color2,color3,color4,color5,hilo1,hilo2,hilo3,hilo4,hilo5"
-                        + "  FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+consecutivo+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + "  FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
             
 
@@ -2012,7 +2012,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                         + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
                         + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7 "
-                        + " FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' and numero_consecutivo = '"+consecutivo+"'"; 
+                        + " FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'"; 
             
 
         
@@ -5479,7 +5479,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                                                + "hilo4 ='" +hilo4+ "',"   
                                                                + "hilo5 ='"+hilo5+"',"           
                                                                + "hilo6 ='" + hilo6 + "' ,"
-                                                               + "hilo7 ='" + hilo7 + "'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+consecutivo+"'   ");
+                                                               + "hilo7 ='" + hilo7 + "'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'   ");
                  
                     pst.executeUpdate();
                     pst.close();
@@ -5681,7 +5681,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         {
         
          try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET frente = '" + frentegorra + "',frente_nombre='" + frentegorranombre + "',lado_izquierdo='" + ladoizquierdogorra + "',lado_izquierdo_nombre='" + ladoizquierdogorranombre + "',lado_derecho ='" + ladoderechogorra + "' ,lado_derecho_nombre ='" + ladoderechogorranombre + "',atras ='" + atrasgorra + "' ,atras_nombre ='" + atrasgorranombre + "'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+consecutivo+"'   ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET frente = '" + frentegorra + "',frente_nombre='" + frentegorranombre + "',lado_izquierdo='" + ladoizquierdogorra + "',lado_izquierdo_nombre='" + ladoizquierdogorranombre + "',lado_derecho ='" + ladoderechogorra + "' ,lado_derecho_nombre ='" + ladoderechogorranombre + "',atras ='" + atrasgorra + "' ,atras_nombre ='" + atrasgorranombre + "'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'   ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -5689,7 +5689,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         }
         
           try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET frente_aplicacion = '" + frentegorraaplicacion + "',frente_aplicacion_color = '" + frentegorraaplicacioncolor + "'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+consecutivo+"'  ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET frente_aplicacion = '" + frentegorraaplicacion + "',frente_aplicacion_color = '" + frentegorraaplicacioncolor + "'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -5697,7 +5697,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         }
           
          try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '"+txtidentificadordeprenda.getText().trim()+"'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+consecutivo+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '"+txtidentificadordeprenda.getText().trim()+"'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -5720,7 +5720,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                                                + "hilo1='" + hilo1 + "',"
                                                                + "hilo2 ='" + hilo2 + "' ,"
                                                                + "hilo3 ='" + hilo3 + "',"
-                                                               + "hilo4 ='" +hilo4+ "'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+consecutivo+"'  ");   
+                                                               + "hilo4 ='" +hilo4+ "'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");   
                                                            
                  
                     pst.executeUpdate();
@@ -5871,7 +5871,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
             PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pantalon_lado_izquierdo_frente='" + ladoizquierdofrentepantalon + "',pantalon_lado_izquierdo_frente_nombre='" + ladoizquierdofrentepantalonnombre + "',pantalon_lado_izquierdo_frente_aplicacion='" + ladoizquierdofrentepantalonaplicacion + "',pantalon_lado_izquierdo_frente_aplicacion_color='" + ladoizquierdofrentepantalonaplicacioncolor + "',"
                                                                                    + "pantalon_lado_derecho_frente ='" + ladoderechofrentepantalon + "' ,pantalon_lado_derecho_frente_nombre ='" + ladoderechofrentepantalonnombre + "',pantalon_lado_derecho_frente_aplicacion ='" + ladoderechofrentepantalonaplicacion + "',pantalon_lado_derecho_frente_aplicacion_color ='" + ladoderechofrentepantalonaplicacioncolor + "',"
                                                                                    + "pantalon_lado_izquierdo_atras='" + ladoizquierdoatraspantalon + "',pantalon_lado_izquierdo_atras_nombre='" + ladoizquierdoatraspantalonnombre + "',pantalon_lado_izquierdo_atras_aplicacion='" + ladoizquierdoatraspantalonaplicacion + "',pantalon_lado_izquierdo_atras_aplicacion_color='" + ladoizquierdoatraspantalonaplicacioncolor + "',"
-                                                                                   + "pantalon_lado_derecho_atras ='" + ladoderechoatraspantalon + "' ,pantalon_lado_derecho_atras_nombre ='" + ladoderechoatraspantalonnombre + "',pantalon_lado_derecho_atras_aplicacion ='" + ladoderechoatraspantalonaplicacion + "',pantalon_lado_derecho_atras_aplicacion_color ='" + ladoderechoatraspantalonaplicacioncolor + "'   WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+consecutivo+"' ");
+                                                                                   + "pantalon_lado_derecho_atras ='" + ladoderechoatraspantalon + "' ,pantalon_lado_derecho_atras_nombre ='" + ladoderechoatraspantalonnombre + "',pantalon_lado_derecho_atras_aplicacion ='" + ladoderechoatraspantalonaplicacion + "',pantalon_lado_derecho_atras_aplicacion_color ='" + ladoderechoatraspantalonaplicacioncolor + "'   WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -5883,7 +5883,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
             PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pantalon_lado_izquierdo_frente_aplicacion = '" + ladoizquierdofrentepantalonaplicacion + "',pantalon_lado_izquierdo_frente_aplicacion_color = '" + ladoizquierdofrentepantalonaplicacioncolor + "',"
                     + "pantalon_lado_derecho_frente_aplicacion = '" + ladoderechofrentepantalonaplicacion + "',pantalon_lado_derecho_frente_aplicacion_color = '" + ladoizquierdofrentepantalonaplicacioncolor + "',"
                     + "pantalon_lado_izquierdo_atras_aplicacion = '" + ladoizquierdoatraspantalonaplicacion + "',pantalon_lado_izquierdo_atras_aplicacion_color = '" + ladoizquierdoatraspantalonaplicacioncolor + "',"
-                    + "pantalon_lado_derecho_atras_aplicacion = '" + ladoderechoatraspantalonaplicacion + "',pantalon_lado_derecho_atras_aplicacion_color = '" + ladoderechoatraspantalonaplicacioncolor + "'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+consecutivo+"'  ");
+                    + "pantalon_lado_derecho_atras_aplicacion = '" + ladoderechoatraspantalonaplicacion + "',pantalon_lado_derecho_atras_aplicacion_color = '" + ladoderechoatraspantalonaplicacioncolor + "'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -5893,7 +5893,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
              
             
          try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '"+txtidentificadordeprenda.getText().trim()+"'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+consecutivo+"' ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '"+txtidentificadordeprenda.getText().trim()+"'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -5913,7 +5913,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                                                + "hilo1='" + hilo1 + "',"
                                                                + "hilo2 ='" + hilo2 + "' ,"
                                                                + "hilo3 ='" + hilo3 + "',"
-                                                               + "hilo4 ='" +hilo4+ "'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+consecutivo+"'  ");   
+                                                               + "hilo4 ='" +hilo4+ "'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");   
                                                             
          
          
@@ -6009,7 +6009,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         {
         
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET corbata_frente='" + frentecorbata + "',corbata_frente_nombre='" + frentecorbatanombre + "' WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+consecutivo+"'  ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET corbata_frente='" + frentecorbata + "',corbata_frente_nombre='" + frentecorbatanombre + "' WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -6017,7 +6017,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         }
         
          try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '"+txtidentificadordeprenda.getText().trim()+"' WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+consecutivo+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '"+txtidentificadordeprenda.getText().trim()+"' WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -6030,7 +6030,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                    try {
                     PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET "
                                                                + "color1= '" + color1+ "',"
-                                                               + "hilo1='" + hilo1 + "'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+consecutivo+"'  ");
+                                                               + "hilo1='" + hilo1 + "'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");
                             
            pst.executeUpdate();
                     pst.close();
@@ -6119,7 +6119,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         }
         
          try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '"+txtidentificadordeprenda.getText().trim()+"'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+consecutivo+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '"+txtidentificadordeprenda.getText().trim()+"'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -6131,7 +6131,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                    try {
                     PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET "
                                                                + "color1= '" + color1+ "',"
-                                                               + "hilo1='" + hilo1 + "'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+consecutivo+"' ");
+                                                               + "hilo1='" + hilo1 + "'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
                                                           
          
                          pst.executeUpdate();
@@ -6917,7 +6917,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
 
              try {
                 Statement st = cn.createStatement();
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM bordados_puntadas WHERE  codigo='"+codigodelcliente+"' and nombre_bordado = '"+conceptoprenda+"' AND tipo = '"+tipo+"' and numero_consecutivo = '"+consecutivo+"' ");
+                PreparedStatement pst = cn.prepareStatement("DELETE FROM bordados_puntadas WHERE  codigo='"+codigodelcliente+"' and nombre_bordado = '"+conceptoprenda+"' AND tipo = '"+tipo+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
                 pst.executeUpdate();
                 pst.close();
 

@@ -1,5 +1,5 @@
 package sistemabordadores;
-
+import java.applet.AudioClip;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,7 +31,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
     
     String soloesportanombres = "";
     String nombreconcepto ="";
-    
+    String tieneunaobservacion = "";
 
     public ordenportanombreescolar() {
         initComponents();
@@ -58,7 +58,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
 
         renglon = 0;
 
-        String sql = "SELECT cantidad,prenda,ubicacion,color FROM historial_ordenes_portanombres WHERE numero = '" + numero + "'";
+        String sql = "SELECT cantidad,prenda,ubicacion,color,observacion FROM historial_ordenes_portanombres WHERE numero = '" + numero + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -69,6 +69,21 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                 prenda = rs.getString("prenda");
                 ubicacion = rs.getString("ubicacion");
                 color = rs.getString("color");
+                
+                String observacion = rs.getString("observacion");
+                
+                if(observacion == null || observacion.equals("")||observacion.equals(" ") )
+                {
+                    
+                }
+                else
+                {
+                
+                 
+                tieneunaobservacion="si";    
+                lbobservacion.setText(observacion);
+                
+                }
 
                 renglon = renglon + 1;
 
@@ -870,7 +885,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                     .addComponent(lbobservacion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnrealizada, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lbtipo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -950,10 +965,10 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                         .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1))
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel28)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -976,7 +991,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                 .addGap(14, 14, 14)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1086,7 +1101,15 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-      datos();
+      
+        datos();
+        AudioClip sonido;
+        if (tieneunaobservacion.equals("si")) {
+            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));
+            sonido.play();
+
+        }
+      
     }//GEN-LAST:event_formWindowOpened
 
     private void btnrealizadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrealizadaActionPerformed

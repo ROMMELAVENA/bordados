@@ -8,18 +8,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-import javax.swing.RowSorter;
-import javax.swing.SortOrder;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 import static sistemabordadores.ordenesrealizadas.btnactualizar;
 
 public class ordenesrealizadas extends javax.swing.JFrame {
@@ -189,7 +181,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
             
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "sql orden camisa" +  ex);
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
 
         
@@ -223,7 +216,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
            
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"sql orden gorra" +  ex);
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         //// historial_orden_pantalon
@@ -259,7 +253,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden pantalon" + ex);
+           
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         
@@ -294,7 +289,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden parche" + ex);
+          
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
       
         
@@ -329,7 +325,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
+          
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         
@@ -366,7 +363,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
+          
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
 
 
@@ -403,7 +401,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden portanombremultiple" + ex);
+          
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }        
      
         
@@ -444,7 +443,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden ponchado" + ex);
+           
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         
@@ -478,7 +478,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
             
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "sql orden camisa" +  ex);
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         
@@ -662,7 +663,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
             
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "sql orden camisa" +  ex);
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
 
         
@@ -695,7 +697,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
            
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"sql orden gorra" +  ex);
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         //// historial_orden_pantalon
@@ -730,7 +733,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden pantalon" + ex);
+           
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         
@@ -764,7 +768,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden parche" + ex);
+          
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
          //// historial_orden_ponchado
@@ -798,7 +803,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden ponchado" + ex);
+           
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         /// historial ordenes corbata
@@ -831,7 +837,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
+           
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
 
@@ -866,7 +873,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                         }
                         rs2.close();
                     } catch (Exception exx) {
-                        JOptionPane.showMessageDialog(null, exx);
+                        
+                        JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                     }
                 
@@ -1072,7 +1080,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                 modelo.removeRow(0);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al limpiar la tabla.");
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
         }
 }
     
@@ -1405,7 +1414,8 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                     if (ordencamisa.ventanaordencamisaanteriores == true) 
                     {
                         
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
+                       
+                        JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de camisa anteriores");
 
                     } else {
                         ordencamisa orden = new ordencamisa();
@@ -1430,20 +1440,20 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                     if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
                 {
                     if (ordengorra.ventanaordengorra == true) {
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de camisa anteriores");
 
-                    } else {
+                    } else
+                    {
                         ordengorra orden = new ordengorra();
                         orden.setVisible(true);
 
                         ordengorra.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         ordengorra.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                     //   ordengorra.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordengorra.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
-                        ordengorra.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordengorra.tipotabla=(tabla.getValueAt(fila, 10).toString());
-                         tabla.clearSelection();
-                         this.setState(this.ICONIFIED);
+                        ordengorra.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                        ordengorra.tipotabla = (tabla.getValueAt(fila, 10).toString());
+                        tabla.clearSelection();
+                        this.setState(this.ICONIFIED);
                         
                     }
                 }
@@ -1458,7 +1468,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                     if (ordenpantalon.ventanaordenpantalonanteriores == true) 
                     {
                         
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
+                        JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de camisa anteriores");
 
                     } else {
                         ordenpantalon orden = new ordenpantalon();
@@ -1484,7 +1494,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                     if (tipo.equals("Orden ponchado")) 
                 {
                     if (ordenponchado.ventanaordenparcheanteriores == true) {
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de ponchado anteriores");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado anteriores");
 
                     } else {
                         ordenponchado orden = new ordenponchado();
@@ -1505,7 +1515,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                         if (tipo.equals("Orden parche")) 
                 {
                     if (ordenparche.ventanaordenparcheanteriores == true) {
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de ponchado anteriores");
+                        JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado anteriores");
 
                     } else {
                         ordenparche orden = new ordenparche();
@@ -1527,7 +1537,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                    
                         
                         if (ordencorbata.ventanaordencorbataanteriores == true) {
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de corbata anteriores");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de corbata anteriores");
 
                     } else {
                         ordencorbata orden = new ordencorbata();
@@ -1557,7 +1567,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                    
                         
                         if (ordenportanombreescolar.ventanaordenportanombreanterior == true) {
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de portanombre");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de portanombre");
 
                     } else {
                             ordenportanombreescolar orden = new ordenportanombreescolar();
@@ -1579,7 +1589,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                    
                         
                         if (ordenportanombremultiple.ventanaordenportanombremultipleanterior == true) {
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de portanombre");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de portanombre");
 
                     } else {
                             ordenportanombremultiple orden = new ordenportanombremultiple();
@@ -1598,7 +1608,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                      if (ordendistinta.ventanaordencamisaanteriores == true) 
                     {
                         
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
+                        JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:5px;\">Favor de cerrar la ventana de orden de camisa anteriores");
 
                     } else {
                         ordendistinta orden = new ordendistinta();

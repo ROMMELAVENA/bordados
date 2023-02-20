@@ -1313,7 +1313,7 @@ public class ordencorbata extends javax.swing.JFrame {
             } catch (IllegalArgumentException e) {
 
                 JOptionPane.showMessageDialog(null,  "<HTML><b style=\"Color:red; font-size:5px;\">No se pudo encontrar el archivo","Error",JOptionPane.ERROR_MESSAGE);
-                System.out.println(e);
+                
             }
 
         }

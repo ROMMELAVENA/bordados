@@ -8,19 +8,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-import javax.swing.RowSorter;
-import javax.swing.SortOrder;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
-import static sistemabordadores.ordenesrealizadas.btnactualizar;
 
 public class ordenesporrealizar extends javax.swing.JFrame {
 
@@ -191,7 +182,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "sql orden camisa" +  ex);
+           
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
 
         
@@ -225,7 +217,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
            
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"sql orden gorra" +  ex);
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         //// historial_orden_pantalon
@@ -261,7 +254,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden pantalon" + ex);
+       
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         
@@ -296,7 +290,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden parche" + ex);
+           
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
       
          
@@ -331,7 +326,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
+           
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
 
          
@@ -374,7 +370,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
+          
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
 
 
@@ -412,7 +409,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden portanombremultiple" + ex);
+           
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }        
      
         
@@ -453,7 +451,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden ponchado" + ex);
+          
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         
@@ -492,7 +491,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "sql orden camisa" +  ex);
+          
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         
@@ -669,7 +669,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "sql orden camisa" +  ex);
+         
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
 
         
@@ -702,7 +703,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
            
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"sql orden gorra" +  ex);
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         //// historial_orden_pantalon
@@ -737,7 +739,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden pantalon" + ex);
+           
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         
@@ -771,7 +774,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden parche" + ex);
+           
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
          //// historial_orden_ponchado
@@ -805,7 +809,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden ponchado" + ex);
+           
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         /// historial ordenes corbata
@@ -838,7 +843,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null,"sql orden corbata" + ex);
+          
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         
@@ -872,7 +878,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "sql orden camisa" +  ex);
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         
@@ -909,7 +916,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         }
                         rs2.close();
                     } catch (Exception exx) {
-                        JOptionPane.showMessageDialog(null, exx);
+                        
+                        JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                     }
                 
@@ -1115,7 +1123,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 modelo.removeRow(0);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al limpiar la tabla.");
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
         }
 }
   
@@ -1215,7 +1224,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "sql fotomontajeautorizado" +  ex);
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
   
      }

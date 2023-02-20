@@ -585,9 +585,13 @@ public class ordenesrecibidas extends javax.swing.JFrame {
                
   
             
-            } else {
-            JOptionPane.showMessageDialog(null, "no seleciono fila");
-        }
+            }
+            else 
+            {
+            
+             JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">No seleciono fila");
+            
+            }
 
         }
         
@@ -606,7 +610,7 @@ void limpiartabla() {
                 modelo.removeRow(0);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al limpiar la tabla.");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al limpiar la tabla.");
         }
         
         
@@ -617,7 +621,7 @@ void limpiartabla() {
                 modelo.removeRow(0);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al limpiar la tabla1.");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al limpiar la tabla1.");
         }
         
 }
@@ -658,7 +662,7 @@ void limpiartabla() {
   
             
             } else {
-            JOptionPane.showMessageDialog(null, "no seleciono fila");
+            JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">No seleciono fila");
         }
 
         }   
@@ -685,7 +689,7 @@ void limpiartabla() {
             } else 
             
             {
-            JOptionPane.showMessageDialog(null, "no seleciono fila");
+            JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">No seleciono fila");
             }
 
         }   

@@ -2571,7 +2571,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
 
          try (
-                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_gorra_recibidas where numero = '" + lborden.getText() + "' ")) {
+                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_camisa_recibidas where numero = '" + lborden.getText() + "' ")) {
              ResultSet rs = ps.executeQuery();
 
              if (rs.next()) {

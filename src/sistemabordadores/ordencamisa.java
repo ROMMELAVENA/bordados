@@ -185,7 +185,7 @@ public class ordencamisa extends javax.swing.JFrame {
         String botonhabilitado7 = "si";
         
         
-        datostienda();
+        
 
         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
                 + "   pecho_izquierdo,pecho_derecho,manga_izquierda,manga_derecha,espalda,otra_ubicacion,otra_ubicacion2,"
@@ -194,7 +194,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 + "   otra_ubicacion,otra_ubicacion_nombre,cantidad_otra_ubicacion,otra_ubicacion2,otra_ubicacion2_nombre,cantidad_otra_ubicacion2,"
                 + "   aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,"
                 + "   aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,"
-                + "   lugar,estatus_orden,nombre_concepto from historial_ordenes_camisa where numero = '" + numerodeorden + "' ";
+                + "   lugar,estatus_orden,nombre_concepto,tienda from historial_ordenes_camisa where numero = '" + numerodeorden + "' ";
 
         try {
             Statement st = cn.createStatement();
@@ -205,6 +205,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
                 lbfecha.setText(rs.getString("fecha"));
+                sucursal = rs.getString("tienda");
                 
                 String observacion = rs.getString("observacion");
                 
@@ -510,7 +511,7 @@ public class ordencamisa extends javax.swing.JFrame {
         }
 
        
-        
+        datostienda();
         
         
 
@@ -1101,7 +1102,7 @@ public class ordencamisa extends javax.swing.JFrame {
         String numero = lbnumeroventa.getText();
         String pedirarticulos = "";
         String ordenenvio = "";
-        String sql2 = "Select solicito_articulos, enviada_ordenenvio from historial_ventas where numero = '" + numero + "' ";
+        String sql2 = "Select solicito_articulos, enviada_ordenenvio from historial_ventas where numero = '" + numero + "'  ";
 
         try {
             PreparedStatement prst = cn.prepareStatement(sql2);
@@ -1122,7 +1123,7 @@ public class ordencamisa extends javax.swing.JFrame {
             
             
             
-            String sql3 = "Select numero,sucursal from historial_pedidos_sucursal_solicitados where numventa = '" + numero + "' and estatus_entrega not in ('cancelada')  ";
+            String sql3 = "Select numero,sucursal from historial_pedidos_sucursal_solicitados where numventa = '" + numero + "' and estatus_entrega not in ('cancelada') and sucursal = '"+sucursal+"'  ";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql3);
@@ -1152,7 +1153,7 @@ public class ordencamisa extends javax.swing.JFrame {
 
                 
                 
-                String sql3 = "Select distinct numero,sucursal from historial_ordenes_envio_solicitadas where numero_venta = '" + numero + "'  ";
+                String sql3 = "Select distinct numero,sucursal from historial_ordenes_envio_solicitadas where numero_venta = '" + numero + "' and sucursal = '"+sucursal+"' ";
 
                 try {
                     PreparedStatement prst = cn.prepareStatement(sql3);
@@ -1208,6 +1209,7 @@ public class ordencamisa extends javax.swing.JFrame {
 
             } else {
                 cbsucursal.addItem(tiendaordenenvio);
+                cbsucursal.setSelectedItem(tiendaordenenvio);
                 lbnumerodelaotrasucursal.setText(numeroordenenvio);
             }
 

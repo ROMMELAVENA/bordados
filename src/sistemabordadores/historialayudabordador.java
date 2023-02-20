@@ -10,8 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -28,7 +27,6 @@ public class historialayudabordador extends javax.swing.JFrame {
         Calendar now = Calendar.getInstance();
         String[] strMonths = new String[]{"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
 
-       // mesdelaño = strMonths[now.get(Calendar.MONTH)];
         añoactual = now.get(Calendar.YEAR);
         
     
@@ -71,7 +69,7 @@ public class historialayudabordador extends javax.swing.JFrame {
                 modelo.removeRow(0);
             }
         } catch (Exception e) {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
         }
     }
     

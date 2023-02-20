@@ -443,7 +443,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -466,7 +466,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -489,7 +489,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -512,7 +512,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -535,7 +535,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -586,7 +586,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -659,7 +659,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -682,7 +682,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -705,7 +705,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -728,7 +728,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -751,7 +751,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -776,7 +776,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -802,7 +802,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -933,7 +933,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -956,7 +956,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -980,7 +980,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -1004,7 +1004,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -1028,7 +1028,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -1054,7 +1054,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -1081,7 +1081,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                 JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -1153,7 +1153,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -1178,7 +1178,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -1205,7 +1205,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                     }
 
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -1231,7 +1231,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -1345,7 +1345,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -1469,7 +1469,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -1549,7 +1549,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -1610,7 +1610,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -1635,7 +1635,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -1661,7 +1661,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -1687,7 +1687,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -1739,7 +1739,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -1795,7 +1795,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -1847,7 +1847,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -1976,7 +1976,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -2001,7 +2001,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -2027,7 +2027,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -2052,7 +2052,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -2186,7 +2186,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -2211,7 +2211,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -2237,7 +2237,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -2262,7 +2262,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -2415,7 +2415,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -2437,7 +2437,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -2460,7 +2460,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                     }
 
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -2482,7 +2482,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -2687,7 +2687,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -2809,7 +2809,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -2933,7 +2933,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -3197,7 +3197,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -3371,7 +3371,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al limpiar la tabla.");
+             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">Error al limpiar la tabla.");
         }
 
     }
@@ -3387,7 +3387,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al limpiar la tabla fecha.");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">Error al limpiar la tabla.");
         }
 
     }
@@ -3660,7 +3660,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -3681,7 +3681,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -3702,7 +3702,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -3723,7 +3723,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -3744,7 +3744,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -3767,7 +3767,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -3790,7 +3790,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -3838,7 +3838,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -3865,7 +3865,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -3925,7 +3925,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -3946,7 +3946,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -3967,7 +3967,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -3988,7 +3988,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4009,7 +4009,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4030,7 +4030,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4079,7 +4079,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4106,7 +4106,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4166,7 +4166,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4187,7 +4187,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4208,7 +4208,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4229,7 +4229,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4256,7 +4256,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
                 
@@ -4316,7 +4316,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4337,7 +4337,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4358,7 +4358,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4379,7 +4379,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4405,7 +4405,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
                 
@@ -4480,7 +4480,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4553,7 +4553,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4608,7 +4608,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4629,7 +4629,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4649,7 +4649,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4669,7 +4669,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4722,7 +4722,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4743,7 +4743,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4763,7 +4763,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4783,7 +4783,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4843,7 +4843,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4899,7 +4899,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -4949,7 +4949,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -5006,7 +5006,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -5063,7 +5063,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -5133,7 +5133,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -5205,7 +5205,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -5288,7 +5288,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
                 
@@ -5428,7 +5428,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -5449,7 +5449,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -5469,7 +5469,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -5489,7 +5489,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -5509,7 +5509,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -5531,7 +5531,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -5553,7 +5553,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -5601,7 +5601,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -5628,7 +5628,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -5723,7 +5723,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+               JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -5762,7 +5762,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
             } catch (Exception exx) {
-                JOptionPane.showMessageDialog(null, exx);
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
             }
 
@@ -5851,7 +5851,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             }
 
         } catch (Exception exx) {
-            JOptionPane.showMessageDialog(null, exx);
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
         }
 
@@ -6017,7 +6017,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
 
                 }
 
@@ -6480,15 +6480,15 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
 
-        if (evt.getClickCount() == 2) {
+        if (evt.getClickCount() == 2) 
+        {
             int fila = tabla.getSelectedRow();
             Object numeroventa = tabla.getValueAt(fila, 63);
 
-            if (numeroventa == null || numeroventa.equals("")) {
-                JOptionPane.showMessageDialog(null, "No tiene numero de venta");
-            } else {
-
-            }
+            if (numeroventa == null || numeroventa.equals(""))
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">No tiene numero de venta");
+            } 
 
         }
 

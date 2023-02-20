@@ -129,20 +129,16 @@ public class autorizacion extends javax.swing.JFrame {
                    System.out.println(ex);
                 }
           
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+        
         
     }
+    
+     public static String dia() {
+        Date fecha = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+        return formatoFecha.format(fecha);
+    }
+    
     
 
     @SuppressWarnings("unchecked")
@@ -329,12 +325,7 @@ public class autorizacion extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnaceptarActionPerformed
-    public static String dia() {
-        Date fecha = new Date();
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-        return formatoFecha.format(fecha);
-    }
-    
+   
 
     
 

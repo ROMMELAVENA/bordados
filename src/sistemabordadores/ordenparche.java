@@ -21,9 +21,6 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import static sistemabordadores.ordencamisa.lbcliente;
-import static sistemabordadores.ordencamisa.lbidentificador;
-import static sistemabordadores.ordencamisa.lbnombrecomercial;
 
 
 public class ordenparche extends javax.swing.JFrame {
@@ -139,7 +136,8 @@ public static boolean ventanaordenparcheanteriores = false;
 
         } catch (SQLException ex) 
         {
-           JOptionPane.showMessageDialog(null,"orden parche anteriores datos" + ex);
+          
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
         
@@ -261,7 +259,7 @@ public static boolean ventanaordenparcheanteriores = false;
                     pst.close();
 
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, ex);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
                 }
         
         
@@ -352,7 +350,8 @@ public static boolean ventanaordenparcheanteriores = false;
                     pst.close();
 
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, ex);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
+                    
                 }
         
         
@@ -496,7 +495,8 @@ public static boolean ventanaordenparcheanteriores = false;
                     }
 
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+e+"");
 
                 }
         
@@ -533,7 +533,8 @@ public static boolean ventanaordenparcheanteriores = false;
 
             }
         } catch (Exception exx) {
-            JOptionPane.showMessageDialog(null, exx);
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
         }
         
@@ -550,7 +551,8 @@ public static boolean ventanaordenparcheanteriores = false;
 
             }
         } catch (Exception exx) {
-            JOptionPane.showMessageDialog(null, exx);
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
         }
 
@@ -611,7 +613,8 @@ public static boolean ventanaordenparcheanteriores = false;
                     try {
                         img = ImageIO.read(new ByteArrayInputStream(data));
                     } catch (IOException ex) {
-                        JOptionPane.showMessageDialog(null, ex);
+                        
+                        JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
 
                     }
 
@@ -654,7 +657,8 @@ public static boolean ventanaordenparcheanteriores = false;
             } //end while
             rs.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
 
         if (tienefotomontaje.equals("si")) {

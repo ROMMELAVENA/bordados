@@ -61,7 +61,8 @@ public static boolean ventanaordenparcheanteriores = false;
             ultimo = rs.getString("max_numero");
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+           
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+e+"");
 
         }
 
@@ -182,7 +183,8 @@ public static boolean ventanaordenparcheanteriores = false;
                     pst.close();
 
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, ex);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
                 }
         
         try {
@@ -192,7 +194,8 @@ public static boolean ventanaordenparcheanteriores = false;
                     pst.close();
 
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, ex);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
                 }
         
         
@@ -439,7 +442,8 @@ public static boolean ventanaordenparcheanteriores = false;
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 

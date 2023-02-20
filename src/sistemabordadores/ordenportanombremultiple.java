@@ -67,7 +67,8 @@ public class ordenportanombremultiple extends javax.swing.JFrame {
             ultimo = rs.getString("max_numero");
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+e+"");
 
         }
     }
@@ -179,7 +180,8 @@ public class ordenportanombremultiple extends javax.swing.JFrame {
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+e+"");
 
         }
 
@@ -1237,7 +1239,8 @@ public class ordenportanombremultiple extends javax.swing.JFrame {
             pst.close();
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex);
+           
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
 
         agregarexistenciabordados((String) articulo);

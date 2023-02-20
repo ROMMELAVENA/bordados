@@ -1143,7 +1143,8 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                     pst.close();
 
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, ex);
+                   
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
                 }
         
          

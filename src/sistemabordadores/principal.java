@@ -295,7 +295,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -316,7 +317,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -337,7 +339,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
+                    
 
                 }
 
@@ -358,7 +361,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -379,7 +383,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -402,7 +407,8 @@ String fechafinal = "";
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                   
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -425,7 +431,8 @@ String fechafinal = "";
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -473,7 +480,7 @@ String fechafinal = "";
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -500,7 +507,8 @@ String fechafinal = "";
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                   
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -560,7 +568,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -581,7 +590,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -602,7 +612,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -623,7 +634,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -644,7 +656,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -665,7 +678,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -714,7 +728,8 @@ String fechafinal = "";
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                   
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -741,7 +756,8 @@ String fechafinal = "";
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -798,7 +814,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -819,7 +836,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -840,7 +858,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -861,7 +880,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
+                    
 
                 }
 
@@ -888,7 +908,8 @@ String fechafinal = "";
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
                 
@@ -948,7 +969,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -969,7 +991,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -990,7 +1013,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1011,7 +1035,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1037,7 +1062,8 @@ String fechafinal = "";
 
                 } catch (Exception exx) {
 
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
                 
@@ -1111,7 +1137,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1184,7 +1211,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1239,7 +1267,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1260,7 +1289,8 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1280,7 +1310,7 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1300,7 +1330,7 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1353,7 +1383,7 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1374,7 +1404,7 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1394,7 +1424,7 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1414,7 +1444,7 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1474,7 +1504,7 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1528,7 +1558,7 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1578,7 +1608,7 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1635,7 +1665,7 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1692,7 +1722,7 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                  JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1759,7 +1789,7 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -1828,7 +1858,7 @@ String fechafinal = "";
 
                     }
                 } catch (Exception exx) {
-                    JOptionPane.showMessageDialog(null, exx);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                 }
 
@@ -2260,7 +2290,7 @@ String fechafinal = "";
             }
 
         } catch (Exception exx) {
-            JOptionPane.showMessageDialog(null, exx);
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
         }
 

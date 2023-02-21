@@ -3869,6 +3869,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         String frentecorbata = "";
 
         double importefrentecorbata = 0.0;
+        
+        double sumatotaldelosbordadosdistinta = 0;
 
         int año = 0;
 
@@ -5711,30 +5713,32 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                     cantidadbordados = "0";
                 }
 
-            int cantidad =  Integer.parseInt(cantidadbordados);   
-            int cantidaddistinta1int = Integer.parseInt(cantidaddistinta1);
-            int cantidaddistinta2int = Integer.parseInt(cantidaddistinta2);
-            int cantidaddistinta3int = Integer.parseInt(cantidaddistinta3);
-            int cantidaddistinta4int = Integer.parseInt(cantidaddistinta4);
-            int cantidaddistinta5int = Integer.parseInt(cantidaddistinta5);
-            int cantidaddistinta6int = Integer.parseInt(cantidaddistinta6);
-            int cantidaddistinta7int = Integer.parseInt(cantidaddistinta7);
+                int cantidad = Integer.parseInt(cantidadbordados);
+                int cantidaddistinta1int = Integer.parseInt(cantidaddistinta1);
+                int cantidaddistinta2int = Integer.parseInt(cantidaddistinta2);
+                int cantidaddistinta3int = Integer.parseInt(cantidaddistinta3);
+                int cantidaddistinta4int = Integer.parseInt(cantidaddistinta4);
+                int cantidaddistinta5int = Integer.parseInt(cantidaddistinta5);
+                int cantidaddistinta6int = Integer.parseInt(cantidaddistinta6);
+                int cantidaddistinta7int = Integer.parseInt(cantidaddistinta7);
+
+                double costopuntadadistinta1 = 0.0;
+                double costopuntadadistinta2 = 0.0;
+                double costopuntadadistinta3 = 0.0;
+                double costopuntadadistinta4 = 0.0;
+                double costopuntadadistinta5 = 0.0;
+                double costopuntadadistinta6 = 0.0;
+                double costopuntadadistinta7 = 0.0;
+
+                double importedistinta1 = 0.0;
+                double importedistinta2 = 0.0;
+                double importedistinta3 = 0.0;
+                double importedistinta4 = 0.0;
+                double importedistinta5 = 0.0;
+                double importedistinta6 = 0.0;
+                double importedistinta7 = 0.0;
             
-            double costopuntadadistinta1 = 0.0;
-            double costopuntadadistinta2 = 0.0;
-            double costopuntadadistinta3 = 0.0;
-            double costopuntadadistinta4 = 0.0;
-            double costopuntadadistinta5 = 0.0;
-            double costopuntadadistinta6 = 0.0;
-            double costopuntadadistinta7 = 0.0;
-            
-             double importedistinta1 = 0.0;
-            double importedistinta2 = 0.0;
-            double importedistinta3 = 0.0;
-            double importedistinta4 = 0.0;
-            double importedistinta5 = 0.0;
-            double importedistinta6 = 0.0;
-            double importedistinta7 = 0.0;
+             
             
 
                 //PECHO IZQUIERDO
@@ -5816,7 +5820,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
 
-                importemangaderecha = cantidaddistinta4int * costopuntadadistinta4;
+                importedistinta4 = cantidaddistinta4int * costopuntadadistinta4;
 
               
 
@@ -5858,7 +5862,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
 
-                importeotraubicacion = cantidaddistinta6int * costopuntadadistinta6;
+                importedistinta6 = cantidaddistinta6int * costopuntadadistinta6;
 
                
 
@@ -5880,33 +5884,57 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
 
-                importeotraubicacion2 = cantidaddistinta7int * costopuntadadistinta7;
+                importedistinta7 = cantidaddistinta7int * costopuntadadistinta7;
 
-                if (aplicacionpechoizquierdo == null || aplicacionpechoizquierdo.equals("") || aplicacionpechoizquierdo.equals(" ")) {
-                    aplicacionpechoizquierdo = "0";
+                if (aplicaciondistinta1 == null || aplicaciondistinta1.equals("") || aplicaciondistinta1.equals(" ")) {
+                    aplicaciondistinta1 = "0";
                 }
 
-                double aplicacionpechoizquierdodouble = Double.parseDouble(aplicacionpechoizquierdo);
+                double aplicaciondistinta1double = Double.parseDouble(aplicaciondistinta1);
 
-                if (aplicacionpechoderecho == null || aplicacionpechoderecho.equals("") || aplicacionpechoderecho.equals(" ")) {
-                    aplicacionpechoderecho = "0";
+                
+                /// distinta 2
+                if (aplicaciondistinta2 == null || aplicaciondistinta2.equals("") || aplicaciondistinta2.equals(" ")) {
+                    aplicaciondistinta2 = "0";
                 }
 
-                double aplicacionpechoderechodouble = Double.parseDouble(aplicacionpechoderecho);
+                double aplicaciondistinta2double = Double.parseDouble(aplicaciondistinta2);
 
-                if (aplicacionmangaizquierda == null || aplicacionmangaizquierda.equals("") || aplicacionmangaizquierda.equals(" ")) {
-                    aplicacionmangaizquierda = "0";
+                
+                /// distinta3
+                if (aplicaciondistinta3 == null || aplicaciondistinta3.equals("") || aplicaciondistinta3.equals(" ")) {
+                    aplicaciondistinta3 = "0";
                 }
 
-                double aplicacionmangaizquierdadouble = Double.parseDouble(aplicacionmangaizquierda);
+                double aplicaciondistinta3double = Double.parseDouble(aplicaciondistinta3);
 
-                if (aplicacionmangaderecha == null || aplicacionmangaderecha.equals("") || aplicacionmangaderecha.equals(" ")) {
-                    aplicacionmangaderecha = "0";
+                if (aplicaciondistinta4 == null || aplicaciondistinta4.equals("") || aplicaciondistinta4.equals(" ")) {
+                    aplicaciondistinta4 = "0";
                 }
 
-                double aplicacionmangaderechadouble = Double.parseDouble(aplicacionmangaderecha);
+                double aplicaciondistinta4double = Double.parseDouble(aplicaciondistinta4);
 
-                double sumadelasaplicioneschicasdouble = aplicacionpechoizquierdodouble + aplicacionpechoderechodouble + aplicacionmangaderechadouble + aplicacionmangaizquierdadouble;
+                 if (aplicaciondistinta5 == null || aplicaciondistinta5.equals("") || aplicaciondistinta5.equals(" ")) {
+                    aplicaciondistinta5 = "0";
+                }
+
+                double aplicaciondistinta5double = Double.parseDouble(aplicaciondistinta5);
+                
+                if (aplicaciondistinta6 == null || aplicaciondistinta6.equals("") || aplicaciondistinta6.equals(" ")) {
+                    aplicaciondistinta6 = "0";
+                }
+
+                double aplicaciondistinta6double = Double.parseDouble(aplicaciondistinta6);
+                
+                if (aplicaciondistinta7 == null || aplicaciondistinta7.equals("") || aplicaciondistinta7.equals(" ")) {
+                    aplicaciondistinta7 = "0";
+                }
+
+                double aplicaciondistinta7double = Double.parseDouble(aplicaciondistinta7);
+               
+                
+                
+                double sumadelasaplicioneschicasdouble = aplicaciondistinta1double + aplicaciondistinta2double + aplicaciondistinta3double + aplicaciondistinta4double + aplicaciondistinta5double +aplicaciondistinta6double + aplicaciondistinta7double;
 
                 double costopuntadaaplicacionchica = 0.0;
 
@@ -5930,35 +5958,9 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 sumadelasaplicioneschicasdouble = (sumadelasaplicioneschicasdouble * cantidad) * costopuntadaaplicacionchica;
 
-                if (aplicacionespalda == null || aplicacionespalda.equals("") || aplicacionespalda.equals(" ")) {
-                    aplicacionespalda = "0";
-                }
 
-                double aplicacionespaldadouble = Double.parseDouble(aplicacionespalda);
-                double costopuntadaaplicaciongrande = 0.0;
-
-                String sql11 = "SELECT costo from catalogo_costos_bordado where puntadas = 'APLICACION GRANDE' ";
-
-                try {
-                    PreparedStatement prst = cn.prepareStatement(sql11);
-                    ResultSet rs5 = prst.executeQuery();
-                    if (rs5.next()) {
-
-                        costostring = rs5.getString("costo");
-                        costopuntadaaplicaciongrande = Double.parseDouble(costostring);
-
-                    }
-
-                } catch (Exception exx) {
-
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
-
-                }
-
-                double sumadelasaplicionesgrandesdouble = (aplicacionespaldadouble * cantidad) * costopuntadaaplicaciongrande;
-
-                double sumabordados = importepechoizquierdo + importepechoderecho + importemangaizquierda + importemangaderecha + importeespalda + importeotraubicacion + importeotraubicacion2 + sumadelasaplicionesgrandesdouble + sumadelasaplicioneschicasdouble;
-               // sumatotaldelosbordadosdistinta = sumatotaldelosbordados + sumabordados;
+                sumatotaldelosbordadosdistinta = importedistinta1 + importedistinta2 + importedistinta3 + importedistinta4 + importedistinta5 + importedistinta6 + importedistinta7 + sumadelasaplicioneschicasdouble;
+                
 
             }
 
@@ -5975,7 +5977,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         /////
         //suma de los bordados
         /////
-        double sumatotaldelosbordadosdouble = sumatotaldelosbordados + sumatotaldelosbordadosrecibidos + sumatotaldelosbordadosgorra + sumatotaldelosbordadosgorrarecibidas + sumatotaldelosbordadospantalon + sumatotaldelosbordadospantalonrecibidas + sumatotaldelosbordadosparche + sumatotaldelosbordadosparcherecibidos + sumatotaldelosbordadoscorbata + sumatotaldelosbordadosgorrainterna + sumatotaldelosbordadosparcheinterna + sumatotaldelosbordadosportanombre + sumatotaldelosbordadosportanombremultiple + sumatotaldelosponchados + sumatotaldelosponchadosmodificados + sumatotaldelosfotomontajes;
+        double sumatotaldelosbordadosdouble = sumatotaldelosbordados + sumatotaldelosbordadosrecibidos + sumatotaldelosbordadosgorra + sumatotaldelosbordadosgorrarecibidas + sumatotaldelosbordadospantalon + sumatotaldelosbordadospantalonrecibidas + sumatotaldelosbordadosparche + sumatotaldelosbordadosparcherecibidos + sumatotaldelosbordadoscorbata + sumatotaldelosbordadosgorrainterna + sumatotaldelosbordadosparcheinterna + sumatotaldelosbordadosportanombre + sumatotaldelosbordadosportanombremultiple + sumatotaldelosponchados + sumatotaldelosponchadosmodificados + sumatotaldelosfotomontajes + sumatotaldelosbordadosdistinta;
         String sumabordadosstring = String.format("%.02f ", sumatotaldelosbordadosdouble);
 
         tablafecha.setValueAt(sumabordadosstring, i - 1, 1);

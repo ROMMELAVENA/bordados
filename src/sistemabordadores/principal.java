@@ -2344,6 +2344,7 @@ String fechafinal = "";
     ordenesrealizadas  ventana = new ordenesrealizadas();
     ventana.setVisible(true);
     ventana.setLocationRelativeTo(null);
+    ventana.setTitle("Ordenes bordado realizadas");
     }
     }//GEN-LAST:event_btnordenesbordadosucursalrealizadasActionPerformed
 
@@ -2402,6 +2403,7 @@ String fechafinal = "";
     ordenesporrealizar.localuotrasucursal = "Otra Sucursal";
     ventana.setVisible(true);
     ventana.setLocationRelativeTo(null);
+    ventana.setTitle("Ordenes bordado otra sucursal replicar ponchados");
     }
     }//GEN-LAST:event_btnordenesbordadosucursalporrealizar1ActionPerformed
 

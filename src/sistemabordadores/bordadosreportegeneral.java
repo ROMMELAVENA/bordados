@@ -1192,7 +1192,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho,manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha,espalda_nombre,espalda,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion_nombre,otra_ubicacion,otra_ubicacion2_nombre,otra_ubicacion2 from historial_ordenes_camisa_recibidas where estatus_orden = 'generada' and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho,manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha,espalda_nombre,espalda,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion_nombre,otra_ubicacion,otra_ubicacion2_nombre,otra_ubicacion2 from historial_ordenes_camisa_recibidas where (estatus_orden = 'generada' OR estatus_orden = 'realizada') and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -3727,7 +3727,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             datos[1] = "0.00";
             modelotabla.addRow(datos);
 
-            if (i == 27 || i == 31) 
+            if (i == 1 || i == 31) 
             {
                 int a = 0;
             }

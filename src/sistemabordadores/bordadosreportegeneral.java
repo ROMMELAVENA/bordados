@@ -841,6 +841,15 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double importedistinta5 = 0.0;
         double importedistinta6 = 0.0;
         double importedistinta7 = 0.0;
+        
+        String distinta1cantidad = "";
+        String distinta2cantidad = "";
+        String distinta3cantidad = "";
+        String distinta4cantidad = "";
+        String distinta5cantidad = "";
+        String distinta6cantidad = "";
+        String distinta7cantidad = "";
+        
 
         String costostring = "0";
         
@@ -872,15 +881,15 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select codigo,fecha,cliente,cantidad,prenda,numero_venta,"
-                  + "cantidad_distinta1,distinta1_nombre,distinta1,"
-                  + "cantidad_distinta2,distinta2_nombre,distinta2,"
-                  + "cantidad_distinta3,distinta3_nombre,distinta3,"
-                  + "cantidad_distinta4,distinta4_nombre,distinta4,"
-                  + "cantidad_distinta5,distinta5_nombre,distinta5,"
-                  + "cantidad_distinta6,distinta6_nombre,distinta6,"
-                  + "cantidad_distinta7,distinta7_nombre,distinta7,"
-                  + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2 from historial_ordenes_distinta where (estatus_orden = 'generada' or estatus_orden = 'realizada') and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select codigo,fecha,cliente,cantidad,tipo,numero_venta,"
+                  + "distinta1_cantidad,distinta1_nombre,distinta1,"
+                  + "distinta2_cantidad,distinta2_nombre,distinta2,"
+                  + "distinta3_cantidad,distinta3_nombre,distinta3,"
+                  + "distinta4_cantidad,distinta4_nombre,distinta4,"
+                  + "distinta5_cantidad,distinta5_nombre,distinta5,"
+                  + "distinta6_cantidad,distinta6_nombre,distinta6,"
+                  + "distinta7_cantidad,distinta7_nombre,distinta7,"
+                  + "distinta1_aplicacion,distinta2_aplicacion,distinta3_aplicacion,distinta4_aplicacion,distinta5_aplicacion,distinta6_aplicacion,distinta7_aplicacion from historial_ordenes_distinta where (estatus_orden = 'generada' or estatus_orden = 'realizada') and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -892,33 +901,41 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 datos[1] = rs.getString("cliente");
                 String cliente = rs.getString("cliente");
                 datos[2] = rs.getString("cantidad");
-                datos[3] = rs.getString("prenda");
-                cantidadpechoizquierdo = rs.getString("cantidad_pecho_izquierdo");
-                datos[4] = rs.getString("pecho_izquierdo_nombre");
-                datos[5] = rs.getString("pecho_izquierdo");
-                cantidadpechoderecho = rs.getString("cantidad_pecho_derecho");
-                datos[7] = rs.getString("pecho_derecho_nombre");
-                datos[8] = rs.getString("pecho_derecho");
-                cantidadmangaizquierda = rs.getString("cantidad_manga_izquierda");
-                datos[10] = rs.getString("manga_izquierda_nombre");
-                datos[11] = rs.getString("manga_izquierda");
-                cantidadmangaderecha = rs.getString("cantidad_manga_derecha");
-                datos[13] = rs.getString("manga_derecha_nombre");
-                datos[14] = rs.getString("manga_derecha");
-                cantidadespalda = rs.getString("cantidad_espalda");
-                datos[16] = rs.getString("espalda_nombre");
-                datos[17] = rs.getString("espalda");
-                cantidadotraubicacion = rs.getString("cantidad_otra_ubicacion");
-                datos[19] = rs.getString("otra_ubicacion_nombre");
-                datos[20] = rs.getString("otra_ubicacion");
-                cantidadotraubicacion2 = rs.getString("cantidad_otra_ubicacion2");
-                datos[22] = rs.getString("otra_ubicacion2_nombre");
-                datos[23] = rs.getString("otra_ubicacion2");
-                datos[53] = rs.getString("aplicacion_pecho_izquierdo");
-                datos[54] = rs.getString("aplicacion_pecho_derecho");
-                datos[55] = rs.getString("aplicacion_manga_izquierda");
-                datos[56] = rs.getString("aplicacion_manga_derecha");
-                datos[60] = rs.getString("aplicacion_espalda");
+                datos[3] = rs.getString("tipo");
+                
+                distinta1cantidad = rs.getString("distinta1_cantidad");
+                datos[4] = rs.getString("distinta1_nombre");
+                datos[5] = rs.getString("distinta1");
+               
+                distinta1cantidad = rs.getString("distinta2_cantidad");
+                datos[7] = rs.getString("distinta2_nombre");
+                datos[8] = rs.getString("distinta2");
+                
+                distinta2cantidad = rs.getString("distinta3_cantidad");
+                datos[10] = rs.getString("distinta3_nombre");
+                datos[11] = rs.getString("distinta3");
+                
+                distinta3cantidad = rs.getString("distinta4_cantidad");
+                datos[13] = rs.getString("distinta4_nombre");
+                datos[14] = rs.getString("distinta4");
+                
+                distinta4cantidad = rs.getString("distinta5_cantidad");
+                datos[16] = rs.getString("distinta5_nombre");
+                datos[17] = rs.getString("distinta5");
+                
+                distinta5cantidad = rs.getString("distinta6_cantidad");
+                datos[19] = rs.getString("distinta6_nombre");
+                datos[20] = rs.getString("distinta6");
+                
+                distinta6cantidad = rs.getString("distinta7_cantidad");
+                datos[22] = rs.getString("distinta7_nombre");
+                datos[23] = rs.getString("distinta7");
+                
+                datos[53] = rs.getString("distinta1_aplicacion");
+                datos[54] = rs.getString("distinta2_aplicacion");
+                datos[55] = rs.getString("distinta3_aplicacion");
+                datos[56] = rs.getString("distinta4_aplicacion");
+                datos[60] = rs.getString("distinta5_aplicacion");
                
                 datos[63] = rs.getString("numero_venta");
                 
@@ -927,21 +944,35 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                  // Object cantidadobject = tabla.getValueAt(i, 2);
             //Object cliente = tabla.getValueAt(i, 1);
             
-            int cantidadpechoizquierdoint = Integer.parseInt(cantidadpechoizquierdo);
-            int cantidadpechoderechoint = Integer.parseInt(cantidadpechoderecho);
-            int cantidadmangaizquierdaint = Integer.parseInt(cantidadmangaizquierda);
-            int cantidadmangaderechaint = Integer.parseInt(cantidadmangaderecha);
-            int cantidadespaldaint = Integer.parseInt(cantidadespalda);
-            int cantidadotraubicacionint = Integer.parseInt(cantidadotraubicacion);
-            int cantidadotraubicacion2int = Integer.parseInt(cantidadotraubicacion2);
+            int cantidaddistinta1int = Integer.parseInt(distinta1cantidad);
+            int cantidaddistinta2int = Integer.parseInt(distinta2cantidad);
+            int cantidaddistinta3int = Integer.parseInt(distinta3cantidad);
+            int cantidaddistinta4int = Integer.parseInt(distinta4cantidad);
+            int cantidaddistinta5int = Integer.parseInt(distinta5cantidad);
+            int cantidaddistinta6int = Integer.parseInt(distinta6cantidad);
+            int cantidaddistinta7int = Integer.parseInt(distinta7cantidad);
  
             
-            
+            double costopuntadadistinta1 = 0.0;
+            double costopuntadadistinta2 = 0.0;
+            double costopuntadadistinta3 = 0.0;
+            double costopuntadadistinta4 = 0.0;
+            double costopuntadadistinta5 = 0.0;
+            double costopuntadadistinta6 = 0.0;
+            double costopuntadadistinta7 = 0.0;
 
-            //PECHO IZQUIERDO
-            double costopuntadapechoizquierdo = 0.0;
-            Object pechoizquierdoobject = rs.getString("pecho_izquierdo");
-            String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + pechoizquierdoobject + "'";
+            Object distinta1object = rs.getString("distinta1");
+            Object distinta2object = rs.getString("distinta2");
+            Object distinta3object = rs.getString("distinta3");
+            Object distinta4object = rs.getString("distinta4");
+            Object distinta5object = rs.getString("distinta5");
+            Object distinta6object = rs.getString("distinta6");
+            Object distinta7object = rs.getString("distinta7");
+
+            //distinta1
+            
+            
+            String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + distinta1object + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql1);
@@ -950,7 +981,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 {
 
                     costostring = rs2.getString("costo");
-                    costopuntadapechoizquierdo = Double.parseDouble(costostring);
+                    costopuntadadistinta1 = Double.parseDouble(costostring);
 
                 }
             } catch (Exception exx) {
@@ -958,14 +989,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             }
 
-            String costopuntadapechoizquierdostring = String.format("%.02f ", costopuntadapechoizquierdo);
-            datos[6] = costopuntadapechoizquierdostring;
-            importepechoizquierdo = cantidadpechoizquierdoint * costopuntadapechoizquierdo;
+            datos[6] = String.format("%.02f ", costopuntadadistinta1);
+            importedistinta1 = cantidaddistinta1int * costopuntadadistinta1;
 
-            //PECHO DERECHO
-            double costopuntadapechoderecho = 0.0;
-            Object pechoderechoobject = rs.getString("pecho_derecho");
-            String sql2 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + pechoderechoobject + "'";
+            //DISTINTA 2
+            
+            
+            String sql2 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + distinta2object + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql2);
@@ -973,7 +1003,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 if (rs2.next()) {
 
                     costostring = rs2.getString("costo");
-                    costopuntadapechoderecho = Double.parseDouble(costostring);
+                    costopuntadadistinta2 = Double.parseDouble(costostring);
 
                 }
             } catch (Exception exx) {
@@ -981,14 +1011,14 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             }
 
-            String costopuntadapechoderechostring = String.format("%.02f ", costopuntadapechoderecho);
-            datos[9] = costopuntadapechoderechostring;
-            importepechoderecho = cantidadpechoderechoint * costopuntadapechoderecho;
+            datos[9] = String.format("%.02f ", costopuntadadistinta2);
+            importedistinta2 = cantidaddistinta2int * costopuntadadistinta2;
 
-//MANGA IZQUIERDA
-            double costopuntadamangaizquierda = 0.0;
-            Object mangaizquierdaobject = rs.getString("manga_izquierda");
-            String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + mangaizquierdaobject + "'";
+            
+
+            /// distinta 3
+            
+            String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + distinta3object + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql3);
@@ -996,7 +1026,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 if (rs2.next()) {
 
                     costostring = rs2.getString("costo");
-                    costopuntadamangaizquierda = Double.parseDouble(costostring);
+                    costopuntadadistinta3 = Double.parseDouble(costostring);
 
                 }
             } catch (Exception exx) {
@@ -1004,14 +1034,15 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             }
 
-            String costopuntadamangaizquierdastring = String.format("%.02f ", costopuntadamangaizquierda);
-            datos[12] = costopuntadamangaizquierdastring;
-            importemangaizquierda = cantidadmangaizquierdaint * costopuntadamangaizquierda;
+            
+            datos[12] = String.format("%.02f ", costopuntadadistinta3);
+            importedistinta3 = cantidaddistinta3int * costopuntadadistinta3;
 
-//MANGA DERECHA
-            double costopuntadamangaderecha = 0.0;
-            Object mangaderechaobject = rs.getString("manga_derecha");
-            String sql4 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + mangaderechaobject + "'";
+            
+            
+            /// distinta 4
+          
+            String sql4 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + distinta4object + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql4);
@@ -1019,7 +1050,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 if (rs2.next()) {
 
                     costostring = rs2.getString("costo");
-                    costopuntadamangaderecha = Double.parseDouble(costostring);
+                    costopuntadadistinta4 = Double.parseDouble(costostring);
 
                 }
             } catch (Exception exx) {
@@ -1027,14 +1058,14 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             }
 
-            String costopuntadamangaderechastring = String.format("%.02f ", costopuntadamangaderecha);
-             datos[15] = costopuntadamangaderechastring;
-            importemangaderecha = cantidadmangaderechaint * costopuntadamangaderecha;
+            
+            datos[15] = String.format("%.02f ", costopuntadadistinta4);
+            importedistinta4 = cantidaddistinta4int * costopuntadadistinta4;
 
-            // ESPALDA
-            double costopuntadaespalda = 0.0;
-            Object espaldaobject = rs.getString("espalda");
-            String sql5 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + espaldaobject + "'";
+
+
+           /// distinta5
+            String sql5 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + distinta5object + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql5);
@@ -1042,7 +1073,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 if (rs2.next()) {
 
                     costostring = rs2.getString("costo");
-                    costopuntadaespalda = Double.parseDouble(costostring);
+                    costopuntadadistinta5 = Double.parseDouble(costostring);
 
                 }
             } catch (Exception exx) {
@@ -1050,15 +1081,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             }
 
-            String costopuntadaespaldastring = String.format("%.02f ", costopuntadaespalda);
-            datos[18] = costopuntadaespaldastring;
-            importeespalda = cantidadespaldaint * costopuntadaespalda;
+            datos[18] = String.format("%.02f ", costopuntadadistinta5);
+            importedistinta5 = cantidaddistinta5int * costopuntadadistinta5;
 
-            /// otra ubicacion
-            double costopuntadaotraubicacion = 0.0;
-            Object otraubicacionobject = rs.getString("otra_ubicacion");
-
-            String sql6 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + otraubicacionobject + "'";
+           
+             /// distinta6
+            String sql6 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + distinta6object + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql6);
@@ -1066,7 +1094,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 if (rs2.next()) {
 
                     costostring = rs2.getString("costo");
-                    costopuntadaotraubicacion = Double.parseDouble(costostring);
+                    costopuntadadistinta6 = Double.parseDouble(costostring);
 
                 }
 
@@ -1075,16 +1103,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             }
 
-            String costopuntadaotraubicacionstring = String.format("%.02f ", costopuntadaotraubicacion);
-            datos[21] = costopuntadaotraubicacionstring;
+            
+            datos[21] = String.format("%.02f ", costopuntadadistinta6);
+            importedistinta6 = cantidaddistinta6int * costopuntadadistinta6;
 
-            importeotraubicacion = cantidadotraubicacionint * costopuntadaotraubicacion;
 
-            /// otra ubicacion2
-            double costopuntadaotraubicacion2 = 0.0;
-            Object otraubicacion2object = datos[23] = rs.getString("otra_ubicacion2");
-
-            String sql7 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + otraubicacion2object + "'";
+            String sql7 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + distinta6object + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql7);
@@ -1092,7 +1116,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 if (rs2.next()) {
 
                     costostring = rs2.getString("costo");
-                    costopuntadaotraubicacion2 = Double.parseDouble(costostring);
+                    costopuntadadistinta7 = Double.parseDouble(costostring);
 
                 }
 
@@ -1101,19 +1125,16 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             }
 
-            String costopuntadaotraubicacion2string = String.format("%.02f ", costopuntadaotraubicacion2);
-            datos[24] = costopuntadaotraubicacion2string;
-            importeotraubicacion2 = cantidadotraubicacionint * costopuntadaotraubicacion2;
+            
+            datos[24] = String.format("%.02f ", costopuntadadistinta7);
+             importedistinta7 = cantidaddistinta7int * costopuntadadistinta7;
 
-            double sumabordados = importepechoizquierdo + importepechoderecho + importemangaizquierda + importemangaderecha + importeespalda + importeotraubicacion + importeotraubicacion2;
-            String sumabordadosstring = String.format("%.02f ", sumabordados);
-            if(sumabordadosstring.equals("3.30"))
-                {
+                double sumabordados = importedistinta1 + importedistinta2 + importedistinta3 + importedistinta4 + importedistinta5 + importedistinta6 + importedistinta7;
+                String sumabordadosstring = String.format("%.02f ", sumabordados);
+                if (sumabordadosstring.equals("3.30")) {
                     int a = 0;
                 }
-            datos[62] = sumabordadosstring;
-                
-                ///
+                datos[62] = sumabordadosstring;
                 modelo2.addRow(datos);
             }
 

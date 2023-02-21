@@ -3465,6 +3465,12 @@ public class ordencamisa extends javax.swing.JFrame {
         }
 
       
+      if(enquesucursalsebordara.equals("Otra sucursal"))
+        {
+        btnterminetodo.setEnabled(false);
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");
+        
+        }
      
         
         

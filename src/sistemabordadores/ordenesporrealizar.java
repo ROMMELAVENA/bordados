@@ -339,7 +339,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos7 = new String[15];
         
-        String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha,observacion  FROM historial_ordenes_portanombres where (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
+        String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha,observacion,nombre_renglon1,nombre_renglon2,nombre_renglon3  FROM historial_ordenes_portanombres where (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
 
         try {
             Statement st = cn.createStatement();
@@ -347,7 +347,14 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             while (rs.next()) 
             {
                 String numeroventa = rs.getString("numero_venta");
+                String nombre = rs.getString("nombre_renglon1");
+                String nombre2 = rs.getString("nombre_renglon2");
+                String nombre3 = rs.getString("nombre_renglon3");
+                
+                nombre = "Portanombre".concat(" ").concat(nombre).concat(" ").concat(nombre2).concat(" ").concat(nombre3);
                 nombredelcliente((String) numeroventa);
+                
+                
                 datos7[0] = rs.getString("numero");
                 datos7[1] = nombrecliente;
                 datos7[2] = "Porta nombre";
@@ -359,7 +366,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos7[8] = "";
                 datos7[9] = "";
                 datos7[10] = "Local";
-                datos7[11] = "Porta nombre";
+                datos7[11] = nombre;
                 datos7[12] = rs.getString("observacion");
 
                 modelo.addRow(datos7);

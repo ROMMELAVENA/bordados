@@ -568,7 +568,6 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (mangaderecha == null || mangaderecha.equals("") || mangaderecha.equals("ninguno")) {
 
                     btnmangaderecha.setVisible(false);
-                    lbcolormangaderecha.setVisible(false);
                     lbmangaderechanombre.setVisible(false);
                     lbmangaderecha.setVisible(false); 
 
@@ -581,8 +580,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbmangaizquierda.setText(rs.getString("manga_izquierda"));
                 if (mangaizquierda == null || mangaizquierda.equals("") || mangaizquierda.equals("ninguno")) {
 
-                    btnmangaizquierda.setVisible(false);
-                    lbcolormangaizquierda.setVisible(false);
+                    btnmangaizquierda.setVisible(false); 
                     lbmangaizquierdanombre.setVisible(false);
                     lbmangaizquierda.setVisible(false); 
 
@@ -595,7 +593,6 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (pechoderecho == null || pechoderecho.equals("") || pechoderecho.equals("ninguno")) {
 
                     btnpechoderecho.setVisible(false);
-                    lbcolorpechoderecho.setVisible(false);
                     lbpechoderechonombre.setVisible(false);
                     lbpechoderecho.setVisible(false); 
 
@@ -608,7 +605,6 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (pechoizquierdo == null || pechoizquierdo.equals("") || pechoizquierdo.equals("ninguno")) {
 
                     btnpechoizquierdo.setVisible(false);
-                    lbcolorpechoizquierdo.setVisible(false);
                     lbpechoizquierdonombre.setVisible(false);
                     lbpechoizquierdo.setVisible(false); 
 
@@ -621,7 +617,6 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (espalda == null || espalda.equals("")) {
 
                     btnespalda.setVisible(false);
-                    lbcolorespalda.setVisible(false);
                     lbespaldanombre.setVisible(false);
                     lbespalda.setVisible(false); 
 
@@ -634,7 +629,6 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (otraubicacion == null || otraubicacion.equals("") || otraubicacion.equals("ninguno")) {
 
                     btnotraubicacion.setVisible(false);
-                    lbcolorotraubicacion.setVisible(false);
                     lbotraubicacionnombre.setVisible(false);
                     lbotraubicacion.setVisible(false); 
 
@@ -648,7 +642,6 @@ public class ordencamisa extends javax.swing.JFrame {
                 {
 
                     btnotraubicacion2.setVisible(false);
-                    lbcolorotraubicacion2.setVisible(false);
                     lbotraubicacion2nombre.setVisible(false);
                     lbotraubicacion2.setVisible(false); 
                 }
@@ -2413,82 +2406,28 @@ public class ordencamisa extends javax.swing.JFrame {
                 
                 consecutivo = rs1.getString("numero_consecutivo");
                 
-                if(codigo1.equals("ninguno"))
-                {
-                  lbcolorpechoizquierdo.setVisible(false);  
-                  lbcodigopechoizquierdo.setVisible(false); 
-                }
-                else
-                {
-                  lbcolorpechoizquierdo.setText(codigo1.toString());
-                  lbcodigopechoizquierdo.setText(hilo1.toString());
-                }  
+               
+                lbcolorpechoizquierdo.setText(codigo1.toString());
+                lbcodigopechoizquierdo.setText(hilo1.toString());
+
+                lbcolorpechoderecho.setText(codigo2.toString());
+                lbcodigopechoderecho.setText(hilo2.toString());
+
+                lbcolormangaizquierda.setText(codigo3.toString());
+                lbcodigomangaizquierda.setText(hilo3.toString());
+
+                lbcolormangaderecha.setText(codigo4.toString());
+                lbcodigomangaderecha.setText(hilo4.toString());
+
+                lbcolorespalda.setText(codigo5.toString());
+                lbcodigoespalda.setText(hilo5.toString());
+
+                lbcolorotraubicacion.setText(codigo6.toString());
+                lbcodigootraubicacion.setText(hilo6.toString());
+
+                lbcolorotraubicacion2.setText(codigo7.toString());
+                lbcodigootraubicacion2.setText(hilo7.toString());
                 
-                if(codigo2.equals("ninguno"))
-                {
-                  lbcolorpechoderecho.setVisible(false); 
-                  lbcodigopechoderecho.setVisible(false); 
-                }
-                else
-                {
-                  lbcolorpechoderecho.setText(codigo2.toString());
-                  lbcodigopechoderecho.setText(hilo2.toString());
-                }  
-                
-                 if(codigo3.equals("ninguno"))
-                {
-                  lbcolormangaizquierda.setVisible(false); 
-                  lbcodigomangaizquierda.setVisible(false); 
-                }
-                else
-                {
-                  lbcolormangaizquierda.setText(codigo3.toString());
-                  lbcodigomangaizquierda.setText(hilo3.toString());
-                }  
-                
-                if(codigo4.equals("ninguno"))
-                {
-                  lbcolormangaderecha.setVisible(false);  
-                  lbcodigomangaderecha.setVisible(false);  
-                }
-                else
-                {
-                  lbcolormangaderecha.setText(codigo4.toString());
-                  lbcodigomangaderecha.setText(hilo4.toString());
-                }    
-                
-                if(codigo5.equals("ninguno"))
-                {
-                  lbcolorespalda.setVisible(false);  
-                  lbcodigoespalda.setVisible(false);  
-                }
-                else
-                {
-                  lbcolorespalda.setText(codigo5.toString());
-                  lbcodigoespalda.setText(hilo5.toString());
-                }   
-                
-                 if(codigo6.equals("ninguno"))
-                {
-                  lbcolorotraubicacion.setVisible(false); 
-                  lbcodigootraubicacion.setVisible(false);  
-                }
-                else
-                {
-                  lbcolorotraubicacion.setText(codigo6.toString());
-                  lbcodigootraubicacion.setText(hilo6.toString());
-                } 
-                
-                 if(codigo7.equals("ninguno"))
-                {
-                  lbcolorotraubicacion2.setVisible(false);  
-                  lbcodigootraubicacion2.setVisible(false);  
-                }
-                else
-                {
-                  lbcolorotraubicacion2.setText(codigo7.toString());
-                  lbcodigootraubicacion2.setText(hilo7.toString());
-                } 
                     
                 
             }

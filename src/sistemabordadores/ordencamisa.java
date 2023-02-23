@@ -377,7 +377,7 @@ public class ordencamisa extends javax.swing.JFrame {
                     cbsucursal.setEnabled(false);
                 
                 
-                if(cantidadpechoizquiedo.equals("0"))
+                if(cantidadpechoizquiedo.equals("0") && botonhabilitado4.equals("si") )
                 {
                    btnpechoizquierdo.setEnabled(true);
                    if(botonhabilitado4.equals("si"))
@@ -392,7 +392,9 @@ public class ordencamisa extends javax.swing.JFrame {
                     cancelar1.setVisible(true);
                 } 
                 
-                if(cantidadpechoderecho.equals("0") )
+               
+                
+                if(cantidadpechoderecho.equals("0")  && botonhabilitado3.equals("si") )
                 {
                    btnpechoderecho.setEnabled(true);
                    if(botonhabilitado3.equals("si"))
@@ -409,7 +411,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 } 
                 
                 
-                if(cantidadmangaizquierda.equals("0"))
+                if(cantidadmangaizquierda.equals("0")  && botonhabilitado2.equals("si") )
                 {
                    btnmangaizquierda.setEnabled(true);
                    if(botonhabilitado2.equals("si"))
@@ -424,7 +426,7 @@ public class ordencamisa extends javax.swing.JFrame {
                     cancelar3.setVisible(true);
                 } 
                     
-                if(cantidadmangaderecha.equals("0") )
+                if(cantidadmangaderecha.equals("0")  && botonhabilitado1.equals("si") )
                 {
                    btnmangaderecha.setEnabled(true);
                     if(botonhabilitado1.equals("si"))
@@ -442,7 +444,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 } 
                 
                 
-                if(cantidadespalda.equals("0") )
+                if(cantidadespalda.equals("0")  && botonhabilitado5.equals("si") )
                 {
                    btnespalda.setEnabled(true);
                    if(botonhabilitado5.equals("si"))
@@ -459,7 +461,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 } 
                 
                 
-                if(cantidadotraubicacion.equals("0") )
+                if(cantidadotraubicacion.equals("0")  && botonhabilitado6.equals("si") )
                 {
                    btnotraubicacion.setEnabled(true);
                    if(botonhabilitado6.equals("si"))
@@ -475,7 +477,7 @@ public class ordencamisa extends javax.swing.JFrame {
                     cancelar6.setVisible(true);
                 } 
                 
-                if(cantidadotraubicacion2.equals("0") )
+                if(cantidadotraubicacion2.equals("0")  && botonhabilitado7.equals("si") )
                 {
                    btnotraubicacion2.setEnabled(true);
                    if(botonhabilitado7.equals("si"))
@@ -791,6 +793,8 @@ public class ordencamisa extends javax.swing.JFrame {
         String prendasql ="";
         String prendanombresql="";
         btnverfotomontaje.setEnabled(false);
+        
+       
 
        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";  ///
 

@@ -345,7 +345,7 @@ public static boolean ventanaordenparcheanteriores = false;
            
             try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set estatus_orden='realizada' where numero='" + lbnumerootrasucursal.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set estatus_orden='realizada' where numero='" + lborden.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1115,16 +1115,17 @@ public static boolean ventanaordenparcheanteriores = false;
     private void bntcantidadparches1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadparches1ActionPerformed
 
         cantidadparchesactualizar = lbcantidad1.getText();
-        nombredelparche = lbnombre1.getText();
+        nombredelparche = lbparche1.getText();
         actualizarlascantidadesbordadas((String) cantidadparchesactualizar,(String)nombredelparche);
         String cantidadaplicacion = lbaplicacion1.getText();
         String cantidad = lbcantidad1.getText();
-        ubicacioninsertar ="BORDADOS PARCHE".concat("").concat(lbnombre1.getText());
+        ubicacioninsertar ="BORDADOS PARCHE".concat(" ").concat(lbparche1.getText());
         aplicacioninsertar = "APLICACION PARCHE1";
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
         agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
         sumapuntos();
 
+        this.dispose();
     }//GEN-LAST:event_bntcantidadparches1ActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed

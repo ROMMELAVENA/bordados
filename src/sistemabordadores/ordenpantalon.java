@@ -2541,6 +2541,12 @@ public static String dia() {
              
             
         }
+        
+         try {
+                 datos();
+             } catch (IOException ex) {
+                 Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
+             }
 
         
         }
@@ -2618,6 +2624,12 @@ public static String dia() {
         }
          
         
+         try {
+                 datos();
+             } catch (IOException ex) {
+                 Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        
         
         
         }
@@ -2691,7 +2703,11 @@ public static String dia() {
             
         }
          
-         
+          try {
+                 datos();
+             } catch (IOException ex) {
+                 Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
+             }
          
          
         }
@@ -2767,7 +2783,11 @@ public static String dia() {
         }
          
          
-         
+             try {
+                 datos();
+             } catch (IOException ex) {
+                 Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
+             }
          
          
         }
@@ -2825,6 +2845,12 @@ public static String dia() {
             }
             
 
+        }
+        
+        try {
+            datos();
+        } catch (IOException ex) {
+            Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         terminetodo = "no";

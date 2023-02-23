@@ -833,10 +833,17 @@ public static boolean ventanaordenparcheanteriores = false;
     agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
     agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
     sumapuntos();
+    
+    datos();
+    
+    
     if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
         {
             ordenesporrealizar.btnactualizar.doClick();
         }
+    
+    
+    this.dispose();
     }//GEN-LAST:event_bntcantidadponchado1ActionPerformed
 
     

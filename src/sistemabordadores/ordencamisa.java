@@ -529,6 +529,14 @@ public class ordencamisa extends javax.swing.JFrame {
         cancelar5.setVisible(false);
         cancelar6.setVisible(false);
         cancelar7.setVisible(false);
+        
+        String botonhabilitado1 = "si";
+        String botonhabilitado2 = "si";
+        String botonhabilitado3 = "si";
+        String botonhabilitado4 = "si";
+        String botonhabilitado5 = "si";
+        String botonhabilitado6 = "si";
+        String botonhabilitado7 = "si";
 
         numerodeorden = lborden.getText();
         
@@ -703,42 +711,91 @@ public class ordencamisa extends javax.swing.JFrame {
                     btninsertarponchados.setEnabled(false);
                     cbsucursal.setEnabled(false);
 
-                    if (cantidadpechoizquiedo.equals("0")) {
-                        btnpechoizquierdo.setEnabled(true);
-                    } else {
-                        btnpechoizquierdo.setEnabled(false);
-                        cancelar4.setVisible(true);
-                    }
-
-                    if (cantidadpechoderecho.equals("0")) {
-                        btnpechoderecho.setEnabled(true);
-                    } else {
-                        btnpechoderecho.setEnabled(false);
-                        cancelar3.setVisible(true);
-                    }
-
-                    if (cantidadmangaizquierda.equals("0")) {
-                        btnmangaizquierda.setEnabled(true);
-                    } else {
-                        btnmangaizquierda.setEnabled(false);
-                        cancelar2.setVisible(true);
-                    }
-
-                    if (cantidadmangaderecha.equals("0")) {
-                        btnmangaderecha.setEnabled(true);
-
-                    } else {
-                        btnmangaderecha.setEnabled(false);
-                        cancelar1.setVisible(true);
-                    }
-
-                    if (cantidadespalda.equals("0")) {
-                        btnespalda.setEnabled(true);
-
-                    } else {
-                        btnespalda.setEnabled(false);
-                        cancelar5.setVisible(true);
-                    }
+                    if(cantidadpechoizquiedo.equals("0") && botonhabilitado4.equals("si") )
+                {
+                   btnpechoizquierdo.setEnabled(true);
+                   if(botonhabilitado4.equals("si"))
+                   {
+                   listabotones.add("btnpechoizquierdo");
+                   }
+                   cancelar1.setVisible(false);
+                }
+                else
+                {
+                    btnpechoizquierdo.setEnabled(false);
+                    cancelar1.setVisible(true);
+                } 
+                
+               
+                
+                if(cantidadpechoderecho.equals("0")  && botonhabilitado3.equals("si") )
+                {
+                   btnpechoderecho.setEnabled(true);
+                   if(botonhabilitado3.equals("si"))
+                   {
+                   listabotones.add("btnpechoderecho");
+                   
+                   }
+                   cancelar2.setVisible(false);
+                }
+                else
+                {
+                    btnpechoderecho.setEnabled(false);
+                    cancelar2.setVisible(true);
+                } 
+                
+                
+                if(cantidadmangaizquierda.equals("0")  && botonhabilitado2.equals("si") )
+                {
+                   btnmangaizquierda.setEnabled(true);
+                   if(botonhabilitado2.equals("si"))
+                   {
+                   listabotones.add("btnmangaizquierda");
+                   }
+                   cancelar3.setVisible(false);
+                }
+                else
+                {
+                    btnmangaizquierda.setEnabled(false);
+                    cancelar3.setVisible(true);
+                } 
+                    
+                if(cantidadmangaderecha.equals("0")  && botonhabilitado1.equals("si") )
+                {
+                   btnmangaderecha.setEnabled(true);
+                    if(botonhabilitado1.equals("si"))
+                   {
+                   listabotones.add("btnmangaderecha");
+                   }
+                   cancelar4.setVisible(false);
+                   
+                   
+                }
+                else
+                {
+                    btnmangaderecha.setEnabled(false);
+                    cancelar4.setVisible(true);
+                } 
+                
+                
+                if(cantidadespalda.equals("0")  && botonhabilitado5.equals("si") )
+                {
+                   btnespalda.setEnabled(true);
+                   if(botonhabilitado5.equals("si"))
+                   {
+                   listabotones.add("btnespalda");
+                   }
+                   cancelar5.setVisible(false);
+                   
+                }
+                else
+                {
+                    btnespalda.setEnabled(false);
+                    cancelar5.setVisible(true);
+                } 
+                
+                
+                
 
                     
 

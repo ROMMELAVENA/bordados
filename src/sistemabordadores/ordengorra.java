@@ -125,6 +125,10 @@ public class ordengorra extends javax.swing.JFrame {
         btnreplicar.setEnabled(true);
 
         String folio = lborden.getText();
+        String botonactivado1 = "";
+        String botonactivado2 = "";
+        String botonactivado3 = "";
+        String botonactivado4 = "";
 
         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,"
                 + "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras,nombre_concepto from historial_ordenes_gorra where numero = '" + folio + "'";
@@ -152,30 +156,46 @@ public class ordengorra extends javax.swing.JFrame {
                 String frente =  rs.getString("frente");
                 if(frente ==null||frente.equals(""))
                 {
-                    btnfrente.setVisible(false);
+                    btnfrente.setEnabled(false);
+                    
                 }
+                else
+                {
+                    botonactivado1 = "si";
+                }    
                 
                 lbladoizquierdo.setText(rs.getString("lado_izquierdo"));
                 String ladoizquierdo =  rs.getString("lado_izquierdo");
                 if(ladoizquierdo ==null||ladoizquierdo.equals(""))
                 {
-                    btnladoizquierdo.setVisible(false);
+                    btnladoizquierdo.setEnabled(false);
                 }
-                
+                else
+                {
+                     botonactivado2 = "si";
+                }    
                 
                 lbladoderecho.setText(rs.getString("lado_derecho"));
                  String ladoderecho =  rs.getString("lado_derecho");
                 if(ladoderecho ==null||ladoderecho.equals(""))
                 {
-                    btnladoderecho.setVisible(false);
+                    btnladoderecho.setEnabled(false);
                 }
+                 else
+                {
+                     botonactivado3 = "si";
+                }  
                 
                 lbatras.setText(rs.getString("atras"));
                 String atras =  rs.getString("atras");
                 if(atras ==null||atras.equals(""))
                 {
-                    btnatras.setVisible(false);
+                    btnatras.setEnabled(false);
                 }
+                 else
+                {
+                     botonactivado4 = "si";
+                } 
                
                 String aplicacionfrente = rs.getString("aplicacion_frente");
 
@@ -201,7 +221,7 @@ public class ordengorra extends javax.swing.JFrame {
                 String cantidadladoizquierdo = rs.getString("cantidad_lado_izquierdo");
                 String cantidadatras = rs.getString("cantidad_atras");
                 
-                if(cantidadfrente.equals("0"))
+                if(cantidadfrente.equals("0") && botonactivado1.equals("si"))
                 {
                    btnfrente.setEnabled(true);  
                    listabotones.add("btnfrente");
@@ -211,7 +231,7 @@ public class ordengorra extends javax.swing.JFrame {
                    btnfrente.setEnabled(false);  
                 }  
                 
-                 if(cantidadladoderecho.equals("0"))
+                 if(cantidadladoderecho.equals("0")  && botonactivado3.equals("si") )
                 {
                     btnladoderecho.setEnabled(true); 
                     listabotones.add("btnladoderecho");
@@ -221,7 +241,7 @@ public class ordengorra extends javax.swing.JFrame {
                    btnladoderecho.setEnabled(false);  
                 } 
                  
-                 if(cantidadladoizquierdo.equals("0"))
+                 if(cantidadladoizquierdo.equals("0")  && botonactivado2.equals("si"))
                 {
                    btnladoizquierdo.setEnabled(true); 
                    listabotones.add("btnladoizquierdo");
@@ -231,7 +251,7 @@ public class ordengorra extends javax.swing.JFrame {
                     btnladoizquierdo.setEnabled(false);
                 }
                  
-                  if(cantidadatras.equals("0"))
+                  if(cantidadatras.equals("0")  && botonactivado4.equals("si"))
                 {
                     btnatras.setEnabled(true);
                     listabotones.add("btnatras");
@@ -2464,6 +2484,11 @@ public class ordengorra extends javax.swing.JFrame {
 
         ventanaordengorra = false;
         this.dispose();
+        
+        if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        {
+            ordenesporrealizar.btnactualizar.doClick();
+        }
 
     }//GEN-LAST:event_btnsalirActionPerformed
 

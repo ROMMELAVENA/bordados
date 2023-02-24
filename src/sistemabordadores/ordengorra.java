@@ -2997,7 +2997,10 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     }//GEN-LAST:event_btnreplicarActionPerformed
 
     private void btnfrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteActionPerformed
-    if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+
+        
+        
+        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "cantidad_frente";
             actualizarlascantidadesbordadas((String) ubicacion);

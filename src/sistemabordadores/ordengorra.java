@@ -117,6 +117,13 @@ public class ordengorra extends javax.swing.JFrame {
         lbrutaimagen.setVisible(false);       
         lbtipo.setVisible(false);
         btnreplicar.setEnabled(false);
+        
+        btnterminetodo.setEnabled(false);
+                
+                
+                
+                
+                
 
     }
 
@@ -154,6 +161,7 @@ public class ordengorra extends javax.swing.JFrame {
                 
                 lbfrente.setText(rs.getString("frente"));
                 String frente =  rs.getString("frente");
+               
                 if(frente ==null||frente.equals(""))
                 {
                     btnfrente.setEnabled(false);
@@ -162,6 +170,8 @@ public class ordengorra extends javax.swing.JFrame {
                 else
                 {
                     botonactivado1 = "si";
+                   btnterminetodo.setEnabled(true);
+                    
                 }    
                 
                 lbladoizquierdo.setText(rs.getString("lado_izquierdo"));
@@ -173,6 +183,7 @@ public class ordengorra extends javax.swing.JFrame {
                 else
                 {
                      botonactivado2 = "si";
+                      btnterminetodo.setEnabled(true);
                 }    
                 
                 lbladoderecho.setText(rs.getString("lado_derecho"));
@@ -184,6 +195,7 @@ public class ordengorra extends javax.swing.JFrame {
                  else
                 {
                      botonactivado3 = "si";
+                      btnterminetodo.setEnabled(true);
                 }  
                 
                 lbatras.setText(rs.getString("atras"));
@@ -195,6 +207,7 @@ public class ordengorra extends javax.swing.JFrame {
                  else
                 {
                      botonactivado4 = "si";
+                      btnterminetodo.setEnabled(true);
                 } 
                
                 String aplicacionfrente = rs.getString("aplicacion_frente");
@@ -3240,7 +3253,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
 
         terminetodo = "no";
         btnterminetodo.setEnabled(false);
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se actualizo");
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se actualizó correctamente");
         
         if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
         {
@@ -3248,6 +3261,8 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
         }
         
         this.dispose();
+        
+        
 
     }//GEN-LAST:event_btnterminetodoActionPerformed
 

@@ -59,6 +59,8 @@ public class ordencorbata extends javax.swing.JFrame {
         initComponents();
         ventanaordencorbataanteriores = true;
         lbbordadosorden.setText("0");
+        
+  
        
 
     }

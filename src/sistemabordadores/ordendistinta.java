@@ -155,7 +155,7 @@ public class ordendistinta extends javax.swing.JFrame {
         btneliminar.setVisible(false);
         
         
-
+       btnterminetodo.setEnabled(false);
        
         
         

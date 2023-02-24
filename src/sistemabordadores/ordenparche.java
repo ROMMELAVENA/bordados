@@ -64,7 +64,7 @@ public static boolean ventanaordenparcheanteriores = false;
         initComponents();
         ventanaordenparcheanteriores = true;
         
-        bntcantidadparches1.setEnabled(false);
+        bntterminetodo.setEnabled(false);
       
         
     }
@@ -166,11 +166,11 @@ public static boolean ventanaordenparcheanteriores = false;
             
             if(cantidadparche.equals("0"))
             {
-               bntcantidadparches1.setEnabled(true);
+               bntterminetodo.setEnabled(true);
             }
             else
             {
-               bntcantidadparches1.setEnabled(false); 
+               bntterminetodo.setEnabled(false); 
             }    
             
         }
@@ -706,7 +706,7 @@ public static boolean ventanaordenparcheanteriores = false;
         lbnombre1 = new javax.swing.JLabel();
         lbaplicacion1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        bntcantidadparches1 = new javax.swing.JButton();
+        bntterminetodo = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         lbobservacion = new javax.swing.JLabel();
         btneliminar = new javax.swing.JButton();
@@ -717,14 +717,14 @@ public static boolean ventanaordenparcheanteriores = false;
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden de parche");
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -843,12 +843,12 @@ public static boolean ventanaordenparcheanteriores = false;
         jLabel4.setText("Aplicacion");
         jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        bntcantidadparches1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        bntcantidadparches1.setForeground(new java.awt.Color(0, 102, 0));
-        bntcantidadparches1.setText("***Termine todo***");
-        bntcantidadparches1.addActionListener(new java.awt.event.ActionListener() {
+        bntterminetodo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        bntterminetodo.setForeground(new java.awt.Color(0, 102, 0));
+        bntterminetodo.setText("***Termine todo***");
+        bntterminetodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntcantidadparches1ActionPerformed(evt);
+                bntterminetodoActionPerformed(evt);
             }
         });
 
@@ -960,7 +960,7 @@ public static boolean ventanaordenparcheanteriores = false;
                                                 .addComponent(lbnumerootrasucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(bntcantidadparches1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(bntterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addGap(8, 8, 8))
         );
         layout.setVerticalGroup(
@@ -995,7 +995,7 @@ public static boolean ventanaordenparcheanteriores = false;
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(bntcantidadparches1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bntterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1112,7 +1112,7 @@ public static boolean ventanaordenparcheanteriores = false;
         }
     }//GEN-LAST:event_formWindowOpened
 
-    private void bntcantidadparches1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntcantidadparches1ActionPerformed
+    private void bntterminetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntterminetodoActionPerformed
 
         cantidadparchesactualizar = lbcantidad1.getText();
         nombredelparche = lbparche1.getText();
@@ -1126,7 +1126,7 @@ public static boolean ventanaordenparcheanteriores = false;
         sumapuntos();
 
         this.dispose();
-    }//GEN-LAST:event_bntcantidadparches1ActionPerformed
+    }//GEN-LAST:event_bntterminetodoActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
 
@@ -1173,7 +1173,7 @@ public static boolean ventanaordenparcheanteriores = false;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bntcantidadparches1;
+    private javax.swing.JButton bntterminetodo;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btneliminar1;
     public static javax.swing.JButton btnsalir;

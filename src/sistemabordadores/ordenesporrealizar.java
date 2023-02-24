@@ -1483,6 +1483,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 Object tipo = tabla.getValueAt(fila, 3).toString();
                 Object tablanombre = tabla.getValueAt(fila, 10).toString();
 
+                
+                
+                
+                // CAMISA
+                
                 if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) 
                 {
                     if (ordencamisa.ventanaordencamisaanteriores == true) 
@@ -1517,7 +1522,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         }
                         else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ha autorizado; consulte al encargado");   
                         }    
                         
                         
@@ -1527,6 +1532,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 
                 }
                
+                
+                
+                // GORRA 
                 
                 else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
                 {
@@ -1565,6 +1573,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                     }
                 }
+                
+                
+                
+                // PANTALON
                 
                 else if (tipo.equals("Orden pantalon")) {
                     if (ordenpantalon.ventanaordenpantalonanteriores == true) 
@@ -1608,6 +1620,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 } 
                 
                 
+                // PONCHADO
+                
                 else if (tipo.equals("Orden ponchado")) 
                 {
                     if (ordenponchado.ventanaordenparcheanteriores == true) 
@@ -1639,6 +1653,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                     }
                 }
                 
+                
+                // PARCHE
+                
                 else if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
                 {
                     if (ordenparche.ventanaordenparcheanteriores == true) {
@@ -1654,9 +1671,14 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                     }
                 }
+                
+                
+                // CORBATA
+                
                 else if (tipo.equals("Orden corbata")||tipo.equals("Corbata")) 
                 {
                    
+                    
                         
                         if (ordencorbata.ventanaordencorbataanteriores == true) 
                         {
@@ -1696,6 +1718,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                  
                    
                 }
+                
+                
+                // PORTA NOMBRE ESCOLAR
+                
                 else if (tipo.equals("Porta nombre escolar")) 
                 {
                    
@@ -1729,7 +1755,16 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                     }
                                            
+                   
+                   
+                   
                 }
+                
+                
+                
+                // PORTA NOMBRE MULTIPLE
+                
+                
                 else if (tipo.equals("porta nombre multiple")) 
                 {
                    
@@ -1768,6 +1803,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 {
                    
                     
+                    
+                    // ORDEN DISTINTA
                     
                     if (ordendistinta.ventanaordencamisaanteriores == true) 
                     {

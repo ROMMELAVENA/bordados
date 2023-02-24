@@ -168,7 +168,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                     btnladoizquierdofrente.setEnabled(true);
                     activadoladoizquierdofrente ="si";
                    
-                    
+                    btnterminetodo.setEnabled(true);
                     
                 }
 
@@ -190,6 +190,10 @@ public class ordenpantalon extends javax.swing.JFrame {
                     btnladoderechofrente.setEnabled(true);
                     activadoladoderechofrente ="si";
                     
+                    btnterminetodo.setEnabled(true);
+                    
+                   
+                    
                 }
 
                 lbdadoizquierdoatras.setText(rs.getString("lado_izquierdo_atras"));
@@ -202,6 +206,8 @@ public class ordenpantalon extends javax.swing.JFrame {
                     lbladoizquierdoatraspuntadas.setText(rs.getString("lado_izquierdo_atras_puntadas"));
                     btnladoizquierdoatras.setEnabled(true);
                     activadoladoizquierdoatras ="si";
+                    
+                    btnterminetodo.setEnabled(true);
                     
                 }
 
@@ -216,6 +222,8 @@ public class ordenpantalon extends javax.swing.JFrame {
                     lbladoderechoatraspuntadas.setText(rs.getString("lado_derecho_atras_puntadas"));
                     btnladoderechoatras.setEnabled(true);
                     activadoladoderechoatras ="si";
+                    
+                    btnterminetodo.setEnabled(true);
                     
                 }
                 

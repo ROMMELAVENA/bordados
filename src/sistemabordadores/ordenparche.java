@@ -106,6 +106,7 @@ public static boolean ventanaordenparcheanteriores = false;
                 aplicacion = rs.getString("aplicacion");
                 observacion = rs.getString("observacion");
                 identificadordeprenda = rs.getString("nombre_concepto");
+                lbidentificadordeprenda.setText(identificadordeprenda);
                 numeroventa = rs.getString("numero_venta");
                 
                 String observacion = rs.getString("observacion");
@@ -160,7 +161,7 @@ public static boolean ventanaordenparcheanteriores = false;
         {
             lbcantidad1.setText(cantidad);
             lbparche1.setText(parche);
-            lbnombre1.setText(nombre);
+            lbidentificadordeprenda.setText(nombre);
             lbaplicacion1.setText(aplicacion);
             lbobservacion.setText(observacion);
             
@@ -703,7 +704,7 @@ public static boolean ventanaordenparcheanteriores = false;
         lbcantidad1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lbparche1 = new javax.swing.JLabel();
-        lbnombre1 = new javax.swing.JLabel();
+        lbidentificadordeprenda = new javax.swing.JLabel();
         lbaplicacion1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         bntterminetodo = new javax.swing.JButton();
@@ -835,7 +836,7 @@ public static boolean ventanaordenparcheanteriores = false;
 
         lbparche1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbnombre1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbidentificadordeprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbaplicacion1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -892,7 +893,7 @@ public static boolean ventanaordenparcheanteriores = false;
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbparche1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(lbnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbidentificadordeprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -982,7 +983,7 @@ public static boolean ventanaordenparcheanteriores = false;
                     .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbfechaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbidentificadordeprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbparche1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1200,8 +1201,8 @@ public static boolean ventanaordenparcheanteriores = false;
     private javax.swing.JLabel lbhora;
     private javax.swing.JLabel lbhoraentrega;
     public static javax.swing.JLabel lbidentificador;
+    private javax.swing.JLabel lbidentificadordeprenda;
     private javax.swing.JLabel lblImagen;
-    private javax.swing.JLabel lbnombre1;
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumerootrasucursal;
     private javax.swing.JLabel lbobservacion;

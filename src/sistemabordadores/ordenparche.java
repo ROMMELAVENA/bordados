@@ -1125,8 +1125,17 @@ public static boolean ventanaordenparcheanteriores = false;
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
         agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
         sumapuntos();
-
+        
+        
+         if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         {
+             ordenesporrealizar.btnactualizar.doClick();
+         }
+        
+        ventanaordenparcheanteriores = false;
         this.dispose();
+        
+        
     }//GEN-LAST:event_bntterminetodoActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed

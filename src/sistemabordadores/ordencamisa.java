@@ -162,6 +162,10 @@ public class ordencamisa extends javax.swing.JFrame {
         
     }
 
+    
+    
+    
+    
     void datos() throws IOException {
 
         
@@ -597,7 +601,11 @@ public class ordencamisa extends javax.swing.JFrame {
                 prenda = (rs.getString("prenda"));
                 lbfecha.setText(rs.getString("fecha"));
                 lbnumerodelaotrasucursal.setText(rs.getString("numero_sucursal_orden"));
-                tiendaenvia = rs.getString("numero_sucursal_orden");
+                tiendaenvia = rs.getString("tienda");
+                
+                
+                
+                
 
                 mangaderechanombre = rs.getString("manga_derecha_nombre");
                 Object mangaderecha = rs.getString("manga_derecha");
@@ -1038,7 +1046,216 @@ public class ordencamisa extends javax.swing.JFrame {
         BufferedImage img = null;
         btnverfotomontaje.setEnabled(false);
         
+        String cliente = "";
         
+        
+        if (tiendaenvia.equals(tiendalocal))
+            
+        {
+            
+            
+            
+            
+                    
+        numerodeorden = lborden.getText();
+        
+      
+
+        String sql7 = "Select cliente,prenda,tienda,identificador_prenda from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql7);
+            if (rs.next()) {
+
+            cliente = rs.getString("cliente");
+                lbprenda.setText(rs.getString("prenda"));
+                prenda = (rs.getString("prenda"));
+               
+                sucursal = rs.getString("tienda");
+            
+                
+                identificadordeprenda = rs.getString("identificador_prenda");
+                
+
+            }
+
+        } catch (SQLException ex) 
+        {
+             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+        }
+
+            
+            cliente();
+            
+            
+            
+            
+      //   numero = lbnumerodelaotrasucursal.getText();
+      //  String numeroventa = lbnumeroventa.getText();
+      //  prenda =lbprenda.getText().toUpperCase();
+      //  identificadordeprenda =lbidentificadordeprenda.getText();
+       
+        
+     //   String prendasql ="";
+      //  String prendanombresql="";
+     //   btnverfotomontaje.setEnabled(false);
+        
+       
+
+       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";  ///
+
+        try {
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                
+                Blob blob = rs.getBlob("imagen");
+                if (blob == null) 
+                {
+
+                    ordencamisaimagencontorno p = new ordencamisaimagencontorno();
+                    jPanel1.add(p);
+                    jPanel1.repaint();
+                    lblImagen.setVisible(false);
+                    btnverfotomontaje.setEnabled(false);
+                    tienefotomontaje = "no";
+              
+                    
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje o marcarle a Rommel para que les corrija elpara poder iniciar el bordado y registrar puntos");
+                    
+                } 
+                
+                else 
+                
+                {
+                    byte[] data = blob.getBytes(1, (int) blob.length());
+
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (IOException ex) 
+                    {
+                 
+                      JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+
+                    }
+
+                    if(img==null)
+                    {
+                       tienefotomontaje = "no"; 
+                    }
+                    else
+                    {
+                    
+                    Imagen imagen = new Imagen();
+                    imagen.setImagen(img);
+                    lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
+                    lblImagen.setVisible(true);
+                    btnverfotomontaje.setEnabled(true);
+                    tienefotomontaje = "si";
+                    btnverfotomontaje.setEnabled(true);
+                  
+
+                    Blob archivo = rs.getBlob("imagen");
+                    String nombredelarchivo = rs.getString("extension_imagen");
+                     if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
+                    {
+                    rutaimagen = "C:\\archivospdf\\FOTOMONTAJE."+nombredelarchivo+" ";
+                    }
+                    else
+                    {
+                   nombredelarchivo = nombredelarchivo.replace(" ","");
+                    rutaimagen = "C:\\archivospdf\\"+nombredelarchivo+" ";
+                    }   
+                    
+                    File file = new File(rutaimagen);
+                    FileOutputStream output = new FileOutputStream(file);
+                    InputStream inStream = archivo.getBinaryStream();
+                    int length = -1;
+                    int size = (int) archivo.length();
+                    byte[] buffer = new byte[size];
+                    while ((length = inStream.read(buffer)) != -1) {
+                        output.write(buffer, 0, length);
+                   
+                    }
+                   
+                    output.close();
+                    
+                    }
+ 
+                }
+
+            } //end while
+            rs.close();
+        } catch (SQLException ex) 
+        {
+          
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+        }
+        
+        
+        
+        if(tienefotomontaje.equals("si"))
+        {
+          
+            lbmangaderechanombre.setVisible(false);
+            lbmangaderecha.setVisible(false);
+            
+            lbmangaizquierdanombre.setVisible(false);
+            lbmangaizquierda.setVisible(false);
+            
+            lbpechoderechonombre.setVisible(false);
+            lbpechoderecho.setVisible(false);
+            
+            lbpechoizquierdonombre.setVisible(false);
+            lbpechoizquierdo.setVisible(false);
+            
+            lbespaldanombre.setVisible(false);
+            lbespalda.setVisible(false);
+            
+            lbotraubicacionnombre.setVisible(false);
+            lbotraubicacion.setVisible(false);
+            
+            lbotraubicacion2nombre.setVisible(false);
+            lbotraubicacion2.setVisible(false);
+        
+            
+            
+        
+        }
+        else
+        {
+            btnmangaderecha.setEnabled(false);
+            btnmangaizquierda.setEnabled(false);
+            btnpechoderecho.setEnabled(false);
+            btnpechoizquierdo.setEnabled(false);
+            btnespalda.setEnabled(false);
+            btnotraubicacion.setEnabled(false);
+            btnotraubicacion2.setEnabled(false);
+            
+            ordencamisaimagencontorno p = new ordencamisaimagencontorno();
+            jPanel1.add(p);
+            jPanel1.repaint();
+            lblImagen.setVisible(false);
+            btnverfotomontaje.setEnabled(false);
+       
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
+            
+        }  
+
+        
+            
+            
+            
+            
+            
+        }
+        else
+            
+        {
+            
         
 
        String sql = "Select imagen_nombre,imagen from historial_ordenes_camisa_recibidas where numero = '"+numero+"'  and prenda = '"+prenda+"'   ";  ///
@@ -1179,6 +1396,8 @@ public class ordencamisa extends javax.swing.JFrame {
             
         }  
 
+        
+        }
         
         
     }
@@ -2576,7 +2795,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
         String cliente = lbcliente.getText();
         
-          String sql = "SELECT nombre_comercial,identificador FROM catalogo_clientes WHERE nombre = '" + cliente + "' ";
+          String sql = "SELECT nombre_comercial,identificador,codigo FROM catalogo_clientes WHERE nombre = '" + cliente + "' ";
 
                 try {
                     Statement st = cn.createStatement();
@@ -2587,6 +2806,7 @@ public class ordencamisa extends javax.swing.JFrame {
                       
                         lbnombrecomercial.setText(rs.getString("nombre_comercial"));
                         lbidentificador.setText(rs.getString("identificador"));
+                         codigocliente = rs.getString("codigo");
 
                     }
 
@@ -3531,6 +3751,10 @@ public class ordencamisa extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
+         
+         
+         
+        
          
          try {    
             agregarfotomontajeotrasucursal();

@@ -44,7 +44,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         }
         
           
-        
+ 
         
 
     }
@@ -514,6 +514,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         String[] datos10 = new String[15];
+        String sucursalsolicita = "";
+        String numerosucursal = "";
+       
 
         String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar,observacion  FROM historial_ordenes_camisa_recibidas where estatus_orden = 'generada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora "; //and tienda not in('"+tiendalocal+"')
 
@@ -521,7 +524,16 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql3);
             while (rs.next()) {
+             
+                
+                sucursalsolicita = rs.getString("tienda");
+                
+                
                 datos10[0] = rs.getString("numero");
+                
+              
+                
+                
                 datos10[1] = rs.getString("cliente");
                 datos10[2] = rs.getString("prenda");
                 datos10[3] = rs.getString("tipo");
@@ -529,11 +541,23 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos10[5] = "00000000";
                 datos10[6] = rs.getString("fecha");
                 datos10[7] = rs.getString("tienda");
-                datos10[8] = rs.getString("numero_sucursal");
+                
+                numerosucursal = rs.getString("numero_sucursal");
+                datos10[8] = numerosucursal;
+             
                 datos10[9] = "";
                 datos10[10] = "Recibida";
                 datos10[11] = "";
                 datos10[12] = rs.getString("observacion");
+                
+                
+                
+                /*
+                  if (sucursalsolicita.equals(tiendalocal));
+                {
+                  datos10[0] = numerosucursal;  
+                }
+                */
 
                 modelo.addRow(datos10);
 

@@ -867,7 +867,7 @@ public class ordencamisa extends javax.swing.JFrame {
                     tienefotomontaje = "no";
               
                     
-                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje o marcarle a Rommel para que les corrija elpara poder iniciar el bordado y registrar puntos");
                     
                 } 
                 
@@ -2856,6 +2856,8 @@ public class ordencamisa extends javax.swing.JFrame {
             }
         });
 
+        lbidentificadordeprenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbidentificadordeprenda.setForeground(new java.awt.Color(153, 0, 0));
         lbidentificadordeprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -3084,7 +3086,7 @@ public class ordencamisa extends javax.swing.JFrame {
             }
         });
 
-        lbprenda.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        lbprenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbprenda.setForeground(new java.awt.Color(153, 0, 0));
         lbprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 

@@ -601,21 +601,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         
         tieneponchados();
         
-        
-        
-        
-      /*  
-        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tabla.getModel());
-        tabla.setRowSorter(sorter);
-        List<RowSorter.SortKey> sortKeys = new ArrayList<>(100);
-        sortKeys.add(new RowSorter.SortKey(6, SortOrder.DESCENDING));
-        sorter.setSortKeys(sortKeys);
-        
-     */   
-        
-        Colorear ft = new Colorear();
-        tabla.setDefaultRenderer(Object.class, ft);
-        
+ 
         
     }
     

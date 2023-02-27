@@ -31,7 +31,6 @@ public class ingresotienda extends javax.swing.JFrame {
         initComponents();
        
        ventanaingresotienda=true;
-       lbip.setVisible(false);
        btnentrar.setEnabled(false);
        
 

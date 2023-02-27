@@ -256,6 +256,9 @@ this.dispose();
        
         principal.lbtienda.setText(strBD);
         principal.lbip.setText(strIP);
+        ingreso.setTitle("Sistema bordadores "+strBD.toUpperCase()+"");
+        
+    
                 
         this.dispose();
 

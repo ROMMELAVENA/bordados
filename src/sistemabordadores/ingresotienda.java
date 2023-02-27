@@ -58,7 +58,7 @@ public class ingresotienda extends javax.swing.JFrame {
 
     void pingtienda()
     {
-               Object tienda = cbtienda.getSelectedItem();
+        Object tienda = cbtienda.getSelectedItem();
         InetAddress ping;
 
         if (tienda == null) {
@@ -66,11 +66,14 @@ public class ingresotienda extends javax.swing.JFrame {
             try {
                 lbtiendaconectada.setText("");
                 ping = InetAddress.getByName(iptraspaso);
-                if (ping.isReachable(5000)) {
+                if (ping.isReachable(5000)) 
+                {
                     lbtiendaconectada.setText("Tienda conectada");
                     lbtiendaconectada.setBackground(Color.GREEN);
                     btnentrar.setEnabled(true);
-                } else {
+                }
+                else 
+                {
                     lbtiendaconectada.setText("Error al conectar con tienda");
                     lbtiendaconectada.setBackground(Color.red);
                     btnentrar.setEnabled(false);
@@ -87,12 +90,7 @@ public class ingresotienda extends javax.swing.JFrame {
             
     
     
-  void conexionalasbasededatos()
-  {
-        connectar cc = new connectar();
-        Connection cn = cc.conexion();
-      
-  }
+ 
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -106,7 +104,7 @@ public class ingresotienda extends javax.swing.JFrame {
         lbip = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Ingreso tienda Grupo");
+        setTitle("Ingreso tienda Sistema Bordadores");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -295,7 +293,8 @@ this.dispose();
 
        try {
            Scanner sc = new Scanner(file);
-           while (sc.hasNext()) {
+           while (sc.hasNext()) 
+           {
                String line = sc.nextLine();
                String str[] = line.split(":");
                strIP = str[0];
@@ -307,7 +306,8 @@ this.dispose();
            System.out.println(e);
        }
 
-      btnentrar.setEnabled(true);
+      pingtienda(); 
+      
 
    }
     }//GEN-LAST:event_cbtiendaPopupMenuWillBecomeInvisible

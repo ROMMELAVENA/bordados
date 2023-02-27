@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.sql.*;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 
@@ -112,7 +113,9 @@ public class ingresotienda extends javax.swing.JFrame {
         });
 
         cbtienda.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        cbtienda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "cdmxcentro", "cdmxsur", "guadalajara", "monterrey", "tijuana" }));
+        cbtienda.setMaximumRowCount(8);
+        cbtienda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "cdmxcentro", "cdmxsur", "guadalajara", "monterrey", "tijuana", "Seleccione tienda" }));
+        cbtienda.setSelectedIndex(5);
         cbtienda.setToolTipText("");
         cbtienda.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
@@ -243,9 +246,9 @@ this.dispose();
 
         Object tienda = cbtienda.getSelectedItem();
         
-        if (tienda.equals("Seleccione Tienda") || tienda == null || tienda.equals("") || tienda.equals(" "))
+        if (tienda.equals("Seleccione tienda") || tienda == null || tienda.equals("") || tienda.equals(" "))
         {
-            
+          JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">Seleccione una tienda");
         }
         else
         {
@@ -256,10 +259,7 @@ this.dispose();
        
         principal.lbtienda.setText(strBD);
         principal.lbip.setText(strIP);
-        ingreso.setTitle("Sistema bordadores "+strBD.toUpperCase()+"");
-        
-    
-                
+        ingreso.setTitle("Sistema bordadores "+strBD.toUpperCase()+"");     
         this.dispose();
 
         }
@@ -274,10 +274,10 @@ this.dispose();
    File file =null;
   
    
-   if(tiendaseleccionada ==null || tiendaseleccionada.equals("")||tiendaseleccionada.equals(" "))
-   {
-       
-   }
+    if (tiendaseleccionada.equals("Seleccione tienda") || tiendaseleccionada == null || tiendaseleccionada.equals("") || tiendaseleccionada.equals(" "))
+    {
+          JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">Seleccione una tienda");
+    }
    else
    {    
    

@@ -255,7 +255,7 @@ public static boolean ventanaordenparcheanteriores = false;
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set cantidad_parche='" +cantidadponchadosactualizar+ "' where numero = '"+lbnumerootrasucursal.getText()+"' and articulo = '"+nombredelparche+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set cantidad_parche='" +cantidadponchadosactualizar+ "' where numero = '"+lbnumerootrasucursal.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -619,7 +619,8 @@ public static boolean ventanaordenparcheanteriores = false;
 
                     }
 
-                    if (img == null) {
+                    if (img == null) 
+                    {
                         tienefotomontaje = "no";
                     } else {
 

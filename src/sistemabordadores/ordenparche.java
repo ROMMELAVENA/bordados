@@ -1,4 +1,5 @@
 package sistemabordadores;
+
 import java.applet.AudioClip;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -1145,7 +1146,7 @@ public static boolean ventanaordenparcheanteriores = false;
         actualizarlascantidadesbordadas((String) cantidadparchesactualizar,(String)nombredelparche);
         String cantidadaplicacion = lbaplicacion1.getText();
         String cantidad = lbcantidad1.getText();
-        ubicacioninsertar ="BORDADOS PARCHE".concat(" ").concat(lbparche1.getText());
+        ubicacioninsertar ="BORDADO PARCHE".concat(" ").concat(lbparche1.getText());
         aplicacioninsertar = "APLICACION PARCHE1";
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
         agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;

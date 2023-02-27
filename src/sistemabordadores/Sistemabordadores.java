@@ -15,7 +15,8 @@ public class Sistemabordadores {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       new principal().setVisible(true);
+      // new ingresotienda().setVisible(true);
+       new ingresotienda().setVisible(true);
        
     }
     

@@ -4832,12 +4832,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
 
-       
-        if(bordadosdelclienteeditarnuevoautorizacion.equals("si"))
-        {
-            
-        
-        
+
         if (dejoespacioalfinal.equals("no"))
             
         {
@@ -6612,16 +6607,8 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
          //termina guardar 
          
          
-    }
-    else
-    {
-        
-        autorizacion ventana = new autorizacion();
-        ventana.setVisible(true);
-        ventana.setLocationRelativeTo(null);
-        autorizacion.lbinterfaz.setText("bordadosdelclienteeditarnuevo");
-        
-    }    
+    
+      
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed

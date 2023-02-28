@@ -301,7 +301,7 @@ public class autorizacion extends javax.swing.JFrame {
         else if (interfaz.equals("bordadosdelclienteeditarnuevo")) 
         {
 
-             if (contraseñaingresada.equals(principal.contraseñadireccion) ||contraseñaingresada.equals(principal.contraseñaadministracion)||contraseñaingresada.equals(principal.contraseñabordador) ||contraseñaingresada.equals(principal.contraseñaencargado) ) 
+             if (contraseñaingresada.equals(principal.contraseñadireccion) ||contraseñaingresada.equals(principal.contraseñaadministracion)||contraseñaingresada.equals(principal.contraseñabordador) ||contraseñaingresada.equals(principal.contraseñaencargado)||contraseñaingresada.equals(principal.contraseñaencargado) ) 
             {
 
                 bordadosdelclienteeditarnuevo.bordadosdelclienteeditarnuevoautorizacion="si"; 

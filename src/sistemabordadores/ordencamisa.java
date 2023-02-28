@@ -5074,7 +5074,7 @@ public class ordencamisa extends javax.swing.JFrame {
     private void btnverfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverfotomontajeActionPerformed
        
         
-          String cliente = lbcliente.getText();
+        String cliente = lbcliente.getText();
         String tipo = lbprenda.getText();
         String prenda =lbprenda.getText().toUpperCase();
         identificadordeprenda =lbidentificadordeprenda.getText();

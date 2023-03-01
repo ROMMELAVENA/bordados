@@ -41,13 +41,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lbnombrebordado" min="-2" pref="311" max="-2" attributes="0"/>
                           <Component id="lbcliente" min="-2" pref="311" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="lbcodigo" min="-2" pref="138" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" pref="136" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="lbcodigo" pref="102" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel60" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                                       <Component id="cbhilo1" pref="102" max="32767" attributes="0"/>
@@ -66,24 +62,35 @@
                                       <Component id="cbhilo14" alignment="0" max="32767" attributes="0"/>
                                       <Component id="cbhilo15" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lbcolor15" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="lbcolor14" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="lbcolor13" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="lbcolor12" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="lbcolor11" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="lbcolor10" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="lbcolor9" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="jLabel59" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <Component id="lbcolor8" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="lbcolor7" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="lbcolor5" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="lbcolor4" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="lbcolor3" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="lbcolor2" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="lbcolor1" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="lbcolor6" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lbcolor1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor2" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor3" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor4" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor6" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor7" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor8" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor15" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel59" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="lbcolor9" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor10" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor11" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor12" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor13" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor14" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+                                      <Component id="jButton1" min="-2" pref="136" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -94,7 +101,7 @@
                       <Component id="jSeparator2" min="-2" pref="402" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

@@ -1138,7 +1138,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
        
 
-       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";  ///
+       String sql = "Select extension_imagen,imagen,numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";  ///
 
         try {
 
@@ -1194,6 +1194,7 @@ public class ordencamisa extends javax.swing.JFrame {
                   
 
                     Blob archivo = rs.getBlob("imagen");
+                    consecutivo = rs.getString("numero_consecutivo");
                     String nombredelarchivo = rs.getString("extension_imagen");
                      if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
                     {

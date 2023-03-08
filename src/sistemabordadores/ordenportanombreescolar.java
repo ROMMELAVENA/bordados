@@ -1,5 +1,6 @@
 package sistemabordadores;
 import java.applet.AudioClip;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,6 +33,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
     String soloesportanombres = "";
     String nombreconcepto ="";
     String tieneunaobservacion = "";
+    String numeroventa = "";
 
     public ordenportanombreescolar() {
         initComponents();
@@ -58,7 +60,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
 
         renglon = 0;
 
-        String sql = "SELECT cantidad,prenda,ubicacion,color,observacion FROM historial_ordenes_portanombres WHERE numero = '" + numero + "'";
+        String sql = "SELECT cantidad,prenda,ubicacion,color,observacion,estatus_orden,numero_venta FROM historial_ordenes_portanombres WHERE numero = '" + numero + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -69,6 +71,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                 prenda = rs.getString("prenda");
                 ubicacion = rs.getString("ubicacion");
                 color = rs.getString("color");
+                numeroventa = rs.getString("numero_venta");
                 
                 String observacion = rs.getString("observacion");
                 
@@ -88,6 +91,18 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                 renglon = renglon + 1;
 
                 mostrarrenglones();
+                
+                String estatusorden = rs.getString("estatus_orden");
+                if(estatusorden.equals("realizada"))
+                {
+                  btnrealizada.setText("Cancelar");
+                  btnrealizada.setBackground(Color.red.darker());  
+                }
+                else
+                {
+                    btnrealizada.setText("Portanombre Realizado");
+                    btnrealizada.setBackground(Color.green.darker());
+                }    
 
             }
 
@@ -396,6 +411,122 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
 
       
       }  
+      
+    
+     void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad) 
+      {
+
+        String numeroventa =  lbnumerodeventa.getText();
+        Object cantidadstring ="";
+        String nuevacantidadstring = "";
+        String estatusentrega ="";
+        
+        String SQL2 = "select cantidad from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL2);
+
+        if (rs.next()) 
+        {
+
+        cantidadstring = rs.getString("cantidad");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+      if(cantidadstring ==null || cantidadstring.equals("")||cantidadstring.equals(" "))
+      {
+          cantidadstring ="0";
+      }
+       
+        
+        
+        int cantidadstringint = Integer.parseInt(cantidadstring.toString());
+        int cantidadint =  Integer.parseInt(cantidad);
+
+        int nuevacantidadint = cantidadint;
+        nuevacantidadstring =  String.valueOf(nuevacantidadint);
+            
+            
+            
+            try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '0' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'      ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+
+        ////Actualiza el estatus
+
+      String cantidadsurtida = "";  
+      String cantidadvendida = "";  
+      String cantidadentregada = "";  
+       
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas from historial_ventas where numero = '"+numeroventa+"'  ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL3);
+
+        if (rs.next()) 
+        {
+
+        cantidadvendida = rs.getString("cantidad");
+        cantidadsurtida = rs.getString("surtida");
+        cantidadentregada = rs.getString("entregadas");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+        System.out.println (ex);
+        }
+      
+        
+      
+      /////
+      
+      double cantidadvendidadouble = Double.parseDouble(cantidadvendida);
+      double cantidadsurtidadouble = Double.parseDouble(cantidadsurtida);
+      double cantidadentregadadouble = Double.parseDouble(cantidadentregada);
+      
+        
+        if(cantidadvendidadouble == cantidadsurtidadouble && cantidadentregadadouble == 0 )
+        {
+          estatusentrega ="surtida totalmente no entregada";  
+        }
+        else  if(cantidadvendidadouble == (cantidadsurtidadouble + cantidadentregadadouble )  &&  cantidadentregadadouble <  cantidadvendidadouble  )
+        {
+          estatusentrega ="surtida totalmente entregada parcialmente";  
+        }
+        
+        else
+        {
+          estatusentrega ="surtida parcialmente no entregada";   
+        }    
+        
+          try {
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
+              pst.executeUpdate();
+              pst.close();
+          } catch (Exception e) {
+
+              System.out.println(e);
+          }
+      
+
+      
+      }    
+      
 
 
       
@@ -429,6 +560,26 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         
         
     }
+       
+     void agregarexistenciabordadoscancelar(String ubicacioninsertar)
+    {
+        
+       
+        
+        //// bordado
+         try {
+                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+numeroventa+"' and articulo ='"+ubicacioninsertar+"'   ");
+                pst.executeUpdate();
+                pst.close();
+            
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
+           
+        
+        
+    }   
 
     public static String dia() {
         Date fecha = new Date();
@@ -967,13 +1118,14 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel28)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbletra, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 505, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(111, 111, 111)
+                                .addComponent(jLabel28)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbletra, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 444, Short.MAX_VALUE)
                         .addComponent(btnsalir)))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
@@ -1117,6 +1269,49 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
       String articulo ="";  
       String cantidad ="";  
       
+      if(btnrealizada.getText().contains("Cancelar"))
+      {
+          String sql = "SELECT articulo,cantidad FROM historial_ventas WHERE numero = '"+lbnumerodeventa.getText()+"' and articulo LIKE '%PORTA NOMBRE%' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) 
+            {
+
+                articulo = rs.getString("articulo");
+                cantidad =rs.getString("cantidad");
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } 
+        
+        
+         try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_portanombres set estatus_orden='generada',cantidad_total = '0' where numero='" + lbnumero.getText() + "'   ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                   
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
+                }
+        
+         
+       
+         
+        
+        agregarexistenciabordadoscancelar((String) articulo); 
+        agregaralsurtidasalhistorialdeventas((String) articulo, (String) cantidad) ;
+        
+        btnrealizada.setEnabled(false);
+          
+      }
+      else
+      {
     
       String sql = "SELECT articulo,cantidad FROM historial_ventas WHERE numero = '"+lbnumerodeventa.getText()+"' and articulo LIKE '%PORTA NOMBRE%' ";
 
@@ -1154,7 +1349,8 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         agregarexistenciabordados((String) articulo); 
         agregaralsurtidasalhistorialdeventas((String) articulo, (String) cantidad) ;
         
-        
+      }
+      
         
         if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
         {

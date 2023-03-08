@@ -533,8 +533,9 @@ public class ordenpantalon extends javax.swing.JFrame {
       
         BufferedImage img = null;
         btnverfotomontaje.setEnabled(false);
+        String puntadasenfotomontajes = "";
 
-       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'PANTALON'   ";  ///
+       String sql = "Select extension_imagen,imagen,numero_consecutivo,puntadas_en_fotomontajes from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'PANTALON'   ";  ///
 
         try {
 
@@ -542,7 +543,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
             {
-                
+                 puntadasenfotomontajes=rs.getString("puntadas_en_fotomontajes");
                 Blob blob = rs.getBlob("imagen");
                 if (blob == null) 
                 {
@@ -626,15 +627,24 @@ public class ordenpantalon extends javax.swing.JFrame {
         }
         
         
-        
-        if(tienefotomontaje.equals("si"))
+        if(puntadasenfotomontajes.equals("si"))
         {
-          
+
+            btnladoderechofrente.setEnabled(false);
+            btnladoderechoatras.setEnabled(false);
+            btnladoizquierdofrente.setEnabled(false);
+            btnladoizquierdoatras.setEnabled(false);
+                      
             
+       
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar nuevo fotomontaje SIN PUNTADAS");
+            btnfotomontajesinpuntadas.setEnabled(true);
+            btnterminetodo.setEnabled(false);
             
         
         }
-        else
+
+        else if(tienefotomontaje.equals("no"))
         {
             btnladoderechofrente.setEnabled(false);
             btnladoderechoatras.setEnabled(false);

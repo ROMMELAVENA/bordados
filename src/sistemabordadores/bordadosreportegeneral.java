@@ -1640,17 +1640,19 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             if (articulo.toString().startsWith("PONCHADO")||articulo.toString().startsWith("MODIFICACION DE PONCHADO")) {
 
-                if (articulo.toString().startsWith("PONCHADO FACIL")||articulo.toString().contains("MODIFICACION DE PONCHADO FACIL")) 
-                {
+                if (articulo.toString().startsWith("PONCHADO FACIL") || articulo.toString().contains("MODIFICACION DE PONCHADO FACIL")) {
                     articulobuscar = "PONCHADO FACIL";
-                } else if (articulo.toString().startsWith("PONCHADO MEDIO")||articulo.toString().contains("MODIFICACION DE PONCHADO MEDIO")) {
+                } else if (articulo.toString().startsWith("PONCHADO MEDIO") || articulo.toString().contains("MODIFICACION DE PONCHADO MEDIO")) {
                     articulobuscar = "PONCHADO MEDIO";
-                } else if (articulo.toString().startsWith("PONCHADO DIFICIL")||articulo.toString().contains("MODIFICACION DE PONCHADO DIFICIL")) {
+                } else if (articulo.toString().startsWith("PONCHADO DIFICIL") || articulo.toString().contains("MODIFICACION DE PONCHADO DIFICIL")) {
                     articulobuscar = "PONCHADO DIFICIL";
+                } else if (articulo.toString().startsWith("PONCHADO EXTRA DIFICIL") || articulo.toString().contains("MODIFICACION DE PONCHADO EXTRA DIFICIL")) {
+                    articulobuscar = "PONCHADO EXTRA DIFICIL";
                 }
-                else if (articulo.toString().startsWith("PONCHADO EXTRA DIFICIL")||articulo.toString().contains("MODIFICACION DE PONCHADO EXTRA DIFICIL")) {
-                        articulobuscar = "PONCHADO EXTRA DIFICIL";
-                    }
+                else
+                {
+                    articulobuscar= articulo.toString();
+                }
 
                 datos[5] =articulobuscar;
 
@@ -5440,6 +5442,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                     else if (nombrearticulo.toString().startsWith("PONCHADO EXTRA DIFICIL")) {
                         articulobuscar = "PONCHADO EXTRA DIFICIL";
                     }
+                     else 
+                    {
+                        articulobuscar = nombrearticulo.toString();
+                    }
+                
+                
                 }
 
                 int cantidadponchadosint = Integer.parseInt(cantidadponchados);

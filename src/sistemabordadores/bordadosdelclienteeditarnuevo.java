@@ -27,6 +27,8 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
@@ -430,14 +432,12 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
     }
 
     
-    
-    
-    
-    
-    
-       void combospuntadasprevias() {
-
-        try {
+    void combospuntadasprevias() 
+      {
+          
+          
+          
+          
             DefaultComboBoxModel modelo1 = new DefaultComboBoxModel();
             DefaultComboBoxModel modelo2 = new DefaultComboBoxModel();
             DefaultComboBoxModel modelo3 = new DefaultComboBoxModel();
@@ -445,12 +445,19 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
             DefaultComboBoxModel modelo5 = new DefaultComboBoxModel();
             DefaultComboBoxModel modelo6 = new DefaultComboBoxModel();
             DefaultComboBoxModel modelo7 = new DefaultComboBoxModel();
+            
+             List<String> listabordados = new ArrayList<String>();
+            
 
-            String sql = "SELECT descripcion, sum(precio) as precio2  FROM catalogo_articulos where descripcion not like  '%PARCHE%'  and ( descripcion like 'SEGURIDAD%' or descripcion like 'VIGILANCIA%' or descripcion like 'BORDADO DE%'   OR descripcion like 'BANDERA DE%'  ) group by precio ORDER BY precio2";
+        try {
+           
+
+            String sql = "SELECT distinct descripcion, sum(precio) as precio2  FROM catalogo_articulos where descripcion not like  '%PARCHE%'  and ( descripcion like 'SEGURIDAD%' or descripcion like 'VIGILANCIA%'  OR descripcion like 'BANDERA DE%'  ) group by precio ORDER BY precio2";
 
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
+            while (rs.next()) 
+            {
 
                 modelo1.addElement(rs.getObject("descripcion"));
                 modelo2.addElement(rs.getObject("descripcion"));
@@ -459,351 +466,764 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                 modelo5.addElement(rs.getObject("descripcion"));
                 modelo6.addElement(rs.getObject("descripcion"));
                 modelo7.addElement(rs.getObject("descripcion"));
+
+            }
+            
+            
+            
+            
+            // CAMISA
+
+            if (prenda.equals("CAMISA") || prenda.equals("PLAYERA") || prenda.equals("CHAMARRA DESMONTABLE") || prenda.equals("CHAMARRA ROMPEVIENTOS") || prenda.equals("CAMISOLA") || prenda.equals("FILIPINA") || prenda.equals("SACO") || prenda.equals("CHALECO") || prenda.equals("MANDIL")) {
+
+                // SE AGREGAN LOS LOGOS QUE YA TIENE EL CLIENTE
+                // PECHOS
+                sql = "SELECT distinct pecho_izquierdo_nombre,pecho_derecho_nombre FROM bordados_puntadas where codigo = '" + codigodelcliente + "' "
+                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')";
+
+                try {
+
+                    Statement st2 = cn.createStatement();
+                    ResultSet rs2 = st2.executeQuery(sql);
+                    while (rs2.next()) {
+
+                        String pechoizquierdo = rs2.getString("pecho_izquierdo_nombre");
+                        String pechoderecho = rs2.getString("pecho_derecho_nombre");
+
+                        if (pechoizquierdo.equals("") || pechoizquierdo.equals("SEGURIDAD") || pechoizquierdo.equals("SEGURIDAD ") || pechoizquierdo.equals("SEGURIDAD PRIVADA") || pechoizquierdo.equals("SEGURIDAD PRIVADA ") || pechoizquierdo.equals("VIGILANCIA") || pechoizquierdo.equals("ninguno")) {
+
+                        } else {
+                            
+                            
+                            //modelo1.addElement(pechoizquierdo);
+                            //modelo2.addElement(pechoizquierdo);
+                            listabordados.add(pechoizquierdo);
+                            
+                        }
+
+                        if (pechoderecho.equals("") || pechoderecho.equals("SEGURIDAD") || pechoderecho.equals("SEGURIDAD ") || pechoderecho.equals("SEGURIDAD PRIVADA") || pechoderecho.equals("SEGURIDAD PRIVADA ") || pechoderecho.equals("VIGILANCIA") || pechoderecho.equals("ninguno")) {
+
+                        } else {
+                            //modelo1.addElement(pechoderecho);
+                            //modelo2.addElement(pechoderecho);
+                            listabordados.add(pechoderecho);
+                            
+                        }
+
+                    }
+
+                    st.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
                 
-
-            }
-            
-            
-            
-          if (prenda.equals("CAMISA")||prenda.equals("PLAYERA")||prenda.equals("CHAMARRA DESMONTABLE")||prenda.equals("CHAMARRA ROMPEVIENTOS")||prenda.equals("CAMISOLA")||prenda.equals("FILIPINA")||prenda.equals("SACO")||prenda.equals("CHALECO")   ||prenda.equals("MANDIL")) 
-        
-        {
-            
-            
-              // SE AGREGAN LOS LOGOS QUE YA TIENE EL CLIENTE
-            
-            
-            // PECHOS
-            
-             sql = "SELECT distinct pecho_izquierdo_nombre,pecho_derecho_nombre FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
-                       + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')";
-                      
-            
-
-        
-            try {
-
-                Statement st2 = cn.createStatement();
-                ResultSet rs2 = st2.executeQuery(sql);
-                while (rs2.next()) {
-
-                   
-                   String pechoizquierdo = rs2.getString("pecho_izquierdo_nombre"); 
-                   String pechoderecho = rs2.getString("pecho_derecho_nombre"); 
-                    
-                   
-                   if (pechoizquierdo.equals("") || pechoizquierdo.equals("SEGURIDAD") || pechoizquierdo.equals("SEGURIDAD ") || pechoizquierdo.equals("SEGURIDAD PRIVADA")  || pechoizquierdo.equals("SEGURIDAD PRIVADA ")  || pechoizquierdo.equals("VIGILANCIA")   || pechoizquierdo.equals("ninguno"))
-                   {
-                       
-                   }
-                   else
-                   {
-                       modelo1.addElement(pechoizquierdo); 
-                        modelo2.addElement(pechoizquierdo);
-                   }
-                   
-                   
-                   
-                     if (pechoderecho.equals("") || pechoderecho.equals("SEGURIDAD") || pechoderecho.equals("SEGURIDAD ") || pechoderecho.equals("SEGURIDAD PRIVADA")  || pechoderecho.equals("SEGURIDAD PRIVADA ")  || pechoderecho.equals("VIGILANCIA")     || pechoderecho.equals("ninguno"))
-                   {
-                       
-                   }
-                   else
-                   {
-                       modelo1.addElement(pechoderecho); 
-                        modelo2.addElement(pechoderecho);
-                   }
-                     
-
-
-                }
-
-                st.close();
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-            
-            
-            
-            cbpuntadasPrevia1.setModel(modelo1);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia1);
-          
-            cbpuntadasPrevia2.setModel(modelo2);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia2);
-        
-            
-            
-            
-            // MAGAS
-            
-              sql = "SELECT distinct manga_izquierda_nombre,manga_derecha_nombre FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
-                       + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')";
-                      
-            
-
-        
-            try {
-
-                Statement st2 = cn.createStatement();
-                ResultSet rs2 = st2.executeQuery(sql);
-                while (rs2.next()) {
-
-                   
-                   String mangaizquierda = rs2.getString("manga_izquierda_nombre"); 
-                   String mangaderecha = rs2.getString("manga_derecha_nombre"); 
-                    
-                   
-                   if (mangaizquierda.equals("") || mangaizquierda.equals("SEGURIDAD") || mangaizquierda.equals("SEGURIDAD ") || mangaizquierda.equals("SEGURIDAD PRIVADA")  || mangaizquierda.equals("SEGURIDAD PRIVADA ")  || mangaizquierda.equals("VIGILANCIA")  || mangaizquierda.equals("ninguno"))
-                   {
-                       
-                   }
-                   else
-                   {
-                       modelo3.addElement(mangaizquierda); 
-                        modelo4.addElement(mangaizquierda);
-                   }
-                   
-                   
-                   
-                     if (mangaderecha.equals("") || mangaderecha.equals("SEGURIDAD") || mangaderecha.equals("SEGURIDAD ") || mangaderecha.equals("SEGURIDAD PRIVADA")  || mangaderecha.equals("SEGURIDAD PRIVADA ")  || mangaderecha.equals("VIGILANCIA")  || mangaderecha.equals("ninguno"))
-                   {
-                       
-                   }
-                   else
-                   {
-                       modelo3.addElement(mangaderecha); 
-                        modelo4.addElement(mangaderecha);
-                   }
-                     
-
-
-                }
-
-                st.close();
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-            
-            
-            
-            cbpuntadasPrevia3.setModel(modelo3);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia3);
-          
-            cbpuntadasPrevia4.setModel(modelo4);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia4);
-        
-            
-            
-            
-            // ESPALDA
-            
-           
-            
-              sql = "SELECT distinct espalda_nombre FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
-                       + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')";
-                      
-            
-
-        
-            try {
-
-                Statement st2 = cn.createStatement();
-                ResultSet rs2 = st2.executeQuery(sql);
-                while (rs2.next()) {
-
-                   
-                   String espalda = rs2.getString("espalda_nombre"); 
-              
-                    
-                   
-                   if (espalda.equals("") || espalda.equals("SEGURIDAD") || espalda.equals("SEGURIDAD ") || espalda.equals("SEGURIDAD PRIVADA")  || espalda.equals("SEGURIDAD PRIVADA ")  || espalda.equals("VIGILANCIA")   || espalda.equals("ninguno")   || espalda.equals("SEGURIDAD #1")   || espalda.equals("SEGURIDAD #2")    || espalda.equals("SEGURIDAD PRIVADA #1")    || espalda.equals("SEGURIDAD PRIVADA #2")  || espalda.equals("SEGURIDAD PRIVADA #3"))
-                   {
-                       
-                   }
-                   else
-                   {
-                       modelo5.addElement(espalda); 
-                      
-                   }
-                   
-
-                }
-
-                st.close();
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-            
-            
-            
-            cbpuntadasPrevia5.setModel(modelo5);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia5);
-          
-            
-            
-            
-            
-            
-            
-            
-            cbpuntadasPrevia3.setModel(modelo3);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia3);
-           
-            cbpuntadasPrevia4.setModel(modelo4);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia4);
-        
-            cbpuntadasPrevia5.setModel(modelo5);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia5);
-          
-
-            cbpuntadasPrevia6.setModel(modelo6);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia6);
-        
-            cbpuntadasPrevia7.setModel(modelo7);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia7);
-          
-            
-            
-            
-             // SE PONEN LAS PUNTADAS DE SEGURIDAD Y SEGURIDAD PRIVADA
-             
-             
-             
-             
-             
-             // 
-            
-            cbpuntadasPrevia1.addItem("SEGURIDAD");
-            cbpuntadasPrevia1.addItem("SEGURIDAD PRIVADA");
-            cbpuntadasPrevia1.addItem("VIGILANCIA");
-            cbpuntadasPrevia1.addItem("PORTA NOMBRE");
-            cbpuntadasPrevia1.addItem("ninguno");
-            cbpuntadasPrevia1.setSelectedItem("ninguno");
-          
-            
-            cbpuntadasPrevia2.addItem("SEGURIDAD");
-            cbpuntadasPrevia2.addItem("SEGURIDAD PRIVADA");
-            cbpuntadasPrevia2.addItem("VIGILANCIA");
-            cbpuntadasPrevia2.addItem("PORTA NOMBRE");
-            cbpuntadasPrevia2.addItem("ninguno");
-            cbpuntadasPrevia2.setSelectedItem("ninguno");
-            
-            cbpuntadasPrevia3.addItem("SEGURIDAD");
-            cbpuntadasPrevia3.addItem("SEGURIDAD PRIVADA");
-            cbpuntadasPrevia3.addItem("VIGILANCIA");
-            cbpuntadasPrevia3.addItem("ninguno");
-            cbpuntadasPrevia3.setSelectedItem("ninguno");
-            
-            cbpuntadasPrevia4.addItem("SEGURIDAD");
-            cbpuntadasPrevia4.addItem("SEGURIDAD PRIVADA");
-            cbpuntadasPrevia4.addItem("VIGILANCIA");
-            cbpuntadasPrevia4.addItem("ninguno");
-            cbpuntadasPrevia4.setSelectedItem("ninguno");
-            
-           
-            cbpuntadasPrevia5.addItem("SEGURIDAD #1");
-            cbpuntadasPrevia5.addItem("SEGURIDAD #2");
-            cbpuntadasPrevia5.addItem("SEGURIDAD PRIVADA #1");
-            cbpuntadasPrevia5.addItem("SEGURIDAD PRIVADA #2");
-            cbpuntadasPrevia5.addItem("SEGURIDAD PRIVADA #3");
-            cbpuntadasPrevia5.addItem("ninguno");
-            cbpuntadasPrevia5.setSelectedItem("ninguno");
-           
-           
-           
-            cbpuntadasPrevia6.addItem("ninguno");
-            cbpuntadasPrevia6.setSelectedItem("ninguno");
-
-           
-            cbpuntadasPrevia7.addItem("ninguno");
-            cbpuntadasPrevia7.setSelectedItem("ninguno");
-
-          
-        }
-        
-        /*  
-          else
-              
-            
-         if ()
-         {
-             
-         }  
-           //  la gorra ponga las 
-           else  
-         {
-             
-         }
-          */
-          else
-              
-              
-              
                 
-          {
-
-            cbpuntadasPrevia1.setModel(modelo1);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia1);
-            cbpuntadasPrevia1.addItem("ninguno");
-            cbpuntadasPrevia1.setSelectedItem("ninguno");
-
-            cbpuntadasPrevia2.setModel(modelo2);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia2);
-            cbpuntadasPrevia2.addItem("ninguno");
-            cbpuntadasPrevia2.setSelectedItem("ninguno");
-            
-            cbpuntadasPrevia3.setModel(modelo3);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia3);
-            cbpuntadasPrevia3.addItem("ninguno");
-            cbpuntadasPrevia3.setSelectedItem("ninguno");
-
-            cbpuntadasPrevia4.setModel(modelo4);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia4);
-            cbpuntadasPrevia4.addItem("ninguno");
-            cbpuntadasPrevia4.setSelectedItem("ninguno");
-
-            cbpuntadasPrevia5.setModel(modelo5);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia5);
-            cbpuntadasPrevia5.addItem("ninguno");
-            cbpuntadasPrevia5.setSelectedItem("ninguno");
-
-            cbpuntadasPrevia6.setModel(modelo6);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia6);
-            cbpuntadasPrevia6.addItem("ninguno");
-            cbpuntadasPrevia6.setSelectedItem("ninguno");
-
-            cbpuntadasPrevia7.setModel(modelo7);
-            AutoCompleteDecorator.decorate(cbpuntadasPrevia7);
-            cbpuntadasPrevia7.addItem("ninguno");
-            cbpuntadasPrevia7.setSelectedItem("ninguno");
-
+              listabordados = listabordados.stream().distinct().collect(Collectors.toList());
+                
+              for(int i = 0; i < listabordados.size();i ++)
+              {
+               
+               Object nombrebordado = listabordados.get(i);                  
+               modelo1.addElement(nombrebordado);
+               modelo2.addElement(nombrebordado);
+                  
+                  
               }
+              
+
+                cbbordados1.setModel(modelo1);
+                AutoCompleteDecorator.decorate(cbbordados1);
+
+                cbbordados2.setModel(modelo2);
+                AutoCompleteDecorator.decorate(cbbordados2);
+                
+                listabordados.clear();
+                
+
+                // MAGAS
+                sql = "SELECT distinct manga_izquierda_nombre,manga_derecha_nombre FROM bordados_puntadas where codigo = '" + codigodelcliente + "' "
+                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')";
+
+                try {
+
+                    Statement st2 = cn.createStatement();
+                    ResultSet rs2 = st2.executeQuery(sql);
+                    while (rs2.next()) {
+
+                        String mangaizquierda = rs2.getString("manga_izquierda_nombre");
+                        String mangaderecha = rs2.getString("manga_derecha_nombre");
+
+                        if (mangaizquierda.equals("") || mangaizquierda.equals("SEGURIDAD") || mangaizquierda.equals("SEGURIDAD ") || mangaizquierda.equals("SEGURIDAD PRIVADA") || mangaizquierda.equals("SEGURIDAD PRIVADA ") || mangaizquierda.equals("VIGILANCIA") || mangaizquierda.equals("ninguno")) {
+
+                        } else {
+                            //modelo3.addElement(mangaizquierda);
+                            //modelo4.addElement(mangaizquierda);
+                            listabordados.add(mangaizquierda);
+                            
+                        }
+
+                        if (mangaderecha.equals("") || mangaderecha.equals("SEGURIDAD") || mangaderecha.equals("SEGURIDAD ") || mangaderecha.equals("SEGURIDAD PRIVADA") || mangaderecha.equals("SEGURIDAD PRIVADA ") || mangaderecha.equals("VIGILANCIA") || mangaderecha.equals("ninguno")) {
+
+                        } else {
+                            //modelo3.addElement(mangaderecha);
+                            //modelo4.addElement(mangaderecha);
+                            listabordados.add(mangaderecha);
+                        }
+
+                    }
+
+                    st.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+
+                
+                listabordados = listabordados.stream().distinct().collect(Collectors.toList());
+                
+              for(int i = 0; i < listabordados.size();i ++)
+              {
+               
+               Object nombrebordado = listabordados.get(i);                  
+               modelo3.addElement(nombrebordado);
+               modelo4.addElement(nombrebordado);
+                  
+                  
+              }
+                
+                
+                cbbordados3.setModel(modelo3);
+                AutoCompleteDecorator.decorate(cbbordados3);
+
+                cbbordados4.setModel(modelo4);
+                AutoCompleteDecorator.decorate(cbbordados4);
+                
+                listabordados.clear();
+                
+
+                // ESPALDA
+                sql = "SELECT distinct espalda_nombre FROM bordados_puntadas where codigo = '" + codigodelcliente + "' "
+                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')";
+
+                try {
+
+                    Statement st2 = cn.createStatement();
+                    ResultSet rs2 = st2.executeQuery(sql);
+                    while (rs2.next()) {
+
+                        String espalda = rs2.getString("espalda_nombre");
+
+                        if (espalda.equals("") || espalda.equals("SEGURIDAD") || espalda.equals("SEGURIDAD ") || espalda.equals("SEGURIDAD PRIVADA") || espalda.equals("SEGURIDAD PRIVADA ") || espalda.equals("VIGILANCIA") || espalda.equals("ninguno") || espalda.equals("SEGURIDAD #1") || espalda.equals("SEGURIDAD #2") || espalda.equals("SEGURIDAD PRIVADA #1") || espalda.equals("SEGURIDAD PRIVADA #2") || espalda.equals("SEGURIDAD PRIVADA #3")) {
+
+                        } else {
+                           // modelo5.addElement(espalda);
+                              listabordados.add(espalda);
+                        }
+
+                    }
+
+                    st.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+                
+                listabordados = listabordados.stream().distinct().collect(Collectors.toList());
+                
+              for(int i = 0; i < listabordados.size();i ++)
+              {
+               
+               Object nombrebordado = listabordados.get(i);                  
+               modelo3.addElement(nombrebordado);
+               modelo4.addElement(nombrebordado);
+               modelo5.addElement(nombrebordado);
+               modelo6.addElement(nombrebordado);
+               modelo7.addElement(nombrebordado);
+                  
+                  
+              }
+
+               
+
+                cbbordados3.setModel(modelo3);
+                AutoCompleteDecorator.decorate(cbbordados3);
+
+                cbbordados4.setModel(modelo4);
+                AutoCompleteDecorator.decorate(cbbordados4);
+
+                cbbordados5.setModel(modelo5);
+                AutoCompleteDecorator.decorate(cbbordados5);
+
+                cbbordados6.setModel(modelo6);
+                AutoCompleteDecorator.decorate(cbbordados6);
+
+                cbbordados7.setModel(modelo7);
+                AutoCompleteDecorator.decorate(cbbordados7);
+                
+                listabordados.clear();
+                
+                 /// COLORIDOS BORDADOS
+                
+                sql = "SELECT distinct nombre_bordado from colorido_bordados where codigo = '"+codigodelcliente+"' ";
+
+                try {
+
+                    Statement st2 = cn.createStatement();
+                    ResultSet rs2 = st2.executeQuery(sql);
+                    while (rs2.next()) 
+                    {
+                        String puntadas = rs2.getString("nombre_bordado");
+                        cbbordados1.addItem(puntadas);
+                        cbbordados2.addItem(puntadas);
+                        cbbordados3.addItem(puntadas);
+                        cbbordados4.addItem(puntadas);
+                        cbbordados5.addItem(puntadas);
+                        cbbordados6.addItem(puntadas);
+                        cbbordados7.addItem(puntadas);
+
+                    }
+
+                    st.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+                 
+                 
+                
+
+                // SE PONEN LAS PUNTADAS DE SEGURIDAD Y SEGURIDAD PRIVADA
+                // 
+                cbbordados1.addItem("SEGURIDAD");
+                cbbordados1.addItem("SEGURIDAD PRIVADA");
+                cbbordados1.addItem("VIGILANCIA");
+                cbbordados1.addItem("PORTA NOMBRE");
+                cbbordados1.addItem("ninguno");
+                cbbordados1.setSelectedItem("ninguno");
+
+                cbbordados2.addItem("SEGURIDAD");
+                cbbordados2.addItem("SEGURIDAD PRIVADA");
+                cbbordados2.addItem("VIGILANCIA");
+                cbbordados2.addItem("PORTA NOMBRE");
+                cbbordados2.addItem("ninguno");
+                cbbordados2.setSelectedItem("ninguno");
+
+                cbbordados3.addItem("SEGURIDAD");
+                cbbordados3.addItem("SEGURIDAD PRIVADA");
+                cbbordados3.addItem("VIGILANCIA");
+                cbbordados3.addItem("ninguno");
+                cbbordados3.setSelectedItem("ninguno");
+
+                cbbordados4.addItem("SEGURIDAD");
+                cbbordados4.addItem("SEGURIDAD PRIVADA");
+                cbbordados4.addItem("VIGILANCIA");
+                cbbordados4.addItem("ninguno");
+                cbbordados4.setSelectedItem("ninguno");
+
+                cbbordados5.addItem("SEGURIDAD #1");
+                cbbordados5.addItem("SEGURIDAD #2");
+                cbbordados5.addItem("SEGURIDAD PRIVADA #1");
+                cbbordados5.addItem("SEGURIDAD PRIVADA #2");
+                cbbordados5.addItem("SEGURIDAD PRIVADA #3");
+                cbbordados5.addItem("ninguno");
+                cbbordados5.setSelectedItem("ninguno");
+
+                cbbordados6.addItem("ninguno");
+                cbbordados6.setSelectedItem("ninguno");
+
+                cbbordados7.addItem("ninguno");
+                cbbordados7.setSelectedItem("ninguno");
+
+            } 
             
             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            // GORRA
+            
+            
+             else if (prenda.equals("GORRA")) 
+            {
+
+                // SE AGREGAN LOS LOGOS QUE YA TIENE EL CLIENTE
+                // LADO DERECHO E IZQUEIRDO
+                
+                sql = "SELECT distinct lado_izquierdo_nombre,lado_derecho_nombre FROM bordados_puntadas where codigo = '" + codigodelcliente + "' and (tipo = 'GORRA')";
+
+                try {
+
+                    Statement st2 = cn.createStatement();
+                    ResultSet rs2 = st2.executeQuery(sql);
+                    while (rs2.next()) {
+
+                        String ladoizquierdo = rs2.getString("lado_izquierdo_nombre");
+                        String ladoderecho = rs2.getString("lado_derecho_nombre");
+
+                        if (ladoizquierdo.equals("") || ladoizquierdo.equals("SEGURIDAD") || ladoizquierdo.equals("SEGURIDAD ") || ladoizquierdo.equals("SEGURIDAD PRIVADA") || ladoizquierdo.equals("SEGURIDAD PRIVADA ") || ladoizquierdo.equals("VIGILANCIA") || ladoizquierdo.equals("ninguno")) {
+
+                        } else {
+                           // modelo1.addElement(ladoizquierdo);
+                           // modelo2.addElement(ladoizquierdo);
+                            listabordados.add(ladoizquierdo);
+                        }
+
+                        if (ladoderecho.equals("") || ladoderecho.equals("SEGURIDAD") || ladoderecho.equals("SEGURIDAD ") || ladoderecho.equals("SEGURIDAD PRIVADA") || ladoderecho.equals("SEGURIDAD PRIVADA ") || ladoderecho.equals("VIGILANCIA") || ladoderecho.equals("ninguno")) {
+
+                        } else {
+                            //modelo1.addElement(ladoderecho);
+                            //modelo2.addElement(ladoderecho);
+                            listabordados.add(ladoderecho);
+                        }
+
+                    }
+
+                    st.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+                
+                
+               
+                listabordados = listabordados.stream().distinct().collect(Collectors.toList());
+                
+              for(int i = 0; i < listabordados.size();i ++)
+              {
+               
+               Object nombrebordado = listabordados.get(i);                  
+               modelo1.addElement(nombrebordado);
+               modelo2.addElement(nombrebordado);
+                  
+                  
+              }
+                
+
+                cbbordados2.setModel(modelo1);
+                AutoCompleteDecorator.decorate(cbbordados2);
+
+                cbbordados4.setModel(modelo2);
+                AutoCompleteDecorator.decorate(cbbordados4);
+                
+                 listabordados.clear();
+                
+
+                // frente y atras
+                sql = "SELECT distinct frente_nombre,atras_nombre FROM bordados_puntadas where codigo = '" + codigodelcliente + "' and (tipo = 'GORRA')";
+
+                try {
+
+                    Statement st2 = cn.createStatement();
+                    ResultSet rs2 = st2.executeQuery(sql);
+                    while (rs2.next()) {
+
+                        String frente = rs2.getString("frente_nombre");
+                        String atras = rs2.getString("atras_nombre");
+
+                        if (frente.equals("") || frente.equals("SEGURIDAD") || frente.equals("SEGURIDAD ") || frente.equals("SEGURIDAD PRIVADA") || frente.equals("SEGURIDAD PRIVADA ") || frente.equals("VIGILANCIA") || frente.equals("ninguno")) {
+
+                        } else {
+                            //modelo3.addElement(frente);
+                            //modelo4.addElement(frente);
+                             listabordados.add(frente);
+                        }
+
+                        if (atras.equals("") || atras.equals("SEGURIDAD") || atras.equals("SEGURIDAD ") || atras.equals("SEGURIDAD PRIVADA") || atras.equals("SEGURIDAD PRIVADA ") || atras.equals("VIGILANCIA") || atras.equals("ninguno")) {
+
+                        } else {
+                            //modelo3.addElement(atras);
+                            //modelo4.addElement(atras);
+                             listabordados.add(atras);
+                            
+                        }
+
+                    }
+
+                    st.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+
+                 listabordados = listabordados.stream().distinct().collect(Collectors.toList());
+                
+              for(int i = 0; i < listabordados.size();i ++)
+              {
+               
+               Object nombrebordado = listabordados.get(i);                  
+               modelo3.addElement(nombrebordado);
+               modelo4.addElement(nombrebordado);
+                  
+                  
+              }
+                
+                
+                cbbordados1.setModel(modelo3);
+                AutoCompleteDecorator.decorate(cbbordados1);
+
+                cbbordados3.setModel(modelo4);
+                AutoCompleteDecorator.decorate(cbbordados3);
+
+               
+                listabordados.clear();
+              
+                
+                cbbordados1.setModel(modelo3);
+                AutoCompleteDecorator.decorate(cbbordados1);
+                cbbordados1.addItem("ninguno");
+                cbbordados1.setSelectedItem("ninguno");
+
+                cbbordados2.setModel(modelo1);
+                AutoCompleteDecorator.decorate(cbbordados2);
+                cbbordados2.addItem("ninguno");
+                cbbordados2.setSelectedItem("ninguno");
+
+                cbbordados3.setModel(modelo4);
+                AutoCompleteDecorator.decorate(cbbordados3);
+                cbbordados3.addItem("ninguno");
+                cbbordados3.setSelectedItem("ninguno");
+
+                cbbordados4.setModel(modelo2);
+                AutoCompleteDecorator.decorate(cbbordados4);
+                cbbordados4.addItem("ninguno");
+                cbbordados4.setSelectedItem("ninguno");
+
+                
+                
+                 /// COLORIDOS BORDADOS
+                
+                
+                 sql = "SELECT distinct nombre_bordado from colorido_bordados where codigo = '"+codigodelcliente+"' ";
+
+                try {
+
+                    Statement st2 = cn.createStatement();
+                    ResultSet rs2 = st2.executeQuery(sql);
+                    while (rs2.next()) 
+                    {
+                        String puntadas = rs2.getString("nombre_bordado");
+                        cbbordados1.addItem(puntadas);
+                        cbbordados2.addItem(puntadas);
+                        cbbordados3.addItem(puntadas);
+                        cbbordados4.addItem(puntadas);
+                       
+
+                    }
+
+                    st.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+                
+                
+                
+
+            }
+             
+             
+             
+             
+             
+             
+             
+             
+             
+            // PANTALON
+            
+            
+             else if (prenda.equals("PANTALON")) 
+            {
+
+                // SE AGREGAN LOS LOGOS QUE YA TIENE EL CLIENTE
+                // LADO DERECHO E IZQUEIRDO
+                
+                sql = "SELECT distinct pantalon_lado_izquierdo_frente_nombre,pantalon_lado_derecho_frente_nombre,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_derecho_atras_nombre FROM bordados_puntadas where codigo = '" + codigodelcliente + "' and (tipo = 'PANTALON')";
+
+                try {
+
+                    Statement st2 = cn.createStatement();
+                    ResultSet rs2 = st2.executeQuery(sql);
+                    while (rs2.next()) {
+
+                        String ladoizquierdofrente = rs2.getString("pantalon_lado_izquierdo_frente_nombre");
+                        String ladoderechofrente = rs2.getString("pantalon_lado_derecho_frente_nombre");
+                        String ladoizquierdoatras = rs2.getString("pantalon_lado_izquierdo_atras_nombre");
+                        String ladoderechoatras = rs2.getString("pantalon_lado_derecho_atras_nombre");
+                        
+
+                        if (ladoizquierdofrente.equals("") || ladoizquierdofrente.equals("SEGURIDAD") || ladoizquierdofrente.equals("SEGURIDAD ") || ladoizquierdofrente.equals("SEGURIDAD PRIVADA") || ladoizquierdofrente.equals("SEGURIDAD PRIVADA ") || ladoizquierdofrente.equals("VIGILANCIA") || ladoizquierdofrente.equals("ninguno")) {
+
+                        } else {
+                       
+                            listabordados.add(ladoizquierdofrente);
+                        }
+
+                        if (ladoderechofrente.equals("") || ladoderechofrente.equals("SEGURIDAD") || ladoderechofrente.equals("SEGURIDAD ") || ladoderechofrente.equals("SEGURIDAD PRIVADA") || ladoderechofrente.equals("SEGURIDAD PRIVADA ") || ladoderechofrente.equals("VIGILANCIA") || ladoderechofrente.equals("ninguno")) {
+
+                        } else {
+                   
+                            listabordados.add(ladoderechofrente);
+                        }
+
+                        
+                        if (ladoizquierdoatras.equals("") || ladoizquierdoatras.equals("SEGURIDAD") || ladoizquierdoatras.equals("SEGURIDAD ") || ladoizquierdoatras.equals("SEGURIDAD PRIVADA") || ladoizquierdoatras.equals("SEGURIDAD PRIVADA ") || ladoizquierdoatras.equals("VIGILANCIA") || ladoizquierdoatras.equals("ninguno")) {
+
+                        } else {
+                         
+                            listabordados.add(ladoizquierdoatras);
+                        }
+                        
+                        
+                        
+                        if (ladoderechoatras.equals("") || ladoderechoatras.equals("SEGURIDAD") || ladoderechoatras.equals("SEGURIDAD ") || ladoderechoatras.equals("SEGURIDAD PRIVADA") || ladoderechoatras.equals("SEGURIDAD PRIVADA ") || ladoderechoatras.equals("VIGILANCIA") || ladoderechoatras.equals("ninguno")) {
+
+                        } else {
+                           
+                            listabordados.add(ladoderechoatras);
+                        }
+                        
+                        
+                    }
+
+                    st.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+                
+                
+               
+                listabordados = listabordados.stream().distinct().collect(Collectors.toList());
+                
+              for(int i = 0; i < listabordados.size();i ++)
+              {
+               
+               Object nombrebordado = listabordados.get(i);                  
+               modelo1.addElement(nombrebordado);
+               modelo2.addElement(nombrebordado);
+               modelo3.addElement(nombrebordado);
+               modelo4.addElement(nombrebordado);
+                  
+                  
+              }
+                
+
+                
+                
+                 
+                
+                cbbordados1.setModel(modelo1);
+                AutoCompleteDecorator.decorate(cbbordados1);
+                cbbordados1.addItem("ninguno");
+                cbbordados1.setSelectedItem("ninguno");
+
+                cbbordados2.setModel(modelo2);
+                AutoCompleteDecorator.decorate(cbbordados2);
+                cbbordados2.addItem("ninguno");
+                cbbordados2.setSelectedItem("ninguno");
+
+                cbbordados3.setModel(modelo3);
+                AutoCompleteDecorator.decorate(cbbordados3);
+                cbbordados3.addItem("ninguno");
+                cbbordados3.setSelectedItem("ninguno");
+
+                cbbordados4.setModel(modelo4);
+                AutoCompleteDecorator.decorate(cbbordados4);
+                cbbordados4.addItem("ninguno");
+                cbbordados4.setSelectedItem("ninguno");
+
+                
+                
+                 listabordados.clear();
+                 
+                 
+                 
+                 
+                
+                 /// COLORIDOS BORDADOS
+                
+                
+                 sql = "SELECT distinct nombre_bordado from colorido_bordados where codigo = '"+codigodelcliente+"' ";
+
+                try {
+
+                    Statement st2 = cn.createStatement();
+                    ResultSet rs2 = st2.executeQuery(sql);
+                    while (rs2.next()) 
+                    {
+                        String puntadas = rs2.getString("nombre_bordado");
+                        cbbordados1.addItem(puntadas);
+                        cbbordados2.addItem(puntadas);
+                        cbbordados3.addItem(puntadas);
+                        cbbordados4.addItem(puntadas);
+                       
+
+                    }
+
+                    st.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+                
+                
+                
+
+            }
+             // CORBATA
+             else if (prenda.equals("CORBATA")) 
+            {
+
+                // SE AGREGAN LOS LOGOS QUE YA TIENE EL CLIENTE
+                // LADO DERECHO E IZQUEIRDO
+                
+                sql = "SELECT distinct corbata_frente,corbata_frente_nombre FROM bordados_puntadas where codigo = '" + codigodelcliente + "' and (tipo = 'CORBATA')";
+
+                try {
+
+                    Statement st2 = cn.createStatement();
+                    ResultSet rs2 = st2.executeQuery(sql);
+                    while (rs2.next()) {
+
+                        String frentenombre = rs2.getString("corbata_frente_nombre");
+                       
+                        
+
+                        if (frentenombre.equals("") || frentenombre.equals("SEGURIDAD") || frentenombre.equals("SEGURIDAD ") || frentenombre.equals("SEGURIDAD PRIVADA") || frentenombre.equals("SEGURIDAD PRIVADA ") || frentenombre.equals("VIGILANCIA") || frentenombre.equals("ninguno")) {
+
+                        } 
+                        else
+                        {
+                       
+                            listabordados.add(frentenombre);
+                        }
+
+                       
+                        
+                        
+                    }
+
+                    st.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+                
+                
+               
+                listabordados = listabordados.stream().distinct().collect(Collectors.toList());
+                
+              for(int i = 0; i < listabordados.size();i ++)
+              {
+               
+               Object nombrebordado = listabordados.get(i);                  
+               modelo1.addElement(nombrebordado);
+               
+                  
+                  
+              }
+                
+
+                
+                
+                 
+                
+                cbbordados1.setModel(modelo1);
+                AutoCompleteDecorator.decorate(cbbordados1);
+                cbbordados1.addItem("ninguno");
+                cbbordados1.setSelectedItem("ninguno");
+
+      
+                
+                 listabordados.clear();
+                 
+                 
+                 
+                 
+                
+                 /// COLORIDOS BORDADOS
+                
+                
+                 sql = "SELECT distinct nombre_bordado from colorido_bordados where codigo = '"+codigodelcliente+"' ";
+
+                try {
+
+                    Statement st2 = cn.createStatement();
+                    ResultSet rs2 = st2.executeQuery(sql);
+                    while (rs2.next()) 
+                    {
+                        String puntadas = rs2.getString("nombre_bordado");
+                        cbbordados1.addItem(puntadas);
+                        cbbordados2.addItem(puntadas);
+                        cbbordados3.addItem(puntadas);
+                        cbbordados4.addItem(puntadas);
+                       
+
+                    }
+
+                    st.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+                
+                                
+
+            }
+              
+             
+             
+             
+             
+             
+             
+
+            
+            else {
+
+                cbbordados1.setModel(modelo1);
+                AutoCompleteDecorator.decorate(cbbordados1);
+                cbbordados1.addItem("ninguno");
+                cbbordados1.setSelectedItem("ninguno");
+
+                cbbordados2.setModel(modelo2);
+                AutoCompleteDecorator.decorate(cbbordados2);
+                cbbordados2.addItem("ninguno");
+                cbbordados2.setSelectedItem("ninguno");
+
+                cbbordados3.setModel(modelo3);
+                AutoCompleteDecorator.decorate(cbbordados3);
+                cbbordados3.addItem("ninguno");
+                cbbordados3.setSelectedItem("ninguno");
+
+                cbbordados4.setModel(modelo4);
+                AutoCompleteDecorator.decorate(cbbordados4);
+                cbbordados4.addItem("ninguno");
+                cbbordados4.setSelectedItem("ninguno");
+
+                cbbordados5.setModel(modelo5);
+                AutoCompleteDecorator.decorate(cbbordados5);
+                cbbordados5.addItem("ninguno");
+                cbbordados5.setSelectedItem("ninguno");
+
+                cbbordados6.setModel(modelo6);
+                AutoCompleteDecorator.decorate(cbbordados6);
+                cbbordados6.addItem("ninguno");
+                cbbordados6.setSelectedItem("ninguno");
+
+                cbbordados7.setModel(modelo7);
+                AutoCompleteDecorator.decorate(cbbordados7);
+                cbbordados7.addItem("ninguno");
+                cbbordados7.setSelectedItem("ninguno");
+
+            }
+
             st.close();
         } catch (SQLException ex) {
             System.out.println(ex);
         }
 
-    }
+    } 
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     
     
     void combospuntadas() {
@@ -3483,14 +3903,14 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         cbhilo7 = new javax.swing.JComboBox();
         cbpuntadas5 = new javax.swing.JComboBox<>();
         jLabel51 = new javax.swing.JLabel();
-        cbpuntadasPrevia7 = new javax.swing.JComboBox<>();
-        cbpuntadasPrevia2 = new javax.swing.JComboBox<>();
-        cbpuntadasPrevia1 = new javax.swing.JComboBox<>();
+        cbbordados7 = new javax.swing.JComboBox<>();
+        cbbordados2 = new javax.swing.JComboBox<>();
+        cbbordados1 = new javax.swing.JComboBox<>();
         jLabel52 = new javax.swing.JLabel();
-        cbpuntadasPrevia6 = new javax.swing.JComboBox<>();
-        cbpuntadasPrevia3 = new javax.swing.JComboBox<>();
-        cbpuntadasPrevia4 = new javax.swing.JComboBox<>();
-        cbpuntadasPrevia5 = new javax.swing.JComboBox<>();
+        cbbordados6 = new javax.swing.JComboBox<>();
+        cbbordados3 = new javax.swing.JComboBox<>();
+        cbbordados4 = new javax.swing.JComboBox<>();
+        cbbordados5 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Bordados del cliente editar nuevo");
@@ -4305,34 +4725,34 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         jLabel51.setText("Ubicación");
         jLabel51.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        cbpuntadasPrevia7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cbpuntadasPrevia7.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+        cbbordados7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cbbordados7.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbpuntadasPrevia7PopupMenuWillBecomeInvisible(evt);
+                cbbordados7PopupMenuWillBecomeInvisible(evt);
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
             }
         });
 
-        cbpuntadasPrevia2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cbpuntadasPrevia2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+        cbbordados2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cbbordados2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbpuntadasPrevia2PopupMenuWillBecomeInvisible(evt);
+                cbbordados2PopupMenuWillBecomeInvisible(evt);
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
             }
         });
 
-        cbpuntadasPrevia1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cbpuntadasPrevia1.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+        cbbordados1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cbbordados1.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbpuntadasPrevia1PopupMenuWillBecomeInvisible(evt);
+                cbbordados1PopupMenuWillBecomeInvisible(evt);
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -4344,46 +4764,46 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         jLabel52.setText("Seleccione puntadas");
         jLabel52.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        cbpuntadasPrevia6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cbpuntadasPrevia6.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+        cbbordados6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cbbordados6.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbpuntadasPrevia6PopupMenuWillBecomeInvisible(evt);
+                cbbordados6PopupMenuWillBecomeInvisible(evt);
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
             }
         });
 
-        cbpuntadasPrevia3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cbpuntadasPrevia3.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+        cbbordados3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cbbordados3.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbpuntadasPrevia3PopupMenuWillBecomeInvisible(evt);
+                cbbordados3PopupMenuWillBecomeInvisible(evt);
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
             }
         });
 
-        cbpuntadasPrevia4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cbpuntadasPrevia4.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+        cbbordados4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cbbordados4.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbpuntadasPrevia4PopupMenuWillBecomeInvisible(evt);
+                cbbordados4PopupMenuWillBecomeInvisible(evt);
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
             }
         });
 
-        cbpuntadasPrevia5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cbpuntadasPrevia5.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+        cbbordados5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cbbordados5.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-                cbpuntadasPrevia5PopupMenuCanceled(evt);
+                cbbordados5PopupMenuCanceled(evt);
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbpuntadasPrevia5PopupMenuWillBecomeInvisible(evt);
+                cbbordados5PopupMenuWillBecomeInvisible(evt);
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -4421,20 +4841,20 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbpuntadasPrevia1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbpuntadasPrevia2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbpuntadasPrevia3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbbordados1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbbordados2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbbordados3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbpuntadasPrevia7, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbpuntadasPrevia6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(cbpuntadasPrevia5, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cbpuntadasPrevia4, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cbbordados7, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbbordados6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbbordados5, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbbordados4, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
                         .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(124, 124, 124)
                         .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
                         .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4443,7 +4863,6 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(jLabel58))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cbpuntadas5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbpuntadas4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4453,11 +4872,9 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                             .addComponent(cbpuntadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbpuntadas2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbpuntadas3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbpuntadas5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4480,16 +4897,13 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                             .addComponent(cbaplicacioncolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(cbaplicacioncolor5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(txt6, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txt7, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(7, 7, 7)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(cbcolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(cbcolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txt6, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt7, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(7, 7, 7)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cbcolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cbcolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(cbhilo6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4550,9 +4964,13 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbaroespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(688, 688, 688)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbpuntadas5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(176, 176, 176)
                         .addComponent(btneliminartodo)
-                        .addGap(12, 12, 12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(btnimportarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
@@ -4626,176 +5044,173 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                                 .addGap(2, 2, 2)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbetiqueta1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbaplicacioncantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbaplicacioncolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbcolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbhilo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbetiqueta2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(txt2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbcolor2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(cbhilo2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(cbaplicacioncantidad2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(cbaplicacioncolor2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbetiqueta3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(txt3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(cbcolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(cbhilo3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(cbaplicacioncantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbaplicacioncolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(cbpuntadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
-                                .addComponent(cbpuntadas2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(cbpuntadas3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(cbpuntadas4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cbpuntadas5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbpuntadas5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(1, 1, 1)
-                                .addComponent(cbpuntadas6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbpuntadas7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbetiqueta1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbaplicacioncantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbaplicacioncolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbcolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbhilo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(4, 4, 4)
+                                .addComponent(lbetiqueta4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(lbetiqueta6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbetiqueta2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbidentificadordeprendaanterior, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbetiqueta7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(3, 3, 3)
-                                        .addComponent(txt2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(cbcolor2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cbcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(6, 6, 6)
+                                        .addComponent(cbcolor5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(3, 3, 3)
+                                        .addComponent(cbhilo4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(cbhilo5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(2, 2, 2)
-                                        .addComponent(cbhilo2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(cbaplicacioncantidad4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(8, 8, 8)
+                                        .addComponent(cbaplicacioncantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addComponent(cbaplicacioncantidad2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addComponent(cbaplicacioncolor2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(2, 2, 2)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbetiqueta3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cbaplicacioncolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(7, 7, 7)
+                                        .addComponent(cbaplicacioncolor5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(4, 4, 4)
-                                        .addComponent(txt3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
-                                        .addComponent(cbcolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
-                                        .addComponent(cbhilo3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addComponent(cbaplicacioncantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(cbaplicacioncolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txt4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(6, 6, 6)
+                                        .addComponent(txt5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
-                                        .addComponent(lbetiqueta4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(46, 46, 46)
-                                        .addComponent(lbetiqueta6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbidentificadordeprendaanterior, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbetiqueta7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(3, 3, 3)
+                                        .addComponent(txt6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(txt7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(3, 3, 3)
-                                                .addComponent(cbcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(cbcolor5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(3, 3, 3)
-                                                .addComponent(cbhilo4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(5, 5, 5)
-                                                .addComponent(cbhilo5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(2, 2, 2)
-                                                .addComponent(cbaplicacioncantidad4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(8, 8, 8)
-                                                .addComponent(cbaplicacioncantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(cbaplicacioncolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(7, 7, 7)
-                                                .addComponent(cbaplicacioncolor5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(4, 4, 4)
-                                                .addComponent(txt4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(txt5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(3, 3, 3)
-                                                .addComponent(txt6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(txt7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(4, 4, 4)
-                                                .addComponent(cbcolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(4, 4, 4)
-                                                .addComponent(cbcolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(3, 3, 3)
-                                                .addComponent(cbhilo6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(4, 4, 4)
-                                                .addComponent(cbhilo7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(4, 4, 4)
-                                                .addComponent(cbaplicacioncantidad6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(cbaplicacioncantidad7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(cbaplicacioncolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(5, 5, 5)
-                                                .addComponent(cbaplicacioncolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                                        .addGap(4, 4, 4)
+                                        .addComponent(cbcolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(4, 4, 4)
+                                        .addComponent(cbcolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(3, 3, 3)
+                                        .addComponent(cbhilo6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(4, 4, 4)
+                                        .addComponent(cbhilo7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addComponent(cbaplicacioncantidad6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(6, 6, 6)
+                                        .addComponent(cbaplicacioncantidad7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cbaplicacioncolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(cbaplicacioncolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
-                        .addComponent(cbpuntadasPrevia1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbbordados1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
-                        .addComponent(cbpuntadasPrevia2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbbordados2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(cbpuntadasPrevia3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbbordados3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(5, 5, 5)
-                        .addComponent(cbpuntadasPrevia4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbbordados4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbpuntadasPrevia5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbbordados5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbetiqueta5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbpuntadasPrevia6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbbordados6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbpuntadasPrevia7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cbbordados7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(cbpuntadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(cbpuntadas2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(cbpuntadas3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(cbpuntadas4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbpuntadas5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(cbpuntadas6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbpuntadas7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnagregarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btneliminarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btneliminartodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btnimportarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(14, 14, 14))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnagregarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btneliminarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(16, 16, 16))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lbpuntadas5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbaroespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(cbaroespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btneliminartodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnimportarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(lbfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -9412,20 +9827,20 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
        
     }//GEN-LAST:event_cbaplicacioncolor7PopupMenuWillBecomeInvisible
 
-    private void cbpuntadasPrevia7PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbpuntadasPrevia7PopupMenuWillBecomeInvisible
+    private void cbbordados7PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbbordados7PopupMenuWillBecomeInvisible
        
-         String puntadas = cbpuntadasPrevia7.getSelectedItem().toString();
-         String bordado = cbpuntadasPrevia7.getSelectedItem().toString();
+         String puntadas = cbbordados7.getSelectedItem().toString();
+         String bordado = cbbordados7.getSelectedItem().toString();
         
         cbpuntadas7.setSelectedItem(puntadas);
         
         
-    }//GEN-LAST:event_cbpuntadasPrevia7PopupMenuWillBecomeInvisible
+    }//GEN-LAST:event_cbbordados7PopupMenuWillBecomeInvisible
 
-    private void cbpuntadasPrevia2PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbpuntadasPrevia2PopupMenuWillBecomeInvisible
+    private void cbbordados2PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbbordados2PopupMenuWillBecomeInvisible
         
-        String puntadas = cbpuntadasPrevia2.getSelectedItem().toString();
-         String bordado = cbpuntadasPrevia2.getSelectedItem().toString();
+        String puntadas = cbbordados2.getSelectedItem().toString();
+         String bordado = cbbordados2.getSelectedItem().toString();
         
          if (puntadas.equals("SEGURIDAD"))
          {
@@ -9524,17 +9939,17 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         }
         
         
-    }//GEN-LAST:event_cbpuntadasPrevia2PopupMenuWillBecomeInvisible
+    }//GEN-LAST:event_cbbordados2PopupMenuWillBecomeInvisible
 
-    private void cbpuntadasPrevia1PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbpuntadasPrevia1PopupMenuWillBecomeInvisible
+    private void cbbordados1PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbbordados1PopupMenuWillBecomeInvisible
        
         
            
         
         
         
-          String puntadas = cbpuntadasPrevia1.getSelectedItem().toString();
-          String bordado = cbpuntadasPrevia1.getSelectedItem().toString();
+          String puntadas = cbbordados1.getSelectedItem().toString();
+          String bordado = cbbordados1.getSelectedItem().toString();
         
          if (puntadas.equals("SEGURIDAD"))
          {
@@ -9685,22 +10100,22 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         
         
        
-    }//GEN-LAST:event_cbpuntadasPrevia1PopupMenuWillBecomeInvisible
+    }//GEN-LAST:event_cbbordados1PopupMenuWillBecomeInvisible
 
-    private void cbpuntadasPrevia6PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbpuntadasPrevia6PopupMenuWillBecomeInvisible
+    private void cbbordados6PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbbordados6PopupMenuWillBecomeInvisible
       
-         String puntadas = cbpuntadasPrevia6.getSelectedItem().toString();
-         String bordado = cbpuntadasPrevia6.getSelectedItem().toString();
+         String puntadas = cbbordados6.getSelectedItem().toString();
+         String bordado = cbbordados6.getSelectedItem().toString();
         
         cbpuntadas6.setSelectedItem(puntadas);
         
         
-    }//GEN-LAST:event_cbpuntadasPrevia6PopupMenuWillBecomeInvisible
+    }//GEN-LAST:event_cbbordados6PopupMenuWillBecomeInvisible
 
-    private void cbpuntadasPrevia3PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbpuntadasPrevia3PopupMenuWillBecomeInvisible
+    private void cbbordados3PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbbordados3PopupMenuWillBecomeInvisible
       
-        String puntadas = cbpuntadasPrevia3.getSelectedItem().toString();
-        String bordado = cbpuntadasPrevia3.getSelectedItem().toString();
+        String puntadas = cbbordados3.getSelectedItem().toString();
+        String bordado = cbbordados3.getSelectedItem().toString();
         
          if (puntadas.equals("SEGURIDAD"))
          {
@@ -9794,12 +10209,12 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         
         }
         
-    }//GEN-LAST:event_cbpuntadasPrevia3PopupMenuWillBecomeInvisible
+    }//GEN-LAST:event_cbbordados3PopupMenuWillBecomeInvisible
 
-    private void cbpuntadasPrevia4PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbpuntadasPrevia4PopupMenuWillBecomeInvisible
+    private void cbbordados4PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbbordados4PopupMenuWillBecomeInvisible
        
-         String puntadas = cbpuntadasPrevia4.getSelectedItem().toString();
-         String bordado = cbpuntadasPrevia4.getSelectedItem().toString();
+         String puntadas = cbbordados4.getSelectedItem().toString();
+         String bordado = cbbordados4.getSelectedItem().toString();
         
          if (puntadas.equals("SEGURIDAD"))
          {
@@ -9893,16 +10308,16 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         
         }
         
-    }//GEN-LAST:event_cbpuntadasPrevia4PopupMenuWillBecomeInvisible
+    }//GEN-LAST:event_cbbordados4PopupMenuWillBecomeInvisible
 
-    private void cbpuntadasPrevia5PopupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbpuntadasPrevia5PopupMenuCanceled
+    private void cbbordados5PopupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbbordados5PopupMenuCanceled
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbpuntadasPrevia5PopupMenuCanceled
+    }//GEN-LAST:event_cbbordados5PopupMenuCanceled
 
-    private void cbpuntadasPrevia5PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbpuntadasPrevia5PopupMenuWillBecomeInvisible
+    private void cbbordados5PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbbordados5PopupMenuWillBecomeInvisible
        
-       String puntadas = cbpuntadasPrevia5.getSelectedItem().toString();
-       String bordado = cbpuntadasPrevia5.getSelectedItem().toString();
+       String puntadas = cbbordados5.getSelectedItem().toString();
+       String bordado = cbbordados5.getSelectedItem().toString();
         
         
          if (puntadas.equals("SEGURIDAD #1"))
@@ -10022,7 +10437,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         
         
         
-    }//GEN-LAST:event_cbpuntadasPrevia5PopupMenuWillBecomeInvisible
+    }//GEN-LAST:event_cbbordados5PopupMenuWillBecomeInvisible
 
     private void btnagregarfotomontajeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnagregarfotomontajeMouseEntered
       
@@ -11090,6 +11505,13 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
     private javax.swing.JComboBox cbaplicacioncolor6;
     private javax.swing.JComboBox cbaplicacioncolor7;
     private javax.swing.JComboBox<String> cbaroespalda;
+    private javax.swing.JComboBox<String> cbbordados1;
+    private javax.swing.JComboBox<String> cbbordados2;
+    private javax.swing.JComboBox<String> cbbordados3;
+    private javax.swing.JComboBox<String> cbbordados4;
+    private javax.swing.JComboBox<String> cbbordados5;
+    private javax.swing.JComboBox<String> cbbordados6;
+    private javax.swing.JComboBox<String> cbbordados7;
     private javax.swing.JComboBox cbcolor1;
     private javax.swing.JComboBox cbcolor2;
     private javax.swing.JComboBox cbcolor3;
@@ -11111,13 +11533,6 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbpuntadas5;
     private javax.swing.JComboBox<String> cbpuntadas6;
     private javax.swing.JComboBox<String> cbpuntadas7;
-    private javax.swing.JComboBox<String> cbpuntadasPrevia1;
-    private javax.swing.JComboBox<String> cbpuntadasPrevia2;
-    private javax.swing.JComboBox<String> cbpuntadasPrevia3;
-    private javax.swing.JComboBox<String> cbpuntadasPrevia4;
-    private javax.swing.JComboBox<String> cbpuntadasPrevia5;
-    private javax.swing.JComboBox<String> cbpuntadasPrevia6;
-    private javax.swing.JComboBox<String> cbpuntadasPrevia7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

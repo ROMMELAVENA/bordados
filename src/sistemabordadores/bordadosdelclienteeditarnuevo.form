@@ -70,23 +70,23 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel52" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                  <Component id="cbpuntadasPrevia1" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                  <Component id="cbpuntadasPrevia2" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                  <Component id="cbpuntadasPrevia3" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                  <Component id="cbbordados1" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                  <Component id="cbbordados2" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                  <Component id="cbbordados3" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="cbpuntadasPrevia7" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                          <Component id="cbpuntadasPrevia6" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
+                          <Component id="cbbordados7" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                          <Component id="cbbordados6" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="cbpuntadasPrevia5" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
-                      <Component id="cbpuntadasPrevia4" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
+                      <Component id="cbbordados5" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
+                      <Component id="cbbordados4" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="141" pref="141" max="-2" attributes="0"/>
                       <Component id="jLabel49" min="-2" pref="300" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
                       <Component id="jLabel50" min="-2" pref="500" max="-2" attributes="0"/>
                       <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
                       <Component id="jLabel59" min="-2" pref="150" max="-2" attributes="0"/>
@@ -96,7 +96,6 @@
                       <Component id="jLabel58" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="cbpuntadas5" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
                           <Component id="cbpuntadas4" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
@@ -108,11 +107,9 @@
                           <Component id="cbpuntadas2" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                           <Component id="cbpuntadas3" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lbpuntadas5" min="-2" pref="77" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -141,19 +138,14 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="btnguardar" min="-2" pref="160" max="-2" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="txt6" min="-2" pref="500" max="-2" attributes="0"/>
-                                                  <Component id="txt7" min="-2" pref="500" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="cbcolor6" min="-2" pref="150" max="-2" attributes="0"/>
-                                                  <Component id="cbcolor7" min="-2" pref="150" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txt6" min="-2" pref="500" max="-2" attributes="0"/>
+                                          <Component id="txt7" min="-2" pref="500" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="cbcolor6" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <Component id="cbcolor7" min="-2" pref="150" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -230,9 +222,13 @@
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="cbaroespalda" min="-2" pref="62" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="688" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="lbpuntadas5" min="-2" pref="77" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
                       <Component id="btneliminartodo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnguardar" min="-2" pref="160" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnimportarfotomontaje" min="-2" pref="145" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -322,170 +318,143 @@
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel51" min="-2" pref="29" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel50" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="jLabel49" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel50" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jLabel59" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jLabel60" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Component id="cbpuntadas1" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                              <Component id="cbpuntadas2" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Component id="cbpuntadas3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                              <Component id="cbpuntadas4" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="cbpuntadas5" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbpuntadas5" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lbetiqueta1" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="cbaplicacioncantidad1" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="cbaplicacioncolor1" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txt1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="cbcolor1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="cbhilo1" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Component id="cbpuntadas6" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="cbpuntadas7" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lbetiqueta1" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="cbaplicacioncantidad1" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="cbaplicacioncolor1" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txt1" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="cbcolor1" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="cbhilo1" min="-2" pref="30" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lbetiqueta2" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                      <Component id="txt2" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="cbcolor2" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                                      <Component id="cbhilo2" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                      <Component id="cbaplicacioncantidad2" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                      <Component id="cbaplicacioncolor2" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lbetiqueta2" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                              <Component id="txt2" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="cbcolor2" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                              <Component id="cbhilo2" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                              <Component id="cbaplicacioncantidad2" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                              <Component id="cbaplicacioncolor2" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lbetiqueta3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                              <Component id="txt3" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                              <Component id="cbcolor3" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                              <Component id="cbhilo3" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                              <Component id="cbaplicacioncantidad3" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="cbaplicacioncolor3" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <Component id="lbetiqueta4" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="lbetiqueta6" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lbetiqueta3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                      <Component id="txt3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                      <Component id="cbcolor3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                      <Component id="cbhilo3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                      <Component id="cbaplicacioncantidad3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="cbaplicacioncolor3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="lbidentificadordeprendaanterior" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="lbetiqueta7" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                      <Component id="lbetiqueta4" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                      <Component id="lbetiqueta6" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lbidentificadordeprendaanterior" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="lbetiqueta7" min="-2" pref="30" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                      <Component id="cbcolor4" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                      <Component id="cbcolor5" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                              <Component id="cbcolor4" min="-2" pref="30" max="-2" attributes="0"/>
-                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                              <Component id="cbcolor5" min="-2" pref="30" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                              <Component id="cbhilo4" min="-2" pref="30" max="-2" attributes="0"/>
-                                              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                                              <Component id="cbhilo5" min="-2" pref="30" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                                              <Component id="cbaplicacioncantidad4" min="-2" pref="30" max="-2" attributes="0"/>
-                                              <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
-                                              <Component id="cbaplicacioncantidad5" min="-2" pref="30" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="cbaplicacioncolor4" min="-2" pref="30" max="-2" attributes="0"/>
-                                              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                                              <Component id="cbaplicacioncolor5" min="-2" pref="30" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                              <Component id="txt4" min="-2" pref="30" max="-2" attributes="0"/>
-                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                              <Component id="txt5" min="-2" pref="30" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                              <Component id="txt6" min="-2" pref="30" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                              <Component id="txt7" min="-2" pref="30" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                              <Component id="cbcolor6" min="-2" pref="30" max="-2" attributes="0"/>
-                                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                              <Component id="cbcolor7" min="-2" pref="30" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                              <Component id="cbhilo6" min="-2" pref="30" max="-2" attributes="0"/>
-                                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                              <Component id="cbhilo7" min="-2" pref="30" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                              <Component id="cbaplicacioncantidad6" min="-2" pref="30" max="-2" attributes="0"/>
-                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                              <Component id="cbaplicacioncantidad7" min="-2" pref="30" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="cbaplicacioncolor6" min="-2" pref="30" max="-2" attributes="0"/>
-                                              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                                              <Component id="cbaplicacioncolor7" min="-2" pref="30" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                      <Component id="cbhilo4" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                                      <Component id="cbhilo5" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                                      <Component id="cbaplicacioncantidad4" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
+                                      <Component id="cbaplicacioncantidad5" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="cbaplicacioncolor4" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                                      <Component id="cbaplicacioncolor5" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                      <Component id="txt4" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                      <Component id="txt5" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                      <Component id="txt6" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                      <Component id="txt7" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                      <Component id="cbcolor6" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                      <Component id="cbcolor7" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                      <Component id="cbhilo6" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                      <Component id="cbhilo7" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                      <Component id="cbaplicacioncantidad6" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                      <Component id="cbaplicacioncantidad7" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="cbaplicacioncolor6" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                                      <Component id="cbaplicacioncolor7" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -495,50 +464,71 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel52" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      <Component id="cbpuntadasPrevia1" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="cbbordados1" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      <Component id="cbpuntadasPrevia2" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="cbbordados2" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Component id="cbpuntadasPrevia3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="cbbordados3" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                      <Component id="cbpuntadasPrevia4" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="cbbordados4" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cbpuntadasPrevia5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="cbbordados5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="lbetiqueta5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cbpuntadasPrevia6" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="cbbordados6" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cbpuntadasPrevia7" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="cbbordados7" min="-2" pref="30" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Component id="jLabel49" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Component id="cbpuntadas1" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                      <Component id="cbpuntadas2" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Component id="cbpuntadas3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Component id="cbpuntadas4" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="cbpuntadas5" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      <Component id="cbpuntadas6" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="cbpuntadas7" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnagregarfotomontaje" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btnverfotomontaje" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btneliminarfotomontaje" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jLabel2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btneliminartodo" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnimportarfotomontaje" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="btnguardar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnagregarfotomontaje" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnverfotomontaje" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btneliminarfotomontaje" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lbpuntadas5" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="cbaroespalda" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="cbaroespalda" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btneliminartodo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btnguardar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btnimportarfotomontaje" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Component id="lbfotomontaje" min="-2" pref="506" max="-2" attributes="0"/>
@@ -1703,7 +1693,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbpuntadasPrevia7">
+    <Component class="javax.swing.JComboBox" name="cbbordados7">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1713,13 +1703,13 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbpuntadasPrevia7PopupMenuWillBecomeInvisible"/>
+        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbbordados7PopupMenuWillBecomeInvisible"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbpuntadasPrevia2">
+    <Component class="javax.swing.JComboBox" name="cbbordados2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1729,13 +1719,13 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbpuntadasPrevia2PopupMenuWillBecomeInvisible"/>
+        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbbordados2PopupMenuWillBecomeInvisible"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbpuntadasPrevia1">
+    <Component class="javax.swing.JComboBox" name="cbbordados1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1745,7 +1735,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbpuntadasPrevia1PopupMenuWillBecomeInvisible"/>
+        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbbordados1PopupMenuWillBecomeInvisible"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1768,7 +1758,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbpuntadasPrevia6">
+    <Component class="javax.swing.JComboBox" name="cbbordados6">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1778,13 +1768,13 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbpuntadasPrevia6PopupMenuWillBecomeInvisible"/>
+        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbbordados6PopupMenuWillBecomeInvisible"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbpuntadasPrevia3">
+    <Component class="javax.swing.JComboBox" name="cbbordados3">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1794,13 +1784,13 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbpuntadasPrevia3PopupMenuWillBecomeInvisible"/>
+        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbbordados3PopupMenuWillBecomeInvisible"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbpuntadasPrevia4">
+    <Component class="javax.swing.JComboBox" name="cbbordados4">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1810,13 +1800,13 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbpuntadasPrevia4PopupMenuWillBecomeInvisible"/>
+        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbbordados4PopupMenuWillBecomeInvisible"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbpuntadasPrevia5">
+    <Component class="javax.swing.JComboBox" name="cbbordados5">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1826,8 +1816,8 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="popupMenuCanceled" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbpuntadasPrevia5PopupMenuCanceled"/>
-        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbpuntadasPrevia5PopupMenuWillBecomeInvisible"/>
+        <EventHandler event="popupMenuCanceled" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbbordados5PopupMenuCanceled"/>
+        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="cbbordados5PopupMenuWillBecomeInvisible"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

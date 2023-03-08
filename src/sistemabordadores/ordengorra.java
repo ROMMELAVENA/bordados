@@ -1,5 +1,6 @@
 package sistemabordadores;
 import java.applet.AudioClip;
+import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -104,7 +105,6 @@ public class ordengorra extends javax.swing.JFrame {
         ventanaordengorra = true;
 
         lbnumeroventa.setVisible(false);
-        lbtienda.setVisible(false);
         lbtiendaalaquereplicara.setVisible(false);
         
         lbrutaladoizquierdo.setVisible(false);
@@ -114,7 +114,7 @@ public class ordengorra extends javax.swing.JFrame {
         lbrutaimagen.setVisible(false);       
         lbtipo.setVisible(false);
         btnreplicar.setEnabled(false);
-        
+        btndatos.setVisible(false); 
         btnterminetodo.setEnabled(false);
                 
                 
@@ -135,7 +135,7 @@ public class ordengorra extends javax.swing.JFrame {
         String botonactivado4 = "";
 
         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,"
-                + "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras,nombre_concepto from historial_ordenes_gorra where numero = '" + folio + "'";
+                + "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras,nombre_concepto,estatus_orden from historial_ordenes_gorra where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -173,6 +173,7 @@ public class ordengorra extends javax.swing.JFrame {
                 
                 lbladoizquierdo.setText(rs.getString("lado_izquierdo"));
                 String ladoizquierdo =  rs.getString("lado_izquierdo");
+               
                 if(ladoizquierdo ==null||ladoizquierdo.equals(""))
                 {
                     btnladoizquierdo.setEnabled(false);
@@ -234,41 +235,113 @@ public class ordengorra extends javax.swing.JFrame {
                 if(cantidadfrente.equals("0") && botonactivado1.equals("si"))
                 {
                    btnfrente.setEnabled(true);  
+                   btnfrente.setText("Frente");
+                   btnfrente.setForeground(Color.green.darker());
+                   if(botonactivado1.equals("si"))
+                   {
                    listabotones.add("btnfrente");
+                   }
                 }
                 else
                 {
+                     if(botonactivado1.equals("si"))
+                   {
+                     btnfrente.setEnabled(true);
+                     btnfrente.setText("Cancelar"); 
+                     btnfrente.setForeground(Color.red);
+                     
+
+                     
+                   }
+                   else
+                   {
                    btnfrente.setEnabled(false);  
-                }  
+                   }
+                }
+                
+                
+                
                 
                  if(cantidadladoderecho.equals("0")  && botonactivado3.equals("si") )
                 {
-                    btnladoderecho.setEnabled(true); 
+                   btnladoderecho.setEnabled(true); 
+                   btnladoderecho.setText("Lado Derecho");
+                   btnladoderecho.setForeground(Color.green.darker());
+                   if(botonactivado3.equals("si"))
+                   {
                     listabotones.add("btnladoderecho");
+                   }
                 }
                 else
                 {
+                     if(botonactivado3.equals("si"))
+                   {
+                     btnladoderecho.setEnabled(true);
+                     btnladoderecho.setText("Cancelar"); 
+                     btnladoderecho.setForeground(Color.red);
+                     
+
+                     
+                   }
+                   else
+                   {
                    btnladoderecho.setEnabled(false);  
+                   }
                 } 
+                 
+                 /// lado izquierdo
                  
                  if(cantidadladoizquierdo.equals("0")  && botonactivado2.equals("si"))
                 {
                    btnladoizquierdo.setEnabled(true); 
+                   btnladoizquierdo.setText("Lado Izquierdo");
+                   btnladoizquierdo.setForeground(Color.green.darker());
+                   if(botonactivado2.equals("si"))
+                   {
                    listabotones.add("btnladoizquierdo");
+                   }
                 }
                 else
                 {
+                      if(botonactivado2.equals("si"))
+                   {
+                     btnladoizquierdo.setEnabled(true);
+                     btnladoizquierdo.setText("Cancelar"); 
+                     btnladoizquierdo.setForeground(Color.red);
+
+                   }
+                   else
+                   {
                     btnladoizquierdo.setEnabled(false);
+                   }
                 }
+                 
+                 
+                 
                  
                   if(cantidadatras.equals("0")  && botonactivado4.equals("si"))
                 {
-                    btnatras.setEnabled(true);
+                   btnatras.setEnabled(true);
+                   btnatras.setText("Atras");
+                   btnatras.setForeground(Color.green.darker());
+                   if(botonactivado4.equals("si"))
+                   {
                     listabotones.add("btnatras");
+                   }
                 }
                 else
                 {
+                      if(botonactivado4.equals("si"))
+                   {
+                     btnatras.setEnabled(true);
+                     btnatras.setText("Cancelar"); 
+                     btnatras.setForeground(Color.red);
+
+                   }
+                   else
+                   {
                     btnatras.setEnabled(false);
+                   }
                 } 
                 
                 String observacion = rs.getString("observacion");
@@ -286,6 +359,17 @@ public class ordengorra extends javax.swing.JFrame {
                 
                 }  
                   
+                String estatusorden = rs.getString("estatus_orden");
+                
+                if(estatusorden.equals("realizada"))
+                {
+                  btnterminetodo.setEnabled(false);  
+                }
+                else
+                {
+                   btnterminetodo.setEnabled(true); 
+                }   
+                
                   
 
             }
@@ -381,7 +465,7 @@ public class ordengorra extends javax.swing.JFrame {
         btnverfotomontaje.setEnabled(false);
         String path ="";
 
-       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";  ///
+       String sql = "Select extension_imagen,imagen,numero_consecutivo,puntadas_en_fotomontajes from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";  ///
 
         try {
 
@@ -389,11 +473,16 @@ public class ordengorra extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
             {
+                
+                puntadasenfotomontajes=rs.getString("puntadas_en_fotomontajes");
+                consecutivo = rs.getString("numero_consecutivo");
+                 
                 Imagen imagen = new Imagen();
                 Blob blob = rs.getBlob("imagen");
                 if (blob == null) 
                 {
 
+                    
                     ordencamisaimagencontorno p = new ordencamisaimagencontorno();
                     jPanel1.add(p);
                     jPanel1.repaint();
@@ -465,21 +554,34 @@ public class ordengorra extends javax.swing.JFrame {
         
         
         
-        if(tienefotomontaje.equals("si"))
+         if(puntadasenfotomontajes.equals("si"))
         {
-          
+
+            btnfrente.setEnabled(false);
+            btnladoizquierdo.setEnabled(false);
+            btnladoderecho.setEnabled(false);
+            btnatras.setEnabled(false);
            
-           
+            
+       
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar nuevo fotomontaje SIN PUNTADAS");
+            btnfotomontajesinpuntadas.setEnabled(true);
+            btnterminetodo.setEnabled(false);
             
         
         }
-        else
+        
+         else if(tienefotomontaje.equals("no"))
         {
+        
             btnatras.setEnabled(false);
             btnladoizquierdo.setEnabled(false);
             btnladoderecho.setEnabled(false);
             btnfrente.setEnabled(false);
             
+             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
+             btnfotomontajesinpuntadas.setEnabled(false);
+             btnterminetodo.setEnabled(false);
             
         }  
 
@@ -1476,6 +1578,20 @@ public class ordengorra extends javax.swing.JFrame {
                 }
                
            }
+           else
+           {
+               try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='generada' where numero='" + lborden.getText() + "'   ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+                }
+               
+           }    
 
 
         }
@@ -2320,6 +2436,11 @@ public class ordengorra extends javax.swing.JFrame {
         });
 
         btndatos.setText("datos");
+        btndatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndatosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2832,6 +2953,8 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
             }
             
         }
+        
+        btndatos.doClick();
     }//GEN-LAST:event_btnladoderechoActionPerformed
 
     private void btnreplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreplicarActionPerformed
@@ -3291,6 +3414,8 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
             
         }
     
+        
+        btndatos.doClick();
     }//GEN-LAST:event_btnfrenteActionPerformed
 
     private void btnladoizquierdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdoActionPerformed
@@ -3382,6 +3507,8 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
             }
             
         }
+        
+        btndatos.doClick();
     }//GEN-LAST:event_btnladoizquierdoActionPerformed
 
     private void btnatrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasActionPerformed
@@ -3472,6 +3599,8 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
             }
             
         }
+       
+       btndatos.doClick();
        
     }//GEN-LAST:event_btnatrasActionPerformed
 
@@ -3663,6 +3792,75 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
         }
 
     }//GEN-LAST:event_btnfotomontajesinpuntadasActionPerformed
+
+    private void btndatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndatosActionPerformed
+
+        if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
+    {
+      
+         nombredelatabla = "historial_ordenes_gorra";
+
+        try {
+            datos();
+        } catch (IOException ex) {
+            Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        codigocliente();
+        
+        cliente();
+        
+         hilosycolor();
+        
+        try {
+            agregarfotomontaje();
+        } catch (IOException ex) {
+            Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(enquesucursalsebordara.equals("Otra sucursal"))
+        {
+        btnterminetodo.setEnabled(false);
+         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");
+        
+        }
+        sumapuntos();
+        
+    }
+else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
+    {
+        nombredelatabla = "historial_ordenes_gorra_recibidas";
+        
+         try {
+            datosotrasucursal();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         try {    
+            agregarfotomontajeotrasucursal();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+         
+         
+         
+         sumapuntos();
+    }
+
+
+        AudioClip sonido;
+        if (tieneunaobservacion.equals("si")) {
+            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));
+            sonido.play();
+
+        }
+
+        
+        
+        
+        
+    }//GEN-LAST:event_btndatosActionPerformed
 
  
 

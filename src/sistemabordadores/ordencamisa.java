@@ -350,7 +350,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 + "   otra_ubicacion,otra_ubicacion_nombre,cantidad_otra_ubicacion,otra_ubicacion2,otra_ubicacion2_nombre,cantidad_otra_ubicacion2,"
                 + "   aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,"
                 + "   aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,"
-                + "   lugar,estatus_orden,nombre_concepto,tienda from historial_ordenes_camisa where numero = '" + numerodeorden + "' ";
+                + "   lugar,estatus_orden,nombre_concepto,tienda,estatus_orden from historial_ordenes_camisa where numero = '" + numerodeorden + "' ";
 
         try {
             Statement st = cn.createStatement();
@@ -793,7 +793,19 @@ public class ordencamisa extends javax.swing.JFrame {
                     btninsertarponchados.setEnabled(true);
                     cbsucursal.setEnabled(true);
                     
-                }    
+                } 
+                
+                
+                 String estatusorden = rs.getString("estatus_orden");
+                
+                if(estatusorden.equals("realizada"))
+                {
+                  btnterminetodo.setEnabled(false);  
+                }
+                else
+                {
+                   btnterminetodo.setEnabled(true); 
+                }   
                 
 
             }

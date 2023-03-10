@@ -1290,17 +1290,35 @@ public class ordencamisa extends javax.swing.JFrame {
         btnverfotomontaje.setEnabled(false);
         
         String cliente = "";
+        String numerosucursal = "";
         
         
         if (tiendaenvia.equals(tiendalocal))
             
         {
             
-            
-            
-            
-                    
+      
         numerodeorden = lborden.getText();
+        
+        String sql1 = "Select numero_sucursal_orden from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql1);
+            if (rs.next())
+            {
+
+                numerosucursal = rs.getString("numero_sucursal_orden");
+               
+                
+
+            }
+
+        } catch (SQLException ex) 
+        {
+             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }
+        
         
       
 
@@ -1311,13 +1329,10 @@ public class ordencamisa extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(sql7);
             if (rs.next()) {
 
-            cliente = rs.getString("cliente");
+                cliente = rs.getString("cliente");
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
-               
                 sucursal = rs.getString("tienda");
-            
-                
                 identificadordeprenda = rs.getString("identificador_prenda");
                 
 
@@ -1777,7 +1792,7 @@ public class ordencamisa extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set "+ubicacion+"='" + lbcantidad.getText() + "' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set "+ubicacion+"='" + lbcantidad.getText() + "',fecha='"+dia()+"' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1812,7 +1827,7 @@ public class ordencamisa extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set "+ubicacion+"='" + lbcantidad.getText() + "' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set "+ubicacion+"='" + lbcantidad.getText() + "' ,fecha='"+dia()+"' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1839,7 +1854,7 @@ public class ordencamisa extends javax.swing.JFrame {
     
      public static String dia() {
         Date fecha = new Date();
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
         return formatoFecha.format(fecha);
     }
 

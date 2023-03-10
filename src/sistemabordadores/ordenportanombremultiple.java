@@ -1405,7 +1405,7 @@ public class ordenportanombremultiple extends javax.swing.JFrame {
         else
         {
         
-        String sql = "SELECT articulo,cantidad FROM historial_ventas WHERE numero = '"+lbnumeroventa.getText()+"' and articulo LIKE '%PORTA NOMBRE%MULTIPLE%' ";
+        String sql = "SELECT articulo,cantidad FROM historial_ventas WHERE numero = '"+lbnumeroventa.getText()+"',fecha='"+dia()+"' and articulo LIKE '%PORTA NOMBRE%MULTIPLE%' ";
 
         try {
             Statement st = cn.createStatement();

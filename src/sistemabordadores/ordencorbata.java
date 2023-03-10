@@ -361,7 +361,7 @@ public class ordencorbata extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + lbbordadosorden.getText() + "'  where numero = '"+lbfolio.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + lbbordadosorden.getText() + "',fecha='"+dia()+"'  where numero = '"+lbfolio.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 

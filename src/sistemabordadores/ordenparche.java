@@ -271,7 +271,7 @@ public static boolean ventanaordenparcheanteriores = false;
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set cantidad_parche='" +cantidadponchadosactualizar+ "' where numero = '"+lbnumerosucursal.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set cantidad_parche='" +cantidadponchadosactualizar+ "',fecha='"+dia()+"' where numero = '"+lbnumerosucursal.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 

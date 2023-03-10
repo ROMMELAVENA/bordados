@@ -195,7 +195,7 @@ public static boolean ventanaordenparcheanteriores = false;
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set cantidad_ponchado='" +cantidadponchadosactualizar+ "' where numero = '"+lbfolio.getText()+"' and articulo = '"+nombredelponchado+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set cantidad_ponchado='" +cantidadponchadosactualizar+ "',fecha='"+dia()+"' where numero = '"+lbfolio.getText()+"' and articulo = '"+nombredelponchado+"'  ");
                     pst.executeUpdate();
                     pst.close();
 

@@ -1914,6 +1914,7 @@ public class principal extends javax.swing.JFrame {
         btnordenesbordadosucursalrealizadas1 = new javax.swing.JButton();
         lbtienda = new javax.swing.JLabel();
         lbip = new javax.swing.JLabel();
+        btninformacionrapida = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
@@ -2027,6 +2028,14 @@ public class principal extends javax.swing.JFrame {
 
         lbip.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
+        btninformacionrapida.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btninformacionrapida.setText("INFORMACION RAPIDA");
+        btninformacionrapida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btninformacionrapidaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2036,20 +2045,21 @@ public class principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnordenesbordadosucursalrealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnordenesbordadosucursalporrealizar, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnordenesbordadosucursalporrealizar1))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(lbnumero)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lbip, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnordenesbordadosucursalrealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnordenesbordadosucursalporrealizar, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnordenesbordadosucursalporrealizar1)
+                                    .addComponent(btninformacionrapida, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -2097,7 +2107,9 @@ public class principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnordenesbordadosucursalrealizadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnordenesbordadosucursalrealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addComponent(btninformacionrapida, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbsumapuntos)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2444,6 +2456,16 @@ public class principal extends javax.swing.JFrame {
      }
     }//GEN-LAST:event_btnordenesbordadosucursalrealizadas1ActionPerformed
 
+    private void btninformacionrapidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninformacionrapidaActionPerformed
+        if (informacionrapidacatalogo.ventanainformacionrapidacatalogo == true) 
+        {
+            informacionrapidacatalogo.btnmaximizar.doClick();
+        } else {
+            informacionrapidacatalogo nom = new informacionrapidacatalogo();
+            nom.setVisible(true);
+        }
+    }//GEN-LAST:event_btninformacionrapidaActionPerformed
+
 
     public static void main(String args[]) {
       
@@ -2455,6 +2477,7 @@ public class principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btninformacionrapida;
     private javax.swing.JButton btnordenesbordadosucursalporrealizar;
     private javax.swing.JButton btnordenesbordadosucursalporrealizar1;
     private javax.swing.JButton btnordenesbordadosucursalrealizadas;

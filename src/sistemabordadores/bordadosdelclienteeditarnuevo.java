@@ -2685,7 +2685,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
     
         
         BufferedImage img = null;
-        String sqlimagen = "Select imagen,extension_imagen from bordados_puntadas where codigo = '" + codigodelcliente + "' and tipo = '"+prenda+"' and numero_consecutivo = '"+lbconsecutivo.getText()+"'   ";
+        String sqlimagen = "Select imagen,extension_imagen from bordados_puntadas where codigo = '" + codigodelcliente + "' and tipo = '"+prenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'   ";
 
         try {
 

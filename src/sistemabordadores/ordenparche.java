@@ -63,6 +63,9 @@ public static boolean ventanaordenparcheanteriores = false;
        String identificadordeprenda = "";
        String consecutivo = "";
        String tieneunaobservacion = "";
+       String numerosucursalordencamisa = "";
+       String tienenumerodesucursal = "";
+       String sucursal = "";
    
     public ordenparche() 
     {
@@ -127,6 +130,20 @@ public static boolean ventanaordenparcheanteriores = false;
                 
                 }
 
+                numerosucursalordencamisa=rs.getString("numero_orden");
+                sucursal=rs.getString("tienda");
+                
+                
+                if(numerosucursalordencamisa ==null  || numerosucursalordencamisa.equals("") ||numerosucursalordencamisa.equals(" ") )
+                {
+                    tienenumerodesucursal ="no";
+                }
+                else
+                {
+                    tienenumerodesucursal ="si";
+                }   
+                
+                
                 
                 renglon = renglon +1 ; 
                 mostrarrenglones();
@@ -332,7 +349,7 @@ public static boolean ventanaordenparcheanteriores = false;
        
         
         //// bordado
-        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad,numero_sucursal,sucursal) VALUES (?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -345,6 +362,19 @@ public static boolean ventanaordenparcheanteriores = false;
                 pst.setString(4, ubicacioninsertar);
                 pst.setString(5, "ninguno");
                 pst.setString(6, cantidad);
+                
+                if(tienenumerodesucursal.equals("no") )
+                {
+                    pst.setString(7, "00000000");
+                    pst.setString(8, "ninguno");
+                }
+                else
+                {
+                    pst.setString(7, numerosucursalordencamisa);
+                    pst.setString(8, sucursal);
+                } 
+                
+                
                 pst.executeUpdate();
                 pst.close();
 

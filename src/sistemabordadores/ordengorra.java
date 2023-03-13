@@ -2871,7 +2871,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
         if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             
-             if (btnladoizquierdo.getText().equals("Cancelar")) 
+             if (btnladoderecho.getText().equals("Cancelar")) 
             {
                 if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado de lado derecho?", "WARNING",
                         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)

@@ -1,4 +1,5 @@
 package sistemabordadores;
+
 import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Desktop;
@@ -82,6 +83,10 @@ public class ordenpantalon extends javax.swing.JFrame {
     String consecutivo = "";
     String tieneunaobservacion = ""; 
     
+    String tienenumerodesucursal = "";
+    String numerosucursalordenpantalon = "";
+    String sucursal = "";
+    
 
     private PreparedStatement pst;
 
@@ -116,7 +121,7 @@ public class ordenpantalon extends javax.swing.JFrame {
 
         
 
-        String sql = "Select fecha,hora,cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,nombre_concepto from historial_ordenes_pantalon where numero = '" + folio + "'";
+        String sql = "Select fecha,hora,cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,nombre_concepto,tienda,numero_orden from historial_ordenes_pantalon where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -127,6 +132,18 @@ public class ordenpantalon extends javax.swing.JFrame {
                 lbnumeroventa.setText(rs.getString("numero_venta"));
                 numeroventa = rs.getString("numero_venta");
                 prenda = rs.getString("prenda");
+                
+                numerosucursalordenpantalon=rs.getString("numero_orden");
+                sucursal=rs.getString("tienda");
+                
+                 if(numerosucursalordenpantalon ==null  || numerosucursalordenpantalon.equals("") ||numerosucursalordenpantalon.equals(" ") )
+                {
+                    tienenumerodesucursal ="no";
+                }
+                else
+                {
+                    tienenumerodesucursal ="si";
+                }   
                 
                 
                 String observacion = rs.getString("observacion");
@@ -1068,7 +1085,7 @@ public class ordenpantalon extends javax.swing.JFrame {
        
         
         //// bordado
-        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad,numero_sucursal,sucursal) VALUES (?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -1081,6 +1098,18 @@ public class ordenpantalon extends javax.swing.JFrame {
                 pst.setString(4, ubicacioninsertar);
                 pst.setString(5, identificadordeprenda);
                 pst.setString(6, lbcantidad.getText());
+                
+                 if(tienenumerodesucursal.equals("no") )
+                {
+                    pst.setString(7, "00000000");
+                    pst.setString(8, "ninguno");
+                }
+                else
+                {
+                    pst.setString(7, numerosucursalordenpantalon);
+                    pst.setString(8, sucursal);
+                } 
+                
                 pst.executeUpdate();
                 pst.close();
 
@@ -1096,19 +1125,26 @@ public class ordenpantalon extends javax.swing.JFrame {
                int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
                int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
                
-               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad,numero_sucursal,sucursal) VALUES (?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
-            
-                
- 
                 pst.setString(1, lbnumeroventa.getText());
                 pst.setString(2, dia());
                 pst.setString(3, hora());
                 pst.setString(4, aplicacioninsertar);
                 pst.setString(5, identificadordeprenda);
                 pst.setString(6, String.valueOf(totalaplicaciones));
+                  if(tienenumerodesucursal.equals("no") )
+                {
+                    pst.setString(7, "00000000");
+                    pst.setString(8, "ninguno");
+                }
+                else
+                {
+                    pst.setString(7, numerosucursalordenpantalon);
+                    pst.setString(8, sucursal);
+                } 
                 pst.executeUpdate();
                 pst.close();
 

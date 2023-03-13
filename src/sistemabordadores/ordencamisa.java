@@ -365,7 +365,6 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
                 lbfecha.setText(rs.getString("fecha"));
-                sucursal = rs.getString("tienda");
                 lbcantidad.setText(rs.getString("cantidad"));
                 lbdiaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));

@@ -66,6 +66,7 @@ public class ordengorra extends javax.swing.JFrame {
     int traspaso = 0;
 
     String numerosucursal = "";
+    String numerosucursalordengorra = "";
     String sucursal = "";
     String numerosolicitoarticulos = "";
     String tiendasolicitoarticulos = "";
@@ -98,6 +99,8 @@ public class ordengorra extends javax.swing.JFrame {
    String identificadordeprenda = "";
    String consecutivo = "";
    String tieneunaobservacion = "";
+   String tienenumerodesucursal = "";
+   
  
 
     public ordengorra() {
@@ -135,7 +138,7 @@ public class ordengorra extends javax.swing.JFrame {
         String botonactivado4 = "";
 
         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,"
-                + "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras,nombre_concepto,estatus_orden from historial_ordenes_gorra where numero = '" + folio + "'";
+                + "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras,nombre_concepto,estatus_orden,numero_orden,tienda from historial_ordenes_gorra where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -143,7 +146,7 @@ public class ordengorra extends javax.swing.JFrame {
             if (rs.next()) {
 
                 lbcliente.setText(rs.getString("cliente"));
-             
+              
                 lbcantidad.setText(rs.getString("cantidad"));
                 lbfechaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
@@ -155,6 +158,21 @@ public class ordengorra extends javax.swing.JFrame {
                 
                 identificadordeprenda =rs.getString("nombre_concepto");
                 lbidentificadordeprenda.setText(identificadordeprenda);
+                
+                numerosucursalordengorra=rs.getString("numero_orden");
+                sucursal=rs.getString("tienda");
+                
+                
+                if(numerosucursalordengorra ==null  || numerosucursalordengorra.equals("") ||numerosucursalordengorra.equals(" ") )
+                {
+                    tienenumerodesucursal ="no";
+                }
+                else
+                {
+                    tienenumerodesucursal ="si";
+                }    
+                
+                
                 
                 lbfrente.setText(rs.getString("frente"));
                 String frente =  rs.getString("frente");
@@ -1062,7 +1080,7 @@ public class ordengorra extends javax.swing.JFrame {
        
         
         //// bordado
-        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad,numero_orden,sucursal) VALUES (?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -1075,6 +1093,20 @@ public class ordengorra extends javax.swing.JFrame {
                 pst.setString(4, ubicacioninsertar);
                 pst.setString(5, identificadordeprenda);
                 pst.setString(6, lbcantidad.getText());
+                
+                if(tienenumerodesucursal.equals("no") )
+                {
+                    pst.setString(7, "00000000");
+                    pst.setString(8, "ninguno");
+                }
+                else
+                {
+                    pst.setString(7, numerosucursalordengorra);
+                    pst.setString(8, sucursal);
+                } 
+                
+                
+                
                 pst.executeUpdate();
                 pst.close();
 
@@ -1096,7 +1128,7 @@ public class ordengorra extends javax.swing.JFrame {
                int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
                int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
                
-               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
+               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad,numero_orden,sucursal) VALUES (?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
@@ -1109,6 +1141,16 @@ public class ordengorra extends javax.swing.JFrame {
                 pst.setString(4, aplicacioninsertar);
                 pst.setString(5, identificadordeprenda);
                 pst.setString(6, String.valueOf(totalaplicaciones));
+                 if(tienenumerodesucursal.equals("no") )
+                {
+                    pst.setString(7, "00000000");
+                    pst.setString(8, "ninguno");
+                }
+                else
+                {
+                    pst.setString(7, numerosucursalordengorra);
+                    pst.setString(8, sucursal);
+                } 
                 pst.executeUpdate();
                 pst.close();
 
@@ -2825,12 +2867,17 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equa
         } catch (IOException ex) {
             Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(enquesucursalsebordara.equals("Otra sucursal"))
+        
+        
+        
+        if(enquesucursalsebordara.equals("Otra sucursal") && (numerosucursalordengorra == null || numerosucursalordengorra.equals("") || numerosucursalordengorra.equals(" ") ) )
         {
-        btnterminetodo.setEnabled(false);
+            
+         btnterminetodo.setEnabled(false);
          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");
         
         }
+       
         sumapuntos();
         
     }
@@ -3317,7 +3364,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
 
         
         
-        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local") )
         {
             if (btnfrente.getText().equals("Cancelar")) 
             {
@@ -3356,7 +3403,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
         
            }
         }
-         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
+         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local") && (tienenumerodesucursal.equals("no")) )
         {
 
         JSystemFileChooser adjuntar = new JSystemFileChooser();
@@ -3817,7 +3864,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
         } catch (IOException ex) {
             Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(enquesucursalsebordara.equals("Otra sucursal"))
+        if(enquesucursalsebordara.equals("Otra sucursal") && (numerosucursalordengorra == null || numerosucursalordengorra.equals("") || numerosucursalordengorra.equals(" ") ) )
         {
         btnterminetodo.setEnabled(false);
          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");

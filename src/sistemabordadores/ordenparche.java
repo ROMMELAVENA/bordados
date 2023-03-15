@@ -131,7 +131,7 @@ public static boolean ventanaordenparcheanteriores = false;
                 }
 
                 numerosucursalordencamisa=rs.getString("numero_orden");
-                sucursal=rs.getString("tienda");
+                sucursal= "ninguno";//rs.getString("tienda")
                 
                 
                 if(numerosucursalordencamisa ==null  || numerosucursalordencamisa.equals("") ||numerosucursalordencamisa.equals(" ") )

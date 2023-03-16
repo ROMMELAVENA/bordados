@@ -121,7 +121,7 @@ public class ordenpantalon extends javax.swing.JFrame {
 
         
 
-        String sql = "Select fecha,hora,cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,nombre_concepto,tienda,numero_orden from historial_ordenes_pantalon where numero = '" + folio + "'";
+        String sql = "Select fecha,hora,cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,nombre_concepto,numero_orden from historial_ordenes_pantalon where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -134,7 +134,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 prenda = rs.getString("prenda");
                 
                 numerosucursalordenpantalon=rs.getString("numero_orden");
-                sucursal=rs.getString("tienda");
+                sucursal="ninguno"; //rs.getString("tienda");
                 
                  if(numerosucursalordenpantalon ==null  || numerosucursalordenpantalon.equals("") ||numerosucursalordenpantalon.equals(" ") )
                 {

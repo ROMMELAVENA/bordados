@@ -421,7 +421,7 @@ public class ordengorra extends javax.swing.JFrame {
 
             }
         } catch (Exception exx) {
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:15px;\">"+exx+"");
             
 
         }
@@ -441,7 +441,7 @@ public class ordengorra extends javax.swing.JFrame {
                 }
             } catch (Exception exx) {
                 
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:15px;\">"+exx+"");
 
             }
 
@@ -461,7 +461,7 @@ public class ordengorra extends javax.swing.JFrame {
                     }
                 } catch (Exception exx) {
                     
-                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:15px;\">"+exx+"");
 
                 }
 
@@ -524,7 +524,7 @@ public class ordengorra extends javax.swing.JFrame {
                     } catch (IOException ex) 
                     {
                        
-                      JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+                      JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
 
                     }
 
@@ -568,7 +568,7 @@ public class ordengorra extends javax.swing.JFrame {
         } catch (SQLException ex) 
         {
            
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
         
         
@@ -770,7 +770,7 @@ public class ordengorra extends javax.swing.JFrame {
                         img = ImageIO.read(new ByteArrayInputStream(data));
                     } catch (IOException ex) 
                     {
-                      JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+""); 
+                      JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+""); 
                       
 
                     }
@@ -814,7 +814,7 @@ public class ordengorra extends javax.swing.JFrame {
         } catch (SQLException ex) 
         {
             
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
             
         }
         
@@ -960,7 +960,7 @@ public class ordengorra extends javax.swing.JFrame {
 
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex);
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
                 }
         
         
@@ -989,7 +989,7 @@ public class ordengorra extends javax.swing.JFrame {
 
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex);
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
                 }
         
         
@@ -1018,7 +1018,7 @@ public class ordengorra extends javax.swing.JFrame {
 
                 } catch (Exception ex) {
                     
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
                 }
         
         
@@ -1617,7 +1617,7 @@ public class ordengorra extends javax.swing.JFrame {
 
                 } catch (Exception ex) {
                     
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
                 }
                
            }
@@ -1631,7 +1631,7 @@ public class ordengorra extends javax.swing.JFrame {
 
                 } catch (Exception ex) {
                     
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
                 }
                
            }    
@@ -1715,7 +1715,7 @@ public class ordengorra extends javax.swing.JFrame {
                 }
             } catch (Exception exx) {
                 
-                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+exx+"");
 
             }
 
@@ -1737,7 +1737,7 @@ public class ordengorra extends javax.swing.JFrame {
                 }
             } catch (Exception exx) {
                 
-                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+exx+"");
 
             }
 
@@ -1760,7 +1760,7 @@ public class ordengorra extends javax.swing.JFrame {
                 }
             } catch (Exception exx) {
                 
-                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+exx+"");
 
             }
 
@@ -1782,7 +1782,7 @@ public class ordengorra extends javax.swing.JFrame {
                 }
             } catch (Exception exx) {
                 
-                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+exx+"");
 
             }
 
@@ -1815,7 +1815,7 @@ public class ordengorra extends javax.swing.JFrame {
             try {
                 PreparedStatement prst = cn.prepareStatement(sqlaplicacionchica);
                 ResultSet rs2 = prst.executeQuery();
-                if (rs.next()) {
+                if (rs2.next()) {
 
                     costostring = rs2.getString("costo");
                     costopuntadasaplicacioneschicas = Double.parseDouble(costostring);
@@ -1823,7 +1823,7 @@ public class ordengorra extends javax.swing.JFrame {
                 }
             } catch (Exception exx) {
                 
-                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+exx+"");
 
             }
 

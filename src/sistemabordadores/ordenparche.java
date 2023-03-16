@@ -747,7 +747,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
 
         Object cantidadobject = lbcantidad1.getText();
-        int cantidadparcheint = Integer.parseInt(cantidadparche);
+        int cantidadparcheint = Integer.parseInt(cantidadobject.toString());
         double costopuntada = 0.0;
         Object puntadaobject = "";
         

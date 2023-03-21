@@ -483,7 +483,51 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         }
         
         
+         //// historial ordenes internas
         
+        String sql5 = "Select numero,tipo,fecha,cantidad,prenda,descripcion,hora from historial_ordenes_bordados_interno where estatus_entrega = 'entregada' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora ";
+
+        try {
+            Statement st5 = cn.createStatement();
+            ResultSet rs5 = st5.executeQuery(sql5);
+
+            while (rs5.next()) 
+            {
+
+                String fecha = rs5.getString("fecha");
+                String cliente = "Orden bordado interno";
+                String cantidad = rs5.getString("cantidad");
+                String tipo = rs5.getString("tipo");
+                String prenda = rs5.getString("prenda");
+                String descripcion = rs5.getString("descripcion");
+
+
+               
+                datos[0] = rs5.getString("numero");
+                datos[1] = cliente;
+                datos[2] = "Orden bordado interno";
+                datos[3] = tipo;
+                datos[4] = "Local";
+                datos[5] = "ninguno";
+                datos[6] = fecha;
+                datos[7] = "";
+                datos[8] = "";
+                datos[9] = "";
+                datos[10] = "Local";
+                datos[11] = rs5.getString("descripcion");
+
+                
+                 modelo.addRow(datos);
+                
+
+                
+
+            }
+
+           
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
         
         
         
@@ -1587,6 +1631,31 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                     }
                                            
                 }
+                                    
+                else if (tipo.equals("Orden bordado interno gorra")) 
+                {
+                   
+                        
+                    if (ordeninternagorraanterior.ventanaordeninternagorraanterior == true) 
+                    {
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de portanombre");
+
+                    } 
+                    else 
+                    {
+                        Object numerodefolio = tabla.getValueAt(fila, 0);
+
+                        ordeninternagorraanterior orden = new ordeninternagorraanterior();
+                        orden.setVisible(true);
+                        ordeninternagorraanterior.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        tabla.clearSelection();
+
+                             
+                            
+                        
+                    }
+                                           
+                }                    
                                     
                                     
                 else

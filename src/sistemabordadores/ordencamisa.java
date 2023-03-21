@@ -841,13 +841,13 @@ public class ordencamisa extends javax.swing.JFrame {
         
        
         
-        String botonhabilitado1 = "si";
-        String botonhabilitado2 = "si";
-        String botonhabilitado3 = "si";
-        String botonhabilitado4 = "si";
-        String botonhabilitado5 = "si";
-        String botonhabilitado6 = "si";
-        String botonhabilitado7 = "si";
+        String botonhabilitado1 = "";
+        String botonhabilitado2 = "";
+        String botonhabilitado3 = "";
+        String botonhabilitado4 = "";
+        String botonhabilitado5 = "";
+        String botonhabilitado6 = "";
+        String botonhabilitado7 = "";
 
         numerodeorden = lborden.getText();
         
@@ -887,6 +887,10 @@ public class ordencamisa extends javax.swing.JFrame {
 
 
                 }
+                else
+                {
+                    botonhabilitado1 = "si";
+                }   
 
                 mangaizquierdanombre = rs.getString("manga_izquierda_nombre");
                 Object mangaizquierda = rs.getString("manga_izquierda");
@@ -898,6 +902,10 @@ public class ordencamisa extends javax.swing.JFrame {
                 
 
                 }
+                else
+                {
+                    botonhabilitado2 = "si";
+                } 
 
                 pechoderechonombre = rs.getString("pecho_derecho_nombre");
                 Object pechoderecho = rs.getString("pecho_derecho");
@@ -909,6 +917,10 @@ public class ordencamisa extends javax.swing.JFrame {
                      
 
                 }
+                else
+                {
+                    botonhabilitado3 = "si";
+                } 
 
                 pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                 Object pechoizquierdo = rs.getString("pecho_izquierdo");
@@ -920,6 +932,10 @@ public class ordencamisa extends javax.swing.JFrame {
                     
 
                 }
+                else
+                {
+                    botonhabilitado4 = "si";
+                } 
 
                 espaldanombre = rs.getString("espalda_nombre");
                 Object espalda = rs.getString("espalda");
@@ -931,6 +947,10 @@ public class ordencamisa extends javax.swing.JFrame {
                  
 
                 }
+                else
+                {
+                    botonhabilitado5 = "si";
+                } 
 
                 otraubicacionnombre = rs.getString("otra_ubicacion_nombre");
                 Object otraubicacion = rs.getString("otra_ubicacion");
@@ -942,6 +962,10 @@ public class ordencamisa extends javax.swing.JFrame {
                     
 
                 }
+                else
+                {
+                    botonhabilitado6 = "si";
+                } 
 
                 otraubicacion2nombre = rs.getString("otra_ubicacion2_nombre");
                 Object otraubicacion2 = rs.getString("otra_ubicacion2");
@@ -953,6 +977,10 @@ public class ordencamisa extends javax.swing.JFrame {
                     btnotraubicacion2.setVisible(false);
                    
                 }
+                else
+                {
+                    botonhabilitado7 = "si";
+                } 
 
                 lbcantidad.setText(rs.getString("cantidad"));
 
@@ -1015,9 +1043,11 @@ public class ordencamisa extends javax.swing.JFrame {
                     if(cantidadpechoizquiedo.equals("0") && botonhabilitado4.equals("si") )
                 {
                    btnpechoizquierdo.setEnabled(true);
+                  
                    if(botonhabilitado4.equals("si"))
                    {
                    listabotones.add("btnpechoizquierdo");
+                   btnterminetodo.setEnabled(true);
                    }
                    
                 }
@@ -1035,6 +1065,7 @@ public class ordencamisa extends javax.swing.JFrame {
                    if(botonhabilitado3.equals("si"))
                    {
                    listabotones.add("btnpechoderecho");
+                   btnterminetodo.setEnabled(true);
                    
                    }
                   
@@ -1052,6 +1083,7 @@ public class ordencamisa extends javax.swing.JFrame {
                    if(botonhabilitado2.equals("si"))
                    {
                    listabotones.add("btnmangaizquierda");
+                   btnterminetodo.setEnabled(true);
                    }
                   
                 }
@@ -1067,6 +1099,7 @@ public class ordencamisa extends javax.swing.JFrame {
                     if(botonhabilitado1.equals("si"))
                    {
                    listabotones.add("btnmangaderecha");
+                   btnterminetodo.setEnabled(true);
                    }
                    
                    
@@ -1085,6 +1118,7 @@ public class ordencamisa extends javax.swing.JFrame {
                    if(botonhabilitado5.equals("si"))
                    {
                    listabotones.add("btnespalda");
+                   btnterminetodo.setEnabled(true);
                    }
                  
                    

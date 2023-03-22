@@ -163,6 +163,8 @@ public class ordengorra extends javax.swing.JFrame {
                 numerosucursalordengorra=rs.getString("numero_orden");
                 sucursal=rs.getString("tienda");
                 
+                lbtiendaalaquereplicara.setText(sucursal);
+                lbtienda.setText(sucursal);
                 
                 if(numerosucursalordengorra ==null  || numerosucursalordengorra.equals("") ||numerosucursalordengorra.equals(" ") )
                 {
@@ -410,12 +412,13 @@ public class ordengorra extends javax.swing.JFrame {
         String numero = lbnumeroventa.getText();
         String pedirarticulos = "";
         String ordenenvio = "";
-        String sql2 = "Select solicito_articulos, enviada_ordenenvio from historial_ventas where numero = '" + numero + "' and estatus_pago not in ('cancelada') ";
+        String sql2 = "Select solicito_articulos, enviada_ordenenvio from historial_ventas where numero = '" + numero + "' AND (solicito_articulos NOT IN ('0') or enviada_ordenenvio NOT IN ('no')) and estatus_pago not in ('cancelada') ";
 
         try {
             PreparedStatement prst = cn.prepareStatement(sql2);
             ResultSet rs = prst.executeQuery();
-            if (rs.next()) {
+            if (rs.next()) 
+            {
                 pedirarticulos = rs.getString("solicito_articulos");
                 ordenenvio = rs.getString("enviada_ordenenvio");
 
@@ -2066,7 +2069,7 @@ public class ordengorra extends javax.swing.JFrame {
      
      void descargarponchado(String ubicacion,String ubicacionnombre)
      {
-         JSystemFileChooser fs = new JSystemFileChooser();
+         JFileChooser fs = new JFileChooser();
         
 
          try (
@@ -2957,7 +2960,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
          else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -3017,7 +3020,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
         String tiendaalaquesereplicara = lbtiendaalaquereplicara.getText();
         String strIP = "";
         String strBD = "";
-         String strBDlocal = "";
+        String strBDlocal = "";
         
          
          
@@ -3321,9 +3324,11 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
                     ex.printStackTrace();
                 }
 
-        } catch (Exception e) {
-            System.out.println(e);
-            e.printStackTrace();
+        } catch (Exception e) 
+        {
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+e+"");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Revisa tu hamachi");
+            
             return;
         }
 
@@ -3407,7 +3412,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
          else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local") && (tienenumerodesucursal.equals("no")) )
         {
 
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -3512,7 +3517,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
          else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -3602,7 +3607,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
          else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -3793,7 +3798,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
 
     private void btnfotomontajesinpuntadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfotomontajesinpuntadasActionPerformed
 
-        JSystemFileChooser elegirImagen = new JSystemFileChooser();
+        JFileChooser elegirImagen = new JFileChooser();
         elegirImagen.setMultiSelectionEnabled(false);
         int o = elegirImagen.showOpenDialog(this);
         if (o == JFileChooser.APPROVE_OPTION)

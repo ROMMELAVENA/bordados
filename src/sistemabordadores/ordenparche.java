@@ -89,7 +89,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
         
      
-     String sql = "SELECT numero,numero_venta,numero_orden,fecha,hora,cliente,tipo,estatus_entrega,articulo,parche,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,nombre_concepto,estatus_orden FROM historial_ordenes_parche WHERE numero = '"+numerodeorden+"' ";
+     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,tipo,estatus_entrega,articulo,parche,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,nombre_concepto,estatus_orden FROM historial_ordenes_parche WHERE numero = '"+numerodeorden+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -130,21 +130,9 @@ public static boolean ventanaordenparcheanteriores = false;
                 
                 }
 
-                numerosucursalordencamisa=rs.getString("numero_orden");
+               
                 sucursal= "ninguno";//rs.getString("tienda")
-                
-                
-                if(numerosucursalordencamisa ==null  || numerosucursalordencamisa.equals("") ||numerosucursalordencamisa.equals(" ") )
-                {
-                    tienenumerodesucursal ="no";
-                }
-                else
-                {
-                    tienenumerodesucursal ="si";
-                }   
-                
-                
-                
+
                 renglon = renglon +1 ; 
                 mostrarrenglones();
                 

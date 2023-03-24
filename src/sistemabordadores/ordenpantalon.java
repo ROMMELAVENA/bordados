@@ -86,6 +86,8 @@ public class ordenpantalon extends javax.swing.JFrame {
     String tienenumerodesucursal = "";
     String numerosucursalordenpantalon = "";
     String sucursal = "";
+    String tiendalocal = "";
+    String rutadedondeestanlosbordados ="";
     
 
     private PreparedStatement pst;
@@ -98,6 +100,41 @@ public class ordenpantalon extends javax.swing.JFrame {
         btnterminetodo.setEnabled(false);
         btndatos.setEnabled(false);
        
+        File file = new File("C:\\sistema\\configuracion.txt");
+        try {
+            Scanner sc = new Scanner(file);
+            while (sc.hasNext()) {
+                String line = sc.nextLine();
+                String str[] = line.split(":");
+                tiendalocal = str[1];
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+        
+        
+        if(tiendalocal.equals("cdmxcentro"))
+        {
+            rutadedondeestanlosbordados = "C:\\onedrive\\PONCHADOS\\MEXICO CENTRO\\ponchados";
+        }
+        else if(tiendalocal.equals("cdmxsur"))
+        {
+            rutadedondeestanlosbordados = "C:\\onedrive\\PONCHADOS\\MEXICO SUR\\PONCHADOS";
+        }
+        else if(tiendalocal.equals("guadalajara"))
+        {
+            rutadedondeestanlosbordados = "C:\\onedrive\\PONCHADOS\\GUADALAJARA\\PONCHADOS";
+        }
+        else if(tiendalocal.equals("tijuana"))
+        {
+            rutadedondeestanlosbordados = "C:\\Users\\Mostrador DFNorte\\OneDrive\\PONCHADOS\\TIJUANA\\PONCHADOS SINCRONIZADOS";
+        }
+        else if(tiendalocal.equals("monterrey"))
+        {
+            rutadedondeestanlosbordados = "C:\\onedrive\\PONCHADOS\\MONTERREY\\PONCHADOS";
+        }
+        
+        
     }
 
     void datos () throws FileNotFoundException, IOException
@@ -1553,7 +1590,7 @@ public class ordenpantalon extends javax.swing.JFrame {
       
      void descargarponchado(String ubicacion,String ubicacionnombre)
      {
-         JSystemFileChooser fs = new JSystemFileChooser();
+         JFileChooser fs = new JFileChooser();
         
 
          try (
@@ -2838,7 +2875,7 @@ public static String dia() {
         {
         
         
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -2940,7 +2977,7 @@ public static String dia() {
          else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -3044,7 +3081,7 @@ public static String dia() {
         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -3146,7 +3183,7 @@ public static String dia() {
         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -3332,7 +3369,7 @@ public static String dia() {
 
     private void btnfotomontajesinpuntadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfotomontajesinpuntadasActionPerformed
 
-        JSystemFileChooser elegirImagen = new JSystemFileChooser();
+        JFileChooser elegirImagen = new JFileChooser();
         elegirImagen.setMultiSelectionEnabled(false);
         int o = elegirImagen.showOpenDialog(this);
         if (o == JFileChooser.APPROVE_OPTION)

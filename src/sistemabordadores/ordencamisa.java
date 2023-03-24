@@ -142,6 +142,7 @@ public class ordencamisa extends javax.swing.JFrame {
     
     String tienenumerodesucursal = "";
     String numerosucursalordencamisa = "";
+    String rutadedondeestanlosbordados = "";
     
     
     ArrayList<String> listabotones = new ArrayList<String>();
@@ -183,6 +184,28 @@ public class ordencamisa extends javax.swing.JFrame {
             }
         } catch (IOException e) {
             System.out.println(e);
+        }
+        
+        
+        if(tiendalocal.equals("cdmxcentro"))
+        {
+            rutadedondeestanlosbordados = "C:\\onedrive\\PONCHADOS\\MEXICO CENTRO\\ponchados";
+        }
+        else if(tiendalocal.equals("cdmxsur"))
+        {
+            rutadedondeestanlosbordados = "C:\\onedrive\\PONCHADOS\\MEXICO SUR\\PONCHADOS";
+        }
+        else if(tiendalocal.equals("guadalajara"))
+        {
+            rutadedondeestanlosbordados = "C:\\onedrive\\PONCHADOS\\GUADALAJARA\\PONCHADOS";
+        }
+        else if(tiendalocal.equals("tijuana"))
+        {
+            rutadedondeestanlosbordados = "C:\\Users\\Mostrador DFNorte\\OneDrive\\PONCHADOS\\TIJUANA\\PONCHADOS SINCRONIZADOS";
+        }
+        else if(tiendalocal.equals("monterrey"))
+        {
+            rutadedondeestanlosbordados = "C:\\onedrive\\PONCHADOS\\MONTERREY\\PONCHADOS";
         }
         
         
@@ -4240,7 +4263,7 @@ public class ordencamisa extends javax.swing.JFrame {
  else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JFileChooser adjuntar = new JFileChooser();
+        JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -4484,7 +4507,8 @@ public class ordencamisa extends javax.swing.JFrame {
         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {    
         
-        JFileChooser adjuntar = new JFileChooser();
+        
+        JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -4728,7 +4752,7 @@ public class ordencamisa extends javax.swing.JFrame {
          else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JFileChooser adjuntar = new JFileChooser();
+        JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -4970,7 +4994,7 @@ public class ordencamisa extends javax.swing.JFrame {
          else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JFileChooser adjuntar = new JFileChooser();
+        JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -5204,9 +5228,9 @@ public class ordencamisa extends javax.swing.JFrame {
         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
 
+         
 
-
-        JFileChooser adjuntar = new JFileChooser();
+        JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
         String archivoextension ="";
         
         
@@ -5909,7 +5933,7 @@ public class ordencamisa extends javax.swing.JFrame {
         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JFileChooser adjuntar = new JFileChooser();
+        JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -6159,7 +6183,7 @@ public class ordencamisa extends javax.swing.JFrame {
         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JFileChooser adjuntar = new JFileChooser();
+        JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {

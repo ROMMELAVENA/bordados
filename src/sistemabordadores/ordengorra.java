@@ -101,6 +101,8 @@ public class ordengorra extends javax.swing.JFrame {
    String consecutivo = "";
    String tieneunaobservacion = "";
    String tienenumerodesucursal = "";
+   String tiendalocal = "";
+   String rutadedondeestanlosbordados ="";
    
  
 
@@ -121,7 +123,39 @@ public class ordengorra extends javax.swing.JFrame {
         btndatos.setVisible(false); 
         btnterminetodo.setEnabled(false);
                 
-                
+           File file = new File("C:\\sistema\\configuracion.txt");
+        try {
+            Scanner sc = new Scanner(file);
+            while (sc.hasNext()) {
+                String line = sc.nextLine();
+                String str[] = line.split(":");
+                tiendalocal = str[1];
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+        
+        
+        if(tiendalocal.equals("cdmxcentro"))
+        {
+            rutadedondeestanlosbordados = "C:\\onedrive\\PONCHADOS\\MEXICO CENTRO\\ponchados";
+        }
+        else if(tiendalocal.equals("cdmxsur"))
+        {
+            rutadedondeestanlosbordados = "C:\\onedrive\\PONCHADOS\\MEXICO SUR\\PONCHADOS";
+        }
+        else if(tiendalocal.equals("guadalajara"))
+        {
+            rutadedondeestanlosbordados = "C:\\onedrive\\PONCHADOS\\GUADALAJARA\\PONCHADOS";
+        }
+        else if(tiendalocal.equals("tijuana"))
+        {
+            rutadedondeestanlosbordados = "C:\\Users\\Mostrador DFNorte\\OneDrive\\PONCHADOS\\TIJUANA\\PONCHADOS SINCRONIZADOS";
+        }
+        else if(tiendalocal.equals("monterrey"))
+        {
+            rutadedondeestanlosbordados = "C:\\onedrive\\PONCHADOS\\MONTERREY\\PONCHADOS";
+        }     
                 
                 
                 

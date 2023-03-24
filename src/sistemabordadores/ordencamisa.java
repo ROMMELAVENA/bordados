@@ -3062,7 +3062,7 @@ public class ordencamisa extends javax.swing.JFrame {
      
      void descargarponchado(String ubicacion,String ubicacionnombre)
      {
-         JSystemFileChooser fs = new JSystemFileChooser();
+         JFileChooser fs = new JFileChooser();
         
 
          try (
@@ -4240,7 +4240,7 @@ public class ordencamisa extends javax.swing.JFrame {
  else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser();
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -4484,7 +4484,7 @@ public class ordencamisa extends javax.swing.JFrame {
         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {    
         
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser();
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -4728,7 +4728,7 @@ public class ordencamisa extends javax.swing.JFrame {
          else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser();
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -4970,7 +4970,7 @@ public class ordencamisa extends javax.swing.JFrame {
          else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser();
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -5206,7 +5206,7 @@ public class ordencamisa extends javax.swing.JFrame {
 
 
 
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser();
         String archivoextension ="";
         
         
@@ -5909,7 +5909,7 @@ public class ordencamisa extends javax.swing.JFrame {
         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser();
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -6159,7 +6159,7 @@ public class ordencamisa extends javax.swing.JFrame {
         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JSystemFileChooser adjuntar = new JSystemFileChooser();
+        JFileChooser adjuntar = new JFileChooser();
 
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -7012,7 +7012,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
 
         
-        JSystemFileChooser elegirImagen = new JSystemFileChooser();
+        JFileChooser elegirImagen = new JFileChooser();
         elegirImagen.setMultiSelectionEnabled(false);
         int o = elegirImagen.showOpenDialog(this);
         if (o == JFileChooser.APPROVE_OPTION) 

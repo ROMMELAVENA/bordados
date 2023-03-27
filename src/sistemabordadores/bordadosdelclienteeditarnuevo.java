@@ -7102,7 +7102,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
             FileInputStream input = null;
             try {
 
-                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigodelcliente+"' and nombre_bordado = '"+identificadordeprenda+"' and tipo = '"+lbprenda.getText()+"' and numero_consecutivo = '"+lbconsecutivo.getText()+"' ";
+                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigodelcliente+"' and nombre_bordado = '"+identificadordeprenda+"' and tipo = '"+lbprenda.getText()+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ";
 
                 myStmt = cn.prepareStatement(sql);
                 File theFile = new File(rutaarchivo);
@@ -7122,7 +7122,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
             }
 
             try {
-                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"' where codigo='"+codigodelcliente+"' and nombre_bordado = '"+identificadordeprenda+"' and tipo = '"+lbprenda.getText()+"' and numero_consecutivo = '"+lbconsecutivo.getText()+"' ");
+                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"' where codigo='"+codigodelcliente+"' and nombre_bordado = '"+identificadordeprenda+"' and tipo = '"+lbprenda.getText()+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
                 pst.executeUpdate();
                 pst.close();
             } catch (Exception e) {

@@ -7253,7 +7253,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
 
             
             
-            String SQL = "SELECT imagen FROM bordados_puntadas where codigo = '"+codigodelcliente+"'  and tipo = '"+prenda+"' and nombre_bordado = '"+nombre+"' and numero_consecutivo = '"+lbconsecutivo.getText()+"' ";
+            String SQL = "SELECT imagen FROM bordados_puntadas where codigo = '"+codigodelcliente+"'  and tipo = '"+prenda+"' and nombre_bordado = '"+nombre+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ";
 
             try {
                 Statement st1 = cn.createStatement();
@@ -7282,7 +7282,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
 
                 try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET imagen=NULL, extension_imagen='' WHERE codigo='"+codigodelcliente+"' and tipo = '"+prenda+"' and nombre_bordado = '"+nombre+"' and numero_consecutivo = '"+lbconsecutivo.getText()+"' ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET imagen=NULL, extension_imagen='' WHERE codigo='"+codigodelcliente+"' and tipo = '"+prenda+"' and nombre_bordado = '"+nombre+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {

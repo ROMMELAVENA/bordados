@@ -7089,7 +7089,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         
         
         
-        JSystemFileChooser elegirImagen = new JSystemFileChooser();
+        JFileChooser elegirImagen = new JFileChooser();
         elegirImagen.setMultiSelectionEnabled(false);
         int o = elegirImagen.showOpenDialog(this);
         if (o == JFileChooser.APPROVE_OPTION) 

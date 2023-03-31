@@ -9830,9 +9830,152 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
     private void cbbordados7PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbbordados7PopupMenuWillBecomeInvisible
        
          String puntadas = cbbordados7.getSelectedItem().toString();
-         String bordado = cbbordados7.getSelectedItem().toString();
+       String bordado = cbbordados7.getSelectedItem().toString();
         
-        cbpuntadas7.setSelectedItem(puntadas);
+        
+         if (puntadas.equals("SEGURIDAD #1"))
+         {
+             puntadas = "BORDADO DE 10,000 A 12,500 PUNTADAS";
+             txt7.setText(bordado);
+         }
+        else if (puntadas.equals("SEGURIDAD #2"))
+         {
+             puntadas = "BORDADO DE 20,000 A 22,500 PUNTADAS";
+             txt7.setText(bordado);
+         }
+        else if (puntadas.equals("SEGURIDAD PRIVADA #1"))
+         {
+             puntadas = "BORDADO DE 10,000 A 12,500 PUNTADAS";
+             txt7.setText(bordado);
+         }
+        else  if (puntadas.equals("SEGURIDAD PRIVADA #2"))
+         {
+             puntadas = "BORDADO DE 15,000 A 17,500 PUNTADAS";
+             txt7.setText(bordado);
+         }
+        else   if (puntadas.equals("SEGURIDAD PRIVADA #3"))
+         {
+             puntadas = "BORDADO DE 37,500,000 A 40,000 PUNTADAS";
+             txt7.setText(bordado);
+         }
+        
+         else
+        {   
+        
+        if (!puntadas.startsWith("BORDADO") && !puntadas.equals("ninguno"))
+            
+        {
+          
+            
+            String encontrado = "no";
+            String sql = "SELECT distinct espalda_nombre,espalda FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
+                       + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
+                       + "and espalda_nombre = '"+puntadas+"'";
+                      
+            
+                      String pechoizquierdonombre = "";
+                      String pechoizquierdo = "";
+                      
+                    
+                      
+                      
+            try {
+
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                if (rs.next()) {
+
+                   
+                   pechoizquierdonombre = rs.getString("espalda_nombre"); 
+                   pechoizquierdo = rs.getString("espalda"); 
+                   encontrado = "si";
+                
+                   
+                   if (pechoizquierdonombre.startsWith(puntadas))
+                   {
+                     puntadas =  pechoizquierdo; 
+                   }
+                   
+                  
+                  
+                   
+                   
+                   cbpuntadas7.setSelectedItem(puntadas);
+                   txt7.setText(bordado);
+                   
+                   
+                   
+                }
+                
+               
+                
+
+                st.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
+            /////Colorido bordados
+
+            if(encontrado.equals("no"))
+            {
+                
+            
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombre_bordado = '"+puntadas+"' ";
+
+                      
+            try {
+
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(sql2);
+                if (rs.next()) {
+
+                   
+                   String numeropuntadas = rs.getString("puntadas"); 
+ 
+                   cbpuntadas7.setSelectedItem(numeropuntadas);
+                   txt7.setText(puntadas);
+                   encontrado ="si";
+                   
+                   
+                }
+                
+                
+                
+
+                st.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
+            }
+        
+            
+            if(encontrado.equals("no"))
+            {
+              
+                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encotraron puntadas para este logo, llame a sistemas");
+                
+                
+            }
+            else
+            {
+               
+            } 
+            
+
+        }
+         
+        else
+            
+        {
+        cbpuntadas7.setSelectedItem(puntadas); 
+        txt7.setText(bordado);
+        
+        
+        }
+
+        }
         
         
     }//GEN-LAST:event_cbbordados7PopupMenuWillBecomeInvisible
@@ -9869,7 +10012,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
             
         {
           
-            
+            String encontrado = "no";
             
             String sql = "SELECT distinct pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
@@ -9896,6 +10039,8 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                    pechoderechonombre = rs.getString("pecho_derecho_nombre"); 
                    pechoderecho = rs.getString("pecho_derecho"); 
                     
+                   encontrado = "si";
+                   
                    
                    if (pechoizquierdonombre.startsWith(puntadas))
                    {
@@ -9912,22 +10057,64 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                    
                    cbpuntadas2.setSelectedItem(puntadas);
                    txt2.setText(bordado);
+                   encontrado = "si";
                    
+                   
+                }
+
+                st.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
+            /////Colorido bordados
+
+            if(encontrado.equals("no"))
+            {
+                
+            
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombre_bordado = '"+puntadas+"' ";
+
+                      
+            try {
+
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(sql2);
+                if (rs.next()) {
+
+                   
+                   String numeropuntadas = rs.getString("puntadas"); 
+ 
+                   cbpuntadas2.setSelectedItem(numeropuntadas);
+                   txt2.setText(numeropuntadas);
+                   encontrado ="si";
                    
                    
                 }
                 
-                else
-                {
-                    
-                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encotraron puntadas para este logo, llame a sistemas");
-                }
+                
                 
 
                 st.close();
             } catch (SQLException ex) {
                 System.out.println(ex);
             }
+            
+            }
+        
+            
+            if(encontrado.equals("no"))
+            {
+              
+                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encotraron puntadas para este logo, llame a sistemas");
+                
+                
+            }
+            else
+            {
+                
+            } 
+            
 
         }
          
@@ -9939,16 +10126,12 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         }
         
         
+        
     }//GEN-LAST:event_cbbordados2PopupMenuWillBecomeInvisible
 
     private void cbbordados1PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbbordados1PopupMenuWillBecomeInvisible
        
-        
-           
-        
-        
-        
-          String puntadas = cbbordados1.getSelectedItem().toString();
+        String puntadas = cbbordados1.getSelectedItem().toString();
           String bordado = cbbordados1.getSelectedItem().toString();
         
          if (puntadas.equals("SEGURIDAD"))
@@ -9982,27 +10165,70 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
             
         {
           
+            String encontrado = "no";
+            String sql = "";
+            
+            /// bordados puntadas
+            
+            String pechoizquierdonombre = "";
+            String pechoizquierdo = "";
+
+            String pechoderechonombre = "";
+            String pechoderecho = "";
+            
+            String frente = "";
+            String frentenombre="";
             
             
-            String sql = "SELECT distinct pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
+            
+            
+            
+            
+            
+            
+            
+            
+           if(prenda.equals("GORRA"))
+           {
+                sql = "SELECT distinct frente_nombre,frente FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
+                       + "and tipo = 'GORRA' and frente_nombre = '"+puntadas+"' ";
+               
+           }
+           else
+           {
+                sql = "SELECT distinct pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
                        + "and pecho_izquierdo_nombre = '"+puntadas+"' or pecho_derecho_nombre = '"+puntadas+"' ";
+               
+           }
+           
+            
                       
             
-                      String pechoizquierdonombre = "";
-                      String pechoizquierdo = "";
-                      
-                      String pechoderechonombre = "";
-                      String pechoderecho = "";
+                     
                       
                       
             try {
 
                 Statement st = cn.createStatement();
                 ResultSet rs = st.executeQuery(sql);
-                if (rs.next()) {
+                if (rs.next()) 
+                {
 
+                if(prenda.equals("GORRA"))
+                {
+                   frentenombre = rs.getString("frente_nombre"); 
+                   frente = rs.getString("frente"); 
                    
+                   puntadas =  frente; 
+                   bordado = frentenombre;
+                   
+                   encontrado = "si";
+                    
+                }
+                    
+                else   
+                {    
                    pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre"); 
                    pechoizquierdo = rs.getString("pecho_izquierdo"); 
                    
@@ -10020,28 +10246,80 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                        puntadas =  pechoderecho; 
                    }
                    
+                }
+                   
                   
                    
                    
                    cbpuntadas1.setSelectedItem(puntadas);
                    txt1.setText(bordado);
-                   
+                   encontrado = "si";
                    
                    
                 }
                 
-                else
-                {
-                    
-                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encotraron puntadas para este logo, llame a sistemas");
-                }
+               
                 
 
                 st.close();
             } catch (SQLException ex) {
                 System.out.println(ex);
             }
+            
+            
+            
+            
+            
+            
+            /////Colorido bordados
 
+            if(encontrado.equals("no"))
+            {
+                
+            
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombre_bordado = '"+puntadas+"' ";
+
+                      
+            try {
+
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(sql2);
+                if (rs.next()) {
+
+                   
+                   String numeropuntadas = rs.getString("puntadas"); 
+ 
+                   cbpuntadas1.setSelectedItem(numeropuntadas);
+                   txt1.setText(numeropuntadas);
+                   encontrado ="si";
+                   
+                   
+                }
+                
+                
+                
+
+                st.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
+            }
+        
+            
+            if(encontrado.equals("no"))
+            {
+              
+                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encotraron puntadas para este logo, llame a sistemas");
+                
+                
+            }
+            else
+            {
+                
+            }    
+            
+        
         }
          
         else
@@ -10050,71 +10328,166 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         cbpuntadas1.setSelectedItem(puntadas);
         
         }
-        
-        
-        
-        
-        
-        /*
-        
-        
-        
-        String codigocliente =lbcodigocliente.getText();
-        String concepto  = lbidentificadordeprenda.getText();
-        concepto =concepto.trim();
-        String prenda = lbprenda.getText();
-
-        String sql2 = "SELECT autorizacion_puntadas from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado like '%"+concepto+"%' and tipo = '"+prenda.toString().toUpperCase()+"'  ";
-
-        try {
-            PreparedStatement prst = cn.prepareStatement(sql2);
-            ResultSet rs2 = prst.executeQuery();
-            if (rs2.next()) 
-            {
-                puntadasautorizadas = rs2.getString("autorizacion_puntadas");
-              
-
-            }
-        } catch (Exception exx) {
-            JOptionPane.showMessageDialog(null, exx);
-
-        }
-        
-        
-        
-        
-        
-        */
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
        
     }//GEN-LAST:event_cbbordados1PopupMenuWillBecomeInvisible
 
     private void cbbordados6PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbbordados6PopupMenuWillBecomeInvisible
       
-         String puntadas = cbbordados6.getSelectedItem().toString();
-         String bordado = cbbordados6.getSelectedItem().toString();
+        String puntadas = cbbordados6.getSelectedItem().toString();
+       String bordado = cbbordados6.getSelectedItem().toString();
         
-        cbpuntadas6.setSelectedItem(puntadas);
+        
+         if (puntadas.equals("SEGURIDAD #1"))
+         {
+             puntadas = "BORDADO DE 10,000 A 12,500 PUNTADAS";
+             txt6.setText(bordado);
+         }
+         else if (puntadas.equals("SEGURIDAD #2"))
+         {
+             puntadas = "BORDADO DE 20,000 A 22,500 PUNTADAS";
+             txt6.setText(bordado);
+         }
+         else if (puntadas.equals("SEGURIDAD PRIVADA #1"))
+         {
+             puntadas = "BORDADO DE 10,000 A 12,500 PUNTADAS";
+             txt6.setText(bordado);
+         }
+         else if (puntadas.equals("SEGURIDAD PRIVADA #2"))
+         {
+             puntadas = "BORDADO DE 15,000 A 17,500 PUNTADAS";
+             txt6.setText(bordado);
+         }
+         else  if (puntadas.equals("SEGURIDAD PRIVADA #3"))
+         {
+             puntadas = "BORDADO DE 37,500,000 A 40,000 PUNTADAS";
+             txt6.setText(bordado);
+         }
+        else
+         {   
+         
+        
+        if (!puntadas.startsWith("BORDADO") && !puntadas.equals("ninguno"))
+            
+        {
+          
+            
+            String encontrado = "no";
+            String sql = "SELECT distinct espalda_nombre,espalda FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
+                       + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
+                       + "and espalda_nombre = '"+puntadas+"'";
+                      
+            
+                      String pechoizquierdonombre = "";
+                      String pechoizquierdo = "";
+                      
+                    
+                      
+                      
+            try {
+
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                if (rs.next()) {
+
+                   
+                   pechoizquierdonombre = rs.getString("espalda_nombre"); 
+                   pechoizquierdo = rs.getString("espalda"); 
+                   encontrado = "si";
+                
+                   
+                   if (pechoizquierdonombre.startsWith(puntadas))
+                   {
+                     puntadas =  pechoizquierdo; 
+                   }
+                   
+                  
+                  
+                   
+                   
+                   cbpuntadas6.setSelectedItem(puntadas);
+                   txt6.setText(bordado);
+                   
+                   
+                   
+                }
+                
+               
+                
+
+                st.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
+            /////Colorido bordados
+
+            if(encontrado.equals("no"))
+            {
+                
+            
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombre_bordado = '"+puntadas+"' ";
+
+                      
+            try {
+
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(sql2);
+                if (rs.next()) {
+
+                   
+                   String numeropuntadas = rs.getString("puntadas"); 
+ 
+                   cbpuntadas6.setSelectedItem(numeropuntadas);
+                   txt6.setText(bordado);
+                   encontrado ="si";
+                   
+                   
+                }
+                
+                
+                
+
+                st.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
+            }
+        
+            
+            if(encontrado.equals("no"))
+            {
+              
+                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encotraron puntadas para este logo, llame a sistemas");
+                
+                
+            }
+            else
+            {
+               
+            } 
+            
+
+        }
+         
+        else
+            
+        {
+        cbpuntadas6.setSelectedItem(puntadas); 
+        txt6.setText(bordado);
+        
+        
+        }
+
+        
+         }
         
         
     }//GEN-LAST:event_cbbordados6PopupMenuWillBecomeInvisible
 
     private void cbbordados3PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbbordados3PopupMenuWillBecomeInvisible
       
-        String puntadas = cbbordados3.getSelectedItem().toString();
+       String puntadas = cbbordados3.getSelectedItem().toString();
         String bordado = cbbordados3.getSelectedItem().toString();
         
          if (puntadas.equals("SEGURIDAD"))
@@ -10140,7 +10513,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
             
         {
           
-            
+            String encontrado = "no";
             
             String sql = "SELECT distinct manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
@@ -10183,22 +10556,67 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                    
                    cbpuntadas3.setSelectedItem(puntadas);
                    txt3.setText(bordado);
-                   
+                   encontrado = "si";
                    
                    
                 }
                 
-                else
-                {
-                    
-                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encotraron puntadas para este logo, llame a sistemas");
-                }
+               
                 
 
                 st.close();
             } catch (SQLException ex) {
                 System.out.println(ex);
             }
+            
+             /////Colorido bordados
+
+            if(encontrado.equals("no"))
+            {
+                
+            
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombre_bordado = '"+puntadas+"' ";
+
+                      
+            try {
+
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(sql2);
+                if (rs.next()) {
+
+                   
+                   String numeropuntadas = rs.getString("puntadas"); 
+ 
+                   cbpuntadas3.setSelectedItem(numeropuntadas);
+                   txt3.setText(numeropuntadas);
+                   encontrado ="si";
+                   
+                   
+                }
+                
+                
+                
+
+                st.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
+            }
+        
+            
+            if(encontrado.equals("no"))
+            {
+              
+                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encotraron puntadas para este logo, llame a sistemas");
+                
+                
+            }
+            else
+            {
+                
+            } 
+            
 
         }
          
@@ -10213,7 +10631,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
 
     private void cbbordados4PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbbordados4PopupMenuWillBecomeInvisible
        
-         String puntadas = cbbordados4.getSelectedItem().toString();
+          String puntadas = cbbordados4.getSelectedItem().toString();
          String bordado = cbbordados4.getSelectedItem().toString();
         
          if (puntadas.equals("SEGURIDAD"))
@@ -10239,7 +10657,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
             
         {
           
-            
+            String encontrado = "no";
             
             String sql = "SELECT distinct manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
@@ -10265,7 +10683,8 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                    
                    pechoderechonombre = rs.getString("manga_derecha_nombre"); 
                    pechoderecho = rs.getString("manga_derecha"); 
-                    
+                   
+                   encontrado = "si";
                    
                    if (pechoizquierdonombre.startsWith(puntadas))
                    {
@@ -10286,18 +10705,62 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                    
                    
                 }
-                
-                else
-                {
-                    
-                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encotraron puntadas para este logo, llame a sistemas");
-                }
+
                 
 
                 st.close();
             } catch (SQLException ex) {
                 System.out.println(ex);
             }
+            
+            /////Colorido bordados
+
+            if(encontrado.equals("no"))
+            {
+                
+            
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombre_bordado = '"+puntadas+"' ";
+
+                      
+            try {
+
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(sql2);
+                if (rs.next()) {
+
+                   
+                   String numeropuntadas = rs.getString("puntadas"); 
+ 
+                   cbpuntadas4.setSelectedItem(numeropuntadas);
+                   txt4.setText(numeropuntadas);
+                   encontrado ="si";
+                   
+                   
+                }
+                
+                
+                
+
+                st.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
+            }
+        
+            
+            if(encontrado.equals("no"))
+            {
+              
+                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encotraron puntadas para este logo, llame a sistemas");
+                
+                
+            }
+            else
+            {
+                
+            } 
+            
 
         }
          
@@ -10318,42 +10781,49 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
        
        String puntadas = cbbordados5.getSelectedItem().toString();
        String bordado = cbbordados5.getSelectedItem().toString();
+       String buscarbordado = "";
         
         
-         if (puntadas.equals("SEGURIDAD #1"))
+         if (bordado.equals("SEGURIDAD #1"))
          {
              puntadas = "BORDADO DE 10,000 A 12,500 PUNTADAS";
              txt5.setText(bordado);
+             buscarbordado = "no";
          }
-         if (puntadas.equals("SEGURIDAD #2"))
+        
+         if (bordado.equals("SEGURIDAD #2"))
          {
              puntadas = "BORDADO DE 20,000 A 22,500 PUNTADAS";
              txt5.setText(bordado);
+             buscarbordado = "no";
          }
-         if (puntadas.equals("SEGURIDAD PRIVADA #1"))
+         if (bordado.equals("SEGURIDAD PRIVADA #1"))
          {
              puntadas = "BORDADO DE 10,000 A 12,500 PUNTADAS";
              txt5.setText(bordado);
+             buscarbordado = "no";
          }
-          if (puntadas.equals("SEGURIDAD PRIVADA #2"))
+          if (bordado.equals("SEGURIDAD PRIVADA #2"))
          {
              puntadas = "BORDADO DE 15,000 A 17,500 PUNTADAS";
              txt5.setText(bordado);
+             buscarbordado = "no";
          }
-           if (puntadas.equals("SEGURIDAD PRIVADA #3"))
+           if (bordado.equals("SEGURIDAD PRIVADA #3"))
          {
              puntadas = "BORDADO DE 37,500,000 A 40,000 PUNTADAS";
              txt5.setText(bordado);
+             buscarbordado = "no";
          }
         
          
         
-        if (!puntadas.startsWith("BORDADO") && !puntadas.equals("ninguno"))
+        if (buscarbordado.equals("") )  ///if (!bordado.startsWith("BORDADO") && !bordado.equals("ninguno"))
             
         {
           
             
-            
+            String encontrado = "no";
             String sql = "SELECT distinct espalda_nombre,espalda FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
                        + "and espalda_nombre = '"+puntadas+"'";
@@ -10374,7 +10844,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                    
                    pechoizquierdonombre = rs.getString("espalda_nombre"); 
                    pechoizquierdo = rs.getString("espalda"); 
-                   
+                   encontrado = "si";
                 
                    
                    if (pechoizquierdonombre.startsWith(puntadas))
@@ -10393,50 +10863,73 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
                    
                 }
                 
-                else
-                {
-                    
-                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encotraron puntadas para este logo, llame a sistemas");
-                }
+               
                 
 
                 st.close();
             } catch (SQLException ex) {
                 System.out.println(ex);
             }
+            
+            /////Colorido bordados
+
+            if(encontrado.equals("no"))
+            {
+                
+            
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombre_bordado = '"+puntadas+"' ";
+
+                      
+            try {
+
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(sql2);
+                if (rs.next()) {
+
+                   
+                   String numeropuntadas = rs.getString("puntadas"); 
+ 
+                   cbpuntadas5.setSelectedItem(numeropuntadas);
+                   txt5.setText(puntadas);
+                   encontrado ="si";
+                   
+                   
+                }
+                
+                
+                
+
+                st.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
+            }
+        
+            
+            if(encontrado.equals("no"))
+            {
+              
+                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encotraron puntadas para este logo, llame a sistemas");
+                
+                
+            }
+            else
+            {
+               
+            } 
+            
 
         }
          
         else
             
         {
-        cbpuntadas5.setSelectedItem(puntadas);
+        cbpuntadas5.setSelectedItem(puntadas); 
+        txt5.setText(bordado);
+        
         
         }
-        
-        
-        if (prenda.equals("CHAMARRA DESMONTABLE"))
-            
-        {
-            cbaroespalda.setSelectedItem("si");
-            
-        }
-        else
-        {
-               cbaroespalda.setSelectedItem("si");
-        }
-        
-        cbaroespalda.firePopupMenuWillBecomeInvisible();
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }//GEN-LAST:event_cbbordados5PopupMenuWillBecomeInvisible
 
     private void btnagregarfotomontajeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnagregarfotomontajeMouseEntered

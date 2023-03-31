@@ -5611,6 +5611,8 @@ public class ordencamisa extends javax.swing.JFrame {
                 }
             }
 
+            
+            
            /// imagen jlabel
             Object imagen = rutaimagen;
 
@@ -5649,6 +5651,9 @@ public class ordencamisa extends javax.swing.JFrame {
                  
                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
                 }
+                
+                
+                
             }
 
         } catch (Exception e) {

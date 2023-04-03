@@ -133,65 +133,56 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="392" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                   <Component id="jPanel1" min="-2" pref="832" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="lbltallas" min="-2" pref="569" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jSeparator1" min="-2" pref="300" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel3" min="-2" pref="151" max="-2" attributes="0"/>
-                                                      <Component id="btnmangaderecha" min="-2" pref="137" max="-2" attributes="0"/>
-                                                      <Component id="btnmangaizquierda" min="-2" pref="137" max="-2" attributes="0"/>
-                                                      <Component id="btnpechoderecho" min="-2" pref="137" max="-2" attributes="0"/>
-                                                      <Component id="btnpechoizquierdo" min="-2" pref="136" max="-2" attributes="0"/>
-                                                      <Component id="btnespalda" min="-2" pref="136" max="-2" attributes="0"/>
-                                                      <Component id="btnotraubicacion" min="-2" pref="136" max="-2" attributes="0"/>
-                                                      <Component id="btnotraubicacion2" min="-2" pref="136" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="cbhilo1" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                                      <Component id="cbhilo2" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                                      <Component id="cbhilo3" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                                      <Component id="cbhilo5" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                                      <Component id="cbhilo4" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                                      <Component id="cbhilo6" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                                      <Component id="cbhilo7" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="lbcolor1" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="lbcolor2" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="lbcolor3" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="lbcolor4" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="lbcolor5" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="lbcolor6" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="lbcolor7" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel2" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
-                                                  </Group>
+                                  <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lbltallas" alignment="0" pref="569" max="32767" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel3" min="-2" pref="151" max="-2" attributes="0"/>
+                                                  <Component id="btnmangaderecha" min="-2" pref="137" max="-2" attributes="0"/>
+                                                  <Component id="btnmangaizquierda" min="-2" pref="137" max="-2" attributes="0"/>
+                                                  <Component id="btnpechoderecho" min="-2" pref="137" max="-2" attributes="0"/>
+                                                  <Component id="btnpechoizquierdo" min="-2" pref="136" max="-2" attributes="0"/>
+                                                  <Component id="btnespalda" min="-2" pref="136" max="-2" attributes="0"/>
+                                                  <Component id="btnotraubicacion" min="-2" pref="136" max="-2" attributes="0"/>
+                                                  <Component id="btnotraubicacion2" min="-2" pref="136" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="169" pref="169" max="-2" attributes="0"/>
-                                                  <Component id="jLabel5" min="-2" pref="105" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="cbhilo1" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                                  <Component id="cbhilo2" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                                  <Component id="cbhilo3" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                                  <Component id="cbhilo5" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                                  <Component id="cbhilo4" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                                  <Component id="cbhilo6" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                                  <Component id="cbhilo7" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="lbcolor1" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="lbcolor2" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="lbcolor3" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="lbcolor4" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="lbcolor5" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="lbcolor6" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="lbcolor7" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel2" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="169" pref="169" max="-2" attributes="0"/>
+                                              <Component id="jLabel5" min="-2" pref="105" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
+                                      <Component id="jSeparator1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">

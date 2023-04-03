@@ -1424,7 +1424,7 @@ public class ordenportanombremultiple extends javax.swing.JFrame {
 
         try {
 
-            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_portanombres_multiple set estatus_orden='realizada' where numero='" + lbnumerohistorialordenesbordados.getText() + "'   ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_portanombres_multiple set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + lbnumerohistorialordenesbordados.getText() + "'   ");
             pst.executeUpdate();
             pst.close();
 

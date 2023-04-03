@@ -495,7 +495,7 @@ public class tallas extends javax.swing.JFrame {
 
                             } else if (titulo2.equals("") || titulo2.equals(descripcionsintalla)) {
                                 titulo2 = descripcionsintalla;
-                                lbtitulo2.setText("<html>"+ titulo1.toUpperCase() +"</html>");
+                                lbtitulo2.setText("<html>"+ titulo2.toUpperCase() +"</html>");
                                 
                                 if (tallatitulo21.equals("") || tallatitulo21.equals(talla)) {
                                     tallatitulo21 = talla;

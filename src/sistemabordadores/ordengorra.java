@@ -654,7 +654,7 @@ public class ordengorra extends javax.swing.JFrame {
         String folio = lborden.getText();
 
         String sql = "Select fecha,hora,cliente,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,numero_sucursal_orden,\n" +
-                     "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,tienda from historial_ordenes_gorra_recibidas where numero = '" + folio + "'";
+                     "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,tienda,numero_sucursal from historial_ordenes_gorra_recibidas where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -674,6 +674,7 @@ public class ordengorra extends javax.swing.JFrame {
                 frentenombre = rs.getString("frente");
                 atrasnombre = rs.getString("atras");
                 sucursalqueenvia= rs.getString("tienda");
+                numerosucursal= rs.getString("numero_sucursal");
                 
                                
                 lbfrente.setText(rs.getString("frente"));
@@ -775,9 +776,230 @@ public class ordengorra extends javax.swing.JFrame {
     {
         
         String numero = lborden.getText();
+        
+        String cliente = "";
+        String numeroordensucursal = "";
+        String numeroventa = "";
+        String numerodeorden ="";
+        
       
         BufferedImage img = null;
         btnverfotomontaje.setEnabled(false);
+        
+        
+         if (sucursalqueenvia.equals(tiendalocal))
+            
+        {
+            
+      
+        numerodeorden = lborden.getText();
+        
+        String sql1 = "Select numero_sucursal_orden from historial_ordenes_gorra_recibidas where numero = '" + numerodeorden + "' and numero_sucursal = '"+numerosucursal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql1);
+            if (rs.next())
+            {
+
+                numeroordensucursal = rs.getString("numero_sucursal_orden");
+                
+                
+                String sql2 = "Select numero_venta from historial_ordenes_envio_solicitadas where numero = '" + numeroordensucursal + "' ";
+
+        try {
+            Statement st2 = cn.createStatement();
+            ResultSet rs2 = st2.executeQuery(sql2);
+            if (rs2.next())
+            {
+
+                numeroventa = rs2.getString("numero_venta");
+                lbnumeroventa.setText(numeroventa);
+                
+
+            }
+
+        } catch (SQLException ex) 
+        {
+             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }   
+               
+                
+
+            }
+
+        } catch (SQLException ex) 
+        {
+             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }
+        
+        
+      
+ 
+                
+             
+                
+        
+      
+
+        String sql7 = "Select cliente,prenda,tienda,nombre_concepto from historial_ordenes_gorra where numero = '" + numerosucursal + "' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql7);
+            if (rs.next()) {
+
+                cliente = rs.getString("cliente");
+                sucursal = rs.getString("tienda");
+                identificadordeprenda = rs.getString("nombre_concepto");
+                
+
+            }
+
+        } catch (SQLException ex) 
+        {
+             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }
+
+            codigocliente();
+            cliente();
+            
+
+        
+       
+
+       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";  ///
+
+        try {
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) 
+            {
+                
+                Blob blob = rs.getBlob("imagen");
+                if (blob == null) 
+                {
+
+                    ordencamisaimagencontorno p = new ordencamisaimagencontorno();
+                    jPanel1.add(p);
+                    jPanel1.repaint();
+                    lblImagen.setVisible(false);
+                    btnverfotomontaje.setEnabled(false);
+                    tienefotomontaje = "no";
+              
+                    
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje o marcarle a Rommel para que les corrija elpara poder iniciar el bordado y registrar puntos");
+                    
+                } 
+                
+                else 
+                
+                {
+                    byte[] data = blob.getBytes(1, (int) blob.length());
+
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (IOException ex) 
+                    {
+                 
+                      JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+
+                    }
+
+                    if(img==null)
+                    {
+                       tienefotomontaje = "no"; 
+                    }
+                    else
+                    {
+                    
+                    Imagen imagen = new Imagen();
+                    imagen.setImagen(img);
+                    lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
+                    lblImagen.setVisible(true);
+                    btnverfotomontaje.setEnabled(true);
+                    tienefotomontaje = "si";
+                    btnverfotomontaje.setEnabled(true);
+                  
+
+                    Blob archivo = rs.getBlob("imagen");
+                    String nombredelarchivo = rs.getString("extension_imagen");
+                     if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
+                    {
+                    rutaimagen = "C:\\archivospdf\\FOTOMONTAJE."+nombredelarchivo+" ";
+                    }
+                    else
+                    {
+                   nombredelarchivo = nombredelarchivo.replace(" ","");
+                    rutaimagen = "C:\\archivospdf\\"+nombredelarchivo+" ";
+                    }   
+                    
+                    File file = new File(rutaimagen);
+                    FileOutputStream output = new FileOutputStream(file);
+                    InputStream inStream = archivo.getBinaryStream();
+                    int length = -1;
+                    int size = (int) archivo.length();
+                    byte[] buffer = new byte[size];
+                    while ((length = inStream.read(buffer)) != -1) {
+                        output.write(buffer, 0, length);
+                   
+                    }
+                   
+                    output.close();
+                    
+                    }
+ 
+                }
+
+            } //end while
+            rs.close();
+        } catch (SQLException ex) 
+        {
+          
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }
+        
+        
+        
+        if(tienefotomontaje.equals("si"))
+        {
+          
+            
+        
+            
+            
+        
+        }
+        else
+        {
+             btnatras.setEnabled(false);
+            btnladoizquierdo.setEnabled(false);
+            btnladoderecho.setEnabled(false);
+            btnfrente.setEnabled(false);
+            
+            ordengorraimagen p = new ordengorraimagen();
+            jPanel1.add(p);
+            jPanel1.repaint();
+            lblImagen.setVisible(false);
+            btnverfotomontaje.setEnabled(false);
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
+            
+            
+           
+        }  
+
+        
+            
+            
+            
+            
+            
+        }
+        else
+
+        
+        {
 
        String sql = "Select imagen_nombre,imagen from historial_ordenes_gorra_recibidas where numero = '"+numero+"'  and prenda = 'Gorra'    ";  ///
 
@@ -882,6 +1104,8 @@ public class ordengorra extends javax.swing.JFrame {
             
         }  
 
+        
+        }
         
         
     }    

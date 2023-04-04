@@ -881,7 +881,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion2,otra_ubicacion2_nombre,\n"
                 + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,\n"
                 + "aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,\n"
-                + "lugar,estatus_orden,numero_sucursal_orden,tienda  from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' ";
+                + "lugar,estatus_orden,numero_sucursal_orden,tienda,numero_sucursal  from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' ";
 
         try {
             Statement st = cn.createStatement();
@@ -893,6 +893,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 prenda = (rs.getString("prenda"));
                 lbfecha.setText(rs.getString("fecha"));
                 lbnumerodelaotrasucursal.setText(rs.getString("numero_sucursal_orden"));
+                numerosucursal = rs.getString("numero_sucursal");
                 tiendaenvia = rs.getString("tienda");
                 
                 
@@ -1361,7 +1362,7 @@ public class ordencamisa extends javax.swing.JFrame {
         btnverfotomontaje.setEnabled(false);
         
         String cliente = "";
-        String numerosucursal = "";
+        String numeroordensucursal = "";
         String numeroventa = "";
         
         
@@ -1372,7 +1373,7 @@ public class ordencamisa extends javax.swing.JFrame {
       
         numerodeorden = lborden.getText();
         
-        String sql1 = "Select numero_sucursal_orden from historial_ordenes_camisa where numero = '" + numerodeorden + "' ";
+        String sql1 = "Select numero_sucursal_orden from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' and numero_sucursal = '"+numerosucursal+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -1380,10 +1381,10 @@ public class ordencamisa extends javax.swing.JFrame {
             if (rs.next())
             {
 
-                numerosucursal = rs.getString("numero_sucursal_orden");
+                numeroordensucursal = rs.getString("numero_sucursal_orden");
                 
                 
-                String sql2 = "Select numero_venta from historial_ordenes_envio_solicitadas where numero = '" + numerosucursal + "' ";
+                String sql2 = "Select numero_venta from historial_ordenes_envio_solicitadas where numero = '" + numeroordensucursal + "' ";
 
         try {
             Statement st2 = cn.createStatement();
@@ -1420,7 +1421,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
       
 
-        String sql7 = "Select cliente,prenda,tienda,identificador_prenda from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' ";
+        String sql7 = "Select cliente,prenda,tienda,nombre_concepto from historial_ordenes_camisa where numero = '" + numerosucursal + "' ";
 
         try {
             Statement st = cn.createStatement();
@@ -1431,7 +1432,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
                 sucursal = rs.getString("tienda");
-                identificadordeprenda = rs.getString("identificador_prenda");
+                identificadordeprenda = rs.getString("nombre_concepto");
                 
 
             }
@@ -3755,13 +3756,13 @@ public class ordencamisa extends javax.swing.JFrame {
                                         .addComponent(lbespalda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lbotraubicacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lbotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(0, 28, Short.MAX_VALUE))
+                            .addGap(0, 0, Short.MAX_VALUE))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(9, 9, 9)
                                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(lbltallas, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3797,7 +3798,8 @@ public class ordencamisa extends javax.swing.JFrame {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(169, 169, 169)
                                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addComponent(jSeparator1)))
+                                        .addComponent(jSeparator1))
+                                    .addGap(0, 0, Short.MAX_VALUE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel18)
                                     .addGap(7, 7, 7)
@@ -3805,8 +3807,8 @@ public class ordencamisa extends javax.swing.JFrame {
                                     .addGap(22, 22, 22)
                                     .addComponent(jLabel16)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lbcliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel19)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3818,7 +3820,7 @@ public class ordencamisa extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addGap(0, 0, Short.MAX_VALUE)
                                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap()))))
+                            .addGap(46, 46, 46)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

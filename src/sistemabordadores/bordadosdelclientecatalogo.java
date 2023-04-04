@@ -2661,9 +2661,11 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
 
     private void bntmaximizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntmaximizarActionPerformed
      
+        this.setAlwaysOnTop(true);
         
         this.toFront();
         
+        this.setAlwaysOnTop(false);
         
     }//GEN-LAST:event_bntmaximizarActionPerformed
 
@@ -3001,6 +3003,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
                         bordadosdelclienteeditarnuevo.lbcodigocliente.setText(lbcodigocliente.getText());
                         bordadosdelclienteeditarnuevo.txtidentificadordeprenda.setText(nombredelbordado.toString());
                         bordadosdelclienteeditarnuevo.txtcodigocatalogobordados.setText(consecutivo.toString());
+                        bordadosdelclienteeditarnuevo.lbconsecutivo.setText(consecutivo.toString());
 
                         if (prenda.equals("TODOS")) {
                             bordadosdelclienteeditarnuevo.lbprenda.setText(prenda.toString());
@@ -3053,6 +3056,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
                         bordadosdelclienteeditardistinta.lbcodigocliente.setText(lbcodigocliente.getText());
                         bordadosdelclienteeditardistinta.txtidentificadordeprenda.setText(nombredelbordado.toString());
                         bordadosdelclienteeditardistinta.txtconsecutivo.setText(consecutivo.toString());
+                        
 
                         bordadosdelclienteeditardistinta.lbtipo.setText("DISTINTA");
                         bordadosdelclienteeditardistinta.lbprenda.setText(prenda);

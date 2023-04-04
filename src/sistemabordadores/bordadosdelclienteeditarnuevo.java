@@ -2677,6 +2677,45 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         }    
         
     }
+    
+    
+    
+    void autorizar()
+    {
+        
+         String autorizacionpuntadas = "";
+         String sql = "SELECT autorizacion_puntadas FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"'  ";
+
+
+            try {
+
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                if (rs.next()) 
+                {
+
+                   
+                        autorizacionpuntadas = rs.getString("autorizacion_puntadas");
+                       
+
+                }
+
+                st.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
+            if(autorizacionpuntadas.equals("no"))
+            {
+                btnautorizarpuntadas.setEnabled(true);
+            }
+            else
+            {
+                 btnautorizarpuntadas.setEnabled(false);
+            }    
+            
+        
+    }
          
          
     
@@ -7052,9 +7091,8 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         datos();
         identificador();
-        
         cargarelfotomontaje();
-        
+        autorizar();
     }//GEN-LAST:event_formWindowOpened
 
     private void txt7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt7ActionPerformed

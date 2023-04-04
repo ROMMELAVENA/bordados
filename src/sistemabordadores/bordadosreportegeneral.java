@@ -3333,7 +3333,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String cantidad = rs.getString("cantidad");
                 String prenda = rs.getString("prenda");
                 String frente = "PORTA NOMBRE";
-                String puntadasfrente = "BORDADO DE MENOS DE 5,000 PUNTADAS";
+                String puntadasfrente = "BORDADO DE 7,500 A 10,000 PUNTADAS";
                 String numeroventa = rs.getString("numero_venta");
 
                 modelo.addRow(new Object[]{});
@@ -3412,7 +3412,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String cantidad = rs.getString("cantidad_total");
                 String prenda = rs.getString("prenda");
                 String frente = "PORTA NOMBRE MULTIPLE";
-                String puntadasfrente = "BORDADO DE MENOS DE 5,000 PUNTADAS";
+                String puntadasfrente = "BORDADO DE 7,500 A 10,000 PUNTADAS";
                 String numeroventa = rs.getString("numero_venta");;
 
                 modelo.addRow(new Object[]{});

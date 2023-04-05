@@ -169,9 +169,9 @@ public class bordadosdelclientecatalogoEditar extends AbstractCellEditor impleme
                
            {
                
-           bordadosdelclienteeditardistinta.lbtipo.setText("DISTINTA");
-           bordadosdelclienteeditardistinta.lbprenda.setText(nombre.toString());
-           bordadosdelclienteeditardistinta.lbanuncio.setText(nombre.toString());
+           bordadoseditardistinta.lbtipo.setText("DISTINTA");
+           bordadoseditardistinta.lbprenda.setText(nombre.toString());
+           bordadoseditardistinta.lbanuncio.setText(nombre.toString());
            
            }
        }

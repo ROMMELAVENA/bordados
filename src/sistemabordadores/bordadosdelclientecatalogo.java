@@ -3029,11 +3029,11 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
 
                 } else {
 
-                    if (bordadosdelclienteeditardistinta.ventanabordadosdelclienteeditardistinta == true) {
+                    if (bordadoseditardistinta.ventanabordadosdelclienteeditardistinta == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados del cliente editar distinta ya est� abierta");
                     } else {
 
-                        bordadosdelclienteeditardistinta ventana = new bordadosdelclienteeditardistinta();
+                        bordadoseditardistinta ventana = new bordadoseditardistinta();
                         ventana.setVisible(true);
                         ventana.setLocationRelativeTo(null);
                         
@@ -3051,15 +3051,15 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
                             nombrecomercial = "";
                         }
 
-                        bordadosdelclienteeditardistinta.lbcliente.setText(nombrecliente.toString());
-                        bordadosdelclienteeditardistinta.lbnombrecomercial.setText(nombrecomercial.toString());
-                        bordadosdelclienteeditardistinta.lbcodigocliente.setText(lbcodigocliente.getText());
-                        bordadosdelclienteeditardistinta.txtidentificadordeprenda.setText(nombredelbordado.toString());
-                        bordadosdelclienteeditardistinta.txtconsecutivo.setText(consecutivo.toString());
+                        bordadoseditardistinta.lbcliente.setText(nombrecliente.toString());
+                        bordadoseditardistinta.lbnombrecomercial.setText(nombrecomercial.toString());
+                        bordadoseditardistinta.lbcodigocliente.setText(lbcodigocliente.getText());
+                        bordadoseditardistinta.txtidentificadordeprenda.setText(nombredelbordado.toString());
+                        bordadoseditardistinta.txtconsecutivo.setText(consecutivo.toString());
                         
 
-                        bordadosdelclienteeditardistinta.lbtipo.setText("DISTINTA");
-                        bordadosdelclienteeditardistinta.lbprenda.setText(prenda);
+                        bordadoseditardistinta.lbtipo.setText("DISTINTA");
+                        bordadoseditardistinta.lbprenda.setText(prenda);
 
                     }
 

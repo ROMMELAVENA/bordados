@@ -80,18 +80,18 @@ public class bordadosdelclientecatalogoVer extends AbstractCellEditor implements
             ||prendatabla.equals("SU�TER")||prendatabla.equals("TELA")||prendatabla.equals("TOALLA")||prendatabla.equals("TRAJE DE BA�O")) 
         {
             
-            bordadosdelclienteeditardistinta ventana = new bordadosdelclienteeditardistinta();
+            bordadoseditardistinta ventana = new bordadoseditardistinta();
         ventana.setVisible(true);
         
         ventana.setLocationRelativeTo(null);
-        bordadosdelclienteeditardistinta.lbcliente.setText(bordadosdelclientecatalogo.cbcomboclientes.getSelectedItem().toString());
-        bordadosdelclienteeditardistinta.lbnombrecomercial.setText(bordadosdelclientecatalogo.cbnombrecomercial.getSelectedItem().toString());
-        bordadosdelclienteeditardistinta.lbcodigocliente.setText(bordadosdelclientecatalogo.lbcodigocliente.getText());
-        bordadosdelclienteeditardistinta.txtidentificadordeprenda.setText(nombrebordado.toString());
-        bordadosdelclienteeditardistinta.txtconsecutivo.setText(numeroconsecutivo.toString());
-        bordadosdelclienteeditardistinta.lbprenda.setText(prendatabla.toString());
-        bordadosdelclienteeditardistinta.lbanuncio.setText("DISTINTA");
-        bordadosdelclienteeditardistinta.lbtipo.setText(prendatabla.toString());
+        bordadoseditardistinta.lbcliente.setText(bordadosdelclientecatalogo.cbcomboclientes.getSelectedItem().toString());
+        bordadoseditardistinta.lbnombrecomercial.setText(bordadosdelclientecatalogo.cbnombrecomercial.getSelectedItem().toString());
+        bordadoseditardistinta.lbcodigocliente.setText(bordadosdelclientecatalogo.lbcodigocliente.getText());
+        bordadoseditardistinta.txtidentificadordeprenda.setText(nombrebordado.toString());
+        bordadoseditardistinta.txtconsecutivo.setText(numeroconsecutivo.toString());
+        bordadoseditardistinta.lbprenda.setText(prendatabla.toString());
+        bordadoseditardistinta.lbanuncio.setText("DISTINTA");
+        bordadoseditardistinta.lbtipo.setText(prendatabla.toString());
             
             
             

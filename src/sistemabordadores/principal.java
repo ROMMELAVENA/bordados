@@ -48,6 +48,7 @@ public class principal extends javax.swing.JFrame {
         lbtienda.setVisible(false);
         
         btnclienteshanbordadoultimos6meses.setText("<html><p>Clientes que han bordado</p><center><p>en los ultimos 6 meses</p></center></html>");
+        btnclienteshanbordadoultimos6a12meses.setText("<html><p>Clientes que han bordado</p><center><p>en los ultimos 6 a 12 meses</p></center></html>");
         
         
         contraseñas();
@@ -1920,6 +1921,7 @@ public class principal extends javax.swing.JFrame {
         btninformacionrapida = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         btnclienteshanbordadoultimos6meses = new javax.swing.JButton();
+        btnclienteshanbordadoultimos6a12meses = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
@@ -2057,6 +2059,14 @@ public class principal extends javax.swing.JFrame {
             }
         });
 
+        btnclienteshanbordadoultimos6a12meses.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnclienteshanbordadoultimos6a12meses.setText("CLIENTES QUE HAN BORDADO EN LOS ULTIMOS 6 MESES");
+        btnclienteshanbordadoultimos6a12meses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnclienteshanbordadoultimos6a12mesesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2075,13 +2085,16 @@ public class principal extends javax.swing.JFrame {
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(40, 40, 40)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnordenesbordadosucursalrealizadas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnordenesbordadosucursalporrealizar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnordenesbordadosucursalporrealizar1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btninformacionrapida, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnclienteshanbordadoultimos6meses, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnclienteshanbordadoultimos6a12meses, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(btnordenesbordadosucursalrealizadas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnordenesbordadosucursalporrealizar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnordenesbordadosucursalporrealizar1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btninformacionrapida, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnclienteshanbordadoultimos6meses, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -2136,8 +2149,10 @@ public class principal extends javax.swing.JFrame {
                     .addComponent(btninformacionrapida, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(btnclienteshanbordadoultimos6meses, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                .addGap(71, 71, 71)
+                .addComponent(btnclienteshanbordadoultimos6meses, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
+                .addComponent(btnclienteshanbordadoultimos6a12meses, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbip, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbsumapuntos)
@@ -2498,11 +2513,23 @@ public class principal extends javax.swing.JFrame {
     private void btnclienteshanbordadoultimos6mesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclienteshanbordadoultimos6mesesActionPerformed
       
        clientesquehanbordadoenlosultimosseismeses ventana = new clientesquehanbordadoenlosultimosseismeses();
+       clientesquehanbordadoenlosultimosseismeses.quefechabuscare ="6meses";
        ventana.setVisible(true);
        ventana.setLocationRelativeTo(null);
        
        
     }//GEN-LAST:event_btnclienteshanbordadoultimos6mesesActionPerformed
+
+    private void btnclienteshanbordadoultimos6a12mesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclienteshanbordadoultimos6a12mesesActionPerformed
+       
+       clientesquehanbordadoenlosultimosseismeses ventana = new clientesquehanbordadoenlosultimosseismeses();
+       clientesquehanbordadoenlosultimosseismeses.quefechabuscare ="6a12meses";
+       ventana.setTitle("Clientes que han bordado en los ultimos 6 a 12 meses");
+       ventana.setVisible(true);
+       ventana.setLocationRelativeTo(null);
+       
+       
+    }//GEN-LAST:event_btnclienteshanbordadoultimos6a12mesesActionPerformed
 
 
     public static void main(String args[]) {
@@ -2515,6 +2542,7 @@ public class principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnclienteshanbordadoultimos6a12meses;
     private javax.swing.JButton btnclienteshanbordadoultimos6meses;
     private javax.swing.JButton btninformacionrapida;
     private javax.swing.JButton btnordenesbordadosucursalporrealizar;

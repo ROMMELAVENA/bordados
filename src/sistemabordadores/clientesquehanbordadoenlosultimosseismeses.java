@@ -25,16 +25,18 @@ import javax.swing.table.DefaultTableModel;
  * @author sistemas
  */
 public class clientesquehanbordadoenlosultimosseismeses extends javax.swing.JFrame {
+    
+    public static String quefechabuscare ="";
 
     /**
      * Creates new form clientesquehanbordadoenlosultimosseismeses
      */
     public clientesquehanbordadoenlosultimosseismeses() {
         initComponents();
-        datos();
+       
     }
 
-     void datos()
+     void datos6meses()
      {
          
        List<String> listaclientes = new ArrayList<String>();
@@ -121,7 +123,96 @@ public class clientesquehanbordadoenlosultimosseismeses extends javax.swing.JFra
      
      
      }
-    
+     
+     
+     
+      void datos6a12meses()
+     {
+         
+       List<String> listaclientes = new ArrayList<String>();
+       String[] datos = new String[10];
+       DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+       String fechainicio = "";
+       String fechafinal = "";
+         
+       SimpleDateFormat df = new SimpleDateFormat( "yyyy-MM-dd" ); 
+       
+       Calendar calendario = Calendar.getInstance();
+       calendario.add( calendario.MONTH, -12 ); // date manipulation
+       fechainicio = df.format( calendario.getTime() ) ;
+       
+       Calendar calendario2 = Calendar.getInstance();
+       fechafinal = df.format( calendario2.getTime() ) ;
+         
+         
+         String sql = "SELECT distinct cliente,fecha from historial_ordenes_camisa\n"
+                        + "where fecha BETWEEN '"+fechainicio+"'  AND '"+fechafinal+"' AND (cliente not LIKE '%SA DE CV%' OR cliente NOT LIKE '%S.A. DE C.V.%' OR cliente NOT LIKE '%S.A DE C.V%' OR cliente NOT LIKE '%S DE RL DE CV%') \n"
+                        + "union\n"
+                        + "SELECT distinct cliente,fecha from historial_ordenes_gorra \n"
+                        + "where fecha BETWEEN '"+fechainicio+"'  AND '"+fechafinal+"' AND (cliente not LIKE '%SA DE CV%' OR cliente NOT LIKE '%S.A. DE C.V.%' OR cliente NOT LIKE '%S.A DE C.V%' OR cliente NOT LIKE '%S DE RL DE CV%') \n"
+                        + "union \n"
+                        + "SELECT distinct cliente,fecha from historial_ordenes_pantalon  \n"
+                        + "where fecha BETWEEN '"+fechainicio+"'  AND '"+fechafinal+"' AND (cliente not LIKE '%SA DE CV%' OR cliente NOT LIKE '%S.A. DE C.V.%' OR cliente NOT LIKE '%S.A DE C.V%' OR cliente NOT LIKE '%S DE RL DE CV%')\n"
+                        + "union \n"
+                        + "SELECT distinct cliente,fecha from historial_ordenes_corbata  \n"
+                        + "where fecha BETWEEN '"+fechainicio+"'  AND '"+fechafinal+"' AND (cliente not LIKE '%SA DE CV%' OR cliente NOT LIKE '%S.A. DE C.V.%' OR cliente NOT LIKE '%S.A DE C.V%' OR cliente NOT LIKE '%S DE RL DE CV%')\n"
+                        + "union\n"
+                        + "SELECT distinct cliente,fecha from historial_ordenes_distinta \n"
+                        + "where fecha BETWEEN '"+fechainicio+"'  AND '"+fechafinal+"' AND (cliente not LIKE '%SA DE CV%' OR cliente NOT LIKE '%S.A. DE C.V.%' OR cliente NOT LIKE '%S.A DE C.V%' OR cliente NOT LIKE '%S DE RL DE CV%') ORDER BY cliente ";
+             
+       
+       
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                
+
+                
+                Object cliente = rs.getString("cliente");
+                
+                if(cliente == null || cliente.equals("")||cliente.equals(" "))
+                {
+                    
+                }
+                else
+                {    
+                    
+                listaclientes.add(cliente.toString());
+           
+                }
+            
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
+        }
+         
+         
+     
+        if(listaclientes.size() > 0)
+      {
+      
+
+          listaclientes = listaclientes.stream().distinct().collect(Collectors.toList());
+          
+          for(int i = 0; i < listaclientes.size(); i++)
+          {
+              
+               datos[0] = listaclientes.get(i);
+               modelo.addRow(datos);
+              
+          }
+          
+          
+     
+      }
+     
+     
+     
+     
+     
+     
+     }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -138,6 +229,11 @@ public class clientesquehanbordadoenlosultimosseismeses extends javax.swing.JFra
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Clientes que han bordado en los ultimos 6 meses");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         tabla.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -196,6 +292,19 @@ public class clientesquehanbordadoenlosultimosseismeses extends javax.swing.JFra
     this.dispose();
         
     }//GEN-LAST:event_bntsalirActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       
+        if(quefechabuscare.equals("6meses"))
+        {
+        datos6meses();
+        }
+        else
+        {
+          datos6a12meses();  
+        }    
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

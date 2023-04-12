@@ -5310,7 +5310,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             while (rs.next()) {
 
                 cantidadbordadosordeninterna = rs.getString("cantidad");
-                puntadasfrenteportanombre = "BORDADO DE MENOS DE 5,000 PUNTADAS";
+                puntadasfrenteportanombre = "BORDADO DE 7,500 A 10,000 PUNTADAS";
 
                 /////////////////////////////////////////////////////////////////////////////
                 if (cantidadbordadosordeninterna == null || cantidadbordadosordeninterna.equals("")) {
@@ -5367,7 +5367,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             while (rs.next()) {
 
                 cantidadbordadosordeninterna = rs.getString("cantidad_total");
-                puntadasfrenteportanombremultiple = "BORDADO DE MENOS DE 5,000 PUNTADAS";
+                puntadasfrenteportanombremultiple = "BORDADO DE 7,500 A 10,000 PUNTADAS";
 
                 /////////////////////////////////////////////////////////////////////////////
                 if (cantidadbordadosordeninterna == null || cantidadbordadosordeninterna.equals("")) {
@@ -5564,31 +5564,14 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double costofotomontajesdouble = 0.0;
         
         int cantidadfotomontajesint = 0;
-        
-
-        
-        
-       for (int z = 0; z < 3 ; z++)
-       {
-
-                    if (z == 0) 
-                    {
-                        nombrefotomontaje = "Fotomontaje 1 a 2 logos";
-                    } else if (z == 1) 
-                    {
-                        nombrefotomontaje = "Fotomontaje 3 a 4 logos";
-                    } else if (z == 2) 
-                    {
-                        nombrefotomontaje = "Fotomontaje con espalda";
-                    }
-       
+  
         
         cantidadfotomontajesint = 0;
         costofotomontajesdouble = 0.0;
         
-        String sqlfotomontajes = "SELECT COUNT(*) AS cantidad \n" +
+        String sqlfotomontajes = "SELECT fotomontaje \n" +
                                  "FROM historial_fotomontajes \n" +
-                                  "WHERE fotomontaje  like '%"+nombrefotomontaje+"%' and fecha = '" + fechabusqueda + "' ";
+                                  "WHERE fecha = '" + fechabusqueda + "' ";
 
         try {
             Statement st = cn.createStatement();
@@ -5597,7 +5580,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             while (rs.next())
             {
 
-                cantidadfotomontajes = rs.getString("cantidad");
+                cantidadfotomontajes = rs.getString("fotomontaje");
                 
                 if (cantidadfotomontajes == null || cantidadfotomontajes.equals(""))
                 {
@@ -5608,7 +5591,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                
 
-                String sqlponchadoscosto = "SELECT costo from catalogo_costos_bordado where puntadas = '"+nombrefotomontaje+ "'";
+                String sqlponchadoscosto = "SELECT costo from catalogo_costos_bordado where puntadas = 'FOTOMONTAJE'";
 
                 try {
                     PreparedStatement prst = cn.prepareStatement(sqlponchadoscosto);
@@ -5639,7 +5622,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             System.out.println(ex);
         }
         
-       }
+       
         
        
        
@@ -6252,24 +6235,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
         
         
-        for(int z = 0;  z < 3; z++)
-        {
-        
-            Object nombrefotomontaje = "";
-            
-            if (z == 0) 
-                    {
-                        nombrefotomontaje = "Fotomontaje 1 a 2 logos";
-                    } else if (z == 1) 
-                    {
-                        nombrefotomontaje = "Fotomontaje 3 a 4 logos";
-                    } else if (z == 2) 
-                    {
-                        nombrefotomontaje = "Fotomontaje con espalda";
-                    }
-        
 
-        String sql = "Select fecha, COUNT(*) AS cantidad   from historial_fotomontajes where fecha = '" + fechabusqueda + "' AND FOTOMONTAJE LIKE '%"+nombrefotomontaje+"%'   order by numero ";
+        String sql = "Select fecha,fotomontaje from historial_fotomontajes where fecha = '"+fechabusqueda+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -6277,9 +6244,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             while (rs.next()) 
             {
-                
-                
-                Object cantidadobject = rs.getString("cantidad");
+
+                Object cantidadobject = rs.getString("fotomontaje");
                 if(cantidadobject == null || cantidadobject.equals("")|| cantidadobject.equals(" "))
                 {
                     cantidadobject = "0";
@@ -6295,7 +6261,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 datos[0] = rs.getString("fecha");
                 datos[1] = "NINGUNO";
                 datos[2] = cantidadobject.toString();
-                datos[3] = nombrefotomontaje.toString().toUpperCase();
+                datos[3] = "FOTOMONTAJE";
                 
                 modelo2.addRow(datos);
                 
@@ -6307,7 +6273,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             System.out.println(ex);
         }
         
-        }
+        
 
         calcularcostofotomontajes();
 
@@ -6321,24 +6287,25 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double importedelfotomontaje = 0.0;
         String costostring = "0";
 
-        for (int i = 0; i < tabla.getRowCount(); i++) {
+        for (int i = 0; i < tabla.getRowCount(); i++) 
+        {
 
             Object cantidadobject = tabla.getValueAt(i, 2);
             Object articulo = tabla.getValueAt(i, 3);
             int cantidad = Integer.parseInt(cantidadobject.toString());
             String articulobuscar = "";
 
-            if (articulo.toString().startsWith("FOTOMONTAJE")) 
+            if (articulo.toString().equals("FOTOMONTAJE")) 
             {
 
                 
-               articulobuscar = articulo.toString();
+                articulobuscar = articulo.toString();
 
                 tabla.setValueAt(articulobuscar, i, 5);
 
                 double costodelfotomontaje = 0.0;
 
-                String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + articulobuscar + "'";
+                String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = 'FOTOMONTAJE' ";
 
                 try {
                     PreparedStatement prst = cn.prepareStatement(sql1);

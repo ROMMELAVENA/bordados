@@ -1780,7 +1780,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
 
             
             
-            String SQL = "SELECT imagen FROM bordados_puntadas where codigo = '"+codigodelcliente+"'  and tipo = '"+prenda+"' and nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+lbconsecutivo.getText()+"' ";
+            String SQL = "SELECT imagen FROM bordados_puntadas where codigo = '"+codigodelcliente+"'  and tipo = '"+prenda+"' and nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtconsecutivo.getText()+"' ";
 
             try {
                 Statement st1 = cn.createStatement();

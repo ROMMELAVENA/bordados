@@ -429,8 +429,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
          
          
          
-         String[] datos9 = new String[15];
-        
+        String[] datos9 = new String[15];
         String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,observaciones  FROM historial_ordenes_ponchados where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
@@ -707,6 +706,38 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         tieneponchados();
         
+        
+        
+        String sql16 = "SELECT Distinct numero,cliente,tipo,lugar,numero_sucursal,fecha,observaciones  FROM historial_ordenes_ponchados_recibidos where estatus_orden = 'generada'  and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql16);
+            while (rs.next()) {
+                datos9[0] = rs.getString("numero");
+                datos9[1] = rs.getString("cliente");
+                datos9[2] = "Ponchado";
+                datos9[3] = rs.getString("tipo");
+                datos9[4] = "Otra sucursal";
+                datos9[5] = rs.getString("numero_sucursal");
+                datos9[6] = rs.getString("fecha");
+                datos9[7] = "";
+                datos9[8] = "";
+                datos9[9] = "";
+                datos9[10] = "Recibida";
+                datos9[11] = "";
+                datos9[12] = rs.getString("observaciones");
+                modelo.addRow(datos9);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+          
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
+        }
 
         
         Colorear ft = new Colorear();
@@ -1731,6 +1762,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
                             ordenponchado.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
                             ordenponchado.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                            ordenponchado.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                            ordenponchado.tipotabla = (tabla.getValueAt(fila, 10).toString());
                             tabla.clearSelection();
                            
                          }

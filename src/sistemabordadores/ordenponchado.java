@@ -34,7 +34,9 @@ public static boolean ventanaordenparcheanteriores = false;
         
         String primero = "";
         String ultimo = "";
-        String tieneunaobservacion = "";  
+        String tieneunaobservacion = ""; 
+        public static String enquesucursalsebordara ="";
+        public static String tipotabla ="";
        
         
    
@@ -88,6 +90,80 @@ public static boolean ventanaordenparcheanteriores = false;
                 
                 lbfolio.setText(rs.getString("numero"));
                 lbnumeroventa.setText(rs.getString("numero_venta"));
+                lbfecha.setText(rs.getString("fecha"));
+                lbcliente.setText(rs.getString("cliente"));
+                lbfechaentrega.setText(rs.getString("fecha_entrega"));
+                lbhoraentrega.setText(rs.getString("hora_entrega"));
+
+                nombre = rs.getString("articulo");
+                cantidad = rs.getString("cantidad");
+                cantidadponchado = rs.getString("cantidad_ponchado");
+                
+                String observacion = rs.getString("observaciones");
+                
+                if(observacion == null || observacion.equals("")||observacion.equals(" ") )
+                {
+                    
+                }
+                else
+                {
+                tieneunaobservacion="si";    
+                lbobservaciones.setText(observacion);
+                
+                }
+
+                
+                
+                renglon = renglon +1 ; 
+                mostrarrenglones();
+                
+                String estatusorden = rs.getString("estatus_orden");
+                
+                if(estatusorden.equals("realizada"))
+                {
+                  bnthecho.setEnabled(true); 
+                  bnthecho.setText("Cancelar");
+                  bnthecho.setForeground(Color.red.darker());
+                  
+                }
+                else
+                {
+                   bnthecho.setEnabled(true); 
+                   bnthecho.setText("Hecho");
+                   bnthecho.setForeground(Color.green.darker());
+                }   
+                
+             
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+   
+        sumapuntos();
+
+        
+    }
+    
+    void datos2()
+    {
+        
+        
+        limpiar();
+        String numero = lbfolio.getText();
+        renglon = 0;
+       
+     String sql = "SELECT numero,numero_sucursal,tipo,fecha,cliente,estatus_orden,articulo,cantidad,fecha_entrega,hora_entrega,"
+             + "lugar,cantidad_ponchado,observaciones,estatus_orden FROM historial_ordenes_ponchados_recibidos WHERE numero = '" + numero + "'";
+     
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                
+                lbfolio.setText(rs.getString("numero"));
+                lbnumeroventa.setText(rs.getString("numero_sucursal"));
                 lbfecha.setText(rs.getString("fecha"));
                 lbcliente.setText(rs.getString("cliente"));
                 lbfechaentrega.setText(rs.getString("fecha_entrega"));
@@ -207,6 +283,42 @@ public static boolean ventanaordenparcheanteriores = false;
         try {
 
                     PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + lbfolio.getText() + "'   ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
+                }
+        
+        
+        
+        String ubicacionsinguiones = ubicacion;
+        ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
+        
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Actualizado correctamente ");
+
+        datos();
+        
+        
+    }
+    
+    void actualizarlascantidadesbordadasotrasucursal(String cantidadponchadosactualizar,String nombredelponchado)
+    {
+        try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados_recibidos set cantidad_ponchado='" +cantidadponchadosactualizar+ "',fecha='"+dia()+"' where numero = '"+lbfolio.getText()+"' and articulo = '"+nombredelponchado+"'  ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
+                }
+        
+        try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados_recibidos set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + lbfolio.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1004,7 +1116,18 @@ public static boolean ventanaordenparcheanteriores = false;
     }//GEN-LAST:event_formWindowClosing
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        datos();
+
+        
+        if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
+       {
+          datos();
+       }
+        else
+        {
+            datos2();
+        }     
+
+        
         
          AudioClip sonido;
       if(tieneunaobservacion.equals("si"))
@@ -1029,14 +1152,27 @@ public static boolean ventanaordenparcheanteriores = false;
         
     }
         else
-    {    
+    {
         
-    cantidadponchadosactualizar = lbcantidad1.getText();
-    nombredelponchado = lbparche1.getText();
-    actualizarlascantidadesbordadas((String) cantidadponchadosactualizar,(String)nombredelponchado);
-    agregarexistenciabordados((String) nombredelponchado,(String) cantidadponchadosactualizar ); 
-    agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar) ;
+        if(enquesucursalsebordara.equals("Esta sucursal"))
+        {
+            
+            cantidadponchadosactualizar = lbcantidad1.getText();
+            nombredelponchado = lbparche1.getText();
+            actualizarlascantidadesbordadas((String) cantidadponchadosactualizar, (String) nombredelponchado);
+            agregarexistenciabordados((String) nombredelponchado, (String) cantidadponchadosactualizar);
+            agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar);
     
+        }
+        else
+        {
+            cantidadponchadosactualizar = lbcantidad1.getText();
+            nombredelponchado = lbparche1.getText();
+            actualizarlascantidadesbordadasotrasucursal((String) cantidadponchadosactualizar, (String) nombredelponchado);
+            //agregarexistenciabordados((String) nombredelponchado, (String) cantidadponchadosactualizar);
+            //agregaralsurtidasalhistorialdeventas((String) nombredelponchado, (String) cantidadponchadosactualizar);
+            
+        }    
     
     }
     

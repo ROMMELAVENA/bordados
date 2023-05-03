@@ -1226,9 +1226,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (blob == null) 
                 {
 
-                    ordencamisaimagencontorno p = new ordencamisaimagencontorno();
-                    jPanel1.add(p);
-                    jPanel1.repaint();
+                 
                     lblImagen.setVisible(false);
                     btnverfotomontaje.setEnabled(false);
                     tienefotomontaje = "no";
@@ -1259,8 +1257,9 @@ public class ordencamisa extends javax.swing.JFrame {
                     else
                     {
                     
-                    Imagen imagen = new Imagen();
-                    imagen.setImagen(img);
+                    Imagen ventana = new Imagen();
+                    ventana.setImagen(img);
+                    
                     lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
                     lblImagen.setVisible(true);
                     btnverfotomontaje.setEnabled(true);
@@ -1338,9 +1337,8 @@ public class ordencamisa extends javax.swing.JFrame {
             btnotraubicacion.setEnabled(false);
             btnotraubicacion2.setEnabled(false);
             
-            ordencamisaimagencontorno p = new ordencamisaimagencontorno();
-            jPanel1.add(p);
-            jPanel1.repaint();
+         
+            
             lblImagen.setVisible(false);
             btnverfotomontaje.setEnabled(false);
        
@@ -1470,24 +1468,7 @@ public class ordencamisa extends javax.swing.JFrame {
             {
                 
                 Blob blob = rs.getBlob("imagen");
-                if (blob == null) 
-                {
-
-                    ordencamisaimagencontorno p = new ordencamisaimagencontorno();
-                    jPanel1.add(p);
-                    jPanel1.repaint();
-                    lblImagen.setVisible(false);
-                    btnverfotomontaje.setEnabled(false);
-                    tienefotomontaje = "no";
               
-                    
-                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje o marcarle a Rommel para que les corrija elpara poder iniciar el bordado y registrar puntos");
-                    
-                } 
-                
-                else 
-                
-                {
                     byte[] data = blob.getBytes(1, (int) blob.length());
 
                     try {
@@ -1542,7 +1523,7 @@ public class ordencamisa extends javax.swing.JFrame {
                     
                     }
  
-                }
+               
 
             } //end while
             rs.close();
@@ -1573,9 +1554,7 @@ public class ordencamisa extends javax.swing.JFrame {
             btnotraubicacion.setEnabled(false);
             btnotraubicacion2.setEnabled(false);
             
-            ordencamisaimagencontorno p = new ordencamisaimagencontorno();
-            jPanel1.add(p);
-            jPanel1.repaint();
+           
             lblImagen.setVisible(false);
             btnverfotomontaje.setEnabled(false);
        
@@ -1704,9 +1683,7 @@ public class ordencamisa extends javax.swing.JFrame {
             */
             
             
-            ordencamisaimagencontorno p = new ordencamisaimagencontorno();
-            jPanel1.add(p);
-            jPanel1.repaint();
+         
             lblImagen.setVisible(false);
             btnverfotomontaje.setEnabled(false);
           

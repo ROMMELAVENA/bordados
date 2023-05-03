@@ -150,7 +150,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         //// historial_orden_camisa
         
-        String[] datos = new String[13];
+        String[] datos = new String[15];
         
         
         String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,nombre_concepto,observacion "
@@ -160,6 +160,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sqlcamisa);
+         
+            
             while (rs.next()) {
                 datos[0] = rs.getString("numero");
                 datos[1] = rs.getString("cliente");
@@ -263,7 +265,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos4 = new String[15];
         
-        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,nombre_concepto,observacion  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,nombre_concepto,observaciongeneral  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
@@ -281,7 +283,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos4[9] = "";
                 datos4[10] = "Local";
                 datos4[11] = rs.getString("nombre_concepto");
-                datos4[12] = rs.getString("observacion");
+                datos4[12] = rs.getString("observaciongeneral");
                 modelo.addRow(datos4);
 
             }
@@ -544,7 +546,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
            
         } catch (SQLException ex) {
-            System.out.println(ex);
+        
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         
@@ -608,14 +612,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos10[11] = "";
                 datos10[12] = rs.getString("observacion");
                 
-                
-                
-                /*
-                  if (sucursalsolicita.equals(tiendalocal));
-                {
-                  datos10[0] = numerosucursal;  
-                }
-                */
+              
 
                 modelo.addRow(datos10);
 
@@ -624,7 +621,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             
 
         } catch (SQLException ex) {
-            System.out.println(ex);
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
      
@@ -701,14 +698,14 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             
 
         } catch (SQLException ex) {
-            System.out.println(ex);
+         JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
         tieneponchados();
         
         
         
-        String sql16 = "SELECT Distinct numero,cliente,tipo,lugar,numero_sucursal,fecha,observaciones  FROM historial_ordenes_ponchados_recibidos where estatus_orden = 'generada'  and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+        String sql16 = "SELECT Distinct numero,cliente,tipo,lugar,numero_sucursal,fecha,observacion  FROM historial_ordenes_ponchados_recibidos where estatus_orden = 'generada'  and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
@@ -726,7 +723,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos9[9] = "";
                 datos9[10] = "Recibida";
                 datos9[11] = "";
-                datos9[12] = rs.getString("observaciones");
+                datos9[12] = rs.getString("observacion");
                 modelo.addRow(datos9);
 
             }

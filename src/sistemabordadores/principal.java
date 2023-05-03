@@ -2165,7 +2165,10 @@ public class principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnordenesbordadosucursalporrealizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnordenesbordadosucursalporrealizarActionPerformed
-     if(ordenesporrealizar.ventanaordenesbordadogenerada == true)
+ 
+        
+        
+        if(ordenesporrealizar.ventanaordenesbordadogenerada == true)
     {
      
         

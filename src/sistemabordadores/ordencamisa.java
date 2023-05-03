@@ -1,19 +1,31 @@
 package sistemabordadores;
 
 import java.applet.AudioClip;
-import java.awt.Color;
-import java.awt.Desktop;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
+
+
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+
+
+import java.net.InetAddress;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
+
+import javax.swing.Icon;
+
+import javax.swing.JFileChooser;
+
+import java.awt.Color;
+import java.awt.Font;
+
+import java.awt.Image;
+
+
+import java.io.ByteArrayInputStream;
+
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.sql.Blob;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,18 +33,30 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
+
+import javax.swing.DefaultComboBoxModel;
+
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+
+
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+import javax.swing.JOptionPane;
+
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.sql.Blob;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.awt.Desktop;
+import java.io.OutputStream;
 
 public class ordencamisa extends javax.swing.JFrame {
 
@@ -147,8 +171,12 @@ public class ordencamisa extends javax.swing.JFrame {
     
     ArrayList<String> listabotones = new ArrayList<String>();
     ArrayList<String> listahilos = new ArrayList<String>();
-
     
+     Connection con = null;
+     
+     String consecutivobordado = "";
+
+    String latiendaestaconectada = "si";
 
     public ordencamisa() 
     {
@@ -888,6 +916,9 @@ public class ordencamisa extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(sql);
             if (rs.next()) {
 
+                
+          //       consecutivobordado = rs.getString("numero_folio");
+                
                 lbcliente.setText(rs.getString("cliente"));
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
@@ -1166,12 +1197,465 @@ public class ordencamisa extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
 
+        
+        
+        String cliente = lbcliente.getText();
+        
+        
+        
+        
+        
+          numerodeorden = lborden.getText();
+          String numeroordensucursal = "";
+          String numeroventa= "";
+        
+        String sql1 = "Select numero_sucursal_orden from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' and numero_sucursal = '"+numerosucursal+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql1);
+            if (rs.next())
+            {
+
+                numeroordensucursal = rs.getString("numero_sucursal_orden");
+                
+                
+                String sql2 = "Select numero_venta from historial_ordenes_envio_solicitadas where numero = '" + numeroordensucursal + "' ";
+
+        try {
+            Statement st2 = cn.createStatement();
+            ResultSet rs2 = st2.executeQuery(sql2);
+            if (rs2.next())
+            {
+
+                numeroventa = rs2.getString("numero_venta");
+               
+                
+
+            }
+
+        } catch (SQLException ex) 
+        {
+             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }   
+               
+                
+
+            }
+
+        } catch (SQLException ex) 
+        {
+             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }
+        
+        
+      
+ 
+                tiendaconectada();   
+             
+            
+                
+              if (latiendaestaconectada.equals("si"))
+
+                      {
+                
+                
+                 try {
+         
+                     
+                     
+            Class.forName("com.mysql.jdbc.Driver");
+       
+         
+            con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tiendaenvia + "", "root", "sistemas");
+      
+
+        String sql7 = "Select cliente,prenda,tienda,nombre_concepto from historial_ordenes_camisa where numero = '" + numerosucursal + "' ";
+
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql7);
+            if (rs.next()) {
+
+                cliente = rs.getString("cliente");
+                lbprenda.setText(rs.getString("prenda"));
+                prenda = (rs.getString("prenda"));
+                sucursal = rs.getString("tienda");
+                identificadordeprenda = rs.getString("nombre_concepto");
+                
+
+            }
+
+        } catch (SQLException ex) 
+        {
+             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }
+
+        
+     
+        
+        
+         BufferedImage img = null;
+        
+        
+        
+       String sql4 = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";  ///
+
+        try {
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql4);
+            while (rs.next()) 
+            {
+                
+                Blob blob = rs.getBlob("imagen");
+              
+                    byte[] data = blob.getBytes(1, (int) blob.length());
+
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (IOException ex) 
+                    {
+                 
+                      JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+
+                    }
+
+                    if(img==null)
+                    {
+                       tienefotomontaje = "no"; 
+                    }
+                    else
+                    {
+                    
+                    Imagen imagen = new Imagen();
+                    imagen.setImagen(img);
+                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
+                    lbfotomontaje.setVisible(true);
+                    btnverfotomontaje.setEnabled(true);
+                    tienefotomontaje = "si";
+                    btnverfotomontaje.setEnabled(true);
+                  
+
+                    Blob archivo = rs.getBlob("imagen");
+                    String nombredelarchivo = rs.getString("extension_imagen");
+                     if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
+                    {
+                    rutaimagen = "C:\\archivospdf\\FOTOMONTAJE."+nombredelarchivo+" ";
+                    }
+                    else
+                    {
+                   nombredelarchivo = nombredelarchivo.replace(" ","");
+                    rutaimagen = "C:\\archivospdf\\"+nombredelarchivo+" ";
+                    }   
+                    
+                    File file = new File(rutaimagen);
+                    FileOutputStream output = new FileOutputStream(file);
+                    InputStream inStream = archivo.getBinaryStream();
+                    int length = -1;
+                    int size = (int) archivo.length();
+                    byte[] buffer = new byte[size];
+                    while ((length = inStream.read(buffer)) != -1) {
+                        output.write(buffer, 0, length);
+                   
+                    }
+                   
+                    output.close();
+                    
+                    }
+ 
+               
+
+            } //end while
+            rs.close();
+        } catch (SQLException ex) 
+        {
+          
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }
+        
+        
+         } catch (Exception x) {
+                               System.out.println(x); 
+                            }
+        
+        
+                 
+                 
+                      }
+        
+        /*
+        
+          
+        String sql2 = "Select numero_folio  from historial_ordenes_camisa_recibidas where numero_sucursal = '" + numerosucural + "' and cliente =  '" + cliente + "' and estatus_orden = 'por generar' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql2);
+            if (rs.next()) {
+        
+           consecutivobordado = rs.getString("numero_folio"); 
+        
+           }
+
+        } catch (SQLException ex) 
+        {
+             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
+        }
+        
        
         
-
+        
+        
+         
+        
+        
+        
+            try {
+            cargarelfotomontaje();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        */
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
     
+    
+    
+    
+    
+    
+    
+    void cargarelfotomontaje() throws IOException, ClassNotFoundException
+    {
+        
+        
+        String tienda = tiendasolicitoarticulos;
+        
+        
+        String tipo = lbprenda.getText();
+        tipo = tipo.toUpperCase();
+       
+       
+        String cliente = lbcliente.getText();
+       
+       BufferedImage img = null;
+       lbfotomontaje.setIcon(null);
+                this.repaint();
+       
+                 
+                
+                
+                 try {
+              Connection con;
+            Class.forName("com.mysql.jdbc.Driver");
+        //    con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/'"+tienda +"'", "root", "sistemas");
+         
+            con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tienda + "", "root", "sistemas");
+  
+           
+        String sqlimagen = "Select imagen,extension_imagen from bordados_puntadas where nombre = '" + cliente + "' and tipo = '"+tipo+"' and numero_consecutivo = '"+consecutivobordado+"'   ";
+
+       
+             try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sqlimagen);
+            if (rs.next()) {
+                Imagen imagen = new Imagen();
+                Blob blob = rs.getBlob(1);
+                
+                Object nombrefotomontaje = rs.getString(2);
+                
+                if (nombrefotomontaje == null || nombrefotomontaje.equals("")|| nombrefotomontaje.equals("ninguno")) 
+                {
+                    
+                    lbfotomontaje.setText("NO HAY IMAGEN");
+                    lbfotomontaje.setHorizontalAlignment(SwingConstants.CENTER);
+                    lbfotomontaje.setVerticalAlignment(SwingConstants.CENTER);
+                    btnverfotomontaje.setEnabled(false);
+                  
+
+                } 
+                
+                else
+                
+                
+                {
+                    byte[] data = blob.getBytes(1, (int) blob.length());
+
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (IOException ex) {
+                       
+                    }
+
+                    imagen.setImagen(img);
+                    if(img == null)
+                    {
+                    //    btnimportarfotomontaje.doClick();
+                    }
+                    else
+                    {    
+                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
+                    repaint();
+                    btnverfotomontaje.setEnabled(true);
+                  
+                    }
+                    
+                    
+
+                   
+                }
+
+            } //end while
+            
+            else
+            {
+                btnverfotomontaje.setEnabled(false);
+               
+            }
+            
+            
+            rs.close();
+        } catch (SQLException ex) {
+           System.out.println(ex);
+        }
+        
+        
+          } catch (Exception x) {
+                               System.out.println(x); 
+                            }
+        
+        
+        
+        
+        
+    }
+
+
+    
+    
+    
+    
+    
+        
+        
+    
+    
+ void tiendaconectada()
+ {
+     
+     
+     
+     String tienda =tiendaenvia;
+     
+     
+     try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
+
+            try {
+              
+                
+                
+                
+                String sql = "SELECT ip FROM catalogo_tiendas where tienda = '" + tienda + "'";
+
+                Statement st = cn.prepareStatement(sql);
+                ResultSet rs = st.executeQuery(sql);
+
+                if (rs.next()) {
+
+                    iptraspaso = rs.getString("ip");
+              
+
+                } else {
+
+                }
+
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane op = new JOptionPane();
+                JLabel label = new JLabel("<HTML><b style=\"Color:red; font-size:20px;\">Error al buscar tiendas".toUpperCase());
+                label.setFont(new Font("Arial", Font.BOLD, 40));
+                label.setOpaque(true);
+                label.setForeground(Color.red.brighter());
+                label.setBackground(Color.YELLOW.brighter());
+                op.showMessageDialog(null, label, "ERROR!!", op.WARNING_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "Error al buscar tiendas");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+       
+        InetAddress ping;
+
+        if (tienda == null || tienda.equals("Seleccione Tienda")) 
+        {
+            
+              JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+            
+            
+        }
+        else 
+        {
+
+            try {
+                
+                
+
+                ping = InetAddress.getByName(iptraspaso);
+            
+                if (ping.isReachable(5000)) 
+                {
+                  
+                  latiendaestaconectada = "si";
+                   
+
+                }
+                
+                else 
+                
+                {
+                    
+                    latiendaestaconectada = "no";
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+                    
+
+                }
+            } catch (IOException ex) {
+                System.out.println(ex);
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+               
+                
+            }
+
+        }         
+
+     
+ }
+ 
+    
+        
+ 
     
     
      void codigocliente()
@@ -1227,7 +1711,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 {
 
                  
-                    lblImagen.setVisible(false);
+                    lbfotomontaje.setVisible(false);
                     btnverfotomontaje.setEnabled(false);
                     tienefotomontaje = "no";
               
@@ -1260,8 +1744,8 @@ public class ordencamisa extends javax.swing.JFrame {
                     Imagen ventana = new Imagen();
                     ventana.setImagen(img);
                     
-                    lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
-                    lblImagen.setVisible(true);
+                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
+                    lbfotomontaje.setVisible(true);
                     btnverfotomontaje.setEnabled(true);
                     tienefotomontaje = "si";
                     btnverfotomontaje.setEnabled(true);
@@ -1339,7 +1823,7 @@ public class ordencamisa extends javax.swing.JFrame {
             
          
             
-            lblImagen.setVisible(false);
+            lbfotomontaje.setVisible(false);
             btnverfotomontaje.setEnabled(false);
        
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
@@ -1489,8 +1973,8 @@ public class ordencamisa extends javax.swing.JFrame {
                     
                     Imagen imagen = new Imagen();
                     imagen.setImagen(img);
-                    lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
-                    lblImagen.setVisible(true);
+                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
+                    lbfotomontaje.setVisible(true);
                     btnverfotomontaje.setEnabled(true);
                     tienefotomontaje = "si";
                     btnverfotomontaje.setEnabled(true);
@@ -1555,7 +2039,7 @@ public class ordencamisa extends javax.swing.JFrame {
             btnotraubicacion2.setEnabled(false);
             
            
-            lblImagen.setVisible(false);
+            lbfotomontaje.setVisible(false);
             btnverfotomontaje.setEnabled(false);
        
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
@@ -1615,8 +2099,8 @@ public class ordencamisa extends javax.swing.JFrame {
                     {
                     Imagen imagen = new Imagen();
                     imagen.setImagen(img);
-                    lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
-                    lblImagen.setVisible(true);
+                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
+                    lbfotomontaje.setVisible(true);
                     btnverfotomontaje.setEnabled(true);
                     tienefotomontaje = "si";
                     btnverfotomontaje.setEnabled(true);
@@ -1684,7 +2168,7 @@ public class ordencamisa extends javax.swing.JFrame {
             
             
          
-            lblImagen.setVisible(false);
+            lbfotomontaje.setVisible(false);
             btnverfotomontaje.setEnabled(false);
           
 
@@ -3111,7 +3595,7 @@ public class ordencamisa extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblImagen = new javax.swing.JLabel();
+        lbfotomontaje = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         lborden = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -3153,7 +3637,6 @@ public class ordencamisa extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         btnterminetodo = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JSeparator();
         lbprenda = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lbnumerodelaotrasucursal = new javax.swing.JLabel();
@@ -3217,12 +3700,12 @@ public class ordencamisa extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 800));
         jPanel1.setLayout(null);
 
-        lblImagen.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblImagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblImagen.setToolTipText("");
-        lblImagen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lblImagen);
-        lblImagen.setBounds(0, 10, 820, 640);
+        lbfotomontaje.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbfotomontaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbfotomontaje.setToolTipText("");
+        lbfotomontaje.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(lbfotomontaje);
+        lbfotomontaje.setBounds(-10, 10, 1280, 640);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel13.setText("No.Orden");
@@ -3674,28 +4157,6 @@ public class ordencamisa extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(lbidentificadordeprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbdiaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3713,9 +4174,70 @@ public class ordencamisa extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btnvercolorido, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(btnfotomontajesinpuntadas))
+                                    .addComponent(btnfotomontajesinpuntadas)))
+                            .addGap(0, 611, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel18)
                                     .addGap(7, 7, 7)
+                                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(22, 22, 22)
+                                    .addComponent(jLabel16)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 383, Short.MAX_VALUE)
+                                    .addComponent(jLabel19)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btneditarbordado, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(46, 46, 46))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(9, 1267, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lbltallas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btnmangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btnmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btnpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btnpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btnespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btnotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btnotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(27, 27, 27)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(cbhilo1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cbhilo2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cbhilo3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cbhilo5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cbhilo4, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cbhilo6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cbhilo7, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(30, 30, 30)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(lbcolor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lbcolor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lbcolor3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lbcolor4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lbcolor5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lbcolor6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lbcolor7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(169, 169, 169)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lbotraubicacionnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(lbespaldanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3733,71 +4255,32 @@ public class ordencamisa extends javax.swing.JFrame {
                                         .addComponent(lbespalda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lbotraubicacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lbotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(9, 9, 9)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(lbltallas, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(btnmangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(btnmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(btnpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(btnpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(btnespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(btnotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(btnotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(27, 27, 27)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(cbhilo1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(cbhilo2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(cbhilo3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(cbhilo5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(cbhilo4, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(cbhilo6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(cbhilo7, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(30, 30, 30)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(lbcolor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(lbcolor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(lbcolor3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(lbcolor4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(lbcolor5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(lbcolor6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(lbcolor7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(169, 169, 169)
-                                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addComponent(jSeparator1))
-                                    .addGap(0, 0, Short.MAX_VALUE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel18)
-                                    .addGap(7, 7, 7)
-                                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(22, 22, 22)
-                                    .addComponent(jLabel16)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel19)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btneditarbordado, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGap(0, 0, Short.MAX_VALUE)
-                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(46, 46, 46)))))
+                            .addContainerGap()))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(lbidentificadordeprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbdiaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3837,7 +4320,6 @@ public class ordencamisa extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
                         .addComponent(lbltallas, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3894,9 +4376,7 @@ public class ordencamisa extends javax.swing.JFrame {
                                         .addComponent(lbcolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(13, 13, 13)
                                 .addComponent(lbcolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbmangaderechanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbmangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -4082,7 +4562,7 @@ public class ordencamisa extends javax.swing.JFrame {
         }
          
          
-         
+         /*
         
          
          try {    
@@ -4090,6 +4570,8 @@ public class ordencamisa extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         } 
+         
+         */
         
     }   
       datoscolorido();  
@@ -5679,71 +6161,100 @@ public class ordencamisa extends javax.swing.JFrame {
     private void btnverfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverfotomontajeActionPerformed
        
         
+        
+         //  codigocliente = lbcodigocliente.getText();
         String cliente = lbcliente.getText();
-        String tipo = lbprenda.getText();
-        String prenda =lbprenda.getText().toUpperCase();
-        identificadordeprenda =lbidentificadordeprenda.getText();
-        String prendafotomontaje = "";
-        String nombreprendafotomontaje = "";
         String rutadelarchivo = "";
         String existe = "";
+        String prenda = lbprenda.getText();
+       // String nombre = nombrebordado.getText().trim();
+   
+       
+        String tienda = tiendaenvia;
         
-        //// prenda del fotomontaje
-        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";
-
+      
+     //    String SQL = "SELECT imagen,extension_imagen FROM bordados_puntadas where nombre = '"+cliente+"' and tipo = '"+prenda+"' and numero_consecutivo = '"+consecutivobordado+"'  ";
+        String sql = "SELECT imagen,extension_imagen FROM bordados_puntadas where nombre = '" + cliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";  ///
+    
+    
         try {
-            Statement st1 = cn.createStatement();
+            
+           
+            Class.forName("com.mysql.jdbc.Driver");
+           
+         
+            con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tienda + "", "root", "sistemas");
+   
+            
+            
+             try {
+            
+            Statement st1 = con.createStatement();
             ResultSet rs1 = st1.executeQuery(sql);
-            if (rs1.next()) 
+            if (rs1.next())
             {
-                Object camisa1 = rs1.getString("imagen");
-                if (camisa1 == null||camisa1.equals("")||camisa1.equals(" ")) 
+                Object camisa1 = rs1.getString(1);
+                if (camisa1 == null||camisa1.equals("")||camisa1.equals(" "))
                 {
                     existe = "no";
-                    
-                } else 
-                
+                } else
+
                 {
-                    String nombredelarchivo = rs1.getString("extension_imagen");
+                    String nombredelarchivo = rs1.getString(2);
+                    
+                    
                     if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
                     {
-                        
-                     rutadelarchivo = "C:\\archivospdf\\fotomontaje."+nombredelarchivo+" ";   
-                   
+                        rutadelarchivo = "C://archivospdf/fotomontaje."+nombredelarchivo+" ";
                     }
                     else
                     {
-                        
-                   nombredelarchivo = nombredelarchivo.replace(" ","");
-                   rutadelarchivo = "C:\\archivospdf\\"+nombredelarchivo+" ";
-                    
+                        rutadelarchivo = "C://archivospdf/"+nombredelarchivo+" ";
                     }
                     existe = "si";
                     File file = new File(rutadelarchivo);
-                    FileOutputStream output = new FileOutputStream(file);
-                    Blob archivo = rs1.getBlob("imagen");
+                    FileOutputStream output = null;
+                    try {
+                        output = new FileOutputStream(file);
+                    } catch (FileNotFoundException ex) {
+                        System.out.println(ex);
+                    }
+                    Blob archivo = rs1.getBlob(1);
                     InputStream inStream = archivo.getBinaryStream();
                     int length = -1;
                     int size = (int) archivo.length();
                     byte[] buffer = new byte[size];
-                    while ((length = inStream.read(buffer)) != -1) {
-                        output.write(buffer, 0, length);
+                    try {
+                        while ((length = inStream.read(buffer)) != -1) {
+                            output.write(buffer, 0, length);
+                            // output.flush();
+                        }
+                    } catch (IOException ex) {
+                        System.out.println(ex);
                     }
- 
-                    output.close();
+                    try {
+                        // inStream.close();
+                        output.close();
+                    } catch (IOException ex) {
+                        System.out.println(ex);
+                    }
                 }
             }
             rs1.close();
 
         } catch (SQLException ex) {
             System.out.println(ex);
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex);
-        } catch (IOException ex) {
-            System.out.println(ex);
         }
+        
+          
+          } catch (Exception x) {
+                               System.out.println(x); 
+                            }
+        
+           
+           
 
-        if (existe.equals("si")) 
+        if (existe.equals("si"))
         {
             String fileLocal = new String(rutadelarchivo);
             try {
@@ -5751,17 +6262,24 @@ public class ordencamisa extends javax.swing.JFrame {
                 File path = new File(fileLocal);
                 Desktop.getDesktop().open(path);
 
-            } catch (IOException e) {
-                System.out.println(e);
-            } catch (IllegalArgumentException e) {
+            } catch (IOException e2) {
+                System.out.println(e2);
+            } catch (IllegalArgumentException e3) {
 
-                JOptionPane.showMessageDialog(null, "No se pudo encontrar el archivo","Error",JOptionPane.ERROR_MESSAGE);
-                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+e+"");
-               
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se pudo encontrar el archivo","Error",JOptionPane.ERROR_MESSAGE);
+                System.out.println(e3);
             }
-        
-        } 
 
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Para ver el fotomontaje, primero debe de guardar puntadas","Error",JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+        
+        
+        
     }//GEN-LAST:event_btnverfotomontajeActionPerformed
 
     private void btnotraubicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnotraubicacionActionPerformed
@@ -6957,6 +7475,10 @@ public class ordencamisa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnvercoloridoActionPerformed
 
     private void btndatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndatosActionPerformed
+  
+        
+        
+        
         if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
     {
         
@@ -7005,7 +7527,7 @@ public class ordencamisa extends javax.swing.JFrame {
          
          
          
-        
+        if (tienda_traspaso.equals(cc))
          
          try {    
             agregarfotomontajeotrasucursal();
@@ -7016,6 +7538,9 @@ public class ordencamisa extends javax.swing.JFrame {
     }   
       datoscolorido();  
       sumapuntos();
+      
+      
+      
     }//GEN-LAST:event_btndatosActionPerformed
 
     private void btnfotomontajesinpuntadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfotomontajesinpuntadasActionPerformed
@@ -7064,8 +7589,8 @@ public class ordencamisa extends javax.swing.JFrame {
             
             
             ImageIcon fot = new ImageIcon(rutaarchivo);
-            Icon icono = new ImageIcon(fot.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT));
-            lblImagen.setIcon(icono);
+            Icon icono = new ImageIcon(fot.getImage().getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT));
+            lbfotomontaje.setIcon(icono);
             this.repaint();
             
             btndatos.doClick();
@@ -7187,7 +7712,6 @@ public class ordencamisa extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     public static javax.swing.JLabel lbcantidad;
     public static javax.swing.JLabel lbcantidad1;
     public static javax.swing.JLabel lbcliente;
@@ -7202,10 +7726,10 @@ public class ordencamisa extends javax.swing.JFrame {
     public static javax.swing.JLabel lbespalda;
     public static javax.swing.JLabel lbespaldanombre;
     public static javax.swing.JLabel lbfecha;
+    private javax.swing.JLabel lbfotomontaje;
     public static javax.swing.JLabel lbhoraentrega;
     public static javax.swing.JLabel lbidentificador;
     private javax.swing.JLabel lbidentificadordeprenda;
-    private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lbltallas;
     public static javax.swing.JLabel lbmangaderecha;
     public static javax.swing.JLabel lbmangaderechanombre;

@@ -67,29 +67,6 @@
           <Group type="102" attributes="0">
               <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lbprenda" min="-2" pref="251" max="-2" attributes="0"/>
-                      <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                      <Component id="lbidentificadordeprenda" min="-2" pref="312" max="-2" attributes="0"/>
-                      <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                      <Component id="jLabel13" min="-2" pref="89" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lborden" min="-2" pref="124" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbcantidad1" min="-2" pref="74" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel15" min="-2" pref="92" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbcantidad" min="-2" pref="84" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel17" min="-2" pref="116" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbdiaentrega" min="-2" pref="84" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel20" min="-2" pref="52" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbhoraentrega" min="-2" pref="84" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jLabel4" min="-2" pref="117" max="-2" attributes="0"/>
@@ -110,8 +87,82 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="btnfotomontajesinpuntadas" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="611" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                                  <Component id="lbidentificador" min="-2" pref="233" max="-2" attributes="0"/>
+                                  <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
+                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lbcliente" min="-2" pref="473" max="-2" attributes="0"/>
+                                  <EmptySpace pref="383" max="32767" attributes="0"/>
+                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lbnombrecomercial" min="-2" pref="193" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btneditarbordado" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnsalir" min="-2" pref="72" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jSeparator2" min="-2" pref="592" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="9" pref="1267" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lbltallas" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel3" min="-2" pref="151" max="-2" attributes="0"/>
+                                              <Component id="btnmangaderecha" min="-2" pref="137" max="-2" attributes="0"/>
+                                              <Component id="btnmangaizquierda" min="-2" pref="137" max="-2" attributes="0"/>
+                                              <Component id="btnpechoderecho" min="-2" pref="137" max="-2" attributes="0"/>
+                                              <Component id="btnpechoizquierdo" min="-2" pref="136" max="-2" attributes="0"/>
+                                              <Component id="btnespalda" min="-2" pref="136" max="-2" attributes="0"/>
+                                              <Component id="btnotraubicacion" min="-2" pref="136" max="-2" attributes="0"/>
+                                              <Component id="btnotraubicacion2" min="-2" pref="136" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="cbhilo1" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                              <Component id="cbhilo2" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                              <Component id="cbhilo3" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                              <Component id="cbhilo5" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                              <Component id="cbhilo4" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                              <Component id="cbhilo6" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                              <Component id="cbhilo7" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="lbcolor1" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lbcolor2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lbcolor3" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lbcolor4" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lbcolor5" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lbcolor6" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lbcolor7" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLabel2" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="169" pref="169" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" min="-2" pref="105" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jSeparator1" min="-2" pref="569" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lbotraubicacionnombre" min="-2" pref="110" max="-2" attributes="0"/>
                                       <Component id="lbespaldanombre" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
@@ -133,84 +184,36 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                  <Component id="jPanel1" min="-2" pref="832" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lbltallas" alignment="0" pref="569" max="32767" attributes="0"/>
-                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel3" min="-2" pref="151" max="-2" attributes="0"/>
-                                                  <Component id="btnmangaderecha" min="-2" pref="137" max="-2" attributes="0"/>
-                                                  <Component id="btnmangaizquierda" min="-2" pref="137" max="-2" attributes="0"/>
-                                                  <Component id="btnpechoderecho" min="-2" pref="137" max="-2" attributes="0"/>
-                                                  <Component id="btnpechoizquierdo" min="-2" pref="136" max="-2" attributes="0"/>
-                                                  <Component id="btnespalda" min="-2" pref="136" max="-2" attributes="0"/>
-                                                  <Component id="btnotraubicacion" min="-2" pref="136" max="-2" attributes="0"/>
-                                                  <Component id="btnotraubicacion2" min="-2" pref="136" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="cbhilo1" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                                  <Component id="cbhilo2" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                                  <Component id="cbhilo3" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                                  <Component id="cbhilo5" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                                  <Component id="cbhilo4" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                                  <Component id="cbhilo6" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                                  <Component id="cbhilo7" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="lbcolor1" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="lbcolor2" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="lbcolor3" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="lbcolor4" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="lbcolor5" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="lbcolor6" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="lbcolor7" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabel2" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="169" pref="169" max="-2" attributes="0"/>
-                                              <Component id="jLabel5" min="-2" pref="105" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Component id="jSeparator1" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                                  <Component id="lbidentificador" min="-2" pref="233" max="-2" attributes="0"/>
-                                  <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
-                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lbcliente" min="-2" pref="473" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lbnombrecomercial" min="-2" pref="193" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btneditarbordado" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnsalir" min="-2" pref="72" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jSeparator3" alignment="1" max="32767" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="jSeparator2" min="-2" pref="592" max="-2" attributes="0"/>
-                              </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jPanel1" alignment="1" min="-2" pref="1273" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lbprenda" min="-2" pref="251" max="-2" attributes="0"/>
+                              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                              <Component id="lbidentificadordeprenda" min="-2" pref="312" max="-2" attributes="0"/>
+                              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                              <Component id="jLabel13" min="-2" pref="89" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lborden" min="-2" pref="124" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lbcantidad1" min="-2" pref="74" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel15" min="-2" pref="92" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lbcantidad" min="-2" pref="84" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel17" min="-2" pref="116" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lbdiaentrega" min="-2" pref="84" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel20" min="-2" pref="52" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lbhoraentrega" min="-2" pref="84" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -258,8 +261,7 @@
               </Group>
               <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Component id="lbltallas" min="-2" pref="104" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
@@ -270,7 +272,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="btnmangaderecha" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                               <Component id="btnmangaizquierda" min="-2" pref="30" max="-2" attributes="0"/>
@@ -290,9 +292,9 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="cbhilo1" min="-2" pref="30" max="-2" attributes="0"/>
                                                   <Component id="lbcolor1" min="-2" pref="30" max="-2" attributes="0"/>
@@ -318,7 +320,7 @@
                                   <Component id="lbcolor5" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                       <Component id="cbhilo6" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
@@ -331,9 +333,7 @@
                               <Component id="lbcolor7" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lbmangaderechanombre" min="-2" pref="16" max="-2" attributes="0"/>
                           <Component id="lbmangaderecha" min="-2" pref="20" max="-2" attributes="0"/>
@@ -376,7 +376,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jPanel1" alignment="0" min="-2" pref="655" max="-2" attributes="0"/>
+                  <Component id="jPanel1" min="-2" pref="655" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -431,7 +431,7 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblImagen">
+        <Component class="javax.swing.JLabel" name="lbfotomontaje">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
@@ -446,7 +446,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="10" width="820" height="640"/>
+              <AbsoluteConstraints x="-10" y="10" width="1280" height="640"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -955,8 +955,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnterminetodoActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JSeparator" name="jSeparator3">
     </Component>
     <Component class="javax.swing.JLabel" name="lbprenda">
       <Properties>

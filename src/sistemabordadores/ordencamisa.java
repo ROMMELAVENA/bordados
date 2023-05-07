@@ -60,7 +60,7 @@ import java.io.OutputStream;
 
 public class ordencamisa extends javax.swing.JFrame {
 
-    public static boolean ventanaordencamisaanteriores = false;
+    public static boolean ventanaordencamisa = false;
     public static String ordenbordadocamisa = "";
     
 
@@ -181,7 +181,7 @@ public class ordencamisa extends javax.swing.JFrame {
     public ordencamisa() 
     {
         initComponents();
-        ventanaordencamisaanteriores = true;
+        ventanaordencamisa = true;
 
         lbnumeroventa.setVisible(false);
         lbtipo.setVisible(false);
@@ -4400,7 +4400,7 @@ public class ordencamisa extends javax.swing.JFrame {
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
 
-        ventanaordencamisaanteriores = false;
+        ventanaordencamisa = false;
          if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
         {
             ordenesporrealizar.btnactualizar.doClick();
@@ -4411,7 +4411,7 @@ public class ordencamisa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        ventanaordencamisaanteriores = false;
+        ventanaordencamisa = false;
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
@@ -5719,7 +5719,7 @@ public class ordencamisa extends javax.swing.JFrame {
     }//GEN-LAST:event_btninsertarponchadosActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        ventanaordencamisaanteriores = false;
+       
     }//GEN-LAST:event_formWindowClosed
 
     private void btnverfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverfotomontajeActionPerformed
@@ -6730,7 +6730,7 @@ public class ordencamisa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btndatos;
+    public static javax.swing.JButton btndatos;
     private javax.swing.JButton btneditarbordado;
     private javax.swing.JButton btnespalda;
     private javax.swing.JButton btnfotomontajesinpuntadas;

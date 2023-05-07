@@ -1601,7 +1601,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 
                 if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) 
                 {
-                    if (ordencamisa.ventanaordencamisaanteriores == true) 
+                    if (ordencamisa.ventanaordencamisa == true) 
                     {
                         
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de camisa anteriores");

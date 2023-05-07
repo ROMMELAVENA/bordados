@@ -304,7 +304,7 @@ public class autorizacion extends javax.swing.JFrame {
              if (contraseñaingresada.equals(principal.contraseñadireccion) ||contraseñaingresada.equals(principal.contraseñaadministracion)||contraseñaingresada.equals(principal.contraseñabordador) ||contraseñaingresada.equals(principal.contraseñaencargado)||contraseñaingresada.equals(principal.contraseñaencargado) ) 
             {
 
-                bordadosdelclienteeditar.bordadosdelclienteeditarnuevoautorizacion="si"; 
+           //     bordadoseditar.bordadosdelclienteeditarnuevoautorizacion="si"; 
                 bordadosdelclienteeditar.btnguardar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();

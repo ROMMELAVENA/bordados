@@ -556,7 +556,7 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
                 Object tipo = tablacamisa.getValueAt(fila, 3).toString();
 
                 if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) {
-                    if (ordencamisa.ventanaordencamisaanteriores == true) {
+                    if (ordencamisa.ventanaordencamisa == true) {
                         
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
 

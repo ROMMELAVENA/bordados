@@ -1445,7 +1445,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                 
                 
                 {
-                    if (ordencamisa.ventanaordencamisaanteriores == true) 
+                    if (ordencamisa.ventanaordencamisa == true) 
                     {
                         
                        

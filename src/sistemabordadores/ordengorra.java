@@ -2637,7 +2637,7 @@ public class ordengorra extends javax.swing.JFrame {
         jLabel20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel18.setText("Identificador");
+        jLabel18.setText("Bordacliente");
         jLabel18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -2793,7 +2793,7 @@ public class ordengorra extends javax.swing.JFrame {
                         .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(185, 185, 185)
                         .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 2, Short.MAX_VALUE))
+                        .addGap(0, 4, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()

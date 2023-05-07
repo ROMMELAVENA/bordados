@@ -1059,7 +1059,7 @@ public static boolean ventanaordenparcheanteriores = false;
         lbsumapuntos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel22.setText("Identificador");
+        jLabel22.setText("Bordacliente");
         jLabel22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

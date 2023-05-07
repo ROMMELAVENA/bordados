@@ -907,7 +907,7 @@ public class ordencorbata extends javax.swing.JFrame {
         });
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel27.setText("Identificador");
+        jLabel27.setText("Bordacliente");
         jLabel27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

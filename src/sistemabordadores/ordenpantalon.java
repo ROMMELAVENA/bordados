@@ -2017,7 +2017,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel27.setText("Identificador");
+        jLabel27.setText("Bordacliente");
         jLabel27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbnombrecomercial.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

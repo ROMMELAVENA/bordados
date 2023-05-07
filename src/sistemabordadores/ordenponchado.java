@@ -892,7 +892,7 @@ public static boolean ventanaordenparcheanteriores = false;
         });
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel21.setText("Identificador");
+        jLabel21.setText("Bordacliente");
         jLabel21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

@@ -1459,7 +1459,7 @@ public static boolean ventanaordenparcheanteriores = false;
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
 
-        if (bordadosdelclienteeditarnuevo.ventanabordadosdelclienteeditarnuevo)
+        if (bordadosdelclienteeditar.ventanabordadosdelclienteeditar)
 
         {
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados de cliente ya está abierta");
@@ -1468,18 +1468,18 @@ public static boolean ventanaordenparcheanteriores = false;
 
         {
 
-            bordadosdelclienteeditarnuevo ventana = new bordadosdelclienteeditarnuevo();
+            bordadosdelclienteeditar ventana = new bordadosdelclienteeditar();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
 
-            bordadosdelclienteeditarnuevo.lbcliente.setText(lbcliente.getText());
-            bordadosdelclienteeditarnuevo.lbnombrecomercial.setText(lbnombrecomercial.getText());
-            bordadosdelclienteeditarnuevo.lbidentificador.setText(lbidentificador.getText());
-            bordadosdelclienteeditarnuevo.lbcodigocliente.setText(codigocliente);
-            bordadosdelclienteeditarnuevo.lbconsecutivo.setText(consecutivo);
-            bordadosdelclienteeditarnuevo.txtidentificadordeprenda.setText(identificadordeprenda);
+            bordadosdelclienteeditar.lbcliente.setText(lbcliente.getText());
+            bordadosdelclienteeditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
+            bordadosdelclienteeditar.lbidentificador.setText(lbidentificador.getText());
+            bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
+            bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
+            bordadosdelclienteeditar.txtidentificadordeprenda.setText(identificadordeprenda);
 
-            bordadosdelclienteeditarnuevo.lbprenda.setText("PARCHE");
+            bordadosdelclienteeditar.lbprenda.setText("PARCHE");
 
         }
     }//GEN-LAST:event_btneliminarActionPerformed

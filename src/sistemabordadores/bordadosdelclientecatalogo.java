@@ -2979,7 +2979,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
 
                 if (prenda.equals("CAMISA") || prenda.equals("CAMISOLA") || prenda.equals("CORBATA") || prenda.equals("CHALECO") || prenda.equals("CHAMARRA DESMONTABLE") || prenda.equals("CHAMARRA ROMPEVIENTOS") || prenda.equals("FILIPINA") || prenda.equals("GORRA") || prenda.equals("MANDIL") || prenda.equals("PANTALON") || prenda.equals("PARCHE") || prenda.equals("PLAYERA") || prenda.equals("SACO")) {
 
-                    if (bordadosdelclienteeditarnuevo.ventanabordadosdelclienteeditarnuevo == true) {
+                    if (bordadosdelclienteeditar.ventanabordadosdelclienteeditar == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados del cliente editar ya est� abierta");
                     } else {
                         
@@ -2998,21 +2998,21 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
                         }
                         
 
-                        bordadosdelclienteeditarnuevo ventana = new bordadosdelclienteeditarnuevo();
+                        bordadosdelclienteeditar ventana = new bordadosdelclienteeditar();
                         ventana.setVisible(true);
                         ventana.setLocationRelativeTo(null);
-                        bordadosdelclienteeditarnuevo.lbcliente.setText(nombrecliente.toString());
-                        bordadosdelclienteeditarnuevo.lbnombrecomercial.setText(nombrecomercial.toString());
-                        bordadosdelclienteeditarnuevo.lbcodigocliente.setText(lbcodigocliente.getText());
-                        bordadosdelclienteeditarnuevo.txtidentificadordeprenda.setText(nombredelbordado.toString());
-                        bordadosdelclienteeditarnuevo.txtcodigocatalogobordados.setText(consecutivo.toString());
-                        bordadosdelclienteeditarnuevo.lbconsecutivo.setText(consecutivo.toString());
+                        bordadosdelclienteeditar.lbcliente.setText(nombrecliente.toString());
+                        bordadosdelclienteeditar.lbnombrecomercial.setText(nombrecomercial.toString());
+                        bordadosdelclienteeditar.lbcodigocliente.setText(lbcodigocliente.getText());
+                        bordadosdelclienteeditar.txtidentificadordeprenda.setText(nombredelbordado.toString());
+                        bordadosdelclienteeditar.txtcodigocatalogobordados.setText(consecutivo.toString());
+                        bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo.toString());
 
                         if (prenda.equals("TODOS")) {
-                            bordadosdelclienteeditarnuevo.lbprenda.setText(prenda.toString());
+                            bordadosdelclienteeditar.lbprenda.setText(prenda.toString());
 
                         } else {
-                            bordadosdelclienteeditarnuevo.lbprenda.setText(prenda.toString());
+                            bordadosdelclienteeditar.lbprenda.setText(prenda.toString());
                         }
 
                         if (prenda.equals("TODOS")) {

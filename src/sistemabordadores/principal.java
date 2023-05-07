@@ -2419,6 +2419,8 @@ public class principal extends javax.swing.JFrame {
     ventana.setVisible(true);
     ventana.setLocationRelativeTo(null);
     ventana.setTitle("Ordenes bordado realizadas");
+    
+    
     }
     }//GEN-LAST:event_btnordenesbordadosucursalrealizadasActionPerformed
 

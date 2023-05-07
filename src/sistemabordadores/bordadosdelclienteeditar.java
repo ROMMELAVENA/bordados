@@ -31,9 +31,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
+public class bordadosdelclienteeditar extends javax.swing.JFrame {
 
-    public static boolean ventanabordadosdelclienteeditarnuevo = false;
+    public static boolean ventanabordadosdelclienteeditar = false;
     
     String prenda = "";
     
@@ -382,9 +382,9 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
     public static String bordadosdelclienteeditarnuevoautorizacion = "no";
     
    
-    public bordadosdelclienteeditarnuevo() {
+    public bordadosdelclienteeditar() {
         initComponents();
-        ventanabordadosdelclienteeditarnuevo = true;
+        ventanabordadosdelclienteeditar = true;
         
 
         btndatos.setVisible(false);
@@ -3953,7 +3953,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
         btnautorizarpuntadas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Bordados del cliente editar nuevo");
+        setTitle("Bordados del cliente editar");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -5269,7 +5269,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-        ventanabordadosdelclienteeditarnuevo = false;
+        ventanabordadosdelclienteeditar = false;
         this.dispose();;
     }//GEN-LAST:event_btnsalirActionPerformed
 
@@ -7053,7 +7053,7 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
 
    
         this.dispose();
-        ventanabordadosdelclienteeditarnuevo = false;
+        ventanabordadosdelclienteeditar = false;
         
                 
                 
@@ -7079,12 +7079,12 @@ public class bordadosdelclienteeditarnuevo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        ventanabordadosdelclienteeditarnuevo = false;
+        ventanabordadosdelclienteeditar = false;
         this.dispose();;
     }//GEN-LAST:event_formWindowClosed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        ventanabordadosdelclienteeditarnuevo = false;
+        ventanabordadosdelclienteeditar = false;
         this.dispose();;
     }//GEN-LAST:event_formWindowClosing
 

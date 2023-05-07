@@ -53,35 +53,35 @@ public class bordadosdelclientecatalogoEditar extends AbstractCellEditor impleme
           else
         {    
            
-        bordadosdelclienteeditarnuevo ventana = new bordadosdelclienteeditarnuevo();
+        bordadosdelclienteeditar ventana = new bordadosdelclienteeditar();
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
         
         
-        bordadosdelclienteeditarnuevo.lbcliente.setText(bordadosdelclientecatalogo.cbcomboclientes.getSelectedItem().toString());
-        bordadosdelclienteeditarnuevo.lbnombrecomercial.setText(bordadosdelclientecatalogo.cbnombrecomercial.getSelectedItem().toString());
-        bordadosdelclienteeditarnuevo.lbcodigocliente.setText(bordadosdelclientecatalogo.lbcodigocliente.getText());
-        bordadosdelclienteeditarnuevo.txtidentificadordeprenda.setText(nombre.toString());
+        bordadosdelclienteeditar.lbcliente.setText(bordadosdelclientecatalogo.cbcomboclientes.getSelectedItem().toString());
+        bordadosdelclienteeditar.lbnombrecomercial.setText(bordadosdelclientecatalogo.cbnombrecomercial.getSelectedItem().toString());
+        bordadosdelclienteeditar.lbcodigocliente.setText(bordadosdelclientecatalogo.lbcodigocliente.getText());
+        bordadosdelclienteeditar.txtidentificadordeprenda.setText(nombre.toString());
        
        
        if(prenda.equals("CAMISA"))
        {
        
-           bordadosdelclienteeditarnuevo.lbprenda.setText("CAMISA");
+           bordadosdelclienteeditar.lbprenda.setText("CAMISA");
        }
         
        //// playera
        
        else if(prenda.equals("PLAYERA"))
        {
-           bordadosdelclienteeditarnuevo.lbprenda.setText("PLAYERA");
+           bordadosdelclienteeditar.lbprenda.setText("PLAYERA");
         
        }
       
        /// CAMISOLA
         else if(prenda.equals("CAMISOLA"))
        {
-           bordadosdelclienteeditarnuevo.lbprenda.setText("CAMISOLA");
+           bordadosdelclienteeditar.lbprenda.setText("CAMISOLA");
         
        }
       
@@ -89,14 +89,14 @@ public class bordadosdelclientecatalogoEditar extends AbstractCellEditor impleme
        /// CHAMARRA DESMONTABLE
         else if(prenda.equals("CHAMARRA DESMONTABLE"))
        {
-           bordadosdelclienteeditarnuevo.lbprenda.setText("CHAMARRA DESMONTABLE");
+           bordadosdelclienteeditar.lbprenda.setText("CHAMARRA DESMONTABLE");
         
        }
        
        
        else if(prenda.equals("CHAMARRA ROMPEVIENTOS"))
        {
-           bordadosdelclienteeditarnuevo.lbprenda.setText("CHAMARRA ROMPEVIENTOS");
+           bordadosdelclienteeditar.lbprenda.setText("CHAMARRA ROMPEVIENTOS");
          
        }
       
@@ -104,7 +104,7 @@ public class bordadosdelclientecatalogoEditar extends AbstractCellEditor impleme
        ////////filipina
        else if(prenda.equals("FILIPINA"))
        {
-           bordadosdelclienteeditarnuevo.lbprenda.setText("FILIPINA");
+           bordadosdelclienteeditar.lbprenda.setText("FILIPINA");
            
        }
       
@@ -113,7 +113,7 @@ public class bordadosdelclientecatalogoEditar extends AbstractCellEditor impleme
 
         else if(prenda.equals("SACO"))
        {
-           bordadosdelclienteeditarnuevo.lbprenda.setText("SACO");
+           bordadosdelclienteeditar.lbprenda.setText("SACO");
          
        }
       
@@ -123,7 +123,7 @@ public class bordadosdelclientecatalogoEditar extends AbstractCellEditor impleme
        
        else if(prenda.equals("GORRA"))
        {
-           bordadosdelclienteeditarnuevo.lbprenda.setText("GORRA");
+           bordadosdelclienteeditar.lbprenda.setText("GORRA");
         
        }
        
@@ -133,7 +133,7 @@ public class bordadosdelclientecatalogoEditar extends AbstractCellEditor impleme
 
        else if(prenda.equals("PANTALON"))
        {
-           bordadosdelclienteeditarnuevo.lbprenda.setText("PANTALON");
+           bordadosdelclienteeditar.lbprenda.setText("PANTALON");
          
        }
       
@@ -141,7 +141,7 @@ public class bordadosdelclientecatalogoEditar extends AbstractCellEditor impleme
        //CORBATA
         else if(prenda.equals("CORBATA"))
        {
-           bordadosdelclienteeditarnuevo.lbprenda.setText("CORBATA");
+           bordadosdelclienteeditar.lbprenda.setText("CORBATA");
          
        }
        
@@ -149,7 +149,7 @@ public class bordadosdelclientecatalogoEditar extends AbstractCellEditor impleme
           //PARCHE
         else if(prenda.equals("PARCHE"))
        {
-           bordadosdelclienteeditarnuevo.lbprenda.setText("PARCHE");
+           bordadosdelclienteeditar.lbprenda.setText("PARCHE");
          
        }
        
@@ -157,7 +157,7 @@ public class bordadosdelclientecatalogoEditar extends AbstractCellEditor impleme
        
         else if(prenda.equals("CHALECO"))
        {
-           bordadosdelclienteeditarnuevo.lbprenda.setText("CHALECO");
+           bordadosdelclienteeditar.lbprenda.setText("CHALECO");
         
        }
       

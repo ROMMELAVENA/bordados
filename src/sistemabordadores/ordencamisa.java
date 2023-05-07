@@ -237,104 +237,79 @@ public class ordencamisa extends javax.swing.JFrame {
         }
         
         
-        combohilo(); 
-        
 
     }
 
-    void combohilo() 
+    
+    
+    
+    
+    
+    
+      void codigoycolordehilo()
     {
-
-        
-        String color = "";
-        String hilo = "";
-        String hiloconcolor = "";
-        
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        DefaultComboBoxModel modelo1 = new DefaultComboBoxModel();
-        DefaultComboBoxModel modelo2 = new DefaultComboBoxModel();
-        DefaultComboBoxModel modelo3 = new DefaultComboBoxModel();
-        DefaultComboBoxModel modelo4 = new DefaultComboBoxModel();
-        DefaultComboBoxModel modelo5 = new DefaultComboBoxModel();
-        DefaultComboBoxModel modelo6 = new DefaultComboBoxModel();
         
         
-        try {
-           
+        
+        String sql = "SELECT color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7 FROM bordados_puntadas where nombre_bordado = '"+lbidentificadordeprenda.getText()+"' AND nombre = '"+lbcliente.getText()+"' ";
 
-            String sql = "SELECT distinct hilo,color  FROM catalogo_materiales where descripcion like 'HILO CODIGO%'ORDER BY hilo";
 
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) 
-            {
+            try {
 
-                modelo.addElement(rs.getObject("hilo"));
-                modelo1.addElement(rs.getObject("hilo"));
-                modelo2.addElement(rs.getObject("hilo"));
-                modelo3.addElement(rs.getObject("hilo"));
-                modelo4.addElement(rs.getObject("hilo"));
-                modelo5.addElement(rs.getObject("hilo"));
-                modelo6.addElement(rs.getObject("hilo"));
-                
-                
-                hilo = rs.getString("hilo");
-                color  = rs.getString("color");
-                hiloconcolor = hilo.concat(color);
-                
-                listahilos.add(hiloconcolor);
-                
-                
-                
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                if (rs.next()) {
 
+                   
+                       
+                       
+                        lbcolor1.setText(rs.getString("color1"));
+                        lbcolor2.setText(rs.getString("color2"));
+                        lbcolor3.setText(rs.getString("color3"));
+                        lbcolor4.setText(rs.getString("color4"));
+                        lbcolor5.setText(rs.getString("color5"));
+                        lbcolor6.setText(rs.getString("color6"));
+                        lbcolor7.setText(rs.getString("color7"));
+                        
+                        lbhilo1.setText(rs.getString("hilo1"));
+                        lbhilo2.setText(rs.getString("hilo2"));
+                        lbhilo3.setText(rs.getString("hilo3"));
+                        lbhilo4.setText(rs.getString("hilo4"));
+                        lbhilo5.setText(rs.getString("hilo5"));
+                        lbhilo6.setText(rs.getString("hilo6"));
+                        lbhilo7.setText(rs.getString("hilo7"));
+                        
+                        
+                        
+                         
+                }
+
+                st.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
             }
-            
-            
-          
-
-            cbhilo1.setModel(modelo);
-            AutoCompleteDecorator.decorate(cbhilo1);
-            cbhilo1.addItem("0");
-            cbhilo1.setSelectedItem("0");
-
-            cbhilo2.setModel(modelo1);
-            AutoCompleteDecorator.decorate(cbhilo2);
-            cbhilo2.addItem("0");
-            cbhilo2.setSelectedItem("0");
-            
-            cbhilo3.setModel(modelo2);
-            AutoCompleteDecorator.decorate(cbhilo3);
-            cbhilo3.addItem("0");
-            cbhilo3.setSelectedItem("0");
-
-            cbhilo4.setModel(modelo3);
-            AutoCompleteDecorator.decorate(cbhilo4);
-            cbhilo4.addItem("0");
-            cbhilo4.setSelectedItem("0");
-  
-
-            cbhilo5.setModel(modelo4);
-            AutoCompleteDecorator.decorate(cbhilo5);
-            cbhilo5.addItem("0");
-            cbhilo5.setSelectedItem("0");
-
-            cbhilo6.setModel(modelo5);
-            AutoCompleteDecorator.decorate(cbhilo6);
-            cbhilo6.addItem("0");
-            cbhilo6.setSelectedItem("0");
-
-            cbhilo7.setModel(modelo6);
-            AutoCompleteDecorator.decorate(cbhilo7);
-            cbhilo7.addItem("0");
-            cbhilo7.setSelectedItem("0");
-
-            st.close();
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
-
+        
+        
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
      void datoscolorido()
     {
         
@@ -350,14 +325,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if (rs.next()) {
 
                    
-                        cbhilo1.setSelectedItem(rs.getString("hilo1"));
-                        cbhilo2.setSelectedItem(rs.getString("hilo2"));
-                        cbhilo3.setSelectedItem(rs.getString("hilo3"));
-                        cbhilo4.setSelectedItem(rs.getString("hilo4"));
-                        cbhilo5.setSelectedItem(rs.getString("hilo5"));
-                        cbhilo6.setSelectedItem(rs.getString("hilo6"));
-                        cbhilo7.setSelectedItem(rs.getString("hilo7"));
-                        
+                       
                        
                         lbcolor1.setText(rs.getString("color1"));
                         lbcolor2.setText(rs.getString("color2"));
@@ -881,7 +849,15 @@ public class ordencamisa extends javax.swing.JFrame {
         }
 
        
+        
+         codigoycolordehilo();
+                 
+                 
+                 
         datostienda();
+        
+        
+       
         
         
 
@@ -3644,13 +3620,6 @@ public class ordencamisa extends javax.swing.JFrame {
         lbdiaentrega = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         lbhoraentrega = new javax.swing.JLabel();
-        cbhilo1 = new javax.swing.JComboBox();
-        cbhilo2 = new javax.swing.JComboBox();
-        cbhilo3 = new javax.swing.JComboBox();
-        cbhilo5 = new javax.swing.JComboBox();
-        cbhilo4 = new javax.swing.JComboBox();
-        cbhilo6 = new javax.swing.JComboBox();
-        cbhilo7 = new javax.swing.JComboBox();
         btnvercolorido = new javax.swing.JButton();
         lbcolor1 = new javax.swing.JLabel();
         lbcolor2 = new javax.swing.JLabel();
@@ -3675,6 +3644,13 @@ public class ordencamisa extends javax.swing.JFrame {
         lbotraubicacion2nombre = new javax.swing.JLabel();
         lbotraubicacion2 = new javax.swing.JLabel();
         btnfotomontajesinpuntadas = new javax.swing.JButton();
+        lbhilo1 = new javax.swing.JLabel();
+        lbhilo2 = new javax.swing.JLabel();
+        lbhilo3 = new javax.swing.JLabel();
+        lbhilo4 = new javax.swing.JLabel();
+        lbhilo5 = new javax.swing.JLabel();
+        lbhilo6 = new javax.swing.JLabel();
+        lbhilo7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden camisa");
@@ -3705,7 +3681,7 @@ public class ordencamisa extends javax.swing.JFrame {
         lbfotomontaje.setToolTipText("");
         lbfotomontaje.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbfotomontaje);
-        lbfotomontaje.setBounds(-10, 10, 1280, 640);
+        lbfotomontaje.setBounds(-10, 10, 1240, 640);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel13.setText("No.Orden");
@@ -3885,7 +3861,6 @@ public class ordencamisa extends javax.swing.JFrame {
         jScrollPane6.setViewportView(lbobservaciones);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Observacion");
         jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -3929,97 +3904,6 @@ public class ordencamisa extends javax.swing.JFrame {
 
         lbhoraentrega.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbhoraentrega.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        cbhilo1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cbhilo1.setToolTipText("");
-        cbhilo1.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbhilo1PopupMenuWillBecomeInvisible(evt);
-            }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                cbhilo1PopupMenuWillBecomeVisible(evt);
-            }
-        });
-
-        cbhilo2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cbhilo2.setToolTipText("");
-        cbhilo2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbhilo2PopupMenuWillBecomeInvisible(evt);
-            }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                cbhilo2PopupMenuWillBecomeVisible(evt);
-            }
-        });
-
-        cbhilo3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cbhilo3.setToolTipText("");
-        cbhilo3.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbhilo3PopupMenuWillBecomeInvisible(evt);
-            }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                cbhilo3PopupMenuWillBecomeVisible(evt);
-            }
-        });
-
-        cbhilo5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cbhilo5.setToolTipText("");
-        cbhilo5.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbhilo5PopupMenuWillBecomeInvisible(evt);
-            }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                cbhilo5PopupMenuWillBecomeVisible(evt);
-            }
-        });
-
-        cbhilo4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cbhilo4.setToolTipText("");
-        cbhilo4.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbhilo4PopupMenuWillBecomeInvisible(evt);
-            }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                cbhilo4PopupMenuWillBecomeVisible(evt);
-            }
-        });
-
-        cbhilo6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cbhilo6.setToolTipText("");
-        cbhilo6.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbhilo6PopupMenuWillBecomeInvisible(evt);
-            }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                cbhilo6PopupMenuWillBecomeVisible(evt);
-            }
-        });
-
-        cbhilo7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cbhilo7.setToolTipText("");
-        cbhilo7.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbhilo7PopupMenuWillBecomeInvisible(evt);
-            }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                cbhilo7PopupMenuWillBecomeVisible(evt);
-            }
-        });
 
         btnvercolorido.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnvercolorido.setText("Ver colorido");
@@ -4122,6 +4006,27 @@ public class ordencamisa extends javax.swing.JFrame {
             }
         });
 
+        lbhilo1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbhilo1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbhilo2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbhilo2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbhilo3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbhilo3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbhilo4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbhilo4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbhilo5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbhilo5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbhilo6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbhilo6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbhilo7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbhilo7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -4175,9 +4080,9 @@ public class ordencamisa extends javax.swing.JFrame {
                                     .addComponent(btnvercolorido, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(btnfotomontajesinpuntadas)))
-                            .addGap(0, 611, Short.MAX_VALUE))
+                            .addGap(0, 599, Short.MAX_VALUE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel18)
                                     .addGap(7, 7, 7)
@@ -4185,56 +4090,57 @@ public class ordencamisa extends javax.swing.JFrame {
                                     .addGap(22, 22, 22)
                                     .addComponent(jLabel16)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 383, Short.MAX_VALUE)
+                                    .addComponent(lbcliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel19)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btneditarbordado, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createSequentialGroup()
                                     .addGap(0, 0, Short.MAX_VALUE)
                                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(46, 46, 46))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(9, 1267, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(5, 5, 5)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lbltallas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(btnmangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(btnmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(btnpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(btnpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(btnespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(btnotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(btnotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(27, 27, 27)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(cbhilo1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cbhilo2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cbhilo3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cbhilo5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cbhilo4, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cbhilo6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cbhilo7, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(30, 30, 30)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(lbcolor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lbcolor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lbcolor3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lbcolor4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lbcolor5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lbcolor6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lbcolor7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(169, 169, 169)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnmangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lbhilo1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lbhilo2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lbhilo3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lbhilo4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lbhilo5, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lbhilo6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lbhilo7, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(31, 31, 31)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(lbcolor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(lbcolor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(lbcolor3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(lbcolor4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(lbcolor5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(lbcolor6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(lbcolor7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -4257,26 +4163,23 @@ public class ordencamisa extends javax.swing.JFrame {
                                         .addComponent(lbotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addContainerGap()))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
-                                .addComponent(lbidentificadordeprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbdiaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(lbidentificadordeprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbdiaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4330,53 +4233,52 @@ public class ordencamisa extends javax.swing.JFrame {
                         .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(107, 107, 107)
                                 .addComponent(btnmangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(btnmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(btnpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
-                                .addComponent(btnpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(5, 5, 5)
                                 .addComponent(btnotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbhilo7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(cbhilo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(lbcolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(lbcolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbcolor2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(37, 37, 37))
+                                            .addComponent(lbcolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(btnpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lbhilo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(5, 5, 5)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(cbhilo2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(lbcolor2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(cbhilo3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(lbcolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(lbhilo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(btnpechoderecho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lbhilo3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(btnmangaizquierda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                         .addGap(4, 4, 4)
-                                        .addComponent(cbhilo4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lbcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lbhilo4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(5, 5, 5)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbhilo5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcolor5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lbcolor5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbhilo5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(7, 7, 7)
-                                        .addComponent(cbhilo6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lbcolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(13, 13, 13)
-                                .addComponent(lbcolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(44, 44, 44)
+                                    .addComponent(lbcolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbhilo6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbcolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbhilo7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbmangaderechanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbmangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -5811,346 +5713,8 @@ public class ordencamisa extends javax.swing.JFrame {
         String nombrearchivo6 = "";
         
         
-        if(!sucursalreplica.equals("ninguna"))
        
-        { 
-
-        File file = new File("C:\\sistema\\configuracion.txt");
-        try {
-            Scanner sc = new Scanner(file);
-            while (sc.hasNext()) {
-                String line = sc.nextLine();
-                String str[] = line.split(":");
-                stringBDlocal = str[1];
-                
-            }
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-
-        if (tiendaalaquesereplicara.equals("cdmxcentro")) {
-            path = "C:\\sistema\\cdmxcentro.txt";
-        } else if (tiendaalaquesereplicara.equals("cdmxsur")) {
-            path = "C:\\sistema\\cdmxsur.txt";
-        } else if (tiendaalaquesereplicara.equals("guadalajara")) {
-            path = "C:\\sistema\\guadalajara.txt";
-        } else if (tiendaalaquesereplicara.equals("monterrey")) {
-            path = "C:\\sistema\\monterrey.txt";
-        } else {
-            if (tiendaalaquesereplicara.equals("tijuana")) {
-                path = "C:\\sistema\\tijuana.txt";
-            }
-        }
-
-        File file1 = new File(path);
-        try {
-            Scanner sc = new Scanner(file1);
-            while (sc.hasNext()) {
-                String line = sc.nextLine();
-                String str[] = line.split(":");
-                stringIP = str[0];
-                stringlocal = str[1];
-            }
-        } catch (IOException e) {
-            
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+e+"");
-        }
-
-        Connection conn = null;
-
-        iptraspaso = stringIP;
-        tienda_traspaso = stringlocal;
-
-        FileInputStream input = null;
-        FileInputStream input2 = null;
-        FileInputStream input3 = null;
-        FileInputStream input4 = null;
-        FileInputStream input5 = null;
-        FileInputStream input6 = null;
-
-        String extensionponchado1 = "", extensionponchado2 = "", extensionponchado3 = "", extensionponchado4 = "", extensionponchado5 = "";
-
-        //ponchado1
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tienda_traspaso + "", "root", "sistemas");
-
-            //primerponchado   
-            Object ponchado1 = rutamangaizquierda;
-            if (ponchado1 == null || ponchado1.equals("")) 
-            {
-
-            } else {
-                try {
-                    String filePath = rutamangaizquierda;
-                    File archivo = new File(filePath);
-                    nombrearchivo1 = archivo.getName();
-                    input = new FileInputStream(new File(filePath));
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set manga_izquierda_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input);
-                    traspaso = modificar.executeUpdate();
-
-                } catch (Exception e) {
-                   
-                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+e+"");
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set manga_izquierda_ponchado_nombre='" + nombrearchivo1 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-                }
-            }
-
-            ///ponchado2
-            Object ponchado2 = rutapechoizquierdo;
-            if (ponchado2 == null || ponchado2.equals("") || ponchado2.equals(" ")) {
-
-            } else {
-                try {
-                    String filePath2 = rutapechoizquierdo;
-                    File archivo2 = new File(filePath2);
-                    nombrearchivo2 = archivo2.getName();
-                    input2 = new FileInputStream(new File(filePath2));
-                } catch (FileNotFoundException ex) {
-                 
-                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set pecho_izquierdo_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input2);
-                    traspaso = modificar.executeUpdate();
-
-
-                } catch (Exception e) {
-                 
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+e+"");
-
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set pecho_izquierdo_ponchado_nombre='" + nombrearchivo2 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-                }
-
-            }
-
-            ///ponchado3
-            Object ponchado3 = rutaespalda;
-            if (ponchado3 == null || ponchado3.equals("") || ponchado3.equals(" ")) {
-
-            } else {
-                try {
-                    String filePath3 = rutaespalda;
-                    File archivo3 = new File(filePath3);
-                    nombrearchivo3 = archivo3.getName();
-                    input3 = new FileInputStream(new File(filePath3));
-                } catch (FileNotFoundException ex) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set espalda_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input3);
-                    traspaso = modificar.executeUpdate();
-
-
-                } catch (Exception e) {
-                   
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+e+"");
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set espalda_ponchado_nombre='" + nombrearchivo3 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-                }
-            }
-
-            //ponchado 4
-            Object ponchado4 = rutamangaderecha;
-
-            if (ponchado4 == null || ponchado4.equals("") || ponchado4.equals(" ")) {
-
-            } else {
-                try {
-                    String filePath4 = rutamangaderecha;
-                    File archivo4 = new File(filePath4);
-                    nombrearchivo4 = archivo4.getName();
-                    input4 = new FileInputStream(new File(filePath4));
-                } catch (FileNotFoundException ex) {
-                   
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set manga_derecha_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input4);
-                    traspaso = modificar.executeUpdate();
-
-                } catch (Exception e) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+e+"");
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set manga_derecha_ponchado_nombre='" + nombrearchivo4 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                   
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-                }
-            }
-
-            //ponchado5
-            Object ponchado5 = rutapechoderecho;
-
-            if (ponchado5 == null || ponchado5.equals("") || ponchado5.equals(" ")) {
-
-            } else {
-                try {
-                    String filePath5 = rutapechoderecho;
-                    File archivo5 = new File(filePath5);
-                    nombrearchivo5 = archivo5.getName();
-                    input5 = new FileInputStream(new File(filePath5));
-                } catch (FileNotFoundException ex) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set pecho_derecho_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input5);
-                    traspaso = modificar.executeUpdate();
-
-                } catch (Exception e) {
-                  
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+e+"");
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set pecho_derecho_ponchado_nombre='" + nombrearchivo5 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                  
-                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-                }
-            }
-
-            
-            
-           /// imagen jlabel
-            Object imagen = rutaimagen;
-
-            if (imagen == null || imagen.equals("") || imagen.equals(" ")) {
-
-            } else {
-                try {
-                    String filePath6 = rutaimagen;
-                    File archivo6 = new File(filePath6);
-                    nombrearchivo6 = archivo6.getName();
-                    input6 = new FileInputStream(new File(filePath6));
-                } catch (FileNotFoundException ex) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set imagen=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input6);
-                    traspaso = modificar.executeUpdate();
-
-                } catch (Exception e) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+e+"");
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set imagen_nombre='" + nombrearchivo6 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                 
-                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-                }
-                
-                
-                
-            }
-
-        } catch (Exception e) {
-            System.out.println(e);
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+e+"");
-            return;
-        }
-
-        if (traspaso > 0) {
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se inserto correctamente en la otra sucursal");
-
-            String numero = lbnumerodelaotrasucursal.getText();
-            try {
-
-                PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa SET estatus_entrega='enviado' WHERE numero='" + numero + "'");
-                pst.executeUpdate();
-                pst.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+e+"");
-            }
-
-            ordenesporrealizar.btnactualizar.doClick();
-
-        }
-        else
-        {
-           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden NO SE INSERTO correctamente en la otra sucursal"); 
-        }  
-
-        this.dispose();
         
-        }
 
     }//GEN-LAST:event_btninsertarponchadosActionPerformed
 
@@ -6918,7 +6482,7 @@ public class ordencamisa extends javax.swing.JFrame {
       
         
         
-          if (bordadosdelclienteeditarnuevo.ventanabordadosdelclienteeditarnuevo) 
+          if (bordadosdelclienteeditar.ventanabordadosdelclienteeditar) 
               
           {
           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados de cliente ya está abierta");
@@ -6930,531 +6494,27 @@ public class ordencamisa extends javax.swing.JFrame {
               
           
            
-        bordadosdelclienteeditarnuevo ventana = new bordadosdelclienteeditarnuevo();
+        bordadosdelclienteeditar ventana = new bordadosdelclienteeditar();
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
         
         
         
-        bordadosdelclienteeditarnuevo.lbcliente.setText(lbcliente.getText());
-        bordadosdelclienteeditarnuevo.lbnombrecomercial.setText(lbnombrecomercial.getText());
-        bordadosdelclienteeditarnuevo.lbidentificador.setText(lbidentificador.getText());
-        bordadosdelclienteeditarnuevo.lbcodigocliente.setText(codigocliente);
-        bordadosdelclienteeditarnuevo.lbconsecutivo.setText(consecutivo);
-        bordadosdelclienteeditarnuevo.txtidentificadordeprenda.setText(identificadordeprenda);
+        bordadosdelclienteeditar.lbcliente.setText(lbcliente.getText());
+        bordadosdelclienteeditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
+        bordadosdelclienteeditar.lbidentificador.setText(lbidentificador.getText());
+        bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
+        bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
+        bordadosdelclienteeditar.txtidentificadordeprenda.setText(identificadordeprenda);
        
        
-           bordadosdelclienteeditarnuevo.lbprenda.setText(prendacombo);
+           bordadosdelclienteeditar.lbprenda.setText(prendacombo);
           
     }
        
         
         
     }//GEN-LAST:event_btneditarbordadoActionPerformed
-
-    private void cbhilo1PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbhilo1PopupMenuWillBecomeInvisible
-
-        String hilo = cbhilo1.getSelectedItem().toString();
-
-        String hiloconcolor = "";
-        String colorsinhilo = "";
-        String colorencombo = lbcolor1.getText();
-
-        if (!hilo.equals("0"))
-
-        {
-
-            for (String valor: listahilos) {
-
-                hiloconcolor =  valor;
-
-                if (!hiloconcolor.equals("0"))
-
-                {
-
-                    if (hiloconcolor.contains(hilo))
-
-                    {
-
-                        colorsinhilo =  hiloconcolor.replace(hilo, "");
-
-                        if (!colorencombo.equals("ninguno"))
-
-                        {
-                            if (!colorencombo.equals(colorsinhilo))
-
-                            {
-                                int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Ya habia seleccionado el color "+colorencombo+" desea cambiarlo por "+colorsinhilo+"?", null, JOptionPane.YES_NO_OPTION);
-                                
-                                if (result == JOptionPane.YES_OPTION)
-                                {
-                                    lbcolor1.setText(colorsinhilo);
-
-                                }
-                                else
-                                {
-
-                                    cbhilo1.setSelectedItem(hilo1seleccionado);
-
-                                }
-                            }
-
-                        }
-                        else
-                        {
-
-                            lbcolor1.setText(colorsinhilo);
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-        }
-
-    }//GEN-LAST:event_cbhilo1PopupMenuWillBecomeInvisible
-
-    private void cbhilo1PopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbhilo1PopupMenuWillBecomeVisible
-
-        hilo1seleccionado = cbhilo1.getSelectedItem().toString();
-        color1seleccionado = lbcolor1.getText();
-
-    }//GEN-LAST:event_cbhilo1PopupMenuWillBecomeVisible
-
-    private void cbhilo2PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbhilo2PopupMenuWillBecomeInvisible
-
-        String hilo = cbhilo2.getSelectedItem().toString();
-
-        String hiloconcolor = "";
-        String colorsinhilo = "";
-        String colorencombo = lbcolor2.getText();
-
-        if (!hilo.equals("0"))
-
-        {
-
-            for (String valor: listahilos) {
-
-                hiloconcolor =  valor;
-
-                if (!hiloconcolor.equals("0"))
-
-                {
-
-                    if (hiloconcolor.contains(hilo))
-
-                    {
-
-                        colorsinhilo =  hiloconcolor.replace(hilo, "");
-                        
-                        if(colorencombo.isEmpty())
-                        {
-                            colorencombo ="ninguno";
-                        }
-                        
-
-                        if (!colorencombo.equals("ninguno")  )
-
-                        {
-                            if (!colorencombo.equals(colorsinhilo))
-
-                            {
-                                int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Ya habia seleccionado el color "+colorencombo+" desea cambiarlo por "+colorsinhilo+"?", null, JOptionPane.YES_NO_OPTION);
-                                if (result == JOptionPane.YES_OPTION)
-                                {
-                                    lbcolor2.setText(colorsinhilo);
-
-                                }
-                                else
-                                {
-
-                                    cbhilo2.setSelectedItem(hilo2seleccionado);
-
-                                }
-                            }
-
-                        }
-                        else
-                        {
-
-                            lbcolor2.setText(colorsinhilo);
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-        }
-
-    }//GEN-LAST:event_cbhilo2PopupMenuWillBecomeInvisible
-
-    private void cbhilo2PopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbhilo2PopupMenuWillBecomeVisible
-
-        hilo2seleccionado = cbhilo2.getSelectedItem().toString();
-        color2seleccionado = lbcolor2.getText();
-
-    }//GEN-LAST:event_cbhilo2PopupMenuWillBecomeVisible
-
-    private void cbhilo3PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbhilo3PopupMenuWillBecomeInvisible
-
-        String hilo = cbhilo3.getSelectedItem().toString();
-
-        String hiloconcolor = "";
-        String colorsinhilo = "";
-        String colorencombo = lbcolor3.getText();
-
-        if (!hilo.equals("0"))
-
-        {
-
-            for (String valor: listahilos) {
-
-                hiloconcolor =  valor;
-
-                if (!hiloconcolor.equals("0"))
-
-                {
-
-                    if (hiloconcolor.contains(hilo))
-
-                    {
-
-                        colorsinhilo =  hiloconcolor.replace(hilo, "");
-
-                        if (!colorencombo.equals("ninguno"))
-
-                        {
-                            if (!colorencombo.equals(colorsinhilo))
-
-                            {
-                                int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Ya habia seleccionado el color "+colorencombo+" desea cambiarlo por "+colorsinhilo+"?", null, JOptionPane.YES_NO_OPTION);
-                                if (result == JOptionPane.YES_OPTION)
-                                {
-                                    lbcolor3.setText(colorsinhilo);
-
-                                }
-                                else
-                                {
-
-                                    cbhilo3.setSelectedItem(hilo3seleccionado);
-
-                                }
-                            }
-
-                        }
-                        else
-                        {
-
-                            lbcolor3.setText(colorsinhilo);
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-        }
-
-    }//GEN-LAST:event_cbhilo3PopupMenuWillBecomeInvisible
-
-    private void cbhilo3PopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbhilo3PopupMenuWillBecomeVisible
-
-        hilo3seleccionado = cbhilo3.getSelectedItem().toString();
-        color3seleccionado = lbcolor3.getText();
-
-    }//GEN-LAST:event_cbhilo3PopupMenuWillBecomeVisible
-
-    private void cbhilo5PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbhilo5PopupMenuWillBecomeInvisible
-
-        String hilo = cbhilo5.getSelectedItem().toString();
-
-        String hiloconcolor = "";
-        String colorsinhilo = "";
-        String colorencombo = lbcolor5.getText();
-
-        if (!hilo.equals("0"))
-
-        {
-
-            for (String valor: listahilos) {
-
-                hiloconcolor =  valor;
-
-                if (!hiloconcolor.equals("0"))
-
-                {
-
-                    if (hiloconcolor.contains(hilo))
-
-                    {
-
-                        colorsinhilo =  hiloconcolor.replace(hilo, "");
-
-                        if (!colorencombo.equals("ninguno"))
-
-                        {
-                            if (!colorencombo.equals(colorsinhilo))
-
-                            {
-                                int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Ya habia seleccionado el color "+colorencombo+" desea cambiarlo por "+colorsinhilo+"?", null, JOptionPane.YES_NO_OPTION);
-                                if (result == JOptionPane.YES_OPTION)
-                                {
-                                    lbcolor5.setText(colorsinhilo);
-
-                                }
-                                else
-                                {
-
-                                    cbhilo5.setSelectedItem(hilo5seleccionado);
-
-                                }
-                            }
-
-                        }
-                        else
-                        {
-
-                           lbcolor5.setText(colorsinhilo);
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-        }
-
-    }//GEN-LAST:event_cbhilo5PopupMenuWillBecomeInvisible
-
-    private void cbhilo5PopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbhilo5PopupMenuWillBecomeVisible
-
-        hilo5seleccionado = cbhilo5.getSelectedItem().toString();
-        color5seleccionado = lbcolor5.getText();
-
-    }//GEN-LAST:event_cbhilo5PopupMenuWillBecomeVisible
-
-    private void cbhilo4PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbhilo4PopupMenuWillBecomeInvisible
-
-        String hilo = cbhilo4.getSelectedItem().toString();
-
-        String hiloconcolor = "";
-        String colorsinhilo = "";
-        String colorencombo = lbcolor4.getText();
-
-        if (!hilo.equals("0"))
-
-        {
-
-            for (String valor: listahilos) {
-
-                hiloconcolor =  valor;
-
-                if (!hiloconcolor.equals("0"))
-
-                {
-
-                    if (hiloconcolor.contains(hilo))
-
-                    {
-
-                        colorsinhilo =  hiloconcolor.replace(hilo, "");
-
-                        if (!colorencombo.equals("ninguno"))
-
-                        {
-                            if (!colorencombo.equals(colorsinhilo))
-
-                            {
-                                int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Ya habia seleccionado el color "+colorencombo+" desea cambiarlo por "+colorsinhilo+"?", null, JOptionPane.YES_NO_OPTION);
-                                if (result == JOptionPane.YES_OPTION)
-                                {
-                                    lbcolor4.setText(colorsinhilo);
-
-                                }
-                                else
-                                {
-
-                                    cbhilo4.setSelectedItem(hilo4seleccionado);
-
-                                }
-                            }
-
-                        }
-                        else
-                        {
-
-                            lbcolor4.setText(colorsinhilo);
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-        }
-
-    }//GEN-LAST:event_cbhilo4PopupMenuWillBecomeInvisible
-
-    private void cbhilo4PopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbhilo4PopupMenuWillBecomeVisible
-
-        hilo4seleccionado = cbhilo4.getSelectedItem().toString();
-        color4seleccionado = lbcolor4.getText();
-
-    }//GEN-LAST:event_cbhilo4PopupMenuWillBecomeVisible
-
-    private void cbhilo6PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbhilo6PopupMenuWillBecomeInvisible
-
-        String hilo = cbhilo6.getSelectedItem().toString();
-
-        String hiloconcolor = "";
-        String colorsinhilo = "";
-        String colorencombo = lbcolor6.getText();
-
-        if (!hilo.equals("0"))
-
-        {
-
-            for (String valor: listahilos) {
-
-                hiloconcolor =  valor;
-
-                if (!hiloconcolor.equals("0"))
-
-                {
-
-                    if (hiloconcolor.contains(hilo))
-
-                    {
-
-                        colorsinhilo =  hiloconcolor.replace(hilo, "");
-
-                        if (!colorencombo.equals("ninguno"))
-
-                        {
-                            if (!colorencombo.equals(colorsinhilo))
-
-                            {
-                                int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Ya habia seleccionado el color "+colorencombo+" desea cambiarlo por "+colorsinhilo+"?", null, JOptionPane.YES_NO_OPTION);
-                                if (result == JOptionPane.YES_OPTION)
-                                {
-                                    lbcolor6.setText(colorsinhilo);
-
-                                }
-                                else
-                                {
-
-                                    lbcolor6.setText(hilo6seleccionado);
-
-                                }
-                            }
-
-                        }
-                        else
-                        {
-
-                            lbcolor6.setText(colorsinhilo);
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-        }
-
-    }//GEN-LAST:event_cbhilo6PopupMenuWillBecomeInvisible
-
-    private void cbhilo6PopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbhilo6PopupMenuWillBecomeVisible
-
-        hilo6seleccionado = cbhilo6.getSelectedItem().toString();
-        color6seleccionado = lbcolor6.getText();
-
-    }//GEN-LAST:event_cbhilo6PopupMenuWillBecomeVisible
-
-    private void cbhilo7PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbhilo7PopupMenuWillBecomeInvisible
-
-        String hilo = cbhilo7.getSelectedItem().toString();
-
-        String hiloconcolor = "";
-        String colorsinhilo = "";
-        String colorencombo = lbcolor7.getText();
-
-        if (!hilo.equals("0"))
-
-        {
-
-            for (String valor: listahilos) {
-
-                hiloconcolor =  valor;
-
-                if (!hiloconcolor.equals("0"))
-
-                {
-
-                    if (hiloconcolor.contains(hilo))
-
-                    {
-
-                        colorsinhilo =  hiloconcolor.replace(hilo, "");
-
-                        if (!colorencombo.equals("ninguno"))
-
-                        {
-                            if (!colorencombo.equals(colorsinhilo))
-
-                            {
-                                int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Ya habia seleccionado el color "+colorencombo+" desea cambiarlo por "+colorsinhilo+"?", null, JOptionPane.YES_NO_OPTION);
-                                if (result == JOptionPane.YES_OPTION)
-                                {
-                                    lbcolor7.setText(colorsinhilo);
-
-                                }
-                                else
-                                {
-
-                                    cbhilo7.setSelectedItem(hilo7seleccionado);
-
-                                }
-                            }
-
-                        }
-                        else
-                        {
-
-                           lbcolor7.setText(colorsinhilo);
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-        }
-
-    }//GEN-LAST:event_cbhilo7PopupMenuWillBecomeInvisible
-
-    private void cbhilo7PopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbhilo7PopupMenuWillBecomeVisible
-
-        hilo7seleccionado = cbhilo7.getSelectedItem().toString();
-        color7seleccionado = lbcolor7.getText();
-
-    }//GEN-LAST:event_cbhilo7PopupMenuWillBecomeVisible
 
     private void btnvercoloridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvercoloridoActionPerformed
        
@@ -7685,13 +6745,6 @@ public class ordencamisa extends javax.swing.JFrame {
     private javax.swing.JButton btnterminetodo;
     private javax.swing.JButton btnvercolorido;
     private javax.swing.JButton btnverfotomontaje;
-    private javax.swing.JComboBox cbhilo1;
-    private javax.swing.JComboBox cbhilo2;
-    private javax.swing.JComboBox cbhilo3;
-    private javax.swing.JComboBox cbhilo4;
-    private javax.swing.JComboBox cbhilo5;
-    private javax.swing.JComboBox cbhilo6;
-    private javax.swing.JComboBox cbhilo7;
     private javax.swing.JComboBox<String> cbsucursal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
@@ -7727,6 +6780,13 @@ public class ordencamisa extends javax.swing.JFrame {
     public static javax.swing.JLabel lbespaldanombre;
     public static javax.swing.JLabel lbfecha;
     private javax.swing.JLabel lbfotomontaje;
+    public javax.swing.JLabel lbhilo1;
+    public javax.swing.JLabel lbhilo2;
+    public javax.swing.JLabel lbhilo3;
+    public javax.swing.JLabel lbhilo4;
+    public javax.swing.JLabel lbhilo5;
+    public javax.swing.JLabel lbhilo6;
+    public javax.swing.JLabel lbhilo7;
     public static javax.swing.JLabel lbhoraentrega;
     public static javax.swing.JLabel lbidentificador;
     private javax.swing.JLabel lbidentificadordeprenda;

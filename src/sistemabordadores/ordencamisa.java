@@ -68,6 +68,7 @@ public class ordencamisa extends javax.swing.JFrame {
     int bordadosdisponiblesint = 0;
     String cantidadprendasstring = "";
     int cantidadprendasint = 0;
+   
 
     int remanentebordadosint = 0;
     String remanentebordadosstring = "";
@@ -1376,175 +1377,12 @@ public class ordencamisa extends javax.swing.JFrame {
                  
                       }
         
-        /*
-        
-          
-        String sql2 = "Select numero_folio  from historial_ordenes_camisa_recibidas where numero_sucursal = '" + numerosucural + "' and cliente =  '" + cliente + "' and estatus_orden = 'por generar' ";
-
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql2);
-            if (rs.next()) {
-        
-           consecutivobordado = rs.getString("numero_folio"); 
-        
-           }
-
-        } catch (SQLException ex) 
-        {
-             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
-        }
-        
-       
-        
-        
-        
-         
-        
-        
-        
-            try {
-            cargarelfotomontaje();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        */
-        
-        
-        
-        
-        
-        
-        
-        
-        
+     
         
     }
     
     
     
-    
-    
-    
-    
-    
-    void cargarelfotomontaje() throws IOException, ClassNotFoundException
-    {
-        
-        
-        String tienda = tiendasolicitoarticulos;
-        
-        
-        String tipo = lbprenda.getText();
-        tipo = tipo.toUpperCase();
-       
-       
-        String cliente = lbcliente.getText();
-       
-       BufferedImage img = null;
-       lbfotomontaje.setIcon(null);
-                this.repaint();
-       
-                 
-                
-                
-                 try {
-              Connection con;
-            Class.forName("com.mysql.jdbc.Driver");
-        //    con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/'"+tienda +"'", "root", "sistemas");
-         
-            con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tienda + "", "root", "sistemas");
-  
-           
-        String sqlimagen = "Select imagen,extension_imagen from bordados_puntadas where nombre = '" + cliente + "' and tipo = '"+tipo+"' and numero_consecutivo = '"+consecutivobordado+"'   ";
-
-       
-             try {
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sqlimagen);
-            if (rs.next()) {
-                Imagen imagen = new Imagen();
-                Blob blob = rs.getBlob(1);
-                
-                Object nombrefotomontaje = rs.getString(2);
-                
-                if (nombrefotomontaje == null || nombrefotomontaje.equals("")|| nombrefotomontaje.equals("ninguno")) 
-                {
-                    
-                    lbfotomontaje.setText("NO HAY IMAGEN");
-                    lbfotomontaje.setHorizontalAlignment(SwingConstants.CENTER);
-                    lbfotomontaje.setVerticalAlignment(SwingConstants.CENTER);
-                    btnverfotomontaje.setEnabled(false);
-                  
-
-                } 
-                
-                else
-                
-                
-                {
-                    byte[] data = blob.getBytes(1, (int) blob.length());
-
-                    try {
-                        img = ImageIO.read(new ByteArrayInputStream(data));
-                    } catch (IOException ex) {
-                       
-                    }
-
-                    imagen.setImagen(img);
-                    if(img == null)
-                    {
-                    //    btnimportarfotomontaje.doClick();
-                    }
-                    else
-                    {    
-                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
-                    repaint();
-                    btnverfotomontaje.setEnabled(true);
-                  
-                    }
-                    
-                    
-
-                   
-                }
-
-            } //end while
-            
-            else
-            {
-                btnverfotomontaje.setEnabled(false);
-               
-            }
-            
-            
-            rs.close();
-        } catch (SQLException ex) {
-           System.out.println(ex);
-        }
-        
-        
-          } catch (Exception x) {
-                               System.out.println(x); 
-                            }
-        
-        
-        
-        
-        
-    }
-
-
-    
-    
-    
-    
-    
-        
         
     
     
@@ -1676,14 +1514,12 @@ public class ordencamisa extends javax.swing.JFrame {
     void agregarfotomontaje() throws FileNotFoundException, IOException  
     {
         
-        String numero = lbnumerodelaotrasucursal.getText();
-        String numeroventa = lbnumeroventa.getText();
+    
         String prenda =lbprenda.getText().toUpperCase();
         identificadordeprenda =lbidentificadordeprenda.getText();
         BufferedImage img = null;
         
-        String prendasql ="";
-        String prendanombresql="";
+      
         String puntadasenfotomontajes = "";
         btnverfotomontaje.setEnabled(false);
         
@@ -1835,10 +1671,6 @@ public class ordencamisa extends javax.swing.JFrame {
         BufferedImage img = null;
         btnverfotomontaje.setEnabled(false);
         
-        String cliente = "";
-        String numeroordensucursal = "";
-        String numeroventa = "";
-        
         
         if (tiendaenvia.equals(tiendalocal))
             
@@ -1847,62 +1679,15 @@ public class ordencamisa extends javax.swing.JFrame {
       
         numerodeorden = lborden.getText();
         
-        String sql1 = "Select numero_sucursal_orden from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' and numero_sucursal = '"+numerosucursal+"' ";
 
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql1);
-            if (rs.next())
-            {
-
-                numeroordensucursal = rs.getString("numero_sucursal_orden");
-                
-                
-                String sql2 = "Select numero_venta from historial_ordenes_envio_solicitadas where numero = '" + numeroordensucursal + "' ";
-
-        try {
-            Statement st2 = cn.createStatement();
-            ResultSet rs2 = st2.executeQuery(sql2);
-            if (rs2.next())
-            {
-
-                numeroventa = rs2.getString("numero_venta");
-               
-                
-
-            }
-
-        } catch (SQLException ex) 
-        {
-             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-        }   
-               
-                
-
-            }
-
-        } catch (SQLException ex) 
-        {
-             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-        }
-        
-        
-      
- 
-                
-             
-                
-        
-      
-
-        String sql7 = "Select cliente,prenda,tienda,nombre_concepto from historial_ordenes_camisa where numero = '" + numerosucursal + "' ";
+        String sql7 = "Select prenda,tienda,nombre_concepto from historial_ordenes_camisa where numero = '" + numerosucursal + "' ";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql7);
             if (rs.next()) {
 
-                cliente = rs.getString("cliente");
+              
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
                 sucursal = rs.getString("tienda");
@@ -1920,20 +1705,6 @@ public class ordencamisa extends javax.swing.JFrame {
             cliente();
             
             
-            
-            
-      //   numero = lbnumerodelaotrasucursal.getText();
-      //  String numeroventa = lbnumeroventa.getText();
-      //  prenda =lbprenda.getText().toUpperCase();
-      //  identificadordeprenda =lbidentificadordeprenda.getText();
-       
-        
-     //   String prendasql ="";
-      //  String prendanombresql="";
-     //   btnverfotomontaje.setEnabled(false);
-        
-       
-
        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";  ///
 
         try {
@@ -2147,18 +1918,7 @@ public class ordencamisa extends javax.swing.JFrame {
         }
         else
         {
-          /*  btnmangaderecha.setEnabled(false);
-            btnmangaizquierda.setEnabled(false);
-            btnpechoderecho.setEnabled(false);
-            btnpechoizquierdo.setEnabled(false);
-            btnespalda.setEnabled(false);
-            btnotraubicacion.setEnabled(false);
-            btnotraubicacion2.setEnabled(false);
-         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
-
-            */
-            
-            
+       
          
             lbfotomontaje.setVisible(false);
             btnverfotomontaje.setEnabled(false);
@@ -4530,18 +4290,7 @@ public class ordencamisa extends javax.swing.JFrame {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
          
-         
-         /*
-        
-         
-         try {    
-            agregarfotomontajeotrasucursal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-         
-         */
-        
+       
     }   
       datoscolorido();  
       sumapuntos();

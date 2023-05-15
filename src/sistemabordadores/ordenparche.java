@@ -885,7 +885,7 @@ public static boolean ventanaordenparcheanteriores = false;
         }
 
         
-
+/*
         
          if(puntadasenfotomontajes.equals("si"))
         {
@@ -902,12 +902,17 @@ public static boolean ventanaordenparcheanteriores = false;
         }
         else if(tienefotomontaje.equals("no"))
         {
+            
+            
+        }
+     
+     */
            btnfotomontajesinpuntadas.setEnabled(false);
            bntterminetodo.setEnabled(false);  
            btnverfotomontaje.setEnabled(false);  
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
 
-        }  
+       // }  
         
         
     }

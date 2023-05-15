@@ -973,6 +973,8 @@ public class ordenpantalon extends javax.swing.JFrame {
         }
         
         
+        /*
+        
         if(puntadasenfotomontajes.equals("si"))
         {
 
@@ -992,6 +994,9 @@ public class ordenpantalon extends javax.swing.JFrame {
 
         else if(tienefotomontaje.equals("no"))
         {
+            
+        */    
+            
             btnladoderechofrente.setEnabled(false);
             btnladoderechoatras.setEnabled(false);
             btnladoizquierdofrente.setEnabled(false);
@@ -1004,7 +1009,7 @@ public class ordenpantalon extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
             
-        }  
+     //   }  
 
         
         

@@ -1638,10 +1638,14 @@ public class ordencamisa extends javax.swing.JFrame {
             
         
         }
-       else if(tienefotomontaje.equals("no"))
+       else 
+        
+        
+        */  
+        if(tienefotomontaje.equals("no"))
         
         {
-         */   
+          
             
             
             
@@ -1662,7 +1666,7 @@ public class ordencamisa extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
              btnfotomontajesinpuntadas.setEnabled(false);
              btnterminetodo.setEnabled(false);
-      //  } 
+       } 
 
         
         

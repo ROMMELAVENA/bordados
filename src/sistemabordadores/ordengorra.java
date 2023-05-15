@@ -627,10 +627,18 @@ public class ordengorra extends javax.swing.JFrame {
         
         }
         
-         else if(tienefotomontaje.equals("no"))
+        
+        
+         else
+        
+        
+        */
+        
+        
+        if(tienefotomontaje.equals("no"))
         {
         
-            */
+          
             
             btnatras.setEnabled(false);
             btnladoizquierdo.setEnabled(false);
@@ -641,7 +649,7 @@ public class ordengorra extends javax.swing.JFrame {
              btnfotomontajesinpuntadas.setEnabled(false);
              btnterminetodo.setEnabled(false);
             
-    //   }  
+     }  
 
         
         

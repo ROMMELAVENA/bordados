@@ -418,6 +418,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 {
                 tieneunaobservacion="si";    
                 lbobservaciones.setText(observacion);
+             
                 
                 }
                 
@@ -875,6 +876,8 @@ public class ordencamisa extends javax.swing.JFrame {
         
         
        
+        
+        
         
         
 
@@ -4315,6 +4318,31 @@ public class ordencamisa extends javax.swing.JFrame {
             sonido.play();
             
         }
+      
+      
+        String observacion = lbobservaciones.getText();
+        
+        if (observacion.equals(""))
+        {
+            
+        }
+        else
+        {
+         
+       
+String[] lineas = observacion.split("\n");
+
+String mensaje = "<HTML><span style=\"Color:red;font-size:25px;\">NOTA: " + lineas[0] + "</span><br>";
+if (lineas.length > 1) {
+    mensaje += "<span style=\"Color:red; font-size:25px;\">" + lineas[1] + "</span>";
+}
+
+JOptionPane.showMessageDialog(null, mensaje);
+
+
+
+        }
+      
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -6652,7 +6680,7 @@ public class ordencamisa extends javax.swing.JFrame {
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumerodelaotrasucursal;
     public static javax.swing.JLabel lbnumeroventa;
-    public static javax.swing.JTextArea lbobservaciones;
+    private javax.swing.JTextArea lbobservaciones;
     public static javax.swing.JLabel lborden;
     public javax.swing.JLabel lbotraubicacion;
     public javax.swing.JLabel lbotraubicacion2;

@@ -3319,6 +3319,10 @@ public static String dia() {
 
        
          this.dispose();
+         
+         
+         
+         
         
     }//GEN-LAST:event_btnreplicarActionPerformed
    
@@ -3391,6 +3395,36 @@ public static String dia() {
             sonido.play();
             
         }
+        
+      
+      
+      
+      
+        String observacion = lbobservaciones.getText();
+        
+        if (observacion.equals(""))
+        {
+            
+        }
+        else
+        {
+         
+       
+String[] lineas = observacion.split("\n");
+
+String mensaje = "<HTML><span style=\"Color:red;font-size:25px;\">NOTA: " + lineas[0] + "</span><br>";
+if (lineas.length > 1) {
+    mensaje += "<span style=\"Color:red; font-size:25px;\">" + lineas[1] + "</span>";
+}
+
+JOptionPane.showMessageDialog(null, mensaje);
+        
+        
+        
+        
+        }
+        
+        
         
      // sumapuntos();
         

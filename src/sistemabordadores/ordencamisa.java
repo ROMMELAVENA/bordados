@@ -2190,6 +2190,9 @@ public class ordencamisa extends javax.swing.JFrame {
     {
         
        
+        String identificadordeprenda = lbidentificadordeprenda.getText();
+        String cantidad = lbcantidad.getText();
+        
         
         //// bordado
         String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad,numero_sucursal,sucursal) VALUES (?,?,?,?,?,?,?,?)";
@@ -2203,8 +2206,8 @@ public class ordencamisa extends javax.swing.JFrame {
                 pst.setString(2, dia());
                 pst.setString(3, hora());
                 pst.setString(4, ubicacioninsertar);
-                pst.setString(5, lbidentificadordeprenda.getText());
-                pst.setString(6, lbcantidad.getText());
+                pst.setString(5, identificadordeprenda);
+                pst.setString(6, cantidad);
                 
                  if(tienenumerodesucursal.equals("no") )
                 {
@@ -3557,7 +3560,7 @@ public class ordencamisa extends javax.swing.JFrame {
         lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnmangaderecha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnmangaderecha.setText("Procesar");
+        btnmangaderecha.setText("Termine");
         btnmangaderecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmangaderechaActionPerformed(evt);
@@ -3565,7 +3568,7 @@ public class ordencamisa extends javax.swing.JFrame {
         });
 
         btnmangaizquierda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnmangaizquierda.setText("Procesar");
+        btnmangaizquierda.setText("Termine");
         btnmangaizquierda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmangaizquierdaActionPerformed(evt);
@@ -3573,7 +3576,7 @@ public class ordencamisa extends javax.swing.JFrame {
         });
 
         btnpechoderecho.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnpechoderecho.setText("Procesar");
+        btnpechoderecho.setText("Termine");
         btnpechoderecho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnpechoderechoActionPerformed(evt);
@@ -3581,7 +3584,7 @@ public class ordencamisa extends javax.swing.JFrame {
         });
 
         btnpechoizquierdo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnpechoizquierdo.setText("Procesar");
+        btnpechoizquierdo.setText("Termine");
         btnpechoizquierdo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnpechoizquierdoActionPerformed(evt);
@@ -3589,7 +3592,7 @@ public class ordencamisa extends javax.swing.JFrame {
         });
 
         btnespalda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnespalda.setText("Procesar");
+        btnespalda.setText("Termine");
         btnespalda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnespaldaActionPerformed(evt);
@@ -3597,7 +3600,7 @@ public class ordencamisa extends javax.swing.JFrame {
         });
 
         btnotraubicacion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnotraubicacion.setText("Procesar");
+        btnotraubicacion.setText("Termine");
         btnotraubicacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnotraubicacionActionPerformed(evt);
@@ -3605,7 +3608,7 @@ public class ordencamisa extends javax.swing.JFrame {
         });
 
         btnotraubicacion2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnotraubicacion2.setText("Procesar");
+        btnotraubicacion2.setText("Termine");
         btnotraubicacion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnotraubicacion2ActionPerformed(evt);
@@ -4243,6 +4246,7 @@ public class ordencamisa extends javax.swing.JFrame {
         }
 
         this.dispose();
+        ventanaordencamisa = false;
 
     }//GEN-LAST:event_btnsalirActionPerformed
 
@@ -4637,7 +4641,22 @@ public class ordencamisa extends javax.swing.JFrame {
            String cantidadaplicacion = aplicacionpechoizquierdo;
            String cantidad = lbcantidad.getText();
            nombredelatabla = "historial_ordenes_camisa";
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
            actualizarlascantidadesbordadas((String) ubicacion);  
+           
+           
+           
+           
+           
            
            if (prenda.toUpperCase().equals("CAMISA")) {
 
@@ -4795,7 +4814,10 @@ public class ordencamisa extends javax.swing.JFrame {
 
     private void btnespaldaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnespaldaActionPerformed
 
-        if(lbcantidad.getText().equals("0"))
+        
+        String cantidad = lbcantidad.getText();
+        
+        if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
@@ -4815,7 +4837,7 @@ public class ordencamisa extends javax.swing.JFrame {
             String ubicacion = "cantidad_espalda";
             String nombrebordado =espaldanombre;
            String cantidadaplicacion = aplicacionespalda;
-           String cantidad = lbcantidad.getText();
+        
            nombredelatabla = "historial_ordenes_camisa";
             actualizarlascantidadesbordadascancelar((String) ubicacion);
             
@@ -4882,7 +4904,7 @@ public class ordencamisa extends javax.swing.JFrame {
             String ubicacion = "cantidad_espalda";
             String nombrebordado = espaldanombre;
             String cantidadaplicacion = aplicacionespalda;
-            String cantidad = lbcantidad.getText();
+           
             nombredelatabla = "historial_ordenes_camisa";
             actualizarlascantidadesbordadas((String) ubicacion);
 
@@ -4975,7 +4997,7 @@ public class ordencamisa extends javax.swing.JFrame {
             String ubicacion = "cantidad_espalda";
             String nombrebordado = espaldanombre;
             String cantidadaplicacion = aplicacionespalda;
-            String cantidad = lbcantidad.getText();
+           
             nombredelatabla = "historial_ordenes_camisa_recibidas";
             actualizarlascantidadesbordadasotrasucursal((String) ubicacion);
             if (prenda.toUpperCase().equals("CAMISA")) {
@@ -6294,6 +6316,12 @@ public class ordencamisa extends javax.swing.JFrame {
          }
          
          this.dispose();
+         ventanaordencamisa = false;
+         
+         
+         
+         
+         
          
     }//GEN-LAST:event_btnterminetodoActionPerformed
 

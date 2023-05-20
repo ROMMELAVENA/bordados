@@ -905,7 +905,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion2,otra_ubicacion2_nombre,\n"
                 + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,\n"
                 + "aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,\n"
-                + "lugar,estatus_orden,numero_sucursal_orden,tienda,numero_sucursal  from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' ";
+                + "lugar,estatus_orden,numero_sucursal_orden,tienda,numero_sucursal  from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' and prenda =  '" + prenda + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -931,7 +931,9 @@ public class ordencamisa extends javax.swing.JFrame {
                 Object mangaderecha = rs.getString("manga_derecha");
                 lbmangaderechanombre.setText(mangaderechanombre);
                 lbpechoizquierdo.setText(rs.getString("manga_derecha"));
-                if (mangaderecha == null || mangaderecha.equals("") || mangaderecha.equals("ninguno")) {
+                if (mangaderecha == null || mangaderecha.equals("") || mangaderecha.equals("ninguno"))
+                
+                {
 
                     btnmangaderecha.setVisible(false);
                      
@@ -1254,7 +1256,9 @@ public class ordencamisa extends javax.swing.JFrame {
               if (latiendaestaconectada.equals("si"))
 
                       {
-                
+      
+                          
+                        
                 
                  try {
          
@@ -1266,10 +1270,12 @@ public class ordencamisa extends javax.swing.JFrame {
             con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tiendaenvia + "", "root", "sistemas");
       
 
+            
+            /*
         String sql7 = "Select cliente,prenda,tienda,nombre_concepto from historial_ordenes_camisa where numero = '" + numerosucursal + "' ";
 
         try {
-            Statement st = con.createStatement();
+            Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql7);
             if (rs.next()) {
 
@@ -1288,7 +1294,7 @@ public class ordencamisa extends javax.swing.JFrame {
         }
 
         
-     
+     */
         
         
          BufferedImage img = null;
@@ -3164,7 +3170,7 @@ public class ordencamisa extends javax.swing.JFrame {
            {
                try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada',fecha = '"+dia()+"'  where numero='" + lborden.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada',fecha = '"+dia()+"'  where numero='" + lborden.getText() + "' and prenda='" +prenda+ "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -4260,6 +4266,10 @@ public class ordencamisa extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
    
+        
+        prenda = lbprenda.getText();
+        
+        
     if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
     {
         

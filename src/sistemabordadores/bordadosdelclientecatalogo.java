@@ -236,7 +236,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         
         
 
-        String  sql = "SELECT tipo,nombre_bordado,pecho_izquierdo_nombre,pecho_derecho_nombre,manga_derecha_nombre,manga_izquierda_nombre,espalda_nombre,otra_ubicacion_nombre,otra_ubicacion2_nombre,"
+        String  sql = "SELECT tipo,identificador_prenda,pecho_izquierdo_nombre,pecho_derecho_nombre,manga_derecha_nombre,manga_izquierda_nombre,espalda_nombre,otra_ubicacion_nombre,otra_ubicacion2_nombre,"
                 + "frente_nombre,lado_izquierdo_nombre,lado_derecho_nombre,atras_nombre,"
                 + "pantalon_lado_izquierdo_frente_nombre,pantalon_lado_derecho_frente_nombre,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_derecho_atras_nombre,"
                 + "corbata_frente_nombre,parche_nombre, parche_aplicacion, parche_aplicacion_color,"
@@ -251,7 +251,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
             while (rs.next()) {
 
                 tipo =rs.getString("tipo");  
-                nombre = rs.getString("nombre_bordado");
+                nombre = rs.getString("identificador_prenda");
                 consecutivo = rs.getString("numero_consecutivo");
                 
                 
@@ -865,7 +865,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         
         
 
-        String  sql = "SELECT nombre_bordado,pecho_izquierdo_nombre,pecho_derecho_nombre,manga_derecha_nombre,manga_izquierda_nombre,espalda_nombre,otra_ubicacion_nombre,otra_ubicacion2_nombre,numero_consecutivo FROM bordados_puntadas where codigo = '" + codigocliente + "' and tipo = '"+tipoprenda+"'  ";    
+        String  sql = "SELECT identificador_prenda,pecho_izquierdo_nombre,pecho_derecho_nombre,manga_derecha_nombre,manga_izquierda_nombre,espalda_nombre,otra_ubicacion_nombre,otra_ubicacion2_nombre,numero_consecutivo FROM bordados_puntadas where codigo = '" + codigocliente + "' and tipo = '"+tipoprenda+"'  ";    
          
         
         try {
@@ -975,7 +975,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
      
               
            
-            sql = "SELECT nombre_bordado,pantalon_lado_izquierdo_frente_nombre,pantalon_lado_derecho_frente_nombre,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_derecho_atras_nombre,numero_consecutivo FROM bordados_puntadas where codigo = '" + codigocliente + "' and tipo = 'PANTALON'";
+            sql = "SELECT identificador_prenda,pantalon_lado_izquierdo_frente_nombre,pantalon_lado_derecho_frente_nombre,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_derecho_atras_nombre,numero_consecutivo FROM bordados_puntadas where codigo = '" + codigocliente + "' and tipo = 'PANTALON'";
            
           
         try {
@@ -1060,7 +1060,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
       
         String nombre ="";
 
-            sql = "SELECT  nombre_bordado,frente_nombre,lado_izquierdo_nombre,lado_derecho_nombre,atras_nombre,numero_consecutivo FROM bordados_puntadas where codigo = '" + codigocliente + "' and tipo = 'GORRA' ";
+            sql = "SELECT  identificador_prenda,frente_nombre,lado_izquierdo_nombre,lado_derecho_nombre,atras_nombre,numero_consecutivo FROM bordados_puntadas where codigo = '" + codigocliente + "' and tipo = 'GORRA' ";
            
           
         try {
@@ -1132,7 +1132,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
    
         String nombre ="";
 
-        sql = "SELECT nombre_bordado,corbata_frente_nombre,numero_consecutivo FROM bordados_puntadas where codigo = '"+codigocliente+"' and tipo = 'CORBATA'   ";
+        sql = "SELECT identificador_prenda,corbata_frente_nombre,numero_consecutivo FROM bordados_puntadas where codigo = '"+codigocliente+"' and tipo = 'CORBATA'   ";
            
           
         try {
@@ -1140,7 +1140,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
 
-                nombre = rs.getString("nombre_bordado");
+                nombre = rs.getString("identificador_prenda");
                 bordado1 = rs.getString("corbata_frente_nombre");
                 consecutivo = rs.getString("numero_consecutivo");
 
@@ -1194,7 +1194,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
       
           
      
-          sql = "SELECT nombre_bordado,parche_nombre,numero_consecutivo FROM bordados_puntadas where codigo = '"+codigocliente+"' and tipo = 'PARCHE'   ";
+          sql = "SELECT identificador_prenda,parche_nombre,numero_consecutivo FROM bordados_puntadas where codigo = '"+codigocliente+"' and tipo = 'PARCHE'   ";
         
         try {
             Statement st = cn.createStatement();
@@ -1202,7 +1202,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
             while (rs.next()) 
             {
 
-                 nombre = rs.getString("nombre_bordado");
+                 nombre = rs.getString("identificador_prenda");
                 bordado = rs.getString("parche_nombre");
                 consecutivo = rs.getString("numero_consecutivo");
                
@@ -1276,7 +1276,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         
         
  
-        String  sql = "SELECT nombre_bordado,distinta1_nombre,distinta2_nombre,distinta3_nombre,distinta4_nombre,distinta5_nombre,distinta6_nombre,distinta7_nombre,numero_consecutivo FROM bordados_puntadas where codigo = '" + codigocliente + "' and tipo = '"+tipo+"'  ";    
+        String  sql = "SELECT identificador_prenda,distinta1_nombre,distinta2_nombre,distinta3_nombre,distinta4_nombre,distinta5_nombre,distinta6_nombre,distinta7_nombre,numero_consecutivo FROM bordados_puntadas where codigo = '" + codigocliente + "' and tipo = '"+tipo+"'  ";    
          
         
         try {
@@ -2962,7 +2962,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
                     consecutivo = tabla.getValueAt(filaseleccionada, 11).toString();
                     String codigocliente = lbcodigocliente.getText();
 
-                    String SQL = "SELECT tipo FROM bordados_puntadas where nombre_bordado = '" + nombredelbordado + "' and numero_consecutivo = '" + consecutivo + "' and  codigo = '" + codigocliente + "'  ";
+                    String SQL = "SELECT tipo FROM bordados_puntadas where identificador_prenda = '" + nombredelbordado + "' and numero_consecutivo = '" + consecutivo + "' and  codigo = '" + codigocliente + "'  ";
 
                     try {
                         Statement st = cn.createStatement();

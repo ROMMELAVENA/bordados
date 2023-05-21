@@ -214,7 +214,7 @@ public static boolean ventanaordenparcheanteriores = false;
     {
        
 
-        String sql = "Select numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'PARCHE'   ";
+        String sql = "Select numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = 'PARCHE'   ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -812,7 +812,7 @@ public static boolean ventanaordenparcheanteriores = false;
 
        
 
-        String sql = "Select extension_imagen,imagen,numero_consecutivo,puntadas_en_fotomontajes  from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '" + identificadordeprenda + "' and tipo = 'PARCHE'   ";  ///
+        String sql = "Select extension_imagen,imagen,numero_consecutivo,puntadas_en_fotomontajes  from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '" + identificadordeprenda + "' and tipo = 'PARCHE'   ";  ///
 
         try {
 
@@ -1563,7 +1563,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             FileInputStream input = null;
             try {
 
-                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and nombre_bordado = '"+identificadordeprenda+"' and tipo = 'PARCHE' and numero_consecutivo = '"+consecutivo+"' ";
+                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = 'PARCHE' and numero_consecutivo = '"+consecutivo+"' ";
 
                 myStmt = cn.prepareStatement(sql);
                 File theFile = new File(rutaarchivo);
@@ -1579,7 +1579,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
             try {
-                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"',puntadas_en_fotomontajes ='no' where codigo='"+codigocliente+"' and nombre_bordado = '"+identificadordeprenda+"' and tipo = 'PARCHE' and numero_consecutivo = '"+consecutivo+"' ");
+                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"',puntadas_en_fotomontajes ='no' where codigo='"+codigocliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = 'PARCHE' and numero_consecutivo = '"+consecutivo+"' ");
                 pst.executeUpdate();
                 pst.close();
             } catch (Exception e) {

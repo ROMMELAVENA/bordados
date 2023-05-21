@@ -186,7 +186,7 @@ public class ordencorbata extends javax.swing.JFrame {
     {
        
 
-        String sql = "Select hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,color1,color2,color3,color4,color5,color6,color7,numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'CORBATA'   ";
+        String sql = "Select hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,color1,color2,color3,color4,color5,color6,color7,numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = 'CORBATA'   ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -244,7 +244,7 @@ public class ordencorbata extends javax.swing.JFrame {
       
         btnverfotomontaje.setEnabled(false);
 
-       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'CORBATA'   ";  ///
+       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = 'CORBATA'   ";  ///
 
         try {
 
@@ -1278,7 +1278,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String existe = "";
 
         //// prenda del fotomontaje
-        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'CORBATA'   ";
+        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = 'CORBATA'   ";
 
         try {
             Statement st1 = cn.createStatement();

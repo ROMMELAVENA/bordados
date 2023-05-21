@@ -44,7 +44,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
 
         
         /// pecho izquierdo
-        String sql = "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,pecho_izquierdo_nombre\n"
+        String sql = "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,pecho_izquierdo_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "PECHO_IZQUIERDO_NOMBRE LIKE '%VERDE%'\n"
@@ -75,7 +75,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("pecho_izquierdo_nombre");
                 datos[3] = "Pecho izquierdo";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -91,7 +91,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         
         /// pecho derecho
   
-        String sql2 = "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,pecho_derecho_nombre\n"
+        String sql2 = "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,pecho_derecho_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "PECHO_DERECHO_NOMBRE LIKE '%VERDE%'\n"
@@ -122,7 +122,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("pecho_derecho_nombre");
                 datos[3] = "Pecho derecho";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -138,7 +138,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         
          /// manga_derecha
   
-        String sql3 = "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,manga_derecha_nombre\n"
+        String sql3 = "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,manga_derecha_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "MANGA_DERECHA_NOMBRE LIKE '%VERDE%'\n"
@@ -169,7 +169,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("manga_derecha_nombre");
                 datos[3] = "Manga derecha";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -185,7 +185,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         
         /// manga izquierda
         
-         String sql4 = "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,manga_izquierda_nombre\n"
+         String sql4 = "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,manga_izquierda_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "MANGA_IZQUIERDA_NOMBRE LIKE '%VERDE%'\n"
@@ -216,7 +216,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("manga_izquierda_nombre");
                 datos[3] = "Manga izquierda";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -232,7 +232,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         
           ///espalda
         
-         String sql5= "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,espalda_nombre\n"
+         String sql5= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,espalda_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "ESPALDA_NOMBRE LIKE '%VERDE%'\n"
@@ -263,7 +263,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("espalda_nombre");
                 datos[3] = "Espalda";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -279,7 +279,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         
         ///otra ubicacion
         
-         String sql6= "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,otra_ubicacion_nombre\n"
+         String sql6= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,otra_ubicacion_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "otra_ubicacion_nombre LIKE '%VERDE%'\n"
@@ -310,7 +310,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("otra_ubicacion_nombre");
                 datos[3] = "Otra ubicacion";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -326,7 +326,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         
         ///otra ubicacion2
         
-         String sql7= "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,otra_ubicacion2_nombre\n"
+         String sql7= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,otra_ubicacion2_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "otra_ubicacion2_nombre LIKE '%VERDE%'\n"
@@ -357,7 +357,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("otra_ubicacion2_nombre");
                 datos[3] = "Otra ubicacion2";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -375,7 +375,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         ///frente
         
         
-         String sql8= "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,frente_nombre\n"
+         String sql8= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,frente_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "frente_nombre LIKE '%VERDE%'\n"
@@ -406,7 +406,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("frente_nombre");
                 datos[3] = "Frente Gorra";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -422,7 +422,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
          ///lado izquierdo
         
         
-         String sql9= "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,lado_izquierdo_nombre\n"
+         String sql9= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,lado_izquierdo_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "lado_izquierdo_nombre LIKE '%VERDE%'\n"
@@ -453,7 +453,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("lado_izquierdo_nombre");
                 datos[3] = "Lado izquierdo Gorra";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -470,7 +470,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         ///lado derecho
         
         
-         String sql10= "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,lado_derecho_nombre\n"
+         String sql10= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,lado_derecho_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "lado_derecho_nombre LIKE '%VERDE%'\n"
@@ -501,7 +501,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("lado_derecho_nombre");
                 datos[3] = "Lado derecho Gorra";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -517,7 +517,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
          ///atras
         
         
-         String sql11= "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,atras_nombre\n"
+         String sql11= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,atras_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "atras_nombre LIKE '%VERDE%'\n"
@@ -548,7 +548,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("atras_nombre");
                 datos[3] = "Atras Gorra";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -566,7 +566,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
          ///pantalon_lado_izquierdo_frente
         
         
-         String sql12= "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,pantalon_lado_izquierdo_frente_nombre\n"
+         String sql12= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,pantalon_lado_izquierdo_frente_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "pantalon_lado_izquierdo_frente_nombre LIKE '%VERDE%'\n"
@@ -597,7 +597,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("pantalon_lado_izquierdo_frente_nombre");
                 datos[3] = "Pantalon lado izquierdo frente";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -613,7 +613,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
          ///pantalon_lado_derecho_frente
         
         
-         String sql13= "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,pantalon_lado_derecho_frente_nombre\n"
+         String sql13= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,pantalon_lado_derecho_frente_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "pantalon_lado_derecho_frente_nombre LIKE '%VERDE%'\n"
@@ -644,7 +644,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("pantalon_lado_derecho_frente_nombre");
                 datos[3] = "Pantalon lado derecho frente";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -661,7 +661,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         ///pantalon_lado_izquierdo_atras
         
         
-         String sql14= "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,pantalon_lado_izquierdo_atras_nombre\n"
+         String sql14= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,pantalon_lado_izquierdo_atras_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "pantalon_lado_izquierdo_atras_nombre LIKE '%VERDE%'\n"
@@ -692,7 +692,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("pantalon_lado_izquierdo_atras_nombre");
                 datos[3] = "Pantalon lado izquierdo atras";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -709,7 +709,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
          ///pantalon_lado_derecho_atras
         
         
-         String sql15= "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,pantalon_lado_derecho_atras_nombre\n"
+         String sql15= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,pantalon_lado_derecho_atras_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "pantalon_lado_derecho_atras_nombre LIKE '%VERDE%'\n"
@@ -740,7 +740,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("pantalon_lado_derecho_atras_nombre");
                 datos[3] = "Pantalon lado derecho atras";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -758,7 +758,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         ///corbata frente
         
         
-         String sql16= "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,corbata_frente_nombre\n"
+         String sql16= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,corbata_frente_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "corbata_frente_nombre LIKE '%VERDE%'\n"
@@ -789,7 +789,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("corbata_frente_nombre");
                 datos[3] = "Corbata";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);
@@ -808,7 +808,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         ///parche
         
         
-         String sql18= "SELECT codigo,numero_consecutivo,nombre,nombre_bordado,tipo,parche_nombre\n"
+         String sql18= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,parche_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
                 + "parche_nombre LIKE '%VERDE%'\n"
@@ -839,7 +839,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("parche_nombre");
                 datos[3] = "Parche";
-                datos[4] = rs.getString("nombre_bordado");
+                datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
                 modelo.addRow(datos);

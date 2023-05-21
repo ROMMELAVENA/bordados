@@ -705,7 +705,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         
-        String sql16 = "SELECT Distinct numero,cliente,tipo,lugar,numero_sucursal,fecha,observacion  FROM historial_ordenes_ponchados_recibidos where (estatus_orden = 'generada' or cantidad_generada > 0) and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+        String sql16 = "SELECT Distinct numero,cliente,tipo,lugar,numero_sucursal,fecha,observacion  FROM historial_ordenes_ponchados_recibidos where (estatus_orden = 'generada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();

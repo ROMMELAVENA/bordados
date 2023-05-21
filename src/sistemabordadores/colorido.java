@@ -235,7 +235,7 @@ public class colorido extends javax.swing.JFrame {
         
         actualizarbordado ="no";
         
-        String sql = "SELECT color1,color2,color3,color4,color5,color6,color7,color8,color9,color10,color11,color12,color13,color14,color15,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,hilo8,hilo9,hilo10,hilo11,hilo12,hilo13,hilo14,hilo15 FROM colorido_bordados where nombre_bordado = '"+lbnombrebordado.getText()+"' and codigo = '"+lbcodigo.getText()+"' AND nombre = '"+lbcliente.getText()+"' ";
+        String sql = "SELECT color1,color2,color3,color4,color5,color6,color7,color8,color9,color10,color11,color12,color13,color14,color15,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,hilo8,hilo9,hilo10,hilo11,hilo12,hilo13,hilo14,hilo15 FROM colorido_bordados where identificador_prenda = '"+lbnombrebordado.getText()+"' and codigo = '"+lbcodigo.getText()+"' AND nombre = '"+lbcliente.getText()+"' ";
 
 
             try {
@@ -2042,7 +2042,7 @@ public class colorido extends javax.swing.JFrame {
                   //// Colores e hilos
                 
                    try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE colorido_bordados SET color1= '" + color1+ "', color2='" + color2 + "',color3='" + color3 + "',color4='" + color4 + "',color5='" + color5 + "',color6='" + color6 + "' ,color7='" + color7 + "' ,color8='" + color8 + "',color9 ='" + color9 + "',color10 ='" +color10+ "',color11 ='" +color11+ "',color12 ='"+color12+"',color13 ='" +color13+ "' ,color14 ='" +color14+ "',color15 ='" +color15+ "'  WHERE codigo='"+lbcodigo.getText()+"' and  nombre = '"+lbcliente.getText()+"' AND nombre_bordado = '"+lbnombrebordado.getText()+"' ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE colorido_bordados SET color1= '" + color1+ "', color2='" + color2 + "',color3='" + color3 + "',color4='" + color4 + "',color5='" + color5 + "',color6='" + color6 + "' ,color7='" + color7 + "' ,color8='" + color8 + "',color9 ='" + color9 + "',color10 ='" +color10+ "',color11 ='" +color11+ "',color12 ='"+color12+"',color13 ='" +color13+ "' ,color14 ='" +color14+ "',color15 ='" +color15+ "'  WHERE codigo='"+lbcodigo.getText()+"' and  nombre = '"+lbcliente.getText()+"' AND identificador_prenda = '"+lbnombrebordado.getText()+"' ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -2050,7 +2050,7 @@ public class colorido extends javax.swing.JFrame {
                 }
                 
                  try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE colorido_bordados SET hilo1= '" + hilo1+ "', hilo2='" + hilo2 + "',hilo3='" + hilo3 + "',hilo4='" + hilo4 + "',hilo5='" + hilo5 + "',hilo6='" + hilo6 + "' ,hilo7='" + hilo7 + "' ,hilo8='" + hilo8 + "',hilo9 ='" + hilo9 + "',hilo10 ='" +hilo10+ "',hilo11 ='" +hilo11+ "',hilo12 ='"+hilo12+"',hilo13 ='" +hilo13+ "' ,hilo14 ='" +hilo14+ "',hilo15 ='" +hilo15+ "'  WHERE codigo='"+lbcodigo.getText()+"' and nombre = '"+lbcliente.getText()+"' AND nombre_bordado = '"+lbnombrebordado.getText()+"'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE colorido_bordados SET hilo1= '" + hilo1+ "', hilo2='" + hilo2 + "',hilo3='" + hilo3 + "',hilo4='" + hilo4 + "',hilo5='" + hilo5 + "',hilo6='" + hilo6 + "' ,hilo7='" + hilo7 + "' ,hilo8='" + hilo8 + "',hilo9 ='" + hilo9 + "',hilo10 ='" +hilo10+ "',hilo11 ='" +hilo11+ "',hilo12 ='"+hilo12+"',hilo13 ='" +hilo13+ "' ,hilo14 ='" +hilo14+ "',hilo15 ='" +hilo15+ "'  WHERE codigo='"+lbcodigo.getText()+"' and nombre = '"+lbcliente.getText()+"' AND identificador_prenda = '"+lbnombrebordado.getText()+"'   ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -2069,7 +2069,7 @@ public class colorido extends javax.swing.JFrame {
             
             //insertarnumero();
 
-            String InsertarSQL = "INSERT INTO colorido_bordados(codigo,nombre,nombre_bordado,color1,color2,color3,color4,color5,color6,color7,color8,color9,color10,color11,color12,color13,color14,color15,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,hilo8,hilo9,hilo10,hilo11,hilo12,hilo13,hilo14,hilo15) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String InsertarSQL = "INSERT INTO colorido_bordados(codigo,nombre,identificador_prenda,color1,color2,color3,color4,color5,color6,color7,color8,color9,color10,color11,color12,color13,color14,color15,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,hilo8,hilo9,hilo10,hilo11,hilo12,hilo13,hilo14,hilo15) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);

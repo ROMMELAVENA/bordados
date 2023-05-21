@@ -521,7 +521,7 @@ public class ordengorra extends javax.swing.JFrame {
         btnverfotomontaje.setEnabled(false);
         String path ="";
 
-       String sql = "Select extension_imagen,imagen,numero_consecutivo,puntadas_en_fotomontajes from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";  ///
+       String sql = "Select extension_imagen,imagen,numero_consecutivo,puntadas_en_fotomontajes from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";  ///
 
         try {
 
@@ -878,7 +878,7 @@ public class ordengorra extends javax.swing.JFrame {
         
        
 
-       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";  ///
+       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";  ///
 
         try {
 
@@ -1130,7 +1130,7 @@ public class ordengorra extends javax.swing.JFrame {
     {
        
 
-        String sql = "Select hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,color1,color2,color3,color4,color5,color6,color7,numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";
+        String sql = "Select hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,color1,color2,color3,color4,color5,color6,color7,numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -2140,7 +2140,7 @@ public class ordengorra extends javax.swing.JFrame {
         String existe = "";
         
         //// prenda del fotomontaje
-        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";
+        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -4111,7 +4111,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             FileInputStream input = null;
             try {
 
-                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and nombre_bordado = '"+identificadordeprenda+"' and tipo = 'GORRA' and numero_consecutivo = '"+consecutivo+"' ";
+                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = 'GORRA' and numero_consecutivo = '"+consecutivo+"' ";
 
                 myStmt = cn.prepareStatement(sql);
                 File theFile = new File(rutaarchivo);
@@ -4127,7 +4127,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
             try {
-                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"',puntadas_en_fotomontajes ='no' where codigo='"+codigocliente+"' and nombre_bordado = '"+identificadordeprenda+"' and tipo = 'GORRA' and numero_consecutivo = '"+consecutivo+"' ");
+                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"',puntadas_en_fotomontajes ='no' where codigo='"+codigocliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = 'GORRA' and numero_consecutivo = '"+consecutivo+"' ");
                 pst.executeUpdate();
                 pst.close();
             } catch (Exception e) {

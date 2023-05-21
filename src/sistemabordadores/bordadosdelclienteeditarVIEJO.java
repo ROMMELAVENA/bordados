@@ -662,7 +662,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                 
                  /// COLORIDOS BORDADOS
                 
-                sql = "SELECT distinct nombre_bordado from colorido_bordados where codigo = '"+codigodelcliente+"' ";
+                sql = "SELECT distinct identificador_prenda from colorido_bordados where codigo = '"+codigodelcliente+"' ";
 
                 try {
 
@@ -670,7 +670,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                     ResultSet rs2 = st2.executeQuery(sql);
                     while (rs2.next()) 
                     {
-                        String puntadas = rs2.getString("nombre_bordado");
+                        String puntadas = rs2.getString("identificador_prenda");
                         cbbordados1.addItem(puntadas);
                         cbbordados2.addItem(puntadas);
                         cbbordados3.addItem(puntadas);
@@ -894,7 +894,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                  /// COLORIDOS BORDADOS
                 
                 
-                 sql = "SELECT distinct nombre_bordado from colorido_bordados where codigo = '"+codigodelcliente+"' ";
+                 sql = "SELECT distinct identificador_prenda from colorido_bordados where codigo = '"+codigodelcliente+"' ";
 
                 try {
 
@@ -902,7 +902,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                     ResultSet rs2 = st2.executeQuery(sql);
                     while (rs2.next()) 
                     {
-                        String puntadas = rs2.getString("nombre_bordado");
+                        String puntadas = rs2.getString("identificador_prenda");
                         cbbordados1.addItem(puntadas);
                         cbbordados2.addItem(puntadas);
                         cbbordados3.addItem(puntadas);
@@ -1043,7 +1043,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                  /// COLORIDOS BORDADOS
                 
                 
-                 sql = "SELECT distinct nombre_bordado from colorido_bordados where codigo = '"+codigodelcliente+"' ";
+                 sql = "SELECT distinct identificador_prenda from colorido_bordados where codigo = '"+codigodelcliente+"' ";
 
                 try {
 
@@ -1051,7 +1051,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                     ResultSet rs2 = st2.executeQuery(sql);
                     while (rs2.next()) 
                     {
-                        String puntadas = rs2.getString("nombre_bordado");
+                        String puntadas = rs2.getString("identificador_prenda");
                         cbbordados1.addItem(puntadas);
                         cbbordados2.addItem(puntadas);
                         cbbordados3.addItem(puntadas);
@@ -1142,7 +1142,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                  /// COLORIDOS BORDADOS
                 
                 
-                 sql = "SELECT distinct nombre_bordado from colorido_bordados where codigo = '"+codigodelcliente+"' ";
+                 sql = "SELECT distinct identificador_prenda from colorido_bordados where codigo = '"+codigodelcliente+"' ";
 
                 try {
 
@@ -1150,7 +1150,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                     ResultSet rs2 = st2.executeQuery(sql);
                     while (rs2.next()) 
                     {
-                        String puntadas = rs2.getString("nombre_bordado");
+                        String puntadas = rs2.getString("identificador_prenda");
                         cbbordados1.addItem(puntadas);
                         cbbordados2.addItem(puntadas);
                         cbbordados3.addItem(puntadas);
@@ -1503,7 +1503,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
             
 
-                sql = "SELECT nombre_bordado,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
+                sql = "SELECT identificador_prenda,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
                         + "pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
                         + "manga_derecha,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,"
                         + "manga_izquierda,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,"
@@ -1511,7 +1511,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                         + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
                         + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7 "
-                        + " FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'"; 
+                        + " FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'"; 
             
 
         
@@ -1522,7 +1522,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                 if (rs.next()) {
 
                    
-                        identificadordeprenda = rs.getString("nombre_bordado");
+                        identificadordeprenda = rs.getString("identificador_prenda");
                         pechoizquierdo = rs.getString("pecho_izquierdo");
                         pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                         pechoizquierdoaplicacion = rs.getString("pecho_izquierdo_aplicacion");
@@ -1667,7 +1667,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         {
 
 
-                sql = "SELECT nombre_bordado,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
+                sql = "SELECT identificador_prenda,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
                         + "pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
                         + "manga_derecha,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,"
                         + "manga_izquierda,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,"
@@ -1675,7 +1675,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                         + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
                         + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,hilo1,hilo2,hilo3 "
-                        + "FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + "FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
 
             try {
@@ -1685,7 +1685,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                 if (rs.next()) {
 
                    
-                        identificadordeprenda = rs.getString("nombre_bordado");
+                        identificadordeprenda = rs.getString("identificador_prenda");
                         pechoizquierdo = rs.getString("pecho_izquierdo");
                         pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                         pechoizquierdoaplicacion = rs.getString("pecho_izquierdo_aplicacion");
@@ -1814,13 +1814,13 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         {
 
 
-                sql = "SELECT nombre_bordado,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
+                sql = "SELECT identificador_prenda,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
                         + "pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
                         + "centro,centro_nombre,centro_aplicacion,centro_aplicacion_color,"
                          + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
                         + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,hilo1,hilo2,hilo3 "
-                        + "FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + "FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
 
             try {
@@ -1830,7 +1830,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                 if (rs.next()) {
 
                    
-                        identificadordeprenda = rs.getString("nombre_bordado");
+                        identificadordeprenda = rs.getString("identificador_prenda");
                         pechoizquierdo = rs.getString("pecho_izquierdo");
                         pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                         pechoizquierdoaplicacion = rs.getString("pecho_izquierdo_aplicacion");
@@ -1954,12 +1954,12 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         
         {
             
-                sql = "SELECT nombre_bordado,frente,frente_nombre,frente_aplicacion,frente_aplicacion_color,"
+                sql = "SELECT identificador_prenda,frente,frente_nombre,frente_aplicacion,frente_aplicacion_color,"
                         + "lado_izquierdo,lado_izquierdo_nombre,"
                         + "lado_derecho,lado_derecho_nombre,"
                         + "atras,atras_nombre,"
                         + "color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4 "
-                        + " FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + " FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
             
             
@@ -1972,7 +1972,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                 {
 
                         
-                        identificadordeprenda = rs.getString("nombre_bordado");
+                        identificadordeprenda = rs.getString("identificador_prenda");
                         lbidentificadordeprendaanterior.setText(identificadordeprenda);
                         frentegorra = rs.getString("frente");
                         frentegorranombre = rs.getString("frente_nombre");
@@ -2077,9 +2077,9 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         
         {
             
-                sql = "SELECT nombre_bordado,parche,parche_nombre,parche_aplicacion,parche_aplicacion_color,numero_consecutivo,"
+                sql = "SELECT identificador_prenda,parche,parche_nombre,parche_aplicacion,parche_aplicacion_color,numero_consecutivo,"
                         + "color1,hilo1"
-                        + " FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + " FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
             
             
@@ -2092,7 +2092,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                 {
 
                         
-                        identificadordeprenda = rs.getString("nombre_bordado");
+                        identificadordeprenda = rs.getString("identificador_prenda");
                         lbidentificadordeprendaanterior.setText(identificadordeprenda);
                         
                         parche = rs.getString("parche");
@@ -2197,12 +2197,12 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
            
             
 
-                sql = "SELECT nombre_bordado,pantalon_lado_izquierdo_frente,pantalon_lado_izquierdo_frente_nombre,pantalon_lado_izquierdo_frente_aplicacion,pantalon_lado_izquierdo_frente_aplicacion_color"
+                sql = "SELECT identificador_prenda,pantalon_lado_izquierdo_frente,pantalon_lado_izquierdo_frente_nombre,pantalon_lado_izquierdo_frente_aplicacion,pantalon_lado_izquierdo_frente_aplicacion_color"
                            + ",pantalon_lado_derecho_frente,pantalon_lado_derecho_frente_nombre,pantalon_lado_derecho_frente_aplicacion,pantalon_lado_derecho_frente_aplicacion_color,"
                            + "pantalon_lado_izquierdo_atras,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_izquierdo_atras_aplicacion,pantalon_lado_izquierdo_atras_aplicacion_color,"
                            + "pantalon_lado_derecho_atras,pantalon_lado_derecho_atras_nombre,pantalon_lado_derecho_atras_aplicacion,pantalon_lado_derecho_atras_aplicacion_color,"
                        + "color1,color2,color3,color4,color5,hilo1,hilo2,hilo3,hilo4,hilo5"
-                        + "  FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + "  FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
             
 
@@ -2212,7 +2212,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                 ResultSet rs = st.executeQuery(sql);
                 if (rs.next()) {
 
-                        identificadordeprenda = rs.getString("nombre_bordado");
+                        identificadordeprenda = rs.getString("identificador_prenda");
                         lbidentificadordeprendaanterior.setText(identificadordeprenda);
                         ladoizquierdofrentepantalon = rs.getString("pantalon_lado_izquierdo_frente");
                         ladoizquierdofrentepantalonnombre = rs.getString("pantalon_lado_izquierdo_frente_nombre");
@@ -2330,7 +2330,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
             
 
-                sql = "SELECT nombre_bordado,corbata_frente,corbata_frente_nombre,"
+                sql = "SELECT identificador_prenda,corbata_frente,corbata_frente_nombre,"
                        + "color1,hilo1"
                         + "  FROM bordados_puntadas where numero_consecutivo = '"+consecutivo+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
@@ -2342,7 +2342,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                 ResultSet rs = st.executeQuery(sql);
                 if (rs.next()) {
 
-                        identificadordeprenda = rs.getString("nombre_bordado");
+                        identificadordeprenda = rs.getString("identificador_prenda");
                         lbidentificadordeprendaanterior.setText(identificadordeprenda);
                         frentecorbata = rs.getString("corbata_frente");
                         frentecorbatanombre = rs.getString("corbata_frente_nombre");
@@ -2423,7 +2423,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
             
 
-                sql = "SELECT nombre_bordado,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
+                sql = "SELECT identificador_prenda,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
                         + "pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
                         + "manga_derecha,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,"
                         + "manga_izquierda,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,"
@@ -2431,7 +2431,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                         + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
                         + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7 "
-                        + " FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'"; 
+                        + " FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'"; 
             
 
         
@@ -2442,7 +2442,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                 if (rs.next()) {
 
                    
-                        identificadordeprenda = rs.getString("nombre_bordado");
+                        identificadordeprenda = rs.getString("identificador_prenda");
                         pechoizquierdo = rs.getString("pecho_izquierdo");
                         pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                         pechoizquierdoaplicacion = rs.getString("pecho_izquierdo_aplicacion");
@@ -2684,7 +2684,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
     {
         
          String autorizacionpuntadas = "";
-         String sql = "SELECT autorizacion_puntadas FROM bordados_puntadas where nombre_bordado = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"'  ";
+         String sql = "SELECT autorizacion_puntadas FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"'  ";
 
 
             try {
@@ -2866,7 +2866,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         
         try {
        
-            String sql = "SELECT numero,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and nombre_bordado = '"+lbidentificadordeprendaanterior.getText()+"'  ";
+            String sql = "SELECT numero,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
@@ -2950,7 +2950,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         
         try {
        
-            String sql = "SELECT numero,articulo FROM historial_cotizaciones where codigo_cliente='"+codigodelcliente+"' and nombre_bordado = '"+lbidentificadordeprendaanterior.getText()+"'  ";
+            String sql = "SELECT numero,articulo FROM historial_cotizaciones where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
@@ -3050,7 +3050,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         
         try {
        
-            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and nombre_bordado = '"+lbidentificadordeprendaanterior.getText()+"'  ";
+            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
@@ -3121,7 +3121,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         
         try {
        
-            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and nombre_bordado = '"+lbidentificadordeprendaanterior.getText()+"'  ";
+            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
@@ -3191,7 +3191,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         
         try {
        
-            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and nombre_bordado = '"+lbidentificadordeprendaanterior.getText()+"'  ";
+            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
@@ -3270,7 +3270,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         
         try {
        
-            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and nombre_bordado = '"+lbidentificadordeprendaanterior.getText()+"'  ";
+            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
@@ -3368,7 +3368,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         
         try {
        
-            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and nombre_bordado = '"+lbidentificadordeprendaanterior.getText()+"'  ";
+            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
@@ -3431,7 +3431,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             if(nombrearticuloactualizar.startsWith("APLICACION"))
         {
              try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET nombre_bordado = '"+txtidentificadordeprenda.getText()+"' WHERE codigo_cliente='" + codigodelcliente + "' and nombre_bordado = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+nombrearticuloactualizar+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET identificador_prenda = '"+txtidentificadordeprenda.getText()+"' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+nombrearticuloactualizar+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3443,7 +3443,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         {    
         
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET ARTICULO = '"+ubicacion.trim()+ "' WHERE codigo_cliente='" + codigodelcliente + "' and nombre_bordado = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+nombrearticuloactualizar+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET ARTICULO = '"+ubicacion.trim()+ "' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+nombrearticuloactualizar+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3453,7 +3453,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
        
         
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET nombre_bordado = '"+txtidentificadordeprenda.getText()+"' WHERE codigo_cliente='" + codigodelcliente + "' and nombre_bordado = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+ubicacion.trim()+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET identificador_prenda = '"+txtidentificadordeprenda.getText()+"' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+ubicacion.trim()+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3477,7 +3477,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
          if(nombrearticuloactualizar.startsWith("APLICACION"))
         {
             try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_COTIZACIONES SET nombre_bordado = '" + txtidentificadordeprenda.getText() + "'  where numero = '" + numerocotizacion + "' and articulo = '"+nombrearticuloactualizar+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_COTIZACIONES SET identificador_prenda = '" + txtidentificadordeprenda.getText() + "'  where numero = '" + numerocotizacion + "' and articulo = '"+nombrearticuloactualizar+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3489,7 +3489,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         {   
         
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_COTIZACIONES SET ARTICULO = '"+ubicacion.trim()+ "' WHERE codigo_cliente='" + codigodelcliente + "' and nombre_bordado = '" + nombrebordado + "'  AND numero = '" + numerocotizacion + "' and articulo = '"+nombrearticuloactualizar+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_COTIZACIONES SET ARTICULO = '"+ubicacion.trim()+ "' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" + nombrebordado + "'  AND numero = '" + numerocotizacion + "' and articulo = '"+nombrearticuloactualizar+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3497,7 +3497,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         }
         
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_COTIZACIONES SET nombre_bordado = '" + txtidentificadordeprenda.getText() + "'  where numero = '" + numerocotizacion + "' and articulo = '"+ubicacion.trim()+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_COTIZACIONES SET identificador_prenda = '" + txtidentificadordeprenda.getText() + "'  where numero = '" + numerocotizacion + "' and articulo = '"+ubicacion.trim()+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -5553,7 +5553,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                 
                 try {
        
-                String sql = "SELECT codigo FROM bordados_puntadas where codigo='"+codigodelcliente+"' and nombre_bordado = '"+lbidentificadordeprendaanterior.getText()+"'  AND tipo = '"+prenda+"'   ";
+                String sql = "SELECT codigo FROM bordados_puntadas where codigo='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  AND tipo = '"+prenda+"'   ";
 
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -5861,7 +5861,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         
          try {
                     PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET "
-                                                               + "nombre_bordado = '" + nombrebordado+ "',"
+                                                               + "identificador_prenda = '" + nombrebordado+ "',"
                                                                + "pecho_izquierdo = '" + pechoizquierdo+ "',"
                                                                + "pecho_izquierdo_nombre='" + pechoizquierdonombre + "',"
                                                                + "pecho_derecho='" + pechoderecho + "',"
@@ -5957,7 +5957,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                 
                 
                  try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '"+txtidentificadordeprenda.getText().trim()+"' WHERE codigo='" + codigodelcliente + "' and AND tipo = '"+prenda+"' AND numero_consecutivo = '"+lbconsecutivo.getText()+"'");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificadordeprenda.getText().trim()+"' WHERE codigo='" + codigodelcliente + "' and AND tipo = '"+prenda+"' AND numero_consecutivo = '"+lbconsecutivo.getText()+"'");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -5976,7 +5976,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             
             insertarnumero();
 
-            String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,nombre_bordado,tipo,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,manga_derecha,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,manga_izquierda,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,espalda,espalda_nombre,espalda_aplicacion,espalda_aplicacion_color,espalda_puntadas_aro,espalda_aro,otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,numero_consecutivo,color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,manga_derecha,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,manga_izquierda,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,espalda,espalda_nombre,espalda_aplicacion,espalda_aplicacion_color,espalda_puntadas_aro,espalda_aro,otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,numero_consecutivo,color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -6159,7 +6159,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         }
           
          try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '"+txtidentificadordeprenda.getText().trim()+"'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificadordeprenda.getText().trim()+"'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -6198,7 +6198,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         else
         {
             insertarnumero();
-             String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,nombre_bordado,tipo,frente,frente_nombre,lado_izquierdo,lado_izquierdo_nombre,lado_derecho,lado_derecho_nombre ,atras,atras_nombre,frente_aplicacion ,frente_aplicacion_color,numero_consecutivo,color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+             String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,frente,frente_nombre,lado_izquierdo,lado_izquierdo_nombre,lado_derecho,lado_derecho_nombre ,atras,atras_nombre,frente_aplicacion ,frente_aplicacion_color,numero_consecutivo,color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -6355,7 +6355,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
              
             
          try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '"+txtidentificadordeprenda.getText().trim()+"'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificadordeprenda.getText().trim()+"'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -6392,7 +6392,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         {
             insertarnumero();
 
-            String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,nombre_bordado,tipo,pantalon_lado_izquierdo_frente,pantalon_lado_izquierdo_frente_nombre,pantalon_lado_derecho_frente,pantalon_lado_derecho_frente_nombre,pantalon_lado_izquierdo_atras,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_derecho_atras,pantalon_lado_derecho_atras_nombre,numero_consecutivo,color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,pantalon_lado_izquierdo_frente,pantalon_lado_izquierdo_frente_nombre,pantalon_lado_derecho_frente,pantalon_lado_derecho_frente_nombre,pantalon_lado_izquierdo_atras,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_derecho_atras,pantalon_lado_derecho_atras_nombre,numero_consecutivo,color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -6479,7 +6479,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         }
         
          try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '"+txtidentificadordeprenda.getText().trim()+"' WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificadordeprenda.getText().trim()+"' WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -6507,7 +6507,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
          else
         {
             insertarnumero();
-             String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,nombre_bordado,tipo,corbata_frente,corbata_frente_nombre,numero_consecutivo,color1,hilo1) VALUES (?,?,?,?,?,?,?,?,?)";
+             String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,corbata_frente,corbata_frente_nombre,numero_consecutivo,color1,hilo1) VALUES (?,?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -6581,7 +6581,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         }
         
          try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '"+txtidentificadordeprenda.getText().trim()+"'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificadordeprenda.getText().trim()+"'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -6611,7 +6611,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             insertarnumero();
             
             
-             String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,nombre_bordado,tipo,parche,parche_nombre,parche_aplicacion,parche_aplicacion_color,numero_consecutivo,color1,hilo1) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+             String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,parche,parche_nombre,parche_aplicacion,parche_aplicacion_color,numero_consecutivo,color1,hilo1) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -6746,7 +6746,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         if(actualizarbordado.equals("si"))
         {
              try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pecho_izquierdo = '" + pechoizquierdochaleco + "',pecho_izquierdo_nombre='" + pechoizquierdochaleconombre + "',pecho_derecho='" + pechoderechochaleco + "',pecho_derecho_nombre='" + pechoderechochaleconombre + "',espalda ='" + espaldachaleco + "' ,espalda_nombre ='" + espaldachaleconombre + "' ,otra_ubicacion ='" + otraubicacionchaleco + "', otra_ubicacion_nombre ='" + otraubicacionchaleconombre + "', otra_ubicacion2 ='" + otraubicacion2chaleco + "',otra_ubicacion2_nombre ='" + otraubicacion2chaleconombre + "'   WHERE codigo='" + codigodelcliente + "'  and nombre_bordado = '"+nombrebordado+"'  ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pecho_izquierdo = '" + pechoizquierdochaleco + "',pecho_izquierdo_nombre='" + pechoizquierdochaleconombre + "',pecho_derecho='" + pechoderechochaleco + "',pecho_derecho_nombre='" + pechoderechochaleconombre + "',espalda ='" + espaldachaleco + "' ,espalda_nombre ='" + espaldachaleconombre + "' ,otra_ubicacion ='" + otraubicacionchaleco + "', otra_ubicacion_nombre ='" + otraubicacionchaleconombre + "', otra_ubicacion2 ='" + otraubicacion2chaleco + "',otra_ubicacion2_nombre ='" + otraubicacion2chaleconombre + "'   WHERE codigo='" + codigodelcliente + "'  and identificador_prenda = '"+nombrebordado+"'  ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -6754,7 +6754,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         }
         
          try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pecho_izquierdo_aplicacion = '" + pechoizquierdochalecoaplicacion + "',pecho_derecho_aplicacion='" + pechoderechochalecoaplicacion + "',espalda_aplicacion ='" + espaldachalecoaplicacion + "',otra_ubicacion_aplicacion ='" +otraubicacionchalecoaplicacion + "',otra_ubicacion2_aplicacion ='" +otraubicacion2chalecoaplicacion + "'    WHERE codigo='" + codigodelcliente + "' and nombre_bordado = '"+nombrebordado+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pecho_izquierdo_aplicacion = '" + pechoizquierdochalecoaplicacion + "',pecho_derecho_aplicacion='" + pechoderechochalecoaplicacion + "',espalda_aplicacion ='" + espaldachalecoaplicacion + "',otra_ubicacion_aplicacion ='" +otraubicacionchalecoaplicacion + "',otra_ubicacion2_aplicacion ='" +otraubicacion2chalecoaplicacion + "'    WHERE codigo='" + codigodelcliente + "' and identificador_prenda = '"+nombrebordado+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -6762,7 +6762,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         }
          
          try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pecho_izquierdo_aplicacion_color = '" + pechoizquierdochalecoaplicacioncolor + "',pecho_derecho_aplicacion_color='" + pechoderechochalecoaplicacioncolor + "',espalda_aplicacion_color ='" + espaldachalecoaplicacioncolor + "',otra_ubicacion_aplicacion_color ='" + otraubicacionchalecoaplicacioncolor + "',otra_ubicacion2_aplicacion_color ='" + otraubicacion2chalecoaplicacioncolor + "'   WHERE codigo='" + codigodelcliente + "' and nombre_bordado = '"+nombrebordado+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pecho_izquierdo_aplicacion_color = '" + pechoizquierdochalecoaplicacioncolor + "',pecho_derecho_aplicacion_color='" + pechoderechochalecoaplicacioncolor + "',espalda_aplicacion_color ='" + espaldachalecoaplicacioncolor + "',otra_ubicacion_aplicacion_color ='" + otraubicacionchalecoaplicacioncolor + "',otra_ubicacion2_aplicacion_color ='" + otraubicacion2chalecoaplicacioncolor + "'   WHERE codigo='" + codigodelcliente + "' and identificador_prenda = '"+nombrebordado+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -6771,7 +6771,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
          
         
          try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET nombre_bordado = '"+txtidentificadordeprenda.getText().trim()+"' WHERE codigo='" + codigodelcliente + "' and nombre_bordado = '"+nombrebordado+"'  AND tipo = '"+prenda+"' ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificadordeprenda.getText().trim()+"' WHERE codigo='" + codigodelcliente + "' and identificador_prenda = '"+nombrebordado+"'  AND tipo = '"+prenda+"' ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -6792,7 +6792,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                                                                + "hilo2 ='" + hilo2 + "' ,"
                                                                + "hilo3 ='" + hilo3 + "',"
                                                                + "hilo4 ='" +hilo4+ "',"   
-                                                               + "hilo5 ='"+hilo5+"'  WHERE codigo='" + codigodelcliente + "' and nombre_bordado = '"+nombrebordado+"'  AND tipo = '"+prenda+"' ");          
+                                                               + "hilo5 ='"+hilo5+"'  WHERE codigo='" + codigodelcliente + "' and identificador_prenda = '"+nombrebordado+"'  AND tipo = '"+prenda+"' ");          
                                                              
               pst.executeUpdate();
                     pst.close();
@@ -6807,7 +6807,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         else
         {
             insertarnumero();
-            String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,nombre_bordado,tipo,pecho_izquierdo,pecho_izquierdo_nombre,pecho_derecho,pecho_derecho_nombre,espalda,espalda_nombre,otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion2,otra_ubicacion2_nombre,"
+            String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,pecho_izquierdo,pecho_izquierdo_nombre,pecho_derecho,pecho_derecho_nombre,espalda,espalda_nombre,otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion2,otra_ubicacion2_nombre,"
                                                                 + "pecho_izquierdo_aplicacion,pecho_derecho_aplicacion,espalda_aplicacion,otra_ubicacion_aplicacion,otra_ubicacion2_aplicacion,"
                                                                 + "pecho_izquierdo_aplicacion_color,pecho_derecho_aplicacion_color,espalda_aplicacion_color,otra_ubicacion_aplicacion_color,otra_ubicacion2_aplicacion_color,numero_consecutivo,"
                                                                 + "color1,color2,color3,color4,color5,hilo1,hilo2,hilo3,hilo4,hilo5) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -6999,7 +6999,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             
             
             
-             String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,nombre_bordado,tipo,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,centro,centro_nombre,centro_aplicacion,centro_aplicacion_color,numero_consecutivo,color1,color2,color3,hilo1,hilo2,hilo3) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+             String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,centro,centro_nombre,centro_aplicacion,centro_aplicacion_color,numero_consecutivo,color1,color2,color3,hilo1,hilo2,hilo3) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -7152,7 +7152,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             FileInputStream input = null;
             try {
 
-                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigodelcliente+"' and nombre_bordado = '"+identificadordeprenda+"' and tipo = '"+lbprenda.getText()+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ";
+                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigodelcliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = '"+lbprenda.getText()+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ";
 
                 myStmt = cn.prepareStatement(sql);
                 File theFile = new File(rutaarchivo);
@@ -7172,7 +7172,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             }
 
             try {
-                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"' where codigo='"+codigodelcliente+"' and nombre_bordado = '"+identificadordeprenda+"' and tipo = '"+lbprenda.getText()+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
+                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"' where codigo='"+codigodelcliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = '"+lbprenda.getText()+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
                 pst.executeUpdate();
                 pst.close();
             } catch (Exception e) {
@@ -7206,7 +7206,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         String prenda = lbprenda.getText();
         String nombre = txtidentificadordeprenda.getText().trim();
         
-       String SQL = "SELECT imagen,extension_imagen FROM bordados_puntadas where codigo = '"+codigodelcliente+"' and tipo = '"+prenda+"' and nombre_bordado = '"+nombre+"'  ";
+       String SQL = "SELECT imagen,extension_imagen FROM bordados_puntadas where codigo = '"+codigodelcliente+"' and tipo = '"+prenda+"' and identificador_prenda = '"+nombre+"'  ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -7303,7 +7303,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
             
             
-            String SQL = "SELECT imagen FROM bordados_puntadas where codigo = '"+codigodelcliente+"'  and tipo = '"+prenda+"' and nombre_bordado = '"+nombre+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ";
+            String SQL = "SELECT imagen FROM bordados_puntadas where codigo = '"+codigodelcliente+"'  and tipo = '"+prenda+"' and identificador_prenda = '"+nombre+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ";
 
             try {
                 Statement st1 = cn.createStatement();
@@ -7332,7 +7332,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
                 try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET imagen=NULL, extension_imagen='' WHERE codigo='"+codigodelcliente+"' and tipo = '"+prenda+"' and nombre_bordado = '"+nombre+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET imagen=NULL, extension_imagen='' WHERE codigo='"+codigodelcliente+"' and tipo = '"+prenda+"' and identificador_prenda = '"+nombre+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -7370,7 +7370,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
              try {
                 Statement st = cn.createStatement();
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM bordados_puntadas WHERE  codigo='"+codigodelcliente+"' and nombre_bordado = '"+conceptoprenda+"' AND tipo = '"+tipo+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
+                PreparedStatement pst = cn.prepareStatement("DELETE FROM bordados_puntadas WHERE  codigo='"+codigodelcliente+"' and identificador_prenda = '"+conceptoprenda+"' AND tipo = '"+tipo+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
                 pst.executeUpdate();
                 pst.close();
 
@@ -9971,7 +9971,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             {
                 
             
-            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombre_bordado = '"+puntadas+"' ";
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and identificador_prenda = '"+puntadas+"' ";
 
                       
             try {
@@ -10123,7 +10123,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             {
                 
             
-            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombre_bordado = '"+puntadas+"' ";
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and identificador_prenda = '"+puntadas+"' ";
 
                       
             try {
@@ -10327,7 +10327,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             {
                 
             
-            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombre_bordado = '"+puntadas+"' ";
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and identificador_prenda = '"+puntadas+"' ";
 
                       
             try {
@@ -10475,7 +10475,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             {
                 
             
-            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombre_bordado = '"+puntadas+"' ";
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and identificador_prenda = '"+puntadas+"' ";
 
                       
             try {
@@ -10625,7 +10625,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             {
                 
             
-            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombre_bordado = '"+puntadas+"' ";
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and identificador_prenda = '"+puntadas+"' ";
 
                       
             try {
@@ -10769,7 +10769,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             {
                 
             
-            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombre_bordado = '"+puntadas+"' ";
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and identificador_prenda = '"+puntadas+"' ";
 
                       
             try {
@@ -10927,7 +10927,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             {
                 
             
-            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombre_bordado = '"+puntadas+"' ";
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and identificador_prenda = '"+puntadas+"' ";
 
                       
             try {
@@ -11987,7 +11987,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
             try {
 
-                String sql3 = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and nombre_bordado = '"+identificadordeprenda+"' and tipo = '"+tipo+"'  and numero_consecutivo = '"+lbconsecutivo.getText()+"' ";
+                String sql3 = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = '"+tipo+"'  and numero_consecutivo = '"+lbconsecutivo.getText()+"' ";
 
                 myStmt = cn.prepareStatement(sql3);
                 File theFile = new File(rutadelarchivo);
@@ -12000,7 +12000,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             }
 
             try {
-                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombredelarchivo+"' where codigo='"+codigocliente+"' and nombre_bordado = '"+identificadordeprenda+"' and tipo = '"+tipo+"'  and numero_consecutivo = '"+lbconsecutivo.getText()+"' ");
+                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombredelarchivo+"' where codigo='"+codigocliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = '"+tipo+"'  and numero_consecutivo = '"+lbconsecutivo.getText()+"' ");
                 pst.executeUpdate();
                 System.out.println(pst);
                 pst.close();

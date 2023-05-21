@@ -210,7 +210,7 @@ public class ordendistinta extends javax.swing.JFrame {
         
         datostienda();
 
-        String sql = "Select codigo,tipo,estatus_orden,numero,numero_venta,fecha,hora,cliente,tipo,nombre_concepto,estatus_orden,estatus_entrega,articulo,cantidad,prenda,cantidad_bordados,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,\n" +
+        String sql = "Select codigo,tipo,estatus_orden,numero,numero_venta,fecha,hora,cliente,tipo,identificador_prenda,estatus_orden,estatus_entrega,articulo,cantidad,prenda,cantidad_bordados,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,\n" +
 "	   distinta1,distinta1_ubicacion,distinta1_nombre,distinta1_cantidad,distinta1_aplicacion,distinta1_aplicacion_color,\n" +
 "	   distinta2,distinta2_ubicacion,distinta2_nombre,distinta2_cantidad,distinta2_aplicacion,distinta2_aplicacion_color, \n" +
 "	   distinta3,distinta3_ubicacion,distinta3_nombre,distinta3_cantidad,distinta3_aplicacion,distinta3_aplicacion_color, \n" +
@@ -397,7 +397,7 @@ public class ordendistinta extends javax.swing.JFrame {
 
                 
                 lbcantidad.setText(rs.getString("cantidad"));
-                String nombreconcepto = rs.getString("nombre_concepto");
+                String nombreconcepto = rs.getString("identificador_prenda");
                 lbnombreconcepto.setText(nombreconcepto);  
                 lugardondesebordara = rs.getString("lugar");
                 

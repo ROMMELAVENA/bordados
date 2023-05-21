@@ -173,7 +173,7 @@ public class ordengorra extends javax.swing.JFrame {
         String botonactivado4 = "";
 
         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,"
-                + "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras,nombre_concepto,estatus_orden,numero_orden,tienda from historial_ordenes_gorra where numero = '" + folio + "'";
+                + "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras,identificador_prenda,estatus_orden,numero_orden,tienda from historial_ordenes_gorra where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -191,7 +191,7 @@ public class ordengorra extends javax.swing.JFrame {
                 frentenombre = rs.getString("frente");
                 atrasnombre = rs.getString("atras");
                 
-                identificadordeprenda =rs.getString("nombre_concepto");
+                identificadordeprenda =rs.getString("identificador_prenda");
                 lbidentificadordeprenda.setText(identificadordeprenda);
                 
                 numerosucursalordengorra=rs.getString("numero_orden");
@@ -852,7 +852,7 @@ public class ordengorra extends javax.swing.JFrame {
         
       
 
-        String sql7 = "Select cliente,prenda,tienda,nombre_concepto from historial_ordenes_gorra where numero = '" + numerosucursal + "' ";
+        String sql7 = "Select cliente,prenda,tienda,identificador_prenda from historial_ordenes_gorra where numero = '" + numerosucursal + "' ";
 
         try {
             Statement st = cn.createStatement();
@@ -861,7 +861,7 @@ public class ordengorra extends javax.swing.JFrame {
 
                 cliente = rs.getString("cliente");
                 sucursal = rs.getString("tienda");
-                identificadordeprenda = rs.getString("nombre_concepto");
+                identificadordeprenda = rs.getString("identificador_prenda");
                 
 
             }

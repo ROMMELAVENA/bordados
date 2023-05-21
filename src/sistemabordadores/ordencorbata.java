@@ -85,7 +85,7 @@ public class ordencorbata extends javax.swing.JFrame {
 
         String folio = lbfolio.getText();
 
-        String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,nombre_concepto,frente,frente_puntadas,cantidad_frente from historial_ordenes_corbata where numero = '" + folio + "'";
+        String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_puntadas,cantidad_frente from historial_ordenes_corbata where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -118,7 +118,7 @@ public class ordencorbata extends javax.swing.JFrame {
 
                 lbfrente.setText(rs.getString("frente"));
                 frentenombre= rs.getString("frente");
-                identificadordeprenda =rs.getString("nombre_concepto"); 
+                identificadordeprenda =rs.getString("identificador_prenda"); 
                 lbidentificadordeprenda.setText(identificadordeprenda);
                 
                 cantidadbordados = rs.getString("cantidad"); 

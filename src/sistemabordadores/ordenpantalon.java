@@ -169,7 +169,7 @@ public class ordenpantalon extends javax.swing.JFrame {
 
         
 
-        String sql = "Select fecha,hora,cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,nombre_concepto,numero_orden from historial_ordenes_pantalon where numero = '" + folio + "'";
+        String sql = "Select fecha,hora,cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,numero_orden from historial_ordenes_pantalon where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -215,7 +215,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 ladoderechofrentenombre = rs.getString("lado_derecho_frente");
                 ladoizquierdoatrasnombre = rs.getString("lado_izquierdo_atras");
                 ladoderechoatrasnombre = rs.getString("lado_derecho_atras");
-                identificadordeprenda = rs.getString("nombre_concepto");
+                identificadordeprenda = rs.getString("identificador_prenda");
                 lbidentificadordeprenda.setText(identificadordeprenda);
                 lugardondesebordara = rs.getString("lugar");
                 lbcantidad.setText(rs.getString("cantidad"));
@@ -516,7 +516,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         numerosucursal = lbnumerosucursal.getText();
         
 
-        String sql7 = "Select prenda,tienda,nombre_concepto from historial_ordenes_pantalon where numero = '" + numerosucursal + "' ";
+        String sql7 = "Select prenda,tienda,identificador_prenda from historial_ordenes_pantalon where numero = '" + numerosucursal + "' ";
 
         try {
             Statement st = cn.createStatement();
@@ -527,7 +527,7 @@ public class ordenpantalon extends javax.swing.JFrame {
           
                 prenda = (rs.getString("prenda"));
                 sucursal = rs.getString("tienda");
-                identificadordeprenda = rs.getString("nombre_concepto");
+                identificadordeprenda = rs.getString("identificador_prenda");
                 
 
             }
@@ -1345,7 +1345,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tiendaenvia + "", "root", "sistemas");
       
 
-        String sql7 = "Select cliente,lugar,nombre_concepto from historial_ordenes_pantalon where numero = '" + numerosucursal + "' ";
+        String sql7 = "Select cliente,lugar,identificador_prenda from historial_ordenes_pantalon where numero = '" + numerosucursal + "' ";
 
         try {
             Statement st = con.createStatement();
@@ -1355,7 +1355,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 cliente = rs.getString("cliente");
                 prenda = (rs.getString("prenda"));
                 sucursal = rs.getString("lugar");
-                identificadordeprenda = rs.getString("nombre_concepto");
+                identificadordeprenda = rs.getString("identificador_prenda");
                 
 
             }

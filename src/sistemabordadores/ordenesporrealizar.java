@@ -153,7 +153,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         String[] datos = new String[15];
         
         
-        String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,nombre_concepto,observacion "
+        String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion "
                          + "FROM historial_ordenes_camisa where lugar = 'Esta sucursal' "
                          + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora  ";
 
@@ -174,7 +174,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos[8] = "";
                 datos[9] = "";
                 datos[10] = "Local";
-                datos[11] = rs.getString("nombre_concepto");
+                datos[11] = rs.getString("identificador_prenda");
                 datos[12] = rs.getString("observacion");
 
                 modelo.addRow(datos);
@@ -185,7 +185,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
            
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
 
         
@@ -193,7 +193,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos2 = new String[15];
         
-        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,nombre_concepto,observacion  FROM historial_ordenes_gorra where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion  FROM historial_ordenes_gorra where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
@@ -210,7 +210,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos2[8] = "";
                 datos2[9] = "";
                 datos2[10] = "Local";
-                datos2[11] = rs.getString("nombre_concepto");
+                datos2[11] = rs.getString("identificador_prenda");
                 datos2[12] = rs.getString("observacion");
                 modelo.addRow(datos2);
 
@@ -220,7 +220,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
         //// historial_orden_pantalon
@@ -228,7 +228,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos3 = new String[15];
         
-         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,nombre_concepto,observacion  FROM historial_ordenes_pantalon where lugar = 'Esta sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion  FROM historial_ordenes_pantalon where lugar = 'Esta sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
@@ -246,7 +246,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos3[8] = "";
                 datos3[9] = "";
                 datos3[10] = "Local";
-                datos3[11] = rs.getString("nombre_concepto");
+                datos3[11] = rs.getString("identificador_prenda");
                 datos3[12] = rs.getString("observacion"); 
                 modelo.addRow(datos3);
 
@@ -257,7 +257,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
        
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
         
@@ -265,7 +265,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos4 = new String[15];
         
-        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,nombre_concepto,observaciongeneral  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda,observaciongeneral  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
@@ -282,7 +282,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos4[8] = "";
                 datos4[9] = "";
                 datos4[10] = "Local";
-                datos4[11] = rs.getString("nombre_concepto");
+                datos4[11] = rs.getString("identificador_prenda");
                 datos4[12] = rs.getString("observaciongeneral");
                 modelo.addRow(datos4);
 
@@ -293,7 +293,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
            
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
       
          
@@ -301,7 +301,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
          String[] datos5 = new String[15];
         
-        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,nombre_concepto,observacion  FROM historial_ordenes_corbata where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
+        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion  FROM historial_ordenes_corbata where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
 
         try {
             Statement st = cn.createStatement();
@@ -318,7 +318,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos5[8] = "";
                 datos5[9] = "";
                 datos5[10] = "Local";
-                datos5[11] = rs.getString("nombre_concepto");
+                datos5[11] = rs.getString("identificador_prenda");
                 datos5[12] = rs.getString("observacion");
                 modelo.addRow(datos5);
 
@@ -329,7 +329,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
            
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
 
          
@@ -380,7 +380,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
           
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
 
 
@@ -419,7 +419,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
            
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }        
      
         
@@ -460,7 +460,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
           
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
         
@@ -470,7 +470,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         
-        String sqldistinta = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,nombre_concepto,observacion  "
+        String sqldistinta = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion  "
                          + "FROM historial_ordenes_distinta where lugar = 'Esta sucursal' "
                          + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora  ";
 
@@ -489,7 +489,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos[8] = "";
                 datos[9] = "";
                 datos[10] = "Local";
-                datos[11] = rs.getString("nombre_concepto");
+                datos[11] = rs.getString("identificador_prenda");
                 datos[12] = rs.getString("observacion");
 
                 modelo.addRow(datos);
@@ -500,7 +500,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
           
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
         //// historial ordenes internas
@@ -548,7 +548,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         } catch (SQLException ex) {
         
             
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
         
@@ -621,7 +621,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             
 
         } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
      
@@ -698,7 +698,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             
 
         } catch (SQLException ex) {
-         JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+         JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
         tieneponchados();
@@ -733,7 +733,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
           
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:120px;\">"+ex+"");
         }
 
         
@@ -788,7 +788,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
          
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
 
         
@@ -822,7 +822,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
         //// historial_orden_pantalon
@@ -858,7 +858,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
            
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
         
@@ -893,7 +893,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
            
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
          //// historial_orden_ponchado
@@ -928,7 +928,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
            
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
         /// historial ordenes corbata
@@ -962,13 +962,13 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
           
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
         
         //// DISTINTA 
         
-         String sqldistinta = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,nombre_concepto  "
+         String sqldistinta = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  "
                          + "FROM historial_ordenes_distinta where lugar = 'Esta sucursal' "
                          + "and estatus_orden = 'realizada' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora  ";
 
@@ -987,7 +987,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos[8] = "";
                 datos[9] = "";
                 datos[10] = "Local";
-                datos[11] = rs.getString("nombre_concepto");
+                datos[11] = rs.getString("identificador_prenda");
 
                 modelo.addRow(datos);
 
@@ -997,7 +997,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
         
@@ -1035,7 +1035,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         rs2.close();
                     } catch (Exception exx) {
                         
-                        JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
+                        JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
 
                     }
                 
@@ -1242,7 +1242,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+e+"");
         }
 }
   
@@ -1343,7 +1343,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
   
      }

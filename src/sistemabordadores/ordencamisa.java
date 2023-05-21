@@ -68,6 +68,8 @@ public class ordencamisa extends javax.swing.JFrame {
     int bordadosdisponiblesint = 0;
     String cantidadprendasstring = "";
     int cantidadprendasint = 0;
+    
+    String identificadorotrasucursal = "";
    
 
     int remanentebordadosint = 0;
@@ -390,7 +392,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 + "   otra_ubicacion,otra_ubicacion_nombre,cantidad_otra_ubicacion,otra_ubicacion2,otra_ubicacion2_nombre,cantidad_otra_ubicacion2,"
                 + "   aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,"
                 + "   aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,"
-                + "   lugar,estatus_orden,nombre_concepto,tienda,estatus_orden,tienda from historial_ordenes_camisa where numero = '" + numerodeorden + "' ";
+                + "   lugar,estatus_orden,identificador_prenda,tienda,estatus_orden,tienda from historial_ordenes_camisa where numero = '" + numerodeorden + "' ";
 
         try {
             Statement st = cn.createStatement();
@@ -404,7 +406,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbcantidad.setText(rs.getString("cantidad"));
                 lbdiaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
-                identificadordeprenda = rs.getString("nombre_concepto");
+                identificadordeprenda = rs.getString("identificador_prenda");
                 lbidentificadordeprenda.setText(identificadordeprenda);
                 lugardondesebordara = rs.getString("lugar");
 
@@ -895,6 +897,7 @@ public class ordencamisa extends javax.swing.JFrame {
         String botonhabilitado5 = "";
         String botonhabilitado6 = "";
         String botonhabilitado7 = "";
+      
 
         numerodeorden = lborden.getText();
         
@@ -905,7 +908,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion2,otra_ubicacion2_nombre,\n"
                 + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,\n"
                 + "aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,\n"
-                + "lugar,estatus_orden,numero_sucursal_orden,tienda,numero_sucursal  from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' and prenda =  '" + prenda + "'";
+                + "lugar,estatus_orden,numero_sucursal_orden,tienda,numero_sucursal,identificador_prenda  from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' and prenda =  '" + prenda + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -1184,7 +1187,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 
                 
                 
-
+                identificadorotrasucursal =  rs.getString("identificador_prenda");
                     
 
 
@@ -1272,7 +1275,7 @@ public class ordencamisa extends javax.swing.JFrame {
 
             
             /*
-        String sql7 = "Select cliente,prenda,tienda,nombre_concepto from historial_ordenes_camisa where numero = '" + numerosucursal + "' ";
+        String sql7 = "Select cliente,prenda,tienda,identificador_prenda from historial_ordenes_camisa where numero = '" + numerosucursal + "' ";
 
         try {
             Statement st = cn.createStatement();
@@ -1283,7 +1286,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
                 sucursal = rs.getString("tienda");
-                identificadordeprenda = rs.getString("nombre_concepto");
+                identificadordeprenda = rs.getString("identificador_prenda");
                 
 
             }
@@ -1301,7 +1304,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
         
         
-       String sql4 = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";  ///
+       String sql4 = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and nombre_bordado= '"+identificadorotrasucursal+"' and tipo = '"+prenda+"'   ";  ///
 
         try {
 
@@ -1698,7 +1701,7 @@ public class ordencamisa extends javax.swing.JFrame {
         numerodeorden = lborden.getText();
         
 
-        String sql7 = "Select prenda,tienda,nombre_concepto from historial_ordenes_camisa where numero = '" + numerosucursal + "' ";
+        String sql7 = "Select prenda,tienda,identificador_prenda from historial_ordenes_camisa where numero = '" + numerosucursal + "' ";
 
         try {
             Statement st = cn.createStatement();
@@ -1709,7 +1712,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
                 sucursal = rs.getString("tienda");
-                identificadordeprenda = rs.getString("nombre_concepto");
+                identificadordeprenda = rs.getString("identificador_prenda");
                 
 
             }
@@ -5623,7 +5626,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
       
      //    String SQL = "SELECT imagen,extension_imagen FROM bordados_puntadas where nombre = '"+cliente+"' and tipo = '"+prenda+"' and numero_consecutivo = '"+consecutivobordado+"'  ";
-        String sql = "SELECT imagen,extension_imagen FROM bordados_puntadas where nombre = '" + cliente + "' and nombre_bordado= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";  ///
+        String sql = "SELECT imagen,extension_imagen FROM bordados_puntadas where nombre = '" + cliente + "' and nombre_bordado= '"+identificadorotrasucursal+"' and tipo = '"+prenda+"'   ";  ///
     
     
         try {

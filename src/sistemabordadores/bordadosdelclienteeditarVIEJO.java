@@ -3717,7 +3717,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         
         String numero = "";
         String existeenelhistorial ="";
-        String sql = "Select numero from historial_ordenes_camisa  where  nombre_concepto='"+identificadordeprenda+"' and cliente = '"+lbcliente.getText()+"' ";
+        String sql = "Select numero from historial_ordenes_camisa  where  identificador_prenda='"+identificadordeprenda+"' and cliente = '"+lbcliente.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -3738,7 +3738,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         if(existeenelhistorial.equals("si"))
         {
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa SET nombre_concepto = '" + txtidentificadordeprenda.getText().trim() + "' WHERE numero='" +numero+ "' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa SET identificador_prenda = '" + txtidentificadordeprenda.getText().trim() + "' WHERE numero='" +numero+ "' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3753,7 +3753,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         
          String numero = "";
         String existeenelhistorial ="";
-        String sql = "Select numero from historial_ordenes_gorra  where  nombre_concepto='"+identificadordeprenda+"' and cliente = '"+lbcliente.getText()+"' ";
+        String sql = "Select numero from historial_ordenes_gorra  where  identificador_prenda='"+identificadordeprenda+"' and cliente = '"+lbcliente.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -3772,7 +3772,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         if(existeenelhistorial.equals("si"))
         {
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_gorra SET nombre_concepto = '" + txtidentificadordeprenda.getText().trim() + "' WHERE numero='" +numero+ "' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_gorra SET identificador_prenda = '" + txtidentificadordeprenda.getText().trim() + "' WHERE numero='" +numero+ "' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3787,7 +3787,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         
          String numero = "";
         String existeenelhistorial ="";
-        String sql = "Select numero from historial_ordenes_pantalon  where  nombre_concepto='"+identificadordeprenda+"' and cliente = '"+lbcliente.getText()+"' ";
+        String sql = "Select numero from historial_ordenes_pantalon  where  identificador_prenda='"+identificadordeprenda+"' and cliente = '"+lbcliente.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -3806,7 +3806,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         if(existeenelhistorial.equals("si"))
         {
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon SET nombre_concepto = '" + txtidentificadordeprenda.getText().trim() + "' WHERE numero='" +numero+ "' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon SET identificador_prenda = '" + txtidentificadordeprenda.getText().trim() + "' WHERE numero='" +numero+ "' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3822,7 +3822,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         
          String numero = "";
         String existeenelhistorial ="";
-        String sql = "Select numero from historial_ordenes_corbata  where  nombre_concepto='"+identificadordeprenda+"' and cliente = '"+lbcliente.getText()+"' ";
+        String sql = "Select numero from historial_ordenes_corbata  where  identificador_prenda='"+identificadordeprenda+"' and cliente = '"+lbcliente.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -3841,7 +3841,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         if(existeenelhistorial.equals("si"))
         {
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata SET nombre_concepto = '" + txtidentificadordeprenda.getText().trim() + "' WHERE numero='" +numero+ "' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata SET identificador_prenda = '" + txtidentificadordeprenda.getText().trim() + "' WHERE numero='" +numero+ "' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {

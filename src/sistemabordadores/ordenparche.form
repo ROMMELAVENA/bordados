@@ -63,7 +63,7 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel22" min="-2" pref="99" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lbidentificador" min="-2" pref="241" max="-2" attributes="0"/>
+                              <Component id="lbbordacliente" min="-2" pref="241" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -151,7 +151,7 @@
                   <Component id="jLabel20" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbcliente" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel22" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="lbidentificador" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbbordacliente" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbnombrecomercial" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="btnsalir" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel23" min="-2" pref="30" max="-2" attributes="0"/>
@@ -494,7 +494,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbidentificador">
+    <Component class="javax.swing.JLabel" name="lbbordacliente">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>

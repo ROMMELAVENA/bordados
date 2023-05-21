@@ -230,13 +230,14 @@ public class ordencamisa extends javax.swing.JFrame {
         {
             rutadedondeestanlosbordados = "C:\\onedrive\\PONCHADOS\\GUADALAJARA\\PONCHADOS";
         }
-        else if(tiendalocal.equals("tijuana"))
-        {
-            rutadedondeestanlosbordados = "C:\\Users\\Mostrador DFNorte\\OneDrive\\PONCHADOS\\TIJUANA\\PONCHADOS SINCRONIZADOS";
-        }
+      
         else if(tiendalocal.equals("monterrey"))
         {
             rutadedondeestanlosbordados = "C:\\onedrive\\PONCHADOS\\MONTERREY\\PONCHADOS";
+        }
+          else if(tiendalocal.equals("tijuana"))
+        {
+            rutadedondeestanlosbordados = "C:\\Users\\Mostrador DFNorte\\OneDrive\\PONCHADOS\\TIJUANA\\PONCHADOS SINCRONIZADOS";
         }
         
         
@@ -368,7 +369,7 @@ public class ordencamisa extends javax.swing.JFrame {
     }
     
     
-    void datos() throws IOException {
+    void datosOrdenesLocales() throws IOException {
 
         
         
@@ -901,14 +902,15 @@ public class ordencamisa extends javax.swing.JFrame {
 
         numerodeorden = lborden.getText();
         
-        String sql = "Select fecha,hora,cliente,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,fecha_entrega,hora_entrega,observacion,\n"
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,fecha_entrega,hora_entrega,observacion,\n"
                 + "pecho_izquierdo,pecho_derecho,manga_izquierda,manga_derecha,espalda,otra_ubicacion,otra_ubicacion2,\n"
                 + "cantidad_pecho_izquierdo,cantidad_pecho_derecho,cantidad_manga_izquierda,cantidad_manga_derecha,cantidad_espalda,\n"
                 + "pecho_izquierdo_nombre,pecho_derecho_nombre,manga_izquierda_nombre,manga_derecha_nombre,espalda_nombre,\n"
                 + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion2,otra_ubicacion2_nombre,\n"
                 + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,\n"
                 + "aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,\n"
-                + "lugar,estatus_orden,numero_sucursal_orden,tienda,numero_sucursal,identificador_prenda  from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' and prenda =  '" + prenda + "'";
+                + "lugar,estatus_orden,numero_sucursal_orden,tienda,numero_sucursal,identificador_prenda\n"
+                + "from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' and prenda = '" + prenda + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -919,6 +921,8 @@ public class ordencamisa extends javax.swing.JFrame {
           //       consecutivobordado = rs.getString("numero_folio");
                 
                 lbcliente.setText(rs.getString("cliente"));
+                lbnombrecomercial.setText(rs.getString("nombre_comercial"));
+                lbbordacliente.setText(rs.getString("borda_cliente"));
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
                 lbfecha.setText(rs.getString("fecha"));
@@ -2111,7 +2115,7 @@ public class ordencamisa extends javax.swing.JFrame {
         }
         
         try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2149,7 +2153,7 @@ public class ordencamisa extends javax.swing.JFrame {
         }
         
         try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3303,7 +3307,7 @@ public class ordencamisa extends javax.swing.JFrame {
                         
                       
                         lbnombrecomercial.setText(rs.getString("nombre_comercial"));
-                        lbidentificador.setText(rs.getString("identificador"));
+                        lbbordacliente.setText(rs.getString("identificador"));
                          codigocliente = rs.getString("codigo");
 
                     }
@@ -3390,7 +3394,7 @@ public class ordencamisa extends javax.swing.JFrame {
         lbfecha = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        lbidentificador = new javax.swing.JLabel();
+        lbbordacliente = new javax.swing.JLabel();
         btnmangaderecha = new javax.swing.JButton();
         btnmangaizquierda = new javax.swing.JButton();
         btnpechoderecho = new javax.swing.JButton();
@@ -3460,17 +3464,17 @@ public class ordencamisa extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden camisa");
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
-            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
+            }
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -3568,8 +3572,8 @@ public class ordencamisa extends javax.swing.JFrame {
         jLabel18.setText("Bordacliente");
         jLabel18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbbordacliente.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbbordacliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnmangaderecha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnmangaderecha.setText("Termine");
@@ -3878,7 +3882,7 @@ public class ordencamisa extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel18)
                         .addGap(7, 7, 7)
-                        .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22)
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4025,7 +4029,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4279,7 +4283,7 @@ public class ordencamisa extends javax.swing.JFrame {
         nombredelatabla = "historial_ordenes_camisa";
         
      try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -6396,7 +6400,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         bordadosdelclienteeditar.lbcliente.setText(lbcliente.getText());
         bordadosdelclienteeditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
-        bordadosdelclienteeditar.lbidentificador.setText(lbidentificador.getText());
+        bordadosdelclienteeditar.lbidentificador.setText(lbbordacliente.getText());
         bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
         bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
         bordadosdelclienteeditar.txtidentificadordeprenda.setText(identificadordeprenda);
@@ -6439,7 +6443,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         nombredelatabla = "historial_ordenes_camisa";
         
      try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -6657,6 +6661,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane6;
+    public static javax.swing.JLabel lbbordacliente;
     public static javax.swing.JLabel lbcantidad;
     public static javax.swing.JLabel lbcantidad1;
     public static javax.swing.JLabel lbcliente;
@@ -6681,7 +6686,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     public javax.swing.JLabel lbhilo6;
     public javax.swing.JLabel lbhilo7;
     public static javax.swing.JLabel lbhoraentrega;
-    public static javax.swing.JLabel lbidentificador;
     private javax.swing.JLabel lbidentificadordeprenda;
     private javax.swing.JLabel lbltallas;
     public javax.swing.JLabel lbmangaderecha;
@@ -6693,7 +6697,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumerodelaotrasucursal;
     public static javax.swing.JLabel lbnumeroventa;
-    private javax.swing.JTextArea lbobservaciones;
+    public static javax.swing.JTextArea lbobservaciones;
     public static javax.swing.JLabel lborden;
     public javax.swing.JLabel lbotraubicacion;
     public javax.swing.JLabel lbotraubicacion2;

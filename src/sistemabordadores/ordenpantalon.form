@@ -69,7 +69,7 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel27" min="-2" pref="126" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lbidentificador" min="-2" pref="254" max="-2" attributes="0"/>
+                              <Component id="lbbordacliente" min="-2" pref="254" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -182,7 +182,7 @@
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel16" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="lbidentificador" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbbordacliente" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel27" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbcliente" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbnombrecomercial" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
@@ -709,7 +709,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnterminetodoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbidentificador">
+    <Component class="javax.swing.JLabel" name="lbbordacliente">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>

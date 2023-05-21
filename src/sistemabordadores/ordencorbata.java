@@ -78,7 +78,7 @@ public class ordencorbata extends javax.swing.JFrame {
     }
     
     
-    void datos() throws IOException {
+    void datosOrdenesLocales() throws IOException {
 
         String cliente = lbcliente.getText();
         lbtitulofrente.setText("");
@@ -379,7 +379,7 @@ public class ordencorbata extends javax.swing.JFrame {
         
        
         try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -464,7 +464,7 @@ public class ordencorbata extends javax.swing.JFrame {
                         
                       
                         lbnombrecomercial.setText(rs.getString("nombre_comercial"));
-                        lbidentificador.setText(rs.getString("identificador"));
+                        lbbordacliente.setText(rs.getString("identificador"));
 
                     }
 
@@ -730,7 +730,7 @@ public class ordencorbata extends javax.swing.JFrame {
         lbsumapuntos = new javax.swing.JLabel();
         btnverfotomontaje = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
-        lbidentificador = new javax.swing.JLabel();
+        lbbordacliente = new javax.swing.JLabel();
         btneliminar = new javax.swing.JButton();
         lbidentificadordeprenda = new javax.swing.JLabel();
         lbcolorfrente = new javax.swing.JLabel();
@@ -910,8 +910,8 @@ public class ordencorbata extends javax.swing.JFrame {
         jLabel27.setText("Bordacliente");
         jLabel27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbbordacliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbbordacliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btneliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btneliminar.setText("Editar bordado");
@@ -944,7 +944,7 @@ public class ordencorbata extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel27)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1039,7 +1039,7 @@ public class ordencorbata extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1187,7 +1187,7 @@ public class ordencorbata extends javax.swing.JFrame {
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {     
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1261,7 +1261,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
        
         try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1370,7 +1370,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             bordadosdelclienteeditar.lbcliente.setText(lbcliente.getText());
             bordadosdelclienteeditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
-            bordadosdelclienteeditar.lbidentificador.setText(lbidentificador.getText());
+            bordadosdelclienteeditar.lbidentificador.setText(lbbordacliente.getText());
             bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
             bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
             bordadosdelclienteeditar.txtidentificadordeprenda.setText(identificadordeprenda);
@@ -1567,6 +1567,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     public static javax.swing.JLabel lbautorizado;
+    public static javax.swing.JLabel lbbordacliente;
     public static javax.swing.JLabel lbbordadosorden;
     public static javax.swing.JLabel lbcliente;
     public javax.swing.JLabel lbcodigofrente;
@@ -1579,7 +1580,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbfrentepuntadas;
     public static javax.swing.JLabel lbhoraelaboracion;
     public static javax.swing.JLabel lbhoraentrega;
-    public static javax.swing.JLabel lbidentificador;
     private javax.swing.JLabel lbidentificadordeprenda;
     private javax.swing.JLabel lblImagen;
     public static javax.swing.JLabel lblugar;

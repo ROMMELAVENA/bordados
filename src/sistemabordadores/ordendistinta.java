@@ -187,7 +187,7 @@ public class ordendistinta extends javax.swing.JFrame {
         
     }
 
-    void datos() throws IOException {
+    void datosOrdenesLocales() throws IOException {
 
         String folio = lbfolio.getText();
         
@@ -1160,7 +1160,7 @@ public class ordendistinta extends javax.swing.JFrame {
         }
         
         try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1200,7 +1200,7 @@ public class ordendistinta extends javax.swing.JFrame {
         
         /*
         try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2414,7 +2414,7 @@ public class ordendistinta extends javax.swing.JFrame {
         lbfecha = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        lbidentificador = new javax.swing.JLabel();
+        lbbordacliente = new javax.swing.JLabel();
         btndistinta1 = new javax.swing.JButton();
         btndistinta2 = new javax.swing.JButton();
         btndistinta3 = new javax.swing.JButton();
@@ -2657,8 +2657,8 @@ public class ordendistinta extends javax.swing.JFrame {
         jLabel18.setText("Bordacliente");
         jLabel18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbbordacliente.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbbordacliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btndistinta1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btndistinta1.setText("Distinta1");
@@ -3005,7 +3005,7 @@ public class ordendistinta extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel18)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(22, 22, 22)
                                 .addComponent(jLabel16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -3032,7 +3032,7 @@ public class ordendistinta extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3258,7 +3258,7 @@ public class ordendistinta extends javax.swing.JFrame {
         nombredelatabla = "historial_ordenes_distinta";
         
      try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4107,7 +4107,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             btndistinta7.setVisible(true);
             
               try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4581,6 +4581,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    public static javax.swing.JLabel lbbordacliente;
     public static javax.swing.JLabel lbcantidad;
     public static javax.swing.JLabel lbcantidad1;
     public static javax.swing.JLabel lbcliente;
@@ -4615,7 +4616,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbdistinta7nombre;
     public static javax.swing.JLabel lbfecha;
     public static javax.swing.JLabel lbfolio;
-    public static javax.swing.JLabel lbidentificador;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lbltallas;
     private javax.swing.JLabel lbnombreconcepto;

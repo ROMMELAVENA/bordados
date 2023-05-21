@@ -71,7 +71,7 @@ public static boolean ventanaordenparcheanteriores = false;
 
     }
     
-    void datos()
+    void datosOrdenesLocales()
     {
         
         
@@ -298,7 +298,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Actualizado correctamente ");
 
-        datos();
+        datosOrdenesLocales();
         
         
     }
@@ -334,7 +334,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Actualizado correctamente ");
 
-        datos();
+        datosOrdenesLocales();
         
         
     }
@@ -370,7 +370,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Actualizado correctamente ");
 
-        datos();
+        datosOrdenesLocales();
         
         
     }
@@ -786,7 +786,7 @@ public static boolean ventanaordenparcheanteriores = false;
         lbparche1 = new javax.swing.JLabel();
         bnthecho = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
-        lbidentificador = new javax.swing.JLabel();
+        lbbordacliente = new javax.swing.JLabel();
         lbnombrecomercial = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -895,8 +895,8 @@ public static boolean ventanaordenparcheanteriores = false;
         jLabel21.setText("Bordacliente");
         jLabel21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbbordacliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbbordacliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbnombrecomercial.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbnombrecomercial.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -927,7 +927,7 @@ public static boolean ventanaordenparcheanteriores = false;
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(17, 17, 17)
                                 .addComponent(jLabel20)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -997,7 +997,7 @@ public static boolean ventanaordenparcheanteriores = false;
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1120,7 +1120,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
         if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
        {
-          datos();
+          datosOrdenesLocales();
        }
         else
         {
@@ -1206,7 +1206,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }
     
     sumapuntos();
-    datos();
+    datosOrdenesLocales();
     
     if (ordenesporrealizar.ventanaordenesbordadogenerada == true)
     {
@@ -1248,13 +1248,13 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel lbarticulo;
+    public static javax.swing.JLabel lbbordacliente;
     private javax.swing.JLabel lbcantidad1;
     public static javax.swing.JLabel lbcliente;
     private javax.swing.JLabel lbfecha;
     private javax.swing.JLabel lbfechaentrega;
     public static javax.swing.JLabel lbfolio;
     private javax.swing.JLabel lbhoraentrega;
-    public static javax.swing.JLabel lbidentificador;
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumeroventa;
     public static javax.swing.JTextArea lbobservaciones;

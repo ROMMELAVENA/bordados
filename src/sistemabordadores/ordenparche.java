@@ -78,7 +78,7 @@ public static boolean ventanaordenparcheanteriores = false;
     
     
     
-    void datos()
+    void datosOrdenesLocales()
     {
         
         
@@ -290,7 +290,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Actualizado correctamente ");
 
-        datos();
+        datosOrdenesLocales();
         
         
     }
@@ -313,7 +313,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Actualizado correctamente ");
 
-        datos();
+        datosOrdenesLocales();
         
         
     }  
@@ -708,7 +708,7 @@ public static boolean ventanaordenparcheanteriores = false;
                         
                       
                         lbnombrecomercial.setText(rs.getString("nombre_comercial"));
-                        lbidentificador.setText(rs.getString("identificador"));
+                        lbbordacliente.setText(rs.getString("identificador"));
 
                     }
 
@@ -947,7 +947,7 @@ public static boolean ventanaordenparcheanteriores = false;
         jLabel5 = new javax.swing.JLabel();
         lbsumapuntos = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        lbidentificador = new javax.swing.JLabel();
+        lbbordacliente = new javax.swing.JLabel();
         lbnombrecomercial = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         lbcantidad1 = new javax.swing.JLabel();
@@ -1073,8 +1073,8 @@ public static boolean ventanaordenparcheanteriores = false;
         jLabel22.setText("Bordacliente");
         jLabel22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbbordacliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbbordacliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbnombrecomercial.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbnombrecomercial.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1207,7 +1207,7 @@ public static boolean ventanaordenparcheanteriores = false;
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel20)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1275,7 +1275,7 @@ public static boolean ventanaordenparcheanteriores = false;
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1412,7 +1412,7 @@ public static boolean ventanaordenparcheanteriores = false;
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        
-        datos();
+        datosOrdenesLocales();
         cliente();
         numeroconsecutivo();
         
@@ -1513,7 +1513,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             bordadosdelclienteeditar.lbcliente.setText(lbcliente.getText());
             bordadosdelclienteeditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
-            bordadosdelclienteeditar.lbidentificador.setText(lbidentificador.getText());
+            bordadosdelclienteeditar.lbidentificador.setText(lbbordacliente.getText());
             bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
             bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
             bordadosdelclienteeditar.txtidentificadordeprenda.setText(identificadordeprenda);
@@ -1601,7 +1601,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndatosActionPerformed
       
-        datos();
+        datosOrdenesLocales();
         cliente();
         numeroconsecutivo();
         
@@ -1652,6 +1652,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel lbaplicacion1;
+    public static javax.swing.JLabel lbbordacliente;
     private javax.swing.JLabel lbcantidad1;
     public static javax.swing.JLabel lbcliente;
     private javax.swing.JLabel lbestatusentrega;
@@ -1659,7 +1660,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel lbfechaentrega;
     private javax.swing.JLabel lbhora;
     private javax.swing.JLabel lbhoraentrega;
-    public static javax.swing.JLabel lbidentificador;
     private javax.swing.JLabel lbidentificadordeprenda;
     private javax.swing.JLabel lblImagen;
     public static javax.swing.JLabel lbnombrecomercial;

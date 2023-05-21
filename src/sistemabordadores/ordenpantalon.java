@@ -148,7 +148,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         
     }
 
-    void datos () throws FileNotFoundException, IOException
+    void datosOrdenesLocales() throws FileNotFoundException, IOException
     {
         
         String folio = lbfolio.getText();
@@ -1594,7 +1594,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         
        
         try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1624,7 +1624,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         
        
         try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1810,7 +1810,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                         
                       
                         lbnombrecomercial.setText(rs.getString("nombre_comercial"));
-                        lbidentificador.setText(rs.getString("identificador"));
+                        lbbordacliente.setText(rs.getString("identificador"));
 
                     }
 
@@ -2382,7 +2382,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         lbcolorpechoizquierdo = new javax.swing.JLabel();
         btnverfotomontaje = new javax.swing.JButton();
         btnterminetodo = new javax.swing.JButton();
-        lbidentificador = new javax.swing.JLabel();
+        lbbordacliente = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         lbnombrecomercial = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -2570,8 +2570,8 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
 
-        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbbordacliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbbordacliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel27.setText("Bordacliente");
@@ -2720,7 +2720,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2808,7 +2808,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3334,7 +3334,7 @@ public static String dia() {
         nombredelatabla = "historial_ordenes_pantalon";
         
      try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3526,7 +3526,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         
          try {
-                 datos();
+                 datosOrdenesLocales();
              } catch (IOException ex) {
                  Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
              }
@@ -3629,7 +3629,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          
         
          try {
-                 datos();
+                 datosOrdenesLocales();
              } catch (IOException ex) {
                  Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
              }
@@ -3731,7 +3731,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
          
           try {
-                 datos();
+                 datosOrdenesLocales();
              } catch (IOException ex) {
                  Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
              }
@@ -3834,7 +3834,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          
          
              try {
-                 datos();
+                 datosOrdenesLocales();
              } catch (IOException ex) {
                  Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
              }
@@ -3924,7 +3924,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         
         try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3961,7 +3961,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             bordadosdelclienteeditar.lbcliente.setText(lbcliente.getText());
             bordadosdelclienteeditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
-            bordadosdelclienteeditar.lbidentificador.setText(lbidentificador.getText());
+            bordadosdelclienteeditar.lbidentificador.setText(lbbordacliente.getText());
             bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
             bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
             bordadosdelclienteeditar.txtidentificadordeprenda.setText(identificadordeprenda);
@@ -4048,7 +4048,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         nombredelatabla = "historial_ordenes_pantalon";
         
      try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4154,6 +4154,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
+    public static javax.swing.JLabel lbbordacliente;
     public static javax.swing.JLabel lbcantidad;
     public static javax.swing.JLabel lbcliente;
     public javax.swing.JLabel lbcodigoladoderechoatras;
@@ -4167,7 +4168,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbdadoizquierdoatras;
     public static javax.swing.JLabel lbfolio;
     private javax.swing.JLabel lbfotomontaje;
-    public static javax.swing.JLabel lbidentificador;
     public static javax.swing.JLabel lbidentificadordeprenda;
     public static javax.swing.JLabel lbladoderechoatras;
     public static javax.swing.JLabel lbladoderechoatraspuntadas;

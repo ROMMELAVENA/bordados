@@ -162,7 +162,7 @@ public class ordengorra extends javax.swing.JFrame {
 
     }
 
-    void datos() throws IOException {
+    void datosOrdenesLocales() throws IOException {
 
         btnreplicar.setEnabled(true);
 
@@ -1242,7 +1242,7 @@ public class ordengorra extends javax.swing.JFrame {
         
         
         try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1271,7 +1271,7 @@ public class ordengorra extends javax.swing.JFrame {
         
         
         try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2319,7 +2319,7 @@ public class ordengorra extends javax.swing.JFrame {
                         
                       
                         lbnombrecomercial.setText(rs.getString("nombre_comercial"));
-                        lbidentificador.setText(rs.getString("identificador"));
+                        lbbordacliente.setText(rs.getString("identificador"));
 
                     }
 
@@ -2425,7 +2425,7 @@ public class ordengorra extends javax.swing.JFrame {
         lbnombrecomercial = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        lbidentificador = new javax.swing.JLabel();
+        lbbordacliente = new javax.swing.JLabel();
         lbcodigoladoderecho = new javax.swing.JLabel();
         lbcodigoladoizquierdo = new javax.swing.JLabel();
         lbcodigofrente = new javax.swing.JLabel();
@@ -2650,8 +2650,8 @@ public class ordengorra extends javax.swing.JFrame {
         jLabel18.setText("Bordacliente");
         jLabel18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbbordacliente.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbbordacliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcodigoladoderecho.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbcodigoladoderecho.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -2790,7 +2790,7 @@ public class ordengorra extends javax.swing.JFrame {
                         .addGap(4, 4, 4)
                         .addComponent(jLabel18)
                         .addGap(6, 6, 6)
-                        .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jLabel16)
                         .addGap(6, 6, 6)
@@ -2918,7 +2918,7 @@ public class ordengorra extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -3123,7 +3123,7 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equa
          nombredelatabla = "historial_ordenes_gorra";
 
         try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4068,7 +4068,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             bordadosdelclienteeditar.lbcliente.setText(lbcliente.getText());
             bordadosdelclienteeditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
-            bordadosdelclienteeditar.lbidentificador.setText(lbidentificador.getText());
+            bordadosdelclienteeditar.lbidentificador.setText(lbbordacliente.getText());
             bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
             bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
             bordadosdelclienteeditar.txtidentificadordeprenda.setText(identificadordeprenda);
@@ -4155,7 +4155,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          nombredelatabla = "historial_ordenes_gorra";
 
         try {
-            datos();
+            datosOrdenesLocales();
         } catch (IOException ex) {
             Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4348,6 +4348,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     private javax.swing.JSeparator jSeparator3;
     public static javax.swing.JLabel lbatras;
     private javax.swing.JLabel lbatrasnombre;
+    public static javax.swing.JLabel lbbordacliente;
     public static javax.swing.JLabel lbcantidad;
     public static javax.swing.JLabel lbcliente;
     public javax.swing.JLabel lbcodigoatras;
@@ -4362,7 +4363,6 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     public static javax.swing.JLabel lbfrente;
     private javax.swing.JLabel lbfrentenombre;
     public static javax.swing.JLabel lbhoraentrega;
-    public static javax.swing.JLabel lbidentificador;
     public static javax.swing.JLabel lbidentificadordeprenda;
     private javax.swing.JLabel lblImagen;
     public static javax.swing.JLabel lbladoderecho;

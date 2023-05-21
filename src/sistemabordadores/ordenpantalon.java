@@ -1167,7 +1167,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         String activadoladoderechofrente = "";
         String activadoladoderechoatras = "";
 
-        String sql = "Select fecha,hora,cliente,numero_sucursal_orden,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar from historial_ordenes_pantalon_recibidas where numero = '" + folio + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_sucursal_orden,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar from historial_ordenes_pantalon_recibidas where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -1175,6 +1175,8 @@ public class ordenpantalon extends javax.swing.JFrame {
             if (rs.next()) {
 
                 lbcliente.setText(rs.getString("cliente"));
+                lbnombrecomercial.setText(rs.getString("nombre_comercial"));
+                lbbordacliente.setText(rs.getString("borda_cliente"));
                 prenda = rs.getString("prenda");
                 numerosucursal = rs.getString("numero_sucursal_orden");
                 lbnumerosucursal.setText(numerosucursal);

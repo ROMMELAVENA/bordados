@@ -929,11 +929,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbnumerodelaotrasucursal.setText(rs.getString("numero_sucursal_orden"));
                 numerosucursal = rs.getString("numero_sucursal");
                 tiendaenvia = rs.getString("tienda");
-                
-                
-                
-                
-
+            
                 mangaderechanombre = rs.getString("manga_derecha_nombre");
                 Object mangaderecha = rs.getString("manga_derecha");
                 lbmangaderechanombre.setText(mangaderechanombre);
@@ -1192,7 +1188,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 
                 
                 identificadorotrasucursal =  rs.getString("identificador_prenda");
-                    
+                   lbidentificadordeprenda.setText(identificadorotrasucursal);
 
 
             }
@@ -1204,6 +1200,9 @@ public class ordencamisa extends javax.swing.JFrame {
 
         
         
+        
+        
+        
         String cliente = lbcliente.getText();
         
         
@@ -1211,49 +1210,8 @@ public class ordencamisa extends javax.swing.JFrame {
         
         
           numerodeorden = lborden.getText();
-          String numeroordensucursal = "";
-          String numeroventa= "";
-        
-        String sql1 = "Select numero_sucursal_orden from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' and numero_sucursal = '"+numerosucursal+"' ";
-
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql1);
-            if (rs.next())
-            {
-
-                numeroordensucursal = rs.getString("numero_sucursal_orden");
-                
-                
-                String sql2 = "Select numero_venta from historial_ordenes_envio_solicitadas where numero = '" + numeroordensucursal + "' ";
-
-        try {
-            Statement st2 = cn.createStatement();
-            ResultSet rs2 = st2.executeQuery(sql2);
-            if (rs2.next())
-            {
-
-                numeroventa = rs2.getString("numero_venta");
-               
-                
-
-            }
-
-        } catch (SQLException ex) 
-        {
-             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-        }   
-               
-                
-
-            }
-
-        } catch (SQLException ex) 
-        {
-             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-        }
-        
-        
+      
+          
       
  
                 tiendaconectada();   
@@ -1277,31 +1235,6 @@ public class ordencamisa extends javax.swing.JFrame {
             con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tiendaenvia + "", "root", "sistemas");
       
 
-            
-            /*
-        String sql7 = "Select cliente,prenda,tienda,identificador_prenda from historial_ordenes_camisa where numero = '" + numerosucursal + "' ";
-
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql7);
-            if (rs.next()) {
-
-                cliente = rs.getString("cliente");
-                lbprenda.setText(rs.getString("prenda"));
-                prenda = (rs.getString("prenda"));
-                sucursal = rs.getString("tienda");
-                identificadordeprenda = rs.getString("identificador_prenda");
-                
-
-            }
-
-        } catch (SQLException ex) 
-        {
-             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-        }
-
-        
-     */
         
         
          BufferedImage img = null;

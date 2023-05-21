@@ -3,6 +3,7 @@ package sistemabordadores;
 import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -13,6 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.InetAddress;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -58,6 +60,12 @@ public class ordengorra extends javax.swing.JFrame {
 
     String nuevosbordadosutilizadosstring = "";
     int nuevosbordadosutilizadosint = 0;
+    
+    String latiendaestaconectada = "si";
+    
+    String prenda ="";
+    
+    Connection con = null;
 
     String primero = "";
     String ultimo = "";
@@ -510,16 +518,13 @@ public class ordengorra extends javax.swing.JFrame {
     void agregarfotomontaje() throws FileNotFoundException, IOException  
     {
         
-        String numero = lbnumero.getText();
-        String numeroventa = lbnumeroventa.getText();
+       
        
         BufferedImage img = null;
         
-        String prendasql ="";
-        String prendanombresql="";
-        String puntadasenfotomontajes = "";
+      
         btnverfotomontaje.setEnabled(false);
-        String path ="";
+     
 
        String sql = "Select extension_imagen,imagen,numero_consecutivo,puntadas_en_fotomontajes from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = 'GORRA'   ";  ///
 
@@ -530,7 +535,7 @@ public class ordengorra extends javax.swing.JFrame {
             while (rs.next()) 
             {
                 
-                puntadasenfotomontajes=rs.getString("puntadas_en_fotomontajes");
+              
                 consecutivo = rs.getString("numero_consecutivo");
                  
                 Imagen imagen = new Imagen();
@@ -542,7 +547,7 @@ public class ordengorra extends javax.swing.JFrame {
                     ordencamisaimagencontorno p = new ordencamisaimagencontorno();
                     jPanel1.add(p);
                     jPanel1.repaint();
-                    lblImagen.setVisible(false);
+                    lbfotomontaje.setVisible(false);
                     btnverfotomontaje.setEnabled(false);
                     tienefotomontaje = "no";
                    // btnagregarfotomontaje.setEnabled(true);
@@ -566,8 +571,8 @@ public class ordengorra extends javax.swing.JFrame {
                     }
 
                     imagen.setImagen(img);
-                    lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
-                    lblImagen.setVisible(true);
+                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
+                    lbfotomontaje.setVisible(true);
                     btnverfotomontaje.setEnabled(true);
                     tienefotomontaje = "si";
                     btnverfotomontaje.setEnabled(true);
@@ -608,31 +613,6 @@ public class ordengorra extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
         
-        /*
-        
-         if(puntadasenfotomontajes.equals("si"))
-        {
-
-            btnfrente.setEnabled(false);
-            btnladoizquierdo.setEnabled(false);
-            btnladoderecho.setEnabled(false);
-            btnatras.setEnabled(false);
-           
-            
-       
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar nuevo fotomontaje SIN PUNTADAS");
-            btnfotomontajesinpuntadas.setEnabled(true);
-            btnterminetodo.setEnabled(false);
-            
-        
-        }
-        
-        
-        
-         else
-        
-        
-        */
         
         
         if(tienefotomontaje.equals("no"))
@@ -663,7 +643,7 @@ public class ordengorra extends javax.swing.JFrame {
 
         String folio = lborden.getText();
 
-        String sql = "Select fecha,hora,cliente,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,numero_sucursal_orden,\n" +
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,numero_sucursal_orden,\n" +
                      "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,tienda,numero_sucursal from historial_ordenes_gorra_recibidas where numero = '" + folio + "'";
 
         try {
@@ -672,8 +652,8 @@ public class ordengorra extends javax.swing.JFrame {
             if (rs.next()) {
 
                 lbcliente.setText(rs.getString("cliente"));
-
-              
+                lbnombrecomercial.setText(rs.getString("nombre_comercial"));
+                lbbordacliente.setText(rs.getString("borda_cliente"));
                 lbcantidad.setText(rs.getString("cantidad"));
                 lbfechaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
@@ -773,6 +753,137 @@ public class ordengorra extends javax.swing.JFrame {
         }
         
         
+        
+        
+        String cliente = lbcliente.getText();
+        
+        
+        
+        
+            tiendaconectada();   
+             
+            
+                
+              if (latiendaestaconectada.equals("si"))
+
+                      {
+      
+                          
+                        
+                
+                 try {
+         
+                     
+                     
+            Class.forName("com.mysql.jdbc.Driver");
+       
+         
+            con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
+      
+
+        
+        
+         BufferedImage img = null;
+        
+        
+        
+        
+        
+       String sql4 = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";  ///
+
+        try {
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql4);
+            while (rs.next()) 
+            {
+                
+                Blob blob = rs.getBlob("imagen");
+              
+                    byte[] data = blob.getBytes(1, (int) blob.length());
+
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (IOException ex) 
+                    {
+                 
+                      JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+
+                    }
+
+                    if(img==null)
+                    {
+                       tienefotomontaje = "no"; 
+                    }
+                    else
+                    {
+                    
+                    Imagen imagen = new Imagen();
+                    imagen.setImagen(img);
+                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
+                    lbfotomontaje.setVisible(true);
+                    btnverfotomontaje.setEnabled(true);
+                    tienefotomontaje = "si";
+                    btnverfotomontaje.setEnabled(true);
+                  
+
+                    Blob archivo = rs.getBlob("imagen");
+                    String nombredelarchivo = rs.getString("extension_imagen");
+                     if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
+                    {
+                    rutaimagen = "C:\\archivospdf\\FOTOMONTAJE."+nombredelarchivo+" ";
+                    }
+                    else
+                    {
+                   nombredelarchivo = nombredelarchivo.replace(" ","");
+                    rutaimagen = "C:\\archivospdf\\"+nombredelarchivo+" ";
+                    }   
+                    
+                    File file = new File(rutaimagen);
+                    FileOutputStream output = new FileOutputStream(file);
+                    InputStream inStream = archivo.getBinaryStream();
+                    int length = -1;
+                    int size = (int) archivo.length();
+                    byte[] buffer = new byte[size];
+                    while ((length = inStream.read(buffer)) != -1) {
+                        output.write(buffer, 0, length);
+                   
+                    }
+                   
+                    output.close();
+                    
+                    }
+ 
+               
+
+            } //end while
+            rs.close();
+        } catch (SQLException ex) 
+        {
+          
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }
+        
+        
+         } catch (Exception x) {
+                               System.out.println(x); 
+                            }
+        
+        
+                 
+                 
+                      }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         btnreplicar.setEnabled(false);
      
         lbcoloratras.setEnabled(false);
@@ -781,6 +892,128 @@ public class ordengorra extends javax.swing.JFrame {
         lbcolorfrente.setEnabled(false);
 
  }
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+ void tiendaconectada()
+ {
+     
+     
+     
+     String tienda =sucursal;
+     
+     
+     try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
+
+            try {
+              
+                
+                
+                
+                String sql = "SELECT ip FROM catalogo_tiendas where tienda = '" + tienda + "'";
+
+                Statement st = cn.prepareStatement(sql);
+                ResultSet rs = st.executeQuery(sql);
+
+                if (rs.next()) {
+
+                    iptraspaso = rs.getString("ip");
+              
+
+                } else {
+
+                }
+
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane op = new JOptionPane();
+                JLabel label = new JLabel("<HTML><b style=\"Color:red; font-size:20px;\">Error al buscar tiendas".toUpperCase());
+                label.setFont(new Font("Arial", Font.BOLD, 40));
+                label.setOpaque(true);
+                label.setForeground(Color.red.brighter());
+                label.setBackground(Color.YELLOW.brighter());
+                op.showMessageDialog(null, label, "ERROR!!", op.WARNING_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "Error al buscar tiendas");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+       
+        InetAddress ping;
+
+        if (tienda == null || tienda.equals("Seleccione Tienda")) 
+        {
+            
+              JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+            
+            
+        }
+        else 
+        {
+
+            try {
+                
+                
+
+                ping = InetAddress.getByName(iptraspaso);
+            
+                if (ping.isReachable(5000)) 
+                {
+                  
+                  latiendaestaconectada = "si";
+                   
+
+                }
+                
+                else 
+                
+                {
+                    
+                    latiendaestaconectada = "no";
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+                    
+
+                }
+            } catch (IOException ex) {
+                System.out.println(ex);
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+               
+                
+            }
+
+        }         
+
+     
+ }
+ 
+    
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     /*
      
  void agregarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
     {
@@ -1121,7 +1354,7 @@ public class ordengorra extends javax.swing.JFrame {
     }    
     
  
- 
+ */
  
  
  
@@ -1305,12 +1538,14 @@ public class ordengorra extends javax.swing.JFrame {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        
+        /*
          try {
             agregarfotomontajeotrasucursal();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        */
     }
     
     
@@ -2394,7 +2629,7 @@ public class ordengorra extends javax.swing.JFrame {
         lbhoraentrega = new javax.swing.JLabel();
         lbcantidad = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        lblImagen = new javax.swing.JLabel();
+        lbfotomontaje = new javax.swing.JLabel();
         lbnumeroventa = new javax.swing.JLabel();
         lbtienda = new javax.swing.JLabel();
         lbnumero = new javax.swing.JLabel();
@@ -2526,8 +2761,8 @@ public class ordengorra extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(800, 800));
         jPanel1.setName(""); // NOI18N
         jPanel1.setLayout(null);
-        jPanel1.add(lblImagen);
-        lblImagen.setBounds(10, 10, 910, 650);
+        jPanel1.add(lbfotomontaje);
+        lbfotomontaje.setBounds(10, 10, 910, 650);
 
         lbnumeroventa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -3117,6 +3352,10 @@ public class ordengorra extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
+        
+        
+        
+        
 if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
     {
       
@@ -3163,13 +3402,14 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
          
-         try {    
+         
+         /*         try {    
             agregarfotomontajeotrasucursal();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         } 
         
-         
+        */ 
          
          
          sumapuntos();
@@ -3312,7 +3552,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnreplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreplicarActionPerformed
 
 
-        String tipo = lbtipo.getText();
+        prenda = lbtipo.getText();
         String numerosucursal =lbnumero.getText();
      
                 
@@ -3387,9 +3627,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         FileInputStream input5 = null;
         FileInputStream input6 = null;
 
-        String extensionponchado1 = "", extensionponchado2 = "", extensionponchado3 = "", extensionponchado4 = "", extensionponchado5 = "";
-
-        //ponchado1
+      //ponchado1
 
 
         try {
@@ -4135,8 +4373,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
             ImageIcon fot = new ImageIcon(rutaarchivo);
-            Icon icono = new ImageIcon(fot.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT));
-            lblImagen.setIcon(icono);
+            Icon icono = new ImageIcon(fot.getImage().getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT));
+            lbfotomontaje.setIcon(icono);
             this.repaint();
 
             btndatos.doClick();
@@ -4190,13 +4428,14 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
          
+         /*
          try {    
             agregarfotomontajeotrasucursal();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         } 
         
-         
+         */
          
          
          sumapuntos();
@@ -4360,11 +4599,11 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     public javax.swing.JLabel lbcolorladoderecho;
     public javax.swing.JLabel lbcolorladoizquierdo;
     public static javax.swing.JLabel lbfechaentrega;
+    private javax.swing.JLabel lbfotomontaje;
     public static javax.swing.JLabel lbfrente;
     private javax.swing.JLabel lbfrentenombre;
     public static javax.swing.JLabel lbhoraentrega;
     public static javax.swing.JLabel lbidentificadordeprenda;
-    private javax.swing.JLabel lblImagen;
     public static javax.swing.JLabel lbladoderecho;
     private javax.swing.JLabel lbladoderechonombre;
     public static javax.swing.JLabel lbladoizquierdo;

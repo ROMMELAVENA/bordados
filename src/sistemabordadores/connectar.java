@@ -7,6 +7,7 @@ import java.net.InetAddress;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class connectar {
     Connection conectar=null;
@@ -15,8 +16,16 @@ public class connectar {
     String basedatos =ingresotienda.strBD;
     
     
+    
+    
+    
     public Connection conexion()
     {
+        
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">host = '"+host+"'");
+   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">base de datos = '"+basedatos+"'");
+     
+   
      
 
         try {

@@ -40,17 +40,19 @@ public class principal extends javax.swing.JFrame {
         
         jScrollPane2.setVisible(false);
         lbsumapuntos.setVisible(false);
-        
+      
         this.setLocationRelativeTo(null);
         
         lbnumero.setVisible(false);
         lbip.setVisible(false);
         lbtienda.setVisible(false);
         
+        
         btnclienteshanbordadoultimos6meses.setText("<html><p>Clientes que han bordado</p><center><p>en los ultimos 6 meses</p></center></html>");
         btnclienteshanbordadoultimos6a12meses.setText("<html><p>Clientes que han bordado</p><center><p>en los ultimos 6 a 12 meses</p></center></html>");
         
-        
+     
+       
         contraseñas();
         
     }
@@ -58,14 +60,26 @@ public class principal extends javax.swing.JFrame {
     
     void contraseñas()
     {
+        
+        
+        JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">antes consulta");
          String sqlcontra = "SELECT direccion,administracion,bordador,encargado FROM catalogo_claves WHERE codigo='1' ";
+         
+          JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">antes del try");
 
                 try {
                     Statement st = cn.createStatement();
                     ResultSet rs = st.executeQuery(sqlcontra);
+                    
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">antes del while");
 
                     while (rs.next()) 
                     {
+                        
+                        
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">entrando al while");
+
 
                         contraseñadireccion = rs.getString("direccion");
                         contraseñaadministracion = rs.getString("administracion");
@@ -78,9 +92,13 @@ public class principal extends javax.swing.JFrame {
                     }
                     rs.close();
                 } catch (SQLException ex) {
-                   System.out.println(ex);
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al cargar contraseñas");
                 }
         
+                
+                  JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">despues de  contaeñas");
+                  
+                  
     }
     
     
@@ -94,8 +112,14 @@ public class principal extends javax.swing.JFrame {
 
     }
     
-    void calculodelassumasdelosbordados(int i) {
+    
+    
+    
+    void datos(int i) {
 
+        
+         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Inician datos");
+        
         String[] datos = new String[65];
         
         int mes = 0;
@@ -516,6 +540,7 @@ public class principal extends javax.swing.JFrame {
 
                    
                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
+                     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al cargar datos locales");
 
                 }
 
@@ -577,6 +602,8 @@ public class principal extends javax.swing.JFrame {
                 } catch (Exception exx) {
                     
                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+exx+"");
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al cargar datos otras sucursales");
+
 
                 }
 
@@ -1929,6 +1956,9 @@ public class principal extends javax.swing.JFrame {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
         });
 
         btnordenesbordadosucursalporrealizar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -2327,7 +2357,7 @@ public class principal extends javax.swing.JFrame {
                 int a = 0;
             }
 
-            calculodelassumasdelosbordados((int) i);
+            datos((int) i);
             
         }
         
@@ -2535,6 +2565,10 @@ public class principal extends javax.swing.JFrame {
        
        
     }//GEN-LAST:event_btnclienteshanbordadoultimos6a12mesesActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
 
 
     public static void main(String args[]) {

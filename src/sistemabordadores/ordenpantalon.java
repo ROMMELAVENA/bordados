@@ -1802,7 +1802,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         
         String cliente = lbcliente.getText();
         
-          String sql = "SELECT nombre_comercial,identificador FROM catalogo_clientes WHERE nombre = '" + cliente + "' ";
+          String sql = "SELECT nombre_comercial,borda_cliente FROM catalogo_clientes WHERE nombre = '" + cliente + "' ";
 
                 try {
                     Statement st = cn.createStatement();
@@ -1812,7 +1812,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                         
                       
                         lbnombrecomercial.setText(rs.getString("nombre_comercial"));
-                        lbbordacliente.setText(rs.getString("identificador"));
+                        lbbordacliente.setText(rs.getString("borda_cliente"));
 
                     }
 

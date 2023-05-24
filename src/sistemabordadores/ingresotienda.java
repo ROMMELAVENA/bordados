@@ -71,6 +71,24 @@ public class ingresotienda extends javax.swing.JFrame {
                     lbtiendaconectada.setText("Tienda conectada");
                     lbtiendaconectada.setBackground(Color.GREEN);
                     btnentrar.setEnabled(true);
+                    
+                    
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">ip tijuna = '"+iptraspaso+"'");
+                     System.out.println(iptraspaso);
+                    
+                    
+                    if (iptraspaso.equals(""))
+                    {
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Concectado a Tijuana"); 
+                        iptraspaso = "iptraspaso";
+                        
+                    }
+                    
+                   
+                    
+                    
+                    
+                    
                 }
                 else 
                 {
@@ -247,18 +265,22 @@ this.dispose();
         
         if (tienda.equals("Seleccione tienda") || tienda == null || tienda.equals("") || tienda.equals(" "))
         {
-          JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">Seleccione una tienda");
+          JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">Seleccione una tienda");
         }
         else
         {
+            
+      
 
-        principal ingreso = new principal();
-        ingreso.setVisible(true);
-        ingreso.setLocationRelativeTo(null);
+        principal ventan = new principal();
+       
+        ventan.setVisible(true);
+      //  ventan.setLocationRelativeTo(null);
        
         principal.lbtienda.setText(strBD);
         principal.lbip.setText(strIP);
-        ingreso.setTitle("Sistema bordadores "+strBD.toUpperCase()+"");     
+   
+        ventan.setTitle("Sistema bordadores "+strBD.toUpperCase()+"");     
         this.dispose();
 
         }
@@ -275,11 +297,12 @@ this.dispose();
    
     if (tiendaseleccionada.equals("Seleccione tienda") || tiendaseleccionada == null || tiendaseleccionada.equals("") || tiendaseleccionada.equals(" "))
     {
-          JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">Seleccione una tienda");
+          JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">Seleccione una tienda");
     }
    else
    {    
    
+       
    
        if (tiendaseleccionada.equals("cdmxcentro")) {
            file = new File("C:\\sistema\\cdmxcentro.txt");
@@ -292,6 +315,9 @@ this.dispose();
        } else if (tiendaseleccionada.equals("tijuana")) {
            file = new File("C:\\sistema\\tijuana.txt");
        }
+       
+       
+     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">ruta = '"+file+"'");
 
        try {
            Scanner sc = new Scanner(file);
@@ -360,7 +386,5 @@ this.dispose();
     private javax.swing.JLabel lbtiendaconectada;
     // End of variables declaration//GEN-END:variables
 
-  //    connectar cc = new connectar();
-  //  Connection cn = cc.conexion();
-    
+
 }

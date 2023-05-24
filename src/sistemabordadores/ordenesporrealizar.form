@@ -121,7 +121,7 @@
                 <Column editable="false" title="No. sucursal" type="java.lang.Object"/>
                 <Column editable="false" title="tieneponchados" type="java.lang.Object"/>
                 <Column editable="false" title="tabla" type="java.lang.Object"/>
-                <Column editable="false" title="Nombre bordado" type="java.lang.Object"/>
+                <Column editable="false" title="Identificador de prenda" type="java.lang.Object"/>
                 <Column editable="false" title="observacion" type="java.lang.Object"/>
               </Table>
             </Property>
@@ -187,7 +187,7 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>

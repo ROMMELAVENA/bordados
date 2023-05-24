@@ -1390,7 +1390,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tieneponchados", "tabla", "Nombre bordado", "observacion"
+                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tieneponchados", "tabla", "Identificador de prenda", "observacion"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1438,6 +1438,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(11).setMinWidth(100);
             tabla.getColumnModel().getColumn(11).setPreferredWidth(450);
             tabla.getColumnModel().getColumn(11).setMaxWidth(800);
+            tabla.getColumnModel().getColumn(12).setMinWidth(0);
+            tabla.getColumnModel().getColumn(12).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(12).setMaxWidth(0);
         }
 
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

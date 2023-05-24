@@ -2659,7 +2659,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
     void identificador()
     {
         
-       String SQL = "SELECT identificador FROM catalogo_clientes where codigo = '"+codigodelcliente+"' ";
+       String SQL = "SELECT borda_cliente FROM catalogo_clientes where codigo = '"+codigodelcliente+"' ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -2667,7 +2667,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
             if (rs1.next()) 
             {
                                 
-                lbidentificador.setText(rs1.getString("identificador")); 
+                lbidentificador.setText(rs1.getString("borda_cliente")); 
                
             }
             rs1.close();

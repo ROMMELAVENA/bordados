@@ -2980,7 +2980,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
                 if (prenda.equals("CAMISA") || prenda.equals("CAMISOLA") || prenda.equals("CORBATA") || prenda.equals("CHALECO") || prenda.equals("CHAMARRA DESMONTABLE") || prenda.equals("CHAMARRA ROMPEVIENTOS") || prenda.equals("FILIPINA") || prenda.equals("GORRA") || prenda.equals("MANDIL") || prenda.equals("PANTALON") || prenda.equals("PARCHE") || prenda.equals("PLAYERA") || prenda.equals("SACO")) {
 
                     if (bordadosdelclienteeditar.ventanabordadosdelclienteeditar == true) {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados del cliente editar ya est� abierta");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados del clieJOpnte editar ya est� abierta");
                     } else {
                         
                         

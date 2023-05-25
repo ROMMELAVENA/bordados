@@ -1328,11 +1328,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     
      void autorizaciondelfotomontaje(String numerofolio,String nombre_tabla)
      {
-         String sqlcamisa = "SELECT fotomontaje_autorizado FROM "+nombre_tabla+" where numero = '"+numerofolio+"'  ";
+         String sql = "SELECT fotomontaje_autorizado FROM "+nombre_tabla+" where numero = '"+numerofolio+"'  ";
 
         try {
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sqlcamisa);
+            ResultSet rs = st.executeQuery(sql);
             if (rs.next()) 
             {
                fotomontajeautorizado = rs.getString("fotomontaje_autorizado");
@@ -1644,7 +1644,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         }
                         else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ha autorizado; consulte al encargado");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
                         }    
                         
                         
@@ -1690,7 +1690,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         } 
                         else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
                         }    
                         
                     }
@@ -1733,7 +1733,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         }
                         else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
                         }
                        
                     }
@@ -1771,7 +1771,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                          }
                          else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
                         }  
                         
                     }
@@ -1834,7 +1834,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         }
                          else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
                         }   
                          
                     }
@@ -1873,7 +1873,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         }
                          else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
                         }     
                             
                         
@@ -1916,7 +1916,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         }    
                           else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
                         }     
                             
                         
@@ -1988,7 +1988,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         }
                         else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Este bordado aun no se ah autorizado; consulte al encargado");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
                         }    
                         
                         

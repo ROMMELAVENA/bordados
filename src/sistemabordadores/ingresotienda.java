@@ -73,13 +73,13 @@ public class ingresotienda extends javax.swing.JFrame {
                     btnentrar.setEnabled(true);
                     
                     
-                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">ip tijuna = '"+iptraspaso+"'");
+         //           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">ip tijuna = '"+iptraspaso+"'");
                      System.out.println(iptraspaso);
                     
                     
                     if (iptraspaso.equals(""))
                     {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Concectado a Tijuana"); 
+         //               JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Concectado a Tijuana"); 
                         iptraspaso = "iptraspaso";
                         
                     }
@@ -317,7 +317,7 @@ this.dispose();
        }
        
        
-     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">ruta = '"+file+"'");
+  //   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">ruta = '"+file+"'");
 
        try {
            Scanner sc = new Scanner(file);

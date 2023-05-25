@@ -22,8 +22,8 @@ public class connectar {
     public Connection conexion()
     {
         
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">host = '"+host+"'");
-   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">base de datos = '"+basedatos+"'");
+   //     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">host = '"+host+"'");
+  // JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">base de datos = '"+basedatos+"'");
      
    
      

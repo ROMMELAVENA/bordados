@@ -62,23 +62,22 @@ public class principal extends javax.swing.JFrame {
     {
         
         
-        JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">antes consulta");
+      
          String sqlcontra = "SELECT direccion,administracion,bordador,encargado FROM catalogo_claves WHERE codigo='1' ";
          
-          JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">antes del try");
+         
 
                 try {
                     Statement st = cn.createStatement();
                     ResultSet rs = st.executeQuery(sqlcontra);
                     
-                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">antes del while");
+                   
 
                     while (rs.next()) 
                     {
                         
                         
                     
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">entrando al while");
 
 
                         contraseñadireccion = rs.getString("direccion");
@@ -96,7 +95,7 @@ public class principal extends javax.swing.JFrame {
                 }
         
                 
-                  JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">despues de  contaeñas");
+             //     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">despues de  contaeñas");
                   
                   
     }

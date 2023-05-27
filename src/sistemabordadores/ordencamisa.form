@@ -169,7 +169,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lbprenda" min="-2" pref="251" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lbidentificadordeprenda" max="32767" attributes="0"/>
+                              <Component id="lbidentificador" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="315" max="-2" attributes="0"/>
                               <Component id="jLabel15" min="-2" pref="92" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -253,7 +253,7 @@
               <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lbprenda" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="lbidentificadordeprenda" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbidentificador" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel15" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbcantidad" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
@@ -645,7 +645,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnverfotomontajeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbidentificadordeprenda">
+    <Component class="javax.swing.JLabel" name="lbidentificador">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>

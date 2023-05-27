@@ -97,7 +97,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lbprenda" min="-2" pref="105" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lbidentificadordeprenda" min="-2" pref="506" max="-2" attributes="0"/>
+                              <Component id="lbidentificador" min="-2" pref="506" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel24" min="-2" pref="95" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -167,7 +167,7 @@
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lbprenda" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="lbidentificadordeprenda" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbidentificador" min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel24" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="lbbordadosorden" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
@@ -790,7 +790,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneliminarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbidentificadordeprenda">
+    <Component class="javax.swing.JLabel" name="lbidentificador">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>

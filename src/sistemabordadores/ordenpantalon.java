@@ -88,7 +88,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     ArrayList<String> listabotones = new ArrayList<String>();
     String nombredelatabla ="";
  
-    String identificadordeprenda = "";
+    String identificador = "";
     String consecutivo = "";
     String tieneunaobservacion = ""; 
     
@@ -213,8 +213,8 @@ public class ordenpantalon extends javax.swing.JFrame {
                 ladoderechofrentenombre = rs.getString("lado_derecho_frente");
                 ladoizquierdoatrasnombre = rs.getString("lado_izquierdo_atras");
                 ladoderechoatrasnombre = rs.getString("lado_derecho_atras");
-                identificadordeprenda = rs.getString("identificador_prenda");
-                lbidentificadordeprenda.setText(identificadordeprenda);
+                identificador = rs.getString("identificador_prenda");
+                lbidentificador.setText(identificador);
                 lugar = rs.getString("lugar");
                 lbcantidad.setText(rs.getString("cantidad"));
                 
@@ -525,7 +525,7 @@ public class ordenpantalon extends javax.swing.JFrame {
           
                 prenda = (rs.getString("prenda"));
                 sucursal = rs.getString("tienda");
-                identificadordeprenda = rs.getString("identificador_prenda");
+                identificador = rs.getString("identificador_prenda");
                 
 
             }
@@ -539,7 +539,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             cliente();
             
             
-       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";  ///
+       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";  ///
 
         try {
 
@@ -788,7 +788,7 @@ public class ordenpantalon extends javax.swing.JFrame {
        
      
 
-        String sql = "Select hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,color1,color2,color3,color4,color5,color6,color7,numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = 'PANTALON'   ";
+        String sql = "Select hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,color1,color2,color3,color4,color5,color6,color7,numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'PANTALON'   ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -881,7 +881,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         btnverfotomontaje.setEnabled(false);
         String puntadasenfotomontajes = "";
 
-       String sql = "Select extension_imagen,imagen,numero_consecutivo,puntadas_en_fotomontajes from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = 'PANTALON'   ";  ///
+       String sql = "Select extension_imagen,imagen,numero_consecutivo,puntadas_en_fotomontajes from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'PANTALON'   ";  ///
 
         try {
 
@@ -1355,7 +1355,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 cliente = rs.getString("cliente");
                 prenda = (rs.getString("prenda"));
                 sucursal = rs.getString("lugar");
-                identificadordeprenda = rs.getString("identificador_prenda");
+                identificador = rs.getString("identificador_prenda");
                 
 
             }
@@ -1373,7 +1373,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         
         
         
-       String sql4 = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";  ///
+       String sql4 = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";  ///
 
         try {
 
@@ -1686,7 +1686,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 pst.setString(2, dia());
                 pst.setString(3, hora());
                 pst.setString(4, ubicacioninsertar);
-                pst.setString(5, identificadordeprenda);
+                pst.setString(5, identificador);
                 pst.setString(6, lbcantidad.getText());
                 
                  if(tienenumerodesucursal.equals("no") )
@@ -1723,7 +1723,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 pst.setString(2, dia());
                 pst.setString(3, hora());
                 pst.setString(4, aplicacioninsertar);
-                pst.setString(5, identificadordeprenda);
+                pst.setString(5, identificador);
                 pst.setString(6, String.valueOf(totalaplicaciones));
                   if(tienenumerodesucursal.equals("no") )
                 {
@@ -2388,7 +2388,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         lbcodigoladoizquierdofrente = new javax.swing.JLabel();
         lbcodigoladoderechoatras = new javax.swing.JLabel();
         btneliminar = new javax.swing.JButton();
-        lbidentificadordeprenda = new javax.swing.JLabel();
+        lbidentificador = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         lbobservaciones = new javax.swing.JTextArea();
@@ -2605,9 +2605,9 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
 
-        lbidentificadordeprenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lbidentificadordeprenda.setForeground(new java.awt.Color(153, 0, 0));
-        lbidentificadordeprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbidentificador.setForeground(new java.awt.Color(153, 0, 0));
+        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2703,7 +2703,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addComponent(lbidentificadordeprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
@@ -2811,7 +2811,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbprenda, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(lbidentificadordeprenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbidentificador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbcantidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(13, 13, 13)
@@ -3939,7 +3939,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             bordadosdelclienteeditar.lbidentificador.setText(lbbordacliente.getText());
             bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
             bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
-            bordadosdelclienteeditar.txtidentificadordeprenda.setText(identificadordeprenda);
+            bordadosdelclienteeditar.txtidentificador.setText(identificador);
 
             bordadosdelclienteeditar.lbprenda.setText("PANTALON");
 
@@ -3961,7 +3961,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             FileInputStream input = null;
             try {
 
-                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = 'PANTALON' and numero_consecutivo = '"+consecutivo+"' ";
+                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and identificador_prenda = '"+identificador+"' and tipo = 'PANTALON' and numero_consecutivo = '"+consecutivo+"' ";
 
                 myStmt = cn.prepareStatement(sql);
                 File theFile = new File(rutaarchivo);
@@ -3977,7 +3977,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
             try {
-                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"',puntadas_en_fotomontajes ='no' where codigo='"+codigocliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = 'PANTALON' and numero_consecutivo = '"+consecutivo+"' ");
+                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"',puntadas_en_fotomontajes ='no' where codigo='"+codigocliente+"' and identificador_prenda = '"+identificador+"' and tipo = 'PANTALON' and numero_consecutivo = '"+consecutivo+"' ");
                 pst.executeUpdate();
                 pst.close();
             } catch (Exception e) {
@@ -4008,7 +4008,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             colorido ventana =  new colorido();
             colorido.lbcliente.setText(lbcliente.getText());
             colorido.lbcodigo.setText(codigocliente);
-            colorido.lbnombrebordado.setText(lbidentificadordeprenda.getText());
+            colorido.lbnombrebordado.setText(lbidentificador.getText());
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
         }
@@ -4141,7 +4141,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbdadoizquierdoatras;
     public static javax.swing.JLabel lbfolio;
     private javax.swing.JLabel lbfotomontaje;
-    public static javax.swing.JLabel lbidentificadordeprenda;
+    public static javax.swing.JLabel lbidentificador;
     public static javax.swing.JLabel lbladoderechoatras;
     public static javax.swing.JLabel lbladoderechoatraspuntadas;
     public static javax.swing.JLabel lbladoderechofrente;

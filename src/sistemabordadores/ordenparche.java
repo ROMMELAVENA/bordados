@@ -60,7 +60,7 @@ public static boolean ventanaordenparcheanteriores = false;
         String codigocliente = "";
     
        String numerodeorden = "";
-       String identificadordeprenda = "";
+       String identificador = "";
        String consecutivo = "";
        String tieneunaobservacion = "";
        String numerosucursalordencamisa = "";
@@ -111,8 +111,8 @@ public static boolean ventanaordenparcheanteriores = false;
                 cantidadparche = rs.getString("cantidad_parche");
                 aplicacion = rs.getString("aplicacion");
                 observacion = rs.getString("observacion");
-                identificadordeprenda = rs.getString("identificador_prenda");
-                lbidentificadordeprenda.setText(identificadordeprenda);
+                identificador = rs.getString("identificador_prenda");
+                lbidentificador.setText(identificador);
                 numeroventa = rs.getString("numero_venta");
                 
                 String observacion = rs.getString("observacion");
@@ -182,7 +182,7 @@ public static boolean ventanaordenparcheanteriores = false;
         {
             lbcantidad1.setText(cantidad);
             lbprenda.setText(parche);
-            lbidentificadordeprenda.setText(nombre);
+            lbidentificador.setText(nombre);
             lbaplicacion1.setText(aplicacion);
             lbobservacion.setText(observacion);
             
@@ -214,7 +214,7 @@ public static boolean ventanaordenparcheanteriores = false;
     {
        
 
-        String sql = "Select numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = 'PARCHE'   ";
+        String sql = "Select numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'PARCHE'   ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -812,7 +812,7 @@ public static boolean ventanaordenparcheanteriores = false;
 
        
 
-        String sql = "Select extension_imagen,imagen,numero_consecutivo,puntadas_en_fotomontajes  from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '" + identificadordeprenda + "' and tipo = 'PARCHE'   ";  ///
+        String sql = "Select extension_imagen,imagen,numero_consecutivo,puntadas_en_fotomontajes  from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '" + identificador + "' and tipo = 'PARCHE'   ";  ///
 
         try {
 
@@ -953,7 +953,7 @@ public static boolean ventanaordenparcheanteriores = false;
         lbcantidad1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lbprenda = new javax.swing.JLabel();
-        lbidentificadordeprenda = new javax.swing.JLabel();
+        lbidentificador = new javax.swing.JLabel();
         lbaplicacion1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         bntterminetodo = new javax.swing.JButton();
@@ -1093,9 +1093,9 @@ public static boolean ventanaordenparcheanteriores = false;
         lbprenda.setText("Parche");
         lbprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbidentificadordeprenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lbidentificadordeprenda.setForeground(new java.awt.Color(153, 0, 0));
-        lbidentificadordeprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbidentificador.setForeground(new java.awt.Color(153, 0, 0));
+        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbaplicacion1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -1183,7 +1183,7 @@ public static boolean ventanaordenparcheanteriores = false;
                         .addContainerGap()
                         .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbidentificadordeprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1290,7 +1290,7 @@ public static boolean ventanaordenparcheanteriores = false;
                     .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbidentificadordeprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1526,7 +1526,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             bordadosdelclienteeditar.lbidentificador.setText(lbbordacliente.getText());
             bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
             bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
-            bordadosdelclienteeditar.txtidentificadordeprenda.setText(identificadordeprenda);
+            bordadosdelclienteeditar.txtidentificador.setText(identificador);
 
             bordadosdelclienteeditar.lbprenda.setText("PARCHE");
 
@@ -1548,7 +1548,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             colorido ventana =  new colorido();
             colorido.lbcliente.setText(lbcliente.getText());
             colorido.lbcodigo.setText(codigocliente);
-            colorido.lbnombrebordado.setText(lbidentificadordeprenda.getText());
+            colorido.lbnombrebordado.setText(lbidentificador.getText());
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
         }
@@ -1573,7 +1573,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             FileInputStream input = null;
             try {
 
-                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = 'PARCHE' and numero_consecutivo = '"+consecutivo+"' ";
+                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and identificador_prenda = '"+identificador+"' and tipo = 'PARCHE' and numero_consecutivo = '"+consecutivo+"' ";
 
                 myStmt = cn.prepareStatement(sql);
                 File theFile = new File(rutaarchivo);
@@ -1589,7 +1589,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
             try {
-                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"',puntadas_en_fotomontajes ='no' where codigo='"+codigocliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = 'PARCHE' and numero_consecutivo = '"+consecutivo+"' ");
+                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"',puntadas_en_fotomontajes ='no' where codigo='"+codigocliente+"' and identificador_prenda = '"+identificador+"' and tipo = 'PARCHE' and numero_consecutivo = '"+consecutivo+"' ");
                 pst.executeUpdate();
                 pst.close();
             } catch (Exception e) {
@@ -1670,7 +1670,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel lbfechaentrega;
     private javax.swing.JLabel lbhora;
     private javax.swing.JLabel lbhoraentrega;
-    private javax.swing.JLabel lbidentificadordeprenda;
+    private javax.swing.JLabel lbidentificador;
     private javax.swing.JLabel lblImagen;
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumerosucursal;

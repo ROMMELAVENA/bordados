@@ -3004,7 +3004,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
                         bordadosdelclienteeditar.lbcliente.setText(nombrecliente.toString());
                         bordadosdelclienteeditar.lbnombrecomercial.setText(nombrecomercial.toString());
                         bordadosdelclienteeditar.lbcodigocliente.setText(lbcodigocliente.getText());
-                        bordadosdelclienteeditar.txtidentificadordeprenda.setText(nombredelbordado.toString());
+                        bordadosdelclienteeditar.txtidentificador.setText(nombredelbordado.toString());
                         bordadosdelclienteeditar.txtcodigocatalogobordados.setText(consecutivo.toString());
                         bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo.toString());
 

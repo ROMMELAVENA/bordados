@@ -68,7 +68,7 @@ public class ordencamisa extends javax.swing.JFrame {
     int bordadosdisponiblesint = 0;
     String cantidadprendasstring = "";
     int cantidadprendasint = 0;
-    String identificadorotrasucursal = "";
+   
     int remanentebordadosint = 0;
     String remanentebordadosstring = "";
     int nuevoremanentebordadosint = 0;
@@ -143,7 +143,7 @@ public class ordencamisa extends javax.swing.JFrame {
     
     String terminetodo = "";
     
-    String identificadordeprenda = "";
+    String identificador = "";
     
     String consecutivo = "";
     String tieneunaobservacion = "";
@@ -254,7 +254,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
         
         
-        String sql = "SELECT color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7 FROM bordados_puntadas where identificador_prenda = '"+lbidentificadordeprenda.getText()+"' AND nombre = '"+lbcliente.getText()+"' ";
+        String sql = "SELECT color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7 FROM bordados_puntadas where identificador_prenda = '"+lbidentificador.getText()+"' AND nombre = '"+lbcliente.getText()+"' ";
 
 
             try {
@@ -340,7 +340,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
         
         
-        String sql = "SELECT color1,color2,color3,color4,color5,color6,color7,color8,color9,color10,color11,color12,color13,color14,color15,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,hilo8,hilo9,hilo10,hilo11,hilo12,hilo13,hilo14,hilo15 FROM colorido_bordados where identificador_prenda = '"+lbidentificadordeprenda.getText()+"' and codigo = '"+codigocliente+"' AND nombre = '"+lbcliente.getText()+"' ";
+        String sql = "SELECT color1,color2,color3,color4,color5,color6,color7,color8,color9,color10,color11,color12,color13,color14,color15,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,hilo8,hilo9,hilo10,hilo11,hilo12,hilo13,hilo14,hilo15 FROM colorido_bordados where identificador_prenda = '"+lbidentificador.getText()+"' and codigo = '"+codigocliente+"' AND nombre = '"+lbcliente.getText()+"' ";
 
 
             try {
@@ -406,8 +406,8 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbcantidad.setText(rs.getString("cantidad"));
                 lbdiaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
-                identificadordeprenda = rs.getString("identificador_prenda");
-                lbidentificadordeprenda.setText(identificadordeprenda);
+                identificador = rs.getString("identificador_prenda");
+                lbidentificador.setText(identificador);
                 lugar = rs.getString("lugar");
 
                 String observacion = rs.getString("observacion");
@@ -1186,8 +1186,8 @@ public class ordencamisa extends javax.swing.JFrame {
                 
                 
                 
-                identificadorotrasucursal =  rs.getString("identificador_prenda");
-                   lbidentificadordeprenda.setText(identificadorotrasucursal);
+                   identificador =  rs.getString("identificador_prenda");
+                   lbidentificador.setText(identificador);
 
 
             }
@@ -1240,7 +1240,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
         
         
-       String sql4 = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificadorotrasucursal+"' and tipo = '"+prenda+"'   ";  ///
+       String sql4 = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";  ///
 
         try {
 
@@ -1461,16 +1461,15 @@ public class ordencamisa extends javax.swing.JFrame {
         
     
         String prenda =lbprenda.getText().toUpperCase();
-        identificadordeprenda =lbidentificadordeprenda.getText();
+        identificador =lbidentificador.getText();
         BufferedImage img = null;
         
       
-        String puntadasenfotomontajes = "";
         btnverfotomontaje.setEnabled(false);
         
        
 
-       String sql = "Select extension_imagen,imagen,numero_consecutivo,fotomontaje_con_puntadas from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";  ///
+       String sql = "Select extension_imagen,imagen,numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";  ///
 
         try {
 
@@ -1478,7 +1477,7 @@ public class ordencamisa extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
             {
-                puntadasenfotomontajes=rs.getString("fotomontaje_con_puntadas");
+               
                 Blob blob = rs.getBlob("imagen");
                 if (blob == null) 
                 {
@@ -1645,7 +1644,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
                 sucursal = rs.getString("tienda");
-                identificadordeprenda = rs.getString("identificador_prenda");
+                identificador = rs.getString("identificador_prenda");
                 
 
             }
@@ -1659,7 +1658,7 @@ public class ordencamisa extends javax.swing.JFrame {
             cliente();
             
             
-       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificadordeprenda+"' and tipo = '"+prenda+"'   ";  ///
+       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";  ///
 
         try {
 
@@ -2135,7 +2134,7 @@ public class ordencamisa extends javax.swing.JFrame {
     {
         
        
-        String identificadordeprenda = lbidentificadordeprenda.getText();
+        identificador = lbidentificador.getText();
         String cantidad = lbcantidad.getText();
         
         
@@ -2151,7 +2150,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 pst.setString(2, dia());
                 pst.setString(3, hora());
                 pst.setString(4, ubicacioninsertar);
-                pst.setString(5, identificadordeprenda);
+                pst.setString(5, identificador);
                 pst.setString(6, cantidad);
                 
                  if(tienenumerodesucursal.equals("no") )
@@ -2198,7 +2197,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 pst.setString(2, dia());
                 pst.setString(3, hora());
                 pst.setString(4, aplicacioninsertar);
-                pst.setString(5, lbidentificadordeprenda.getText());
+                pst.setString(5, lbidentificador.getText());
                 pst.setString(6, String.valueOf(totalaplicaciones));
                 pst.executeUpdate();
                 pst.close();
@@ -2230,7 +2229,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 pst.setString(3, dia());
                 pst.setString(4, hora());
                 pst.setString(5, ubicacioninsertar);
-                pst.setString(6, lbidentificadordeprenda.getText());
+                pst.setString(6, lbidentificador.getText());
                 pst.setString(7, lbcantidad.getText());
                 pst.executeUpdate();
                 pst.close();
@@ -2265,7 +2264,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 pst.setString(3, dia());
                 pst.setString(4, hora());
                 pst.setString(5, ubicacioninsertar);
-                pst.setString(6, lbidentificadordeprenda.getText());
+                pst.setString(6, lbidentificador.getText());
                 pst.setString(7, lbcantidad.getText());
                 pst.executeUpdate();
                 pst.close();
@@ -3317,7 +3316,7 @@ public class ordencamisa extends javax.swing.JFrame {
         btneditarbordado = new javax.swing.JButton();
         cbsucursal = new javax.swing.JComboBox<>();
         btnverfotomontaje = new javax.swing.JButton();
-        lbidentificadordeprenda = new javax.swing.JLabel();
+        lbidentificador = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         lbcantidad = new javax.swing.JLabel();
         lbfecha = new javax.swing.JLabel();
@@ -3480,9 +3479,9 @@ public class ordencamisa extends javax.swing.JFrame {
             }
         });
 
-        lbidentificadordeprenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lbidentificadordeprenda.setForeground(new java.awt.Color(153, 0, 0));
-        lbidentificadordeprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbidentificador.setForeground(new java.awt.Color(153, 0, 0));
+        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel15.setText("Cantidad");
@@ -3908,7 +3907,7 @@ public class ordencamisa extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbidentificadordeprenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbidentificador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(315, 315, 315)
                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3977,7 +3976,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbidentificadordeprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -5568,7 +5567,7 @@ JOptionPane.showMessageDialog(null, mensaje);
        
       
      //    String SQL = "SELECT imagen,extension_imagen FROM bordados_puntadas where nombre = '"+cliente+"' and tipo = '"+prenda+"' and numero_consecutivo = '"+consecutivobordado+"'  ";
-        String sql = "SELECT imagen,extension_imagen FROM bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificadorotrasucursal+"' and tipo = '"+prenda+"'   ";  ///
+        String sql = "SELECT imagen,extension_imagen FROM bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";  ///
     
     
         try {
@@ -6341,7 +6340,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         bordadosdelclienteeditar.lbidentificador.setText(lbbordacliente.getText());
         bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
         bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
-        bordadosdelclienteeditar.txtidentificadordeprenda.setText(identificadordeprenda);
+        bordadosdelclienteeditar.txtidentificador.setText(identificador);
        
        
            bordadosdelclienteeditar.lbprenda.setText(prendacombo);
@@ -6363,7 +6362,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         colorido ventana =  new colorido();
         colorido.lbcliente.setText(lbcliente.getText());
         colorido.lbcodigo.setText(codigocliente);
-        colorido.lbnombrebordado.setText(lbidentificadordeprenda.getText());
+        colorido.lbnombrebordado.setText(lbidentificador.getText());
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
     }    
@@ -6453,7 +6452,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             FileInputStream input = null;
             try {
 
-                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = '"+lbprenda.getText()+"' and numero_consecutivo = '"+consecutivo+"' ";
+                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and identificador_prenda = '"+identificador+"' and tipo = '"+lbprenda.getText()+"' and numero_consecutivo = '"+consecutivo+"' ";
 
                 myStmt = cn.prepareStatement(sql);
                 File theFile = new File(rutaarchivo);
@@ -6469,7 +6468,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
             try {
-                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"',puntadas_en_fotomontajes ='no' where codigo='"+codigocliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = '"+lbprenda.getText()+"' and numero_consecutivo = '"+consecutivo+"' ");
+                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"',puntadas_en_fotomontajes ='no' where codigo='"+codigocliente+"' and identificador_prenda = '"+identificador+"' and tipo = '"+lbprenda.getText()+"' and numero_consecutivo = '"+consecutivo+"' ");
                 pst.executeUpdate();
                 pst.close();
             } catch (Exception e) {
@@ -6613,7 +6612,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public javax.swing.JLabel lbhilo6;
     public javax.swing.JLabel lbhilo7;
     public static javax.swing.JLabel lbhoraentrega;
-    private javax.swing.JLabel lbidentificadordeprenda;
+    private javax.swing.JLabel lbidentificador;
     private javax.swing.JLabel lbltallas;
     public javax.swing.JLabel lbmangaderecha;
     public static javax.swing.JLabel lbmangaderechanombre;

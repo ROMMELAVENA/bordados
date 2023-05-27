@@ -61,7 +61,7 @@ public class bordadosdelclientecatalogoEditar extends AbstractCellEditor impleme
         bordadosdelclienteeditar.lbcliente.setText(bordadosdelclientecatalogo.cbcomboclientes.getSelectedItem().toString());
         bordadosdelclienteeditar.lbnombrecomercial.setText(bordadosdelclientecatalogo.cbnombrecomercial.getSelectedItem().toString());
         bordadosdelclienteeditar.lbcodigocliente.setText(bordadosdelclientecatalogo.lbcodigocliente.getText());
-        bordadosdelclienteeditar.txtidentificadordeprenda.setText(nombre.toString());
+        bordadosdelclienteeditar.txtidentificador.setText(nombre.toString());
        
        
        if(prenda.equals("CAMISA"))

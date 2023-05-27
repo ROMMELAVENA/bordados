@@ -1473,7 +1473,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
        
         
         codigodelcliente = lbcodigocliente.getText();
-        identificadordeprenda = txtidentificadordeprenda.getText().trim();
+        identificadordeprenda = txtidentificador.getText().trim();
         consecutivo = lbconsecutivo.getText();
         
         prenda = lbprenda.getText();
@@ -1580,7 +1580,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
                         cbhilo7.setSelectedItem(rs.getString("hilo7"));
                         
                         
-                        txtidentificadordeprenda.setText(identificadordeprenda);
+                        txtidentificador.setText(identificadordeprenda);
                        lbidentificadordeprendaanterior.setText(identificadordeprenda);
                         cbpuntadas1.setSelectedItem(pechoizquierdo);
             txt1.setText(pechoizquierdonombre);
@@ -1722,7 +1722,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
                       
                         
                         
-                        txtidentificadordeprenda.setText(identificadordeprenda);
+                        txtidentificador.setText(identificadordeprenda);
                         lbidentificadordeprendaanterior.setText(identificadordeprenda);
                     
                         
@@ -1858,7 +1858,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
                       
                         
                         
-           txtidentificadordeprenda.setText(identificadordeprenda);
+           txtidentificador.setText(identificadordeprenda);
            lbidentificadordeprendaanterior.setText(identificadordeprenda);
            cbpuntadas1.setSelectedItem(pechoizquierdo);
                         
@@ -2500,7 +2500,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
                         cbhilo7.setSelectedItem(rs.getString("hilo7"));
                         
                         
-                        txtidentificadordeprenda.setText(identificadordeprenda);
+                        txtidentificador.setText(identificadordeprenda);
                        lbidentificadordeprendaanterior.setText(identificadordeprenda);
                         cbpuntadas1.setSelectedItem(pechoizquierdo);
             txt1.setText(pechoizquierdonombre);
@@ -3431,7 +3431,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
             if(nombrearticuloactualizar.startsWith("APLICACION"))
         {
              try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET identificador_prenda = '"+txtidentificadordeprenda.getText()+"' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+nombrearticuloactualizar+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET identificador_prenda = '"+txtidentificador.getText()+"' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+nombrearticuloactualizar+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3453,7 +3453,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
        
         
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET identificador_prenda = '"+txtidentificadordeprenda.getText()+"' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+ubicacion.trim()+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET identificador_prenda = '"+txtidentificador.getText()+"' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+ubicacion.trim()+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3477,7 +3477,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
          if(nombrearticuloactualizar.startsWith("APLICACION"))
         {
             try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_COTIZACIONES SET identificador_prenda = '" + txtidentificadordeprenda.getText() + "'  where numero = '" + numerocotizacion + "' and articulo = '"+nombrearticuloactualizar+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_COTIZACIONES SET identificador_prenda = '" + txtidentificador.getText() + "'  where numero = '" + numerocotizacion + "' and articulo = '"+nombrearticuloactualizar+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3497,7 +3497,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         }
         
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_COTIZACIONES SET identificador_prenda = '" + txtidentificadordeprenda.getText() + "'  where numero = '" + numerocotizacion + "' and articulo = '"+ubicacion.trim()+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_COTIZACIONES SET identificador_prenda = '" + txtidentificador.getText() + "'  where numero = '" + numerocotizacion + "' and articulo = '"+ubicacion.trim()+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3738,7 +3738,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         if(existeenelhistorial.equals("si"))
         {
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa SET identificador_prenda = '" + txtidentificadordeprenda.getText().trim() + "' WHERE numero='" +numero+ "' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa SET identificador_prenda = '" + txtidentificador.getText().trim() + "' WHERE numero='" +numero+ "' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3772,7 +3772,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         if(existeenelhistorial.equals("si"))
         {
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_gorra SET identificador_prenda = '" + txtidentificadordeprenda.getText().trim() + "' WHERE numero='" +numero+ "' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_gorra SET identificador_prenda = '" + txtidentificador.getText().trim() + "' WHERE numero='" +numero+ "' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3806,7 +3806,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         if(existeenelhistorial.equals("si"))
         {
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon SET identificador_prenda = '" + txtidentificadordeprenda.getText().trim() + "' WHERE numero='" +numero+ "' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon SET identificador_prenda = '" + txtidentificador.getText().trim() + "' WHERE numero='" +numero+ "' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3841,7 +3841,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         if(existeenelhistorial.equals("si"))
         {
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata SET identificador_prenda = '" + txtidentificadordeprenda.getText().trim() + "' WHERE numero='" +numero+ "' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata SET identificador_prenda = '" + txtidentificador.getText().trim() + "' WHERE numero='" +numero+ "' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3913,7 +3913,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         jLabel58 = new javax.swing.JLabel();
         btndatos = new javax.swing.JButton();
         lbnombrecomercial = new javax.swing.JLabel();
-        txtidentificadordeprenda = new javax.swing.JTextField();
+        txtidentificador = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtcodigocatalogobordados = new javax.swing.JLabel();
         btnimportarfotomontaje = new javax.swing.JButton();
@@ -4497,19 +4497,19 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         lbnombrecomercial.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbnombrecomercial.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        txtidentificadordeprenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        txtidentificadordeprenda.setForeground(new java.awt.Color(153, 0, 0));
-        txtidentificadordeprenda.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtidentificador.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtidentificador.setForeground(new java.awt.Color(153, 0, 0));
+        txtidentificador.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtidentificadordeprendaFocusGained(evt);
+                txtidentificadorFocusGained(evt);
             }
         });
-        txtidentificadordeprenda.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtidentificador.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtidentificadordeprendaKeyPressed(evt);
+                txtidentificadorKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtidentificadordeprendaKeyReleased(evt);
+                txtidentificadorKeyReleased(evt);
             }
         });
 
@@ -5022,7 +5022,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
                                 .addGap(12, 12, 12)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(5, 5, 5)
-                                .addComponent(txtidentificadordeprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33)
                                 .addComponent(lbconsecutivo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(62, 62, 62)
@@ -5075,7 +5075,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
-                        .addComponent(txtidentificadordeprenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(lbconsecutivo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -5312,15 +5312,15 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         pasa = "si";
        
        
-        String nombrebordado = txtidentificadordeprenda.getText().trim();
+        String nombrebordado = txtidentificador.getText().trim();
         
         if( (nombrebordado == null || nombrebordado.equals("") ||nombrebordado.equals(" ")  ||nombrebordado.equals("1")  ||nombrebordado.equals("2") ||nombrebordado.equals("3")||nombrebordado.equals("4")) && actualizarbordado.equals("no") )
         {
          
         pasa = "no";    
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar el IDENTIFICAR DE PRENDA");
-        txtidentificadordeprenda.requestFocus();
-        txtidentificadordeprenda.selectAll();
+        txtidentificador.requestFocus();
+        txtidentificador.selectAll();
             
         }
         else
@@ -5564,8 +5564,8 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
                 pasa = "no";
                 
                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Ya existe un bordado con este nombre,favor de cambiar el nombre");
-                txtidentificadordeprenda.requestFocus();
-                txtidentificadordeprenda.selectAll();
+                txtidentificador.requestFocus();
+                txtidentificador.selectAll();
 
              
             }
@@ -5957,7 +5957,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
                 
                 
                  try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificadordeprenda.getText().trim()+"' WHERE codigo='" + codigodelcliente + "' and AND tipo = '"+prenda+"' AND numero_consecutivo = '"+lbconsecutivo.getText()+"'");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificador.getText().trim()+"' WHERE codigo='" + codigodelcliente + "' and AND tipo = '"+prenda+"' AND numero_consecutivo = '"+lbconsecutivo.getText()+"'");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -5983,7 +5983,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
 
                 pst.setString(1, lbcodigocliente.getText());
                 pst.setString(2, lbcliente.getText());
-                pst.setString(3, txtidentificadordeprenda.getText().trim());
+                pst.setString(3, txtidentificador.getText().trim());
                 pst.setString(4, lbprenda.getText());
                 
                 pst.setString(5, pechoizquierdo.toString());
@@ -6159,7 +6159,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         }
           
          try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificadordeprenda.getText().trim()+"'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificador.getText().trim()+"'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"'   ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -6205,7 +6205,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
 
                 pst.setString(1, lbcodigocliente.getText());
                 pst.setString(2, lbcliente.getText());
-                pst.setString(3, txtidentificadordeprenda.getText().trim());
+                pst.setString(3, txtidentificador.getText().trim());
                 pst.setString(4, lbprenda.getText());
                 
                 pst.setString(5, frentegorra.toString());
@@ -6355,7 +6355,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
              
             
          try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificadordeprenda.getText().trim()+"'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificador.getText().trim()+"'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"'  ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -6399,7 +6399,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
 
                 pst.setString(1, lbcodigocliente.getText());
                 pst.setString(2, lbcliente.getText());
-                pst.setString(3, txtidentificadordeprenda.getText().trim());
+                pst.setString(3, txtidentificador.getText().trim());
                 pst.setString(4, lbprenda.getText());
                 
                 pst.setString(5, ladoizquierdofrentepantalon.toString());
@@ -6479,7 +6479,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         }
         
          try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificadordeprenda.getText().trim()+"' WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificador.getText().trim()+"' WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"'   ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -6514,7 +6514,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
 
                 pst.setString(1, lbcodigocliente.getText());
                 pst.setString(2, lbcliente.getText());
-                pst.setString(3, txtidentificadordeprenda.getText().trim());
+                pst.setString(3, txtidentificador.getText().trim());
                 pst.setString(4, lbprenda.getText());
                 
                 pst.setString(5, frentecorbata.toString());
@@ -6581,7 +6581,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         }
         
          try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificadordeprenda.getText().trim()+"'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificador.getText().trim()+"'WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"'   ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -6618,7 +6618,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
 
                 pst.setString(1, lbcodigocliente.getText());
                 pst.setString(2, lbcliente.getText());
-                pst.setString(3, txtidentificadordeprenda.getText().trim());
+                pst.setString(3, txtidentificador.getText().trim());
                 pst.setString(4, lbprenda.getText());
                 
                 pst.setString(5, parche.toString());
@@ -6771,7 +6771,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
          
         
          try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificadordeprenda.getText().trim()+"' WHERE codigo='" + codigodelcliente + "' and identificador_prenda = '"+nombrebordado+"'  AND tipo = '"+prenda+"' ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET identificador_prenda = '"+txtidentificador.getText().trim()+"' WHERE codigo='" + codigodelcliente + "' and identificador_prenda = '"+nombrebordado+"'  AND tipo = '"+prenda+"' ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -6818,7 +6818,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
 
                 pst.setString(1, lbcodigocliente.getText());
                 pst.setString(2, lbcliente.getText());
-                pst.setString(3, txtidentificadordeprenda.getText().trim());
+                pst.setString(3, txtidentificador.getText().trim());
                 pst.setString(4, lbprenda.getText());
                 
                 pst.setString(5, pechoizquierdochaleco.toString());
@@ -7006,7 +7006,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
 
                 pst.setString(1, lbcodigocliente.getText());
                 pst.setString(2, lbcliente.getText());
-                pst.setString(3, txtidentificadordeprenda.getText().trim());
+                pst.setString(3, txtidentificador.getText().trim());
                 pst.setString(4, lbprenda.getText());
                 
                 pst.setString(5, pechoizquierdomandil.toString());
@@ -7131,7 +7131,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
 
         
     
-        identificadordeprenda = txtidentificadordeprenda.getText();
+        identificadordeprenda = txtidentificador.getText();
         
         if (pasa.equals("si"))
             
@@ -7204,7 +7204,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         String rutadelarchivo = "";
         String existe = "";
         String prenda = lbprenda.getText();
-        String nombre = txtidentificadordeprenda.getText().trim();
+        String nombre = txtidentificador.getText().trim();
         
        String SQL = "SELECT imagen,extension_imagen FROM bordados_puntadas where codigo = '"+codigodelcliente+"' and tipo = '"+prenda+"' and identificador_prenda = '"+nombre+"'  ";
 
@@ -7294,7 +7294,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
    
         String existe = "";
         String prenda = lbprenda.getText();
-        String nombre = txtidentificadordeprenda.getText().trim();
+        String nombre = txtidentificador.getText().trim();
         
         
         int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea Eliminar esta Imagen permanentemente?", null, JOptionPane.YES_NO_OPTION);
@@ -7361,7 +7361,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
        
         String existe = "";
         String codigodelcliente = lbcodigocliente.getText();
-        String conceptoprenda = txtidentificadordeprenda.getText().trim();
+        String conceptoprenda = txtidentificador.getText().trim();
         String tipo = lbprenda.getText();
           
         int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea Eliminar este bordado?", null, JOptionPane.YES_NO_OPTION);
@@ -7412,14 +7412,14 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
       cargarelfotomontaje();
     }//GEN-LAST:event_btndatosActionPerformed
 
-    private void txtidentificadordeprendaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtidentificadordeprendaFocusGained
-       txtidentificadordeprenda.selectAll();
-    }//GEN-LAST:event_txtidentificadordeprendaFocusGained
+    private void txtidentificadorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtidentificadorFocusGained
+       txtidentificador.selectAll();
+    }//GEN-LAST:event_txtidentificadorFocusGained
 
-    private void txtidentificadordeprendaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidentificadordeprendaKeyReleased
+    private void txtidentificadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidentificadorKeyReleased
 
            
-         String nombre = txtidentificadordeprenda.getText();
+         String nombre = txtidentificador.getText();
         
       
          if (nombre.contains("  "))
@@ -7429,11 +7429,11 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         
             
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de no dejar 2 espacios entre las palabras");
-                txtidentificadordeprenda.requestFocus();
-                txtidentificadordeprenda.selectAll();
+                txtidentificador.requestFocus();
+                txtidentificador.selectAll();
                 
                 
-            txtidentificadordeprenda.setText(nombreanterior);    
+            txtidentificador.setText(nombreanterior);    
                 
             
            
@@ -7446,11 +7446,11 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
          {
         
         
-       String cadena = (txtidentificadordeprenda.getText()).toUpperCase();
+       String cadena = (txtidentificador.getText()).toUpperCase();
 
-        int pos = txtidentificadordeprenda.getCaretPosition();
-         txtidentificadordeprenda.setText(txtidentificadordeprenda.getText().toUpperCase());
-         txtidentificadordeprenda.setCaretPosition(pos);
+        int pos = txtidentificador.getCaretPosition();
+         txtidentificador.setText(txtidentificador.getText().toUpperCase());
+         txtidentificador.setCaretPosition(pos);
 
         
      
@@ -7466,7 +7466,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
          
          
      
-    }//GEN-LAST:event_txtidentificadordeprendaKeyReleased
+    }//GEN-LAST:event_txtidentificadorKeyReleased
 
     private void txt1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt1KeyReleased
 
@@ -7862,13 +7862,13 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
       
     }//GEN-LAST:event_txt7KeyReleased
 
-    private void txtidentificadordeprendaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidentificadordeprendaKeyPressed
+    private void txtidentificadorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidentificadorKeyPressed
       
         
-        nombreanterior = txtidentificadordeprenda.getText();
+        nombreanterior = txtidentificador.getText();
         
         
-    }//GEN-LAST:event_txtidentificadordeprendaKeyPressed
+    }//GEN-LAST:event_txtidentificadorKeyPressed
 
     private void txt1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt1KeyPressed
         
@@ -11983,7 +11983,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
 
             PreparedStatement myStmt = null;
             FileInputStream input = null;
-            identificadordeprenda = txtidentificadordeprenda.getText();
+            identificadordeprenda = txtidentificador.getText();
 
             try {
 
@@ -12131,7 +12131,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
     private javax.swing.JTextField txt6;
     private javax.swing.JTextField txt7;
     public static javax.swing.JLabel txtcodigocatalogobordados;
-    public static javax.swing.JTextField txtidentificadordeprenda;
+    public static javax.swing.JTextField txtidentificador;
     // End of variables declaration//GEN-END:variables
 connectar cc = new connectar();
 Connection cn = cc.conexion();

@@ -43,12 +43,16 @@ public class ordendistinta extends javax.swing.JFrame {
     String remanentebordadosstring = "";
     int nuevoremanentebordadosint = 0;
     String nuevoremanentebordadossstring = "";
+    
+     String consecutivo = "";
 
     String bordadosutilizadosstring = "";
     int bordadosutilizadosint = 0;
 
     String nuevosbordadosutilizadosstring = "";
     int nuevosbordadosutilizadosint = 0;
+    
+    String identificador = "";
 
     String primero = "";
     String ultimo = "";
@@ -2426,9 +2430,9 @@ public class ordendistinta extends javax.swing.JFrame {
         lbsumapuntos = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        lbcliente1 = new javax.swing.JLabel();
+        lbnombrecomercial = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        lbcantidad1 = new javax.swing.JLabel();
+        lbidentificador = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lbcolormangaderecha = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -2736,16 +2740,16 @@ public class ordendistinta extends javax.swing.JFrame {
         jLabel19.setText("Nombre comercial");
         jLabel19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcliente1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbcliente1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbnombrecomercial.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbnombrecomercial.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Ubicación");
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcantidad1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lbcantidad1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2998,7 +3002,7 @@ public class ordendistinta extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3023,7 +3027,7 @@ public class ordendistinta extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbcliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(btneliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3050,7 +3054,7 @@ public class ordendistinta extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btneliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbcliente1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbnombrecomercial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3062,7 +3066,7 @@ public class ordendistinta extends javax.swing.JFrame {
                         .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnagregarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btninsertarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -4477,7 +4481,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             bordadosdelclienteeditar.lbidentificador.setText(lbbordacliente.getText());
             bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
             bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
-            bordadosdelclienteeditar.txtidentificadordeprenda.setText(identificadordeprenda);
+            bordadosdelclienteeditar.txtidentificador.setText(identificador);
 
             bordadosdelclienteeditar.lbprenda.setText("PANTALON");
 
@@ -4624,9 +4628,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JSeparator jSeparator3;
     public static javax.swing.JLabel lbbordacliente;
     public static javax.swing.JLabel lbcantidad;
-    public static javax.swing.JLabel lbcantidad1;
     public static javax.swing.JLabel lbcliente;
-    public static javax.swing.JLabel lbcliente1;
     public javax.swing.JLabel lbcodigoespalda;
     public javax.swing.JLabel lbcodigomangaderecha;
     public javax.swing.JLabel lbcodigomangaizquierda;
@@ -4657,8 +4659,10 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbdistinta7nombre;
     public static javax.swing.JLabel lbfecha;
     public static javax.swing.JLabel lbfolio;
+    public static javax.swing.JLabel lbidentificador;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lbltallas;
+    public static javax.swing.JLabel lbnombrecomercial;
     private javax.swing.JLabel lbnombreconcepto;
     public static javax.swing.JLabel lbnumero;
     public static javax.swing.JLabel lbnumeroventa;

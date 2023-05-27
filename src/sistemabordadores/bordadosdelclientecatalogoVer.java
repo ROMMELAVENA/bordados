@@ -117,7 +117,7 @@ public class bordadosdelclientecatalogoVer extends AbstractCellEditor implements
         bordadosdelclienteeditar.lbcliente.setText(bordadosdelclienteeditar.lbcliente.getText());
         bordadosdelclienteeditar.lbnombrecomercial.setText(bordadosdelclienteeditar.lbnombrecomercial.getText());
         bordadosdelclienteeditar.lbcodigocliente.setText(bordadosdelclienteeditar.lbcodigocliente.getText());
-        bordadosdelclienteeditar.txtidentificadordeprenda.setText(nombrebordado.toString());
+        bordadosdelclienteeditar.txtidentificador.setText(nombrebordado.toString());
         bordadosdelclienteeditar.txtcodigocatalogobordados.setText(numeroconsecutivo.toString());
         
               if (prendacombo.equals("TODOS")) {

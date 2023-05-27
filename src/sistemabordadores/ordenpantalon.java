@@ -60,7 +60,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     
     String numeropedido = "";
     String tiendaalaqueselesolicito = "";
-    String lugardondesebordara = "";
+    String lugar = "";
     
     ///
     String ubicacioninsertar = "";
@@ -87,9 +87,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     String terminetodo ="";
     ArrayList<String> listabotones = new ArrayList<String>();
     String nombredelatabla ="";
-    String tiendaenvia = "";
-    
-    
+ 
     String identificadordeprenda = "";
     String consecutivo = "";
     String tieneunaobservacion = ""; 
@@ -217,7 +215,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 ladoderechoatrasnombre = rs.getString("lado_derecho_atras");
                 identificadordeprenda = rs.getString("identificador_prenda");
                 lbidentificadordeprenda.setText(identificadordeprenda);
-                lugardondesebordara = rs.getString("lugar");
+                lugar = rs.getString("lugar");
                 lbcantidad.setText(rs.getString("cantidad"));
                 
                         
@@ -309,7 +307,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
               
                 
-                if(lugardondesebordara.equals("Esta sucursal"))
+                if(lugar.equals("Esta sucursal"))
                 {
                     
                   
@@ -508,7 +506,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         btnverfotomontaje.setEnabled(false);
         
         
-        if (tiendaenvia.equals(tiendalocal))
+        if (sucursal.equals(tiendalocal))
             
         {
             
@@ -1180,7 +1178,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 prenda = rs.getString("prenda");
                 numerosucursal = rs.getString("numero_sucursal_orden");
                 lbnumerosucursal.setText(numerosucursal);
-                tiendaenvia=rs.getString("tienda");
+                sucursal=rs.getString("tienda");
                 
                 ladoizquierdofrentenombre = rs.getString("lado_izquierdo_frente");
                 ladoderechofrentenombre = rs.getString("lado_derecho_frente");
@@ -1254,10 +1252,10 @@ public class ordenpantalon extends javax.swing.JFrame {
                 }
                 
                 
-                lugardondesebordara = rs.getString("lugar");
+                lugar = rs.getString("lugar");
                 lbcantidad.setText(rs.getString("cantidad"));
                 
-                if(lugardondesebordara.equals("Esta sucursal"))
+                if(lugar.equals("Esta sucursal"))
                 {
                     
                   
@@ -1344,7 +1342,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
        
          
-            con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tiendaenvia + "", "root", "sistemas");
+            con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
       
 
         String sql7 = "Select cliente,lugar,identificador_prenda from historial_ordenes_pantalon where numero = '" + numerosucursal + "' ";
@@ -1472,9 +1470,6 @@ public class ordenpantalon extends javax.swing.JFrame {
      
      
      
-     String tienda =tiendaenvia;
-     
-     
      try {
             
             Class.forName("com.mysql.jdbc.Driver");
@@ -1485,7 +1480,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 
                 
-                String sql = "SELECT ip FROM catalogo_tiendas where tienda = '" + tienda + "'";
+                String sql = "SELECT ip FROM catalogo_tiendas where tienda = '" + sucursal + "'";
 
                 Statement st = cn.prepareStatement(sql);
                 ResultSet rs = st.executeQuery(sql);
@@ -1519,7 +1514,7 @@ public class ordenpantalon extends javax.swing.JFrame {
        
         InetAddress ping;
 
-        if (tienda == null || tienda.equals("Seleccione Tienda")) 
+        if (sucursal == null || sucursal.equals("Seleccione Tienda")) 
         {
             
               JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
@@ -1839,7 +1834,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
  
                 pst.setString(1, lbnumeroventa.getText());
-                pst.setString(2, tiendaenvia);
+                pst.setString(2, sucursal);
                 pst.setString(3, dia());
                 pst.setString(4, hora());
                 pst.setString(5, ubicacioninsertar);
@@ -1874,7 +1869,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
  
                  pst.setString(1,lbnumeroventa.getText());
-                pst.setString(2, tiendaenvia);
+                pst.setString(2, sucursal);
                 pst.setString(3, dia());
                 pst.setString(4, hora());
                 pst.setString(5, ubicacioninsertar);
@@ -3441,7 +3436,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         else
         {
         
-        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             
              if (btnladoizquierdofrente.getText().equals("Cancelar")) 
@@ -3478,7 +3473,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
              
         }      
-        else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
+        else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
         
@@ -3496,7 +3491,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         }
         
-        else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+        else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
             
             int respuesta = JOptionPane.showOptionDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea descargar el ponchado o ponerla como realizada???", "Selector de opciones", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Descargar Ponchado", "Poner como realizado"}, "Descargar Ponchado");
@@ -3547,7 +3542,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
         
         
-        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             
              if (btnladoizquierdoatras.getText().equals("Cancelar")) 
@@ -3581,7 +3576,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             estacompletalaorden();
         }    
         }
-         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
+         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
         JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
@@ -3598,7 +3593,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         }
        
-         else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
             
             int respuesta = JOptionPane.showOptionDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea descargar el ponchado o ponerla como realizada???", "Selector de opciones", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Descargar Ponchado", "Poner como realizado"}, "Descargar Ponchado");
@@ -3650,7 +3645,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         else
         {
         
-         if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+         if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
 
         if (btnladoderechoatras.getText().equals("Cancelar")) 
@@ -3685,7 +3680,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         
         }
-        else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
+        else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
         JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
@@ -3701,7 +3696,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         
         }
-       else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+       else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
             
             int respuesta = JOptionPane.showOptionDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea descargar el ponchado o ponerla como realizada???", "Selector de opciones", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Descargar Ponchado", "Poner como realizado"}, "Descargar Ponchado");
@@ -3751,7 +3746,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         else
         {
         
-         if(lugardondesebordara.equals("Esta sucursal")  && tipotabla.equals("Local"))
+         if(lugar.equals("Esta sucursal")  && tipotabla.equals("Local"))
          {
              
           
@@ -3787,7 +3782,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         
         }
-        else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local"))
+        else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
         JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
@@ -3803,7 +3798,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         
         }
-          else if(lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+          else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
             
             int respuesta = JOptionPane.showOptionDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea descargar el ponchado o ponerla como realizada???", "Selector de opciones", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Descargar Ponchado", "Poner como realizado"}, "Descargar Ponchado");

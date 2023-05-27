@@ -36,7 +36,7 @@ public class ordencorbata extends javax.swing.JFrame {
 
     String primero = "";
     String ultimo = "";
-    String lugardondesebordara = "";
+    String lugar = "";
     
 
     String frentenombre = "";
@@ -145,7 +145,7 @@ public class ordencorbata extends javax.swing.JFrame {
                 }
 
                 lblugar.setText(rs.getString("lugar"));
-                lugardondesebordara =rs.getString("lugar");
+                lugar =rs.getString("lugar");
 
             }
 
@@ -1234,7 +1234,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_formWindowOpened
 
     private void btnfrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteActionPerformed
-       if(lugardondesebordara.equals("Esta sucursal"))
+       if(lugar.equals("Esta sucursal"))
         {
            String ubicacion = "cantidad_frente";
             actualizarlascantidadesbordadas((String) ubicacion); 

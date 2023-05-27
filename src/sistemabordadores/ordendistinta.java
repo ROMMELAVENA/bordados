@@ -66,7 +66,7 @@ public class ordendistinta extends javax.swing.JFrame {
     String tiendaordenenvio = "";
     String tiendalocal = "";
     String codigocliente = "";
-    String lugardondesebordara = "";
+    String lugar = "";
     String prenda ="";
     
     
@@ -135,7 +135,7 @@ public class ordendistinta extends javax.swing.JFrame {
     public static String enquesucursalsebordara ="";
     public static String tipotabla ="";
     String nombredelatabla ="";
-    String tiendaenvia = "";
+   
     String terminetodo = "";
     String tienefotomontaje = "";
     String tieneunaobservacion = "";
@@ -399,12 +399,12 @@ public class ordendistinta extends javax.swing.JFrame {
                 lbcantidad.setText(rs.getString("cantidad"));
                 String nombreconcepto = rs.getString("identificador_prenda");
                 lbnombreconcepto.setText(nombreconcepto);  
-                lugardondesebordara = rs.getString("lugar");
+                lugar = rs.getString("lugar");
                 
                 
                 
                 
-                if(lugardondesebordara.equals("Esta sucursal"))
+                if(lugar.equals("Esta sucursal"))
                 {
                 
                     
@@ -1303,7 +1303,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
  
                 pst.setString(1, lbnumero.getText());
-                pst.setString(2, tiendaenvia);
+                pst.setString(2, sucursal);
                 pst.setString(3, dia());
                 pst.setString(4, hora());
                 pst.setString(5, ubicacioninsertar);
@@ -1338,7 +1338,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
  
                  pst.setString(1, lbnumero.getText());
-                pst.setString(2, tiendaenvia);
+                pst.setString(2, sucursal);
                 pst.setString(3, dia());
                 pst.setString(4, hora());
                 pst.setString(5, ubicacioninsertar);
@@ -3373,7 +3373,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
          
-        else if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        else if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
 
             String ubicacion = "distinta2_cantidad";
@@ -3403,7 +3403,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
          
-        else if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        else if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
 
             String ubicacion = "distinta4_cantidad";
@@ -3432,7 +3432,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
          
-        else if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        else if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
 
             String ubicacion = "distinta5_cantidad";
@@ -3461,7 +3461,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
          
-        else if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        else if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
 
             String ubicacion = "distinta3_cantidad";
@@ -3490,7 +3490,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
          
-        else if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        else if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
 
             String ubicacion = "distinta1_cantidad";
@@ -3981,7 +3981,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
          
-        else if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        else if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
 
             String ubicacion = "distinta6_cantidad";
@@ -4010,7 +4010,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
          
-        else if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        else if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
 
             String ubicacion = "distinta7_cantidad";
@@ -4035,10 +4035,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (evt.getClickCount() == 2) 
         {
 
-            if (lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Local")) 
+            if (lugar.equals("Otra sucursal") && tipotabla.equals("Local")) 
             {
             }
-            else if (lugardondesebordara.equals("Otra sucursal") && tipotabla.equals("Recibida")) 
+            else if (lugar.equals("Otra sucursal") && tipotabla.equals("Recibida")) 
             {
             }
             else 
@@ -4223,7 +4223,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {   
         
         
-     if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+     if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
 
             String ubicacion = "distinta1_cantidad";
@@ -4259,7 +4259,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado?", "WARNING",
      JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) { 
         
-        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
         
             String ubicacion = "distinta2_cantidad";
@@ -4291,7 +4291,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado?", "WARNING",
      JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) { 
         
-        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "distinta3_cantidad";
             String nombrebordado =distinta3nombre;
@@ -4324,7 +4324,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado?", "WARNING",
      JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) { 
         
-        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             
            String ubicacion = "distinta4_cantidad";
@@ -4358,7 +4358,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado?", "WARNING",
      JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) { 
         
-        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "distinta5_cantidad";
             String nombrebordado =distinta5nombre;
@@ -4388,7 +4388,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado?", "WARNING",
      JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) { 
         
-        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "distinta6_cantidad";
             String nombrebordado = distinta6nombre;
@@ -4419,7 +4419,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado?", "WARNING",
      JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) { 
         
-        if(lugardondesebordara.equals("Esta sucursal") && tipotabla.equals("Local"))
+        if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "distinta7_cantidad";
             String nombrebordado = distinta7nombre;

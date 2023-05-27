@@ -73,13 +73,13 @@ public class ingresotienda extends javax.swing.JFrame {
                     btnentrar.setEnabled(true);
                     
                     
-         //           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">ip tijuna = '"+iptraspaso+"'");
+                  
                      System.out.println(iptraspaso);
                     
                     
                     if (iptraspaso.equals(""))
                     {
-         //               JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Concectado a Tijuana"); 
+                      
                         iptraspaso = "iptraspaso";
                         
                     }

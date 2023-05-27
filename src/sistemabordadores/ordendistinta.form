@@ -193,7 +193,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="lbnombrecomercial" min="-2" pref="422" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btneliminar1" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Component id="btneditarbordado" min="-2" pref="140" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnsalir" min="-2" pref="94" max="-2" attributes="0"/>
                           </Group>
@@ -209,8 +209,7 @@
                               <Component id="lbcantidad" min="-2" pref="84" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="598" max="-2" attributes="0"/>
                               <Component id="btneliminar" min="-2" pref="205" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btninsertarponchados" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -239,7 +238,7 @@
                   <Component id="lbcliente" min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnsalir" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="btneliminar1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btneditarbordado" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <Component id="lbnombrecomercial" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel19" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
@@ -249,10 +248,7 @@
                   <Component id="lbprenda" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbtitulo" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbcantidad" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="btneliminar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="btninsertarponchados" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="btneliminar" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbidentificador" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel15" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
@@ -816,17 +812,6 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="btninsertarponchados">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Replicar Fotomontajes y Ponchados"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btninsertarponchadosActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbtipo">
       <Properties>
@@ -1534,7 +1519,7 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cancelar7MouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btneliminar1">
+    <Component class="javax.swing.JButton" name="btneditarbordado">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1542,7 +1527,7 @@
         <Property name="text" type="java.lang.String" value="Editar bordado"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneliminar1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneditarbordadoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbdistinta2">

@@ -235,7 +235,7 @@ public class colorido extends javax.swing.JFrame {
         
         actualizarbordado ="no";
         
-        String sql = "SELECT color1,color2,color3,color4,color5,color6,color7,color8,color9,color10,color11,color12,color13,color14,color15,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,hilo8,hilo9,hilo10,hilo11,hilo12,hilo13,hilo14,hilo15 FROM colorido_bordados where identificador_prenda = '"+lbnombrebordado.getText()+"' and codigo = '"+lbcodigo.getText()+"' AND nombre = '"+lbcliente.getText()+"' ";
+        String sql = "SELECT color1,color2,color3,color4,color5,color6,color7,color8,color9,color10,color11,color12,color13,color14,color15,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,hilo8,hilo9,hilo10,hilo11,hilo12,hilo13,hilo14,hilo15 FROM colorido_bordados where identificador_prenda = '"+lbidentificador.getText()+"' and codigo = '"+lbcodigo.getText()+"' AND nombre = '"+lbcliente.getText()+"' ";
 
 
             try {
@@ -334,7 +334,7 @@ public class colorido extends javax.swing.JFrame {
         lbcolor15 = new javax.swing.JLabel();
         lbcliente = new javax.swing.JLabel();
         lbcodigo = new javax.swing.JLabel();
-        lbnombrebordado = new javax.swing.JLabel();
+        lbidentificador = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -604,13 +604,13 @@ public class colorido extends javax.swing.JFrame {
         lbcolor15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbcliente.setText("lbcliente");
+        lbcliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcodigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbcodigo.setText("lbcodigo");
 
-        lbnombrebordado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbnombrebordado.setText("lbnombrebordado");
+        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Guardar");
@@ -633,28 +633,27 @@ public class colorido extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbnombrebordado, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(lbcodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cbhilo1, 0, 102, Short.MAX_VALUE)
-                                        .addComponent(cbhilo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbhilo3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbhilo4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbhilo5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbhilo6, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbhilo7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbhilo8, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbhilo9, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbhilo10, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbhilo11, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbhilo12, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbhilo13, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbhilo14, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbhilo15, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jLabel60, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbhilo1, javax.swing.GroupLayout.Alignment.LEADING, 0, 102, Short.MAX_VALUE)
+                                    .addComponent(cbhilo2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbhilo3, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbhilo4, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbhilo5, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbhilo6, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbhilo7, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbhilo8, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbhilo9, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbhilo10, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbhilo11, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbhilo12, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbhilo13, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbhilo14, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbhilo15, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
@@ -693,7 +692,7 @@ public class colorido extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbnombrebordado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
@@ -2042,7 +2041,7 @@ public class colorido extends javax.swing.JFrame {
                   //// Colores e hilos
                 
                    try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE colorido_bordados SET color1= '" + color1+ "', color2='" + color2 + "',color3='" + color3 + "',color4='" + color4 + "',color5='" + color5 + "',color6='" + color6 + "' ,color7='" + color7 + "' ,color8='" + color8 + "',color9 ='" + color9 + "',color10 ='" +color10+ "',color11 ='" +color11+ "',color12 ='"+color12+"',color13 ='" +color13+ "' ,color14 ='" +color14+ "',color15 ='" +color15+ "'  WHERE codigo='"+lbcodigo.getText()+"' and  nombre = '"+lbcliente.getText()+"' AND identificador_prenda = '"+lbnombrebordado.getText()+"' ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE colorido_bordados SET color1= '" + color1+ "', color2='" + color2 + "',color3='" + color3 + "',color4='" + color4 + "',color5='" + color5 + "',color6='" + color6 + "' ,color7='" + color7 + "' ,color8='" + color8 + "',color9 ='" + color9 + "',color10 ='" +color10+ "',color11 ='" +color11+ "',color12 ='"+color12+"',color13 ='" +color13+ "' ,color14 ='" +color14+ "',color15 ='" +color15+ "'  WHERE codigo='"+lbcodigo.getText()+"' and  nombre = '"+lbcliente.getText()+"' AND identificador_prenda = '"+lbidentificador.getText()+"' ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -2050,7 +2049,7 @@ public class colorido extends javax.swing.JFrame {
                 }
                 
                  try {
-                    PreparedStatement pst = cn.prepareStatement("UPDATE colorido_bordados SET hilo1= '" + hilo1+ "', hilo2='" + hilo2 + "',hilo3='" + hilo3 + "',hilo4='" + hilo4 + "',hilo5='" + hilo5 + "',hilo6='" + hilo6 + "' ,hilo7='" + hilo7 + "' ,hilo8='" + hilo8 + "',hilo9 ='" + hilo9 + "',hilo10 ='" +hilo10+ "',hilo11 ='" +hilo11+ "',hilo12 ='"+hilo12+"',hilo13 ='" +hilo13+ "' ,hilo14 ='" +hilo14+ "',hilo15 ='" +hilo15+ "'  WHERE codigo='"+lbcodigo.getText()+"' and nombre = '"+lbcliente.getText()+"' AND identificador_prenda = '"+lbnombrebordado.getText()+"'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE colorido_bordados SET hilo1= '" + hilo1+ "', hilo2='" + hilo2 + "',hilo3='" + hilo3 + "',hilo4='" + hilo4 + "',hilo5='" + hilo5 + "',hilo6='" + hilo6 + "' ,hilo7='" + hilo7 + "' ,hilo8='" + hilo8 + "',hilo9 ='" + hilo9 + "',hilo10 ='" +hilo10+ "',hilo11 ='" +hilo11+ "',hilo12 ='"+hilo12+"',hilo13 ='" +hilo13+ "' ,hilo14 ='" +hilo14+ "',hilo15 ='" +hilo15+ "'  WHERE codigo='"+lbcodigo.getText()+"' and nombre = '"+lbcliente.getText()+"' AND identificador_prenda = '"+lbidentificador.getText()+"'   ");
                     pst.executeUpdate();
                     pst.close();
                 } catch (Exception e) {
@@ -2076,7 +2075,7 @@ public class colorido extends javax.swing.JFrame {
 
                 pst.setString(1, lbcodigo.getText());
                 pst.setString(2, lbcliente.getText());
-                pst.setString(3, lbnombrebordado.getText().trim());
+                pst.setString(3, lbidentificador.getText().trim());
 
                 pst.setString(4, color1.toString());
                 pst.setString(5, color2.toString());
@@ -2219,7 +2218,7 @@ public class colorido extends javax.swing.JFrame {
     public javax.swing.JLabel lbcolor7;
     public javax.swing.JLabel lbcolor8;
     public javax.swing.JLabel lbcolor9;
-    public static javax.swing.JLabel lbnombrebordado;
+    public static javax.swing.JLabel lbidentificador;
     // End of variables declaration//GEN-END:variables
 
     connectar cc = new connectar();

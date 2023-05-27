@@ -99,7 +99,7 @@ public class bordadosdelclientecatalogoVer extends AbstractCellEditor implements
         else
         {
    
-              if (bordadosdelclienteeditar.ventanabordadosdelclienteeditar) 
+              if (bordadoseditar.ventanabordadosdelclienteeditar) 
               
           {
           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados del cliente editar ya est� abierta");
@@ -111,22 +111,22 @@ public class bordadosdelclientecatalogoVer extends AbstractCellEditor implements
               
           
            
-        bordadosdelclienteeditar ventana = new bordadosdelclienteeditar();
+        bordadoseditar ventana = new bordadoseditar();
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
-        bordadosdelclienteeditar.lbcliente.setText(bordadosdelclienteeditar.lbcliente.getText());
-        bordadosdelclienteeditar.lbnombrecomercial.setText(bordadosdelclienteeditar.lbnombrecomercial.getText());
-        bordadosdelclienteeditar.lbcodigocliente.setText(bordadosdelclienteeditar.lbcodigocliente.getText());
-        bordadosdelclienteeditar.txtidentificador.setText(nombrebordado.toString());
-        bordadosdelclienteeditar.txtcodigocatalogobordados.setText(numeroconsecutivo.toString());
+        bordadoseditar.lbcliente.setText(bordadoseditar.lbcliente.getText());
+        bordadoseditar.lbnombrecomercial.setText(bordadoseditar.lbnombrecomercial.getText());
+        bordadoseditar.lbcodigocliente.setText(bordadoseditar.lbcodigocliente.getText());
+        bordadoseditar.txtidentificador.setText(nombrebordado.toString());
+        bordadoseditar.txtcodigocatalogobordados.setText(numeroconsecutivo.toString());
         
               if (prendacombo.equals("TODOS")) {
-                  bordadosdelclienteeditar.lbprenda.setText(prendatabla.toString());
+                  bordadoseditar.lbprenda.setText(prendatabla.toString());
 
               }
               else
               {
-                  bordadosdelclienteeditar.lbprenda.setText(prendacombo.toString());
+                  bordadoseditar.lbprenda.setText(prendacombo.toString());
               }   
       
        

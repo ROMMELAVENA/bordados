@@ -2665,7 +2665,7 @@ public class ordengorra extends javax.swing.JFrame {
         lbcodigoatras = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         lbidentificador = new javax.swing.JLabel();
-        btneliminar = new javax.swing.JButton();
+        btneditarbordado = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -2907,11 +2907,11 @@ public class ordengorra extends javax.swing.JFrame {
         lbidentificador.setForeground(new java.awt.Color(153, 0, 0));
         lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btneliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btneliminar.setText("Editar bordado");
-        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+        btneditarbordado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btneditarbordado.setText("Editar bordado");
+        btneditarbordado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneliminarActionPerformed(evt);
+                btneditarbordadoActionPerformed(evt);
             }
         });
 
@@ -3009,7 +3009,7 @@ public class ordengorra extends javax.swing.JFrame {
                         .addGap(7, 7, 7)
                         .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(5, 5, 5)
-                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btneditarbordado, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
                         .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -3167,7 +3167,7 @@ public class ordengorra extends javax.swing.JFrame {
                             .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btneditarbordado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3186,7 +3186,6 @@ public class ordengorra extends javax.swing.JFrame {
                             .addComponent(btnfotomontajesinpuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3259,8 +3258,9 @@ public class ordengorra extends javax.swing.JFrame {
                             .addComponent(lbrutaimagen, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbrutaatras, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbrutafrente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbrutaladoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(13, 13, 13)
+                            .addComponent(lbrutaladoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 749, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4293,10 +4293,10 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     }//GEN-LAST:event_btnterminetodoActionPerformed
 
-    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+    private void btneditarbordadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarbordadoActionPerformed
 
       
-        if (bordadosdelclienteeditar.ventanabordadosdelclienteeditar)
+        if (bordadoseditar.ventanabordadosdelclienteeditar)
 
         {
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados de cliente ya está abierta");
@@ -4305,22 +4305,24 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         {
 
-            bordadosdelclienteeditar ventana = new bordadosdelclienteeditar();
+            bordadoseditar ventana = new bordadoseditar();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
 
-            bordadosdelclienteeditar.lbcliente.setText(lbcliente.getText());
-            bordadosdelclienteeditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
-            bordadosdelclienteeditar.lbidentificador.setText(lbbordacliente.getText());
-            bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
-            bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
-            bordadosdelclienteeditar.txtidentificador.setText(identificador);
-
-            bordadosdelclienteeditar.lbprenda.setText("GORRA");
+           bordadoseditar.lbcliente.setText(lbcliente.getText());
+        bordadoseditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
+        bordadoseditar.lbbordacliente.setText(lbbordacliente.getText());
+        bordadoseditar.txtidentificador.setText(lbidentificador.getText());
+        bordadoseditar.lbcodigocliente.setText(codigocliente);
+        bordadoseditar.lbconsecutivo.setText(consecutivo);
+       
+       
+       
+           bordadoseditar.lbprenda.setText(prenda);
 
         }
 
-    }//GEN-LAST:event_btneliminarActionPerformed
+    }//GEN-LAST:event_btneditarbordadoActionPerformed
 
     private void btnvercoloridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvercoloridoActionPerformed
 
@@ -4331,9 +4333,12 @@ JOptionPane.showMessageDialog(null, mensaje);
         else
         {
             colorido ventana =  new colorido();
+            
             colorido.lbcliente.setText(lbcliente.getText());
             colorido.lbcodigo.setText(codigocliente);
-            colorido.lbnombrebordado.setText(lbidentificador.getText());
+            colorido.lbidentificador.setText(lbidentificador.getText());
+           
+            
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
         }
@@ -4560,7 +4565,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnatras;
     private javax.swing.JButton btndatos;
-    private javax.swing.JButton btneliminar;
+    private javax.swing.JButton btneditarbordado;
     private javax.swing.JButton btnfotomontajesinpuntadas;
     private javax.swing.JButton btnfrente;
     private javax.swing.JButton btnladoderecho;

@@ -422,8 +422,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 if(lugar.equals("Esta sucursal"))
                 {
                 
-                    
-                    btninsertarponchados.setEnabled(false);
+                
                     cbsucursal.setEnabled(false);
                 
                 
@@ -572,7 +571,6 @@ public class ordendistinta extends javax.swing.JFrame {
                 else
                 {
                     
-                    btninsertarponchados.setEnabled(true);
                     cbsucursal.setEnabled(true);
                     
                 }
@@ -1882,8 +1880,6 @@ public class ordendistinta extends javax.swing.JFrame {
                 if(lugar.equals("Esta sucursal"))
                 {
                 
-                    
-                    btninsertarponchados.setEnabled(false);
                     cbsucursal.setEnabled(false);
                 
                 
@@ -2032,7 +2028,6 @@ public class ordendistinta extends javax.swing.JFrame {
                 else
                 {
                     
-                    btninsertarponchados.setEnabled(true);
                     cbsucursal.setEnabled(true);
                     
                 }
@@ -3159,7 +3154,6 @@ public class ordendistinta extends javax.swing.JFrame {
         lbcliente = new javax.swing.JLabel();
         lbprenda = new javax.swing.JLabel();
         lbnumeroventa = new javax.swing.JLabel();
-        btninsertarponchados = new javax.swing.JButton();
         lbtipo = new javax.swing.JLabel();
         lbnumero = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -3215,7 +3209,7 @@ public class ordendistinta extends javax.swing.JFrame {
         cancelar5 = new javax.swing.JLabel();
         cancelar6 = new javax.swing.JLabel();
         cancelar7 = new javax.swing.JLabel();
-        btneliminar1 = new javax.swing.JButton();
+        btneditarbordado = new javax.swing.JButton();
         lbdistinta2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -3348,14 +3342,6 @@ public class ordendistinta extends javax.swing.JFrame {
         });
 
         lbnumeroventa.setText("00000000");
-
-        btninsertarponchados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btninsertarponchados.setText("Replicar Fotomontajes y Ponchados");
-        btninsertarponchados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btninsertarponchadosActionPerformed(evt);
-            }
-        });
 
         lbtipo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -3617,11 +3603,11 @@ public class ordendistinta extends javax.swing.JFrame {
             }
         });
 
-        btneliminar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btneliminar1.setText("Editar bordado");
-        btneliminar1.addActionListener(new java.awt.event.ActionListener() {
+        btneditarbordado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btneditarbordado.setText("Editar bordado");
+        btneditarbordado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneliminar1ActionPerformed(evt);
+                btneditarbordadoActionPerformed(evt);
             }
         });
 
@@ -3759,7 +3745,7 @@ public class ordendistinta extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btneliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btneditarbordado, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -3774,8 +3760,7 @@ public class ordendistinta extends javax.swing.JFrame {
                                 .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(598, 598, 598)
                                 .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btninsertarponchados)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -3797,7 +3782,7 @@ public class ordendistinta extends javax.swing.JFrame {
                     .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btneliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btneditarbordado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lbnombrecomercial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3805,9 +3790,7 @@ public class ordendistinta extends javax.swing.JFrame {
                     .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btninsertarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4280,370 +4263,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         
     }//GEN-LAST:event_btndistinta1ActionPerformed
 
-    private void btninsertarponchadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninsertarponchadosActionPerformed
-       
-        
-       Object sucursalreplica =  cbsucursal.getSelectedItem();
-        
-
-        String tipo = lbtipo.getText();
-        String numerosucursal = lbnumero.getText();
-        String prenda = lbprenda.getText();
-
-        String path = "";
-        Object tiendaalaquesereplicara = cbsucursal.getSelectedItem();
-        String stringIP = "";
-        String stringlocal = "";
-        String stringBDlocal = "";
-
-        String nombrearchivo1 = "";
-        String nombrearchivo2 = "";
-        String nombrearchivo3 = "";
-        String nombrearchivo4 = "";
-        String nombrearchivo5 = "";
-        String nombrearchivo6 = "";
-        
-        
-        if(!sucursalreplica.equals("ninguna"))
-       
-        { 
-
-        File file = new File("C:\\sistema\\configuracion.txt");
-        try {
-            Scanner sc = new Scanner(file);
-            while (sc.hasNext()) {
-                String line = sc.nextLine();
-                String str[] = line.split(":");
-                stringBDlocal = str[1];
-                
-            }
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-
-        if (tiendaalaquesereplicara.equals("cdmxcentro")) {
-            path = "C:\\sistema\\cdmxcentro.txt";
-        } else if (tiendaalaquesereplicara.equals("cdmxsur")) {
-            path = "C:\\sistema\\cdmxsur.txt";
-        } else if (tiendaalaquesereplicara.equals("guadalajara")) {
-            path = "C:\\sistema\\guadalajara.txt";
-        } else if (tiendaalaquesereplicara.equals("monterrey")) {
-            path = "C:\\sistema\\monterrey.txt";
-        } else {
-            if (tiendaalaquesereplicara.equals("tijuana")) {
-                path = "C:\\sistema\\tijuana.txt";
-            }
-        }
-
-        File file1 = new File(path);
-        try {
-            Scanner sc = new Scanner(file1);
-            while (sc.hasNext()) {
-                String line = sc.nextLine();
-                String str[] = line.split(":");
-                stringIP = str[0];
-                stringlocal = str[1];
-            }
-        } catch (IOException e) {
-            
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
-        }
-
-        Connection conn = null;
-
-        iptraspaso = stringIP;
-        sucursal = stringlocal;
-
-        FileInputStream input = null;
-        FileInputStream input2 = null;
-        FileInputStream input3 = null;
-        FileInputStream input4 = null;
-        FileInputStream input5 = null;
-        FileInputStream input6 = null;
-
-        String extensionponchado1 = "", extensionponchado2 = "", extensionponchado3 = "", extensionponchado4 = "", extensionponchado5 = "";
-
-        //ponchado1
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
-
-            //primerponchado   
-            Object ponchado1 = rutamangaizquierda;
-            if (ponchado1 == null || ponchado1.equals("")) 
-            {
-
-            } else {
-                try {
-                    String filePath = rutamangaizquierda;
-                    File archivo = new File(filePath);
-                    nombrearchivo1 = archivo.getName();
-                    input = new FileInputStream(new File(filePath));
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set manga_izquierda_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input);
-                    traspaso = modificar.executeUpdate();
-
-                } catch (Exception e) {
-                   
-                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set manga_izquierda_ponchado_nombre='" + nombrearchivo1 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
-                }
-            }
-
-            ///ponchado2
-            Object ponchado2 = rutapechoizquierdo;
-            if (ponchado2 == null || ponchado2.equals("") || ponchado2.equals(" ")) {
-
-            } else {
-                try {
-                    String filePath2 = rutapechoizquierdo;
-                    File archivo2 = new File(filePath2);
-                    nombrearchivo2 = archivo2.getName();
-                    input2 = new FileInputStream(new File(filePath2));
-                } catch (FileNotFoundException ex) {
-                   
-                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set pecho_izquierdo_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input2);
-                    traspaso = modificar.executeUpdate();
-
-
-                } catch (Exception e) {
-                   
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
-
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set pecho_izquierdo_ponchado_nombre='" + nombrearchivo2 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                   
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
-                }
-
-            }
-
-            ///ponchado3
-            Object ponchado3 = rutaespalda;
-            if (ponchado3 == null || ponchado3.equals("") || ponchado3.equals(" ")) {
-
-            } else {
-                try {
-                    String filePath3 = rutaespalda;
-                    File archivo3 = new File(filePath3);
-                    nombrearchivo3 = archivo3.getName();
-                    input3 = new FileInputStream(new File(filePath3));
-                } catch (FileNotFoundException ex) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set espalda_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input3);
-                    traspaso = modificar.executeUpdate();
-
-
-                } catch (Exception e) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set espalda_ponchado_nombre='" + nombrearchivo3 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                   
-                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
-                }
-            }
-
-            //ponchado 4
-            Object ponchado4 = rutamangaderecha;
-
-            if (ponchado4 == null || ponchado4.equals("") || ponchado4.equals(" ")) {
-
-            } else {
-                try {
-                    String filePath4 = rutamangaderecha;
-                    File archivo4 = new File(filePath4);
-                    nombrearchivo4 = archivo4.getName();
-                    input4 = new FileInputStream(new File(filePath4));
-                } catch (FileNotFoundException ex) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set manga_derecha_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input4);
-                    traspaso = modificar.executeUpdate();
-
-                } catch (Exception e) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set manga_derecha_ponchado_nombre='" + nombrearchivo4 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                   
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
-                }
-            }
-
-            //ponchado5
-            Object ponchado5 = rutapechoderecho;
-
-            if (ponchado5 == null || ponchado5.equals("") || ponchado5.equals(" ")) {
-
-            } else {
-                try {
-                    String filePath5 = rutapechoderecho;
-                    File archivo5 = new File(filePath5);
-                    nombrearchivo5 = archivo5.getName();
-                    input5 = new FileInputStream(new File(filePath5));
-                } catch (FileNotFoundException ex) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set pecho_derecho_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input5);
-                    traspaso = modificar.executeUpdate();
-
-                } catch (Exception e) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set pecho_derecho_ponchado_nombre='" + nombrearchivo5 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+""); 
-          
-                }
-            }
-
-           /// imagen jlabel
-            Object imagen = rutaimagen;
-
-            if (imagen == null || imagen.equals("") || imagen.equals(" ")) {
-
-            } else {
-                try {
-                    String filePath6 = rutaimagen;
-                    File archivo6 = new File(filePath6);
-                    nombrearchivo6 = archivo6.getName();
-                    input6 = new FileInputStream(new File(filePath6));
-                } catch (FileNotFoundException ex) {
-                  
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set imagen=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input6);
-                    traspaso = modificar.executeUpdate();
-
-                } catch (Exception e) {
-                   
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set imagen_nombre='" + nombrearchivo6 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                   
-                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println(e);
-          
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
-            return;
-        }
-
-        if (traspaso > 0) {
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se inserto correctamente en la otra sucursal");
-
-            String numero = lbnumero.getText();
-            try {
-
-                PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa SET estatus_entrega='enviado' WHERE numero='" + numero + "'");
-                pst.executeUpdate();
-                pst.close();
-            } catch (Exception e) {
-               
-                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
-            }
-
-            ordenesporrealizar.btnactualizar.doClick();
-
-        }
-        else
-        {
-           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden NO SE INSERTO correctamente en la otra sucursal"); 
-        }  
-
-        this.dispose();
-        
-        }
-
-    }//GEN-LAST:event_btninsertarponchadosActionPerformed
-
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         ventanaordencamisaanteriores = false;
     }//GEN-LAST:event_formWindowClosed
@@ -5101,9 +4720,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         
     }//GEN-LAST:event_cancelar7MouseClicked
 
-    private void btneliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminar1ActionPerformed
+    private void btneditarbordadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarbordadoActionPerformed
 
-        if (bordadosdelclienteeditar.ventanabordadosdelclienteeditar)
+        if (bordadoseditar.ventanabordadosdelclienteeditar)
 
         {
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados de cliente ya está abierta");
@@ -5112,21 +4731,25 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         {
 
-            bordadosdelclienteeditar ventana = new bordadosdelclienteeditar();
+            bordadoseditar ventana = new bordadoseditar();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
 
-            bordadosdelclienteeditar.lbcliente.setText(lbcliente.getText());
-            bordadosdelclienteeditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
-            bordadosdelclienteeditar.lbidentificador.setText(lbbordacliente.getText());
-            bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
-            bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
-            bordadosdelclienteeditar.txtidentificador.setText(identificador);
-
-            bordadosdelclienteeditar.lbprenda.setText("PANTALON");
+            bordadoseditar.lbcliente.setText(lbcliente.getText());
+        bordadoseditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
+        bordadoseditar.lbbordacliente.setText(lbbordacliente.getText());
+        bordadoseditar.txtidentificador.setText(lbidentificador.getText());
+        bordadoseditar.lbcodigocliente.setText(codigocliente);
+        bordadoseditar.lbconsecutivo.setText(consecutivo);
+       
+       
+       
+           bordadoseditar.lbprenda.setText(prenda);
+           
+           
 
         }
-    }//GEN-LAST:event_btneliminar1ActionPerformed
+    }//GEN-LAST:event_btneditarbordadoActionPerformed
 
 
 
@@ -5233,9 +4856,8 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JButton btndistinta5;
     private javax.swing.JButton btndistinta6;
     private javax.swing.JButton btndistinta7;
+    private javax.swing.JButton btneditarbordado;
     private javax.swing.JButton btneliminar;
-    private javax.swing.JButton btneliminar1;
-    private javax.swing.JButton btninsertarponchados;
     public static javax.swing.JButton btnsalir;
     private javax.swing.JButton btnterminetodo;
     private javax.swing.JButton btnverfotomontaje;

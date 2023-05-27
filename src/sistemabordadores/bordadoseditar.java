@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class bordadosdelclienteeditar extends javax.swing.JFrame {
+public class bordadoseditar extends javax.swing.JFrame {
 
     public static boolean ventanabordadosdelclienteeditar = false;
     
@@ -382,7 +382,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
     public static String bordadosdelclienteeditarnuevoautorizacion = "no";
     
    
-    public bordadosdelclienteeditar() {
+    public bordadoseditar() {
         initComponents();
         ventanabordadosdelclienteeditar = true;
         
@@ -2667,7 +2667,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
             if (rs1.next()) 
             {
                                 
-                lbidentificador.setText(rs1.getString("borda_cliente")); 
+                lbbordacliente.setText(rs1.getString("borda_cliente")); 
                
             }
             rs1.close();
@@ -3920,7 +3920,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         lbidentificadordeprendaanterior = new javax.swing.JLabel();
         lbconsecutivo = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        lbidentificador = new javax.swing.JLabel();
+        lbbordacliente = new javax.swing.JLabel();
         cbaroespalda = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         lbpuntadas5 = new javax.swing.JLabel();
@@ -3951,6 +3951,8 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         cbbordados4 = new javax.swing.JComboBox<>();
         cbbordados5 = new javax.swing.JComboBox<>();
         btnautorizarpuntadas = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Bordados del cliente editar");
@@ -4530,11 +4532,11 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel11.setText("Identificador");
+        jLabel11.setText("Bordacliente");
         jLabel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbbordacliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbbordacliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         cbaroespalda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbaroespalda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "no", "si" }));
@@ -4857,6 +4859,14 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setText("Identificador");
+        jLabel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setText("Nombre comercial");
+        jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -5007,14 +5017,18 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(7, 7, 7)
-                                .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
-                                .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel11)
-                                .addGap(7, 7, 7)
-                                .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -5063,9 +5077,12 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
                     .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
+                    .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
@@ -12097,6 +12114,8 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbpuntadas7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel49;
@@ -12107,6 +12126,7 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JSeparator jSeparator2;
+    public static javax.swing.JLabel lbbordacliente;
     public static javax.swing.JLabel lbcliente;
     public static javax.swing.JLabel lbcodigocliente;
     public static javax.swing.JLabel lbconsecutivo;
@@ -12118,7 +12138,6 @@ public class bordadosdelclienteeditar extends javax.swing.JFrame {
     private javax.swing.JLabel lbetiqueta6;
     private javax.swing.JLabel lbetiqueta7;
     private javax.swing.JLabel lbfotomontaje;
-    public static javax.swing.JLabel lbidentificador;
     private javax.swing.JLabel lbidentificadordeprendaanterior;
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbprenda;

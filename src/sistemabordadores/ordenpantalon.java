@@ -2389,7 +2389,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         lbcodigoladoizquierdoatras = new javax.swing.JLabel();
         lbcodigoladoizquierdofrente = new javax.swing.JLabel();
         lbcodigoladoderechoatras = new javax.swing.JLabel();
-        btneliminar = new javax.swing.JButton();
+        btneliminarbtneditarbordado = new javax.swing.JButton();
         lbidentificador = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -2599,11 +2599,11 @@ public class ordenpantalon extends javax.swing.JFrame {
         lbcodigoladoderechoatras.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbcodigoladoderechoatras.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btneliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btneliminar.setText("Editar bordado");
-        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+        btneliminarbtneditarbordado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btneliminarbtneditarbordado.setText("Editar bordado");
+        btneliminarbtneditarbordado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneliminarActionPerformed(evt);
+                btneliminarbtneditarbordadoActionPerformed(evt);
             }
         });
 
@@ -2698,7 +2698,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btneliminarbtneditarbordado, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
                 .addComponent(jButton2))
             .addGroup(layout.createSequentialGroup()
@@ -2808,7 +2808,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                     .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btneliminarbtneditarbordado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -3920,10 +3920,10 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     }//GEN-LAST:event_btnterminetodoActionPerformed
 
-    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+    private void btneliminarbtneditarbordadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarbtneditarbordadoActionPerformed
 
 
-        if (bordadosdelclienteeditar.ventanabordadosdelclienteeditar)
+        if (bordadoseditar.ventanabordadosdelclienteeditar)
 
         {
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados de cliente ya está abierta");
@@ -3932,22 +3932,23 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         {
 
-            bordadosdelclienteeditar ventana = new bordadosdelclienteeditar();
+            bordadoseditar ventana = new bordadoseditar();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
 
-            bordadosdelclienteeditar.lbcliente.setText(lbcliente.getText());
-            bordadosdelclienteeditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
-            bordadosdelclienteeditar.lbidentificador.setText(lbbordacliente.getText());
-            bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
-            bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
-            bordadosdelclienteeditar.txtidentificador.setText(identificador);
-
-            bordadosdelclienteeditar.lbprenda.setText("PANTALON");
-
+          bordadoseditar.lbcliente.setText(lbcliente.getText());
+        bordadoseditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
+        bordadoseditar.lbbordacliente.setText(lbbordacliente.getText());
+        bordadoseditar.txtidentificador.setText(lbidentificador.getText());
+        bordadoseditar.lbcodigocliente.setText(codigocliente);
+        bordadoseditar.lbconsecutivo.setText(consecutivo);
+       
+       
+       
+           bordadoseditar.lbprenda.setText(prenda);
         }
 
-    }//GEN-LAST:event_btneliminarActionPerformed
+    }//GEN-LAST:event_btneliminarbtneditarbordadoActionPerformed
 
     private void btnfotomontajesinpuntadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfotomontajesinpuntadasActionPerformed
 
@@ -4010,7 +4011,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             colorido ventana =  new colorido();
             colorido.lbcliente.setText(lbcliente.getText());
             colorido.lbcodigo.setText(codigocliente);
-            colorido.lbnombrebordado.setText(lbidentificador.getText());
+            colorido.lbidentificador.setText(lbidentificador.getText());
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
         }
@@ -4104,7 +4105,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btndatos;
-    private javax.swing.JButton btneliminar;
+    private javax.swing.JButton btneliminarbtneditarbordado;
     private javax.swing.JButton btnfotomontajesinpuntadas;
     private javax.swing.JButton btnladoderechoatras;
     private javax.swing.JButton btnladoderechofrente;

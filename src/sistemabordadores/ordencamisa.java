@@ -6293,12 +6293,12 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-         String prendacombo = lbprenda.getText();
-         prendacombo = prendacombo.toUpperCase();
+         prenda = lbprenda.getText();
+         prenda = prenda.toUpperCase();
       
         
         
-          if (bordadosdelclienteeditar.ventanabordadosdelclienteeditar) 
+          if (bordadoseditar.ventanabordadosdelclienteeditar) 
               
           {
           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados de cliente ya está abierta");
@@ -6310,21 +6310,22 @@ JOptionPane.showMessageDialog(null, mensaje);
               
           
            
-        bordadosdelclienteeditar ventana = new bordadosdelclienteeditar();
+        bordadoseditar ventana = new bordadoseditar();
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
         
         
         
-        bordadosdelclienteeditar.lbcliente.setText(lbcliente.getText());
-        bordadosdelclienteeditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
-        bordadosdelclienteeditar.lbidentificador.setText(lbbordacliente.getText());
-        bordadosdelclienteeditar.lbcodigocliente.setText(codigocliente);
-        bordadosdelclienteeditar.lbconsecutivo.setText(consecutivo);
-        bordadosdelclienteeditar.txtidentificador.setText(identificador);
+        bordadoseditar.lbcliente.setText(lbcliente.getText());
+        bordadoseditar.lbnombrecomercial.setText(lbnombrecomercial.getText());
+        bordadoseditar.lbbordacliente.setText(lbbordacliente.getText());
+        bordadoseditar.txtidentificador.setText(lbidentificador.getText());
+        bordadoseditar.lbcodigocliente.setText(codigocliente);
+        bordadoseditar.lbconsecutivo.setText(consecutivo);
        
        
-           bordadosdelclienteeditar.lbprenda.setText(prendacombo);
+       
+           bordadoseditar.lbprenda.setText(prenda);
           
     }
        
@@ -6343,7 +6344,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         colorido ventana =  new colorido();
         colorido.lbcliente.setText(lbcliente.getText());
         colorido.lbcodigo.setText(codigocliente);
-        colorido.lbnombrebordado.setText(lbidentificador.getText());
+        colorido.lbidentificador.setText(lbidentificador.getText());
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
     }    

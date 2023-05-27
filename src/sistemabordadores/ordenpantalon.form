@@ -44,7 +44,7 @@
               <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
               <Component id="lbnombrecomercial" min="-2" pref="364" max="-2" attributes="0"/>
               <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-              <Component id="btneliminar" min="-2" pref="138" max="-2" attributes="0"/>
+              <Component id="btneliminarbtneditarbordado" min="-2" pref="138" max="-2" attributes="0"/>
               <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
               <Component id="jButton2" min="-2" max="-2" attributes="0"/>
           </Group>
@@ -174,7 +174,7 @@
                   <Component id="lbcliente" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel17" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbnombrecomercial" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="btneliminar" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="btneliminarbtneditarbordado" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jButton2" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
@@ -796,7 +796,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btneliminar">
+    <Component class="javax.swing.JButton" name="btneliminarbtneditarbordado">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -804,7 +804,7 @@
         <Property name="text" type="java.lang.String" value="Editar bordado"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneliminarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneliminarbtneditarbordadoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbidentificador">

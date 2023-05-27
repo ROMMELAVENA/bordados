@@ -39,29 +39,27 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lbnombrebordado" min="-2" pref="311" max="-2" attributes="0"/>
+                          <Component id="lbidentificador" min="-2" pref="311" max="-2" attributes="0"/>
                           <Component id="lbcliente" min="-2" pref="311" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="lbcodigo" pref="102" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabel60" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                                      <Component id="cbhilo1" pref="102" max="32767" attributes="0"/>
-                                      <Component id="cbhilo2" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbhilo3" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbhilo4" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbhilo5" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbhilo6" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbhilo7" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbhilo8" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbhilo9" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbhilo10" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbhilo11" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbhilo12" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbhilo13" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbhilo14" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbhilo15" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel60" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="cbhilo1" alignment="0" pref="102" max="32767" attributes="0"/>
+                                  <Component id="cbhilo2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbhilo3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbhilo4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbhilo5" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbhilo6" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbhilo7" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbhilo8" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbhilo9" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbhilo10" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbhilo11" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbhilo12" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbhilo13" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbhilo14" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbhilo15" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -113,7 +111,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lbcliente" min="-2" pref="29" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="lbnombrebordado" min="-2" pref="29" max="-2" attributes="0"/>
+              <Component id="lbidentificador" min="-2" pref="29" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -713,7 +711,11 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="lbcliente"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -730,12 +732,16 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbnombrebordado">
+    <Component class="javax.swing.JLabel" name="lbidentificador">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="lbnombrebordado"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

@@ -305,7 +305,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
            //     bordadoseditar.bordadosdelclienteeditarnuevoautorizacion="si"; 
-                bordadosdelclienteeditar.btnguardar.doClick();
+                bordadoseditar.btnguardar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 

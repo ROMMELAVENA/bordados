@@ -1,6 +1,8 @@
 package sistemabordadores;
 import java.applet.AudioClip;
+import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -9,8 +11,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.InetAddress;
 import java.sql.Blob;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,6 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class ordencorbata extends javax.swing.JFrame {
@@ -38,6 +43,13 @@ public class ordencorbata extends javax.swing.JFrame {
     String ultimo = "";
     String lugar = "";
     
+    String prenda = "";
+     String iptraspaso = "";
+      String numerosucursal = "";
+  
+    String latiendaestaconectada = "si";
+    Connection con = null;
+    
 
     String frentenombre = "";
   
@@ -53,12 +65,14 @@ public class ordencorbata extends javax.swing.JFrame {
     String consecutivo = "";
     String tieneunaobservacion = ""; 
     
+    String sucursal = "";
+    
     
 
     public ordencorbata() {
         initComponents();
         ventanaordencorbataanteriores = true;
-        lbbordadosorden.setText("0");
+        lbcantidad.setText("0");
         
   
        
@@ -80,10 +94,9 @@ public class ordencorbata extends javax.swing.JFrame {
     
     void datosOrdenesLocales() throws IOException {
 
-        String cliente = lbcliente.getText();
         lbtitulofrente.setText("");
 
-        String folio = lbfolio.getText();
+        String folio = lborden.getText();
 
         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_puntadas,cantidad_frente from historial_ordenes_corbata where numero = '" + folio + "'";
 
@@ -94,7 +107,7 @@ public class ordencorbata extends javax.swing.JFrame {
 
                 lbcliente.setText(rs.getString("cliente"));
                 lbnumeroventa.setText(rs.getString("numero_venta"));
-                lbbordadosorden.setText(rs.getString("cantidad_bordados"));
+                lbcantidad.setText(rs.getString("cantidad_bordados"));
 
                 lbfechaelaboracion.setText(rs.getString("fecha"));
                 lbhoraelaboracion.setText(rs.getString("hora"));
@@ -237,7 +250,7 @@ public class ordencorbata extends javax.swing.JFrame {
     void agregarfotomontaje() throws FileNotFoundException, IOException  
     {
         
-        String folio = lbfolio.getText();
+        String folio = lborden.getText();
         String numeroventa = lbnumeroventa.getText();
         BufferedImage img = null;
         
@@ -260,7 +273,7 @@ public class ordencorbata extends javax.swing.JFrame {
                     ordencorbataimagen p = new ordencorbataimagen();
                     jPanel1.add(p);
                     jPanel1.repaint();
-                    lblImagen.setVisible(false);
+                    lbfotomontaje.setVisible(false);
                     btnverfotomontaje.setEnabled(false);
                     tienefotomontaje = "no";
              
@@ -291,8 +304,8 @@ public class ordencorbata extends javax.swing.JFrame {
                     
                     Imagen imagen = new Imagen();
                     imagen.setImagen(img);
-                    lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
-                    lblImagen.setVisible(true);
+                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
+                    lbfotomontaje.setVisible(true);
                     btnverfotomontaje.setEnabled(true);
                     tienefotomontaje = "si";
                     btnverfotomontaje.setEnabled(true);
@@ -342,7 +355,7 @@ public class ordencorbata extends javax.swing.JFrame {
             ordencorbataimagen p = new ordencorbataimagen();
             jPanel1.add(p);
             jPanel1.repaint();
-            lblImagen.setVisible(false);
+            lbfotomontaje.setVisible(false);
             btnverfotomontaje.setEnabled(false);
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
             
@@ -361,7 +374,7 @@ public class ordencorbata extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + lbbordadosorden.getText() + "',fecha='"+dia()+"'  where numero = '"+lbfolio.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + lbcantidad.getText() + "',fecha='"+dia()+"'  where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -406,7 +419,7 @@ public class ordencorbata extends javax.swing.JFrame {
                 pst.setString(3, hora());
                 pst.setString(4, ubicacioninsertar);
                 pst.setString(5, identificador);
-                pst.setString(6, lbbordadosorden.getText());
+                pst.setString(6, lbcantidad.getText());
                 pst.executeUpdate();
                 pst.close();
 
@@ -419,7 +432,7 @@ public class ordencorbata extends javax.swing.JFrame {
            
            if(cantidadaplicacionint > 0)
            {
-               int cantidadprendasint = Integer.parseInt(lbbordadosorden.getText());
+               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
                int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
                
                String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
@@ -594,6 +607,365 @@ public class ordencorbata extends javax.swing.JFrame {
       
       }  
     
+    
+    
+    
+    
+    
+    
+    
+     void datosotrasucursal () throws FileNotFoundException, IOException
+    {
+        
+        String folio = lborden.getText();
+       
+       
+
+
+
+        String activadoladoizquierdofrente = "";
+        String activadoladoizquierdoatras = "";
+        String activadoladoderechofrente = "";
+        String activadoladoderechoatras = "";
+
+        
+         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_puntadas,cantidad_frente,identificador_prenda from historial_ordenes_corbata where numero = '" + folio + "'";
+     
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                
+                
+                
+                 lbcliente.setText(rs.getString("cliente"));
+                lbnumeroventa.setText(rs.getString("numero_venta"));
+                lbcantidad.setText(rs.getString("cantidad_bordados"));
+
+                lbfechaelaboracion.setText(rs.getString("fecha"));
+                lbhoraelaboracion.setText(rs.getString("hora"));
+                lbfechaentrega.setText(rs.getString("fecha_entrega"));
+                lbhoraentrega.setText(rs.getString("hora_entrega"));
+            
+                String observacion = rs.getString("observacion");
+                
+                if(observacion == null || observacion.equals("")||observacion.equals(" ") )
+                {
+                    
+                }
+                else
+                {
+                
+                 
+                tieneunaobservacion="si";    
+                lbobservaciones.setText(observacion);
+                
+                }
+
+                lbfrente.setText(rs.getString("frente"));
+                frentenombre= rs.getString("frente");
+                identificador =rs.getString("identificador_prenda"); 
+                lbidentificador.setText(identificador);
+                
+                cantidadbordados = rs.getString("cantidad"); 
+                
+                String frentecantidad = rs.getString("cantidad_frente");
+                if(frentecantidad.equals("0"))
+                {
+                   btnfrente.setEnabled(true);
+                }
+                else
+                {
+                    btnfrente.setEnabled(false);
+                }    
+                
+                
+                if (frentenombre == null || frentenombre.equals("")) 
+                {
+
+                } else {
+
+                    lbtitulofrente.setText(frentenombre);
+                    lbfrentepuntadas.setText(rs.getString("frente_puntadas"));
+
+                }
+
+                lblugar.setText(rs.getString("lugar"));
+                lugar =rs.getString("lugar");
+
+            }
+                
+                
+                 identificador =  rs.getString("identificador_prenda");
+                lbidentificador.setText(identificador);
+                
+                
+            
+        } catch (SQLException ex) {
+           
+            JOptionPane.showMessageDialog(null, ex);
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
+        }
+        
+        
+        
+        
+        
+          
+        String cliente = lbcliente.getText();
+        
+        
+        
+                tiendaconectada();   
+             
+            
+                
+              if (latiendaestaconectada.equals("si"))
+
+                      {
+                
+                
+                 try {
+         
+                     
+                     
+            Class.forName("com.mysql.jdbc.Driver");
+       
+         
+            con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
+      
+
+        String sql7 = "Select cliente,lugar,identificador_prenda from historial_ordenes_pantalon where numero = '" + numerosucursal + "' ";
+
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql7);
+            if (rs.next()) {
+
+                cliente = rs.getString("cliente");
+                prenda = (rs.getString("prenda"));
+                sucursal = rs.getString("lugar");
+                identificador = rs.getString("identificador_prenda");
+                
+
+            }
+
+        } catch (SQLException ex) 
+        {
+             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }
+
+        
+     
+        
+        
+         BufferedImage img = null;
+        
+        
+        
+       String sql4 = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";  ///
+
+        try {
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql4);
+            while (rs.next()) 
+            {
+                
+                Blob blob = rs.getBlob("imagen");
+              
+                    byte[] data = blob.getBytes(1, (int) blob.length());
+
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (IOException ex) 
+                    {
+                 
+                      JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+
+                    }
+
+                    if(img==null)
+                    {
+                       tienefotomontaje = "no"; 
+                    }
+                    else
+                    {
+                    
+                    Imagen imagen = new Imagen();
+                    imagen.setImagen(img);
+                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
+                    lbfotomontaje.setVisible(true);
+                    btnverfotomontaje.setEnabled(true);
+                    tienefotomontaje = "si";
+                    btnverfotomontaje.setEnabled(true);
+                  
+
+                    Blob archivo = rs.getBlob("imagen");
+                    String nombredelarchivo = rs.getString("extension_imagen");
+                     if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
+                    {
+                    rutaimagen = "C:\\archivospdf\\FOTOMONTAJE."+nombredelarchivo+" ";
+                    }
+                    else
+                    {
+                   nombredelarchivo = nombredelarchivo.replace(" ","");
+                    rutaimagen = "C:\\archivospdf\\"+nombredelarchivo+" ";
+                    }   
+                    
+                    File file = new File(rutaimagen);
+                    FileOutputStream output = new FileOutputStream(file);
+                    InputStream inStream = archivo.getBinaryStream();
+                    int length = -1;
+                    int size = (int) archivo.length();
+                    byte[] buffer = new byte[size];
+                    while ((length = inStream.read(buffer)) != -1) {
+                        output.write(buffer, 0, length);
+                   
+                    }
+                   
+                    output.close();
+                    
+                    }
+ 
+               
+
+            } //end while
+            rs.close();
+        } catch (SQLException ex) 
+        {
+          
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }
+        
+        
+         } catch (Exception x) {
+                               System.out.println(x); 
+                            }
+        
+                      }
+        
+        
+
+    }
+     
+     
+     
+     
+    
+    
+    
+     
+     void tiendaconectada()
+ {
+     
+     
+     
+     try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
+
+            try {
+              
+                
+                
+                
+                String sql = "SELECT ip FROM catalogo_tiendas where tienda = '" + sucursal + "'";
+
+                Statement st = cn.prepareStatement(sql);
+                ResultSet rs = st.executeQuery(sql);
+
+                if (rs.next()) {
+
+                    iptraspaso = rs.getString("ip");
+              
+
+                } else {
+
+                }
+
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane op = new JOptionPane();
+                JLabel label = new JLabel("<HTML><b style=\"Color:red; font-size:20px;\">Error al buscar tiendas".toUpperCase());
+                label.setFont(new Font("Arial", Font.BOLD, 40));
+                label.setOpaque(true);
+                label.setForeground(Color.red.brighter());
+                label.setBackground(Color.YELLOW.brighter());
+                op.showMessageDialog(null, label, "ERROR!!", op.WARNING_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "Error al buscar tiendas");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+       
+        InetAddress ping;
+
+        if (sucursal == null || sucursal.equals("Seleccione Tienda")) 
+        {
+            
+              JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+            
+            
+        }
+        else 
+        {
+
+            try {
+                
+                
+
+                ping = InetAddress.getByName(iptraspaso);
+            
+                if (ping.isReachable(5000)) 
+                {
+                  
+                  latiendaestaconectada = "si";
+                   
+
+                }
+                
+                else 
+                
+                {
+                    
+                    latiendaestaconectada = "no";
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+                    
+
+                }
+            } catch (IOException ex) {
+                System.out.println(ex);
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+               
+                
+            }
+
+        }         
+
+     
+ }
+ 
+    
+     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     void sumapuntos()
     {
@@ -605,13 +977,13 @@ public class ordencorbata extends javax.swing.JFrame {
         double importeatras = 0.0;
 
         String costostring = "0";
-        Object cantidadobject = lbbordadosorden.getText();
+        Object cantidadobject = lbcantidad.getText();
         int cantidadint = Integer.parseInt(cantidadobject.toString());
         Object cantidad = ""; 
         Object cantidadfrente = "";
 
         
-            String sql = "Select cantidad,cantidad_frente from historial_ordenes_corbata where numero = '"+lbfolio.getText()+"' ";
+            String sql = "Select cantidad,cantidad_frente from historial_ordenes_corbata where numero = '"+lborden.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -674,7 +1046,7 @@ public class ordencorbata extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + lbfolio.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -696,13 +1068,13 @@ public class ordencorbata extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         lbprenda = new javax.swing.JLabel();
-        lbfolio = new javax.swing.JLabel();
+        lborden = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         lbnumeroventa = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        lbbordadosorden = new javax.swing.JLabel();
+        lbcantidad = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         lbcliente = new javax.swing.JLabel();
         lbfechaentrega = new javax.swing.JLabel();
@@ -717,7 +1089,7 @@ public class ordencorbata extends javax.swing.JFrame {
         lbtitulofrente = new javax.swing.JLabel();
         lbfrente = new javax.swing.JLabel();
         lbfrentepuntadas = new javax.swing.JLabel();
-        lblImagen = new javax.swing.JLabel();
+        lbfotomontaje = new javax.swing.JLabel();
         lbnombrecomercial = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         lbautorizado = new javax.swing.JLabel();
@@ -741,14 +1113,14 @@ public class ordencorbata extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden corbata");
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
+            }
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
             }
         });
 
@@ -771,8 +1143,8 @@ public class ordencorbata extends javax.swing.JFrame {
         lbprenda.setText("Corbata");
         lbprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbfolio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbfolio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lborden.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lborden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("Cliente:");
@@ -797,10 +1169,10 @@ public class ordencorbata extends javax.swing.JFrame {
         jLabel26.setText("No. de Venta");
         jLabel26.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbbordadosorden.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbbordadosorden.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbbordadosorden.setText("0");
-        lbbordadosorden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcantidad.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbcantidad.setText("0");
+        lbcantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setText("Hora Entrega");
@@ -852,8 +1224,8 @@ public class ordencorbata extends javax.swing.JFrame {
         lbfrentepuntadas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jPanel1.add(lbfrentepuntadas);
         lbfrentepuntadas.setBounds(500, 180, 360, 20);
-        jPanel1.add(lblImagen);
-        lblImagen.setBounds(10, 10, 1280, 600);
+        jPanel1.add(lbfotomontaje);
+        lbfotomontaje.setBounds(10, 10, 1280, 600);
 
         lbnombrecomercial.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbnombrecomercial.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -980,7 +1352,7 @@ public class ordencorbata extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1007,20 +1379,21 @@ public class ordencorbata extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnvercolorido, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnfotomontajesinpuntadas)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lbbordadosorden, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnvercolorido, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnfotomontajesinpuntadas))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1073,17 +1446,17 @@ public class ordencorbata extends javax.swing.JFrame {
                     .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbbordadosorden, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btnvercolorido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnfotomontajesinpuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnfotomontajesinpuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -1111,7 +1484,7 @@ public class ordencorbata extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbnumeroventa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1664,24 +2037,24 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JScrollPane jScrollPane6;
     public static javax.swing.JLabel lbautorizado;
     public static javax.swing.JLabel lbbordacliente;
-    public static javax.swing.JLabel lbbordadosorden;
+    public static javax.swing.JLabel lbcantidad;
     public static javax.swing.JLabel lbcliente;
     public javax.swing.JLabel lbcodigofrente;
     public javax.swing.JLabel lbcolorfrente;
     public static javax.swing.JLabel lbestatus;
     public static javax.swing.JLabel lbfechaelaboracion;
     public static javax.swing.JLabel lbfechaentrega;
-    public static javax.swing.JLabel lbfolio;
+    private javax.swing.JLabel lbfotomontaje;
     public static javax.swing.JLabel lbfrente;
     public static javax.swing.JLabel lbfrentepuntadas;
     public static javax.swing.JLabel lbhoraelaboracion;
     public static javax.swing.JLabel lbhoraentrega;
     private javax.swing.JLabel lbidentificador;
-    private javax.swing.JLabel lblImagen;
     public static javax.swing.JLabel lblugar;
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumeroventa;
     public static javax.swing.JTextArea lbobservaciones;
+    public static javax.swing.JLabel lborden;
     private javax.swing.JLabel lbprenda;
     public javax.swing.JLabel lbsumapuntos;
     private javax.swing.JLabel lbtitulofrente;

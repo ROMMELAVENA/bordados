@@ -44,7 +44,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     
     int traspaso = 0;
     String iptraspaso = "";
-    String tienda_traspaso = "";
+  
     String latiendaestaconectada = "si";
     Connection con = null;
      String numerosucursal = "";
@@ -98,6 +98,8 @@ public class ordenpantalon extends javax.swing.JFrame {
     String tiendalocal = "";
     String rutadedondeestanlosbordados ="";
     
+    String prenda = "";
+    
 
     private PreparedStatement pst;
 
@@ -149,7 +151,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     void datosOrdenesLocales() throws FileNotFoundException, IOException
     {
         
-        String folio = lbfolio.getText();
+        String folio = lborden.getText();
         String numeroventa ="";
         
         String prendasql = "";
@@ -501,7 +503,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     {
         
         String numero = lbfolio.getText();
-        String prenda = "Pantalon";
+        prenda = "Pantalon";
         BufferedImage img = null;
         btnverfotomontaje.setEnabled(false);
         
@@ -1151,21 +1153,15 @@ public class ordenpantalon extends javax.swing.JFrame {
      void datosotrasucursal () throws FileNotFoundException, IOException
     {
         
-        String folio = lbfolio.getText();
-        String numeroventa = "";
-        String prendasql = "";
-        String prendanombresql = "";
-        String prenda = "";
+        String folio = lborden.getText();
        
-
-
 
         String activadoladoizquierdofrente = "";
         String activadoladoizquierdoatras = "";
         String activadoladoderechofrente = "";
         String activadoladoderechoatras = "";
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_sucursal_orden,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar from historial_ordenes_pantalon_recibidas where numero = '" + folio + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_sucursal_orden,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda from historial_ordenes_pantalon_recibidas where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -1254,6 +1250,12 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 lugar = rs.getString("lugar");
                 lbcantidad.setText(rs.getString("cantidad"));
+                
+                
+                
+                 identificador =  rs.getString("identificador_prenda");
+                lbidentificador.setText(identificador);
+                
                 
                 if(lugar.equals("Esta sucursal"))
                 {
@@ -1573,7 +1575,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set "+ubicacion+"='" + lbcantidad.getText() + "',fecha='"+dia()+"' where numero = '"+lbfolio.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set "+ubicacion+"='" + lbcantidad.getText() + "',fecha='"+dia()+"' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1603,7 +1605,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set "+ubicacion+"='0' where numero = '"+lbfolio.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set "+ubicacion+"='0' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1634,7 +1636,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon_recibidas set "+ubicacion+"='" + lbcantidad.getText() + "',fecha='"+dia()+"' where numero = '"+lbfolio.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon_recibidas set "+ubicacion+"='" + lbcantidad.getText() + "',fecha='"+dia()+"' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -2147,7 +2149,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         
 
          try (
-                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_pantalon_recibidas where numero = '" + lbfolio.getText() + "' ")) {
+                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_pantalon_recibidas where numero = '" + lborden.getText() + "' ")) {
              ResultSet rs = ps.executeQuery();
 
              if (rs.next()) {
@@ -2193,7 +2195,7 @@ public class ordenpantalon extends javax.swing.JFrame {
          String sql = "Select cantidad,cantidad_lado_izquierdo_frente,lado_izquierdo_frente,"
                   + "cantidad_lado_derecho_frente,lado_derecho_frente,"
                   + "cantidad_lado_izquierdo_atras,lado_izquierdo_atras,"
-                  + "cantidad_lado_derecho_atras,lado_derecho_atras from historial_ordenes_pantalon where numero = '"+lbfolio.getText()+"' ";
+                  + "cantidad_lado_derecho_atras,lado_derecho_atras from historial_ordenes_pantalon where numero = '"+lborden.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -2311,7 +2313,7 @@ public class ordenpantalon extends javax.swing.JFrame {
            {
                try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + lbfolio.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -2325,7 +2327,7 @@ public class ordenpantalon extends javax.swing.JFrame {
            {
                 try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set estatus_orden='generada' where numero='" + lbfolio.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set estatus_orden='generada' where numero='" + lborden.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -2352,7 +2354,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel13 = new javax.swing.JLabel();
-        lbfolio = new javax.swing.JLabel();
+        lborden = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         lbnumeroventa = new javax.swing.JLabel();
@@ -2428,8 +2430,8 @@ public class ordenpantalon extends javax.swing.JFrame {
         jLabel13.setText("Orden de bordado");
         jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbfolio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbfolio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lborden.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lborden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("Cliente:");
@@ -2732,7 +2734,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2831,7 +2833,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                             .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbnumerosucursal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbfolio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(lborden, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
@@ -2991,8 +2993,8 @@ public static String dia() {
         int traspaso = 0;
         
         String tipo = "Orden pantalon";
-        numerosucursal = lbfolio.getText();
-        String prenda = "Pantalon";
+        numerosucursal = lborden.getText();
+        prenda = "Pantalon";
         String cliente = lbcliente.getText();
 
         String path = "";
@@ -3274,7 +3276,7 @@ public static String dia() {
             
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se inserto correctamente en la otra sucursal");
 
-            String numero = lbfolio.getText();
+            String numero = lborden.getText();
             try {
 
                 PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon SET estatus_orden='enviado' WHERE numero='" + numero + "'");
@@ -4139,7 +4141,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     public javax.swing.JLabel lbcolorpechoderecho;
     public javax.swing.JLabel lbcolorpechoizquierdo;
     public static javax.swing.JLabel lbdadoizquierdoatras;
-    public static javax.swing.JLabel lbfolio;
     private javax.swing.JLabel lbfotomontaje;
     public static javax.swing.JLabel lbidentificador;
     public static javax.swing.JLabel lbladoderechoatras;
@@ -4153,6 +4154,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbnumerosucursal;
     public static javax.swing.JLabel lbnumeroventa;
     public static javax.swing.JTextArea lbobservaciones;
+    public static javax.swing.JLabel lborden;
     public static javax.swing.JLabel lbprenda;
     public javax.swing.JLabel lbsumapuntos;
     private javax.swing.JLabel lbtiendareplica;

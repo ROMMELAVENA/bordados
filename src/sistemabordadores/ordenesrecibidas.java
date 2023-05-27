@@ -682,7 +682,7 @@ void limpiartabla() {
                String numeroordenrecibida = tabla2.getValueAt(fila, 0).toString();
                String tiendasolicita = tabla2.getValueAt(fila, 5).toString();
                ordenpantalon.lbcliente.setText(clienteordenrecibida);
-               ordenpantalon.lbfolio.setText(numeroordenrecibida);
+               ordenpantalon.lborden.setText(numeroordenrecibida);
              //  ordenpantalon.lbtiendasolicita.setText(tiendasolicita);
                ventana.setVisible(true);
 

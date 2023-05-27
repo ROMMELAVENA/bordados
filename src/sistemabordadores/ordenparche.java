@@ -2,6 +2,7 @@ package sistemabordadores;
 
 import java.applet.AudioClip;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -11,8 +12,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.InetAddress;
 import java.sql.Blob;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,6 +28,7 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 
@@ -36,7 +40,7 @@ public static boolean ventanaordenparcheanteriores = false;
         String numerocatalogoprendas = "";
         String numerocatalogoubicacion = "";
         String numerocatalogocolores = "";
-        
+        String prenda = "";
         
         String cantidad = "";
         String cantidadparche = "";
@@ -66,6 +70,14 @@ public static boolean ventanaordenparcheanteriores = false;
        String numerosucursalordencamisa = "";
        String tienenumerodesucursal = "";
        String sucursal = "";
+       
+        String iptraspaso = "";
+    String tienda_traspaso = "";
+    String latiendaestaconectada = "si";
+    Connection con = null;
+     String numerosucursal = "";
+    
+    
    
     public ordenparche() 
     {
@@ -180,7 +192,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
         if (renglon==1)
         {
-            lbcantidad1.setText(cantidad);
+            lbcantidad.setText(cantidad);
             lbprenda.setText(parche);
             lbidentificador.setText(nombre);
             lbaplicacion1.setText(aplicacion);
@@ -246,7 +258,7 @@ public static boolean ventanaordenparcheanteriores = false;
      {
          
          
-                lbcantidad1.setText("");
+                lbcantidad.setText("");
                 lbprenda.setText("");
               
                 lbaplicacion1 .setText("");
@@ -416,6 +428,326 @@ public static boolean ventanaordenparcheanteriores = false;
         
         
     }
+    
+    
+    
+    
+    
+    
+    
+     void datosotrasucursal () throws FileNotFoundException, IOException
+    {
+        
+        String folio = lborden.getText();
+       
+       
+
+
+
+        String activadoladoizquierdofrente = "";
+        String activadoladoizquierdoatras = "";
+        String activadoladoderechofrente = "";
+        String activadoladoderechoatras = "";
+
+        
+          String sql = "SELECT numero,numero_venta,fecha,hora,cliente,tipo,estatus_entrega,articulo,parche,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,identificador_prenda FROM historial_ordenes_parche WHERE numero = '"+numerodeorden+"' ";
+
+       
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                
+                
+                
+                lbnumerosucursal.setText(rs.getString("numero"));
+                lbfecha.setText(rs.getString("fecha"));
+                lbhora.setText(rs.getString("hora"));
+                lbcliente.setText(rs.getString("cliente"));
+                lbfechaentrega.setText(rs.getString("fecha_entrega"));
+                lbhoraentrega.setText(rs.getString("hora_entrega"));
+                lbobservacion.setText(rs.getString("observaciongeneral"));
+                numeroventa = rs.getString("numero_venta");
+                parche = rs.getString("parche");
+                nombre = rs.getString("articulo");
+                cantidad = rs.getString("cantidad");
+                cantidadparche = rs.getString("cantidad_parche");
+                aplicacion = rs.getString("aplicacion");
+                observacion = rs.getString("observacion");
+                
+                identificador = rs.getString("identificador_prenda");
+                lbidentificador.setText(identificador);
+               
+                numeroventa = rs.getString("numero_venta");
+                
+                
+            }
+            
+        } catch (SQLException ex) {
+           
+            JOptionPane.showMessageDialog(null, ex);
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
+        }
+        
+        
+        
+        
+        
+          
+        String cliente = lbcliente.getText();
+        
+        
+        
+                tiendaconectada();   
+             
+            
+                
+              if (latiendaestaconectada.equals("si"))
+
+                      {
+                
+                
+                 try {
+         
+                     
+                     
+            Class.forName("com.mysql.jdbc.Driver");
+       
+         
+            con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
+      
+
+        String sql7 = "Select cliente,lugar,identificador_prenda from historial_ordenes_pantalon where numero = '" + numerosucursal + "' ";
+
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql7);
+            if (rs.next()) {
+
+                cliente = rs.getString("cliente");
+                prenda = (rs.getString("prenda"));
+                sucursal = rs.getString("lugar");
+                identificador = rs.getString("identificador_prenda");
+                
+
+            }
+
+        } catch (SQLException ex) 
+        {
+             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }
+
+        
+     
+        
+        
+         BufferedImage img = null;
+        
+        
+        
+       String sql4 = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";  ///
+
+        try {
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql4);
+            while (rs.next()) 
+            {
+                
+                Blob blob = rs.getBlob("imagen");
+              
+                    byte[] data = blob.getBytes(1, (int) blob.length());
+
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (IOException ex) 
+                    {
+                 
+                      JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+
+                    }
+
+                    if(img==null)
+                    {
+                       tienefotomontaje = "no"; 
+                    }
+                    else
+                    {
+                    
+                    Imagen imagen = new Imagen();
+                    imagen.setImagen(img);
+                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
+                    lbfotomontaje.setVisible(true);
+                    btnverfotomontaje.setEnabled(true);
+                    tienefotomontaje = "si";
+                    btnverfotomontaje.setEnabled(true);
+                  
+
+                    Blob archivo = rs.getBlob("imagen");
+                    String nombredelarchivo = rs.getString("extension_imagen");
+                     if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
+                    {
+                    rutaimagen = "C:\\archivospdf\\FOTOMONTAJE."+nombredelarchivo+" ";
+                    }
+                    else
+                    {
+                   nombredelarchivo = nombredelarchivo.replace(" ","");
+                    rutaimagen = "C:\\archivospdf\\"+nombredelarchivo+" ";
+                    }   
+                    
+                    File file = new File(rutaimagen);
+                    FileOutputStream output = new FileOutputStream(file);
+                    InputStream inStream = archivo.getBinaryStream();
+                    int length = -1;
+                    int size = (int) archivo.length();
+                    byte[] buffer = new byte[size];
+                    while ((length = inStream.read(buffer)) != -1) {
+                        output.write(buffer, 0, length);
+                   
+                    }
+                   
+                    output.close();
+                    
+                    }
+ 
+               
+
+            } //end while
+            rs.close();
+        } catch (SQLException ex) 
+        {
+          
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }
+        
+        
+         } catch (Exception x) {
+                               System.out.println(x); 
+                            }
+        
+                      }
+        
+        
+
+    }
+     
+     
+     
+    
+    
+    
+    
+    
+    
+    
+     
+     void tiendaconectada()
+ {
+     
+     
+     
+     try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
+
+            try {
+              
+                
+                
+                
+                String sql = "SELECT ip FROM catalogo_tiendas where tienda = '" + sucursal + "'";
+
+                Statement st = cn.prepareStatement(sql);
+                ResultSet rs = st.executeQuery(sql);
+
+                if (rs.next()) {
+
+                    iptraspaso = rs.getString("ip");
+              
+
+                } else {
+
+                }
+
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane op = new JOptionPane();
+                JLabel label = new JLabel("<HTML><b style=\"Color:red; font-size:20px;\">Error al buscar tiendas".toUpperCase());
+                label.setFont(new Font("Arial", Font.BOLD, 40));
+                label.setOpaque(true);
+                label.setForeground(Color.red.brighter());
+                label.setBackground(Color.YELLOW.brighter());
+                op.showMessageDialog(null, label, "ERROR!!", op.WARNING_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "Error al buscar tiendas");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+       
+        InetAddress ping;
+
+        if (sucursal == null || sucursal.equals("Seleccione Tienda")) 
+        {
+            
+              JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+            
+            
+        }
+        else 
+        {
+
+            try {
+                
+                
+
+                ping = InetAddress.getByName(iptraspaso);
+            
+                if (ping.isReachable(5000)) 
+                {
+                  
+                  latiendaestaconectada = "si";
+                   
+
+                }
+                
+                else 
+                
+                {
+                    
+                    latiendaestaconectada = "no";
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+                    
+
+                }
+            } catch (IOException ex) {
+                System.out.println(ex);
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+               
+                
+            }
+
+        }         
+
+     
+ }
+ 
+    
+     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     void agregarexistenciabordadoscancelar(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion,String cantidad)
@@ -734,7 +1066,7 @@ public static boolean ventanaordenparcheanteriores = false;
 
         
 
-        Object cantidadobject = lbcantidad1.getText();
+        Object cantidadobject = lbcantidad.getText();
         int cantidadparcheint = Integer.parseInt(cantidadobject.toString());
         double costopuntada = 0.0;
         Object puntadaobject = "";
@@ -847,8 +1179,8 @@ public static boolean ventanaordenparcheanteriores = false;
 
                         Imagen imagen = new Imagen();
                         imagen.setImagen(img);
-                        lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
-                        lblImagen.setVisible(true);
+                        lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
+                        lbfotomontaje.setVisible(true);
                         tienefotomontaje = "si";
 
                         Blob archivo = rs.getBlob("imagen");
@@ -933,7 +1265,7 @@ public static boolean ventanaordenparcheanteriores = false;
         lbnumerosucursal = new javax.swing.JLabel();
         btnsalir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        lblImagen = new javax.swing.JLabel();
+        lbfotomontaje = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         lbfecha = new javax.swing.JLabel();
         lbhora = new javax.swing.JLabel();
@@ -950,7 +1282,7 @@ public static boolean ventanaordenparcheanteriores = false;
         lbbordacliente = new javax.swing.JLabel();
         lbnombrecomercial = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        lbcantidad1 = new javax.swing.JLabel();
+        lbcantidad = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lbprenda = new javax.swing.JLabel();
         lbidentificador = new javax.swing.JLabel();
@@ -1011,14 +1343,14 @@ public static boolean ventanaordenparcheanteriores = false;
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbfotomontaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1083,7 +1415,7 @@ public static boolean ventanaordenparcheanteriores = false;
         jLabel23.setText("Nombre comercial");
         jLabel23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcantidad1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Cantidad");
@@ -1187,7 +1519,7 @@ public static boolean ventanaordenparcheanteriores = false;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1293,7 +1625,7 @@ public static boolean ventanaordenparcheanteriores = false;
                     .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbaplicacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1468,11 +1800,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         if(bntterminetodo.getText().equals("Cancelar"))
         {
             
-        cantidadparchesactualizar = lbcantidad1.getText();
+        cantidadparchesactualizar = lbcantidad.getText();
         nombredelparche = lbprenda.getText();
         actualizarlascantidadesbordadascancelar((String) cantidadparchesactualizar,(String)nombredelparche);
         String cantidadaplicacion = lbaplicacion1.getText();
-        String cantidad = lbcantidad1.getText();
+        String cantidad = lbcantidad.getText();
         ubicacioninsertar ="BORDADO PARCHE".concat(" ").concat(lbprenda.getText());
         aplicacioninsertar = "APLICACION PARCHE1";
         agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
@@ -1481,11 +1813,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         else
         {
-        cantidadparchesactualizar = lbcantidad1.getText();
+        cantidadparchesactualizar = lbcantidad.getText();
         nombredelparche = lbprenda.getText();
         actualizarlascantidadesbordadas((String) cantidadparchesactualizar,(String)nombredelparche);
         String cantidadaplicacion = lbaplicacion1.getText();
-        String cantidad = lbcantidad1.getText();
+        String cantidad = lbcantidad.getText();
         ubicacioninsertar ="BORDADO PARCHE".concat(" ").concat(lbprenda.getText());
         aplicacioninsertar = "APLICACION PARCHE1";
         agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
@@ -1597,8 +1929,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
             ImageIcon fot = new ImageIcon(rutaarchivo);
-            Icon icono = new ImageIcon(fot.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT));
-            lblImagen.setIcon(icono);
+            Icon icono = new ImageIcon(fot.getImage().getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT));
+            lbfotomontaje.setIcon(icono);
             this.repaint();
 
             btndatos.doClick();
@@ -1663,15 +1995,15 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel lbaplicacion1;
     public static javax.swing.JLabel lbbordacliente;
-    private javax.swing.JLabel lbcantidad1;
+    private javax.swing.JLabel lbcantidad;
     public static javax.swing.JLabel lbcliente;
     private javax.swing.JLabel lbestatusentrega;
     private javax.swing.JLabel lbfecha;
     private javax.swing.JLabel lbfechaentrega;
+    private javax.swing.JLabel lbfotomontaje;
     private javax.swing.JLabel lbhora;
     private javax.swing.JLabel lbhoraentrega;
     private javax.swing.JLabel lbidentificador;
-    private javax.swing.JLabel lblImagen;
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumerosucursal;
     private javax.swing.JLabel lbobservacion;

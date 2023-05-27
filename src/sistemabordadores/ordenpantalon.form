@@ -83,7 +83,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel13" min="-2" pref="132" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="lbfolio" min="-2" pref="139" max="-2" attributes="0"/>
+                      <Component id="lborden" min="-2" pref="139" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
@@ -202,7 +202,7 @@
                           <Component id="jLabel28" max="32767" attributes="0"/>
                           <Component id="lbnumerosucursal" max="32767" attributes="0"/>
                           <Component id="jLabel13" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lbfolio" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lborden" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -299,7 +299,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbfolio">
+    <Component class="javax.swing.JLabel" name="lborden">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>

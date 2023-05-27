@@ -39,7 +39,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbcantidad1" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="lbcantidad" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -171,7 +171,7 @@
                   <Component id="lbidentificador" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbprenda" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="lbcantidad1" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbcantidad" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel4" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbaplicacion1" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
@@ -304,7 +304,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblImagen" max="32767" attributes="0"/>
+                  <Component id="lbfotomontaje" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -313,14 +313,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblImagen" min="-2" pref="614" max="-2" attributes="0"/>
+                  <Component id="lbfotomontaje" min="-2" pref="614" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblImagen">
+        <Component class="javax.swing.JLabel" name="lbfotomontaje">
         </Component>
       </SubComponents>
     </Container>
@@ -549,7 +549,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbcantidad1">
+    <Component class="javax.swing.JLabel" name="lbcantidad">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">

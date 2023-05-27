@@ -1508,7 +1508,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                         ordenpantalon orden = new ordenpantalon();
                         orden.setVisible(true);
 
-                        ordenpantalon.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenpantalon.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         ordenpantalon.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                      
                         ordenpantalon.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
@@ -1577,7 +1577,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                         ordencorbata orden = new ordencorbata();
                         orden.setVisible(true);
 
-                        ordencorbata.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencorbata.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         ordencorbata.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
                         ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
@@ -1673,7 +1673,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                         ordendistinta orden = new ordendistinta();
                         orden.setVisible(true);
 
-                        ordendistinta.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordendistinta.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         ordendistinta.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordendistinta.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordendistinta.lbtipo.setText(tabla.getValueAt(fila, 3).toString());

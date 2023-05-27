@@ -1,6 +1,8 @@
 package sistemabordadores;
 import java.applet.AudioClip;
+import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -11,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.InetAddress;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,6 +30,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class ordendistinta extends javax.swing.JFrame {
@@ -59,19 +63,23 @@ public class ordendistinta extends javax.swing.JFrame {
 
     int traspaso = 0;
     String iptraspaso = "";
-    String tienda_traspaso = "";
+   
 
     String numerosucursal = "";
     String sucursal = "";
     String numerosolicitoarticulos = "";
-    String tiendasolicitoarticulos = "";
-
+  
     String numeroordenenvio = "";
     String tiendaordenenvio = "";
     String tiendalocal = "";
     String codigocliente = "";
     String lugar = "";
     String prenda ="";
+    
+    
+
+    String latiendaestaconectada = "si";
+    Connection con = null;
     
     
     ///// para insertar
@@ -144,6 +152,15 @@ public class ordendistinta extends javax.swing.JFrame {
     String tienefotomontaje = "";
     String tieneunaobservacion = "";
     
+    
+         String botonhabilitado1 = "si";
+        String botonhabilitado2 = "si";
+        String botonhabilitado3 = "si";
+        String botonhabilitado4 = "si";
+        String botonhabilitado5 = "si";
+        String botonhabilitado6 = "si";
+        String botonhabilitado7 = "si";
+    
     ArrayList<String> listabotones = new ArrayList<String>();
 
     
@@ -193,7 +210,7 @@ public class ordendistinta extends javax.swing.JFrame {
 
     void datosOrdenesLocales() throws IOException {
 
-        String folio = lbfolio.getText();
+        String folio = lborden.getText();
         
         cancelar1.setVisible(false);
         cancelar2.setVisible(false);
@@ -203,13 +220,7 @@ public class ordendistinta extends javax.swing.JFrame {
         cancelar6.setVisible(false);
         cancelar7.setVisible(false);
         
-        String botonhabilitado1 = "si";
-        String botonhabilitado2 = "si";
-        String botonhabilitado3 = "si";
-        String botonhabilitado4 = "si";
-        String botonhabilitado5 = "si";
-        String botonhabilitado6 = "si";
-        String botonhabilitado7 = "si";
+        
         
         
         datostienda();
@@ -725,10 +736,10 @@ public class ordendistinta extends javax.swing.JFrame {
                     ordencamisaimagencontorno p = new ordencamisaimagencontorno();
                     jPanel1.add(p);
                     jPanel1.repaint();
-                    lblImagen.setVisible(false);
+                    lbfotomontaje.setVisible(false);
                     btnverfotomontaje.setEnabled(false);
                     tienefotomontaje = "no";
-                    btnagregarfotomontaje.setEnabled(true);
+                  
                     
                     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
                     
@@ -757,12 +768,12 @@ public class ordendistinta extends javax.swing.JFrame {
                     
                     Imagen imagen = new Imagen();
                     imagen.setImagen(img);
-                    lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
-                    lblImagen.setVisible(true);
+                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
+                    lbfotomontaje.setVisible(true);
                     btnverfotomontaje.setEnabled(true);
                     tienefotomontaje = "si";
                     btnverfotomontaje.setEnabled(true);
-                    btnagregarfotomontaje.setEnabled(false);
+               
 
                     Blob archivo = rs.getBlob("imagen");
                     String nombredelarchivo = rs.getString("extension_imagen");
@@ -844,9 +855,9 @@ public class ordendistinta extends javax.swing.JFrame {
             ordencamisaimagencontorno p = new ordencamisaimagencontorno();
             jPanel1.add(p);
             jPanel1.repaint();
-            lblImagen.setVisible(false);
+            lbfotomontaje.setVisible(false);
             btnverfotomontaje.setEnabled(false);
-            btnagregarfotomontaje.setEnabled(true);
+         
 
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
             
@@ -859,7 +870,7 @@ public class ordendistinta extends javax.swing.JFrame {
      void agregarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
     {
         
-        String numero = lbfolio.getText();
+        String numero = lborden.getText();
         String prenda =lbprenda.getText();
         BufferedImage img = null;
         btnverfotomontaje.setEnabled(false);
@@ -907,12 +918,12 @@ public class ordendistinta extends javax.swing.JFrame {
                     {
                     Imagen imagen = new Imagen();
                     imagen.setImagen(img);
-                    lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
-                    lblImagen.setVisible(true);
+                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
+                    lbfotomontaje.setVisible(true);
                     btnverfotomontaje.setEnabled(true);
                     tienefotomontaje = "si";
                     btnverfotomontaje.setEnabled(true);
-                    btnagregarfotomontaje.setEnabled(false);
+                  
 
                     Blob archivo = rs.getBlob("imagen");
                     String nombredelarchivo = rs.getString("imagen_nombre");
@@ -997,9 +1008,9 @@ public class ordendistinta extends javax.swing.JFrame {
             ordencamisaimagencontorno p = new ordencamisaimagencontorno();
             jPanel1.add(p);
             jPanel1.repaint();
-            lblImagen.setVisible(false);
+            lbfotomontaje.setVisible(false);
             btnverfotomontaje.setEnabled(false);
-            btnagregarfotomontaje.setEnabled(true);
+           
 
             
             
@@ -1048,10 +1059,10 @@ public class ordendistinta extends javax.swing.JFrame {
                 ResultSet rs = prst.executeQuery();
                 if (rs.next()) {
                     numerosolicitoarticulos = rs.getString("numero");
-                    tiendasolicitoarticulos = rs.getString("sucursal");
+                    sucursal = rs.getString("sucursal");
                     
                     
-                    cbsucursal.addItem(tiendasolicitoarticulos);
+                    cbsucursal.addItem(sucursal);
                     lbnumero.setText(numerosolicitoarticulos);
                 }
             } catch (Exception exx) {
@@ -1108,9 +1119,9 @@ public class ordendistinta extends javax.swing.JFrame {
                     if (rs.next())
                     {
                         numerosolicitoarticulos = rs.getString("numero");
-                        tiendasolicitoarticulos = rs.getString("sucursal");
+                        sucursal = rs.getString("sucursal");
 
-                        cbsucursal.addItem(tiendasolicitoarticulos);
+                        cbsucursal.addItem(sucursal);
                         lbnumero.setText(numerosolicitoarticulos);
                     }
                     else
@@ -1140,7 +1151,7 @@ public class ordendistinta extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='0' where numero = '"+lbfolio.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='0' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1178,7 +1189,7 @@ public class ordendistinta extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='" + lbcantidad.getText() + "',fecha='"+dia()+"' where numero = '"+lbfolio.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='" + lbcantidad.getText() + "',fecha='"+dia()+"' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1652,6 +1663,751 @@ public class ordendistinta extends javax.swing.JFrame {
       
       
       }  
+     
+     
+     
+     
+     
+     
+    
+    
+     void datosotrasucursal () throws FileNotFoundException, IOException
+    {
+        
+        String folio = lborden.getText();
+       
+       
+
+
+
+        String activadoladoizquierdofrente = "";
+        String activadoladoizquierdoatras = "";
+        String activadoladoderechofrente = "";
+        String activadoladoderechoatras = "";
+
+          String sql = "Select codigo,tipo,estatus_orden,numero,numero_venta,fecha,hora,cliente,tipo,identificador_prenda,estatus_orden,estatus_entrega,articulo,cantidad,prenda,cantidad_bordados,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,\n" +
+"	   distinta1,distinta1_ubicacion,distinta1_nombre,distinta1_cantidad,distinta1_aplicacion,distinta1_aplicacion_color,\n" +
+"	   distinta2,distinta2_ubicacion,distinta2_nombre,distinta2_cantidad,distinta2_aplicacion,distinta2_aplicacion_color, \n" +
+"	   distinta3,distinta3_ubicacion,distinta3_nombre,distinta3_cantidad,distinta3_aplicacion,distinta3_aplicacion_color, \n" +
+"	   distinta4,distinta4_ubicacion,distinta4_nombre,distinta4_cantidad,distinta4_aplicacion,distinta4_aplicacion_color, \n" +
+"	   distinta5,distinta5_ubicacion,distinta5_nombre,distinta5_cantidad,distinta5_aplicacion,distinta5_aplicacion_color,\n" +
+"	   distinta6,distinta6_ubicacion,distinta6_nombre,distinta6_cantidad,distinta6_aplicacion,distinta6_aplicacion_color,\n" +
+"	   distinta7,distinta7_ubicacion,distinta7_nombre,distinta7_cantidad,distinta7_aplicacion,distinta7_aplicacion_color,\n" +
+"	   lugar,fotomontaje_autorizado,identificador_prenda from historial_ordenes_distinta where numero = '"+folio+"'  ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) 
+            {
+
+                lbcliente.setText(rs.getString("cliente"));
+                lbprenda.setText(rs.getString("prenda"));
+                prenda = (rs.getString("prenda"));
+                lbfecha.setText(rs.getString("fecha"));
+
+                
+                tipoprenda = rs.getString("tipo");
+                estatusorden = rs.getString("estatus_orden");
+                
+                String observacion = rs.getString("observacion");
+                
+                if(observacion == null || observacion.equals("")||observacion.equals(" ") )
+                {
+                    
+                }
+                else
+                {
+                
+                 
+                tieneunaobservacion="si";    
+                lbobservaciones.setText(observacion);
+                
+                }
+                
+                
+                
+                distinta1cantidad =rs.getString("distinta1_cantidad");
+                distinta2cantidad =rs.getString("distinta2_cantidad");         
+                distinta3cantidad =rs.getString("distinta3_cantidad"); 
+                distinta4cantidad =rs.getString("distinta4_cantidad");
+                distinta5cantidad =rs.getString("distinta5_cantidad");
+                distinta6cantidad =rs.getString("distinta6_cantidad");
+                distinta7cantidad =rs.getString("distinta7_cantidad");
+               
+                
+                distinta1nombre = rs.getString("distinta1_nombre");
+                distinta1ubicacion = rs.getString("distinta1_ubicacion");
+                distinta1 = rs.getString("distinta1");
+                lbdistinta1nombre.setText(distinta1nombre);
+                lbdistinta1.setText(distinta1);
+              
+                if (distinta1 == null || distinta1.equals("")||distinta1.equals(" ")) 
+                {
+
+                   
+                    botonhabilitado1 = "no";
+                    
+
+                }
+                  
+
+                
+                
+                distinta2nombre = rs.getString("distinta2_nombre");
+                distinta2= rs.getString("distinta2");
+                lbdistinta2nombre.setText(distinta2nombre);
+                lbdistinta2.setText(distinta2);
+                if (distinta2 == null | distinta2.equals("")) 
+                {
+
+                   
+                    botonhabilitado2 = "no";
+
+                }
+
+                distinta3nombre = rs.getString("distinta3_nombre");
+                distinta3 = rs.getString("distinta3");
+                lbdistinta3nombre.setText(distinta3nombre);
+                lbdistinta3.setText(distinta3);
+                if (distinta3 == null | distinta3.equals("")) {
+
+                   
+                    botonhabilitado3 = "no";
+
+                }
+
+                distinta4nombre = rs.getString("distinta4_nombre");
+                distinta4 = rs.getString("distinta4");
+                lbdistinta4nombre.setText(distinta4nombre);
+                lbdistinta4.setText(distinta4);
+                if (distinta4 == null | distinta4.equals("")) 
+                {
+
+                   
+                    botonhabilitado4 = "no";
+                    
+                }
+
+                distinta5nombre = rs.getString("distinta5_nombre");
+                distinta5 = rs.getString("distinta5");
+                lbdistinta5nombre.setText(distinta5nombre);
+                lbdistinta5.setText(distinta5);
+                if (distinta5 == null | distinta5.equals("")) 
+                {
+                   
+                    botonhabilitado5 = "no";
+
+                }
+
+
+                distinta6nombre = rs.getString("distinta6_nombre");
+                distinta6 = rs.getString("distinta6");
+                lbdistinta6nombre.setText(distinta6nombre);
+                lbdistinta6.setText(distinta6);
+                if (distinta6 == null | distinta6.equals("")) {
+
+                  
+                    botonhabilitado6 = "no";
+
+                }
+
+                distinta7nombre = rs.getString("distinta7_nombre");
+                distinta7 = rs.getString("distinta7");
+                lbdistinta7nombre.setText(distinta7nombre);
+                lbdistinta7.setText(distinta7);
+            
+                if (distinta7 == null | distinta7.equals("")) {
+
+                   
+                    botonhabilitado7 = "no";
+                    
+
+                }
+                
+                
+               distinta1aplicacion = rs.getString("distinta1_aplicacion");
+
+                if (distinta1aplicacion.equals("ninguno")) {
+                    distinta1aplicacion = "";
+                }
+
+                 distinta2aplicacion = rs.getString("distinta2_aplicacion");
+
+                if (distinta2aplicacion.equals("ninguno")) {
+                    distinta2aplicacion = "";
+                }
+
+                 distinta3aplicacion = rs.getString("distinta3_aplicacion");
+
+                if (distinta3aplicacion.equals("ninguno")) {
+                    distinta3aplicacion = "";
+                }
+
+                 distinta4aplicacion = rs.getString("distinta4_aplicacion");
+
+                if (distinta4aplicacion.equals("ninguno")) {
+                    distinta4aplicacion = "";
+                }
+
+                distinta5aplicacion = rs.getString("distinta5_aplicacion");
+
+                if (distinta5aplicacion.equals("ninguno")) {
+                    distinta5aplicacion = "";
+                }
+
+                
+                  distinta6aplicacion = rs.getString("distinta6_aplicacion");
+
+                if (distinta6aplicacion.equals("ninguno")) {
+                    distinta6aplicacion = "";
+                }
+
+                
+                distinta7aplicacion = rs.getString("distinta7_aplicacion");
+
+                if (distinta7aplicacion.equals("ninguno")) {
+                    distinta7aplicacion = "";
+                } 
+
+                
+                lbcantidad.setText(rs.getString("cantidad"));
+                String nombreconcepto = rs.getString("identificador_prenda");
+                lbnombreconcepto.setText(nombreconcepto);  
+                lugar = rs.getString("lugar");
+                
+                
+                
+                
+                if(lugar.equals("Esta sucursal"))
+                {
+                
+                    
+                    btninsertarponchados.setEnabled(false);
+                    cbsucursal.setEnabled(false);
+                
+                
+                if(distinta1nombre==null||distinta1nombre.equals("")||distinta1nombre.equals(" "))
+                {
+                   btndistinta1.setEnabled(false);
+                   
+                }
+                else
+                {
+
+                   
+                   if(botonhabilitado1.equals("si"))
+                   {
+                   listabotones.add("btndistinta1");
+                   }
+
+                    
+                } 
+                
+                
+                
+                /// distinta2
+                
+                 if(distinta2nombre==null||distinta2nombre.equals("")||distinta2nombre.equals(" "))
+                {
+                   btndistinta2.setEnabled(false);
+                   
+                }
+                else
+                {
+
+                 
+                   
+
+                   if(botonhabilitado2.equals("si"))
+                   {
+                   listabotones.add("btndistinta2");
+                   }
+                   
+                    
+                    
+                } 
+                
+                 if(distinta3nombre==null||distinta3nombre.equals("")||distinta3nombre.equals(" "))
+                {
+                   btndistinta3.setEnabled(false);
+                   
+                }
+                else
+                {
+                    
+                    
+                  
+                   if(botonhabilitado3.equals("si"))
+                   {
+                   listabotones.add("btndistinta3");
+                   }
+
+                    
+                    
+                } 
+                
+                if(distinta4nombre==null||distinta4nombre.equals("")||distinta4nombre.equals(" "))
+                {
+                   btndistinta4.setEnabled(false);
+                   
+                }
+                else
+                {
+                    
+                    
+                  
+                   if(botonhabilitado4.equals("si"))
+                   {
+                   listabotones.add("btndistinta4");
+                   }
+
+                    
+                    
+                } 
+                
+                if(distinta5nombre==null||distinta5nombre.equals("")||distinta5nombre.equals(" "))
+                {
+                   btndistinta5.setEnabled(false);
+                   
+                }
+                else
+                {
+                    
+                    
+                  
+                   if(botonhabilitado5.equals("si"))
+                   {
+                   listabotones.add("btndistinta5");
+                   }
+
+                    
+                    
+                } 
+                
+                if(distinta6nombre==null||distinta6nombre.equals("")||distinta6nombre.equals(" "))
+                {
+                   btndistinta6.setEnabled(false);
+                   
+                }
+                else
+                {
+                    
+                    
+                  
+                   if(botonhabilitado6.equals("si"))
+                   {
+                   listabotones.add("btndistinta6");
+                   }
+
+                    
+                    
+                }
+                
+                
+                if(distinta7nombre==null||distinta7nombre.equals("")||distinta7nombre.equals(" "))
+                {
+                   btndistinta7.setEnabled(false);
+                   
+                }
+                else
+                {
+                    
+                    
+                   
+                   if(botonhabilitado7.equals("si"))
+                   {
+                   listabotones.add("btndistinta7");
+                   }
+                   
+                    
+                } 
+                
+                
+                
+                
+                
+                
+                }
+                else
+                {
+                    
+                    btninsertarponchados.setEnabled(true);
+                    cbsucursal.setEnabled(true);
+                    
+                }
+                
+                
+                
+                if(estatusorden.equals("realizada"))
+                {
+                    
+                     if(distinta1nombre!=null && Integer.parseInt(distinta1cantidad) > 0  )
+                     {
+                         btndistinta1.setEnabled(false);
+                         cancelar1.setVisible(true);
+                     }
+                     else if(distinta2nombre!=null && Integer.parseInt(distinta2cantidad) > 0  )
+                     {
+                         btndistinta2.setEnabled(false);
+                         cancelar2.setVisible(true);
+                     }
+                      else if( distinta3nombre!=null && Integer.parseInt(distinta3cantidad) > 0  )
+                     {
+                         btndistinta3.setEnabled(false);
+                         cancelar3.setVisible(true);
+                     }
+                     else if( distinta4nombre!=null && Integer.parseInt(distinta4cantidad) > 0  )
+                     {
+                         btndistinta4.setEnabled(false);
+                         cancelar4.setVisible(true);
+                     }
+                     else if( distinta5nombre!=null && Integer.parseInt(distinta5cantidad) > 0  )
+                     {
+                         btndistinta5.setEnabled(false);
+                         cancelar5.setVisible(true);
+                     }
+                     else if( distinta6nombre!=null && Integer.parseInt(distinta6cantidad) > 0  )
+                     {
+                         btndistinta6.setEnabled(false);
+                         cancelar6.setVisible(true);
+                     }
+                     else if( distinta7nombre!=null && Integer.parseInt(distinta7cantidad) > 0  )
+                     {
+                         btndistinta7.setEnabled(false);
+                         cancelar7.setVisible(true);
+                     }
+                     
+                     
+                     btnterminetodo.setEnabled(false);
+                    
+                    
+                }
+                else if(estatusorden.equals("generada"))
+                {
+                    
+                     if(distinta1nombre!=null && Integer.parseInt(distinta1cantidad) == 0  )
+                     {
+                         btndistinta1.setEnabled(true);
+                         cancelar1.setVisible(false);
+                     }
+                     else if(distinta2nombre!=null && Integer.parseInt(distinta2cantidad) == 0  )
+                     {
+                         btndistinta2.setEnabled(true);
+                         cancelar2.setVisible(false);
+                     }
+                      else if( distinta3nombre!=null && Integer.parseInt(distinta3cantidad) == 0  )
+                     {
+                         btndistinta3.setEnabled(true);
+                         cancelar3.setVisible(false);
+                     }
+                     else if( distinta4nombre!=null && Integer.parseInt(distinta4cantidad) == 0  )
+                     {
+                         btndistinta4.setEnabled(true);
+                         cancelar4.setVisible(false);
+                     }
+                     else if( distinta5nombre!=null && Integer.parseInt(distinta5cantidad) == 0  )
+                     {
+                         btndistinta5.setEnabled(true);
+                         cancelar5.setVisible(false);
+                     }
+                     else if( distinta6nombre!=null && Integer.parseInt(distinta6cantidad) == 0  )
+                     {
+                         btndistinta6.setEnabled(true);
+                         cancelar6.setVisible(false);
+                     }
+                     else if( distinta7nombre!=null && Integer.parseInt(distinta7cantidad) == 0  )
+                     {
+                         btndistinta7.setEnabled(true);
+                         cancelar7.setVisible(false);
+                     }
+                     
+                     btnterminetodo.setEnabled(true);
+                    
+                    
+                }
+                
+
+            
+            
+            
+            }         
+                 identificador =  rs.getString("identificador_prenda");
+                lbidentificador.setText(identificador);
+                
+                
+            
+        } catch (SQLException ex) {
+           
+            JOptionPane.showMessageDialog(null, ex);
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
+        }
+        
+        
+        
+        
+        
+          
+        String cliente = lbcliente.getText();
+        
+        
+        
+                tiendaconectada();   
+             
+            
+                
+              if (latiendaestaconectada.equals("si"))
+
+                      {
+                
+                
+                 try {
+         
+                     
+                     
+            Class.forName("com.mysql.jdbc.Driver");
+       
+         
+            con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
+      
+
+        String sql7 = "Select cliente,lugar,identificador_prenda from historial_ordenes_pantalon where numero = '" + numerosucursal + "' ";
+
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql7);
+            if (rs.next()) {
+
+                cliente = rs.getString("cliente");
+                prenda = (rs.getString("prenda"));
+                sucursal = rs.getString("lugar");
+                identificador = rs.getString("identificador_prenda");
+                
+
+            }
+
+        } catch (SQLException ex) 
+        {
+             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }
+
+        
+     
+        
+        
+         BufferedImage img = null;
+        
+        
+        
+       String sql4 = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";  ///
+
+        try {
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql4);
+            while (rs.next()) 
+            {
+                
+                Blob blob = rs.getBlob("imagen");
+              
+                    byte[] data = blob.getBytes(1, (int) blob.length());
+
+                    try {
+                        img = ImageIO.read(new ByteArrayInputStream(data));
+                    } catch (IOException ex) 
+                    {
+                 
+                      JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+
+                    }
+
+                    if(img==null)
+                    {
+                       tienefotomontaje = "no"; 
+                    }
+                    else
+                    {
+                    
+                    Imagen imagen = new Imagen();
+                    imagen.setImagen(img);
+                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
+                    lbfotomontaje.setVisible(true);
+                    btnverfotomontaje.setEnabled(true);
+                    tienefotomontaje = "si";
+                    btnverfotomontaje.setEnabled(true);
+                  
+
+                    Blob archivo = rs.getBlob("imagen");
+                    String nombredelarchivo = rs.getString("extension_imagen");
+                     if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
+                    {
+                    rutaimagen = "C:\\archivospdf\\FOTOMONTAJE."+nombredelarchivo+" ";
+                    }
+                    else
+                    {
+                   nombredelarchivo = nombredelarchivo.replace(" ","");
+                    rutaimagen = "C:\\archivospdf\\"+nombredelarchivo+" ";
+                    }   
+                    
+                    File file = new File(rutaimagen);
+                    FileOutputStream output = new FileOutputStream(file);
+                    InputStream inStream = archivo.getBinaryStream();
+                    int length = -1;
+                    int size = (int) archivo.length();
+                    byte[] buffer = new byte[size];
+                    while ((length = inStream.read(buffer)) != -1) {
+                        output.write(buffer, 0, length);
+                   
+                    }
+                   
+                    output.close();
+                    
+                    }
+ 
+               
+
+            } //end while
+            rs.close();
+        } catch (SQLException ex) 
+        {
+          
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+        }
+        
+        
+         } catch (Exception x) {
+                               System.out.println(x); 
+                            }
+        
+                      }
+        
+        
+
+    }
+     
+     
+     
+    
+     
+     
+     
+     
+     
+     void tiendaconectada()
+ {
+     
+     
+     
+     try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
+
+            try {
+              
+                
+                
+                
+                String sql = "SELECT ip FROM catalogo_tiendas where tienda = '" + sucursal + "'";
+
+                Statement st = cn.prepareStatement(sql);
+                ResultSet rs = st.executeQuery(sql);
+
+                if (rs.next()) {
+
+                    iptraspaso = rs.getString("ip");
+              
+
+                } else {
+
+                }
+
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane op = new JOptionPane();
+                JLabel label = new JLabel("<HTML><b style=\"Color:red; font-size:20px;\">Error al buscar tiendas".toUpperCase());
+                label.setFont(new Font("Arial", Font.BOLD, 40));
+                label.setOpaque(true);
+                label.setForeground(Color.red.brighter());
+                label.setBackground(Color.YELLOW.brighter());
+                op.showMessageDialog(null, label, "ERROR!!", op.WARNING_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "Error al buscar tiendas");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+       
+        InetAddress ping;
+
+        if (sucursal == null || sucursal.equals("Seleccione Tienda")) 
+        {
+            
+              JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+            
+            
+        }
+        else 
+        {
+
+            try {
+                
+                
+
+                ping = InetAddress.getByName(iptraspaso);
+            
+                if (ping.isReachable(5000)) 
+                {
+                  
+                  latiendaestaconectada = "si";
+                   
+
+                }
+                
+                else 
+                
+                {
+                    
+                    latiendaestaconectada = "no";
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+                    
+
+                }
+            } catch (IOException ex) {
+                System.out.println(ex);
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+               
+                
+            }
+
+        }         
+
+     
+ }
+ 
+    
+     
+    
+    
+    
+    
+    
+    
+    
+    
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
     
     
     void sumapuntos()
@@ -1666,7 +2422,7 @@ public class ordendistinta extends javax.swing.JFrame {
                   + "cantidad_espalda,espalda,"
                   + "cantidad_otra_ubicacion,otra_ubicacion,"
                   + "cantidad_otra_ubicacion2,otra_ubicacion2,"
-                  + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2 from "+nombredelatabla+" where numero = '"+lbfolio.getText()+"' ";
+                  + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2 from "+nombredelatabla+" where numero = '"+lborden.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -2005,7 +2761,7 @@ public class ordendistinta extends javax.swing.JFrame {
         
          String sql = "Select cantidad,distinta1_cantidad,distinta1,distinta2_cantidad,distinta2,"
                   + "distinta3_cantidad,distinta3,distinta4_cantidad,distinta4,distinta4_cantidad,distinta4,"
-                  + "distinta5_cantidad,distinta5,distinta6_cantidad,distinta6,distinta7_cantidad,distinta7 from "+nombredelatabla+" where numero = '"+lbfolio.getText()+"' ";
+                  + "distinta5_cantidad,distinta5,distinta6_cantidad,distinta6,distinta7_cantidad,distinta7 from "+nombredelatabla+" where numero = '"+lborden.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -2183,7 +2939,7 @@ public class ordendistinta extends javax.swing.JFrame {
            {
                try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + lbfolio.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -2337,7 +3093,7 @@ public class ordendistinta extends javax.swing.JFrame {
         
 
          try (
-                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_gorra_recibidas where numero = '" + lbfolio.getText() + "' ")) {
+                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_gorra_recibidas where numero = '" + lborden.getText() + "' ")) {
              ResultSet rs = ps.executeQuery();
 
              if (rs.next()) {
@@ -2383,7 +3139,6 @@ public class ordendistinta extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lbdistinta1 = new javax.swing.JLabel();
         lbdistinta1nombre = new javax.swing.JLabel();
-        lbdistinta2 = new javax.swing.JLabel();
         lbdistinta2nombre = new javax.swing.JLabel();
         lbdistinta3 = new javax.swing.JLabel();
         lbdistinta3nombre = new javax.swing.JLabel();
@@ -2395,9 +3150,9 @@ public class ordendistinta extends javax.swing.JFrame {
         lbdistinta6nombre = new javax.swing.JLabel();
         lbdistinta7 = new javax.swing.JLabel();
         lbdistinta7nombre = new javax.swing.JLabel();
-        lblImagen = new javax.swing.JLabel();
+        lbfotomontaje = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        lbfolio = new javax.swing.JLabel();
+        lborden = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         btnsalir = new javax.swing.JButton();
         lbtitulo = new javax.swing.JLabel();
@@ -2438,15 +3193,12 @@ public class ordendistinta extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         lbobservaciones = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
-        btnagregarfotomontaje = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
         lbcolormangaizquierda = new javax.swing.JLabel();
         lbcolorpechoderecho = new javax.swing.JLabel();
         lbcolorpechoizquierdo = new javax.swing.JLabel();
         lbcolorespalda = new javax.swing.JLabel();
         lbcolorotraubicacion = new javax.swing.JLabel();
         lbcolorotraubicacion2 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         lbcodigomangaderecha = new javax.swing.JLabel();
         lbcodigomangaizquierda = new javax.swing.JLabel();
@@ -2463,23 +3215,23 @@ public class ordendistinta extends javax.swing.JFrame {
         cancelar5 = new javax.swing.JLabel();
         cancelar6 = new javax.swing.JLabel();
         cancelar7 = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
         btneliminar1 = new javax.swing.JButton();
+        lbdistinta2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden distinta");
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
-            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
+            }
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -2499,11 +3251,6 @@ public class ordendistinta extends javax.swing.JFrame {
         lbdistinta1nombre.setForeground(new java.awt.Color(255, 0, 0));
         jPanel1.add(lbdistinta1nombre);
         lbdistinta1nombre.setBounds(80, 40, 260, 16);
-
-        lbdistinta2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbdistinta2.setForeground(new java.awt.Color(255, 0, 0));
-        jPanel1.add(lbdistinta2);
-        lbdistinta2.setBounds(510, 60, 300, 20);
 
         lbdistinta2nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbdistinta2nombre.setForeground(new java.awt.Color(255, 0, 0));
@@ -2560,19 +3307,19 @@ public class ordendistinta extends javax.swing.JFrame {
         jPanel1.add(lbdistinta7nombre);
         lbdistinta7nombre.setBounds(70, 540, 310, 19);
 
-        lblImagen.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblImagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblImagen.setToolTipText("");
-        lblImagen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lblImagen);
-        lblImagen.setBounds(0, 10, 870, 700);
+        lbfotomontaje.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbfotomontaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbfotomontaje.setToolTipText("");
+        lbfotomontaje.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(lbfotomontaje);
+        lbfotomontaje.setBounds(0, 10, 1190, 700);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel13.setText("No.Orden");
         jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbfolio.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lbfolio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lborden.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lborden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("Cliente");
@@ -2764,18 +3511,9 @@ public class ordendistinta extends javax.swing.JFrame {
         jScrollPane6.setViewportView(lbobservaciones);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Observaciones");
         jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        btnagregarfotomontaje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnagregarfotomontaje.setText("Agregar Fotomontaje");
-        btnagregarfotomontaje.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnagregarfotomontajeActionPerformed(evt);
-            }
-        });
 
         lbcolormangaizquierda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbcolormangaizquierda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -2887,6 +3625,9 @@ public class ordendistinta extends javax.swing.JFrame {
             }
         });
 
+        lbdistinta2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta2.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2895,23 +3636,21 @@ public class ordendistinta extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 872, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane6))
-                            .addComponent(jSeparator1)
-                            .addComponent(jSeparator2)
-                            .addComponent(lbltallas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(140, 140, 140)
-                                .addComponent(cancelar7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lbcolorotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 364, Short.MAX_VALUE))
-                            .addComponent(jSeparator3)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(lbdistinta2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -2919,54 +3658,77 @@ public class ordendistinta extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(cbsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(btndistinta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(btndistinta2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                                                    .addComponent(btndistinta3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(0, 0, Short.MAX_VALUE)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                                .addComponent(cancelar2)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(lbcolormangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                                .addComponent(cancelar3)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(lbcolorpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(3, 3, 3)
-                                                        .addComponent(cancelar1)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(lbcolormangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(btndistinta7, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(170, 170, 170)
+                                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbltallas, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addComponent(btndistinta6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(btndistinta5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                                                        .addComponent(btndistinta4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(cancelar5)
-                                                            .addComponent(cancelar4))
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(lbcolorpechoizquierdo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(lbcolorespalda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                        .addComponent(cancelar6)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(lbcolorotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                        .addComponent(btndistinta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(btndistinta2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(btndistinta3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addGap(0, 0, Short.MAX_VALUE)
+                                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                                    .addComponent(cancelar2)
+                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                    .addComponent(lbcolormangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                                    .addComponent(cancelar3)
+                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                    .addComponent(lbcolorpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addGap(3, 3, 3)
+                                                            .addComponent(cancelar1)
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                            .addComponent(lbcolormangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(btndistinta7, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                            .addComponent(btndistinta6, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(btndistinta5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(btndistinta4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addGroup(layout.createSequentialGroup()
+                                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(cancelar5)
+                                                                        .addComponent(cancelar4))
+                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(lbcolorpechoizquierdo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(lbcolorespalda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                                    .addComponent(cancelar6)
+                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                    .addComponent(lbcolorotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addGap(41, 41, 41)
+                                                            .addComponent(lbcodigootraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addGap(0, 0, Short.MAX_VALUE)))))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(140, 140, 140)
+                                                .addComponent(cancelar7)
+                                                .addGap(168, 168, 168)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2976,63 +3738,45 @@ public class ordendistinta extends javax.swing.JFrame {
                                             .addComponent(lbcodigopechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lbcodigoespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lbcodigootraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbcodigootraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(lbfecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lbnumero, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)))
-                                    .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 144, Short.MAX_VALUE))))
+                                            .addComponent(lbcolorotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jScrollPane6))
+                                .addContainerGap(16, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbtitulo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btninsertarponchados)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnagregarfotomontaje)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbbordacliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(btneliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbbordacliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btneliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbtitulo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(598, 598, 598)
+                                .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btninsertarponchados)))
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lbnumeroventa, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3061,22 +3805,22 @@ public class ordendistinta extends javax.swing.JFrame {
                     .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnagregarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btninsertarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btninsertarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbltallas, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
+                        .addComponent(lbltallas, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3087,7 +3831,6 @@ public class ordendistinta extends javax.swing.JFrame {
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                     .addGroup(layout.createSequentialGroup()
                                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -3156,34 +3899,39 @@ public class ordendistinta extends javax.swing.JFrame {
                                         .addComponent(cancelar7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(lbcodigootraubicacion2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(lbcolorotraubicacion2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(5, 5, 5)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(22, 22, 22)
                         .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
+                        .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbfolio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 673, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbtipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbnombreconcepto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbnumeroventa)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbtipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbnombreconcepto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbnumeroventa)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbdistinta2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lborden, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();
@@ -3371,9 +4119,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                 //Resize The ImageIcon
                 ImageIcon image = new ImageIcon(img);
                 Image im = image.getImage();
-                Image myImg = im.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH);
+                Image myImg = im.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_SMOOTH);
                 ImageIcon newImage = new ImageIcon(myImg);
-                lblImagen.setIcon(newImage);
+                lbfotomontaje.setIcon(newImage);
             } else {
                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No hay imagen que mostrar");
             }
@@ -3604,7 +4352,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         Connection conn = null;
 
         iptraspaso = stringIP;
-        tienda_traspaso = stringlocal;
+        sucursal = stringlocal;
 
         FileInputStream input = null;
         FileInputStream input2 = null;
@@ -3618,7 +4366,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         //ponchado1
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tienda_traspaso + "", "root", "sistemas");
+            conn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
 
             //primerponchado   
             Object ponchado1 = rutamangaizquierda;
@@ -4066,114 +4814,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
     }//GEN-LAST:event_lbltallasMouseClicked
 
-    private void btnagregarfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarfotomontajeActionPerformed
-
-        
-         if (ordencamisaautorizacion.equals("si")) 
-         {
-        
-        
-        ordencamisaautorizacion="no";
-        JSystemFileChooser elegirImagen = new JSystemFileChooser();
-        elegirImagen.setMultiSelectionEnabled(false);
-        int o = elegirImagen.showOpenDialog(this);
-        if (o == JFileChooser.APPROVE_OPTION) 
-        {
-            rutaarchivo = elegirImagen.getSelectedFile().getAbsolutePath();
-            nombrearchivo = elegirImagen.getSelectedFile().getName();
-            
-            
-            PreparedStatement myStmt = null;
-            FileInputStream input = null;
-            try {
-
-                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and identificador_prenda = '"+lbnombreconcepto.getText()+"' and tipo = '"+lbprenda.getText().toUpperCase()+"' ";
-
-                myStmt = cn.prepareStatement(sql);
-                File theFile = new File(rutaarchivo);
-                input = new FileInputStream(theFile);
-                myStmt.setBinaryStream(1, input);
-                myStmt.executeUpdate();
-                myStmt.close();
-               
-                
-               
-                btnagregarfotomontaje.setEnabled(false);        
-                
-                
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-
-            try {
-                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"' where codigo='"+codigocliente+"' and identificador_prenda = '"+lbnombreconcepto.getText()+"' and tipo = '"+lbprenda.getText()+"'  ");
-                pst.executeUpdate();
-                pst.close();
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-            
-            
-            
-            btndistinta1.setVisible(true);
-            btndistinta2.setVisible(true);
-            btndistinta3.setVisible(true);
-            btndistinta4.setVisible(true);
-            btndistinta5.setVisible(true);
-            btndistinta6.setVisible(true);
-            btndistinta7.setVisible(true);
-            
-              try {
-            datosOrdenesLocales();
-        } catch (IOException ex) {
-            Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
-        }
-     
-     codigocliente();
-     
-     
-     try {    
-            agregarfotomontaje();
-        } catch (IOException ex) {
-            Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        
-          
-        
-       //sumapuntos();
-       
-           
-
-        }
-        
-        
-        
-         }
-         else
-         {
-             
-              if (autorizacion.ventanaautorizacion == true)
-            {
-          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de autorización");
-            }
-            
-            else
-            {
-            autorizacion ventana = new autorizacion();
-            ventana.setVisible(true);
-            ventana.setLocationRelativeTo(null);
-            
-            autorizacion.lbinterfaz.setText("ordencamisa");
-            
-             
-            }
-             
-         }    
-                 
-         
-    }//GEN-LAST:event_btnagregarfotomontajeActionPerformed
-
     private void btnterminetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnterminetodoActionPerformed
       
         terminetodo = "si";
@@ -4586,7 +5226,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btnagregarfotomontaje;
     private javax.swing.JButton btndistinta1;
     private javax.swing.JButton btndistinta2;
     private javax.swing.JButton btndistinta3;
@@ -4623,9 +5262,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     public static javax.swing.JLabel lbbordacliente;
     public static javax.swing.JLabel lbcantidad;
     public static javax.swing.JLabel lbcliente;
@@ -4658,15 +5294,15 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbdistinta7;
     public static javax.swing.JLabel lbdistinta7nombre;
     public static javax.swing.JLabel lbfecha;
-    public static javax.swing.JLabel lbfolio;
+    private javax.swing.JLabel lbfotomontaje;
     public static javax.swing.JLabel lbidentificador;
-    private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lbltallas;
     public static javax.swing.JLabel lbnombrecomercial;
     private javax.swing.JLabel lbnombreconcepto;
     public static javax.swing.JLabel lbnumero;
     public static javax.swing.JLabel lbnumeroventa;
     public static javax.swing.JTextArea lbobservaciones;
+    public static javax.swing.JLabel lborden;
     public static javax.swing.JLabel lbprenda;
     public javax.swing.JLabel lbsumapuntos;
     public static javax.swing.JLabel lbtipo;

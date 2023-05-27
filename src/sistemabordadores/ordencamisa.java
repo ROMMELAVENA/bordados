@@ -85,8 +85,7 @@ public class ordencamisa extends javax.swing.JFrame {
 
     int traspaso = 0;
     String iptraspaso = "";
-    String tienda_traspaso = "";
-
+   
     String numerosucursal = "";
     String sucursal = "";
     String numerosolicitoarticulos = "";
@@ -1460,7 +1459,7 @@ public class ordencamisa extends javax.swing.JFrame {
     {
         
     
-        String prenda =lbprenda.getText().toUpperCase();
+        prenda =lbprenda.getText().toUpperCase();
         identificador =lbidentificador.getText();
         BufferedImage img = null;
         
@@ -1620,7 +1619,7 @@ public class ordencamisa extends javax.swing.JFrame {
     {
         
         String numero = lborden.getText();
-        String prenda =lbprenda.getText();
+        prenda =lbprenda.getText();
         BufferedImage img = null;
         btnverfotomontaje.setEnabled(false);
         
@@ -3130,12 +3129,8 @@ public class ordencamisa extends javax.swing.JFrame {
 
      void verfotomontajerecibido()
     {
-        
-        String cliente = lbcliente.getText();
-        String tipo = lbprenda.getText();
-        String prenda =lbprenda.getText().toUpperCase();
-        String prendafotomontaje = "";
-        String nombreprendafotomontaje = "";
+       String prenda =lbprenda.getText().toUpperCase();
+     
         String rutadelarchivo = "";
         String existe = "";
         
@@ -5523,25 +5518,11 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btninsertarponchadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninsertarponchadosActionPerformed
        
         
-       Object sucursalreplica =  cbsucursal.getSelectedItem();
-        
-
-        String tipo = lbtipo.getText();
         String numerosucursal = lbnumerodelaotrasucursal.getText();
-        String prenda = lbprenda.getText();
+        prenda = lbprenda.getText();
 
         String path = "";
-        Object tiendaalaquesereplicara = cbsucursal.getSelectedItem();
-        String stringIP = "";
-        String stringlocal = "";
-        String stringBDlocal = "";
-
-        String nombrearchivo1 = "";
-        String nombrearchivo2 = "";
-        String nombrearchivo3 = "";
-        String nombrearchivo4 = "";
-        String nombrearchivo5 = "";
-        String nombrearchivo6 = "";
+    
         
         
        
@@ -5561,7 +5542,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String cliente = lbcliente.getText();
         String rutadelarchivo = "";
         String existe = "";
-        String prenda = lbprenda.getText();
+        prenda = lbprenda.getText();
        // String nombre = nombrebordado.getText().trim();
    
        
@@ -6422,7 +6403,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          
          
          
-        if (tienda_traspaso.equals(cc))
+        if (sucursal.equals(cc))
          
          try {    
             agregarfotomontajeotrasucursal();

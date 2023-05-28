@@ -339,6 +339,11 @@ public class ordencamisa extends javax.swing.JFrame {
         
         
         
+        
+        
+        
+        
+        
         String sql = "SELECT color1,color2,color3,color4,color5,color6,color7,color8,color9,color10,color11,color12,color13,color14,color15,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,hilo8,hilo9,hilo10,hilo11,hilo12,hilo13,hilo14,hilo15 FROM colorido_bordados where identificador_prenda = '"+lbidentificador.getText()+"' and codigo = '"+codigocliente+"' AND nombre = '"+lbcliente.getText()+"' ";
 
 
@@ -887,6 +892,9 @@ public class ordencamisa extends javax.swing.JFrame {
     void datosotrasucursal() throws IOException {
         
         
+        regresaralaconeccionlocal();
+        
+        
        
         
         String botonhabilitado1 = "";
@@ -931,7 +939,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 mangaderechanombre = rs.getString("manga_derecha_nombre");
                 Object mangaderecha = rs.getString("manga_derecha");
                 lbmangaderechanombre.setText(mangaderechanombre);
-                lbpechoizquierdo.setText(rs.getString("manga_derecha"));
+                lbmangaderecha.setText(rs.getString("manga_derecha"));
                 if (mangaderecha == null || mangaderecha.equals("") || mangaderecha.equals("ninguno"))
                 
                 {
@@ -1023,6 +1031,9 @@ public class ordencamisa extends javax.swing.JFrame {
 
                 otraubicacion2nombre = rs.getString("otra_ubicacion2_nombre");
                 Object otraubicacion2 = rs.getString("otra_ubicacion2");
+                
+                
+                
                 lbotraubicacion2nombre.setText(otraubicacion2nombre);
                 lbotraubicacion2.setText(rs.getString("otra_ubicacion2"));
                 if (otraubicacion2 == null || otraubicacion2.equals("") || otraubicacion2.equals("ninguno")) 
@@ -1323,13 +1334,40 @@ public class ordencamisa extends javax.swing.JFrame {
                  
                  
                       }
+              
+              
+              
+             
+        
+        
+              
+              
+              
+              
         
      
         
     }
     
     
+     void regresaralaconeccionlocal(){
+             //rommel
+              
+              try {
+                Class.forName("com.mysql.jdbc.Driver");
+                
+              
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        try {
+            cn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tiendalocal + "", "root", "sistemas");
+        } catch (SQLException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        }
     
+     }
         
     
     
@@ -2087,24 +2125,47 @@ public class ordencamisa extends javax.swing.JFrame {
         
     }
     
+    
+    
+    
+    
+    
+    
+    
     void actualizarlascantidadesbordadasotrasucursal(String ubicacion)
     {
+        
+        regresaralaconeccionlocal();
+    
+        
         try {
+        
+         
+            
 
                     PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set "+ubicacion+"='" + lbcantidad.getText() + "',fecha = '"+dia()+"'  where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
+                    
+                    
+                     String ubicacionsinguiones = ubicacion;
+                         ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
+                    
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
 
                 } catch (Exception ex) {
                     
+                    
+                    
                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+                     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al actualizar al actualizar las cantidades en el historial de ordenes de camisa recibidas ");
+                    
                 }
         
         
-        String ubicacionsinguiones = ubicacion;
-        ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
+       
         
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+        
         
         
         try {
@@ -4529,6 +4590,8 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnpechoizquierdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoizquierdoActionPerformed
 
+        
+        
          if(lbcantidad.getText().equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
@@ -5651,6 +5714,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         
         
+        //rommel
+        
+        regresaralaconeccionlocal();
+        
+        
         
         
         
@@ -6075,7 +6143,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         
         }
-        else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+        else
+            
+            if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
             
             int respuesta = JOptionPane.showOptionDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea descargar el ponchado o ponerla como realizada???", "Selector de opciones", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Descargar Ponchado", "Poner como realizado"}, "Descargar Ponchado");

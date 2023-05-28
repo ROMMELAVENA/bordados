@@ -27,6 +27,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import static sistemabordadores.ordencamisa.lborden;
 
 public class ordencorbata extends javax.swing.JFrame {
 
@@ -49,6 +50,8 @@ public class ordencorbata extends javax.swing.JFrame {
   
     String latiendaestaconectada = "si";
     Connection con = null;
+    
+     String numerodeorden = "";
     
 
     String frentenombre = "";
@@ -617,7 +620,7 @@ public class ordencorbata extends javax.swing.JFrame {
      void datosotrasucursal () throws FileNotFoundException, IOException
     {
         
-        String folio = lborden.getText();
+        numerodeorden = lborden.getText();
        
        
 
@@ -629,7 +632,7 @@ public class ordencorbata extends javax.swing.JFrame {
         String activadoladoderechoatras = "";
 
         
-         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_puntadas,cantidad_frente,identificador_prenda from historial_ordenes_corbata where numero = '" + folio + "'";
+         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_puntadas,cantidad_frente,identificador_prenda from historial_ordenes_corbata where numero = '" + numerodeorden + "' and prenda = '" + prenda + "'";
      
         try {
             Statement st = cn.createStatement();

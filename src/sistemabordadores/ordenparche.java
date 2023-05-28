@@ -438,7 +438,7 @@ public static boolean ventanaordenparcheanteriores = false;
      void datosotrasucursal () throws FileNotFoundException, IOException
     {
         
-        String folio = lborden.getText();
+        numerodeorden = lborden.getText();
        
        
 
@@ -450,7 +450,7 @@ public static boolean ventanaordenparcheanteriores = false;
         String activadoladoderechoatras = "";
 
         
-          String sql = "SELECT numero,numero_venta,fecha,hora,cliente,tipo,estatus_entrega,articulo,parche,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,identificador_prenda FROM historial_ordenes_parche WHERE numero = '"+numerodeorden+"' ";
+          String sql = "SELECT numero,numero_venta,fecha,hora,cliente,tipo,estatus_entrega,articulo,parche,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,identificador_prenda FROM historial_ordenes_parche where numero = '" + numerodeorden + "' and prenda = '" + prenda + "' ";
 
        
         try {

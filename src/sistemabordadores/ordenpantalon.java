@@ -71,6 +71,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     String ladoizquierdoatrasnombre = "";
     String ladoderechoatrasnombre = "";
  
+     String numerodeorden = "";
     
     String rutaimagen="";
     String rutaladoizquierdofrente="";
@@ -1153,7 +1154,7 @@ public class ordenpantalon extends javax.swing.JFrame {
      void datosotrasucursal () throws FileNotFoundException, IOException
     {
         
-        String folio = lborden.getText();
+         numerodeorden = lborden.getText();
        
 
         String activadoladoizquierdofrente = "";
@@ -1161,7 +1162,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         String activadoladoderechofrente = "";
         String activadoladoderechoatras = "";
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_sucursal_orden,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda from historial_ordenes_pantalon_recibidas where numero = '" + folio + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_sucursal_orden,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda from historial_ordenes_pantalon_recibidas where numero = '" + numerodeorden + "' and prenda = '" + prenda + "'";
 
         try {
             Statement st = cn.createStatement();

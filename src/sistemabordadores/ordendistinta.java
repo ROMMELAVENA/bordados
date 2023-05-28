@@ -76,7 +76,7 @@ public class ordendistinta extends javax.swing.JFrame {
     String lugar = "";
     String prenda ="";
     
-    
+     String numerodeorden = "";
 
     String latiendaestaconectada = "si";
     Connection con = null;
@@ -1671,10 +1671,7 @@ public class ordendistinta extends javax.swing.JFrame {
     
      void datosotrasucursal () throws FileNotFoundException, IOException
     {
-        
-        String folio = lborden.getText();
-       
-       
+         numerodeorden = lborden.getText();
 
 
 
@@ -1691,7 +1688,7 @@ public class ordendistinta extends javax.swing.JFrame {
 "	   distinta5,distinta5_ubicacion,distinta5_nombre,distinta5_cantidad,distinta5_aplicacion,distinta5_aplicacion_color,\n" +
 "	   distinta6,distinta6_ubicacion,distinta6_nombre,distinta6_cantidad,distinta6_aplicacion,distinta6_aplicacion_color,\n" +
 "	   distinta7,distinta7_ubicacion,distinta7_nombre,distinta7_cantidad,distinta7_aplicacion,distinta7_aplicacion_color,\n" +
-"	   lugar,fotomontaje_autorizado,identificador_prenda from historial_ordenes_distinta where numero = '"+folio+"'  ";
+"	   lugar,fotomontaje_autorizado,identificador_prenda from historial_ordenes_distinta where where numero = '" + numerodeorden + "' and prenda = '" + prenda + "' ";
 
         try {
             Statement st = cn.createStatement();

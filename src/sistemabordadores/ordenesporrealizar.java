@@ -153,7 +153,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         String[] datos = new String[15];
         
         
-        String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion "
+        String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad "
                          + "FROM historial_ordenes_camisa where lugar = 'Esta sucursal' "
                          + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora  ";
 
@@ -176,6 +176,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos[10] = "Local";
                 datos[11] = rs.getString("identificador_prenda");
                 datos[12] = rs.getString("observacion");
+                datos[13] = rs.getString("cantidad");
 
                 modelo.addRow(datos);
 
@@ -193,7 +194,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos2 = new String[15];
         
-        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion  FROM historial_ordenes_gorra where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad  FROM historial_ordenes_gorra where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
@@ -212,6 +213,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos2[10] = "Local";
                 datos2[11] = rs.getString("identificador_prenda");
                 datos2[12] = rs.getString("observacion");
+                datos2[13] = rs.getString("cantidad");
+                
                 modelo.addRow(datos2);
 
             }
@@ -228,7 +231,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos3 = new String[15];
         
-         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion  FROM historial_ordenes_pantalon where lugar = 'Esta sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad  FROM historial_ordenes_pantalon where lugar = 'Esta sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
@@ -248,6 +251,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos3[10] = "Local";
                 datos3[11] = rs.getString("identificador_prenda");
                 datos3[12] = rs.getString("observacion"); 
+                datos3[13] = rs.getString("cantidad");
                 modelo.addRow(datos3);
 
             }
@@ -265,7 +269,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos4 = new String[15];
         
-        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda,observaciongeneral  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda,observaciongeneral,cantidad  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
@@ -284,6 +288,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos4[10] = "Local";
                 datos4[11] = rs.getString("identificador_prenda");
                 datos4[12] = rs.getString("observaciongeneral");
+                datos4[13] = rs.getString("cantidad");
                 modelo.addRow(datos4);
 
             }
@@ -301,7 +306,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
          String[] datos5 = new String[15];
         
-        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion  FROM historial_ordenes_corbata where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
+        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad  FROM historial_ordenes_corbata where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
 
         try {
             Statement st = cn.createStatement();
@@ -320,6 +325,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos5[10] = "Local";
                 datos5[11] = rs.getString("identificador_prenda");
                 datos5[12] = rs.getString("observacion");
+                datos5[13] = rs.getString("cantidad");
                 modelo.addRow(datos5);
 
             }
@@ -341,7 +347,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos7 = new String[15];
         
-        String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha,observacion,nombre_renglon1,nombre_renglon2,nombre_renglon3  FROM historial_ordenes_portanombres where (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
+        String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha,observacion,nombre_renglon1,nombre_renglon2,nombre_renglon3,cantidad  FROM historial_ordenes_portanombres where (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
 
         try {
             Statement st = cn.createStatement();
@@ -370,6 +376,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos7[10] = "Local";
                 datos7[11] = nombre;
                 datos7[12] = rs.getString("observacion");
+                datos7[13] = rs.getString("cantidad");
 
                 modelo.addRow(datos7);
 
@@ -388,7 +395,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos8 = new String[15];
 
-         String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha,observacion  FROM historial_ordenes_portanombres_multiple where (estatus_orden = 'generada' or estatus_orden = 'solicitada' ) and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
+         String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha,observacion,cantidad  FROM historial_ordenes_portanombres_multiple where (estatus_orden = 'generada' or estatus_orden = 'solicitada' ) and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
 
         try {
             Statement st = cn.createStatement();
@@ -410,6 +417,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos8[10] = "Local";
                 datos8[11] = "Porta nombre";
                 datos8[12] = rs.getString("observacion"); 
+                datos8[13] = rs.getString("cantidad");
                 modelo.addRow(datos8);
 
             }
@@ -451,6 +459,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos9[10] = "Local";
                 datos9[11] = "Ponchado";
                 datos9[12] = rs.getString("observaciones");
+                datos9[13] = "1";
                 modelo.addRow(datos9);
 
             }
@@ -470,7 +479,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         
-        String sqldistinta = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion  "
+        String sqldistinta = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad  "
                          + "FROM historial_ordenes_distinta where lugar = 'Esta sucursal' "
                          + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora  ";
 
@@ -491,6 +500,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos[10] = "Local";
                 datos[11] = rs.getString("identificador_prenda");
                 datos[12] = rs.getString("observacion");
+                datos[13] = rs.getString("cantidad");
 
                 modelo.addRow(datos);
 
@@ -536,6 +546,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos[10] = "Local";
                 datos[11] = rs5.getString("descripcion");
                 datos[12] = "";
+           
                 
                  modelo.addRow(datos);
                 
@@ -580,7 +591,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         String numerosucursal = "";
        
 
-        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar,observacion,identificador_prenda  FROM historial_ordenes_camisa_recibidas where (estatus_orden = 'generada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora "; //and tienda not in('"+tiendalocal+"')
+        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar,observacion,identificador_prenda,cantidad  FROM historial_ordenes_camisa_recibidas where (estatus_orden = 'generada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora "; //and tienda not in('"+tiendalocal+"')
 
         try {
             Statement st = cn.createStatement();
@@ -611,6 +622,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos10[10] = "Recibida";
                 datos10[11] = rs.getString("identificador_prenda");
                 datos10[12] = rs.getString("observacion");
+                datos10[13] = rs.getString("cantidad");
                 
               
 
@@ -632,7 +644,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos11 = new String[15];
 
-        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden,observacion,identificador_prenda FROM historial_ordenes_gorra_recibidas  where (estatus_orden = 'generada' or cantidad_generada > 0) and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by hora  ";
+        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden,observacion,identificador_prenda,cantidad FROM historial_ordenes_gorra_recibidas  where (estatus_orden = 'generada' or cantidad_generada > 0) and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by hora  ";
 
         try {
             Statement st2 = cn.createStatement();
@@ -652,6 +664,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos11[10] = "Recibida";
                 datos11[11] = rs2.getString("identificador_prenda");
                 datos11[12] = rs2.getString("observacion");
+                datos11[13] = rs2.getString("cantidad");
 
                 modelo.addRow(datos11);
 
@@ -671,7 +684,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos12 = new String[15];
 
-        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden,observacion,identificador_prenda  FROM historial_ordenes_pantalon_recibidas where (estatus_orden = 'generada' or cantidad_generada > 0) and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
+        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden,observacion,identificador_prenda,cantidad  FROM historial_ordenes_pantalon_recibidas where (estatus_orden = 'generada' or cantidad_generada > 0) and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
 
         try {
             Statement st = cn.createStatement();
@@ -690,6 +703,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos12[10] = "Recibida";
                 datos12[11] = rs.getString("identificador_prenda");
                 datos12[12] = rs.getString("observacion");
+                datos12[13] = rs.getString("cantidad");
             
                 modelo.addRow(datos12);
 
@@ -724,6 +738,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos9[10] = "Recibida";
                 datos9[11] = "";
                 datos9[12] = rs.getString("observacion");
+                datos9[13] = "1";
                 modelo.addRow(datos9);
 
             }
@@ -1390,11 +1405,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tieneponchados", "tabla", "Identificador de prenda", "observacion"
+                "No. Orden", "cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tiene ponchados", "tabla", "Identificador de prenda", "observacion", "Cantidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1414,6 +1429,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
+            tabla.getColumnModel().getColumn(0).setMinWidth(50);
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(150);
             tabla.getColumnModel().getColumn(1).setMinWidth(100);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(350);
             tabla.getColumnModel().getColumn(1).setMaxWidth(700);
@@ -1426,12 +1444,15 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(5).setMinWidth(0);
             tabla.getColumnModel().getColumn(5).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(5).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(6).setMinWidth(0);
-            tabla.getColumnModel().getColumn(6).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(6).setMinWidth(60);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(6).setMaxWidth(120);
             tabla.getColumnModel().getColumn(8).setMinWidth(0);
             tabla.getColumnModel().getColumn(8).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(9).setMinWidth(100);
+            tabla.getColumnModel().getColumn(9).setPreferredWidth(150);
+            tabla.getColumnModel().getColumn(9).setMaxWidth(220);
             tabla.getColumnModel().getColumn(10).setMinWidth(0);
             tabla.getColumnModel().getColumn(10).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(10).setMaxWidth(0);
@@ -1441,6 +1462,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(12).setMinWidth(0);
             tabla.getColumnModel().getColumn(12).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(12).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(13).setMinWidth(70);
+            tabla.getColumnModel().getColumn(13).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(13).setMaxWidth(150);
         }
 
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

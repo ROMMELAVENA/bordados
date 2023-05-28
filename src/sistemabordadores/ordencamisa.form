@@ -75,57 +75,8 @@
                               <Component id="jScrollPane6" min="-2" pref="523" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lbespaldanombre1" min="-2" pref="97" max="-2" attributes="0"/>
-                                  <Component id="lbmangaizquierdanombre1" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Component id="lbpechoizquierdonombre1" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Component id="lbpechoderechonombre1" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Component id="lbmangaderechanombre1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbotraubicacionnombre1" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Component id="lbotraubicacion2nombre1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" min="-2" pref="110" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnmangaderecha" min="-2" pref="137" max="-2" attributes="0"/>
-                                  <Component id="btnmangaizquierda" min="-2" pref="137" max="-2" attributes="0"/>
-                                  <Component id="btnpechoderecho" min="-2" pref="137" max="-2" attributes="0"/>
-                                  <Component id="btnespalda" min="-2" pref="136" max="-2" attributes="0"/>
-                                  <Component id="btnotraubicacion" min="-2" pref="136" max="-2" attributes="0"/>
-                                  <Component id="btnotraubicacion2" min="-2" pref="136" max="-2" attributes="0"/>
-                                  <Component id="btnpechoizquierdo" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lbhilo1" min="-2" pref="104" max="-2" attributes="0"/>
-                                          <Component id="lbhilo2" min="-2" pref="104" max="-2" attributes="0"/>
-                                          <Component id="lbhilo3" min="-2" pref="104" max="-2" attributes="0"/>
-                                          <Component id="lbhilo4" min="-2" pref="104" max="-2" attributes="0"/>
-                                          <Component id="lbhilo5" min="-2" pref="104" max="-2" attributes="0"/>
-                                          <Component id="lbhilo6" min="-2" pref="104" max="-2" attributes="0"/>
-                                          <Component id="lbhilo7" min="-2" pref="104" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lbcolor1" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Component id="lbcolor2" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Component id="lbcolor3" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Component id="lbcolor4" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Component id="lbcolor5" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Component id="lbcolor6" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Component id="lbcolor7" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Component id="jLabel2" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="jLabel5" min="-2" pref="105" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="btnterminetodo" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
                           <Component id="lbltallas" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -151,7 +102,79 @@
                                       </Group>
                                       <Component id="lbotraubicacion2" alignment="1" min="-2" pref="450" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="lbpechoizquierdo" alignment="0" pref="451" max="32767" attributes="0"/>
+                                  <Component id="lbpechoizquierdo" alignment="0" pref="474" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="btnterminetodo" min="-2" pref="263" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lbespaldanombre1" min="-2" pref="97" max="-2" attributes="0"/>
+                                  <Component id="lbmangaizquierdanombre1" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="lbpechoizquierdonombre1" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="lbpechoderechonombre1" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="lbmangaderechanombre1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbotraubicacionnombre1" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="lbotraubicacion2nombre1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" min="-2" pref="110" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btnotraubicacion" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="btnespalda" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="btnmangaderecha" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="btnmangaizquierda" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="btnpechoderecho" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="btnotraubicacion2" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="btnpechoizquierdo" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnpechoizquierdo2" max="32767" attributes="0"/>
+                                  <Component id="btnpechoizquierdo3" max="32767" attributes="0"/>
+                                  <Component id="btnpechoizquierdo4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnpechoizquierdo5" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnpechoizquierdo6" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnpechoizquierdo7" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnpechoizquierdo8" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel5" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lbhilo1" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="lbhilo2" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="lbhilo3" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="lbhilo4" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="lbhilo5" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="lbhilo6" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="lbhilo7" min="-2" pref="80" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="lbcolor6" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor4" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor3" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor2" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lbcolor7" min="-2" pref="120" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="btnpechoderecho1" min="-2" pref="90" max="-2" attributes="0"/>
+                                          <Component id="btnmangaizquierda1" min="-2" pref="90" max="-2" attributes="0"/>
+                                          <Component id="btnmangaderecha1" min="-2" pref="90" max="-2" attributes="0"/>
+                                          <Component id="btnespalda1" min="-2" pref="90" max="-2" attributes="0"/>
+                                          <Component id="btnotraubicacion1" min="-2" pref="90" max="-2" attributes="0"/>
+                                          <Component id="btnotraubicacion3" min="-2" pref="90" max="-2" attributes="0"/>
+                                          <Component id="btnpechoizquierdo1" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -186,9 +209,10 @@
                       <Component id="btneditarbordado" min="-2" pref="127" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnsalir" min="-2" pref="72" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
@@ -262,96 +286,136 @@
                   <Group type="102" attributes="0">
                       <Component id="lbltallas" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="btnpechoizquierdo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                              <Component id="btnpechoizquierdo2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="btnpechoderecho" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                              <Component id="btnpechoizquierdo3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="9" pref="7" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="btnmangaizquierda" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                              <Component id="btnpechoizquierdo4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="lbpechoizquierdonombre1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lbpechoderechonombre1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lbmangaizquierdanombre1" min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="107" pref="107" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="btnmangaderecha" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="lbmangaderechanombre1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="btnpechoizquierdo5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lbespaldanombre1" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="btnotraubicacion" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                                  <Component id="btnpechoizquierdo7" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="btnotraubicacion2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                                  <Component id="btnpechoizquierdo8" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lbotraubicacionnombre1" min="-2" pref="30" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="lbotraubicacion2nombre1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="lbcolor4" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Component id="lbcolor1" min="-2" pref="30" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lbcolor1" min="-2" pref="30" max="-2" attributes="0"/>
+                                                  <Component id="btnpechoizquierdo1" min="-2" pref="30" max="-2" attributes="0"/>
+                                              </Group>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="lbcolor2" min="-2" pref="30" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lbcolor2" min="-2" pref="30" max="-2" attributes="0"/>
+                                                  <Component id="btnpechoderecho1" min="-2" pref="30" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="btnmangaizquierda1" min="-2" pref="30" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="lbcolor3" min="-2" pref="30" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="btnpechoizquierdo" min="-2" pref="30" max="-2" attributes="0"/>
-                                                  <Component id="lbhilo1" min="-2" pref="30" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="lbhilo1" min="-2" pref="30" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="lbhilo2" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
-                                                  <Component id="btnpechoderecho" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="lbhilo2" min="-2" pref="30" max="-2" attributes="0"/>
                                               <EmptySpace min="9" max="32767" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="lbhilo3" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
-                                                  <Component id="btnmangaizquierda" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="lbpechoizquierdonombre1" min="-2" pref="30" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="lbpechoderechonombre1" min="-2" pref="30" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="lbmangaizquierdanombre1" min="-2" pref="30" max="-2" attributes="0"/>
+                                              <Component id="lbhilo3" min="-2" pref="30" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                      <Component id="lbhilo4" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                              <Component id="lbhilo4" min="-2" pref="30" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="btnmangaderecha1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lbcolor5" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="lbhilo5" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="btnespalda1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="btnpechoizquierdo6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnespalda" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lbcolor6" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="lbhilo6" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="btnotraubicacion1" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lbcolor7" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="lbhilo7" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="107" pref="107" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnmangaderecha" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbmangaderechanombre1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnespalda" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbespaldanombre1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnotraubicacion" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnotraubicacion2" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lbotraubicacionnombre1" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lbotraubicacion2nombre1" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="btnotraubicacion3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="btnterminetodo" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1674,6 +1738,160 @@
           </Border>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnotraubicacion3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ponchado"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnotraubicacion3ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnotraubicacion1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ponchado"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnotraubicacion1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnespalda1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ponchado"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnespalda1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnpechoizquierdo1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ponchado"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpechoizquierdo1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnpechoderecho1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ponchado"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpechoderecho1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnmangaizquierda1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ponchado"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnmangaizquierda1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnmangaderecha1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ponchado"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnmangaderecha1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnpechoizquierdo2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpechoizquierdo2ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnpechoizquierdo3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpechoizquierdo3ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnpechoizquierdo4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpechoizquierdo4ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnpechoizquierdo5">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpechoizquierdo5ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnpechoizquierdo6">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpechoizquierdo6ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnpechoizquierdo7">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpechoizquierdo7ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnpechoizquierdo8">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpechoizquierdo8ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

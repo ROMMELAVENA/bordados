@@ -76,7 +76,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         topes();
         seleccionarfechas();
         anterior = "no";
-        agregarfechasalatablafecha();
+        datostablaizquierda();
         btnsiguiente.setEnabled(false);
         
         lbsumapuntos.setVisible(false);
@@ -319,7 +319,23 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     ///// BORDADOS DE CAMISAS,CHAMARRA ETC
+    
+    
+    
     void datostablahistorialordenescamisa(int i) 
     {
 
@@ -329,6 +345,9 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double importemangaderecha = 0.0;
         double importeespalda = 0.0;
         double importeotraubicacion = 0.0;
+        
+        
+        
         double importeotraubicacion2 = 0.0;
 
         String costostring = "0";
@@ -617,6 +636,20 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     void calcularcostosdebordadoscamisas() {
 
         double importepechoizquierdo = 0.0;
@@ -1194,7 +1227,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho,manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha,espalda_nombre,espalda,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion_nombre,otra_ubicacion,otra_ubicacion2_nombre,otra_ubicacion2 from historial_ordenes_camisa_recibidas where (estatus_orden = 'generada' OR estatus_orden = 'realizada') and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho,manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha,espalda_nombre,espalda,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion_nombre,otra_ubicacion,otra_ubicacion2_nombre,otra_ubicacion2 from historial_ordenes_camisa_recibidas where (estatus_orden = 'realizada totalmente' OR estatus_orden = 'realizada parcialmente') and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -3719,7 +3752,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     }
 
-    void agregarfechasalatablafecha() 
+    void datostablaizquierda() 
     {
 
         DefaultTableModel modelotabla = (DefaultTableModel) tablafecha.getModel();
@@ -3758,8 +3791,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     //////
     void calculodelassumasdelosbordados(int i) {
 
-        String[] datos = new String[65];
-        
+         
         int mes = 0;
 
         String cantidadbordados = "";
@@ -4211,7 +4243,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         }
 
         ///////// CAMISAS RECIBIDAS
-        String sqlcamisasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho,manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha,espalda_nombre,espalda,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion from historial_ordenes_camisa_recibidas where (estatus_orden = 'realizada' or estatus_orden = 'generada') and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlcamisasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho,manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha,espalda_nombre,espalda,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion from historial_ordenes_camisa_recibidas where (estatus_orden = 'realizada totalmente' or estatus_orden = 'realizada parcialmente') and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -6669,7 +6701,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         lbdia.setText("0");
         limpiartablafechas();
         seleccionarfechas();
-        agregarfechasalatablafecha();
+        datostablaizquierda();
 
 
     }//GEN-LAST:event_btnanteriorActionPerformed
@@ -6682,13 +6714,18 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         lbdia.setText("0");
         limpiartablafechas();
         seleccionarfechas();
-        agregarfechasalatablafecha();
+        datostablaizquierda();
 
 
     }//GEN-LAST:event_btnsiguienteActionPerformed
 
     private void tablafechaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablafechaMouseClicked
 
+        
+        
+        
+        
+        
         if (evt.getClickCount() == 1) 
         {
 

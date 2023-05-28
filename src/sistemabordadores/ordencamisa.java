@@ -73,6 +73,8 @@ public class ordencamisa extends javax.swing.JFrame {
     String remanentebordadosstring = "";
     int nuevoremanentebordadosint = 0;
     String nuevoremanentebordadossstring = "";
+    
+    String fechaubicacion = "";
 
     String bordadosutilizadosstring = "";
     int bordadosutilizadosint = 0;
@@ -2143,7 +2145,7 @@ public class ordencamisa extends javax.swing.JFrame {
          
             
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set "+ubicacion+"='" + lbcantidad.getText() + "',fecha = '"+dia()+"'  where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set "+ubicacion+"='" + lbcantidad.getText() + "',fecha = '"+dia()+"',"+fechaubicacion+" = '"+dia()+"'  where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
                     
@@ -4360,6 +4362,14 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnmangaizquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmangaizquierdaActionPerformed
 
+        
+          fechaubicacion  = "manga_izquierda_fecha";
+        
+        
+                
+                                                
+                                                
+                                                
          if(lbcantidad.getText().equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
@@ -4590,6 +4600,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnpechoizquierdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoizquierdoActionPerformed
 
+      fechaubicacion  = "pecho_izquierdo_fecha";
         
         
          if(lbcantidad.getText().equals("0"))
@@ -4857,6 +4868,13 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnespaldaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnespaldaActionPerformed
 
         
+          fechaubicacion  = "espalda_fecha";
+        
+                  
+         
+                                                
+                                                
+        
         String cantidad = lbcantidad.getText();
         
         if(cantidad.equals("0"))
@@ -5102,6 +5120,11 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnpechoderechoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoderechoActionPerformed
      
+        
+          fechaubicacion  = "pecho_derecho_fecha";
+        
+        
+                                        
          if(lbcantidad.getText().equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
@@ -5345,6 +5368,14 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnmangaderechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmangaderechaActionPerformed
 
+        
+         
+          fechaubicacion  = "manga_derecha_fecha";
+        
+                 
+                        
+                                        
+                                        
         if(lbcantidad.getText().equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
@@ -5726,6 +5757,14 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnotraubicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnotraubicacionActionPerformed
 
+        
+         
+          fechaubicacion  = "otra_ubicacion_fecha";
+        
+               
+         
+                                        
+                                        
         if(lbcantidad.getText().equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
@@ -5978,7 +6017,14 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btnotraubicacionActionPerformed
 
     private void btnotraubicacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnotraubicacion2ActionPerformed
-       
+
+        
+         fechaubicacion  = "otra_ubicacion2_fecha";
+                                    
+                                        
+         
+                                                
+                                                
         if(lbcantidad.getText().equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");

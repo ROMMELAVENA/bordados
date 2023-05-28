@@ -1155,6 +1155,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     {
         
          numerodeorden = lborden.getText();
+         prenda = "Pantalon";
        
 
         String activadoladoizquierdofrente = "";

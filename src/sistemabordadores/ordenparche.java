@@ -439,6 +439,7 @@ public static boolean ventanaordenparcheanteriores = false;
     {
         
         numerodeorden = lborden.getText();
+        prenda = "Parche";
        
        
 

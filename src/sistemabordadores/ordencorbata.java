@@ -621,6 +621,7 @@ public class ordencorbata extends javax.swing.JFrame {
     {
         
         numerodeorden = lborden.getText();
+        prenda = "Corbata";
        
        
 

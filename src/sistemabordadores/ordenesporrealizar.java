@@ -580,7 +580,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         String numerosucursal = "";
        
 
-        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar,observacion  FROM historial_ordenes_camisa_recibidas where (estatus_orden = 'generada' or cantidad_generada > 0) and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora "; //and tienda not in('"+tiendalocal+"')
+        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar,observacion,identificador_prenda  FROM historial_ordenes_camisa_recibidas where (estatus_orden = 'generada' or cantidad_generada > 0) and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora "; //and tienda not in('"+tiendalocal+"')
 
         try {
             Statement st = cn.createStatement();
@@ -609,7 +609,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
              
                 datos10[9] = "";
                 datos10[10] = "Recibida";
-                datos10[11] = "";
+                datos10[11] = rs.getString("identificador_prenda");
                 datos10[12] = rs.getString("observacion");
                 
               
@@ -632,7 +632,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos11 = new String[15];
 
-        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden,observacion FROM historial_ordenes_gorra_recibidas  where (estatus_orden = 'generada' or cantidad_generada > 0) and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by hora  ";
+        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden,observacion,identificador_prenda FROM historial_ordenes_gorra_recibidas  where (estatus_orden = 'generada' or cantidad_generada > 0) and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by hora  ";
 
         try {
             Statement st2 = cn.createStatement();
@@ -650,7 +650,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos11[8] = rs2.getString("numero_sucursal_orden");
                 datos11[9] = "";
                 datos11[10] = "Recibida";
-                datos11[11] = "";
+                datos11[11] = rs2.getString("identificador_prenda");
                 datos11[12] = rs2.getString("observacion");
 
                 modelo.addRow(datos11);
@@ -671,7 +671,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos12 = new String[15];
 
-        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden,observacion  FROM historial_ordenes_pantalon_recibidas where (estatus_orden = 'generada' or cantidad_generada > 0) and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
+        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden,observacion,identificador_prenda  FROM historial_ordenes_pantalon_recibidas where (estatus_orden = 'generada' or cantidad_generada > 0) and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
 
         try {
             Statement st = cn.createStatement();
@@ -688,7 +688,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos12[8] = rs.getString("numero_sucursal_orden");
                 datos12[9] = "";
                 datos12[10] = "Recibida";
-                datos12[11] = "";
+                datos12[11] = rs.getString("identificador_prenda");
                 datos12[12] = rs.getString("observacion");
             
                 modelo.addRow(datos12);
@@ -1607,7 +1607,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                     if (ordencamisa.ventanaordencamisa == true) 
                     {
                         
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de camisa");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de camisa ya está abierta");
 
                     }
                     else 
@@ -1659,7 +1659,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
                 {
                     if (ordengorra.ventanaordengorra == true) {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de gorra");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de gorra ya está abierta");
 
                     }
                     else 
@@ -1702,7 +1702,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                     if (ordenpantalon.ventanaordenpantalonanteriores == true) 
                     {
                         
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\"> Favor de cerrar la ventana de orden de pantalones");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de pantalon ya está abierta");
 
                     } 
                     
@@ -1746,7 +1746,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 {
                     if (ordenponchado.ventanaordenparcheanteriores == true) 
                     {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de ponchado ya está abierta");
 
                     }
                     else 
@@ -1781,7 +1781,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 else if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
                 {
                     if (ordenparche.ventanaordenparcheanteriores == true) {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de parche ya está abierta");
 
                     } else {
                         ordenparche orden = new ordenparche();
@@ -1804,7 +1804,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                         if (ordencorbata.ventanaordencorbataanteriores == true) 
                         {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de corbata");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de corbata ya está abierta");
 
                         }
                         else 
@@ -1850,7 +1850,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                    if (ordenportanombreescolar.ventanaordenportanombreanterior == true) 
                    {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de portanombre");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de porta nombre ya está abierta");
 
                    } else 
                    
@@ -1893,7 +1893,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                     if (ordenportanombremultiple.ventanaordenportanombremultipleanterior == true) 
                     {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de portanombre");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de porta nombre multiple ya está abierta");
 
                     } 
                     else 
@@ -1927,7 +1927,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                     if (ordeninternagorraanterior.ventanaordeninternagorraanterior == true) 
                     {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de portanombre");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden interna de gorra ya está abierta");
 
                     } 
                     else 
@@ -1957,7 +1957,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                     if (ordendistinta.ventanaordencamisaanteriores == true) 
                     {
                         
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden distinta");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de distinta ya está abierta");
 
                     }
                     else 

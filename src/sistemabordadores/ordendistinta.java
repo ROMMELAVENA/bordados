@@ -1672,6 +1672,7 @@ public class ordendistinta extends javax.swing.JFrame {
      void datosotrasucursal () throws FileNotFoundException, IOException
     {
          numerodeorden = lborden.getText();
+         prenda = "Distinta";
 
 
 

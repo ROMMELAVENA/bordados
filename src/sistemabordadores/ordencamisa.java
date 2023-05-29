@@ -89,6 +89,8 @@ public class ordencamisa extends javax.swing.JFrame {
 
     int traspaso = 0;
     String iptraspaso = "";
+    
+    String host = ingresotienda.strIP;
    
     String numerosucursal = "";
     String sucursal = "";
@@ -1357,40 +1359,69 @@ public class ordencamisa extends javax.swing.JFrame {
     
     
      void regresaralaconeccionlocal(){
+          
+        
+         
+         
+         
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+             cn = DriverManager.getConnection("jdbc:mysql://" + host + "/" + tiendalocal + "", "root", "sistemas"); 
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+         
            
          
-
+         
          /*
-     connectar cc = new connectar();
-    Connection cn = cc.conexion();
-*/
-             
-             
-     }
+              
+              try {
+                Class.forName("com.mysql.jdbc.Driver");
+                
+              
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+              
+            
+       try {
+            Class.forName("com.mysql.jdbc.Driver");
+            cn = DriverManager.getConnection("jdbc:mysql://" + host + "/tiendas", "root", "sistemas");
+        } catch (Exception e) {
+
+            System.out.println(e);
+
+        }
+       
+       
+       */
         
+       
+     }
     
     
  void tiendaconectada()
  {
      
      
+      regresaralaconeccionlocal();
+     
      
      sucursal = lbsucursal.getText();
      
      
-  //   regresaralaconeccionlocal();
-     
-     
-     
-     try {
-            
+      try {
             Class.forName("com.mysql.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://"+tiendalocal+"/tiendas", "root", "sistemas");
-
-            try {
-              
-                
-                
+            cn = DriverManager.getConnection("jdbc:mysql://" + host + "/tiendas", "root", "sistemas");
+       
+            
+     
+             
+              try {   
                 
                 String sql = "SELECT ip FROM catalogo_tiendas where tienda = '" + sucursal + "'";
 
@@ -1446,7 +1477,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 {
                   
                   latiendaestaconectada = "si";
-                   
+                  
 
                 }
                 

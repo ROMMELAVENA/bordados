@@ -20,7 +20,33 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import java.io.File;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import static java.time.LocalDate.now;
+import java.time.Month;
 import javax.swing.JTable;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.Month;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
+
 
 public class bordadosreportegeneral extends javax.swing.JFrame {
 
@@ -147,58 +173,58 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         tabla.getColumnModel().getColumn(59).setMinWidth(0);
         tabla.getColumnModel().getColumn(60).setMinWidth(0);
 
-        tabla.getColumnModel().getColumn(0).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(50);
         tabla.getColumnModel().getColumn(1).setMaxWidth(800);
         tabla.getColumnModel().getColumn(2).setMaxWidth(800);
         tabla.getColumnModel().getColumn(3).setMaxWidth(800);
         tabla.getColumnModel().getColumn(4).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(5).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
         tabla.getColumnModel().getColumn(6).setMaxWidth(800);
         tabla.getColumnModel().getColumn(7).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(8).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
         tabla.getColumnModel().getColumn(9).setMaxWidth(800);
         tabla.getColumnModel().getColumn(10).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(11).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(11).setMaxWidth(0);
         tabla.getColumnModel().getColumn(12).setMaxWidth(800);
         tabla.getColumnModel().getColumn(13).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(14).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(14).setMaxWidth(0);
         tabla.getColumnModel().getColumn(15).setMaxWidth(800);
         tabla.getColumnModel().getColumn(16).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(17).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(17).setMaxWidth(0);
         tabla.getColumnModel().getColumn(18).setMaxWidth(800);
         tabla.getColumnModel().getColumn(19).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(20).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(20).setMaxWidth(0);
         tabla.getColumnModel().getColumn(21).setMaxWidth(800);
         tabla.getColumnModel().getColumn(22).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(23).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(23).setMaxWidth(0);
         tabla.getColumnModel().getColumn(24).setMaxWidth(800);
         tabla.getColumnModel().getColumn(25).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(26).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(26).setMaxWidth(0);
         tabla.getColumnModel().getColumn(27).setMaxWidth(800);
         tabla.getColumnModel().getColumn(28).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(29).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(29).setMaxWidth(0);
         tabla.getColumnModel().getColumn(30).setMaxWidth(800);
         tabla.getColumnModel().getColumn(31).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(32).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(32).setMaxWidth(0);
         tabla.getColumnModel().getColumn(33).setMaxWidth(800);
         tabla.getColumnModel().getColumn(34).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(35).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(35).setMaxWidth(0);
         tabla.getColumnModel().getColumn(36).setMaxWidth(800);
         tabla.getColumnModel().getColumn(37).setMaxWidth(800);
         tabla.getColumnModel().getColumn(38).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(39).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(39).setMaxWidth(0);
         tabla.getColumnModel().getColumn(40).setMaxWidth(800);
         tabla.getColumnModel().getColumn(41).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(42).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(42).setMaxWidth(0);
         tabla.getColumnModel().getColumn(43).setMaxWidth(800);
         tabla.getColumnModel().getColumn(44).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(45).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(45).setMaxWidth(0);
         tabla.getColumnModel().getColumn(46).setMaxWidth(800);
         tabla.getColumnModel().getColumn(47).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(48).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(48).setMaxWidth(0);
         tabla.getColumnModel().getColumn(49).setMaxWidth(800);
         tabla.getColumnModel().getColumn(50).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(51).setMaxWidth(800);
+        tabla.getColumnModel().getColumn(51).setMaxWidth(0);
         tabla.getColumnModel().getColumn(52).setMaxWidth(800);
         tabla.getColumnModel().getColumn(53).setMaxWidth(800);
         tabla.getColumnModel().getColumn(54).setMaxWidth(800);
@@ -209,58 +235,58 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         tabla.getColumnModel().getColumn(59).setMaxWidth(800);
         tabla.getColumnModel().getColumn(60).setMaxWidth(800);
 
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(1).setPreferredWidth(350);
         tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(3).setPreferredWidth(200);
         tabla.getColumnModel().getColumn(4).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(6).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(7).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(8).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(9).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(10).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(11).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(11).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(12).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(13).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(14).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(14).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(15).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(16).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(17).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(17).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(18).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(19).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(20).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(20).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(21).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(22).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(23).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(23).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(24).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(25).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(26).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(26).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(27).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(28).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(29).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(29).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(30).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(31).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(32).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(32).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(33).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(34).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(35).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(35).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(36).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(37).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(38).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(39).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(39).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(40).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(41).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(42).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(42).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(43).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(44).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(45).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(45).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(46).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(47).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(48).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(48).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(49).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(50).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(51).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(51).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(52).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(53).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(54).setPreferredWidth(80);
@@ -3756,12 +3782,67 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     {
 
         DefaultTableModel modelotabla = (DefaultTableModel) tablafecha.getModel();
-        String[] datos = new String[2];
+        String[] datos = new String[3];
 
         for (int i = 1; i <= diafinal; i++) {
+            
+            
+            
+            String color = "blanco";
+            
+            Calendar now = Calendar.getInstance();
+      
+        int mesdelaño = now.get(Calendar.MONTH)+1;
+        String messtring = String.valueOf(mesdelaño);
+        
+        int añoactual = now.get(Calendar.YEAR);
+        String añoactualstring = String.valueOf(añoactual);
+        
+        String dia = String.valueOf(i);
+        
+       Date fechadate = null;
+            
+           String fechastring =  añoactualstring.concat("-").concat(messtring).concat("-").concat(dia);
+       
+           
+           
+        String formato = "yyyy-MM-dd";
+
+        DateFormat dateFormat = new SimpleDateFormat(formato);
+
+        try {
+            fechadate = dateFormat.parse(fechastring);
+            System.out.println(fechadate);
+        } catch (ParseException e) {
+            System.out.println("Error al convertir la cadena a fecha");
+            e.printStackTrace();
+           
+           
+        }
+          
+      
+       
+          DateFormat diaSemanaFormat = new SimpleDateFormat("EEEE");
+            String diaSemana = diaSemanaFormat.format(fechadate);
+    
+          
+                 if (diaSemana.equals("sábado") || diaSemana.equals("domingo"))
+            {
+                color = "rojo";
+            }
+           
+           else
+                  {
+                    color = "blanco";   
+                  }
+        
+        
+            
+            
 
             datos[0] = String.valueOf(i);
             datos[1] = "0.00";
+            datos[2] = color;
             modelotabla.addRow(datos);
 
             if (i == 1 || i == 31) 
@@ -3769,10 +3850,20 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 int a = 0;
             }
 
+            
+            
+            
+            
             calculodelassumasdelosbordados((int) i);
 
         }
 
+        
+        
+        
+        
+        
+        
         double sumadouble = 0.0;
 
         for (int i = 0; i < tablafecha.getRowCount(); i++) {
@@ -3786,8 +3877,26 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         lbsuma.setText(String.format("%.2f", sumadouble));
 
+        
+        
+        
+        
+         bordadosreportegeneralColorear ventana = new bordadosreportegeneralColorear(5);
+        tablafecha.setDefaultRenderer(Object.class, ventana);
+        
+      
+        
     }
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
     //////
     void calculodelassumasdelosbordados(int i) {
 
@@ -3953,6 +4062,9 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double sumatotaldelosbordadosportanombremultiple = 0.00;
         double sumatotaldelosponchados = 0.00;
 
+        
+        
+        
         ////////////CAMISAS
         
         String sql = "Select codigo,fecha,cliente,cantidad,prenda,cantidad_pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo,"
@@ -6009,7 +6121,6 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     }
 
-    
    
    
     void sumadelasaplicaciones() 
@@ -6117,8 +6228,15 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             }
 
             totalpuntosaplicacionesgrandes = costopuntadasaplicacionesgrandes * (sumadelasaplicacionesgrandes* cantidadaplicacionint);
+            String totalpuntosaplicacionesgrandesstring =  String.format("%.02f ", totalpuntosaplicacionesgrandes);
+                    
+                    if (totalpuntosaplicacionesgrandes<1)
+                    {
+                        totalpuntosaplicacionesgrandesstring = "";
+                    }
+         
 
-            tabla.setValueAt(String.format("%.02f ", totalpuntosaplicacionesgrandes), i, 61);
+            tabla.setValueAt(String.format("%.02f ", totalpuntosaplicacionesgrandesstring), i, 61);
 
         }
 
@@ -6520,17 +6638,9 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Fecha", "Importe del día"
+                "Fecha", "Importe del día", "Color"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         tablafecha.setRowHeight(28);
         tablafecha.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -6539,8 +6649,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablafecha);
         if (tablafecha.getColumnModel().getColumnCount() > 0) {
-            tablafecha.getColumnModel().getColumn(0).setResizable(false);
-            tablafecha.getColumnModel().getColumn(1).setResizable(false);
+            tablafecha.getColumnModel().getColumn(0).setMinWidth(50);
+            tablafecha.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tablafecha.getColumnModel().getColumn(0).setMaxWidth(120);
+            tablafecha.getColumnModel().getColumn(2).setMinWidth(0);
+            tablafecha.getColumnModel().getColumn(2).setPreferredWidth(0);
+            tablafecha.getColumnModel().getColumn(2).setMaxWidth(0);
         }
 
         tabla.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -6568,17 +6682,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             }
         });
         jScrollPane3.setViewportView(tabla);
-        if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(0).setMinWidth(0);
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-        }
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Suma mes");
+        jLabel1.setText("Suma");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbsuma.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbsuma.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbsuma.setForeground(new java.awt.Color(153, 0, 0));
         lbsuma.setText("0.00");
         lbsuma.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -6609,19 +6719,19 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbsuma, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbsuma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1585, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1632, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(54, 54, 54)
                                 .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
@@ -6644,7 +6754,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(277, 277, 277)
                         .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -6662,14 +6772,15 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 908, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 895, Short.MAX_VALUE))
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbsuma, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5))
         );
 
         pack();
@@ -6802,7 +6913,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             if (numeroventa == null || numeroventa.equals(""))
             {
-                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">No tiene numero de venta");
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">No tiene numero de venta");
             } 
 
         }

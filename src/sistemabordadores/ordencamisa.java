@@ -1360,38 +1360,10 @@ public class ordencamisa extends javax.swing.JFrame {
            
          
 
-
+         /*
      connectar cc = new connectar();
     Connection cn = cc.conexion();
-
-
-
-
-
-
-//rommel
-             
-             /*
-              try {
-                Class.forName("com.mysql.jdbc.Driver");
-                
-              
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
-            }
-              
-              */
-            
-             /*
-             
-        try {
-            cn = DriverManager.getConnection("jdbc:mysql://localhost/" + tiendalocal + "", "root", "sistemas");
-        } catch (SQLException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    
-             
-             */
+*/
              
              
      }
@@ -1406,11 +1378,14 @@ public class ordencamisa extends javax.swing.JFrame {
      sucursal = lbsucursal.getText();
      
      
+  //   regresaralaconeccionlocal();
+     
+     
      
      try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
+            cn = DriverManager.getConnection("jdbc:mysql://"+tiendalocal+"/tiendas", "root", "sistemas");
 
             try {
               

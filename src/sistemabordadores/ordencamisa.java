@@ -4043,6 +4043,7 @@ public class ordencamisa extends javax.swing.JFrame {
         jLabel21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbsucursal.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbsucursal.setForeground(new java.awt.Color(153, 0, 0));
         lbsucursal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbsucursal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 

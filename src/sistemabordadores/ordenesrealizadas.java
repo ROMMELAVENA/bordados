@@ -1254,6 +1254,9 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
+            tabla.getColumnModel().getColumn(0).setMinWidth(100);
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(150);
+            tabla.getColumnModel().getColumn(0).setMaxWidth(200);
             tabla.getColumnModel().getColumn(1).setMinWidth(100);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(350);
             tabla.getColumnModel().getColumn(1).setMaxWidth(700);
@@ -1272,6 +1275,9 @@ public class ordenesrealizadas extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(8).setMinWidth(0);
             tabla.getColumnModel().getColumn(8).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(9).setMinWidth(50);
+            tabla.getColumnModel().getColumn(9).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(9).setMaxWidth(150);
             tabla.getColumnModel().getColumn(10).setMinWidth(0);
             tabla.getColumnModel().getColumn(10).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(10).setMaxWidth(0);
@@ -1376,7 +1382,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                                 .addComponent(lbinterface, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(210, 210, 210)
                                 .addComponent(lbtienda, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 9, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

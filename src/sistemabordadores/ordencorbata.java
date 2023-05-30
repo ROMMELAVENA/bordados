@@ -1444,7 +1444,7 @@ public class ordencorbata extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnfrenteponchado);
-        btnfrenteponchado.setBounds(1740, 320, 100, 30);
+        btnfrenteponchado.setBounds(1610, 330, 100, 30);
 
         btnfrentecancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnfrentecancelar.setText("Cancelar");

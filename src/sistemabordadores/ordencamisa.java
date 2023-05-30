@@ -3552,13 +3552,13 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbotraubicacionnombre1 = new javax.swing.JLabel();
         lbotraubicacion2nombre1 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        btnotraubicacion3 = new javax.swing.JButton();
-        btnotraubicacion1 = new javax.swing.JButton();
+        btnotraubicacion2ponchado = new javax.swing.JButton();
+        btnotraubicacionponchado = new javax.swing.JButton();
         btnespalda1 = new javax.swing.JButton();
-        btnpechoizquierdo1 = new javax.swing.JButton();
-        btnpechoderecho1 = new javax.swing.JButton();
-        btnmangaizquierda1 = new javax.swing.JButton();
-        btnmangaderecha1 = new javax.swing.JButton();
+        btnpechoizquierdoponchado = new javax.swing.JButton();
+        btnpechoderechoponchado = new javax.swing.JButton();
+        btnmangaizquierdaponchado = new javax.swing.JButton();
+        btnmangaderechaponchado = new javax.swing.JButton();
         btnpechoizquierdocancelar = new javax.swing.JButton();
         btnpechoderechocancelar = new javax.swing.JButton();
         btnmangaizquierdacancelar = new javax.swing.JButton();
@@ -3598,7 +3598,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbfotomontaje.setToolTipText("");
         lbfotomontaje.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbfotomontaje);
-        lbfotomontaje.setBounds(-10, 10, 1210, 690);
+        lbfotomontaje.setBounds(-10, 10, 1200, 690);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel13.setText("No.Orden");
@@ -3970,19 +3970,19 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel14.setText("No. de venta");
         jLabel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnotraubicacion3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnotraubicacion3.setText("Ponchado");
-        btnotraubicacion3.addActionListener(new java.awt.event.ActionListener() {
+        btnotraubicacion2ponchado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnotraubicacion2ponchado.setText("Ponchado");
+        btnotraubicacion2ponchado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnotraubicacion3ActionPerformed(evt);
+                btnotraubicacion2ponchadoActionPerformed(evt);
             }
         });
 
-        btnotraubicacion1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnotraubicacion1.setText("Ponchado");
-        btnotraubicacion1.addActionListener(new java.awt.event.ActionListener() {
+        btnotraubicacionponchado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnotraubicacionponchado.setText("Ponchado");
+        btnotraubicacionponchado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnotraubicacion1ActionPerformed(evt);
+                btnotraubicacionponchadoActionPerformed(evt);
             }
         });
 
@@ -3994,35 +3994,35 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
         });
 
-        btnpechoizquierdo1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnpechoizquierdo1.setText("Ponchado");
-        btnpechoizquierdo1.addActionListener(new java.awt.event.ActionListener() {
+        btnpechoizquierdoponchado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnpechoizquierdoponchado.setText("Ponchado");
+        btnpechoizquierdoponchado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpechoizquierdo1ActionPerformed(evt);
+                btnpechoizquierdoponchadoActionPerformed(evt);
             }
         });
 
-        btnpechoderecho1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnpechoderecho1.setText("Ponchado");
-        btnpechoderecho1.addActionListener(new java.awt.event.ActionListener() {
+        btnpechoderechoponchado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnpechoderechoponchado.setText("Ponchado");
+        btnpechoderechoponchado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpechoderecho1ActionPerformed(evt);
+                btnpechoderechoponchadoActionPerformed(evt);
             }
         });
 
-        btnmangaizquierda1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnmangaizquierda1.setText("Ponchado");
-        btnmangaizquierda1.addActionListener(new java.awt.event.ActionListener() {
+        btnmangaizquierdaponchado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnmangaizquierdaponchado.setText("Ponchado");
+        btnmangaizquierdaponchado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnmangaizquierda1ActionPerformed(evt);
+                btnmangaizquierdaponchadoActionPerformed(evt);
             }
         });
 
-        btnmangaderecha1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnmangaderecha1.setText("Ponchado");
-        btnmangaderecha1.addActionListener(new java.awt.event.ActionListener() {
+        btnmangaderechaponchado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnmangaderechaponchado.setText("Ponchado");
+        btnmangaderechaponchado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnmangaderecha1ActionPerformed(evt);
+                btnmangaderechaponchadoActionPerformed(evt);
             }
         });
 
@@ -4133,8 +4133,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addGap(7, 7, 7)
                         .addComponent(btnvercolorido, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbltallas, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -4219,25 +4219,25 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addGap(12, 12, 12)
                                 .addComponent(lbpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(5, 5, 5)
-                                .addComponent(btnpechoizquierdo1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnpechoizquierdoponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbpechoderechonombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
                                 .addComponent(lbpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(5, 5, 5)
-                                .addComponent(btnpechoderecho1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnpechoderechoponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbmangaizquierdanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
                                 .addComponent(lbmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(5, 5, 5)
-                                .addComponent(btnmangaizquierda1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnmangaizquierdaponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbmangaderechanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
                                 .addComponent(lbmangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(5, 5, 5)
-                                .addComponent(btnmangaderecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnmangaderechaponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbespaldanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
@@ -4249,13 +4249,13 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addGap(12, 12, 12)
                                 .addComponent(lbotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(5, 5, 5)
-                                .addComponent(btnotraubicacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnotraubicacionponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbotraubicacion2nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
                                 .addComponent(lbotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(5, 5, 5)
-                                .addComponent(btnotraubicacion3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnotraubicacion2ponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4414,28 +4414,28 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbpechoizquierdonombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnpechoizquierdo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnpechoizquierdoponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addComponent(lbpechoderechonombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lbpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnpechoderecho1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnpechoderechoponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addComponent(lbmangaizquierdanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lbmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnmangaizquierda1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnmangaizquierdaponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addComponent(lbmangaderechanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lbmangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnmangaderecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnmangaderechaponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -4447,7 +4447,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addComponent(btnespalda1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnotraubicacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnotraubicacionponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4455,7 +4455,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                     .addComponent(lbotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnotraubicacion3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnotraubicacion2ponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4769,19 +4769,8 @@ JOptionPane.showMessageDialog(null, mensaje);
  else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
             
-            int respuesta = JOptionPane.showOptionDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea descargar el ponchado o ponerla como realizada???", "Selector de opciones", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Descargar Ponchado", "Poner como realizado"}, "Descargar Ponchado");
-            
-            if (respuesta == JOptionPane.YES_OPTION) 
-            {
-                String ubicacion ="manga_derecha_ponchado";
-                String ubicacionnombre ="manga_derecha_ponchado_nombre";
-                        
-                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
-                
-            }
-            else if (respuesta == JOptionPane.NO_OPTION) 
-            {
-            
+ 
+         
 
                 String ubicacion = "cantidad_manga_izquierda";
                 String nombrebordado = mangaizquierdanombre;
@@ -4836,7 +4825,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 estacompletalaorden();
                 sumapuntos();
             
-        }
+       
     
         }
         
@@ -4960,18 +4949,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
             
-             int respuesta = JOptionPane.showOptionDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea descargar el ponchado o ponerla como realizada???", "Selector de opciones", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Descargar Ponchado", "Poner como realizado"}, "Descargar Ponchado");
-            
-            if (respuesta == JOptionPane.YES_OPTION) 
-            {
-                String ubicacion ="pecho_izquierdo_ponchado";
-                String ubicacionnombre ="pecho_izquierdo_ponchado_nombre";
-                        
-                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
-                
-            }
-            else if (respuesta == JOptionPane.NO_OPTION) 
-            {
+   
             
             String ubicacion = "cantidad_pecho_izquierdo";
             String nombrebordado = pechoizquierdonombre;
@@ -5030,7 +5008,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             agregarexistenciabordadosotrasucursal((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
             estacompletalaorden();
             sumapuntos();
-            }
+            
 
         }
     
@@ -5145,18 +5123,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
             
-            int respuesta = JOptionPane.showOptionDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea descargar el ponchado o ponerla como realizada???", "Selector de opciones", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Descargar Ponchado", "Poner como realizado"}, "Descargar Ponchado");
-            
-            if (respuesta == JOptionPane.YES_OPTION) 
-            {
-                String ubicacion ="espalda_ponchado";
-                String ubicacionnombre ="espalda_ponchado_nombre";
-                        
-                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
-                
-            }
-            else if (respuesta == JOptionPane.NO_OPTION) 
-            {
+
             
             String ubicacion = "cantidad_espalda";
             String nombrebordado = espaldanombre;
@@ -5215,7 +5182,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             estacompletalaorden();
             sumapuntos();
             
-            }
+           
             
         }
         
@@ -5323,18 +5290,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
-            int respuesta = JOptionPane.showOptionDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea descargar el ponchado o ponerla como realizada???", "Selector de opciones", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Descargar Ponchado", "Poner como realizado"}, "Descargar Ponchado");
-            
-            if (respuesta == JOptionPane.YES_OPTION) 
-            {
-                String ubicacion ="pecho_derecho_ponchado";
-                String ubicacionnombre ="pecho_derecho_ponchado_nombre";
-                        
-                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
-                
-            }
-            else if (respuesta == JOptionPane.NO_OPTION) 
-            {
+     
             String ubicacion = "cantidad_pecho_derecho";
             String nombrebordado = pechoderechonombre;
             String cantidadaplicacion = aplicacionpechoderecho;
@@ -5392,7 +5348,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             estacompletalaorden();
             sumapuntos();
             
-        }
+        
        
         }
         
@@ -5502,18 +5458,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
             
-             int respuesta = JOptionPane.showOptionDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea descargar el ponchado o ponerla como realizada???", "Selector de opciones", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Descargar Ponchado", "Poner como realizado"}, "Descargar Ponchado");
-            
-            if (respuesta == JOptionPane.YES_OPTION) 
-            {
-                String ubicacion ="manga_derecha_ponchado";
-                String ubicacionnombre ="manga_derecha_ponchado_nombre";
-                        
-                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
-                
-            }
-            else if (respuesta == JOptionPane.NO_OPTION) 
-            {
+       
             String ubicacion = "cantidad_manga_derecha";
             String nombrebordado = mangaderechanombre;
             String cantidadaplicacion = aplicacionmangaderecha;
@@ -5564,7 +5509,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             agregarexistenciabordadosotrasucursal((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
             estacompletalaorden();
             sumapuntos();  
-            }
+            
             
         }
             
@@ -5835,18 +5780,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
             
-             int respuesta = JOptionPane.showOptionDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea descargar el ponchado o ponerla como realizada???", "Selector de opciones", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Descargar Ponchado", "Poner como realizado"}, "Descargar Ponchado");
-            
-            if (respuesta == JOptionPane.YES_OPTION) 
-            {
-                String ubicacion ="otra_ubicacion_ponchado";
-                String ubicacionnombre ="otra_ubicacion_ponchado_nombre";
-                        
-                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
-                
-            }
-            else if (respuesta == JOptionPane.NO_OPTION) 
-            {
+     
             
             String ubicacion = "cantidad_otra_ubicacion";
             String nombrebordado = otraubicacionnombre;
@@ -5906,7 +5840,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             estacompletalaorden();
             sumapuntos();
             
-            }
+            
             
             
         }
@@ -6019,16 +5953,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
-            
-            int respuesta = JOptionPane.showOptionDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea descargar el ponchado o ponerla como realizada???", "Selector de opciones", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Descargar Ponchado", "Poner como realizado"}, "Descargar Ponchado");
-
-            if (respuesta == JOptionPane.YES_OPTION) {
-                String ubicacion = "otra_ubicacion2_ponchado";
-                String ubicacionnombre = "otra_ubicacion2_ponchado_nombre";
-
-                descargarponchado((String) ubicacion, (String) ubicacionnombre);
-
-            } else if (respuesta == JOptionPane.NO_OPTION) {
+   
 
                 String ubicacion = "cantidad_otra_ubicacion2";
                 String nombrebordado = otraubicacion2nombre;
@@ -6087,7 +6012,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 estacompletalaorden();
                 sumapuntos();
 
-            }
+            
             
         }
         
@@ -6412,33 +6337,93 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     }//GEN-LAST:event_btnfotomontajesinpuntadasActionPerformed
 
-    private void btnotraubicacion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnotraubicacion3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnotraubicacion3ActionPerformed
+    private void btnotraubicacion2ponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnotraubicacion2ponchadoActionPerformed
+     
+        
+        
+         String ubicacion = "otra_ubicacion2_ponchado";
+                String ubicacionnombre = "otra_ubicacion2_ponchado_nombre";
 
-    private void btnotraubicacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnotraubicacion1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnotraubicacion1ActionPerformed
+                descargarponchado((String) ubicacion, (String) ubicacionnombre);
+                
+                
+                
+    }//GEN-LAST:event_btnotraubicacion2ponchadoActionPerformed
+
+    private void btnotraubicacionponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnotraubicacionponchadoActionPerformed
+    
+        
+        
+           String ubicacion ="otra_ubicacion_ponchado";
+                String ubicacionnombre ="otra_ubicacion_ponchado_nombre";
+                        
+                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
+                
+                
+                
+    }//GEN-LAST:event_btnotraubicacionponchadoActionPerformed
 
     private void btnespalda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnespalda1ActionPerformed
-        // TODO add your handling code here:
+      
+        
+        
+            String ubicacion ="espalda_ponchado";
+                String ubicacionnombre ="espalda_ponchado_nombre";
+                        
+                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
+                
+                
+                
     }//GEN-LAST:event_btnespalda1ActionPerformed
 
-    private void btnpechoizquierdo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoizquierdo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnpechoizquierdo1ActionPerformed
+    private void btnpechoizquierdoponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoizquierdoponchadoActionPerformed
+    
+        
+        String ubicacion ="pecho_izquierdo_ponchado";
+                String ubicacionnombre ="pecho_izquierdo_ponchado_nombre";
+                        
+                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
+                
+                
+    }//GEN-LAST:event_btnpechoizquierdoponchadoActionPerformed
 
-    private void btnpechoderecho1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoderecho1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnpechoderecho1ActionPerformed
+    private void btnpechoderechoponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoderechoponchadoActionPerformed
+   
+        
+            String ubicacion ="pecho_derecho_ponchado";
+                String ubicacionnombre ="pecho_derecho_ponchado_nombre";
+                        
+                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
+                
+                
+                
+    }//GEN-LAST:event_btnpechoderechoponchadoActionPerformed
 
-    private void btnmangaizquierda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmangaizquierda1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnmangaizquierda1ActionPerformed
+    private void btnmangaizquierdaponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmangaizquierdaponchadoActionPerformed
+    
+        
+         String ubicacion ="manga_derecha_ponchado";
+                String ubicacionnombre ="manga_derecha_ponchado_nombre";
+                        
+                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
+                
+                
+                
+    }//GEN-LAST:event_btnmangaizquierdaponchadoActionPerformed
 
-    private void btnmangaderecha1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmangaderecha1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnmangaderecha1ActionPerformed
+    private void btnmangaderechaponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmangaderechaponchadoActionPerformed
+      
+        
+        
+           String ubicacion ="manga_derecha_ponchado";
+                String ubicacionnombre ="manga_derecha_ponchado_nombre";
+                        
+                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
+                
+                
+                
+                
+    }//GEN-LAST:event_btnmangaderechaponchadoActionPerformed
 
     private void btnpechoizquierdocancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoizquierdocancelarActionPerformed
       
@@ -7047,23 +7032,23 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JButton btnfotomontajesinpuntadas;
     private javax.swing.JButton btninsertarponchados;
     private javax.swing.JButton btnmangaderecha;
-    private javax.swing.JButton btnmangaderecha1;
     private javax.swing.JButton btnmangaderechacancelar;
+    private javax.swing.JButton btnmangaderechaponchado;
     private javax.swing.JButton btnmangaizquierda;
-    private javax.swing.JButton btnmangaizquierda1;
     private javax.swing.JButton btnmangaizquierdacancelar;
+    private javax.swing.JButton btnmangaizquierdaponchado;
     private javax.swing.JButton btnotraubicacion;
-    private javax.swing.JButton btnotraubicacion1;
     private javax.swing.JButton btnotraubicacion2;
     private javax.swing.JButton btnotraubicacion2cancelar;
-    private javax.swing.JButton btnotraubicacion3;
+    private javax.swing.JButton btnotraubicacion2ponchado;
     private javax.swing.JButton btnotraubicacioncancelar;
+    private javax.swing.JButton btnotraubicacionponchado;
     private javax.swing.JButton btnpechoderecho;
-    private javax.swing.JButton btnpechoderecho1;
     private javax.swing.JButton btnpechoderechocancelar;
+    private javax.swing.JButton btnpechoderechoponchado;
     private javax.swing.JButton btnpechoizquierdo;
-    private javax.swing.JButton btnpechoizquierdo1;
     private javax.swing.JButton btnpechoizquierdocancelar;
+    private javax.swing.JButton btnpechoizquierdoponchado;
     public static javax.swing.JButton btnsalir;
     private javax.swing.JButton btnterminetodo;
     private javax.swing.JButton btnvercolorido;

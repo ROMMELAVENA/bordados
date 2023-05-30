@@ -136,6 +136,13 @@ public class ordengorra extends javax.swing.JFrame {
          btnatrascancelar.setEnabled(false);      
           btnladoizquierdocancelar.setEnabled(false);
           btnladoderechocancelar.setEnabled(false);
+         /* 
+          btnfrenteponchado
+          btnatrasponchado        
+          btnladoizquierdoponchado        
+          btnladoderechoponchado
+        */      
+                  
                   
                   
                   
@@ -235,6 +242,8 @@ public class ordengorra extends javax.swing.JFrame {
                 {
                     btnfrente.setEnabled(false);
                     
+                    btnfrenteponchado.setEnabled(true);
+                    
                 }
                 else
                 {
@@ -243,12 +252,39 @@ public class ordengorra extends javax.swing.JFrame {
                     
                 }    
                 
+                
+                
+                
+                    
+                lbatras.setText(rs.getString("atras"));
+                String atras =  rs.getString("atras");
+                if(atras ==null||atras.equals(""))
+                {
+                    btnatras.setEnabled(false);
+                    
+                    btnatrasponchado.setEnabled(false);
+                }
+                 else
+                {
+                     botonactivado4 = "si";
+                      btnterminetodo.setEnabled(true);
+                } 
+                
+                
+                
+                
+                
+                
+                
+                
                 lbladoizquierdo.setText(rs.getString("lado_izquierdo"));
                 String ladoizquierdo =  rs.getString("lado_izquierdo");
                
                 if(ladoizquierdo ==null||ladoizquierdo.equals(""))
                 {
                     btnladoizquierdo.setEnabled(false);
+                    
+                     btnladoizquierdoponchado.setEnabled(false);
                 }
                 else
                 {
@@ -256,11 +292,18 @@ public class ordengorra extends javax.swing.JFrame {
                       btnterminetodo.setEnabled(true);
                 }    
                 
+                
+                
+                
+                
+                
                 lbladoderecho.setText(rs.getString("lado_derecho"));
                  String ladoderecho =  rs.getString("lado_derecho");
                 if(ladoderecho ==null||ladoderecho.equals(""))
                 {
                     btnladoderecho.setEnabled(false);
+                    
+                    btnladoderechoponchado.setEnabled(false);
                 }
                  else
                 {
@@ -268,17 +311,9 @@ public class ordengorra extends javax.swing.JFrame {
                       btnterminetodo.setEnabled(true);
                 }  
                 
-                lbatras.setText(rs.getString("atras"));
-                String atras =  rs.getString("atras");
-                if(atras ==null||atras.equals(""))
-                {
-                    btnatras.setEnabled(false);
-                }
-                 else
-                {
-                     botonactivado4 = "si";
-                      btnterminetodo.setEnabled(true);
-                } 
+                
+                
+            
                
                 String aplicacionfrente = rs.getString("aplicacion_frente");
 

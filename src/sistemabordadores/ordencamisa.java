@@ -205,8 +205,16 @@ public class ordencamisa extends javax.swing.JFrame {
         btnotraubicacioncancelar.setEnabled(false);
         btnotraubicacion2cancelar.setEnabled(false);
         
-        
-        
+        /*
+        btnpechoizquierdoponchado
+        btnpechoderechoponchado
+        btnmangaizquierdaponchado
+        btnmangaderechaponchado
+        btnespalda1        
+        btnotraubicacionponchado        
+        btnotraubicacion2ponchado        
+           */     
+                
         
         BufferedImage image = null;
         try {
@@ -464,6 +472,85 @@ public class ordencamisa extends javax.swing.JFrame {
                 
                 
                 
+                  pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
+                Object pechoizquierdo = rs.getString("pecho_izquierdo");
+                
+                lbpechoizquierdo.setText(rs.getString("pecho_izquierdo"));
+                if (pechoizquierdo == null | pechoizquierdo.equals("")) {
+
+                    btnpechoizquierdo.setEnabled(false);
+                    botonhabilitado4 = "no";
+                    
+                    btnpechoizquierdoponchado.setEnabled(false);
+                 
+                    
+                }
+                 else
+                {
+                     btnterminetodo.setEnabled(true);
+                    
+                }
+                
+                
+                
+                
+                
+                
+                
+                
+                 pechoderechonombre = rs.getString("pecho_derecho_nombre");
+                Object pechoderecho = rs.getString("pecho_derecho");
+                
+                lbpechoderecho.setText(rs.getString("pecho_derecho"));
+              
+                if (pechoderecho == null | pechoderecho.equals("")) {
+
+                    btnpechoderecho.setEnabled(false);
+                    botonhabilitado3 = "no";
+                    
+                     btnpechoderechoponchado.setEnabled(false);
+                  
+
+                }
+                 else
+                {
+                     btnterminetodo.setEnabled(true);
+                     
+                }
+                
+                
+                
+                
+
+              
+                
+                  mangaizquierdanombre = rs.getString("manga_izquierda_nombre");
+                Object mangaizquierda = rs.getString("manga_izquierda");
+                lbmangaizquierda.setText(rs.getString("manga_izquierda"));
+             
+                if (mangaizquierda == null | mangaizquierda.equals("")) {
+
+                    btnmangaizquierda.setEnabled(false);
+                    botonhabilitado2 = "no";
+                    
+                    btnmangaizquierdaponchado.setEnabled(false);
+                  
+
+                }
+                 else
+                {
+                     btnterminetodo.setEnabled(true);
+                   
+                     
+                }
+                
+                
+                
+                
+                
+                
+                
+                
                 mangaderechanombre = rs.getString("manga_derecha_nombre");
                 Object mangaderecha = rs.getString("manga_derecha");
                 lbpechoizquierdo.setText(rs.getString("manga_derecha"));
@@ -473,110 +560,83 @@ public class ordencamisa extends javax.swing.JFrame {
 
                     btnmangaderecha.setEnabled(false);
                     botonhabilitado1 = "no";
+                    
+                    btnmangaderechaponchado.setEnabled(false);
                    
 
                 }
                  else
                 {
                      btnterminetodo.setEnabled(true);
-                }
-
-                mangaizquierdanombre = rs.getString("manga_izquierda_nombre");
-                Object mangaizquierda = rs.getString("manga_izquierda");
-                lbmangaizquierda.setText(rs.getString("manga_izquierda"));
-                if (mangaizquierda == null | mangaizquierda.equals("")) {
-
-                    btnmangaizquierda.setEnabled(false);
-                    botonhabilitado2 = "no";
-                  
-
-                }
-                 else
-                {
-                     btnterminetodo.setEnabled(true);
-                }
-                
-                
-                
-                
-                
-
-                pechoderechonombre = rs.getString("pecho_derecho_nombre");
-                Object pechoderecho = rs.getString("pecho_derecho");
-                
-                lbpechoderecho.setText(rs.getString("pecho_derecho"));
-                if (pechoderecho == null | pechoderecho.equals("")) {
-
-                    btnpechoderecho.setEnabled(false);
-                    botonhabilitado3 = "no";
-                  
-
-                }
-                 else
-                {
-                     btnterminetodo.setEnabled(true);
-                }
-                
-
-                pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
-                Object pechoizquierdo = rs.getString("pecho_izquierdo");
-                
-                lbpechoizquierdo.setText(rs.getString("pecho_izquierdo"));
-                if (pechoizquierdo == null | pechoizquierdo.equals("")) {
-
-                    btnpechoizquierdo.setEnabled(false);
-                    botonhabilitado4 = "no";
-                 
                     
                 }
-                 else
-                {
-                     btnterminetodo.setEnabled(true);
-                }
+
+              
+                
+                
                 
 
                 espaldanombre = rs.getString("espalda_nombre");
                 Object espalda = rs.getString("espalda");
                 
                 lbespalda.setText(rs.getString("espalda"));
+               
                 if (espalda == null | espalda.equals("")) {
 
                     btnespalda.setEnabled(false);
                     botonhabilitado5 = "no";
+                    
+                    btnespalda1.setEnabled(false);
                   
                    
                 }
                  else
                 {
                      btnterminetodo.setEnabled(true);
+                   
                 }
                 
 
+                
+                
 
                 otraubicacionnombre = rs.getString("otra_ubicacion_nombre");
                 Object otraubicacion = rs.getString("otra_ubicacion");
                 
                 lbotraubicacion.setText(rs.getString("otra_ubicacion"));
+             
                 if (otraubicacion == null | otraubicacion.equals("")) {
 
                     btnotraubicacion.setEnabled(false);
                     botonhabilitado6 = "no";
+                    
+                    btnotraubicacionponchado.setEnabled(false);
                   
 
                 }
                  else
                 {
                      btnterminetodo.setEnabled(true);
+                 
                 }
 
+                
+                
+                
+                
+                
+                
                 otraubicacion2nombre = rs.getString("otra_ubicacion2_nombre");
                 Object otraubicacion2 = rs.getString("otra_ubicacion2");
                 
                 lbotraubicacion2.setText(rs.getString("otra_ubicacion2"));
+              
                 if (otraubicacion2 == null | otraubicacion2.equals("")) {
 
                     btnotraubicacion2.setEnabled(false);
                     botonhabilitado7 = "no";
+                    
+                     btnotraubicacion2ponchado.setEnabled(false);
                    
                     
 
@@ -584,8 +644,11 @@ public class ordencamisa extends javax.swing.JFrame {
                 else
                 {
                      btnterminetodo.setEnabled(true);
+                   
                 }
 
+                
+                
                 
                 
 
@@ -595,24 +658,36 @@ public class ordencamisa extends javax.swing.JFrame {
                     aplicacionpechoizquierdo = "";
                 }
 
+                
+                
+                
                  aplicacionpechoderecho = rs.getString("aplicacion_pecho_derecho");
 
                 if (aplicacionpechoderecho.equals("ninguno")) {
                     aplicacionpechoderecho = "";
                 }
 
+                
+                
+                
                  aplicacionmangaizquierda = rs.getString("aplicacion_manga_izquierda");
 
                 if (aplicacionmangaizquierda.equals("ninguno")) {
                     aplicacionmangaizquierda = "";
                 }
 
+                
+                
+                
                  aplicacionmangaderecha = rs.getString("aplicacion_manga_derecha");
 
                 if (aplicacionmangaderecha.equals("ninguno")) {
                     aplicacionmangaderecha = "";
                 }
 
+                
+                
+                
                 aplicacionespalda = rs.getString("aplicacion_espalda");
 
                 if (aplicacionespalda.equals("ninguno")) {
@@ -620,12 +695,18 @@ public class ordencamisa extends javax.swing.JFrame {
                 }
 
                 
+                
+                
+                
                   aplicacionotraubicacion = rs.getString("aplicacion_otra_ubicacion");
 
                 if (aplicacionotraubicacion.equals("ninguno")) {
                     aplicacionotraubicacion = "";
                 }
 
+                
+                
+                
                 
                 aplicacionotraubicacion2 = rs.getString("aplicacion_otra_ubicacion2");
 
@@ -3667,13 +3748,14 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcantidad.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbcantidad.setForeground(new java.awt.Color(153, 0, 0));
         lbcantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbfecha.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbfecha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setText("Dia entrega");
         jLabel17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -3814,10 +3896,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel23.setText("Fecha de elaboración");
         jLabel23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbdiaentrega.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbdiaentrega.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbdiaentrega.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel20.setText("Hora");
         jLabel20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -4257,10 +4339,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addGap(5, 5, 5)
                                 .addComponent(btnotraubicacion2ponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbdiaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(94, 94, 94)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(lbdiaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
                         .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4463,7 +4545,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                                     .addComponent(lbotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbdiaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4473,7 +4554,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)

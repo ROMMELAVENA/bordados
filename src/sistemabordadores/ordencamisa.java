@@ -2451,17 +2451,43 @@ public class ordencamisa extends javax.swing.JFrame {
         String estatusentrega ="";
         String estatusentregaventa = "";
         
-        String SQL2 = "select cantidad,estatus_entrega from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
+        String SQL2 = "select articulo,cantidad,estatus_entrega from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
 
         if (rs.next()) 
         {
+            
+       
 
         cantidadstring = rs.getString("cantidad");
         estatusentregaventa= rs.getString("estatus_entrega");
 
+        }
+        
+        else
+        {
+         //    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:15px ;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacion+" no se pudo surtir debido a que NO SE ENCONTRÓ EN LA VENTA; QUIZAS SE CAMBIO DE NOMBRE");
+
+             
+             
+         // JOPTION EN 2 RENGLONES tip    
+             
+             
+               //   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Preguntale al cliente si estan correctas las personas autorizadas para COMPRAR Y PARA RECIBIR");
+        String observacion = "\n no se pudo surtir debido a que NO SE ENCONTRÓ EN LA VENTA; QUIZAS SE CAMBIO DE NOMBRE";
+        
+        String[] lineas = observacion.split("\n");
+        
+        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacion+"" + lineas[0] + "</span><br>";
+        if (lineas.length > 1) {
+         mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
+}
+
+JOptionPane.showMessageDialog(null, mensaje);
+             
+             
         }
         
 
@@ -4626,6 +4652,7 @@ public class ordencamisa extends javax.swing.JFrame {
         else
         {
          
+       // joption en 2 renglones tip
        
 String[] lineas = observacion.split("\n");
 
@@ -4845,7 +4872,15 @@ JOptionPane.showMessageDialog(null, mensaje);
            
            
            
+           
+           
+           
+           
+           
+           
            actualizarlascantidadesbordadas((String) ubicacion);  
+           
+           
            
            
            

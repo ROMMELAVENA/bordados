@@ -77,7 +77,7 @@ public class ordencorbata extends javax.swing.JFrame {
         ventanaordencorbataanteriores = true;
         lbcantidad.setText("0");
         
-  
+      btnfrentecancelar.setEnabled(false);
        
 
     }
@@ -1116,8 +1116,8 @@ public class ordencorbata extends javax.swing.JFrame {
         lbpuntdas = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        btnfrente1 = new javax.swing.JButton();
-        btnfrente2 = new javax.swing.JButton();
+        btnfrenteponchado = new javax.swing.JButton();
+        btnfrentecancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden corbata");
@@ -1435,27 +1435,27 @@ public class ordencorbata extends javax.swing.JFrame {
         getContentPane().add(jLabel7);
         jLabel7.setBounds(1240, 250, 80, 30);
 
-        btnfrente1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnfrente1.setText("Ponchado");
-        btnfrente1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnfrente1.addActionListener(new java.awt.event.ActionListener() {
+        btnfrenteponchado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnfrenteponchado.setText("Ponchado");
+        btnfrenteponchado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnfrenteponchado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnfrente1ActionPerformed(evt);
+                btnfrenteponchadoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnfrente1);
-        btnfrente1.setBounds(1740, 320, 100, 30);
+        getContentPane().add(btnfrenteponchado);
+        btnfrenteponchado.setBounds(1740, 320, 100, 30);
 
-        btnfrente2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnfrente2.setText("Cancelar");
-        btnfrente2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnfrente2.addActionListener(new java.awt.event.ActionListener() {
+        btnfrentecancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnfrentecancelar.setText("Cancelar");
+        btnfrentecancelar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnfrentecancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnfrente2ActionPerformed(evt);
+                btnfrentecancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnfrente2);
-        btnfrente2.setBounds(1470, 250, 100, 30);
+        getContentPane().add(btnfrentecancelar);
+        btnfrentecancelar.setBounds(1470, 250, 100, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1805,13 +1805,13 @@ JOptionPane.showMessageDialog(null, mensaje);
         */
     }//GEN-LAST:event_btnfotomontajesinpuntadasActionPerformed
 
-    private void btnfrente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrente1ActionPerformed
+    private void btnfrenteponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteponchadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnfrente1ActionPerformed
+    }//GEN-LAST:event_btnfrenteponchadoActionPerformed
 
-    private void btnfrente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrente2ActionPerformed
+    private void btnfrentecancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrentecancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnfrente2ActionPerformed
+    }//GEN-LAST:event_btnfrentecancelarActionPerformed
 
     ResultSet rs;
     ResultSet rs2;
@@ -1979,8 +1979,8 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JButton btneditarbordado;
     private javax.swing.JButton btnfotomontajesinpuntadas;
     private javax.swing.JButton btnfrente;
-    private javax.swing.JButton btnfrente1;
-    private javax.swing.JButton btnfrente2;
+    private javax.swing.JButton btnfrentecancelar;
+    private javax.swing.JButton btnfrenteponchado;
     private javax.swing.JButton btnvercolorido;
     private javax.swing.JButton btnverfotomontaje;
     public static javax.swing.JButton jButton2;

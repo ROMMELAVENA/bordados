@@ -216,18 +216,28 @@
                                       <Component id="lbladoderecho" min="-2" pref="246" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lbladoizquierdonombre1" min="-2" pref="110" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                              <Component id="lbladoizquierdo" min="-2" pref="246" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnatrasponchado" min="-2" pref="90" max="-2" attributes="0"/>
-                                  <Component id="btnladoizquierdoponchado" min="-2" pref="90" max="-2" attributes="0"/>
-                                  <Component id="btnladoderechoponchado" min="-2" pref="90" max="-2" attributes="0"/>
-                                  <Component id="btnfrenteponchado" min="-2" pref="90" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lbladoizquierdonombre1" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                      <Component id="lbladoizquierdo" min="-2" pref="246" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="btnladoizquierdoponchado" max="32767" attributes="0"/>
+                                          <Component id="btnladoderechoponchado" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="btnatrasponchado" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                                          <Component id="btnfrenteponchado" min="-2" pref="108" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>

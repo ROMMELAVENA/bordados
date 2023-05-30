@@ -206,13 +206,13 @@ public class ordencamisa extends javax.swing.JFrame {
         btnotraubicacion2cancelar.setEnabled(false);
         
         /*
-        btnpechoizquierdoponchado
-        btnpechoderechoponchado
-        btnmangaizquierdaponchado
-        btnmangaderechaponchado
-        btnespalda1        
-        btnotraubicacionponchado        
-        btnotraubicacion2ponchado        
+        btnpechoizquierdoponchado.setEnabled(false);
+        btnpechoderechoponchado.setEnabled(false);
+        btnmangaizquierdaponchado.setEnabled(false);
+        btnmangaderechaponchado.setEnabled(false);
+        btnespalda1.setEnabled(false);        
+        btnotraubicacionponchado.setEnabled(false);        
+        btnotraubicacion2ponchado.setEnabled(false);        
            */     
                 
         
@@ -586,7 +586,7 @@ public class ordencamisa extends javax.swing.JFrame {
                     btnespalda.setEnabled(false);
                     botonhabilitado5 = "no";
                     
-                    btnespalda1.setEnabled(false);
+                    btnespaldaponchado.setEnabled(false);
                   
                    
                 }
@@ -1212,9 +1212,15 @@ public class ordencamisa extends javax.swing.JFrame {
                     btninsertarponchados.setEnabled(false);
                     cbsucursal.setEnabled(false);
 
+                    
+                    
+                    
+                    
+                    
                     if(cantidadpechoizquiedo.equals("0") && botonhabilitado4.equals("si") )
                 {
                    btnpechoizquierdo.setEnabled(true);
+                   btnpechoizquierdoponchado.setEnabled(true);
                   
                    if(botonhabilitado4.equals("si"))
                    {
@@ -1226,6 +1232,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 else
                 {
                     btnpechoizquierdo.setEnabled(false);
+                    btnpechoizquierdoponchado.setEnabled(false);
                    
                 } 
                 
@@ -1233,7 +1240,11 @@ public class ordencamisa extends javax.swing.JFrame {
                 
                 if(cantidadpechoderecho.equals("0")  && botonhabilitado3.equals("si") )
                 {
+                    
                    btnpechoderecho.setEnabled(true);
+                   btnpechoderechoponchado.setEnabled(true);
+                           
+                           
                    if(botonhabilitado3.equals("si"))
                    {
                    listabotones.add("btnpechoderecho");
@@ -1245,13 +1256,18 @@ public class ordencamisa extends javax.swing.JFrame {
                 else
                 {
                     btnpechoderecho.setEnabled(false);
+                    btnpechoderechoponchado.setEnabled(false);
                    
                 } 
                 
                 
                 if(cantidadmangaizquierda.equals("0")  && botonhabilitado2.equals("si") )
                 {
+                    
                    btnmangaizquierda.setEnabled(true);
+                   btnmangaizquierdaponchado.setEnabled(true);
+                   
+                   
                    if(botonhabilitado2.equals("si"))
                    {
                    listabotones.add("btnmangaizquierda");
@@ -1262,12 +1278,16 @@ public class ordencamisa extends javax.swing.JFrame {
                 else
                 {
                     btnmangaizquierda.setEnabled(false);
+                    btnmangaizquierdaponchado.setEnabled(false);
                    
                 } 
                     
                 if(cantidadmangaderecha.equals("0")  && botonhabilitado1.equals("si") )
                 {
                    btnmangaderecha.setEnabled(true);
+                   btnmangaderechaponchado.setEnabled(true);
+                           
+                           
                     if(botonhabilitado1.equals("si"))
                    {
                    listabotones.add("btnmangaderecha");
@@ -1280,6 +1300,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 else
                 {
                     btnmangaderecha.setEnabled(false);
+                    btnmangaderechaponchado.setEnabled(false);
                     
                 } 
                 
@@ -1287,6 +1308,8 @@ public class ordencamisa extends javax.swing.JFrame {
                 if(cantidadespalda.equals("0")  && botonhabilitado5.equals("si") )
                 {
                    btnespalda.setEnabled(true);
+                   btnespaldaponchado.setEnabled(true);
+                           
                    if(botonhabilitado5.equals("si"))
                    {
                    listabotones.add("btnespalda");
@@ -1298,8 +1321,28 @@ public class ordencamisa extends javax.swing.JFrame {
                 else
                 {
                     btnespalda.setEnabled(false);
+                    btnespaldaponchado.setEnabled(false);
                     
                 } 
+                
+                
+                
+                
+                
+                
+                
+                btnotraubicacionponchado.setEnabled(false);
+                btnotraubicacion2ponchado.setEnabled(false);
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 
                 
                 
@@ -1735,30 +1778,9 @@ public class ordencamisa extends javax.swing.JFrame {
         }
         
         
-      /*  
-        if(puntadasenfotomontajes.equals("si"))
-        {
-
-            btnmangaderecha.setEnabled(false);
-            btnmangaizquierda.setEnabled(false);
-            btnpechoderecho.setEnabled(false);
-            btnpechoizquierdo.setEnabled(false);
-            btnespalda.setEnabled(false);
-            btnotraubicacion.setEnabled(false);
-            btnotraubicacion2.setEnabled(false);
-            
-            
-       
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar nuevo fotomontaje SIN PUNTADAS");
-            btnfotomontajesinpuntadas.setEnabled(true);
-            btnterminetodo.setEnabled(false);
-            
-        
-        }
-       else 
         
         
-        */  
+        
         if(tienefotomontaje.equals("no"))
         
         {
@@ -1774,6 +1796,17 @@ public class ordencamisa extends javax.swing.JFrame {
             btnespalda.setEnabled(false);
             btnotraubicacion.setEnabled(false);
             btnotraubicacion2.setEnabled(false);
+            
+             btnpechoizquierdoponchado.setEnabled(false);
+        btnpechoderechoponchado.setEnabled(false);
+        btnmangaizquierdaponchado.setEnabled(false);
+        btnmangaderechaponchado.setEnabled(false);
+        btnespaldaponchado.setEnabled(false);        
+        btnotraubicacionponchado.setEnabled(false);        
+        btnotraubicacion2ponchado.setEnabled(false);      
+            
+            
+            
             
          
             
@@ -1926,6 +1959,16 @@ public class ordencamisa extends javax.swing.JFrame {
             btnespalda.setEnabled(false);
             btnotraubicacion.setEnabled(false);
             btnotraubicacion2.setEnabled(false);
+            
+               btnpechoizquierdoponchado.setEnabled(false);
+        btnpechoderechoponchado.setEnabled(false);
+        btnmangaizquierdaponchado.setEnabled(false);
+        btnmangaderechaponchado.setEnabled(false);
+        btnespaldaponchado.setEnabled(false);        
+        btnotraubicacionponchado.setEnabled(false);        
+        btnotraubicacion2ponchado.setEnabled(false); 
+            
+            
             
            
             lbfotomontaje.setVisible(false);
@@ -3635,7 +3678,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel14 = new javax.swing.JLabel();
         btnotraubicacion2ponchado = new javax.swing.JButton();
         btnotraubicacionponchado = new javax.swing.JButton();
-        btnespalda1 = new javax.swing.JButton();
+        btnespaldaponchado = new javax.swing.JButton();
         btnpechoizquierdoponchado = new javax.swing.JButton();
         btnpechoderechoponchado = new javax.swing.JButton();
         btnmangaizquierdaponchado = new javax.swing.JButton();
@@ -3653,6 +3696,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden camisa");
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
@@ -3661,9 +3707,6 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
-            }
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
             }
         });
 
@@ -3971,52 +4014,52 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbhilo7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbhilo7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbpechoizquierdo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbpechoizquierdo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbpechoizquierdo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbpechoderecho.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbpechoderecho.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbpechoderecho.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbmangaizquierda.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbmangaizquierda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbmangaizquierda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbmangaderecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbmangaderecha.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbmangaderecha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbespalda.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbespalda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbespalda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbotraubicacion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbotraubicacion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbotraubicacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbotraubicacion2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbotraubicacion2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbotraubicacion2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbmangaderechanombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbmangaderechanombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbmangaderechanombre.setText("Manga derecha");
         lbmangaderechanombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbotraubicacion2nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbotraubicacion2nombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbotraubicacion2nombre.setText("Otra ubicacion2");
         lbotraubicacion2nombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbotraubicacionnombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbotraubicacionnombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbotraubicacionnombre.setText("Otra ubicacion");
         lbotraubicacionnombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbespaldanombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbespaldanombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbespaldanombre.setText("Espalda");
         lbespaldanombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbpechoizquierdonombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbpechoizquierdonombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbpechoizquierdonombre.setText("Pecho Izquierdo");
         lbpechoizquierdonombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbpechoderechonombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbpechoderechonombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbpechoderechonombre.setText("Pecho Derecho");
         lbpechoderechonombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbmangaizquierdanombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbmangaizquierdanombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbmangaizquierdanombre.setText("Manga izquierda");
         lbmangaizquierdanombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -4068,11 +4111,11 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
         });
 
-        btnespalda1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnespalda1.setText("Ponchado");
-        btnespalda1.addActionListener(new java.awt.event.ActionListener() {
+        btnespaldaponchado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnespaldaponchado.setText("Ponchado");
+        btnespaldaponchado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnespalda1ActionPerformed(evt);
+                btnespaldaponchadoActionPerformed(evt);
             }
         });
 
@@ -4325,7 +4368,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addGap(12, 12, 12)
                                 .addComponent(lbespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(5, 5, 5)
-                                .addComponent(btnespalda1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnespaldaponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbotraubicacionnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
@@ -4526,7 +4569,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addComponent(lbespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnespalda1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnespaldaponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnotraubicacionponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -6445,7 +6488,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
     }//GEN-LAST:event_btnotraubicacionponchadoActionPerformed
 
-    private void btnespalda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnespalda1ActionPerformed
+    private void btnespaldaponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnespaldaponchadoActionPerformed
       
         
         
@@ -6456,7 +6499,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-    }//GEN-LAST:event_btnespalda1ActionPerformed
+    }//GEN-LAST:event_btnespaldaponchadoActionPerformed
 
     private void btnpechoizquierdoponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoizquierdoponchadoActionPerformed
     
@@ -7109,8 +7152,8 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JButton btndatos;
     private javax.swing.JButton btneditarbordado;
     private javax.swing.JButton btnespalda;
-    private javax.swing.JButton btnespalda1;
     private javax.swing.JButton btnespaldacancelar;
+    private javax.swing.JButton btnespaldaponchado;
     private javax.swing.JButton btnfotomontajesinpuntadas;
     private javax.swing.JButton btninsertarponchados;
     private javax.swing.JButton btnmangaderecha;

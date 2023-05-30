@@ -349,6 +349,9 @@ public class ordenpantalon extends javax.swing.JFrame {
                 if(cantidadladoizquierdofrente.equals("0") && activadoladoizquierdofrente.equals("si"))
                 {
                     btnladoizquierdofrente.setEnabled(true);
+                    btnladoizquierdofrenteponchado.setEnabled(true);
+                    
+                    
                     listabotones.add("btnladoizquierdofrente");
                 }
                 else
@@ -368,6 +371,9 @@ public class ordenpantalon extends javax.swing.JFrame {
                 if(cantidadladoizquierdofrente.equals("0")&& activadoladoderechofrente.equals("si"))
                 {
                    btnladoderechofrente.setEnabled(true);
+                    btnladoderechofrenteponchado.setEnabled(true);
+                    
+                    
                    listabotones.add("btnladoderechofrente");
                 }
                 else
@@ -385,6 +391,9 @@ public class ordenpantalon extends javax.swing.JFrame {
                 if(cantidadladoizquierdoatras.equals("0") && activadoladoizquierdoatras.equals("si"))
                 {
                     btnladoizquierdoatras.setEnabled(true);
+                     btnladoizquierdoatrasponchado.setEnabled(true);
+                     
+                     
                     listabotones.add("btnladoizquierdoatras");
                 }
                 else
@@ -401,6 +410,9 @@ public class ordenpantalon extends javax.swing.JFrame {
                 if(cantidadladoderechoatras.equals("0")&& activadoladoderechoatras.equals("si"))
                 {
                     btnladoderechoatras.setEnabled(true);
+                     btnladoderechoatrasponchado.setEnabled(true);
+                     
+                     
                     listabotones.add("btnladoderechoatras");
                 }
                 else
@@ -411,6 +423,8 @@ public class ordenpantalon extends javax.swing.JFrame {
                    } 
                 }
                 }
+                
+                
                 
                 String estatusorden = rs.getString("estatus_orden");
                 
@@ -1003,28 +1017,6 @@ public class ordenpantalon extends javax.swing.JFrame {
         }
         
         
-        /*
-        
-        if(puntadasenfotomontajes.equals("si"))
-        {
-
-            btnladoderechofrente.setEnabled(false);
-            btnladoderechoatras.setEnabled(false);
-            btnladoizquierdofrente.setEnabled(false);
-            btnladoizquierdoatras.setEnabled(false);
-                      
-            
-       
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar nuevo fotomontaje SIN PUNTADAS");
-            btnfotomontajesinpuntadas.setEnabled(true);
-            btnterminetodo.setEnabled(false);
-            
-        
-        }
-
-        else
-        
-        */
         if(tienefotomontaje.equals("no"))
         {
             
@@ -1034,6 +1026,11 @@ public class ordenpantalon extends javax.swing.JFrame {
             btnladoderechoatras.setEnabled(false);
             btnladoizquierdofrente.setEnabled(false);
             btnladoizquierdoatras.setEnabled(false);
+            
+            btnladoderechofrenteponchado.setEnabled(false);
+            btnladoderechoatrasponchado.setEnabled(false);
+            btnladoizquierdofrenteponchado.setEnabled(false);
+            btnladoizquierdoatrasponchado.setEnabled(false);
             
            
             lbfotomontaje.setVisible(false);
@@ -1214,17 +1211,32 @@ public class ordenpantalon extends javax.swing.JFrame {
                         
                 lbladoizquierdofrente.setText(rs.getString("lado_izquierdo_frente"));
                 String ladoizquierdofrente = rs.getString("lado_izquierdo_frente");
+             
+                
+                
+                
+                
+                
+                
+                
+                
                 if (ladoizquierdofrente == null || ladoizquierdofrente.equals("")) 
                 {
                     
                   btnladoizquierdofrente.setEnabled(false);
+                  btnladoizquierdofrenteponchado.setEnabled(false);
 
                 } else {
 
 
                     String b = rs.getString("lado_izquierdo_frente_puntadas");
                     lbladoizquierdofrentepuntadas.setText(rs.getString("lado_izquierdo_frente_puntadas"));
+                    
+                    
                     btnladoizquierdofrente.setEnabled(true);
+                    btnladoizquierdofrenteponchado.setEnabled(true);
+                    
+                    
                     activadoladoizquierdofrente ="si";
                    
                     
@@ -1240,40 +1252,64 @@ public class ordenpantalon extends javax.swing.JFrame {
                 if (ladoderechofrente == null || ladoderechofrente.equals("")) 
                 {
                     btnladoderechofrente.setEnabled(false);
+                    btnladoderechofrenteponchado.setEnabled(false);
                 } 
                 else
                 {
 
  
                     lbladoderechofrentepuntadas.setText(rs.getString("lado_derecho_frente_puntadas"));
+                    
+                    
                     btnladoderechofrente.setEnabled(true);
+                    btnladoderechofrenteponchado.setEnabled(true);
+                    
+                    
                     activadoladoderechofrente ="si";
                     
                 }
 
                 lbdadoizquierdoatras.setText(rs.getString("lado_izquierdo_atras"));
                 String ladoizquierdoatras = rs.getString("lado_izquierdo_atras");
-                if (ladoizquierdoatras == null || ladoizquierdoatras.equals("")) {
+             
+                if (ladoizquierdoatras == null || ladoizquierdoatras.equals("")) 
+                {
                     btnladoizquierdoatras.setEnabled(false);
+                    btnladoizquierdoatrasponchado.setEnabled(false);
+                    
                 } else {
 
 
                     lbladoizquierdoatraspuntadas.setText(rs.getString("lado_izquierdo_atras_puntadas"));
+                 
+                    
                     btnladoizquierdoatras.setEnabled(true);
+                    btnladoizquierdoatrasponchado.setEnabled(true);
+                    
                     activadoladoizquierdoatras ="si";
                     
                 }
 
                 lbladoderechoatras.setText(rs.getString("lado_derecho_atras"));
                 String ladoderechoatras = rs.getString("lado_derecho_atras");
+             
                 if (ladoderechoatras == null || ladoderechoatras.equals("")) {
+                    
                      btnladoderechoatras.setEnabled(false);
+                      btnladoderechoatrasponchado.setEnabled(false);
+                     
+                     
                 } else {
 
 
                     String a = rs.getString("lado_derecho_atras_puntadas");
                     lbladoderechoatraspuntadas.setText(rs.getString("lado_derecho_atras_puntadas"));
+                 
                     btnladoderechoatras.setEnabled(true);
+                    btnladoderechoatrasponchado.setEnabled(true);
+                    
+                    
+                    
                     activadoladoderechoatras ="si";
                     
                 }
@@ -1288,6 +1324,19 @@ public class ordenpantalon extends javax.swing.JFrame {
                 lbidentificador.setText(identificador);
                 
                 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 if(lugar.equals("Esta sucursal"))
                 {
                     
@@ -1297,43 +1346,68 @@ public class ordenpantalon extends javax.swing.JFrame {
                 if(cantidadladoizquierdofrente.equals("0") && activadoladoizquierdofrente.equals("si"))
                 {
                     btnladoizquierdofrente.setEnabled(true);
+                    btnladoizquierdofrenteponchado.setEnabled(true);
+                    
                      listabotones.add("btnladoizquierdofrente");
                 }
                 else
                 {
                     btnladoizquierdofrente.setEnabled(false);
+                    btnladoizquierdofrenteponchado.setEnabled(false);
                 }    
                 
                 
                 String cantidadladoderechofrente = rs.getString("cantidad_lado_derecho_frente");
-                if(cantidadladoizquierdofrente.equals("0")&& activadoladoderechofrente.equals("si"))
+             
+                if(cantidadladoderechofrente.equals("0")&& cantidadladoderechofrente.equals("si"))
                 {
                    btnladoderechofrente.setEnabled(true);
+                   btnladoderechofrenteponchado.setEnabled(true);
+                   
+                   
                    listabotones.add("btnladoderechofrente");
                 }
                 else
                 {
                    btnladoderechofrente.setEnabled(false); 
+                   btnladoderechofrenteponchado.setEnabled(false);
                 } 
+                
+                
+                
+                
+                
                 String cantidadladoizquierdoatras = rs.getString("cantidad_lado_izquierdo_atras");
                 if(cantidadladoizquierdoatras.equals("0") && activadoladoizquierdoatras.equals("si"))
                 {
                     btnladoizquierdoatras.setEnabled(true);
+                    btnladoizquierdoatrasponchado.setEnabled(true);
+                    
+                    
                     listabotones.add("btnladoizquierdoatras");
                 }
                 else
                 {
                     btnladoizquierdoatras.setEnabled(false);
+                    btnladoizquierdoatrasponchado.setEnabled(false);
                 } 
+                
+                
+                
+                
+                
                 String cantidadladoderechoatras = rs.getString("cantidad_lado_derecho_atras");
                 if(cantidadladoderechoatras.equals("0")&& activadoladoderechoatras.equals("si"))
                 {
                     btnladoderechoatras.setEnabled(true);
+                    btnladoderechoatrasponchado.setEnabled(true);
+                    
                     listabotones.add("btnladoderechoatras");
                 }
                 else
                 {
                     btnladoderechoatras.setEnabled(false);
+                    btnladoderechoatrasponchado.setEnabled(false);
                 } 
                 
                 }

@@ -3788,25 +3788,25 @@ public class ordencamisa extends javax.swing.JFrame {
             }
         });
 
-        lbcolor1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcolor1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbcolor1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolor2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcolor2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbcolor2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolor3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcolor3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbcolor3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolor4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcolor4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbcolor4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolor5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcolor5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbcolor5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolor6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcolor6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbcolor6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolor7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcolor7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbcolor7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btndatos.setText("datos");
@@ -3824,25 +3824,25 @@ public class ordencamisa extends javax.swing.JFrame {
             }
         });
 
-        lbhilo1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbhilo1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbhilo1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbhilo2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbhilo2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbhilo2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbhilo3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbhilo3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbhilo3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbhilo4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbhilo4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbhilo4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbhilo5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbhilo5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbhilo5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbhilo6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbhilo6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbhilo6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbhilo7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbhilo7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbhilo7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbpechoizquierdo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -5707,13 +5707,22 @@ JOptionPane.showMessageDialog(null, mensaje);
                 aplicacioninsertar = "APLICACION FILIPINA MANGA DERECHA";
 
             } ///SACO
-            else if (prenda.toUpperCase().equals("SACO")) {
+          
+            
+            else
+                
+                if (prenda.toUpperCase().equals("SACO")) 
+                
+                {
 
                 ubicacioninsertar = "BORDADO SACO MANGA DERECHA " + nombrebordado + "";
                 aplicacioninsertar = "APLICACION SACO MANGA DERECHA";
 
             }
             
+             
+             
+             
             
             agregarexistenciabordadoscancelar((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
             agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad);

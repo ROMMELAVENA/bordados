@@ -3552,8 +3552,24 @@ JOptionPane.showMessageDialog(null, mensaje);
              if (rs.next()) {
 
                  fs.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
-                 String nombre1 = rs.getString("" + ubicacionnombre + "");
-                 fs.setSelectedFile(new File(nombre1));
+            
+                 
+                 
+                 
+                 String nombre = rs.getString("" + ubicacionnombre + "");
+                 
+                 if (nombre==null)
+                 {
+                 
+               JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encontró el ponchado, favor de marcarle a la sucursal para que se lo replique o llame a sistemas");
+                 
+                 }
+                 else
+                 {
+                     
+                 
+                 
+                 fs.setSelectedFile(new File(nombre));
                  int tampak = fs.showSaveDialog(null);
 
                  if (tampak == JFileChooser.APPROVE_OPTION) 
@@ -3568,6 +3584,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                              output.write(buffer);
                          }
                      }
+                 }
+                 
                  }
 
              }

@@ -3774,7 +3774,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbnumeroventa.setText("00000000");
 
         btninsertarponchados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btninsertarponchados.setText("Replicar Fotomontajes y Ponchados");
+        btninsertarponchados.setText("Replicar pnchados");
         btninsertarponchados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btninsertarponchadosActionPerformed(evt);

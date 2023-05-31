@@ -1959,6 +1959,7 @@ public class principal extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(null);
 
         btnordenesbordadosucursalporrealizar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnordenesbordadosucursalporrealizar.setText("Ordenes Bordado Sucursal por realizar");
@@ -1967,6 +1968,8 @@ public class principal extends javax.swing.JFrame {
                 btnordenesbordadosucursalporrealizarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnordenesbordadosucursalporrealizar);
+        btnordenesbordadosucursalporrealizar.setBounds(40, 126, 389, 70);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setText("Bordados Reporte General");
@@ -1975,13 +1978,19 @@ public class principal extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(449, 126, 300, 70);
 
         lbnumero.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbnumero.setText("20222410");
+        getContentPane().add(lbnumero);
+        lbnumero.setBounds(12, 601, 64, 15);
 
         lbsumapuntos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lbsumapuntos.setText("0.00");
         lbsumapuntos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lbsumapuntos);
+        lbsumapuntos.setBounds(680, 583, 63, 33);
 
         tablafecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tablafecha.setModel(new javax.swing.table.DefaultTableModel(
@@ -2008,6 +2017,9 @@ public class principal extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablafecha);
 
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(761, 583, 71, 33);
+
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton4.setText("Actualizar Puntos");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -2015,6 +2027,8 @@ public class principal extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton4);
+        jButton4.setBounds(449, 206, 300, 70);
 
         btnordenesbordadosucursalrealizadas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnordenesbordadosucursalrealizadas.setText("Ordenes Bordado Sucursal realizadas");
@@ -2023,6 +2037,8 @@ public class principal extends javax.swing.JFrame {
                 btnordenesbordadosucursalrealizadasActionPerformed(evt);
             }
         });
+        getContentPane().add(btnordenesbordadosucursalrealizadas);
+        btnordenesbordadosucursalrealizadas.setBounds(40, 210, 389, 70);
 
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnsalir.setText("Salir");
@@ -2031,26 +2047,34 @@ public class principal extends javax.swing.JFrame {
                 btnsalirActionPerformed(evt);
             }
         });
+        getContentPane().add(btnsalir);
+        btnsalir.setBounds(671, 14, 78, 40);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 26)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 0, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Ordenes");
         jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(42, 72, 389, 36);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 26)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(153, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Reportes");
         jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(449, 72, 300, 36);
 
         btnordenesbordadosucursalporrealizar1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnordenesbordadosucursalporrealizar1.setText("Ordenes Bordado Otra Sucursal Replicar Ponchados");
+        btnordenesbordadosucursalporrealizar1.setText("Replicar Ponchados");
         btnordenesbordadosucursalporrealizar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnordenesbordadosucursalporrealizar1ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnordenesbordadosucursalporrealizar1);
+        btnordenesbordadosucursalporrealizar1.setBounds(40, 290, 167, 70);
 
         btnordenesbordadosucursalrealizadas1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnordenesbordadosucursalrealizadas1.setText("Catalogo de cliente");
@@ -2059,10 +2083,16 @@ public class principal extends javax.swing.JFrame {
                 btnordenesbordadosucursalrealizadas1ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnordenesbordadosucursalrealizadas1);
+        btnordenesbordadosucursalrealizadas1.setBounds(449, 286, 300, 70);
 
         lbtienda.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        getContentPane().add(lbtienda);
+        lbtienda.setBounds(12, 22, 389, 33);
 
         lbip.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        getContentPane().add(lbip);
+        lbip.setBounds(243, 583, 188, 33);
 
         btninformacionrapida.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btninformacionrapida.setText("INFORMACION RAPIDA");
@@ -2071,6 +2101,8 @@ public class principal extends javax.swing.JFrame {
                 btninformacionrapidaActionPerformed(evt);
             }
         });
+        getContentPane().add(btninformacionrapida);
+        btninformacionrapida.setBounds(40, 374, 389, 60);
 
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.setText("Bordados puntadas con color");
@@ -2079,6 +2111,8 @@ public class principal extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(449, 374, 300, 60);
 
         btnclienteshanbordadoultimos6meses.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnclienteshanbordadoultimos6meses.setText("CLIENTES QUE HAN BORDADO EN LOS ULTIMOS 6 MESES");
@@ -2087,6 +2121,8 @@ public class principal extends javax.swing.JFrame {
                 btnclienteshanbordadoultimos6mesesActionPerformed(evt);
             }
         });
+        getContentPane().add(btnclienteshanbordadoultimos6meses);
+        btnclienteshanbordadoultimos6meses.setBounds(40, 452, 389, 51);
 
         btnclienteshanbordadoultimos6a12meses.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnclienteshanbordadoultimos6a12meses.setText("CLIENTES QUE HAN BORDADO EN LOS ULTIMOS 6 MESES");
@@ -2095,100 +2131,8 @@ public class principal extends javax.swing.JFrame {
                 btnclienteshanbordadoultimos6a12mesesActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lbnumero)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lbip, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnclienteshanbordadoultimos6a12meses, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(btnordenesbordadosucursalrealizadas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnordenesbordadosucursalporrealizar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnordenesbordadosucursalporrealizar1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btninformacionrapida, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnclienteshanbordadoultimos6meses, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbtienda, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)))
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                    .addComponent(btnordenesbordadosucursalrealizadas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(95, 95, 95))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(680, Short.MAX_VALUE)
-                .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(222, 222, 222))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbtienda, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel9))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnordenesbordadosucursalporrealizar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnordenesbordadosucursalporrealizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnordenesbordadosucursalrealizadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnordenesbordadosucursalrealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btninformacionrapida, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(btnclienteshanbordadoultimos6meses, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                .addGap(11, 11, 11)
-                .addComponent(btnclienteshanbordadoultimos6a12meses, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbip, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbsumapuntos)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbnumero))
-                .addContainerGap())
-        );
+        getContentPane().add(btnclienteshanbordadoultimos6a12meses);
+        btnclienteshanbordadoultimos6a12meses.setBounds(40, 514, 391, 51);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

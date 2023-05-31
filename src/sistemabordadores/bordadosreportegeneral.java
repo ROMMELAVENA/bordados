@@ -6640,7 +6640,15 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             new String [] {
                 "Fecha", "Importe del día", "Color"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tablafecha.setRowHeight(28);
         tablafecha.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

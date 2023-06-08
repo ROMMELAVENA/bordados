@@ -481,7 +481,7 @@ public class ordengorra extends javax.swing.JFrame {
                   
                 String estatusorden = rs.getString("estatus_orden");
                 
-                if(estatusorden.equals("realizada"))
+                if(estatusorden.equals("realizada totalmente"))
                 {
                   btnterminetodo.setEnabled(false);  
                 }
@@ -2176,7 +2176,7 @@ public class ordengorra extends javax.swing.JFrame {
            {
                try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada' ,fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada totalmente' ,fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -4170,6 +4170,10 @@ JOptionPane.showMessageDialog(null, mensaje);
     
         
         btndatos.doClick();
+        
+        
+        
+        
     }//GEN-LAST:event_btnfrenteActionPerformed
 
     private void btnladoizquierdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdoActionPerformed

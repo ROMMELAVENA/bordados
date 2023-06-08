@@ -151,7 +151,7 @@ public static boolean ventanaordenparcheanteriores = false;
              
                  String estatusorden = rs.getString("estatus_orden");
                 
-                if(estatusorden.equals("realizada"))
+                if(estatusorden.equals("realizada totalmente"))
                 {
                   bntterminetodo.setEnabled(true);  
                   bntterminetodo.setText("Cancelar");
@@ -416,7 +416,7 @@ public static boolean ventanaordenparcheanteriores = false;
            
             try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 

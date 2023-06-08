@@ -428,7 +428,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 String estatusorden = rs.getString("estatus_orden");
                 
-                if(estatusorden.equals("realizada"))
+                if(estatusorden.equals("realizada totalmente"))
                 {
                   btnterminetodo.setEnabled(false);  
                 }
@@ -2418,7 +2418,7 @@ public class ordenpantalon extends javax.swing.JFrame {
            {
                try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 

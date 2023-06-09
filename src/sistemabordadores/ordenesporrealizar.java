@@ -1354,7 +1354,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     
      void autorizaciondelfotomontaje(String numerofolio,String nombre_tabla)
      {
-         String sql = "SELECT fotomontaje_autorizado FROM "+nombre_tabla+" where numero = '"+numerofolio+"'  ";
+         String sql = "SELECT fotomontaje_autorizado FROM "+nombre_tabla+" where numero = '"+numerofolio+"' and estatus_orden not in('cancelada') ";
 
         try {
             Statement st = cn.createStatement();

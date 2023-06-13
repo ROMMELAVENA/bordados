@@ -91,7 +91,7 @@ public class ordencamisa extends javax.swing.JFrame {
     int traspaso = 0;
     String iptraspaso = "";
     
-    String host = ingresotienda.strIP;
+    
    
     String numerosucursal = "";
     String sucursal = "";
@@ -101,6 +101,7 @@ public class ordencamisa extends javax.swing.JFrame {
     String numeroordenenvio = "";
     String tiendaordenenvio = "";
     String tiendalocal = "";
+    String host = ingresotienda.strIP;
     String codigocliente = "";
     String lugar = "";
     String prenda ="";
@@ -206,16 +207,7 @@ public class ordencamisa extends javax.swing.JFrame {
         btnotraubicacioncancelar.setEnabled(false);
         btnotraubicacion2cancelar.setEnabled(false);
         
-        /*
-        btnpechoizquierdoponchado.setEnabled(false);
-        btnpechoderechoponchado.setEnabled(false);
-        btnmangaizquierdaponchado.setEnabled(false);
-        btnmangaderechaponchado.setEnabled(false);
-        btnespalda1.setEnabled(false);        
-        btnotraubicacionponchado.setEnabled(false);        
-        btnotraubicacion2ponchado.setEnabled(false);        
-           */     
-                
+     
         
         BufferedImage image = null;
         try {
@@ -1518,31 +1510,6 @@ public class ordencamisa extends javax.swing.JFrame {
        
          
            
-         
-         
-         /*
-              
-              try {
-                Class.forName("com.mysql.jdbc.Driver");
-                
-              
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
-            }
-              
-            
-       try {
-            Class.forName("com.mysql.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://" + host + "/tiendas", "root", "sistemas");
-        } catch (Exception e) {
-
-            System.out.println(e);
-
-        }
-       
-       
-       */
-        
        
      }
     
@@ -5847,18 +5814,12 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnverfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverfotomontajeActionPerformed
        
-        
-        
-         //  codigocliente = lbcodigocliente.getText();
         String cliente = lbcliente.getText();
         String rutadelarchivo = "";
         String existe = "";
         prenda = lbprenda.getText();
-       // String nombre = nombrebordado.getText().trim();
    
        
-      
-     //    String SQL = "SELECT imagen,extension_imagen FROM bordados_puntadas where nombre = '"+cliente+"' and tipo = '"+prenda+"' and numero_consecutivo = '"+consecutivobordado+"'  ";
         String sql = "SELECT imagen,extension_imagen FROM bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";  ///
     
     
@@ -5960,12 +5921,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Para ver el fotomontaje, primero debe de guardar puntadas","Error",JOptionPane.ERROR_MESSAGE);
         }
-        
-        
-        //rommel
-        
-        regresaralaconeccionlocal();
-        
         
         
         

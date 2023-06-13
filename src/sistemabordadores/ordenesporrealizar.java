@@ -1994,13 +1994,13 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordenparche orden = new ordenparche();
                         orden.setVisible(true);
 
-                        ordenparche.lbnumero.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenparche.lborden.setText(tabla.getValueAt(fila, 0).toString());
                          tabla.clearSelection();
                        
                          
                          Object lugar = (tabla.getValueAt(fila, 4).toString());
                          
-                        ordenparche.lbnumero.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenparche.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         ordenparche.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordenparche.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
                         ordenparche.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());

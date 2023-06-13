@@ -2425,10 +2425,7 @@ public class ordengorra extends javax.swing.JFrame {
      
     void verfotomontajelocal()
     {
-        String cliente = lbcliente.getText();
       
-        String prendafotomontaje = "";
-        String nombreprendafotomontaje = "";
         String rutadelarchivo = "";
         String existe = "";
         
@@ -2510,11 +2507,7 @@ public class ordengorra extends javax.swing.JFrame {
     
     void verfotomontajerecibido()
     {
-        
-        String cliente = lbcliente.getText();
-      
-        String prendafotomontaje = "";
-        String nombreprendafotomontaje = "";
+ 
         String rutadelarchivo = "";
         String existe = "";
         

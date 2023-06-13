@@ -1561,7 +1561,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                         ordenparche orden = new ordenparche();
                         orden.setVisible(true);
 
-                        ordenparche.lbnumero.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenparche.lborden.setText(tabla.getValueAt(fila, 0).toString());
                          tabla.clearSelection();
                          this.setState(this.ICONIFIED);
                         

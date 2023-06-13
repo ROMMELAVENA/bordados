@@ -1797,6 +1797,131 @@ public class ordencamisa extends javax.swing.JFrame {
     
     
     
+    void verfotomontaje(){
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        String cliente = lbcliente.getText();
+        String rutadelarchivo = "";
+        String existe = "";
+        prenda = lbprenda.getText();
+   
+       
+        String sql = "SELECT imagen,extension_imagen FROM bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";  ///
+    
+    
+        try {
+            
+           
+            Class.forName("com.mysql.jdbc.Driver");
+           
+         
+            cn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
+   
+            
+            
+             try {
+            
+            Statement st1 = con.createStatement();
+            ResultSet rs1 = st1.executeQuery(sql);
+            if (rs1.next())
+            {
+                Object camisa1 = rs1.getString(1);
+                if (camisa1 == null||camisa1.equals("")||camisa1.equals(" "))
+                {
+                    existe = "no";
+                } else
+
+                {
+                    String nombredelarchivo = rs1.getString(2);
+                    
+                    
+                    if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
+                    {
+                        rutadelarchivo = "C://archivospdf/fotomontaje."+nombredelarchivo+" ";
+                    }
+                    else
+                    {
+                        rutadelarchivo = "C://archivospdf/"+nombredelarchivo+" ";
+                    }
+                    existe = "si";
+                    File file = new File(rutadelarchivo);
+                    FileOutputStream output = null;
+                    try {
+                        output = new FileOutputStream(file);
+                    } catch (FileNotFoundException ex) {
+                        System.out.println(ex);
+                    }
+                    Blob archivo = rs1.getBlob(1);
+                    InputStream inStream = archivo.getBinaryStream();
+                    int length = -1;
+                    int size = (int) archivo.length();
+                    byte[] buffer = new byte[size];
+                    try {
+                        while ((length = inStream.read(buffer)) != -1) {
+                            output.write(buffer, 0, length);
+                            // output.flush();
+                        }
+                    } catch (IOException ex) {
+                        System.out.println(ex);
+                    }
+                    try {
+                        // inStream.close();
+                        output.close();
+                    } catch (IOException ex) {
+                        System.out.println(ex);
+                    }
+                }
+            }
+            rs1.close();
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+          
+          } catch (Exception x) {
+                               System.out.println(x); 
+                            }
+        
+           
+           
+
+        if (existe.equals("si"))
+        {
+            String fileLocal = new String(rutadelarchivo);
+            try {
+
+                File path = new File(fileLocal);
+                Desktop.getDesktop().open(path);
+
+            } catch (IOException e2) {
+                System.out.println(e2);
+            } catch (IllegalArgumentException e3) {
+
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se pudo encontrar el archivo","Error",JOptionPane.ERROR_MESSAGE);
+                System.out.println(e3);
+            }
+
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Para ver el fotomontaje, primero debe de guardar puntadas","Error",JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+        
+    }
+    
+    
+    
     
     
      void agregarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
@@ -5814,113 +5939,53 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnverfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverfotomontajeActionPerformed
        
-        String cliente = lbcliente.getText();
-        String rutadelarchivo = "";
-        String existe = "";
-        prenda = lbprenda.getText();
-   
-       
-        String sql = "SELECT imagen,extension_imagen FROM bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";  ///
-    
-    
-        try {
-            
-           
-            Class.forName("com.mysql.jdbc.Driver");
-           
-         
-            con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
-   
-            
-            
-             try {
-            
-            Statement st1 = con.createStatement();
-            ResultSet rs1 = st1.executeQuery(sql);
-            if (rs1.next())
-            {
-                Object camisa1 = rs1.getString(1);
-                if (camisa1 == null||camisa1.equals("")||camisa1.equals(" "))
-                {
-                    existe = "no";
-                } else
-
-                {
-                    String nombredelarchivo = rs1.getString(2);
-                    
-                    
-                    if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
-                    {
-                        rutadelarchivo = "C://archivospdf/fotomontaje."+nombredelarchivo+" ";
-                    }
-                    else
-                    {
-                        rutadelarchivo = "C://archivospdf/"+nombredelarchivo+" ";
-                    }
-                    existe = "si";
-                    File file = new File(rutadelarchivo);
-                    FileOutputStream output = null;
-                    try {
-                        output = new FileOutputStream(file);
-                    } catch (FileNotFoundException ex) {
-                        System.out.println(ex);
-                    }
-                    Blob archivo = rs1.getBlob(1);
-                    InputStream inStream = archivo.getBinaryStream();
-                    int length = -1;
-                    int size = (int) archivo.length();
-                    byte[] buffer = new byte[size];
-                    try {
-                        while ((length = inStream.read(buffer)) != -1) {
-                            output.write(buffer, 0, length);
-                            // output.flush();
-                        }
-                    } catch (IOException ex) {
-                        System.out.println(ex);
-                    }
-                    try {
-                        // inStream.close();
-                        output.close();
-                    } catch (IOException ex) {
-                        System.out.println(ex);
-                    }
-                }
-            }
-            rs1.close();
-
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
         
-          
-          } catch (Exception x) {
-                               System.out.println(x); 
-                            }
         
-           
-           
-
-        if (existe.equals("si"))
-        {
-            String fileLocal = new String(rutadelarchivo);
+        
+        
+        
+        
+        if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
+    {
+   
             try {
-
-                File path = new File(fileLocal);
-                Desktop.getDesktop().open(path);
-
-            } catch (IOException e2) {
-                System.out.println(e2);
-            } catch (IllegalArgumentException e3) {
-
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se pudo encontrar el archivo","Error",JOptionPane.ERROR_MESSAGE);
-                System.out.println(e3);
+                Class.forName("com.mysql.jdbc.Driver");
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Para ver el fotomontaje, primero debe de guardar puntadas","Error",JOptionPane.ERROR_MESSAGE);
-        }
+            try {
+      
+                 cn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tiendalocal + "", "root", "sistemas");
+            } catch (SQLException ex) {
+                Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       
+       
+      
+        
+    }
+    else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
+    {
+       
+        
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                cn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
+            } catch (SQLException ex) {
+                Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        
+    }
+        
+        
+         verfotomontaje();
+            
+        
         
         
         

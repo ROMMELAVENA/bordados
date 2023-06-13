@@ -30,7 +30,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-              <Component id="lbtienda" min="-2" pref="389" max="-2" attributes="0"/>
+              <Component id="lbtiendalocal" min="-2" pref="389" max="-2" attributes="0"/>
               <EmptySpace min="270" pref="270" max="-2" attributes="0"/>
               <Component id="btnsalir" min="-2" pref="78" max="-2" attributes="0"/>
           </Group>
@@ -91,7 +91,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
-                      <Component id="lbtienda" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="lbtiendalocal" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
                   <Component id="btnsalir" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
@@ -309,7 +309,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnordenesbordadosucursalrealizadas1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbtienda">
+    <Component class="javax.swing.JLabel" name="lbtiendalocal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>

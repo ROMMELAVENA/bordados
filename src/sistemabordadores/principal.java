@@ -45,7 +45,7 @@ public class principal extends javax.swing.JFrame {
         
         lbnumero.setVisible(false);
         lbip.setVisible(false);
-        lbtienda.setVisible(false);
+        lbtiendalocal.setVisible(false);
         
         
         btnclienteshanbordadoultimos6meses.setText("<html><p>Clientes que han bordado</p><center><p>en los ultimos 6 meses</p></center></html>");
@@ -1942,7 +1942,7 @@ public class principal extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         btnordenesbordadosucursalporrealizar1 = new javax.swing.JButton();
         btnordenesbordadosucursalrealizadas1 = new javax.swing.JButton();
-        lbtienda = new javax.swing.JLabel();
+        lbtiendalocal = new javax.swing.JLabel();
         lbip = new javax.swing.JLabel();
         btninformacionrapida = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -2060,7 +2060,7 @@ public class principal extends javax.swing.JFrame {
             }
         });
 
-        lbtienda.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbtiendalocal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         lbip.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
@@ -2102,7 +2102,7 @@ public class principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(lbtienda, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbtiendalocal, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(270, 270, 270)
                 .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
@@ -2153,7 +2153,7 @@ public class principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(lbtienda, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbtiendalocal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2600,7 +2600,7 @@ public class principal extends javax.swing.JFrame {
     public static javax.swing.JLabel lbip;
     private javax.swing.JLabel lbnumero;
     public static javax.swing.JLabel lbsumapuntos;
-    public static javax.swing.JLabel lbtienda;
+    public static javax.swing.JLabel lbtiendalocal;
     private javax.swing.JTable tablafecha;
     // End of variables declaration//GEN-END:variables
 

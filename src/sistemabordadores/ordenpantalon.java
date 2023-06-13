@@ -471,6 +471,49 @@ public class ordenpantalon extends javax.swing.JFrame {
     }
     
     
+    
+    
+    
+    void verfotomontaje(){
+        
+        
+        
+        
+          String fileLocal = new String(rutaimagen);
+            try {
+
+                File path = new File(fileLocal);
+                Desktop.getDesktop().open(path);
+
+            } catch (IOException e) {
+                System.out.println(e);
+            } catch (IllegalArgumentException e) {
+
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se pudo encontrar el archivo","Error",JOptionPane.ERROR_MESSAGE);
+                System.out.println(e);
+            }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
      void datostienda() {
         /// busca las ordenes de pantalon generadas 
 
@@ -3825,21 +3868,47 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnverfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverfotomontajeActionPerformed
 
-            String fileLocal = new String(rutaimagen);
+          
+        if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
+    {
+   
             try {
-
-                File path = new File(fileLocal);
-                Desktop.getDesktop().open(path);
-
-            } catch (IOException e) {
-                System.out.println(e);
-            } catch (IllegalArgumentException e) {
-
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se pudo encontrar el archivo","Error",JOptionPane.ERROR_MESSAGE);
-                System.out.println(e);
+                Class.forName("com.mysql.jdbc.Driver");
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            try {
+      
+                 cn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tiendalocal + "", "root", "sistemas");
+            } catch (SQLException ex) {
+                Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       
+       
+      
         
+    }
+    else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
+    {
+       
+        
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                cn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
+            } catch (SQLException ex) {
+                Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        
+    }
+        
+        
+         verfotomontaje();
+            
         
         
     }//GEN-LAST:event_btnverfotomontajeActionPerformed

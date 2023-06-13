@@ -277,7 +277,7 @@ this.dispose();
         ventan.setVisible(true);
       //  ventan.setLocationRelativeTo(null);
        
-        principal.lbtienda.setText(strBD);
+        principal.lbtiendalocal.setText(strBD);
         principal.lbip.setText(strIP);
    
         ventan.setTitle("Sistema bordadores "+strBD.toUpperCase()+"");     

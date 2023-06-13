@@ -63,6 +63,7 @@ public static boolean ventanaordenparcheanteriores = false;
         String tienefotomontaje = "";
         String rutaimagen = "";
         String codigocliente = "";
+       String cliente = "";
        String lugar = "";
        String numerodeorden = "";
        String identificador = "";
@@ -355,6 +356,19 @@ public static boolean ventanaordenparcheanteriores = false;
         SimpleDateFormat formatoFecha = new SimpleDateFormat("HH:mm:ss");
         return formatoFecha.format(hora);
     }  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     void agregarexistenciabordados(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion,String cantidad)
     {
@@ -654,7 +668,7 @@ public static boolean ventanaordenparcheanteriores = false;
         String existe = "";
         
         //// prenda del fotomontaje
-        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'GORRA'   ";
+        String sql = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'Parche'   ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -806,7 +820,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
         
         
-        String cliente = lbcliente.getText();
+         cliente = lbcliente.getText();
         
         
         
@@ -1353,7 +1367,7 @@ public static boolean ventanaordenparcheanteriores = false;
     void cliente(){
         
         
-        String cliente = lbcliente.getText();
+        cliente = lbcliente.getText();
         
           String sql = "SELECT nombre_comercial,borda_cliente FROM catalogo_clientes WHERE nombre = '" + cliente + "' ";
 

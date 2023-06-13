@@ -148,6 +148,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
        
         
         
+        
+        
+        
+        
         //// historial_orden_camisa
         
         String[] datos = new String[15];
@@ -190,6 +194,13 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         }
 
         
+        
+        
+        
+        
+        
+        
+        
         //// historial_orden_gorra
         
         String[] datos2 = new String[15];
@@ -225,6 +236,13 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
+        
+        
+        
+        
+        
+        
+        
         
         //// historial_orden_pantalon
         
@@ -265,42 +283,14 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         }
         
         
-        //// historial_orden_parches
         
-        String[] datos4 = new String[15];
         
-        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda,observaciongeneral,cantidad  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
-
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sqlparches);
-            while (rs.next()) {
-                datos4[0] = rs.getString("numero");
-                datos4[1] = rs.getString("cliente");
-                datos4[2] = "Parche";
-                datos4[3] = rs.getString("tipo");
-                datos4[4] = rs.getString("lugar");
-                datos4[5] = rs.getString("numero_venta");
-                datos4[6] = rs.getString("fecha");
-                datos4[7] = "";
-                datos4[8] = "";
-                datos4[9] = "";
-                datos4[10] = "Local";
-                datos4[11] = rs.getString("identificador_prenda");
-                datos4[12] = rs.getString("observaciongeneral");
-                datos4[13] = rs.getString("cantidad");
-                modelo.addRow(datos4);
-
-            }
-
-            
-
-        } catch (SQLException ex)
-        {
-           
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
-        }
-      
+        
+        
+        
+        
+        
+        
          
            /// historial ordenes corbata
         
@@ -339,6 +329,59 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         }
 
          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //// historial_orden_parches
+        
+        String[] datos4 = new String[15];
+        
+        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda,observaciongeneral,cantidad  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlparches);
+            while (rs.next()) {
+                datos4[0] = rs.getString("numero");
+                datos4[1] = rs.getString("cliente");
+                datos4[2] = "Parche";
+                datos4[3] = rs.getString("tipo");
+                datos4[4] = rs.getString("lugar");
+                datos4[5] = rs.getString("numero_venta");
+                datos4[6] = rs.getString("fecha");
+                datos4[7] = "";
+                datos4[8] = "";
+                datos4[9] = "";
+                datos4[10] = "Local";
+                datos4[11] = rs.getString("identificador_prenda");
+                datos4[12] = rs.getString("observaciongeneral");
+                datos4[13] = rs.getString("cantidad");
+                modelo.addRow(datos4);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
+        }
+      
+        
+        
+        
+        
+        
+        
+        
+        
          
        
         
@@ -583,6 +626,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         
+        
+        
+        
+        
+        
         //CAMISA
         
         
@@ -640,6 +688,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         
+        
+        
+        
         // GORRA
         
         String[] datos11 = new String[15];
@@ -680,6 +731,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         
+        
+        
+        
+        
         /// PANTALON
         
         String[] datos12 = new String[15];
@@ -714,6 +769,67 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         } catch (SQLException ex) {
          JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //// historial_orden_parches
+        
+        String[] datos42 = new String[15];
+        
+        String sqlparches2 = "SELECT Distinct numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden,observacion,identificador_prenda,cantidad  FROM historial_ordenes_parche_recibidos where (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlparches2);
+      
+            
+            
+            while (rs.next()) {
+                datos42[0] = rs.getString("numero");
+                datos42[1] = rs.getString("cliente");
+                datos42[2] = rs.getString("prenda");
+                datos42[3] = rs.getString("tipo");
+                datos42[4] = rs.getString("lugar");
+                datos42[5] = "0000000";  
+                datos42[6] = rs.getString("fecha");
+                datos42[7] = rs.getString("tienda");
+                datos42[8] = rs.getString("numero_sucursal_orden");
+                datos42[9] = "";
+                datos42[10] = "Recibida";
+                datos42[11] = rs.getString("identificador_prenda");
+                datos42[12] = rs.getString("observacion");
+                datos42[13] = rs.getString("cantidad");
+             
+                
+                
+                modelo.addRow(datos42);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
+        }
+      
+        
+        
+        
+        
+        
+        
+        // PONCHADOS
         
         tieneponchados();
         
@@ -750,6 +866,27 @@ public class ordenesporrealizar extends javax.swing.JFrame {
           
            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
         
         Colorear ft = new Colorear();

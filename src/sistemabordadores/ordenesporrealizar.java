@@ -1586,9 +1586,6 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(3).setMinWidth(0);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(3).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(4).setMinWidth(0);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(4).setMaxWidth(0);
             tabla.getColumnModel().getColumn(5).setMinWidth(0);
             tabla.getColumnModel().getColumn(5).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(5).setMaxWidth(0);
@@ -1938,8 +1935,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                     else 
                     {
                         
-                        Object numerodefolio = tabla.getValueAt(fila, 0);
-                        Object nombre_tabla = "historial_ordenes_ponchados";
+                       
                         fotomontajeautorizado ="si";
                         
                          if (fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida")) {
@@ -1974,25 +1970,49 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                     if (ordenparche.ventanaordenparcheanteriores == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de parche ya está abierta");
 
-                    } else {
+                    }
+                    
+                    
+                    else 
+                    
+                    
+                    
+                    
+                    {
+                        
+                        
+                   Object numerodefolio = tabla.getValueAt(fila, 0);
+                        Object nombre_tabla = "historial_ordenes_gorra";
+                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        
+                        
+                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida"))      
+                        
+                        {
+                        
+                        
                         ordenparche orden = new ordenparche();
                         orden.setVisible(true);
 
-                        ordenparche.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenparche.lbnumero.setText(tabla.getValueAt(fila, 0).toString());
                          tabla.clearSelection();
                        
                          
-                             ordengorra.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordengorra.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordengorra.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
-                        ordengorra.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordengorra.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                         Object lugar = (tabla.getValueAt(fila, 4).toString());
+                         
+                        ordenparche.lbnumero.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenparche.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordenparche.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        ordenparche.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordenparche.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordenparche.lbsucursal.setText(tabla.getValueAt(fila, 7).toString());
+                        
                         tabla.clearSelection();    
                          
                          
                          
                          
-                         
+                        }
                          
                          
                          

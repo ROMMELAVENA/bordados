@@ -127,7 +127,7 @@ public class ordengorra extends javax.swing.JFrame {
         lbrutafrente.setVisible(false);
         lbrutaimagen.setVisible(false);       
         lbtipo.setVisible(false);
-        btnreplicar.setEnabled(false);
+        btnreplicarponchados.setEnabled(false);
         btndatos.setVisible(false); 
         btnterminetodo.setEnabled(false);
         
@@ -187,7 +187,7 @@ public class ordengorra extends javax.swing.JFrame {
 
     void datosOrdenesLocales() throws IOException {
 
-        btnreplicar.setEnabled(true);
+        btnreplicarponchados.setEnabled(true);
 
         String folio = lborden.getText();
         String botonactivado1 = "";
@@ -695,7 +695,7 @@ public class ordengorra extends javax.swing.JFrame {
      void datosotrasucursal() throws IOException 
      {
 
-        btnreplicar.setEnabled(true);
+        btnreplicarponchados.setEnabled(true);
         btnterminetodo.setEnabled(true);
 
         numerodeorden = lborden.getText();
@@ -945,7 +945,7 @@ public class ordengorra extends javax.swing.JFrame {
         
         
         
-        btnreplicar.setEnabled(false);
+        btnreplicarponchados.setEnabled(false);
      
         lbcoloratras.setEnabled(false);
         lbcolorladoizquierdo.setEnabled(false);
@@ -2680,7 +2680,7 @@ public class ordengorra extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         btnsalir = new javax.swing.JButton();
-        btnreplicar = new javax.swing.JButton();
+        btnreplicarponchados = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         lbcliente = new javax.swing.JLabel();
         lbfechaentrega = new javax.swing.JLabel();
@@ -2800,11 +2800,11 @@ public class ordengorra extends javax.swing.JFrame {
             }
         });
 
-        btnreplicar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnreplicar.setText("Replicar ponchados");
-        btnreplicar.addActionListener(new java.awt.event.ActionListener() {
+        btnreplicarponchados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnreplicarponchados.setText("Replicar ponchados");
+        btnreplicarponchados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnreplicarActionPerformed(evt);
+                btnreplicarponchadosActionPerformed(evt);
             }
         });
 
@@ -3305,7 +3305,7 @@ public class ordengorra extends javax.swing.JFrame {
                 .addGap(3, 3, 3)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(388, 388, 388)
-                .addComponent(btnreplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(900, 900, 900)
                 .addComponent(lbrutaladoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3445,7 +3445,7 @@ public class ordengorra extends javax.swing.JFrame {
                         .addComponent(lbtiendaalaquereplicara, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnreplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3724,7 +3724,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         btndatos.doClick();
     }//GEN-LAST:event_btnladoderechoActionPerformed
 
-    private void btnreplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreplicarActionPerformed
+    private void btnreplicarponchadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreplicarponchadosActionPerformed
 
 
         prenda = lbtipo.getText();
@@ -4078,7 +4078,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
 
        
-    }//GEN-LAST:event_btnreplicarActionPerformed
+    }//GEN-LAST:event_btnreplicarponchadosActionPerformed
 
     private void btnfrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteActionPerformed
 
@@ -4760,7 +4760,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     private javax.swing.JButton btnladoizquierdo;
     private javax.swing.JButton btnladoizquierdocancelar;
     private javax.swing.JButton btnladoizquierdoponchado;
-    private javax.swing.JButton btnreplicar;
+    private javax.swing.JButton btnreplicarponchados;
     public static javax.swing.JButton btnsalir;
     private javax.swing.JButton btnterminetodo;
     private javax.swing.JButton btnvercolorido;

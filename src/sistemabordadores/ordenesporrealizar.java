@@ -1769,6 +1769,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 Object tipo = tabla.getValueAt(fila, 3).toString();
                 Object tablanombre = tabla.getValueAt(fila, 10).toString();
 
+               
+                
+                
+                
                 
                 
                 
@@ -1826,6 +1830,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                
                 
                 
+                
+                
+                
+                
                 // GORRA 
                 
                 else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
@@ -1850,7 +1858,6 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
                         ordengorra.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         ordengorra.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                      //  ordengorra.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordengorra.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
                         ordengorra.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
                         ordengorra.tipotabla=(tabla.getValueAt(fila, 10).toString());
@@ -1865,6 +1872,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                     }
                 }
+                
+                
+                
                 
                 
                 
@@ -1912,6 +1922,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 } 
                 
                 
+                
+                
+                
+                
                 // PONCHADO
                 
                 else if (tipo.equals("Orden ponchado")) 
@@ -1948,6 +1962,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 }
                 
                 
+                
+                
+                
+                
+                
                 // PARCHE
                 
                 else if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
@@ -1961,7 +1980,24 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
                         ordenparche.lborden.setText(tabla.getValueAt(fila, 0).toString());
                          tabla.clearSelection();
-                         this.setState(this.ICONIFIED);
+                       
+                         
+                             ordengorra.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordengorra.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordengorra.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        ordengorra.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordengorra.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        tabla.clearSelection();    
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
                         
                     }
                 }

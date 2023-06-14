@@ -18,8 +18,8 @@ public class ingresotienda extends javax.swing.JFrame {
   public static boolean ventanaingresotienda=false;
   public static String tienda_bd="";
   String iptraspaso="";
-  public static String strIP = ""; 
-  public static String strBD = ""; 
+  public static String iplocal = ""; 
+  public static String basededatoslocal = ""; 
   
 
   
@@ -277,10 +277,10 @@ this.dispose();
         ventan.setVisible(true);
       //  ventan.setLocationRelativeTo(null);
        
-        principal.lbtiendalocal.setText(strBD);
-        principal.lbip.setText(strIP);
+        principal.lbtiendalocal.setText(basededatoslocal);
+        principal.lbiplocal.setText(iplocal);
    
-        ventan.setTitle("Sistema bordadores "+strBD.toUpperCase()+"");     
+        ventan.setTitle("Sistema bordadores "+basededatoslocal.toUpperCase()+"");     
         this.dispose();
 
         }
@@ -316,17 +316,16 @@ this.dispose();
            file = new File("C:\\sistema\\tijuana.txt");
        }
        
-       
-  //   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">ruta = '"+file+"'");
-
+ 
        try {
            Scanner sc = new Scanner(file);
            while (sc.hasNext()) 
            {
                String line = sc.nextLine();
                String str[] = line.split(":");
-               strIP = str[0];
-               strBD = str[1];
+               iplocal = str[0];
+               basededatoslocal = str[1];
+               
 
            }
 

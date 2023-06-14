@@ -76,7 +76,7 @@
               <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
               <Component id="lbnumero" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="167" pref="167" max="-2" attributes="0"/>
-              <Component id="lbip" min="-2" pref="188" max="-2" attributes="0"/>
+              <Component id="lbiplocal" min="-2" pref="188" max="-2" attributes="0"/>
               <EmptySpace min="249" pref="249" max="-2" attributes="0"/>
               <Component id="lbsumapuntos" min="-2" pref="63" max="-2" attributes="0"/>
               <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
@@ -136,7 +136,7 @@
                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                       <Component id="lbnumero" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="lbip" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="lbiplocal" min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="lbsumapuntos" min="-2" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
@@ -319,7 +319,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbip">
+    <Component class="javax.swing.JLabel" name="lbiplocal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>

@@ -44,7 +44,7 @@ public class principal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         lbnumero.setVisible(false);
-        lbip.setVisible(false);
+        lbiplocal.setVisible(false);
         lbtiendalocal.setVisible(false);
         
         
@@ -1943,7 +1943,7 @@ public class principal extends javax.swing.JFrame {
         btnordenesbordadosucursalporrealizar1 = new javax.swing.JButton();
         btnordenesbordadosucursalrealizadas1 = new javax.swing.JButton();
         lbtiendalocal = new javax.swing.JLabel();
-        lbip = new javax.swing.JLabel();
+        lbiplocal = new javax.swing.JLabel();
         btninformacionrapida = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         btnclienteshanbordadoultimos6meses = new javax.swing.JButton();
@@ -2062,7 +2062,7 @@ public class principal extends javax.swing.JFrame {
 
         lbtiendalocal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
-        lbip.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbiplocal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         btninformacionrapida.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btninformacionrapida.setText("INFORMACION RAPIDA");
@@ -2140,7 +2140,7 @@ public class principal extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(lbnumero)
                 .addGap(167, 167, 167)
-                .addComponent(lbip, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbiplocal, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(249, 249, 249)
                 .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -2188,7 +2188,7 @@ public class principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(lbnumero))
-                    .addComponent(lbip, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbiplocal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbsumapuntos)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
@@ -2597,7 +2597,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
-    public static javax.swing.JLabel lbip;
+    public static javax.swing.JLabel lbiplocal;
     private javax.swing.JLabel lbnumero;
     public static javax.swing.JLabel lbsumapuntos;
     public static javax.swing.JLabel lbtiendalocal;

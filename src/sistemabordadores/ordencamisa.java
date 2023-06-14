@@ -101,7 +101,7 @@ public class ordencamisa extends javax.swing.JFrame {
     String numeroordenenvio = "";
     String tiendaordenenvio = "";
     String tiendalocal = "";
-    String host = ingresotienda.strIP;
+    String host = ingresotienda.iplocal;
     String codigocliente = "";
     String lugar = "";
     String prenda ="";

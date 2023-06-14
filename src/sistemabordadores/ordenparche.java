@@ -82,7 +82,7 @@ public static boolean ventanaordenparcheanteriores = false;
         String nombredelatabla ="";
         
         String tiendalocal = "";
-        String host = ingresotienda.strIP;
+        String host = ingresotienda.iplocal;
      
      public static String enquesucursalsebordara ="";
     
@@ -988,7 +988,7 @@ public static boolean ventanaordenparcheanteriores = false;
      try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
+            cn = DriverManager.getConnection("jdbc:mysql://" + host + "/tiendas", "root", "sistemas");
 
             try {
               

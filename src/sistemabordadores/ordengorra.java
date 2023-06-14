@@ -44,7 +44,7 @@ public class ordengorra extends javax.swing.JFrame {
     public static String ordenbordadocamisa = "";
 
     String codigocliente ="";
-     String host = ingresotienda.strIP;
+     String host = ingresotienda.iplocal;
     String bordadosdisponiblesstring = "0";
     int bordadosdisponiblesint = 0;
     String cantidadprendasstring = "";
@@ -1023,7 +1023,7 @@ public class ordengorra extends javax.swing.JFrame {
      try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
+            cn = DriverManager.getConnection("jdbc:mysql://" + host + "/tiendas", "root", "sistemas");
 
             try {
               

@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
 public class connectar {
     Connection conectar=null;
     Connection cn=null;
-    String host = ingresotienda.strIP;
-    String basedatos =ingresotienda.strBD;
+    String host = ingresotienda.iplocal;
+    String basedatos =ingresotienda.basededatoslocal;
     
     
     

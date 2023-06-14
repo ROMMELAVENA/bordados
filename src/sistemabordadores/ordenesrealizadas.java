@@ -1646,7 +1646,7 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                 {
                    
                         
-                    if (ordeninternagorraanterior.ventanaordeninternagorraanterior == true) 
+                    if (ordeninternagorra.ventanaordeninternagorraanterior == true) 
                     {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de portanombre");
 
@@ -1655,9 +1655,9 @@ public class ordenesrealizadas extends javax.swing.JFrame {
                     {
                         Object numerodefolio = tabla.getValueAt(fila, 0);
 
-                        ordeninternagorraanterior orden = new ordeninternagorraanterior();
+                        ordeninternagorra orden = new ordeninternagorra();
                         orden.setVisible(true);
-                        ordeninternagorraanterior.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordeninternagorra.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
                         tabla.clearSelection();
 
                              

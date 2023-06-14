@@ -28,49 +28,29 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-              <Component id="lbtiendalocal" min="-2" pref="389" max="-2" attributes="0"/>
-              <EmptySpace min="270" pref="270" max="-2" attributes="0"/>
-              <Component id="btnsalir" min="-2" pref="78" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
-              <Component id="jLabel7" min="-2" pref="389" max="-2" attributes="0"/>
-              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-              <Component id="jLabel9" min="-2" pref="300" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-              <Component id="btnordenesbordadosucursalporrealizar" min="-2" pref="389" max="-2" attributes="0"/>
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Component id="jButton3" min="-2" pref="300" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-              <Component id="btnordenesbordadosucursalrealizadas" min="-2" pref="389" max="-2" attributes="0"/>
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Component id="jButton4" min="-2" pref="300" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-              <Component id="btnordenesbordadosucursalporrealizar1" min="-2" pref="389" max="-2" attributes="0"/>
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Component id="btnordenesbordadosucursalrealizadas1" min="-2" pref="300" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-              <Component id="btninformacionrapida" min="-2" pref="389" max="-2" attributes="0"/>
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Component id="jButton5" min="-2" pref="300" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-              <Component id="btnclienteshanbordadoultimos6meses" min="-2" pref="389" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-              <Component id="btnclienteshanbordadoultimos6a12meses" min="-2" pref="391" max="-2" attributes="0"/>
+          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                  <Component id="lbtiendalocal" min="-2" pref="389" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                      <Component id="btnordenesbordadosucursalporrealizar" min="-2" pref="389" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButton3" min="-2" pref="300" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="671" pref="671" max="671" attributes="0"/>
+                      <Component id="btnsalir" min="-2" pref="78" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
+                      <Component id="jLabel7" min="-2" pref="389" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel9" min="-2" pref="300" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
@@ -81,6 +61,32 @@
               <Component id="lbsumapuntos" min="-2" pref="63" max="-2" attributes="0"/>
               <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="71" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+              <Component id="btnclienteshanbordadoultimos6a12meses" min="-2" pref="391" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+              <Component id="btnclienteshanbordadoultimos6meses" min="-2" pref="389" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+              <Component id="btninformacionrapida" min="-2" pref="389" max="-2" attributes="0"/>
+              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+              <Component id="jButton5" min="-2" pref="300" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+              <Component id="btnordenesbordadosucursalporrealizar1" min="-2" pref="389" max="-2" attributes="0"/>
+              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+              <Component id="btnordenesbordadosucursalrealizadas1" min="-2" pref="300" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+              <Component id="btnordenesbordadosucursalrealizadas" min="-2" pref="389" max="-2" attributes="0"/>
+              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+              <Component id="jButton4" min="-2" pref="300" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

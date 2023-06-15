@@ -1835,17 +1835,28 @@ public class ordencamisa extends javax.swing.JFrame {
                 } else
 
                 {
+                    
+                    
                     String nombredelarchivo = rs1.getString(2);
+                    
+                    
                     
                     
                     if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
                     {
                         rutadelarchivo = "C://archivospdf/fotomontaje."+nombredelarchivo+" ";
+                         
+                        
                     }
                     else
                     {
                         rutadelarchivo = "C://archivospdf/"+nombredelarchivo+" ";
+                       
+                        
                     }
+                    
+                    
+                    
                     existe = "si";
                     File file = new File(rutadelarchivo);
                     FileOutputStream output = null;

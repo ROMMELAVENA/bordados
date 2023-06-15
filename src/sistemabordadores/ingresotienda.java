@@ -19,9 +19,9 @@ public class ingresotienda extends javax.swing.JFrame {
   public static String contrasenacorreo="";
   public static boolean ventanaingresotienda=false;
   public static String tienda_bd="";
-  String iptraspaso="";
+ 
   public static String iplocal = ""; 
-  public static String basededatoslocal = ""; 
+  public static String tiendalocal = ""; 
   
 
   
@@ -57,10 +57,7 @@ public class ingresotienda extends javax.swing.JFrame {
      
      File file =null;
      file = new File("C:\\sistema\\tiendalocal.txt");
-     
-     String tiendalocal = "";
-   
-   
+  
      try {
            Scanner sc = new Scanner(file);
            if (sc.hasNext()) 
@@ -102,12 +99,12 @@ public class ingresotienda extends javax.swing.JFrame {
          
           try {
            Scanner sc = new Scanner(file);
-           while (sc.hasNext()) 
+           if (sc.hasNext()) 
            {
                String line = sc.nextLine();
                String str[] = line.split(":");
                iplocal = str[0];
-               basededatoslocal = str[1];
+              
                
 
            }
@@ -139,7 +136,7 @@ public class ingresotienda extends javax.swing.JFrame {
         } else {
             try {
                 lbtiendaconectada.setText("");
-                ping = InetAddress.getByName(iptraspaso);
+                ping = InetAddress.getByName(iplocal);
                 if (ping.isReachable(5000)) 
                 {
                     lbtiendaconectada.setText("Tienda conectada");
@@ -148,17 +145,9 @@ public class ingresotienda extends javax.swing.JFrame {
                     
                     
                   
-                     System.out.println(iptraspaso);
+                     System.out.println(iplocal);
                     
                     
-                    if (iptraspaso.equals(""))
-                    {
-                      
-                        iptraspaso = "iptraspaso";
-                        
-                    }
-                    
-                   
                     
                     
                     
@@ -348,10 +337,10 @@ this.dispose();
         ventana.setVisible(true);
       //  ventan.setLocationRelativeTo(null);
        
-        principal.lbtiendalocal.setText(basededatoslocal);
+        principal.lbtiendalocal.setText(tiendalocal);
         principal.lbiplocal.setText(iplocal);
    
-        ventana.setTitle("Sistema bordadores "+basededatoslocal.toUpperCase()+"");     
+        ventana.setTitle("Sistema bordadores "+tiendalocal.toUpperCase()+"");     
         this.dispose();
 
         }

@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
 public class connectar {
     Connection conectar=null;
     Connection cn=null;
-    String host = ingresotienda.iplocal;
-    String basedatos =ingresotienda.basededatoslocal;
+    String iplocal = ingresotienda.iplocal;
+    String tiendalocal =ingresotienda.tiendalocal;
     
     
     
@@ -23,14 +23,14 @@ public class connectar {
     {
         
    //     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">host = '"+host+"'");
-  // JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">base de datos = '"+basedatos+"'");
+  // JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">base de datos = '"+tiendalocal+"'");
      
    
      
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conectar = DriverManager.getConnection("jdbc:mysql://" + host + "/" + basedatos + "", "root", "sistemas");
+            conectar = DriverManager.getConnection("jdbc:mysql://" + iplocal + "/" + tiendalocal + "", "root", "sistemas");
         } catch (Exception e) {
 
             System.out.println(e);

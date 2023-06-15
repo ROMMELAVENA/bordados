@@ -48,7 +48,7 @@ public class ordencorbata extends javax.swing.JFrame {
     String lugar = "";
     
     String prenda = "";
-     String iptraspaso = "";
+     String ipdelaotratienda = "";
       String numerosucursal = "";
   
     String latiendaestaconectada = "si";
@@ -76,7 +76,7 @@ public class ordencorbata extends javax.swing.JFrame {
     public static String enquesucursalsebordara = "";
     
     String tiendalocal = "";
-    
+    String iplocal = principal.lbiplocal.getText();
     
 
     public ordencorbata() {
@@ -839,7 +839,7 @@ public class ordencorbata extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
        
          
-            con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
+            con = DriverManager.getConnection("jdbc:mysql://" + ipdelaotratienda + "/" + sucursal + "", "root", "sistemas");
       
 
         String sql7 = "Select cliente,lugar,identificador_prenda from historial_ordenes_pantalon where numero = '" + numerosucursal + "' ";
@@ -985,7 +985,7 @@ public class ordencorbata extends javax.swing.JFrame {
 
                 if (rs.next()) {
 
-                    iptraspaso = rs.getString("ip");
+                    ipdelaotratienda = rs.getString("ip");
               
 
                 } else {
@@ -1026,7 +1026,7 @@ public class ordencorbata extends javax.swing.JFrame {
                 
                 
 
-                ping = InetAddress.getByName(iptraspaso);
+                ping = InetAddress.getByName(ipdelaotratienda);
             
                 if (ping.isReachable(5000)) 
                 {
@@ -1743,7 +1743,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
             try {
       
-                 cn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tiendalocal + "", "root", "sistemas");
+                 cn = DriverManager.getConnection("jdbc:mysql://" + iplocal + "/" + tiendalocal + "", "root", "sistemas");
             } catch (SQLException ex) {
                 Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1762,7 +1762,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
-                cn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
+                cn = DriverManager.getConnection("jdbc:mysql://" + ipdelaotratienda + "/" + sucursal + "", "root", "sistemas");
             } catch (SQLException ex) {
                 Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
             }

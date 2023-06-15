@@ -44,7 +44,7 @@ public class ordengorra extends javax.swing.JFrame {
     public static String ordenbordadocamisa = "";
 
     String codigocliente ="";
-     String host = ingresotienda.iplocal;
+    String iplocal = ingresotienda.iplocal;
     String bordadosdisponiblesstring = "0";
     int bordadosdisponiblesint = 0;
     String cantidadprendasstring = "";
@@ -69,7 +69,7 @@ public class ordengorra extends javax.swing.JFrame {
 
     String primero = "";
     String ultimo = "";
-    String iptraspaso = "";
+    String ipdelaotratienda = "";
     
      String numerodeorden = "";
   
@@ -209,7 +209,7 @@ public class ordengorra extends javax.swing.JFrame {
          
         try {
             Class.forName("com.mysql.jdbc.Driver");
-             cn = DriverManager.getConnection("jdbc:mysql://" + host + "/" + tiendalocal + "", "root", "sistemas"); 
+             cn = DriverManager.getConnection("jdbc:mysql://" + iplocal + "/" + tiendalocal + "", "root", "sistemas"); 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -887,7 +887,7 @@ public class ordengorra extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
        
          
-            con = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
+            con = DriverManager.getConnection("jdbc:mysql://" + ipdelaotratienda + "/" + sucursal + "", "root", "sistemas");
       
 
         
@@ -1023,7 +1023,7 @@ public class ordengorra extends javax.swing.JFrame {
      try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://" + host + "/tiendas", "root", "sistemas");
+            cn = DriverManager.getConnection("jdbc:mysql://" + iplocal + "/tiendas", "root", "sistemas");
 
             try {
               
@@ -1037,7 +1037,7 @@ public class ordengorra extends javax.swing.JFrame {
 
                 if (rs.next()) {
 
-                    iptraspaso = rs.getString("ip");
+                    ipdelaotratienda = rs.getString("ip");
               
 
                 } else {
@@ -1078,7 +1078,7 @@ public class ordengorra extends javax.swing.JFrame {
                 
                 
 
-                ping = InetAddress.getByName(iptraspaso);
+                ping = InetAddress.getByName(ipdelaotratienda);
             
                 if (ping.isReachable(5000)) 
                 {
@@ -3732,7 +3732,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         Connection conn = null;
 
-        iptraspaso = strIP;
+        ipdelaotratienda = strIP;
         sucursal = strBD;
 
         FileInputStream input = null;
@@ -3747,7 +3747,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
+            conn = DriverManager.getConnection("jdbc:mysql://" + ipdelaotratienda + "/" + sucursal + "", "root", "sistemas");
 
           
                 
@@ -4235,7 +4235,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
             try {
       
-                 cn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + tiendalocal + "", "root", "sistemas");
+                 cn = DriverManager.getConnection("jdbc:mysql://" + iplocal + "/" + tiendalocal + "", "root", "sistemas");
             } catch (SQLException ex) {
                 Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -4254,7 +4254,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
-                cn = DriverManager.getConnection("jdbc:mysql://" + iptraspaso + "/" + sucursal + "", "root", "sistemas");
+                cn = DriverManager.getConnection("jdbc:mysql://" + ipdelaotratienda + "/" + sucursal + "", "root", "sistemas");
             } catch (SQLException ex) {
                 Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -7,8 +7,10 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.sql.*;
 import java.util.Scanner;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 
 public class ingresotienda extends javax.swing.JFrame {
@@ -50,6 +52,78 @@ public class ingresotienda extends javax.swing.JFrame {
          }
 
      });
+     
+     
+     
+     File file =null;
+     file = new File("C:\\sistema\\tiendalocal.txt");
+     
+     String tiendalocal = "";
+   
+   
+     try {
+           Scanner sc = new Scanner(file);
+           if (sc.hasNext()) 
+           {
+               tiendalocal = sc.nextLine();
+      
+
+           }
+
+       } catch (IOException e) {
+           System.out.println(e);
+       }
+   
+   
+         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        
+         modelo.addElement(tiendalocal);
+         cbtienda.setModel(modelo);
+         AutoCompleteDecorator.decorate(cbtienda);
+       //  cbtienda.setSelectedIndex(-1);
+         cbtienda.setSelectedItem(tiendalocal);
+         
+         
+         
+         
+         
+          if (tiendalocal.equals("cdmxcentro")) {
+           file = new File("C:\\sistema\\cdmxcentro.txt");
+       } else if (tiendalocal.equals("cdmxsur")) {
+           file = new File("C:\\sistema\\cdmxsur.txt");
+       } else if (tiendalocal.equals("guadalajara")) {
+           file = new File("C:\\sistema\\guadalajara.txt");
+       } else if (tiendalocal.equals("monterrey")) {
+           file = new File("C:\\sistema\\monterrey.txt");
+       } else if (tiendalocal.equals("tijuana")) {
+           file = new File("C:\\sistema\\tijuana.txt");
+       }
+       
+         
+          try {
+           Scanner sc = new Scanner(file);
+           while (sc.hasNext()) 
+           {
+               String line = sc.nextLine();
+               String str[] = line.split(":");
+               iplocal = str[0];
+               basededatoslocal = str[1];
+               
+
+           }
+         
+         } catch (IOException e) {
+           System.out.println(e);
+       }
+         
+         
+         
+         
+    
+        pingtienda(); 
+     
+     
+     
 
 
     }
@@ -130,9 +204,6 @@ public class ingresotienda extends javax.swing.JFrame {
         });
 
         cbtienda.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        cbtienda.setMaximumRowCount(8);
-        cbtienda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "cdmxcentro", "cdmxsur", "guadalajara", "monterrey", "tijuana", "Seleccione tienda" }));
-        cbtienda.setSelectedIndex(5);
         cbtienda.setToolTipText("");
         cbtienda.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
@@ -272,15 +343,15 @@ this.dispose();
             
       
 
-        principal ventan = new principal();
+        principal ventana = new principal();
        
-        ventan.setVisible(true);
+        ventana.setVisible(true);
       //  ventan.setLocationRelativeTo(null);
        
         principal.lbtiendalocal.setText(basededatoslocal);
         principal.lbiplocal.setText(iplocal);
    
-        ventan.setTitle("Sistema bordadores "+basededatoslocal.toUpperCase()+"");     
+        ventana.setTitle("Sistema bordadores "+basededatoslocal.toUpperCase()+"");     
         this.dispose();
 
         }
@@ -291,6 +362,8 @@ this.dispose();
 
     private void cbtiendaPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbtiendaPopupMenuWillBecomeInvisible
 
+       /* 
+        
    Object tiendaseleccionada = cbtienda.getSelectedItem();
    File file =null;
   
@@ -333,10 +406,11 @@ this.dispose();
            System.out.println(e);
        }
 
-      pingtienda(); 
-      
 
    }
+    
+    
+    */
     }//GEN-LAST:event_cbtiendaPopupMenuWillBecomeInvisible
 
     private void cbtiendaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbtiendaPopupMenuWillBecomeVisible

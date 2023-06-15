@@ -45,14 +45,14 @@ public class ordenpantalon extends javax.swing.JFrame {
     int traspaso = 0;
     String ipdelaotratienda = "";
     String iplocal = principal.lbiplocal.getText();
-  
+    String sucursal = "";
     String latiendaestaconectada = "si";
     Connection con = null;
      String numerosucursal = "";
 
     String cantidadprendasstring = "";
     int cantidadprendasint = 0;
-
+  
     String bordadosutilizadosstring = "";
     int bordadosutilizadosint = 0;
 
@@ -96,7 +96,6 @@ public class ordenpantalon extends javax.swing.JFrame {
     
     String tienenumerodesucursal = "";
     String numerosucursalordenpantalon = "";
-    String sucursal = "";
     String tiendalocal = "";
     String rutadedondeestanlosbordados ="";
     
@@ -3330,7 +3329,7 @@ public static String dia() {
 
         Connection conn = null;
         ipdelaotratienda = stringIP;
-        String tienda_traspaso = stringlocal;
+       sucursal = stringlocal;
 
         FileInputStream input = null;
         FileInputStream input2 = null;
@@ -3344,7 +3343,7 @@ public static String dia() {
         //ponchado1
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://" + ipdelaotratienda + "/" + tienda_traspaso + "", "root", "sistemas");
+            conn = DriverManager.getConnection("jdbc:mysql://" + ipdelaotratienda + "/" + sucursal + "", "root", "sistemas");
 
             //primerponchado   
             Object ponchado1 = rutaladoizquierdofrente;

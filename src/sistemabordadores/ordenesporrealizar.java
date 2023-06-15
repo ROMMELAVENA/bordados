@@ -1663,9 +1663,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Mes");
+        jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Año");
+        jLabel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         cbaño.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbaño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030" }));

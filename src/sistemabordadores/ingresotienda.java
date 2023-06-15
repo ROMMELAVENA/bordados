@@ -351,7 +351,7 @@ this.dispose();
 
     private void cbtiendaPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbtiendaPopupMenuWillBecomeInvisible
 
-       /* 
+        
         
    Object tiendaseleccionada = cbtienda.getSelectedItem();
    File file =null;
@@ -386,7 +386,7 @@ this.dispose();
                String line = sc.nextLine();
                String str[] = line.split(":");
                iplocal = str[0];
-               basededatoslocal = str[1];
+             
                
 
            }
@@ -396,10 +396,13 @@ this.dispose();
        }
 
 
+       
+        pingtienda(); 
+       
    }
     
     
-    */
+    
     }//GEN-LAST:event_cbtiendaPopupMenuWillBecomeInvisible
 
     private void cbtiendaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbtiendaPopupMenuWillBecomeVisible

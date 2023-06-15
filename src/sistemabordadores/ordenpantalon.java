@@ -245,7 +245,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 if (ladoizquierdofrente == null || ladoizquierdofrente.equals("")) 
                 {
                     
-                  btnladoizquierdofrente.setEnabled(false);
+                  btnladoizquierdofrentetetermine.setEnabled(false);
                   btnladoizquierdofrenteponchado.setEnabled(false);
                   
                   
@@ -255,9 +255,9 @@ public class ordenpantalon extends javax.swing.JFrame {
                    
                     String b = rs.getString("lado_izquierdo_frente_puntadas");
                     lbladoizquierdofrentepuntadas.setText(rs.getString("lado_izquierdo_frente_puntadas"));
-                    btnladoizquierdofrente.setEnabled(true);
-                    btnladoizquierdofrente.setText("Lado Izquierdo Frente");
-                    btnladoizquierdofrente.setForeground(Color.green.darker());
+                    btnladoizquierdofrentetetermine.setEnabled(true);
+               //     btnladoizquierdofrentetetermine.setText("Lado Izquierdo Frente");
+                    btnladoizquierdofrentetetermine.setForeground(Color.green.darker());
                     activadoladoizquierdofrente ="si";
                     
                     
@@ -272,16 +272,16 @@ public class ordenpantalon extends javax.swing.JFrame {
 
                 if (ladoderechofrente == null || ladoderechofrente.equals("")) 
                 {
-                    btnladoderechofrente.setEnabled(false);
+                    btnladoderechofrentetetermine.setEnabled(false);
                     btnladoderechofrenteponchado.setEnabled(false);
                 } 
                 else
                 {
 
                     lbladoderechofrentepuntadas.setText(rs.getString("lado_derecho_frente_puntadas"));
-                    btnladoderechofrente.setEnabled(true);
-                    btnladoderechofrente.setText("Lado Derecho Frente");
-                    btnladoderechofrente.setForeground(Color.green.darker());
+                    btnladoderechofrentetetermine.setEnabled(true);
+                //    btnladoderechofrentetetermine.setText("Lado Derecho Frente");
+                    btnladoderechofrentetetermine.setForeground(Color.green.darker());
                     activadoladoderechofrente ="si";
                    
                 }
@@ -294,7 +294,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 String ladoizquierdoatras = rs.getString("lado_izquierdo_atras");
                 if (ladoizquierdoatras == null || ladoizquierdoatras.equals(""))
                 {
-                    btnladoizquierdoatras.setEnabled(false);
+                    btnladoizquierdoatrastetermine.setEnabled(false);
                     btnladoizquierdoatrasponchado.setEnabled(false);
                 } 
                 else 
@@ -302,10 +302,10 @@ public class ordenpantalon extends javax.swing.JFrame {
 
 
                     lbladoizquierdoatraspuntadas.setText(rs.getString("lado_izquierdo_atras_puntadas"));
-                    btnladoizquierdoatras.setEnabled(true);
+                    btnladoizquierdoatrastetermine.setEnabled(true);
                     activadoladoizquierdoatras ="si";
-                    btnladoizquierdoatras.setText("Lado Izquierdo Atras");
-                    btnladoizquierdoatras.setForeground(Color.green.darker());
+              //      btnladoizquierdoatrastetermine.setText("Lado Izquierdo Atras");
+                    btnladoizquierdoatrastetermine.setForeground(Color.green.darker());
                    
                     
                 }
@@ -319,7 +319,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 String ladoderechoatras = rs.getString("lado_derecho_atras");
                 if (ladoderechoatras == null || ladoderechoatras.equals("")) 
                 {
-                     btnladoderechoatras.setEnabled(false);
+                     btnladoderechoatrastetermine.setEnabled(false);
                      btnladoderechoatrasponchado.setEnabled(false);
                 }
                 else 
@@ -328,9 +328,9 @@ public class ordenpantalon extends javax.swing.JFrame {
 
                    
                     lbladoderechoatraspuntadas.setText(rs.getString("lado_derecho_atras_puntadas"));
-                    btnladoderechoatras.setEnabled(true);
-                    btnladoderechoatras.setText("Lado Derecho Atras");
-                    btnladoderechoatras.setForeground(Color.green.darker());
+                    btnladoderechoatrastetermine.setEnabled(true);
+               //     btnladoderechoatrastetermine.setText("Lado Derecho Atras");
+                    btnladoderechoatrastetermine.setForeground(Color.green.darker());
                     activadoladoderechoatras ="si";
                     
                    
@@ -348,7 +348,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 String cantidadladoizquierdofrente = rs.getString("cantidad_lado_izquierdo_frente");
                 if(cantidadladoizquierdofrente.equals("0") && activadoladoizquierdofrente.equals("si"))
                 {
-                    btnladoizquierdofrente.setEnabled(true);
+                    btnladoizquierdofrentetetermine.setEnabled(true);
                     btnladoizquierdofrenteponchado.setEnabled(true);
                     
                     
@@ -370,7 +370,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 String cantidadladoderechofrente = rs.getString("cantidad_lado_derecho_frente");
                 if(cantidadladoizquierdofrente.equals("0")&& activadoladoderechofrente.equals("si"))
                 {
-                   btnladoderechofrente.setEnabled(true);
+                   btnladoderechofrentetetermine.setEnabled(true);
                     btnladoderechofrenteponchado.setEnabled(true);
                     
                     
@@ -390,7 +390,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 String cantidadladoizquierdoatras = rs.getString("cantidad_lado_izquierdo_atras");
                 if(cantidadladoizquierdoatras.equals("0") && activadoladoizquierdoatras.equals("si"))
                 {
-                    btnladoizquierdoatras.setEnabled(true);
+                    btnladoizquierdoatrastetermine.setEnabled(true);
                      btnladoizquierdoatrasponchado.setEnabled(true);
                      
                      
@@ -409,7 +409,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 String cantidadladoderechoatras = rs.getString("cantidad_lado_derecho_atras");
                 if(cantidadladoderechoatras.equals("0")&& activadoladoderechoatras.equals("si"))
                 {
-                    btnladoderechoatras.setEnabled(true);
+                    btnladoderechoatrastetermine.setEnabled(true);
                      btnladoderechoatrasponchado.setEnabled(true);
                      
                      
@@ -1065,10 +1065,10 @@ public class ordenpantalon extends javax.swing.JFrame {
             
            
             
-            btnladoderechofrente.setEnabled(false);
-            btnladoderechoatras.setEnabled(false);
-            btnladoizquierdofrente.setEnabled(false);
-            btnladoizquierdoatras.setEnabled(false);
+            btnladoderechofrentetetermine.setEnabled(false);
+            btnladoderechoatrastetermine.setEnabled(false);
+            btnladoizquierdofrentetetermine.setEnabled(false);
+            btnladoizquierdoatrastetermine.setEnabled(false);
             
             btnladoderechofrenteponchado.setEnabled(false);
             btnladoderechoatrasponchado.setEnabled(false);
@@ -1266,7 +1266,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 if (ladoizquierdofrente == null || ladoizquierdofrente.equals("")) 
                 {
                     
-                  btnladoizquierdofrente.setEnabled(false);
+                  btnladoizquierdofrentetetermine.setEnabled(false);
                   btnladoizquierdofrenteponchado.setEnabled(false);
 
                 } else {
@@ -1276,7 +1276,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                     lbladoizquierdofrentepuntadas.setText(rs.getString("lado_izquierdo_frente_puntadas"));
                     
                     
-                    btnladoizquierdofrente.setEnabled(true);
+                    btnladoizquierdofrentetetermine.setEnabled(true);
                     btnladoizquierdofrenteponchado.setEnabled(true);
                     
                     
@@ -1294,7 +1294,7 @@ public class ordenpantalon extends javax.swing.JFrame {
 
                 if (ladoderechofrente == null || ladoderechofrente.equals("")) 
                 {
-                    btnladoderechofrente.setEnabled(false);
+                    btnladoderechofrentetetermine.setEnabled(false);
                     btnladoderechofrenteponchado.setEnabled(false);
                 } 
                 else
@@ -1304,7 +1304,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                     lbladoderechofrentepuntadas.setText(rs.getString("lado_derecho_frente_puntadas"));
                     
                     
-                    btnladoderechofrente.setEnabled(true);
+                    btnladoderechofrentetetermine.setEnabled(true);
                     btnladoderechofrenteponchado.setEnabled(true);
                     
                     
@@ -1317,7 +1317,7 @@ public class ordenpantalon extends javax.swing.JFrame {
              
                 if (ladoizquierdoatras == null || ladoizquierdoatras.equals("")) 
                 {
-                    btnladoizquierdoatras.setEnabled(false);
+                    btnladoizquierdoatrastetermine.setEnabled(false);
                     btnladoizquierdoatrasponchado.setEnabled(false);
                     
                 } else {
@@ -1326,7 +1326,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                     lbladoizquierdoatraspuntadas.setText(rs.getString("lado_izquierdo_atras_puntadas"));
                  
                     
-                    btnladoizquierdoatras.setEnabled(true);
+                    btnladoizquierdoatrastetermine.setEnabled(true);
                     btnladoizquierdoatrasponchado.setEnabled(true);
                     
                     activadoladoizquierdoatras ="si";
@@ -1338,7 +1338,7 @@ public class ordenpantalon extends javax.swing.JFrame {
              
                 if (ladoderechoatras == null || ladoderechoatras.equals("")) {
                     
-                     btnladoderechoatras.setEnabled(false);
+                     btnladoderechoatrastetermine.setEnabled(false);
                       btnladoderechoatrasponchado.setEnabled(false);
                      
                      
@@ -1348,7 +1348,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                     String a = rs.getString("lado_derecho_atras_puntadas");
                     lbladoderechoatraspuntadas.setText(rs.getString("lado_derecho_atras_puntadas"));
                  
-                    btnladoderechoatras.setEnabled(true);
+                    btnladoderechoatrastetermine.setEnabled(true);
                     btnladoderechoatrasponchado.setEnabled(true);
                     
                     
@@ -1388,14 +1388,14 @@ public class ordenpantalon extends javax.swing.JFrame {
                 String cantidadladoizquierdofrente = rs.getString("cantidad_lado_izquierdo_frente");
                 if(cantidadladoizquierdofrente.equals("0") && activadoladoizquierdofrente.equals("si"))
                 {
-                    btnladoizquierdofrente.setEnabled(true);
+                    btnladoizquierdofrentetetermine.setEnabled(true);
                     btnladoizquierdofrenteponchado.setEnabled(true);
                     
                      listabotones.add("btnladoizquierdofrente");
                 }
                 else
                 {
-                    btnladoizquierdofrente.setEnabled(false);
+                    btnladoizquierdofrentetetermine.setEnabled(false);
                     btnladoizquierdofrenteponchado.setEnabled(false);
                 }    
                 
@@ -1404,7 +1404,7 @@ public class ordenpantalon extends javax.swing.JFrame {
              
                 if(cantidadladoderechofrente.equals("0")&& cantidadladoderechofrente.equals("si"))
                 {
-                   btnladoderechofrente.setEnabled(true);
+                   btnladoderechofrentetetermine.setEnabled(true);
                    btnladoderechofrenteponchado.setEnabled(true);
                    
                    
@@ -1412,7 +1412,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 }
                 else
                 {
-                   btnladoderechofrente.setEnabled(false); 
+                   btnladoderechofrentetetermine.setEnabled(false); 
                    btnladoderechofrenteponchado.setEnabled(false);
                 } 
                 
@@ -1423,7 +1423,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 String cantidadladoizquierdoatras = rs.getString("cantidad_lado_izquierdo_atras");
                 if(cantidadladoizquierdoatras.equals("0") && activadoladoizquierdoatras.equals("si"))
                 {
-                    btnladoizquierdoatras.setEnabled(true);
+                    btnladoizquierdoatrastetermine.setEnabled(true);
                     btnladoizquierdoatrasponchado.setEnabled(true);
                     
                     
@@ -1431,7 +1431,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 }
                 else
                 {
-                    btnladoizquierdoatras.setEnabled(false);
+                    btnladoizquierdoatrastetermine.setEnabled(false);
                     btnladoizquierdoatrasponchado.setEnabled(false);
                 } 
                 
@@ -1442,14 +1442,14 @@ public class ordenpantalon extends javax.swing.JFrame {
                 String cantidadladoderechoatras = rs.getString("cantidad_lado_derecho_atras");
                 if(cantidadladoderechoatras.equals("0")&& activadoladoderechoatras.equals("si"))
                 {
-                    btnladoderechoatras.setEnabled(true);
+                    btnladoderechoatrastetermine.setEnabled(true);
                     btnladoderechoatrasponchado.setEnabled(true);
                     
                     listabotones.add("btnladoderechoatras");
                 }
                 else
                 {
-                    btnladoderechoatras.setEnabled(false);
+                    btnladoderechoatrastetermine.setEnabled(false);
                     btnladoderechoatrasponchado.setEnabled(false);
                 } 
                 
@@ -2514,10 +2514,10 @@ public class ordenpantalon extends javax.swing.JFrame {
         lbtiendareplica = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         lbcantidad = new javax.swing.JLabel();
-        btnladoderechofrente = new javax.swing.JButton();
-        btnladoderechoatras = new javax.swing.JButton();
-        btnladoizquierdofrente = new javax.swing.JButton();
-        btnladoizquierdoatras = new javax.swing.JButton();
+        btnladoderechofrentetetermine = new javax.swing.JButton();
+        btnladoderechoatrastetermine = new javax.swing.JButton();
+        btnladoizquierdofrentetetermine = new javax.swing.JButton();
+        btnladoizquierdoatrastetermine = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lbsumapuntos = new javax.swing.JLabel();
         lbcolormangaderecha = new javax.swing.JLabel();
@@ -2641,35 +2641,35 @@ public class ordenpantalon extends javax.swing.JFrame {
         lbcantidad.setText("0");
         lbcantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnladoderechofrente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnladoderechofrente.setText("Termine");
-        btnladoderechofrente.addActionListener(new java.awt.event.ActionListener() {
+        btnladoderechofrentetetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnladoderechofrentetetermine.setText("Termine");
+        btnladoderechofrentetetermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnladoderechofrenteActionPerformed(evt);
+                btnladoderechofrentetetermineActionPerformed(evt);
             }
         });
 
-        btnladoderechoatras.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnladoderechoatras.setText("Termine");
-        btnladoderechoatras.addActionListener(new java.awt.event.ActionListener() {
+        btnladoderechoatrastetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnladoderechoatrastetermine.setText("Termine");
+        btnladoderechoatrastetermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnladoderechoatrasActionPerformed(evt);
+                btnladoderechoatrastetermineActionPerformed(evt);
             }
         });
 
-        btnladoizquierdofrente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnladoizquierdofrente.setText("Termine");
-        btnladoizquierdofrente.addActionListener(new java.awt.event.ActionListener() {
+        btnladoizquierdofrentetetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnladoizquierdofrentetetermine.setText("Termine");
+        btnladoizquierdofrentetetermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnladoizquierdofrenteActionPerformed(evt);
+                btnladoizquierdofrentetetermineActionPerformed(evt);
             }
         });
 
-        btnladoizquierdoatras.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnladoizquierdoatras.setText("Termine");
-        btnladoizquierdoatras.addActionListener(new java.awt.event.ActionListener() {
+        btnladoizquierdoatrastetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnladoizquierdoatrastetermine.setText("Termine");
+        btnladoizquierdoatrastetermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnladoizquierdoatrasActionPerformed(evt);
+                btnladoizquierdoatrastetermineActionPerformed(evt);
             }
         });
 
@@ -2900,9 +2900,9 @@ public class ordenpantalon extends javax.swing.JFrame {
                             .addComponent(lbdadoizquierdoatras1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnladoizquierdofrente, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnladoderechofrente, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnladoizquierdoatras, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnladoizquierdofrentetetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnladoderechofrentetetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnladoizquierdoatrastetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnladoizquierdofrentecancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2945,7 +2945,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(lbladoderechoatras1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
-                        .addComponent(btnladoderechoatras, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnladoderechoatrastetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)
                         .addComponent(btnladoderechoatrascancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
@@ -3090,11 +3090,11 @@ public class ordenpantalon extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(lbdadoizquierdoatras1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnladoizquierdofrente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnladoizquierdofrentetetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(btnladoderechofrente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnladoderechofrentetetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(btnladoizquierdoatras, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnladoizquierdoatrastetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnladoizquierdofrentecancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
@@ -3135,7 +3135,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbladoderechoatras1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnladoderechoatras, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnladoderechoatrastetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnladoderechoatrascancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcodigoladoderechoatras, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcolormangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3654,7 +3654,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
     }//GEN-LAST:event_formWindowOpened
 
-    private void btnladoizquierdofrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdofrenteActionPerformed
+    private void btnladoizquierdofrentetetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdofrentetetermineActionPerformed
 
          if(lbcantidad.getText().equals("0"))
         {
@@ -3694,7 +3694,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String fl = archivoelegido.toString();
 
             rutaladoizquierdofrente= fl ;
-            btnladoizquierdofrente.setEnabled(false);
+            btnladoizquierdofrentetetermine.setEnabled(false);
 
         }
         
@@ -3728,9 +3728,9 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         
         }
-    }//GEN-LAST:event_btnladoizquierdofrenteActionPerformed
+    }//GEN-LAST:event_btnladoizquierdofrentetetermineActionPerformed
 
-    private void btnladoizquierdoatrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdoatrasActionPerformed
+    private void btnladoizquierdoatrastetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdoatrastetermineActionPerformed
 
          if(lbcantidad.getText().equals("0"))
         {
@@ -3767,7 +3767,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String fl = archivoelegido.toString();
 
             rutaladoizquierdoatras=fl;
-            btnladoizquierdoatras.setEnabled(false);
+            btnladoizquierdoatrastetermine.setEnabled(false);
 
         }
         
@@ -3803,9 +3803,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         }
-    }//GEN-LAST:event_btnladoizquierdoatrasActionPerformed
+    }//GEN-LAST:event_btnladoizquierdoatrastetermineActionPerformed
 
-    private void btnladoderechoatrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechoatrasActionPerformed
+    private void btnladoderechoatrastetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechoatrastetermineActionPerformed
 
          if(lbcantidad.getText().equals("0"))
         {
@@ -3841,7 +3841,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String fl = archivoelegido.toString();
 
             rutaladoderechoatras= fl;
-            btnladoderechoatras.setEnabled(false);
+            btnladoderechoatrastetermine.setEnabled(false);
 
         }
         
@@ -3874,9 +3874,9 @@ JOptionPane.showMessageDialog(null, mensaje);
          
          
         }
-    }//GEN-LAST:event_btnladoderechoatrasActionPerformed
+    }//GEN-LAST:event_btnladoderechoatrastetermineActionPerformed
 
-    private void btnladoderechofrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechofrenteActionPerformed
+    private void btnladoderechofrentetetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechofrentetetermineActionPerformed
 
          if(lbcantidad.getText().equals("0"))
         {
@@ -3914,7 +3914,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String fl = archivoelegido.toString();
 
             rutaladoderechofrente=fl;
-            btnladoderechofrente.setEnabled(false);
+            btnladoderechofrentetetermine.setEnabled(false);
 
         }
         
@@ -3945,7 +3945,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          
          
         }
-    }//GEN-LAST:event_btnladoderechofrenteActionPerformed
+    }//GEN-LAST:event_btnladoderechofrentetetermineActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
       ventanaordenpantalonanteriores = false;
@@ -4010,43 +4010,43 @@ JOptionPane.showMessageDialog(null, mensaje);
             if(boton.equals("btnladoizquierdofrente"))
             {
                 
-                if(btnladoizquierdofrente.getText().equals("Cancelar"))
+                if(btnladoizquierdofrentetetermine.getText().equals("Cancelar"))
                 {
                 }
                 else
                 {
-                btnladoizquierdofrente.doClick();
+                btnladoizquierdofrentetetermine.doClick();
                 }
                 
             }
             else if(boton.equals("btnladoderechofrente"))
             {
-                if(btnladoderechofrente.getText().equals("Cancelar"))
+                if(btnladoderechofrentetetermine.getText().equals("Cancelar"))
                 {
                 }
                 else
                 {
-                btnladoderechofrente.doClick();
+                btnladoderechofrentetetermine.doClick();
                 }
             }
             else if(boton.equals("btnladoizquierdoatras"))
             {
-                if(btnladoizquierdoatras.getText().equals("Cancelar"))
+                if(btnladoizquierdoatrastetermine.getText().equals("Cancelar"))
                 {
                 }
                 else
                 {
-                btnladoizquierdoatras.doClick();
+                btnladoizquierdoatrastetermine.doClick();
                 }
             }
             else if(boton.equals("btnladoderechoatras"))
             {
-                if(btnladoderechoatras.getText().equals("Cancelar"))
+                if(btnladoderechoatrastetermine.getText().equals("Cancelar"))
                 {
                 }
                 else
                 {
-                btnladoderechoatras.doClick();
+                btnladoderechoatrastetermine.doClick();
                 }
             }
             
@@ -4355,18 +4355,18 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JButton btndatos;
     private javax.swing.JButton btneliminarbtneditarbordado;
     private javax.swing.JButton btnfotomontajesinpuntadas;
-    private javax.swing.JButton btnladoderechoatras;
     private javax.swing.JButton btnladoderechoatrascancelar;
     private javax.swing.JButton btnladoderechoatrasponchado;
-    private javax.swing.JButton btnladoderechofrente;
+    private javax.swing.JButton btnladoderechoatrastetermine;
     private javax.swing.JButton btnladoderechofrentecancelar;
     private javax.swing.JButton btnladoderechofrenteponchado;
-    private javax.swing.JButton btnladoizquierdoatras;
+    private javax.swing.JButton btnladoderechofrentetetermine;
     private javax.swing.JButton btnladoizquierdoatrascancelar;
     private javax.swing.JButton btnladoizquierdoatrasponchado;
-    private javax.swing.JButton btnladoizquierdofrente;
+    private javax.swing.JButton btnladoizquierdoatrastetermine;
     private javax.swing.JButton btnladoizquierdofrentecancelar;
     private javax.swing.JButton btnladoizquierdofrenteponchado;
+    private javax.swing.JButton btnladoizquierdofrentetetermine;
     private javax.swing.JButton btnreplicar;
     private javax.swing.JButton btnterminetodo;
     private javax.swing.JButton btnvercolorido;

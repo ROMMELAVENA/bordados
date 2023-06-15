@@ -149,11 +149,11 @@ public class ordencorbata extends javax.swing.JFrame {
                 String frentecantidad = rs.getString("cantidad_frente");
                 if(frentecantidad.equals("0"))
                 {
-                   btntermine1.setEnabled(true);
+                   btnfrentetermine.setEnabled(true);
                 }
                 else
                 {
-                    btntermine1.setEnabled(false);
+                    btnfrentetermine.setEnabled(false);
                 }    
                 
                 
@@ -362,7 +362,7 @@ public class ordencorbata extends javax.swing.JFrame {
         }
         else
         {
-            btntermine1.setEnabled(false);
+            btnfrentetermine.setEnabled(false);
             ordencorbataimagen p = new ordencorbataimagen();
             jPanel1.add(p);
             jPanel1.repaint();
@@ -779,11 +779,11 @@ public class ordencorbata extends javax.swing.JFrame {
                 String frentecantidad = rs.getString("cantidad_frente");
                 if(frentecantidad.equals("0"))
                 {
-                   btntermine1.setEnabled(true);
+                   btnfrentetermine.setEnabled(true);
                 }
                 else
                 {
-                    btntermine1.setEnabled(false);
+                    btnfrentetermine.setEnabled(false);
                 }    
                 
                 
@@ -1197,7 +1197,7 @@ public class ordencorbata extends javax.swing.JFrame {
         lbnombrecomercial = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         lbautorizado = new javax.swing.JLabel();
-        btntermine1 = new javax.swing.JButton();
+        btnfrentetermine = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lbsumapuntos = new javax.swing.JLabel();
         btnverfotomontaje = new javax.swing.JButton();
@@ -1336,12 +1336,12 @@ public class ordencorbata extends javax.swing.JFrame {
         lbautorizado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbautorizado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btntermine1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btntermine1.setText("Termine");
-        btntermine1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btntermine1.addActionListener(new java.awt.event.ActionListener() {
+        btnfrentetermine.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnfrentetermine.setText("Termine");
+        btnfrentetermine.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnfrentetermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btntermine1ActionPerformed(evt);
+                btnfrentetermineActionPerformed(evt);
             }
         });
 
@@ -1554,7 +1554,7 @@ public class ordencorbata extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btntermine1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnfrentetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(btnfrentecancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(90, 90, 90)
@@ -1637,7 +1637,7 @@ public class ordencorbata extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(63, 63, 63)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(btntermine1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnfrentetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(63, 63, 63)
@@ -1790,7 +1790,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
     }//GEN-LAST:event_formWindowOpened
 
-    private void btntermine1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermine1ActionPerformed
+    private void btnfrentetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrentetermineActionPerformed
        if(lugar.equals("Esta sucursal"))
         {
            String ubicacion = "cantidad_frente";
@@ -1825,7 +1825,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         this.dispose();
-    }//GEN-LAST:event_btntermine1ActionPerformed
+    }//GEN-LAST:event_btnfrentetermineActionPerformed
 
     private void btnverfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverfotomontajeActionPerformed
 
@@ -1989,10 +1989,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         terminetodo = "si";
 
 
-        if (btntermine1.isEnabled())
+        if (btnfrentetermine.isEnabled())
             
         {
-            btntermine1.doClick();
+            btnfrentetermine.doClick();
             btnterminetodo.setEnabled(false);
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Orden terminada completamente");
         }
@@ -2031,7 +2031,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JButton btnfotomontajesinpuntadas;
     private javax.swing.JButton btnfrentecancelar;
     private javax.swing.JButton btnfrenteponchado;
-    private javax.swing.JButton btntermine1;
+    private javax.swing.JButton btnfrentetermine;
     private javax.swing.JButton btnterminetodo;
     private javax.swing.JButton btnvercolorido;
     private javax.swing.JButton btnverfotomontaje;

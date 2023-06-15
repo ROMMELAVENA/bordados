@@ -435,7 +435,7 @@ public class ordendistinta extends javax.swing.JFrame {
                     
                 if(distinta1nombre==null||distinta1nombre.equals("")||distinta1nombre.equals(" "))
                 {
-                   btndistinta1.setEnabled(false);
+                   btndistinta1tetermine.setEnabled(false);
                    
                    btndistinta1ponnchado.setEnabled(false);
                    
@@ -458,7 +458,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                  if(distinta2nombre==null||distinta2nombre.equals("")||distinta2nombre.equals(" "))
                 {
-                   btndistinta2.setEnabled(false);
+                   btndistinta2tetermine.setEnabled(false);
                    
                    btndistinta2ponnchado.setEnabled(false);
                    
@@ -480,7 +480,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                  if(distinta3nombre==null||distinta3nombre.equals("")||distinta3nombre.equals(" "))
                 {
-                   btndistinta3.setEnabled(false);
+                   btndistinta3tetermine.setEnabled(false);
                    
                    btndistinta3ponnchado.setEnabled(false);
                    
@@ -501,7 +501,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                 if(distinta4nombre==null||distinta4nombre.equals("")||distinta4nombre.equals(" "))
                 {
-                   btndistinta4.setEnabled(false);
+                   btndistinta4tetermine.setEnabled(false);
                    
                    btndistinta4ponnchado.setEnabled(false);
                    
@@ -522,7 +522,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                 if(distinta5nombre==null||distinta5nombre.equals("")||distinta5nombre.equals(" "))
                 {
-                   btndistinta5.setEnabled(false);
+                   btndistinta5tetermine.setEnabled(false);
                    
                    btndistinta5ponnchado.setEnabled(false);
                    
@@ -543,7 +543,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                 if(distinta6nombre==null||distinta6nombre.equals("")||distinta6nombre.equals(" "))
                 {
-                   btndistinta6.setEnabled(false);
+                   btndistinta6tetermine.setEnabled(false);
                    
                    btndistinta6ponnchado.setEnabled(false);
                    
@@ -565,7 +565,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                 if(distinta7nombre==null||distinta7nombre.equals("")||distinta7nombre.equals(" "))
                 {
-                   btndistinta7.setEnabled(false);
+                   btndistinta7tetermine.setEnabled(false);
                    
                    btndistinta7ponnchado.setEnabled(false);
                    
@@ -603,37 +603,37 @@ public class ordendistinta extends javax.swing.JFrame {
                     
                      if(distinta1nombre!=null && Integer.parseInt(distinta1cantidad) > 0  )
                      {
-                         btndistinta1.setEnabled(false);
+                         btndistinta1tetermine.setEnabled(false);
                    //  cancelar1.setVisible(true);
                      }
                      else if(distinta2nombre!=null && Integer.parseInt(distinta2cantidad) > 0  )
                      {
-                         btndistinta2.setEnabled(false);
+                         btndistinta2tetermine.setEnabled(false);
                 //       cancelar2.setVisible(true);
                      }
                       else if( distinta3nombre!=null && Integer.parseInt(distinta3cantidad) > 0  )
                      {
-                         btndistinta3.setEnabled(false);
+                         btndistinta3tetermine.setEnabled(false);
                   //       cancelar3.setVisible(true);
                      }
                      else if( distinta4nombre!=null && Integer.parseInt(distinta4cantidad) > 0  )
                      {
-                         btndistinta4.setEnabled(false);
+                         btndistinta4tetermine.setEnabled(false);
                   //       cancelar4.setVisible(true);
                      }
                      else if( distinta5nombre!=null && Integer.parseInt(distinta5cantidad) > 0  )
                      {
-                         btndistinta5.setEnabled(false);
+                         btndistinta5tetermine.setEnabled(false);
                     //     cancelar5.setVisible(true);
                      }
                      else if( distinta6nombre!=null && Integer.parseInt(distinta6cantidad) > 0  )
                      {
-                         btndistinta6.setEnabled(false);
+                         btndistinta6tetermine.setEnabled(false);
                   //       cancelar6.setVisible(true);
                      }
                      else if( distinta7nombre!=null && Integer.parseInt(distinta7cantidad) > 0  )
                      {
-                         btndistinta7.setEnabled(false);
+                         btndistinta7tetermine.setEnabled(false);
                    //      cancelar7.setVisible(true);
                      }
                      
@@ -647,37 +647,37 @@ public class ordendistinta extends javax.swing.JFrame {
                     
                      if(distinta1nombre!=null && Integer.parseInt(distinta1cantidad) == 0  )
                      {
-                         btndistinta1.setEnabled(true);
+                         btndistinta1tetermine.setEnabled(true);
                //          cancelar1.setVisible(false);
                      }
                      else if(distinta2nombre!=null && Integer.parseInt(distinta2cantidad) == 0  )
                      {
-                         btndistinta2.setEnabled(true);
+                         btndistinta2tetermine.setEnabled(true);
                   //       cancelar2.setVisible(false);
                      }
                       else if( distinta3nombre!=null && Integer.parseInt(distinta3cantidad) == 0  )
                      {
-                         btndistinta3.setEnabled(true);
+                         btndistinta3tetermine.setEnabled(true);
                //          cancelar3.setVisible(false);
                      }
                      else if( distinta4nombre!=null && Integer.parseInt(distinta4cantidad) == 0  )
                      {
-                         btndistinta4.setEnabled(true);
+                         btndistinta4tetermine.setEnabled(true);
                  //        cancelar4.setVisible(false);
                      }
                      else if( distinta5nombre!=null && Integer.parseInt(distinta5cantidad) == 0  )
                      {
-                         btndistinta5.setEnabled(true);
+                         btndistinta5tetermine.setEnabled(true);
                  //        cancelar5.setVisible(false);
                      }
                      else if( distinta6nombre!=null && Integer.parseInt(distinta6cantidad) == 0  )
                      {
-                         btndistinta6.setEnabled(true);
+                         btndistinta6tetermine.setEnabled(true);
                 //         cancelar6.setVisible(false);
                      }
                      else if( distinta7nombre!=null && Integer.parseInt(distinta7cantidad) == 0  )
                      {
-                         btndistinta7.setEnabled(true);
+                         btndistinta7tetermine.setEnabled(true);
                 //         cancelar7.setVisible(false);
                      }
                      
@@ -863,13 +863,13 @@ public class ordendistinta extends javax.swing.JFrame {
         }
         else
         {
-            btndistinta1.setEnabled(false);
-            btndistinta2.setEnabled(false);
-            btndistinta3.setEnabled(false);
-            btndistinta4.setEnabled(false);
-            btndistinta5.setEnabled(false);
-            btndistinta6.setEnabled(false);
-            btndistinta7.setEnabled(false);
+            btndistinta1tetermine.setEnabled(false);
+            btndistinta2tetermine.setEnabled(false);
+            btndistinta3tetermine.setEnabled(false);
+            btndistinta4tetermine.setEnabled(false);
+            btndistinta5tetermine.setEnabled(false);
+            btndistinta6tetermine.setEnabled(false);
+            btndistinta7tetermine.setEnabled(false);
             
             ordencamisaimagencontorno p = new ordencamisaimagencontorno();
             jPanel1.add(p);
@@ -2015,7 +2015,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                 if(distinta1nombre==null||distinta1nombre.equals("")||distinta1nombre.equals(" "))
                 {
-                   btndistinta1.setEnabled(false);
+                   btndistinta1tetermine.setEnabled(false);
                    
                 }
                 else
@@ -2036,7 +2036,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                  if(distinta2nombre==null||distinta2nombre.equals("")||distinta2nombre.equals(" "))
                 {
-                   btndistinta2.setEnabled(false);
+                   btndistinta2tetermine.setEnabled(false);
                    
                 }
                 else
@@ -2056,7 +2056,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                  if(distinta3nombre==null||distinta3nombre.equals("")||distinta3nombre.equals(" "))
                 {
-                   btndistinta3.setEnabled(false);
+                   btndistinta3tetermine.setEnabled(false);
                    
                 }
                 else
@@ -2075,7 +2075,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                 if(distinta4nombre==null||distinta4nombre.equals("")||distinta4nombre.equals(" "))
                 {
-                   btndistinta4.setEnabled(false);
+                   btndistinta4tetermine.setEnabled(false);
                    
                 }
                 else
@@ -2094,7 +2094,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                 if(distinta5nombre==null||distinta5nombre.equals("")||distinta5nombre.equals(" "))
                 {
-                   btndistinta5.setEnabled(false);
+                   btndistinta5tetermine.setEnabled(false);
                    
                 }
                 else
@@ -2113,7 +2113,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                 if(distinta6nombre==null||distinta6nombre.equals("")||distinta6nombre.equals(" "))
                 {
-                   btndistinta6.setEnabled(false);
+                   btndistinta6tetermine.setEnabled(false);
                    
                 }
                 else
@@ -2133,7 +2133,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                 if(distinta7nombre==null||distinta7nombre.equals("")||distinta7nombre.equals(" "))
                 {
-                   btndistinta7.setEnabled(false);
+                   btndistinta7tetermine.setEnabled(false);
                    
                 }
                 else
@@ -2169,37 +2169,37 @@ public class ordendistinta extends javax.swing.JFrame {
                     
                      if(distinta1nombre!=null && Integer.parseInt(distinta1cantidad) > 0  )
                      {
-                         btndistinta1.setEnabled(false);
+                         btndistinta1tetermine.setEnabled(false);
           //               cancelar1.setVisible(true);
                      }
                      else if(distinta2nombre!=null && Integer.parseInt(distinta2cantidad) > 0  )
                      {
-                         btndistinta2.setEnabled(false);
+                         btndistinta2tetermine.setEnabled(false);
            //              cancelar2.setVisible(true);
                      }
                       else if( distinta3nombre!=null && Integer.parseInt(distinta3cantidad) > 0  )
                      {
-                         btndistinta3.setEnabled(false);
+                         btndistinta3tetermine.setEnabled(false);
               //           cancelar3.setVisible(true);
                      }
                      else if( distinta4nombre!=null && Integer.parseInt(distinta4cantidad) > 0  )
                      {
-                         btndistinta4.setEnabled(false);
+                         btndistinta4tetermine.setEnabled(false);
               //           cancelar4.setVisible(true);
                      }
                      else if( distinta5nombre!=null && Integer.parseInt(distinta5cantidad) > 0  )
                      {
-                         btndistinta5.setEnabled(false);
+                         btndistinta5tetermine.setEnabled(false);
            //              cancelar5.setVisible(true);
                      }
                      else if( distinta6nombre!=null && Integer.parseInt(distinta6cantidad) > 0  )
                      {
-                         btndistinta6.setEnabled(false);
+                         btndistinta6tetermine.setEnabled(false);
             //             cancelar6.setVisible(true);
                      }
                      else if( distinta7nombre!=null && Integer.parseInt(distinta7cantidad) > 0  )
                      {
-                         btndistinta7.setEnabled(false);
+                         btndistinta7tetermine.setEnabled(false);
             //             cancelar7.setVisible(true);
                      }
                      
@@ -2213,37 +2213,37 @@ public class ordendistinta extends javax.swing.JFrame {
                     
                      if(distinta1nombre!=null && Integer.parseInt(distinta1cantidad) == 0  )
                      {
-                         btndistinta1.setEnabled(true);
+                         btndistinta1tetermine.setEnabled(true);
             //             cancelar1.setVisible(false);
                      }
                      else if(distinta2nombre!=null && Integer.parseInt(distinta2cantidad) == 0  )
                      {
-                         btndistinta2.setEnabled(true);
+                         btndistinta2tetermine.setEnabled(true);
            //              cancelar2.setVisible(false);
                      }
                       else if( distinta3nombre!=null && Integer.parseInt(distinta3cantidad) == 0  )
                      {
-                         btndistinta3.setEnabled(true);
+                         btndistinta3tetermine.setEnabled(true);
            //              cancelar3.setVisible(false);
                      }
                      else if( distinta4nombre!=null && Integer.parseInt(distinta4cantidad) == 0  )
                      {
-                         btndistinta4.setEnabled(true);
+                         btndistinta4tetermine.setEnabled(true);
             //             cancelar4.setVisible(false);
                      }
                      else if( distinta5nombre!=null && Integer.parseInt(distinta5cantidad) == 0  )
                      {
-                         btndistinta5.setEnabled(true);
+                         btndistinta5tetermine.setEnabled(true);
             //             cancelar5.setVisible(false);
                      }
                      else if( distinta6nombre!=null && Integer.parseInt(distinta6cantidad) == 0  )
                      {
-                         btndistinta6.setEnabled(true);
+                         btndistinta6tetermine.setEnabled(true);
           //               cancelar6.setVisible(false);
                      }
                      else if( distinta7nombre!=null && Integer.parseInt(distinta7cantidad) == 0  )
                      {
-                         btndistinta7.setEnabled(true);
+                         btndistinta7tetermine.setEnabled(true);
             //             cancelar7.setVisible(false);
                      }
                      
@@ -3298,13 +3298,13 @@ public class ordendistinta extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         lbbordacliente = new javax.swing.JLabel();
-        btndistinta1 = new javax.swing.JButton();
-        btndistinta2 = new javax.swing.JButton();
-        btndistinta3 = new javax.swing.JButton();
-        btndistinta4 = new javax.swing.JButton();
-        btndistinta5 = new javax.swing.JButton();
-        btndistinta6 = new javax.swing.JButton();
-        btndistinta7 = new javax.swing.JButton();
+        btndistinta1tetermine = new javax.swing.JButton();
+        btndistinta2tetermine = new javax.swing.JButton();
+        btndistinta3tetermine = new javax.swing.JButton();
+        btndistinta4tetermine = new javax.swing.JButton();
+        btndistinta5tetermine = new javax.swing.JButton();
+        btndistinta6tetermine = new javax.swing.JButton();
+        btndistinta7tetermine = new javax.swing.JButton();
         lbltallas = new javax.swing.JLabel();
         lbsumapuntos = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -3547,59 +3547,59 @@ public class ordendistinta extends javax.swing.JFrame {
         lbbordacliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbbordacliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btndistinta1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndistinta1.setText("Termine");
-        btndistinta1.addActionListener(new java.awt.event.ActionListener() {
+        btndistinta1tetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndistinta1tetermine.setText("Termine");
+        btndistinta1tetermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndistinta1ActionPerformed(evt);
+                btndistinta1tetermineActionPerformed(evt);
             }
         });
 
-        btndistinta2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndistinta2.setText("Termine");
-        btndistinta2.addActionListener(new java.awt.event.ActionListener() {
+        btndistinta2tetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndistinta2tetermine.setText("Termine");
+        btndistinta2tetermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndistinta2ActionPerformed(evt);
+                btndistinta2tetermineActionPerformed(evt);
             }
         });
 
-        btndistinta3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndistinta3.setText("Termine");
-        btndistinta3.addActionListener(new java.awt.event.ActionListener() {
+        btndistinta3tetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndistinta3tetermine.setText("Termine");
+        btndistinta3tetermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndistinta3ActionPerformed(evt);
+                btndistinta3tetermineActionPerformed(evt);
             }
         });
 
-        btndistinta4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndistinta4.setText("Termine");
-        btndistinta4.addActionListener(new java.awt.event.ActionListener() {
+        btndistinta4tetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndistinta4tetermine.setText("Termine");
+        btndistinta4tetermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndistinta4ActionPerformed(evt);
+                btndistinta4tetermineActionPerformed(evt);
             }
         });
 
-        btndistinta5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndistinta5.setText("Termine");
-        btndistinta5.addActionListener(new java.awt.event.ActionListener() {
+        btndistinta5tetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndistinta5tetermine.setText("Termine");
+        btndistinta5tetermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndistinta5ActionPerformed(evt);
+                btndistinta5tetermineActionPerformed(evt);
             }
         });
 
-        btndistinta6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndistinta6.setText("Termine");
-        btndistinta6.addActionListener(new java.awt.event.ActionListener() {
+        btndistinta6tetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndistinta6tetermine.setText("Termine");
+        btndistinta6tetermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndistinta6ActionPerformed(evt);
+                btndistinta6tetermineActionPerformed(evt);
             }
         });
 
-        btndistinta7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndistinta7.setText("Termine");
-        btndistinta7.addActionListener(new java.awt.event.ActionListener() {
+        btndistinta7tetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndistinta7tetermine.setText("Termine");
+        btndistinta7tetermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndistinta7ActionPerformed(evt);
+                btndistinta7tetermineActionPerformed(evt);
             }
         });
 
@@ -3880,9 +3880,9 @@ public class ordendistinta extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btndistinta5, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btndistinta6, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btndistinta7, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btndistinta5tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btndistinta6tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btndistinta7tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btndistinta5cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3995,7 +3995,7 @@ public class ordendistinta extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(btndistinta1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btndistinta1tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)
                         .addComponent(btndistinta1cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
@@ -4010,7 +4010,7 @@ public class ordendistinta extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btndistinta2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btndistinta2tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)
                         .addComponent(btndistinta2cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
@@ -4025,7 +4025,7 @@ public class ordendistinta extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btndistinta3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btndistinta3tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)
                         .addComponent(btndistinta3cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
@@ -4042,7 +4042,7 @@ public class ordendistinta extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(btndistinta4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btndistinta4tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14)
                         .addComponent(btndistinta4cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
@@ -4112,7 +4112,7 @@ public class ordendistinta extends javax.swing.JFrame {
                     .addComponent(btndistinta1ponnchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btndistinta1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btndistinta1tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btndistinta1cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lbcodigomangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lbcolormangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -4124,7 +4124,7 @@ public class ordendistinta extends javax.swing.JFrame {
                         .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btndistinta2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btndistinta2tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btndistinta2cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbcodigomangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4132,7 +4132,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btndistinta3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btndistinta3tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btndistinta3cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcodigopechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4143,7 +4143,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btndistinta4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btndistinta4tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btndistinta4cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcodigopechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcolorpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4158,11 +4158,11 @@ public class ordendistinta extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btndistinta5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btndistinta5tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(btndistinta6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btndistinta6tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(btndistinta7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btndistinta7tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btndistinta5cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
@@ -4413,7 +4413,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     }//GEN-LAST:event_lbprendaMouseClicked
 
-    private void btndistinta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta2ActionPerformed
+    private void btndistinta2tetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta2tetermineActionPerformed
 
     if(lbcantidad.getText().equals("0"))
         {
@@ -4441,9 +4441,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         }    
          
 
-    }//GEN-LAST:event_btndistinta2ActionPerformed
+    }//GEN-LAST:event_btndistinta2tetermineActionPerformed
 
-    private void btndistinta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta4ActionPerformed
+    private void btndistinta4tetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta4tetermineActionPerformed
 
          if(lbcantidad.getText().equals("0"))
         {
@@ -4470,9 +4470,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             
         } 
     
-    }//GEN-LAST:event_btndistinta4ActionPerformed
+    }//GEN-LAST:event_btndistinta4tetermineActionPerformed
 
-    private void btndistinta5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta5ActionPerformed
+    private void btndistinta5tetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta5tetermineActionPerformed
 
          if(lbcantidad.getText().equals("0"))
         {
@@ -4499,9 +4499,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             
         } 
          
-    }//GEN-LAST:event_btndistinta5ActionPerformed
+    }//GEN-LAST:event_btndistinta5tetermineActionPerformed
 
-    private void btndistinta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta3ActionPerformed
+    private void btndistinta3tetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta3tetermineActionPerformed
      
         if(lbcantidad.getText().equals("0"))
         {
@@ -4528,9 +4528,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             
         }  
         
-    }//GEN-LAST:event_btndistinta3ActionPerformed
+    }//GEN-LAST:event_btndistinta3tetermineActionPerformed
 
-    private void btndistinta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta1ActionPerformed
+    private void btndistinta1tetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta1tetermineActionPerformed
 
         if(lbcantidad.getText().equals("0"))
         {
@@ -4560,7 +4560,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            
         
         
-    }//GEN-LAST:event_btndistinta1ActionPerformed
+    }//GEN-LAST:event_btndistinta1tetermineActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         ventanaordencamisaanteriores = false;
@@ -4617,7 +4617,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     }//GEN-LAST:event_btnverfotomontajeActionPerformed
 
-    private void btndistinta6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta6ActionPerformed
+    private void btndistinta6tetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta6tetermineActionPerformed
 
        if(lbcantidad.getText().equals("0"))
         {
@@ -4644,9 +4644,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             
         } 
         
-    }//GEN-LAST:event_btndistinta6ActionPerformed
+    }//GEN-LAST:event_btndistinta6tetermineActionPerformed
 
-    private void btndistinta7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta7ActionPerformed
+    private void btndistinta7tetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta7tetermineActionPerformed
        
         if(lbcantidad.getText().equals("0"))
         {
@@ -4672,7 +4672,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             //sumapuntos(); 
             
         } 
-    }//GEN-LAST:event_btndistinta7ActionPerformed
+    }//GEN-LAST:event_btndistinta7tetermineActionPerformed
 
     private void lbltallasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbltallasMouseClicked
         if (evt.getClickCount() == 2) 
@@ -4705,31 +4705,31 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             if(boton.equals("btndistinta1"))
             {
-                btndistinta1.doClick();
+                btndistinta1tetermine.doClick();
             }
             else if(boton.equals("btndistinta2"))
             {
-                btndistinta2.doClick();
+                btndistinta2tetermine.doClick();
             }
             else if(boton.equals("btndistinta3"))
             {
-                btndistinta3.doClick();
+                btndistinta3tetermine.doClick();
             }
             else if(boton.equals("btndistinta4"))
             {
-                btndistinta4.doClick();
+                btndistinta4tetermine.doClick();
             }
             else if(boton.equals("btndistinta5"))
             {
-                btndistinta5.doClick();
+                btndistinta5tetermine.doClick();
             }
             else if(boton.equals("btndistinta6"))
             {
-                btndistinta6.doClick();
+                btndistinta6tetermine.doClick();
             }
             else if(boton.equals("btndistinta7"))
             {
-                btndistinta7.doClick();
+                btndistinta7tetermine.doClick();
             }
             
         }
@@ -5122,27 +5122,27 @@ JOptionPane.showMessageDialog(null, mensaje);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btndistinta1;
     private javax.swing.JButton btndistinta1cancelar;
     private javax.swing.JButton btndistinta1ponnchado;
-    private javax.swing.JButton btndistinta2;
+    private javax.swing.JButton btndistinta1tetermine;
     private javax.swing.JButton btndistinta2cancelar;
     private javax.swing.JButton btndistinta2ponnchado;
-    private javax.swing.JButton btndistinta3;
+    private javax.swing.JButton btndistinta2tetermine;
     private javax.swing.JButton btndistinta3cancelar;
     private javax.swing.JButton btndistinta3ponnchado;
-    private javax.swing.JButton btndistinta4;
+    private javax.swing.JButton btndistinta3tetermine;
     private javax.swing.JButton btndistinta4cancelar;
     private javax.swing.JButton btndistinta4ponnchado;
-    private javax.swing.JButton btndistinta5;
+    private javax.swing.JButton btndistinta4tetermine;
     private javax.swing.JButton btndistinta5cancelar;
     private javax.swing.JButton btndistinta5ponnchado;
-    private javax.swing.JButton btndistinta6;
+    private javax.swing.JButton btndistinta5tetermine;
     private javax.swing.JButton btndistinta6cancelar;
     private javax.swing.JButton btndistinta6ponnchado;
-    private javax.swing.JButton btndistinta7;
+    private javax.swing.JButton btndistinta6tetermine;
     private javax.swing.JButton btndistinta7cancelar;
     private javax.swing.JButton btndistinta7ponnchado;
+    private javax.swing.JButton btndistinta7tetermine;
     private javax.swing.JButton btneditarbordado;
     private javax.swing.JButton btneliminar;
     public static javax.swing.JButton btnsalir;

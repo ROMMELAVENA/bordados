@@ -41,9 +41,9 @@
                       </Group>
                       <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnladoizquierdofrente" min="-2" pref="92" max="-2" attributes="0"/>
-                          <Component id="btnladoderechofrente" min="-2" pref="92" max="-2" attributes="0"/>
-                          <Component id="btnladoizquierdoatras" min="-2" pref="92" max="-2" attributes="0"/>
+                          <Component id="btnladoizquierdofrentetetermine" min="-2" pref="92" max="-2" attributes="0"/>
+                          <Component id="btnladoderechofrentetetermine" min="-2" pref="92" max="-2" attributes="0"/>
+                          <Component id="btnladoizquierdoatrastetermine" min="-2" pref="92" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -99,7 +99,7 @@
                       <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                       <Component id="lbladoderechoatras1" min="-2" pref="139" max="-2" attributes="0"/>
                       <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                      <Component id="btnladoderechoatras" min="-2" pref="92" max="-2" attributes="0"/>
+                      <Component id="btnladoderechoatrastetermine" min="-2" pref="92" max="-2" attributes="0"/>
                       <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
                       <Component id="btnladoderechoatrascancelar" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
@@ -277,11 +277,11 @@
                       <Component id="lbdadoizquierdoatras1" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="btnladoizquierdofrente" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btnladoizquierdofrentetetermine" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="btnladoderechofrente" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btnladoderechofrentetetermine" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="btnladoizquierdoatras" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btnladoizquierdoatrastetermine" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="btnladoizquierdofrentecancelar" min="-2" pref="30" max="-2" attributes="0"/>
@@ -331,7 +331,7 @@
               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lbladoderechoatras1" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="btnladoderechoatras" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="btnladoderechoatrastetermine" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="btnladoderechoatrascancelar" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbcodigoladoderechoatras" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbcolormangaizquierda" min="-2" pref="30" max="-2" attributes="0"/>
@@ -536,7 +536,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnladoderechofrente">
+    <Component class="javax.swing.JButton" name="btnladoderechofrentetetermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -544,10 +544,10 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechofrenteActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechofrentetetermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnladoderechoatras">
+    <Component class="javax.swing.JButton" name="btnladoderechoatrastetermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -555,10 +555,10 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechoatrasActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechoatrastetermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnladoizquierdofrente">
+    <Component class="javax.swing.JButton" name="btnladoizquierdofrentetetermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -566,10 +566,10 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdofrenteActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdofrentetetermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnladoizquierdoatras">
+    <Component class="javax.swing.JButton" name="btnladoizquierdoatrastetermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -577,7 +577,7 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdoatrasActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdoatrastetermineActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">

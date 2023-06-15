@@ -39,9 +39,9 @@
               </Group>
               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btndistinta5" min="-2" pref="136" max="-2" attributes="0"/>
-                  <Component id="btndistinta6" min="-2" pref="136" max="-2" attributes="0"/>
-                  <Component id="btndistinta7" min="-2" pref="136" max="-2" attributes="0"/>
+                  <Component id="btndistinta5tetermine" min="-2" pref="136" max="-2" attributes="0"/>
+                  <Component id="btndistinta6tetermine" min="-2" pref="136" max="-2" attributes="0"/>
+                  <Component id="btndistinta7tetermine" min="-2" pref="136" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -177,7 +177,7 @@
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="jLabel7" min="-2" pref="110" max="-2" attributes="0"/>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="btndistinta1" min="-2" pref="137" max="-2" attributes="0"/>
+                      <Component id="btndistinta1tetermine" min="-2" pref="137" max="-2" attributes="0"/>
                       <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
                       <Component id="btndistinta1cancelar" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
@@ -193,7 +193,7 @@
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" pref="110" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btndistinta2" min="-2" pref="137" max="-2" attributes="0"/>
+                      <Component id="btndistinta2tetermine" min="-2" pref="137" max="-2" attributes="0"/>
                       <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
                       <Component id="btndistinta2cancelar" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
@@ -209,7 +209,7 @@
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" pref="110" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btndistinta3" min="-2" pref="137" max="-2" attributes="0"/>
+                      <Component id="btndistinta3tetermine" min="-2" pref="137" max="-2" attributes="0"/>
                       <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
                       <Component id="btndistinta3cancelar" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
@@ -227,7 +227,7 @@
                       <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel10" min="-2" pref="110" max="-2" attributes="0"/>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="btndistinta4" min="-2" pref="136" max="-2" attributes="0"/>
+                      <Component id="btndistinta4tetermine" min="-2" pref="136" max="-2" attributes="0"/>
                       <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
                       <Component id="btndistinta4cancelar" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
@@ -312,7 +312,7 @@
                   <Component id="btndistinta1ponnchado" min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                       <Component id="jLabel7" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="btndistinta1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btndistinta1tetermine" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="btndistinta1cancelar" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="lbcodigomangaderecha" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="lbcolormangaderecha" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
@@ -326,7 +326,7 @@
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btndistinta2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btndistinta2tetermine" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Component id="btndistinta2cancelar" min="-2" pref="30" max="-2" attributes="0"/>
@@ -338,7 +338,7 @@
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btndistinta3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btndistinta3tetermine" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel9" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <Component id="btndistinta3cancelar" min="-2" pref="30" max="-2" attributes="0"/>
@@ -351,7 +351,7 @@
               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel10" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="btndistinta4" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="btndistinta4tetermine" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="btndistinta4cancelar" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbcodigopechoizquierdo" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbcolorpechoizquierdo" min="-2" pref="30" max="-2" attributes="0"/>
@@ -368,11 +368,11 @@
                       <Component id="jLabel3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="btndistinta5" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btndistinta5tetermine" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="btndistinta6" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btndistinta6tetermine" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="btndistinta7" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btndistinta7tetermine" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="btndistinta5cancelar" min="-2" pref="30" max="-2" attributes="0"/>
@@ -1018,7 +1018,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btndistinta1">
+    <Component class="javax.swing.JButton" name="btndistinta1tetermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1026,10 +1026,10 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta1tetermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btndistinta2">
+    <Component class="javax.swing.JButton" name="btndistinta2tetermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1037,10 +1037,10 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta2tetermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btndistinta3">
+    <Component class="javax.swing.JButton" name="btndistinta3tetermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1048,10 +1048,10 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta3tetermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btndistinta4">
+    <Component class="javax.swing.JButton" name="btndistinta4tetermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1059,10 +1059,10 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta4tetermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btndistinta5">
+    <Component class="javax.swing.JButton" name="btndistinta5tetermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1070,10 +1070,10 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta5tetermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btndistinta6">
+    <Component class="javax.swing.JButton" name="btndistinta6tetermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1081,10 +1081,10 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta6ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta6tetermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btndistinta7">
+    <Component class="javax.swing.JButton" name="btndistinta7tetermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -1092,7 +1092,7 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta7ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta7tetermineActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbltallas">

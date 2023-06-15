@@ -240,7 +240,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 
                 
-                lbladoizquierdofrente.setText(rs.getString("lado_izquierdo_frente"));
+            //    lbladoizquierdofrente.setText(rs.getString("lado_izquierdo_frente"));
                 String ladoizquierdofrente = rs.getString("lado_izquierdo_frente");
                 if (ladoizquierdofrente == null || ladoizquierdofrente.equals("")) 
                 {
@@ -267,7 +267,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 /// lado derecho frente
                 
-                lbladoderechofrente.setText(rs.getString("lado_derecho_frente"));
+             //   lbladoderechofrente.setText(rs.getString("lado_derecho_frente"));
                 String ladoderechofrente = rs.getString("lado_derecho_frente");
 
                 if (ladoderechofrente == null || ladoderechofrente.equals("")) 
@@ -290,7 +290,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 
                 
-                lbdadoizquierdoatras.setText(rs.getString("lado_izquierdo_atras"));
+             //   lbdadoizquierdoatras.setText(rs.getString("lado_izquierdo_atras"));
                 String ladoizquierdoatras = rs.getString("lado_izquierdo_atras");
                 if (ladoizquierdoatras == null || ladoizquierdoatras.equals(""))
                 {
@@ -315,7 +315,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 
                 
-                lbladoderechoatras.setText(rs.getString("lado_derecho_atras"));
+              //  lbladoderechoatras.setText(rs.getString("lado_derecho_atras"));
                 String ladoderechoatras = rs.getString("lado_derecho_atras");
                 if (ladoderechoatras == null || ladoderechoatras.equals("")) 
                 {
@@ -1252,7 +1252,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 ladoizquierdoatrasnombre = rs.getString("lado_izquierdo_atras");
                 ladoderechoatrasnombre = rs.getString("lado_derecho_atras");
                         
-                lbladoizquierdofrente.setText(rs.getString("lado_izquierdo_frente"));
+          //      lbladoizquierdofrente.setText(rs.getString("lado_izquierdo_frente"));
                 String ladoizquierdofrente = rs.getString("lado_izquierdo_frente");
              
                 
@@ -1289,7 +1289,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 /// lado derecho frente
                 
-                lbladoderechofrente.setText(rs.getString("lado_derecho_frente"));
+             //   lbladoderechofrente.setText(rs.getString("lado_derecho_frente"));
                 String ladoderechofrente = rs.getString("lado_derecho_frente");
 
                 if (ladoderechofrente == null || ladoderechofrente.equals("")) 
@@ -1312,7 +1312,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                     
                 }
 
-                lbdadoizquierdoatras.setText(rs.getString("lado_izquierdo_atras"));
+             //   lbdadoizquierdoatras.setText(rs.getString("lado_izquierdo_atras"));
                 String ladoizquierdoatras = rs.getString("lado_izquierdo_atras");
              
                 if (ladoizquierdoatras == null || ladoizquierdoatras.equals("")) 
@@ -1333,7 +1333,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                     
                 }
 
-                lbladoderechoatras.setText(rs.getString("lado_derecho_atras"));
+           //     lbladoderechoatras.setText(rs.getString("lado_derecho_atras"));
                 String ladoderechoatras = rs.getString("lado_derecho_atras");
              
                 if (ladoderechoatras == null || ladoderechoatras.equals("")) {
@@ -2542,13 +2542,9 @@ public class ordenpantalon extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         lbobservaciones = new javax.swing.JTextArea();
-        lbladoderechoatras = new javax.swing.JLabel();
         lbladoderechoatraspuntadas = new javax.swing.JLabel();
-        lbdadoizquierdoatras = new javax.swing.JLabel();
         lbladoizquierdoatraspuntadas = new javax.swing.JLabel();
-        lbladoizquierdofrente = new javax.swing.JLabel();
         lbladoizquierdofrentepuntadas = new javax.swing.JLabel();
-        lbladoderechofrente = new javax.swing.JLabel();
         lbladoderechofrentepuntadas = new javax.swing.JLabel();
         btnfotomontajesinpuntadas = new javax.swing.JButton();
         btnvercolorido = new javax.swing.JButton();
@@ -2591,12 +2587,12 @@ public class ordenpantalon extends javax.swing.JFrame {
         jLabel13.setText("Orden de bordado");
         jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(12, 742, 132, 30);
+        jLabel13.setBounds(1260, 530, 132, 30);
 
         lborden.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lborden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lborden);
-        lborden.setBounds(156, 742, 139, 30);
+        lborden.setBounds(1410, 530, 139, 30);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("Cliente:");
@@ -2617,13 +2613,13 @@ public class ordenpantalon extends javax.swing.JFrame {
         lbnumeroventa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbnumeroventa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbnumeroventa);
-        lbnumeroventa.setBounds(115, 705, 96, 30);
+        lbnumeroventa.setBounds(1370, 500, 96, 30);
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel26.setText("No. de Venta");
         jLabel26.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel26);
-        jLabel26.setBounds(12, 705, 95, 30);
+        jLabel26.setBounds(1260, 500, 95, 30);
 
         lbcliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbcliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -2638,7 +2634,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnreplicar);
-        btnreplicar.setBounds(1357, 734, 154, 30);
+        btnreplicar.setBounds(1660, 800, 154, 30);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 800));
@@ -2651,28 +2647,28 @@ public class ordenpantalon extends javax.swing.JFrame {
         lbfotomontaje.setText("Sin imagen");
         lbfotomontaje.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(lbfotomontaje);
-        lbfotomontaje.setBounds(0, 10, 1190, 560);
+        lbfotomontaje.setBounds(0, 0, 1160, 610);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(12, 82, 1199, 610);
+        jPanel1.setBounds(12, 42, 1170, 620);
 
         lbtiendareplica.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbtiendareplica.setText("Replicar a tienda");
         lbtiendareplica.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbtiendareplica);
-        lbtiendareplica.setBounds(1229, 734, 116, 30);
+        lbtiendareplica.setBounds(1530, 800, 116, 30);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setText("Cantidad");
         jLabel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(690, 41, 116, 30);
+        jLabel14.setBounds(1640, 200, 116, 30);
 
         lbcantidad.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbcantidad.setText("0");
         lbcantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbcantidad);
-        lbcantidad.setBounds(819, 41, 58, 30);
+        lbcantidad.setBounds(1770, 200, 58, 30);
 
         btnladoderechofrente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnladoderechofrente.setText("Termine");
@@ -2682,7 +2678,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnladoderechofrente);
-        btnladoderechofrente.setBounds(1390, 320, 92, 30);
+        btnladoderechofrente.setBounds(170, 750, 92, 30);
 
         btnladoderechoatras.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnladoderechoatras.setText("Termine");
@@ -2692,7 +2688,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnladoderechoatras);
-        btnladoderechoatras.setBounds(1390, 400, 92, 30);
+        btnladoderechoatras.setBounds(170, 830, 92, 30);
 
         btnladoizquierdofrente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnladoizquierdofrente.setText("Termine");
@@ -2702,7 +2698,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnladoizquierdofrente);
-        btnladoizquierdofrente.setBounds(1390, 280, 92, 30);
+        btnladoizquierdofrente.setBounds(170, 710, 92, 30);
 
         btnladoizquierdoatras.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnladoizquierdoatras.setText("Termine");
@@ -2712,54 +2708,54 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnladoizquierdoatras);
-        btnladoizquierdoatras.setBounds(1390, 360, 92, 30);
+        btnladoizquierdoatras.setBounds(170, 790, 92, 30);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Ubicación");
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(1380, 240, 92, 30);
+        jLabel3.setBounds(160, 670, 92, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Color");
         jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(1710, 240, 100, 30);
+        jLabel4.setBounds(490, 670, 100, 30);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Puntos");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(1229, 691, 116, 30);
+        jLabel1.setBounds(1530, 750, 116, 30);
 
         lbsumapuntos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbsumapuntos.setText("0.00");
         lbsumapuntos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbsumapuntos);
-        lbsumapuntos.setBounds(1357, 691, 154, 30);
+        lbsumapuntos.setBounds(1660, 750, 154, 30);
 
         lbcolormangaderecha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbcolormangaderecha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbcolormangaderecha);
-        lbcolormangaderecha.setBounds(1720, 320, 100, 30);
+        lbcolormangaderecha.setBounds(500, 750, 100, 30);
 
         lbcolormangaizquierda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbcolormangaizquierda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbcolormangaizquierda);
-        lbcolormangaizquierda.setBounds(1720, 400, 100, 30);
+        lbcolormangaizquierda.setBounds(500, 830, 100, 30);
 
         lbcolorpechoderecho.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbcolorpechoderecho.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbcolorpechoderecho);
-        lbcolorpechoderecho.setBounds(1720, 280, 100, 30);
+        lbcolorpechoderecho.setBounds(500, 710, 100, 30);
 
         lbcolorpechoizquierdo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbcolorpechoizquierdo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbcolorpechoizquierdo);
-        lbcolorpechoizquierdo.setBounds(1720, 360, 110, 30);
+        lbcolorpechoizquierdo.setBounds(500, 790, 110, 30);
 
         btnverfotomontaje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnverfotomontaje.setText("Ver fotomontaje");
@@ -2780,7 +2776,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnterminetodo);
-        btnterminetodo.setBounds(1580, 610, 242, 30);
+        btnterminetodo.setBounds(1570, 840, 242, 30);
 
         lbbordacliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbbordacliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -2807,29 +2803,29 @@ public class ordenpantalon extends javax.swing.JFrame {
         lbcodigoladoderechofrente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbcodigoladoderechofrente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbcodigoladoderechofrente);
-        lbcodigoladoderechofrente.setBounds(1620, 320, 90, 30);
+        lbcodigoladoderechofrente.setBounds(400, 750, 90, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Codigo");
         jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(1600, 240, 90, 30);
+        jLabel5.setBounds(380, 670, 90, 30);
 
         lbcodigoladoizquierdoatras.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbcodigoladoizquierdoatras.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbcodigoladoizquierdoatras);
-        lbcodigoladoizquierdoatras.setBounds(1620, 360, 80, 30);
+        lbcodigoladoizquierdoatras.setBounds(400, 790, 80, 30);
 
         lbcodigoladoizquierdofrente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbcodigoladoizquierdofrente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbcodigoladoizquierdofrente);
-        lbcodigoladoizquierdofrente.setBounds(1610, 280, 90, 30);
+        lbcodigoladoizquierdofrente.setBounds(390, 710, 90, 30);
 
         lbcodigoladoderechoatras.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbcodigoladoderechoatras.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbcodigoladoderechoatras);
-        lbcodigoladoderechoatras.setBounds(1620, 400, 90, 30);
+        lbcodigoladoderechoatras.setBounds(400, 830, 90, 30);
 
         btneliminarbtneditarbordado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btneliminarbtneditarbordado.setText("Editar bordado");
@@ -2845,67 +2841,43 @@ public class ordenpantalon extends javax.swing.JFrame {
         lbidentificador.setForeground(new java.awt.Color(153, 0, 0));
         lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbidentificador);
-        lbidentificador.setBounds(134, 41, 538, 30);
+        lbidentificador.setBounds(1340, 160, 490, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Observaciones");
         jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(500, 700, 117, 30);
+        jLabel6.setBounds(1320, 270, 117, 30);
 
         lbobservaciones.setColumns(20);
         lbobservaciones.setRows(5);
         jScrollPane6.setViewportView(lbobservaciones);
 
         getContentPane().add(jScrollPane6);
-        jScrollPane6.setBounds(630, 700, 580, 77);
-
-        lbladoderechoatras.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbladoderechoatras.setText("Lado derecho atras");
-        lbladoderechoatras.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(lbladoderechoatras);
-        lbladoderechoatras.setBounds(1230, 550, 139, 30);
+        jScrollPane6.setBounds(1320, 307, 500, 140);
 
         lbladoderechoatraspuntadas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbladoderechoatraspuntadas.setForeground(new java.awt.Color(255, 0, 0));
         lbladoderechoatraspuntadas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbladoderechoatraspuntadas);
-        lbladoderechoatraspuntadas.setBounds(1380, 570, 330, 30);
-
-        lbdadoizquierdoatras.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbdadoizquierdoatras.setText("Lado izquierdo atras");
-        lbdadoizquierdoatras.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(lbdadoizquierdoatras);
-        lbdadoizquierdoatras.setBounds(1229, 514, 139, 30);
+        lbladoderechoatraspuntadas.setBounds(610, 830, 330, 30);
 
         lbladoizquierdoatraspuntadas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbladoizquierdoatraspuntadas.setForeground(new java.awt.Color(255, 0, 0));
         lbladoizquierdoatraspuntadas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbladoizquierdoatraspuntadas);
-        lbladoizquierdoatraspuntadas.setBounds(1380, 530, 330, 30);
-
-        lbladoizquierdofrente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbladoizquierdofrente.setText("Lado izquierdo frente");
-        lbladoizquierdofrente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(lbladoizquierdofrente);
-        lbladoizquierdofrente.setBounds(1240, 450, 139, 30);
+        lbladoizquierdoatraspuntadas.setBounds(610, 790, 330, 30);
 
         lbladoizquierdofrentepuntadas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbladoizquierdofrentepuntadas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbladoizquierdofrentepuntadas);
-        lbladoizquierdofrentepuntadas.setBounds(1380, 450, 330, 30);
-
-        lbladoderechofrente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbladoderechofrente.setText("Lado derecho frente");
-        lbladoderechofrente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(lbladoderechofrente);
-        lbladoderechofrente.setBounds(1240, 480, 139, 30);
+        lbladoizquierdofrentepuntadas.setBounds(610, 710, 330, 30);
 
         lbladoderechofrentepuntadas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbladoderechofrentepuntadas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbladoderechofrentepuntadas);
-        lbladoderechofrentepuntadas.setBounds(1380, 490, 330, 30);
+        lbladoderechofrentepuntadas.setBounds(610, 750, 330, 30);
 
         btnfotomontajesinpuntadas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnfotomontajesinpuntadas.setText("Fotomontaje sin puntadas");
@@ -2934,24 +2906,24 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btndatos);
-        btndatos.setBounds(1229, 790, 63, 25);
+        btndatos.setBounds(1750, 720, 63, 25);
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel28.setText("Numero de sucursal");
         jLabel28.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel28);
-        jLabel28.setBounds(218, 705, 149, 30);
+        jLabel28.setBounds(1470, 500, 149, 30);
 
         lbnumerosucursal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbnumerosucursal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbnumerosucursal);
-        lbnumerosucursal.setBounds(374, 705, 96, 30);
+        lbnumerosucursal.setBounds(1630, 500, 96, 30);
 
         lbprenda.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbprenda.setText("Pantalon");
         lbprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbprenda);
-        lbprenda.setBounds(12, 41, 88, 30);
+        lbprenda.setBounds(1240, 160, 88, 30);
 
         btnladoderechofrentecancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnladoderechofrentecancelar.setText("Cancelar");
@@ -2961,7 +2933,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnladoderechofrentecancelar);
-        btnladoderechofrentecancelar.setBounds(1490, 320, 100, 30);
+        btnladoderechofrentecancelar.setBounds(270, 750, 100, 30);
 
         btnladoderechoatrascancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnladoderechoatrascancelar.setText("Cancelar");
@@ -2971,7 +2943,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnladoderechoatrascancelar);
-        btnladoderechoatrascancelar.setBounds(1490, 400, 100, 30);
+        btnladoderechoatrascancelar.setBounds(270, 830, 100, 30);
 
         btnladoizquierdofrentecancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnladoizquierdofrentecancelar.setText("Cancelar");
@@ -2981,7 +2953,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnladoizquierdofrentecancelar);
-        btnladoizquierdofrentecancelar.setBounds(1490, 280, 100, 30);
+        btnladoizquierdofrentecancelar.setBounds(270, 710, 100, 30);
 
         btnladoizquierdoatrascancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnladoizquierdoatrascancelar.setText("Cancelar");
@@ -2991,31 +2963,31 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnladoizquierdoatrascancelar);
-        btnladoizquierdoatrascancelar.setBounds(1500, 360, 100, 30);
+        btnladoizquierdoatrascancelar.setBounds(280, 790, 100, 30);
 
         lbladoderechoatras1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbladoderechoatras1.setText("Lado derecho atras");
         lbladoderechoatras1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbladoderechoatras1);
-        lbladoderechoatras1.setBounds(1240, 400, 139, 30);
+        lbladoderechoatras1.setBounds(20, 830, 139, 30);
 
         lbdadoizquierdoatras1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbdadoizquierdoatras1.setText("Lado izquierdo atras");
         lbdadoizquierdoatras1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbdadoizquierdoatras1);
-        lbdadoizquierdoatras1.setBounds(1240, 360, 139, 30);
+        lbdadoizquierdoatras1.setBounds(20, 790, 139, 30);
 
         lbladoizquierdofrente1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbladoizquierdofrente1.setText("Lado izquierdo frente");
         lbladoizquierdofrente1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbladoizquierdofrente1);
-        lbladoizquierdofrente1.setBounds(1240, 280, 139, 30);
+        lbladoizquierdofrente1.setBounds(20, 710, 139, 30);
 
         lbladoderechofrente1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbladoderechofrente1.setText("Lado derecho frente");
         lbladoderechofrente1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lbladoderechofrente1);
-        lbladoderechofrente1.setBounds(1240, 320, 139, 30);
+        lbladoderechofrente1.setBounds(20, 750, 139, 30);
 
         btnladoderechofrenteponchado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnladoderechofrenteponchado.setText("Ponchado");
@@ -3025,7 +2997,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnladoderechofrenteponchado);
-        btnladoderechofrenteponchado.setBounds(1720, 490, 100, 30);
+        btnladoderechofrenteponchado.setBounds(950, 750, 100, 30);
 
         btnladoderechoatrasponchado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnladoderechoatrasponchado.setText("Ponchado");
@@ -3035,7 +3007,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnladoderechoatrasponchado);
-        btnladoderechoatrasponchado.setBounds(1720, 570, 100, 30);
+        btnladoderechoatrasponchado.setBounds(950, 830, 100, 30);
 
         btnladoizquierdofrenteponchado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnladoizquierdofrenteponchado.setText("Ponchado");
@@ -3045,7 +3017,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnladoizquierdofrenteponchado);
-        btnladoizquierdofrenteponchado.setBounds(1720, 450, 100, 30);
+        btnladoizquierdofrenteponchado.setBounds(950, 710, 100, 30);
 
         btnladoizquierdoatrasponchado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnladoizquierdoatrasponchado.setText("Ponchado");
@@ -3055,7 +3027,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnladoizquierdoatrasponchado);
-        btnladoizquierdoatrasponchado.setBounds(1720, 530, 100, 30);
+        btnladoizquierdoatrasponchado.setBounds(950, 790, 100, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -4311,18 +4283,14 @@ JOptionPane.showMessageDialog(null, mensaje);
     public javax.swing.JLabel lbcolormangaizquierda;
     public javax.swing.JLabel lbcolorpechoderecho;
     public javax.swing.JLabel lbcolorpechoizquierdo;
-    public static javax.swing.JLabel lbdadoizquierdoatras;
     public static javax.swing.JLabel lbdadoizquierdoatras1;
     private javax.swing.JLabel lbfotomontaje;
     public static javax.swing.JLabel lbidentificador;
-    public static javax.swing.JLabel lbladoderechoatras;
     public static javax.swing.JLabel lbladoderechoatras1;
     public static javax.swing.JLabel lbladoderechoatraspuntadas;
-    public static javax.swing.JLabel lbladoderechofrente;
     public static javax.swing.JLabel lbladoderechofrente1;
     public static javax.swing.JLabel lbladoderechofrentepuntadas;
     public static javax.swing.JLabel lbladoizquierdoatraspuntadas;
-    public static javax.swing.JLabel lbladoizquierdofrente;
     public static javax.swing.JLabel lbladoizquierdofrente1;
     public static javax.swing.JLabel lbladoizquierdofrentepuntadas;
     public static javax.swing.JLabel lbnombrecomercial;

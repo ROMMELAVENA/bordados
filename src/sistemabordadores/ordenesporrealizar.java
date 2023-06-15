@@ -1592,11 +1592,14 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(6).setMinWidth(60);
             tabla.getColumnModel().getColumn(6).setPreferredWidth(100);
             tabla.getColumnModel().getColumn(6).setMaxWidth(120);
+            tabla.getColumnModel().getColumn(7).setMinWidth(50);
+            tabla.getColumnModel().getColumn(7).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(7).setMaxWidth(180);
             tabla.getColumnModel().getColumn(8).setMinWidth(0);
             tabla.getColumnModel().getColumn(8).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(8).setMaxWidth(0);
             tabla.getColumnModel().getColumn(9).setMinWidth(100);
-            tabla.getColumnModel().getColumn(9).setPreferredWidth(150);
+            tabla.getColumnModel().getColumn(9).setPreferredWidth(120);
             tabla.getColumnModel().getColumn(9).setMaxWidth(220);
             tabla.getColumnModel().getColumn(10).setMinWidth(0);
             tabla.getColumnModel().getColumn(10).setPreferredWidth(0);
@@ -1608,7 +1611,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(12).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(12).setMaxWidth(0);
             tabla.getColumnModel().getColumn(13).setMinWidth(70);
-            tabla.getColumnModel().getColumn(13).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(13).setPreferredWidth(100);
             tabla.getColumnModel().getColumn(13).setMaxWidth(150);
         }
 

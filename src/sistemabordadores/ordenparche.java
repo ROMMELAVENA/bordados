@@ -57,7 +57,7 @@ public static boolean ventanaordenparcheanteriores = false;
         String cantidadparchesactualizar = "";
         String nombredelparche = "";
         String numeroventa = "";
-        String ubicacioninsertar = "";
+        String descripcion = "";
         String aplicacioninsertar = "";
         
         String tienefotomontaje = "";
@@ -298,7 +298,7 @@ public static boolean ventanaordenparcheanteriores = false;
      }
     
     
-      void actualizarlascantidadesbordadas(String cantidadponchadosactualizar,String nombredelparche, String fechaubicacion)
+      void insertarlacantidadylafechaenlaubicacion(String cantidadponchadosactualizar,String nombredelparche, String fechaubicacion)
     {
         try {
 
@@ -321,11 +321,11 @@ public static boolean ventanaordenparcheanteriores = false;
         
     }
       
-     void actualizarlascantidadesbordadascancelar(String cantidadponchadosactualizar,String nombredelparche)
+     void eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion(String cantidadponchadosactualizar,String nombredelparche, String fecha)
     {
         try {
 
-            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set cantidad_parche='0',estatus_orden = 'generada' where numero = '" + lbnumerosucursal.getText() + "'  ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set cantidad_parche='0',estatus_orden = 'generada', "+fecha+"='' where numero = '" + lbnumerosucursal.getText() + "'  ");
             pst.executeUpdate();
             pst.close();
 
@@ -370,7 +370,7 @@ public static boolean ventanaordenparcheanteriores = false;
     
     
     
-    void agregarexistenciabordados(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion,String cantidad)
+    void agregarexistenciabordados(String descripcion,String aplicacioninsertar,String cantidadaplicacion,String cantidad)
     {
         
        
@@ -386,7 +386,7 @@ public static boolean ventanaordenparcheanteriores = false;
                 pst.setString(1, numeroventa);
                 pst.setString(2, dia());
                 pst.setString(3, hora());
-                pst.setString(4, ubicacioninsertar);
+                pst.setString(4, descripcion);
                 pst.setString(5, "ninguno");
                 pst.setString(6, cantidad);
                 
@@ -1089,13 +1089,13 @@ public static boolean ventanaordenparcheanteriores = false;
     
     
     
-    void agregarexistenciabordadoscancelar(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion,String cantidad)
+    void agregarexistenciabordadoscancelar(String descripcion,String aplicacioninsertar,String cantidadaplicacion,String cantidad)
     {
         
          //// bordado
         
         try {
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+numeroventa+"' and articulo ='"+ubicacioninsertar+"'   ");
+                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+numeroventa+"' and articulo ='"+descripcion+"'   ");
                 pst.executeUpdate();
                 pst.close();
             
@@ -2488,18 +2488,19 @@ JOptionPane.showMessageDialog(null, mensaje);
             
         cantidadparchesactualizar = lbcantidad.getText();
         nombredelparche = lbprenda.getText();
+        String fecha = "parche_fecha";
    
         
-        actualizarlascantidadesbordadascancelar((String) cantidadparchesactualizar,(String)nombredelparche);
+        eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) cantidadparchesactualizar,(String)nombredelparche,(String)fecha);
    
         String cantidadaplicacion = lbaplicacion1.getText();
         String cantidad = lbcantidad.getText();
       
         
-        ubicacioninsertar ="BORDADO PARCHE".concat(" ").concat(lbprenda.getText());
+        descripcion ="BORDADO PARCHE".concat(" ").concat(lbprenda.getText());
         aplicacioninsertar = "APLICACION PARCHE1";
-        agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
-        agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad) ;
+        agregarexistenciabordadoscancelar((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
+        agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
             
         }
         else
@@ -2510,16 +2511,16 @@ JOptionPane.showMessageDialog(null, mensaje);
         String fechaubicacion = "parche_fecha";
      
                 
-        actualizarlascantidadesbordadas((String) cantidadparchesactualizar,(String)nombredelparche, (String) fechaubicacion);
+        insertarlacantidadylafechaenlaubicacion((String) cantidadparchesactualizar,(String)nombredelparche, (String) fechaubicacion);
         
         
         
         String cantidadaplicacion = lbaplicacion1.getText();
         String cantidad = lbcantidad.getText();
-        ubicacioninsertar ="BORDADO PARCHE".concat(" ").concat(lbprenda.getText());
+        descripcion ="BORDADO PARCHE".concat(" ").concat(lbprenda.getText());
         aplicacioninsertar = "APLICACION PARCHE1";
-        agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
-        agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+        agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
+        agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad) ;
         }
         
         sumapuntos();
@@ -2716,10 +2717,10 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             String cantidad = cantidadbordados;
             String cantidadaplicacion = "0";
-            ubicacioninsertar = "BORDADO CORBATA FRENTE "+frentenombre+ "";
+            descripcion = "BORDADO CORBATA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "";
-            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+            agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();
 

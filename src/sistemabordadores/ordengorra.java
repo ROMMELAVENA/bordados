@@ -62,6 +62,7 @@ public class ordengorra extends javax.swing.JFrame {
     int nuevosbordadosutilizadosint = 0;
     
     String latiendaestaconectada = "si";
+    String numerodeorden = "";
     
     String prenda ="";
     
@@ -71,8 +72,6 @@ public class ordengorra extends javax.swing.JFrame {
     String ultimo = "";
     String ipdelaotratienda = "";
     
-     String numerodeorden = "";
-  
    
     int traspaso = 0;
 
@@ -92,7 +91,7 @@ public class ordengorra extends javax.swing.JFrame {
     String frentenombre = "";
     String atrasnombre = "";
    
-    String ubicacioninsertar ="";
+    String descripcion ="";
     String aplicacioninsertar = "";
     
     String tienefotomontaje = "";
@@ -228,14 +227,14 @@ public class ordengorra extends javax.swing.JFrame {
 
         btnreplicarponchados.setEnabled(true);
 
-        String folio = lborden.getText();
+        numerodeorden = lborden.getText();
         String botonactivado1 = "";
         String botonactivado2 = "";
         String botonactivado3 = "";
         String botonactivado4 = "";
 
         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,"
-                + "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras,identificador_prenda,estatus_orden,numero_orden,tienda from historial_ordenes_gorra where numero = '" + folio + "'";
+                + "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,cantidad_frente,cantidad_lado_derecho,cantidad_lado_izquierdo,cantidad_atras,identificador_prenda,estatus_orden,numero_orden,tienda from historial_ordenes_gorra where numero = '" + numerodeorden + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -1551,7 +1550,7 @@ public class ordengorra extends javax.swing.JFrame {
     
     
     
-    void actualizarlascantidadesbordadas(String ubicacion, String fechaubicacion)
+    void insertarlacantidadylafechaenlaubicacion(String ubicacion, String fechaubicacion)
     {
         try {
 
@@ -1580,11 +1579,11 @@ public class ordengorra extends javax.swing.JFrame {
     }
     
     
-    void actualizarlascantidadesbordadascancelar(String ubicacion)
+    void eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion(String ubicacion, String fecha)
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_gorra set "+ubicacion+"='0' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_gorra set "+ubicacion+"='0', "+fecha+"='' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1609,7 +1608,12 @@ public class ordengorra extends javax.swing.JFrame {
     }
     
     
-    void actualizarlascantidadesbordadasotrasucursal(String ubicacion)
+    
+    
+    
+    
+    
+    void insertarlacantidadylafechaenlaubicacionotrasucursal(String ubicacion)
     {
         try {
 
@@ -1658,14 +1662,22 @@ public class ordengorra extends javax.swing.JFrame {
         return formatoFecha.format(hora);
     }
     
-     void agregarexistenciabordadoscancelar(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion)
+    
+    
+    
+    
+    
+    
+    
+    
+     void agregarexistenciabordadoscancelar(String articulo)
     {
         
        
         //// bordado
         
           try {
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumeroventa.getText()+"' and articulo ='"+ubicacioninsertar+"'   ");
+                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumeroventa.getText()+"' and articulo ='"+articulo+"'   ");
                 pst.executeUpdate();
                 pst.close();
             
@@ -1678,7 +1690,7 @@ public class ordengorra extends javax.swing.JFrame {
     
     
     
-    void agregarexistenciabordados(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion)
+    void agregarexistenciabordados(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
     {
         
        
@@ -1694,7 +1706,7 @@ public class ordengorra extends javax.swing.JFrame {
                 pst.setString(1, lbnumeroventa.getText());
                 pst.setString(2, dia());
                 pst.setString(3, hora());
-                pst.setString(4, ubicacioninsertar);
+                pst.setString(4, descripcion);
                 pst.setString(5, identificador);
                 pst.setString(6, lbcantidad.getText());
                 
@@ -1767,7 +1779,7 @@ public class ordengorra extends javax.swing.JFrame {
         
     }
     
-    void agregarexistenciabordadosotrasucursal(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion)
+    void agregarexistenciabordadosotrasucursal(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
     {
         
        
@@ -1784,7 +1796,7 @@ public class ordengorra extends javax.swing.JFrame {
                 pst.setString(2, sucursal);
                 pst.setString(3, dia());
                 pst.setString(4, hora());
-                pst.setString(5, ubicacioninsertar);
+                pst.setString(5, descripcion);
                 pst.setString(6, "ninguno");
                 pst.setString(7, lbcantidad.getText());
                 pst.executeUpdate();
@@ -3624,15 +3636,15 @@ JOptionPane.showMessageDialog(null, mensaje);
             String ubicacion = "cantidad_lado_derecho";
             String fechaubicacion = "lado_derecho_fecha";
          
-            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             
             String cantidadaplicacion = "0";
-            ubicacioninsertar = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
+            descripcion = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
             aplicacioninsertar = "";
             nombredelatabla = "historial_ordenes_gorra";
             String cantidad = lbcantidad.getText();
-            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+            agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();   
            
@@ -3665,13 +3677,13 @@ JOptionPane.showMessageDialog(null, mensaje);
            
             
             String ubicacion = "cantidad_lado_derecho";
-            actualizarlascantidadesbordadasotrasucursal((String) ubicacion);
+            insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
             String cantidadaplicacion = "0";
-            ubicacioninsertar = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
+            descripcion = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
             aplicacioninsertar = "";
             nombredelatabla = "historial_ordenes_gorra_recibidas";
            
-            agregarexistenciabordadosotrasucursal((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion);
+            agregarexistenciabordadosotrasucursal((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion);
             estacompletalaorden();
             sumapuntos();  
             
@@ -4048,16 +4060,16 @@ JOptionPane.showMessageDialog(null, mensaje);
                 String ubicacion = "cantidad_frente";
                 String fechaubicacion = "frente_fecha";
          
-            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
          
             
             String cantidadaplicacion = "0";
-            ubicacioninsertar = "BORDADO GORRA FRENTE "+frentenombre+ "";
+            descripcion = "BORDADO GORRA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "APLICACION GORRA FRENTE";
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_gorra";
-            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+            agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();    
         
@@ -4087,13 +4099,13 @@ JOptionPane.showMessageDialog(null, mensaje);
             
           
             String ubicacion = "cantidad_frente";
-            actualizarlascantidadesbordadasotrasucursal((String) ubicacion);
+            insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
             String cantidadaplicacion = "0";
-            ubicacioninsertar = "BORDADO GORRA FRENTE "+frentenombre+ "";
+            descripcion = "BORDADO GORRA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "APLICACION GORRA FRENTE";
             nombredelatabla = "historial_ordenes_gorra_recibidas";
             String cantidad = lbcantidad.getText();
-            agregarexistenciabordadosotrasucursal((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+            agregarexistenciabordadosotrasucursal((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             estacompletalaorden();
             sumapuntos();  
                 
@@ -4126,16 +4138,16 @@ JOptionPane.showMessageDialog(null, mensaje);
             String ubicacion = "cantidad_lado_izquierdo";
             String fechaubicacion = "lado_izquierdo_fecha";
          
-            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             
             
             String cantidadaplicacion = "0";
-            ubicacioninsertar = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
+            descripcion = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
             aplicacioninsertar = "";
             nombredelatabla = "historial_ordenes_gorra";
             String cantidad = lbcantidad.getText();
-            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+            agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();   
             
@@ -4165,12 +4177,12 @@ JOptionPane.showMessageDialog(null, mensaje);
       
             nombredelatabla = "historial_ordenes_gorra_recibidas";
             String ubicacion = "cantidad_lado_izquierdo";
-            actualizarlascantidadesbordadasotrasucursal((String) ubicacion);
+            insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
             String cantidadaplicacion = "0";
-            ubicacioninsertar = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
+            descripcion = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
             aplicacioninsertar = "";
             String cantidad = lbcantidad.getText();
-            agregarexistenciabordadosotrasucursal((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion);
+            agregarexistenciabordadosotrasucursal((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion);
             estacompletalaorden();
             sumapuntos(); 
             
@@ -4189,16 +4201,16 @@ JOptionPane.showMessageDialog(null, mensaje);
             String ubicacion = "cantidad_atras";
             String fechaubicacion = "atras_fecha";
          
-            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             
           
             String cantidadaplicacion = "0";
-            ubicacioninsertar = "BORDADO GORRA ATRAS "+atrasnombre+ "";
+            descripcion = "BORDADO GORRA ATRAS "+atrasnombre+ "";
             aplicacioninsertar = "";
             nombredelatabla = "historial_ordenes_gorra";
             String cantidad = lbcantidad.getText();
-            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+            agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();    
             
@@ -4228,13 +4240,13 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             String ubicacion = "cantidad_atras";
-            actualizarlascantidadesbordadasotrasucursal((String) ubicacion);
+            insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
             String cantidadaplicacion = "0";
-            ubicacioninsertar = "BORDADO GORRA ATRAS "+atrasnombre+ "";
+            descripcion = "BORDADO GORRA ATRAS "+atrasnombre+ "";
             aplicacioninsertar = "";
             nombredelatabla = "historial_ordenes_gorra_recibidas";
             String cantidad = lbcantidad.getText();
-            agregarexistenciabordadosotrasucursal((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+            agregarexistenciabordadosotrasucursal((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             estacompletalaorden();
             sumapuntos();   
             
@@ -4546,14 +4558,19 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
                         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
                     {
                     String ubicacion = "cantidad_atras";
-                    actualizarlascantidadesbordadascancelar((String) ubicacion);
+                    String fecha = "atras_fecha";
+                    eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
+                    
+                    
                     String cantidadaplicacion = "0";
-                    ubicacioninsertar = "BORDADO GORRA ATRAS " + atrasnombre + "";
+                    descripcion = "BORDADO GORRA ATRAS " + atrasnombre + "";
                     aplicacioninsertar = "";
                     nombredelatabla = "historial_ordenes_gorra";
                     String cantidad = lbcantidad.getText();
-                    agregarexistenciabordadoscancelar((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
-                    agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad);
+                  
+                    
+                    agregarexistenciabordadoscancelar((String) descripcion);
+                    agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
                     estacompletalaorden();
                     sumapuntos();
                     
@@ -4567,14 +4584,19 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
                         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
                 {
                     String ubicacion = "cantidad_lado_izquierdo";
-                    actualizarlascantidadesbordadascancelar((String) ubicacion);
+                    String fecha = "lado_izquierdo_fecha";
+                    eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
+                    
+                    
                     String cantidadaplicacion = "0";
-                    ubicacioninsertar = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
+                    descripcion = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
                     aplicacioninsertar = "";
                     String cantidad = lbcantidad.getText();
                     nombredelatabla = "historial_ordenes_gorra";
-                    agregarexistenciabordadoscancelar((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
-                    agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad);
+                  
+                    
+                    agregarexistenciabordadoscancelar((String) descripcion);
+                    agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
                     estacompletalaorden();
                     sumapuntos();
 
@@ -4589,14 +4611,19 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
                         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
                 {
                     String ubicacion = "cantidad_frente";
-                    actualizarlascantidadesbordadascancelar((String) ubicacion);
+                    String fecha = "frente_fecha";
+                    eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
+                    
+                    
                     String cantidadaplicacion = "0";
-                    ubicacioninsertar = "BORDADO GORRA FRENTE " + frentenombre + "";
+                    descripcion = "BORDADO GORRA FRENTE " + frentenombre + "";
                     aplicacioninsertar = "APLICACION GORRA FRENTE";
                     String cantidad = lbcantidad.getText();
                     nombredelatabla = "historial_ordenes_gorra";
-                    agregarexistenciabordadoscancelar((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
-                    agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad);
+                   
+                    
+                    agregarexistenciabordadoscancelar((String) descripcion);
+                    agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
                     estacompletalaorden();
                     sumapuntos();
 
@@ -4610,15 +4637,20 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
               
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
                 {
-                    String ubicacion = "cantidad_lado_derecho";
-            actualizarlascantidadesbordadascancelar((String) ubicacion);
+            String ubicacion = "cantidad_lado_derecho";
+            String fecha = "lado_derecho_fecha";
+            eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
+            
+            
             String cantidadaplicacion = "0";
-            ubicacioninsertar = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
+            descripcion = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
             aplicacioninsertar = "";
             nombredelatabla = "historial_ordenes_gorra";
             String cantidad = lbcantidad.getText();
-            agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad) ;
+          
+            
+            agregarexistenciabordadoscancelar((String) descripcion);
+            agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();   
                     

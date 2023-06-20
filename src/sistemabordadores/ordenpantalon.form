@@ -310,9 +310,9 @@
                           <Component id="jLabel18" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel6" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btndatos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btndatos" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane6" min="-2" pref="85" max="-2" attributes="0"/>

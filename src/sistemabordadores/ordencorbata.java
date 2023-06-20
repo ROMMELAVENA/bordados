@@ -59,7 +59,7 @@ public class ordencorbata extends javax.swing.JFrame {
 
     String frentenombre = "";
     String terminetodo ="";
-    String ubicacioninsertar ="";
+    String descripcion ="";
     String aplicacioninsertar = "";
     String cantidadbordados = "";
     String codigocliente ="";
@@ -254,6 +254,24 @@ public class ordencorbata extends javax.swing.JFrame {
         
     }
     
+    
+    
+    void eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion(String ubicacion, String fecha){
+        
+         try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set "+ubicacion+"='0', "+fecha+"='' where numero = '"+lborden.getText()+"'  ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+                }
+        
+        
+        
+    }
     
     
     
@@ -476,7 +494,7 @@ public class ordencorbata extends javax.swing.JFrame {
    
 
   
-    void actualizarlascantidadesbordadas(String ubicacion, String fechaubicacion)
+    void insertarlacantidadylafechaenlaubicacion(String ubicacion, String fechaubicacion)
     {
         try {
 
@@ -507,7 +525,7 @@ public class ordencorbata extends javax.swing.JFrame {
     }
     
     
-    void agregarexistenciabordados(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion)
+    void agregarexistenciabordados(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
     {
         
        
@@ -523,7 +541,7 @@ public class ordencorbata extends javax.swing.JFrame {
                 pst.setString(1, lbnumeroventa.getText());
                 pst.setString(2, dia());
                 pst.setString(3, hora());
-                pst.setString(4, ubicacioninsertar);
+                pst.setString(4, descripcion);
                 pst.setString(5, identificador);
                 pst.setString(6, lbcantidad.getText());
                 pst.executeUpdate();
@@ -1836,14 +1854,14 @@ JOptionPane.showMessageDialog(null, mensaje);
             String ubicacion = "cantidad_frente";
             String fechaubicacion = "frente_fecha";
         
-           actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion); 
+           insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion); 
            
             String cantidad = cantidadbordados;
             String cantidadaplicacion = "0";
-            ubicacioninsertar = "BORDADO CORBATA FRENTE "+frentenombre+ "";
+            descripcion = "BORDADO CORBATA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "";
-            agregarexistenciabordados((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad) ;
+            agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();
             
@@ -2024,7 +2042,13 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btnfrenteponchadoActionPerformed
 
     private void btnfrentecancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrentecancelarActionPerformed
-        // TODO add your handling code here:
+       
+        
+                    String ubicacion = "cantidad_frente";
+                    String fecha = "frente_fecha";
+                    eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
+        
+        
     }//GEN-LAST:event_btnfrentecancelarActionPerformed
 
     private void btnterminetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnterminetodoActionPerformed

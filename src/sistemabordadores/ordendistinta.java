@@ -84,7 +84,7 @@ public class ordendistinta extends javax.swing.JFrame {
     
     ///// para insertar
     
-    String ubicacioninsertar = ""; 
+    String descripcion = ""; 
     String aplicacioninsertar = "";
     
     
@@ -1277,11 +1277,11 @@ public class ordendistinta extends javax.swing.JFrame {
     }
     
     
-    void actualizarlascantidadesbordadascancelar(String ubicacion)
+    void eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion(String ubicacion, String fecha)
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='0' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='0', "+fecha+"='' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1315,7 +1315,7 @@ public class ordendistinta extends javax.swing.JFrame {
     
     
     
-    void actualizarlascantidadesbordadas(String ubicacion, String fechaubicacion)
+    void insertarlacantidadylafechaenlaubicacion(String ubicacion, String fechaubicacion)
     {
         try {
 
@@ -1369,7 +1369,7 @@ public class ordendistinta extends javax.swing.JFrame {
     }
     
     
-    void agregarexistenciabordados(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion)
+    void agregarexistenciabordados(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
     {
         
        
@@ -1385,7 +1385,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 pst.setString(1, lbnumeroventa.getText());
                 pst.setString(2, dia());
                 pst.setString(3, hora());
-                pst.setString(4, ubicacioninsertar);
+                pst.setString(4, descripcion);
                 pst.setString(5, lbnombreconcepto.getText());
                 pst.setString(6, lbcantidad.getText());
                 pst.executeUpdate();
@@ -1434,7 +1434,7 @@ public class ordendistinta extends javax.swing.JFrame {
         
     }
     
-    void agregarexistenciabordadosotrasucursal(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion)
+    void agregarexistenciabordadosotrasucursal(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
     {
         
        
@@ -1451,7 +1451,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 pst.setString(2, sucursal);
                 pst.setString(3, dia());
                 pst.setString(4, hora());
-                pst.setString(5, ubicacioninsertar);
+                pst.setString(5, descripcion);
                 pst.setString(6, lbnombreconcepto.getText());
                 pst.setString(7, lbcantidad.getText());
                 pst.executeUpdate();
@@ -1486,7 +1486,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 pst.setString(2, sucursal);
                 pst.setString(3, dia());
                 pst.setString(4, hora());
-                pst.setString(5, ubicacioninsertar);
+                pst.setString(5, descripcion);
                 pst.setString(6, lbnombreconcepto.getText());
                 pst.setString(7, lbcantidad.getText());
                 pst.executeUpdate();
@@ -1502,7 +1502,7 @@ public class ordendistinta extends javax.swing.JFrame {
     }
     
     
-    void agregarexistenciabordadoscancelar(String ubicacioninsertar,String aplicacioninsertar,String cantidadaplicacion)
+    void agregarexistenciabordadoscancelar(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
     {
         
       
@@ -1511,7 +1511,7 @@ public class ordendistinta extends javax.swing.JFrame {
         //// bordado
         
         try {
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumeroventa.getText()+"' and articulo ='"+ubicacioninsertar+"'   ");
+                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumeroventa.getText()+"' and articulo ='"+descripcion+"'   ");
                 pst.executeUpdate();
                 pst.close();
             
@@ -4431,14 +4431,14 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombredelatabla = "historial_ordenes_distinta";
         
             
-            actualizarlascantidadesbordadas((String) ubicacion,(String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion((String) ubicacion,(String) fechaubicacion);
             
 
-            ubicacioninsertar = "BORDADO " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + " ";
+            descripcion = "BORDADO " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + "";
 
-            agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
+            agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -4464,13 +4464,13 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_distinta";
          
-            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
 
-            ubicacioninsertar = "BORDADO " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + " ";
+            descripcion = "BORDADO " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + "";
 
-            agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
+            agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad);
             estacompletalaorden();
         //sumapuntos(); 
             
@@ -4496,13 +4496,13 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_distinta";
             
-            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
 
-            ubicacioninsertar = "BORDADO " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + " ";
+            descripcion = "BORDADO " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + "";
 
-            agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
+            agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -4527,13 +4527,13 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_distinta";
             
-            actualizarlascantidadesbordadas((String) ubicacion,(String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion((String) ubicacion,(String) fechaubicacion);
 
-            ubicacioninsertar = "BORDADO " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + " ";
+            descripcion = "BORDADO " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + "";
 
-            agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
+            agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -4561,13 +4561,13 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombredelatabla = "historial_ordenes_distinta";
             
             
-            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
 
-            ubicacioninsertar = "BORDADO " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + " ";
+            descripcion = "BORDADO " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + "";
 
-            agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
+            agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -4650,13 +4650,13 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_distinta";
             
-            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
 
-            ubicacioninsertar = "BORDADO " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + " ";
+            descripcion = "BORDADO " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + "";
 
-            agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
+            agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -4682,13 +4682,13 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_distinta";
             
-            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
 
-            ubicacioninsertar = "BORDADO " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + " ";
+            descripcion = "BORDADO " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + "";
 
-            agregarexistenciabordados((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) ubicacioninsertar, (String) cantidad);
+            agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -4814,18 +4814,22 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             String ubicacion = "distinta1_cantidad";
-            String nombrebordado = distinta1nombre;
+            String fecha = "distinta1_fecha";
+            eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
+             
+             
+           
             String cantidadaplicacion = distinta1aplicacion;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_distinta";
-            actualizarlascantidadesbordadascancelar((String) ubicacion);
+           
 
-            ubicacioninsertar = "BORDADO " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + " ";
+            descripcion = "BORDADO " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + "";
                          
             
-            agregarexistenciabordadoscancelar((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad);
+            agregarexistenciabordadoscancelar((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos();
             
@@ -4847,18 +4851,22 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
         
             String ubicacion = "distinta2_cantidad";
+            String fecha = "distinta2_fecha";
+            eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
+            
+            
             String nombrebordado = distinta2nombre;
             String cantidadaplicacion = distinta2aplicacion;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_distinta";
-            actualizarlascantidadesbordadascancelar((String) ubicacion);
+            
 
 
-            ubicacioninsertar = "BORDADO " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + " ";
+            descripcion = "BORDADO " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + "";  
 
-       agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-       agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad) ;
+       agregarexistenciabordadoscancelar((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
        estacompletalaorden(); 
        //sumapuntos(); 
        
@@ -4878,18 +4886,22 @@ JOptionPane.showMessageDialog(null, mensaje);
         if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "distinta3_cantidad";
+            String fecha = "distinta3_fecha";
+            eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
+            
+            
             String nombrebordado =distinta3nombre;
            String cantidadaplicacion = distinta3aplicacion;
            String cantidad = lbcantidad.getText();
            nombredelatabla = "historial_ordenes_distinta";
-           actualizarlascantidadesbordadascancelar((String) ubicacion);
+           
            
              
-            ubicacioninsertar = "BORDADO " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + " ";
+            descripcion = "BORDADO " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + "";  
             
-       agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-       agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad) ;
+       agregarexistenciabordadoscancelar((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
        estacompletalaorden(); 
       // sumapuntos();
             
@@ -4907,18 +4919,22 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
             
            String ubicacion = "distinta4_cantidad";
+           String fecha = "distinta4_fecha";
+           eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha); 
+            
+            
            String nombrebordado =distinta4nombre;
            String cantidadaplicacion = distinta4aplicacion;
            String cantidad = lbcantidad.getText();
            nombredelatabla = "historial_ordenes_distinta";
-           actualizarlascantidadesbordadascancelar((String) ubicacion);  
+          
            
           
-            ubicacioninsertar = "BORDADO " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + " ";
+            descripcion = "BORDADO " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + "";  
 
-       agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-       agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad) ;   
+       agregarexistenciabordadoscancelar((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;   
        estacompletalaorden(); 
        //sumapuntos();   
         
@@ -4938,17 +4954,21 @@ JOptionPane.showMessageDialog(null, mensaje);
         if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "distinta5_cantidad";
+            String fecha = "distinta5_fecha";
+            eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
+            
+            
             String nombrebordado =distinta5nombre;
            String cantidadaplicacion = distinta5aplicacion;
            String cantidad = lbcantidad.getText();
            nombredelatabla = "historial_ordenes_distinta";
-           actualizarlascantidadesbordadascancelar((String) ubicacion);
+           
 
-            ubicacioninsertar = "BORDADO " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + " ";
+            descripcion = "BORDADO " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + "";  
 
-       agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-       agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad) ;   
+       agregarexistenciabordadoscancelar((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;   
        estacompletalaorden();
        //sumapuntos();       
             
@@ -4966,19 +4986,23 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
-            String ubicacion = "distinta6_cantidad";
+            String ubicacion = "distinta5_cantidad";
+            String fecha = "distinta5_fecha";
+            eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
+            
+            
             String nombrebordado = distinta6nombre;
             String cantidadaplicacion = distinta6aplicacion;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_distinta";
-            actualizarlascantidadesbordadascancelar((String) ubicacion);
+            
 
 
-            ubicacioninsertar = "BORDADO " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + " ";
+            descripcion = "BORDADO " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + "";  
             
-            agregarexistenciabordadoscancelar((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad);
+            agregarexistenciabordadoscancelar((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
             estacompletalaorden();
            // sumapuntos();
             
@@ -4996,17 +5020,21 @@ JOptionPane.showMessageDialog(null, mensaje);
         if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             String ubicacion = "distinta7_cantidad";
+            String fecha = "distinta7_fecha";
+            eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
+            
+            
             String nombrebordado = distinta7nombre;
             String cantidadaplicacion = distinta7aplicacion;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_distinta";
-            actualizarlascantidadesbordadascancelar((String) ubicacion);
+            
 
-            ubicacioninsertar = "BORDADO " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + " ";
+            descripcion = "BORDADO " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + "";  
 
-            agregarexistenciabordadoscancelar((String) ubicacioninsertar, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventascancelar((String) ubicacioninsertar, (String) cantidad);
+            agregarexistenciabordadoscancelar((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
             estacompletalaorden();
           //  sumapuntos();
             

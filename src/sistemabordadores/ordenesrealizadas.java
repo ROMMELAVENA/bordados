@@ -136,6 +136,10 @@ public class ordenesrealizadas extends javax.swing.JFrame {
         
     }
     
+     
+     
+     
+     
 
     void datos() {
         
@@ -185,6 +189,13 @@ public class ordenesrealizadas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
 
+        
+        
+        
+        
+        
+        
+        
         
         //// historial_orden_gorra
         
@@ -1260,6 +1271,9 @@ public class ordenesrealizadas extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(1).setMinWidth(100);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(350);
             tabla.getColumnModel().getColumn(1).setMaxWidth(700);
+            tabla.getColumnModel().getColumn(2).setMinWidth(100);
+            tabla.getColumnModel().getColumn(2).setPreferredWidth(200);
+            tabla.getColumnModel().getColumn(2).setMaxWidth(300);
             tabla.getColumnModel().getColumn(3).setMinWidth(0);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(3).setMaxWidth(0);
@@ -1272,6 +1286,9 @@ public class ordenesrealizadas extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(6).setMinWidth(0);
             tabla.getColumnModel().getColumn(6).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(7).setMinWidth(50);
+            tabla.getColumnModel().getColumn(7).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(7).setMaxWidth(180);
             tabla.getColumnModel().getColumn(8).setMinWidth(0);
             tabla.getColumnModel().getColumn(8).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(8).setMaxWidth(0);

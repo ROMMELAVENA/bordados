@@ -580,14 +580,19 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
                     if (ordengorra.ventanaordengorra == true) {
                         JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
 
-                    } else {
+                    } 
+                    
+                    
+                    else
+                    
+                    
+                    {
                         ordengorra orden = new ordengorra();
                         orden.setVisible(true);
 
                         ordengorra.lborden.setText(tablacamisa.getValueAt(fila, 0).toString());
                         ordengorra.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
-                      //  ordengorra.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
-                        ordengorra.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
+                     
 
                         
                     }

@@ -1860,7 +1860,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
                         ordengorra.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         ordengorra.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordengorra.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                      
                         ordengorra.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
                         ordengorra.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();

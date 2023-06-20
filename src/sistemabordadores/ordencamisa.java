@@ -2377,11 +2377,11 @@ public class ordencamisa extends javax.swing.JFrame {
     
     
     
-    void actualizarlascantidadesbordadas(String ubicacion)
+    void actualizarlascantidadesbordadas(String ubicacion, String fechaubicacion)
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set "+ubicacion+"='" + lbcantidad.getText() + "',fecha='"+dia()+"' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set "+ubicacion+"='" + lbcantidad.getText() + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -4474,7 +4474,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                         .addComponent(btnpechoderechotermine, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lbespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnespaldatetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(2, 2, 2)
@@ -4942,7 +4942,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidadaplicacion = aplicacionmangaizquierda;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
-            actualizarlascantidadesbordadas((String) ubicacion);
+          
+            
+            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
 
               if (prenda.toUpperCase().equals("CAMISA")) {
 
@@ -5106,13 +5108,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            
            
            
-           
-           
-           
-           
-           
-           
-           actualizarlascantidadesbordadas((String) ubicacion);  
+           actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);  
            
            
            
@@ -5293,7 +5289,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidadaplicacion = aplicacionespalda;
            
             nombredelatabla = "historial_ordenes_camisa";
-            actualizarlascantidadesbordadas((String) ubicacion);
+         
+            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
 
              if (prenda.toUpperCase().equals("CAMISA")) {
 
@@ -5458,7 +5455,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidadaplicacion = aplicacionpechoderecho;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
-            actualizarlascantidadesbordadas((String) ubicacion);
+          
+            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
 
              if (prenda.toUpperCase().equals("CAMISA")) {
 
@@ -5541,8 +5539,12 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidadaplicacion = aplicacionpechoderecho;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa_recibidas";
+         
+            
             actualizarlascantidadesbordadasotrasucursal((String) ubicacion);
-                 if (prenda.toUpperCase().equals("CAMISA")) {
+            
+            
+            if (prenda.toUpperCase().equals("CAMISA")) {
 
                 ubicacioninsertar = "BORDADO CAMISA PECHO DERECHO " + nombrebordado + "";
                 aplicacioninsertar = "APLICACION CAMISA PECHO DERECHO";
@@ -5626,8 +5628,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidadaplicacion = aplicacionmangaderecha;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
-            actualizarlascantidadesbordadas((String) ubicacion);
+            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
 
+            
             if (prenda.toUpperCase().equals("CAMISA")) {
 
                 ubicacioninsertar = "BORDADO CAMISA MANGA DERECHA " + nombrebordado + "";
@@ -6227,7 +6230,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidadaplicacion = aplicacionotraubicacion;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
-            actualizarlascantidadesbordadas((String) ubicacion);
+     
+            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
 
           if (prenda.toUpperCase().equals("CAMISA")) {
 
@@ -6401,7 +6405,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidadaplicacion = aplicacionotraubicacion2;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
-            actualizarlascantidadesbordadas((String) ubicacion);
+      
+            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
            
              if (prenda.toUpperCase().equals("CAMISA")) {
 

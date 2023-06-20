@@ -1719,11 +1719,11 @@ public class ordenpantalon extends javax.swing.JFrame {
      
      
 
-      void actualizarlascantidadesbordadas(String ubicacion)
+      void actualizarlascantidadesbordadas(String ubicacion, String fechaubicacion)
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set "+ubicacion+"='" + lbcantidad.getText() + "',fecha='"+dia()+"' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set "+ubicacion+"='" + lbcantidad.getText() + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -3670,7 +3670,10 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             String ubicacion = "cantidad_lado_izquierdo_frente";
-            actualizarlascantidadesbordadas((String) ubicacion);
+            String fechaubicacion = "lado_izquierdo_frente_fecha";
+          
+            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            
             String cantidadaplicacion = "0";
             ubicacioninsertar = "BORDADO PANTALON FRENTE LADO IZQUIERDO "+ladoizquierdofrentenombre + "";
             aplicacioninsertar = "";
@@ -3746,7 +3749,10 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             
             String ubicacion = "cantidad_lado_izquierdo_atras";
-            actualizarlascantidadesbordadas((String) ubicacion);
+            String fechaubicacion = "lado_izquierdo_atras_fecha";
+          
+            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            
             String cantidadaplicacion = "0";
             ubicacioninsertar = "BORDADO PANTALON ATRAS LADO IZQUIERDO "+ladoizquierdoatrasnombre + "";
             aplicacioninsertar = "";
@@ -3819,7 +3825,10 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             
             String ubicacion = "cantidad_lado_derecho_atras";
-            actualizarlascantidadesbordadas((String) ubicacion);
+            String fechaubicacion = "lado_derecho_atras_fecha";
+            
+            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            
             String cantidadaplicacion = "0";
             ubicacioninsertar = "BORDADO PANTALON ATRAS LADO DERECHO "+ladoderechoatrasnombre + "";
             aplicacioninsertar = "";
@@ -3891,7 +3900,10 @@ JOptionPane.showMessageDialog(null, mensaje);
           
     
             String ubicacion = "cantidad_lado_derecho_frente";
-            actualizarlascantidadesbordadas((String) ubicacion);
+            String fechaubicacion = "lado_derecho_frente_fecha";
+            
+            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            
             String cantidadaplicacion = "0";
             ubicacioninsertar = "BORDADO PANTALON FRENTE LADO DERECHO "+ladoderechofrentenombre + "";
             aplicacioninsertar = "";

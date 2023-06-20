@@ -298,11 +298,11 @@ public static boolean ventanaordenparcheanteriores = false;
      }
     
     
-      void actualizarlascantidadesbordadas(String cantidadponchadosactualizar,String nombredelparche)
+      void actualizarlascantidadesbordadas(String cantidadponchadosactualizar,String nombredelparche, String fechaubicacion)
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set cantidad_parche='" +cantidadponchadosactualizar+ "',fecha='"+dia()+"' where numero = '"+lbnumerosucursal.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set cantidad_parche='" +cantidadponchadosactualizar+ "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lbnumerosucursal.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -2395,9 +2395,14 @@ JOptionPane.showMessageDialog(null, mensaje);
             
         cantidadparchesactualizar = lbcantidad.getText();
         nombredelparche = lbprenda.getText();
+   
+        
         actualizarlascantidadesbordadascancelar((String) cantidadparchesactualizar,(String)nombredelparche);
+   
         String cantidadaplicacion = lbaplicacion1.getText();
         String cantidad = lbcantidad.getText();
+      
+        
         ubicacioninsertar ="BORDADO PARCHE".concat(" ").concat(lbprenda.getText());
         aplicacioninsertar = "APLICACION PARCHE1";
         agregarexistenciabordadoscancelar((String) ubicacioninsertar,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
@@ -2408,7 +2413,14 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
         cantidadparchesactualizar = lbcantidad.getText();
         nombredelparche = lbprenda.getText();
-        actualizarlascantidadesbordadas((String) cantidadparchesactualizar,(String)nombredelparche);
+        
+        String fechaubicacion = "parche_fecha";
+     
+                
+        actualizarlascantidadesbordadas((String) cantidadparchesactualizar,(String)nombredelparche, (String) fechaubicacion);
+        
+        
+        
         String cantidadaplicacion = lbaplicacion1.getText();
         String cantidad = lbcantidad.getText();
         ubicacioninsertar ="BORDADO PARCHE".concat(" ").concat(lbprenda.getText());

@@ -1560,11 +1560,11 @@ public class ordengorra extends javax.swing.JFrame {
     
     
     
-    void actualizarlascantidadesbordadas(String ubicacion)
+    void actualizarlascantidadesbordadas(String ubicacion, String fechaubicacion)
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_gorra set "+ubicacion+"='" + lbcantidad.getText() + "',fecha='"+dia()+"' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_gorra set "+ubicacion+" = '"+lbcantidad.getText()+"',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -2781,7 +2781,7 @@ public class ordengorra extends javax.swing.JFrame {
         jPanel1.setName(""); // NOI18N
         jPanel1.setLayout(null);
         jPanel1.add(lbfotomontaje);
-        lbfotomontaje.setBounds(10, 0, 1090, 670);
+        lbfotomontaje.setBounds(10, 0, 1100, 670);
 
         lbnumeroventa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -2981,7 +2981,7 @@ public class ordengorra extends javax.swing.JFrame {
             }
         });
 
-        lbprenda.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbprenda.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbprenda.setText("Gorra");
         lbprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -3254,7 +3254,7 @@ public class ordengorra extends javax.swing.JFrame {
                     .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3321,7 +3321,7 @@ public class ordengorra extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbfrentenombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3566,12 +3566,18 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_formWindowOpened
 
     private void btnladoderechotetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechotetermineActionPerformed
+      
+        
+        
         if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             
            
             String ubicacion = "cantidad_lado_derecho";
-            actualizarlascantidadesbordadas((String) ubicacion);
+            String fechaubicacion = "lado_derecho_fecha";
+         
+            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            
             String cantidadaplicacion = "0";
             ubicacioninsertar = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
             aplicacioninsertar = "";
@@ -3984,12 +3990,16 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         
         
-        if(lugar.equals("Esta sucursal") && tipotabla.equals("Local") )
-        {
+                 if(lugar.equals("Esta sucursal") && tipotabla.equals("Local") )
+                {
       
                 
-            String ubicacion = "cantidad_frente";
-            actualizarlascantidadesbordadas((String) ubicacion);
+                String ubicacion = "cantidad_frente";
+                String fechaubicacion = "frente_fecha";
+         
+            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+         
+            
             String cantidadaplicacion = "0";
             ubicacioninsertar = "BORDADO GORRA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "APLICACION GORRA FRENTE";
@@ -4063,7 +4073,11 @@ JOptionPane.showMessageDialog(null, mensaje);
    
             
             String ubicacion = "cantidad_lado_izquierdo";
-            actualizarlascantidadesbordadas((String) ubicacion);
+            String fechaubicacion = "lado_izquierdo_fecha";
+         
+            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            
+            
             String cantidadaplicacion = "0";
             ubicacioninsertar = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
             aplicacioninsertar = "";
@@ -4123,7 +4137,11 @@ JOptionPane.showMessageDialog(null, mensaje);
             
               
             String ubicacion = "cantidad_atras";
-            actualizarlascantidadesbordadas((String) ubicacion);
+            String fechaubicacion = "atras_fecha";
+         
+            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
+            
+          
             String cantidadaplicacion = "0";
             ubicacioninsertar = "BORDADO GORRA ATRAS "+atrasnombre+ "";
             aplicacioninsertar = "";
@@ -4472,9 +4490,11 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     }//GEN-LAST:event_btndatosActionPerformed
 
     private void btnatrascancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrascancelarActionPerformed
-       if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado de Atras?", "WARNING",
+                 
+        
+                    if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado de Atras?", "WARNING",
                         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
-                {
+                    {
                     String ubicacion = "cantidad_atras";
                     actualizarlascantidadesbordadascancelar((String) ubicacion);
                     String cantidadaplicacion = "0";
@@ -4491,7 +4511,9 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     }//GEN-LAST:event_btnatrascancelarActionPerformed
 
     private void btnladoizquierdocancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdocancelarActionPerformed
-       if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado de lado izquierdo?", "WARNING",
+            
+        
+                if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado de lado izquierdo?", "WARNING",
                         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
                 {
                     String ubicacion = "cantidad_lado_izquierdo";
@@ -4511,7 +4533,9 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     }//GEN-LAST:event_btnladoizquierdocancelarActionPerformed
 
     private void btnfrentecancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrentecancelarActionPerformed
-         if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado de frente gorra?", "WARNING",
+      
+        
+                 if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado de frente gorra?", "WARNING",
                         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
                 {
                     String ubicacion = "cantidad_frente";
@@ -4530,8 +4554,11 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     }//GEN-LAST:event_btnfrentecancelarActionPerformed
 
     private void btnladoderechocancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechocancelarActionPerformed
-          if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado de lado derecho?", "WARNING",
-                        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+       
+        
+        if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado de lado derecho?", "WARNING",
+              
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
                 {
                     String ubicacion = "cantidad_lado_derecho";
             actualizarlascantidadesbordadascancelar((String) ubicacion);

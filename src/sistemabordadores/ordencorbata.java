@@ -476,11 +476,11 @@ public class ordencorbata extends javax.swing.JFrame {
    
 
   
-    void actualizarlascantidadesbordadas(String ubicacion)
+    void actualizarlascantidadesbordadas(String ubicacion, String fechaubicacion)
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + lbcantidad.getText() + "',fecha='"+dia()+"'  where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + lbcantidad.getText() + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1791,10 +1791,17 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_formWindowOpened
 
     private void btnfrentetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrentetermineActionPerformed
-       if(lugar.equals("Esta sucursal"))
+       
+        
+        
+        if(lugar.equals("Esta sucursal"))
         {
-           String ubicacion = "cantidad_frente";
-            actualizarlascantidadesbordadas((String) ubicacion); 
+      
+            String ubicacion = "cantidad_frente";
+            String fechaubicacion = "frente_fecha";
+        
+           actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion); 
+           
             String cantidad = cantidadbordados;
             String cantidadaplicacion = "0";
             ubicacioninsertar = "BORDADO CORBATA FRENTE "+frentenombre+ "";

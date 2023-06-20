@@ -22,7 +22,7 @@ public class ingresotienda extends javax.swing.JFrame {
  
   public static String iplocal = ""; 
   public static String tiendalocal = ""; 
-  
+
 
   
  
@@ -118,9 +118,8 @@ public class ingresotienda extends javax.swing.JFrame {
          
     
         pingtienda(); 
-     
-     
-     
+        
+       
 
 
     }
@@ -131,6 +130,7 @@ public class ingresotienda extends javax.swing.JFrame {
     {
         Object tienda = cbtienda.getSelectedItem();
         InetAddress ping;
+       
 
         if (tienda == null) {
         } else {
@@ -144,7 +144,6 @@ public class ingresotienda extends javax.swing.JFrame {
                     btnentrar.setEnabled(true);
                     
                     
-                  
                      System.out.println(iplocal);
                     
                     
@@ -294,8 +293,12 @@ public class ingresotienda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-ventanaingresotienda=false;
-this.dispose();
+
+        
+        ventanaingresotienda=false;
+       this.dispose();
+       
+       
     }//GEN-LAST:event_formWindowClosing
 
     private void cbtiendaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbtiendaKeyTyped
@@ -335,13 +338,15 @@ this.dispose();
         principal ventana = new principal();
        
         ventana.setVisible(true);
-      //  ventan.setLocationRelativeTo(null);
-       
+        
         principal.lbtiendalocal.setText(tiendalocal);
         principal.lbiplocal.setText(iplocal);
    
         ventana.setTitle("Sistema bordadores "+tiendalocal.toUpperCase()+"");     
+       
+        
         this.dispose();
+        int aquivoy = 0;
 
         }
         

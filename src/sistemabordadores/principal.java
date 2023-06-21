@@ -1969,7 +1969,7 @@ public class principal extends javax.swing.JFrame {
         });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setText("Bordados Reporte General");
+        jButton3.setText("Reporte de Bordados");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -2221,6 +2221,8 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnordenesbordadosucursalporrealizarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+
         if (bordadosreportegeneral.ventanareportedebordadosgeneral== true) {
 
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de historial de bordador ya está abierta");
@@ -2232,6 +2234,9 @@ public class principal extends javax.swing.JFrame {
             historial.setVisible(true);
 
         }
+        
+        
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void tablafechaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablafechaMouseClicked

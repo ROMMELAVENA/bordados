@@ -1961,7 +1961,7 @@ public class principal extends javax.swing.JFrame {
         });
 
         btnordenesbordadosucursalporrealizar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnordenesbordadosucursalporrealizar.setText("Ordenes Bordado Sucursal por realizar");
+        btnordenesbordadosucursalporrealizar.setText("Ordenes por realizar o terminadas parcialmente");
         btnordenesbordadosucursalporrealizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnordenesbordadosucursalporrealizarActionPerformed(evt);
@@ -2017,7 +2017,7 @@ public class principal extends javax.swing.JFrame {
         });
 
         btnordenesbordadosucursalrealizadas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnordenesbordadosucursalrealizadas.setText("Ordenes Bordado Sucursal realizadas");
+        btnordenesbordadosucursalrealizadas.setText("Ordenes Terminadas");
         btnordenesbordadosucursalrealizadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnordenesbordadosucursalrealizadasActionPerformed(evt);
@@ -2444,18 +2444,18 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnordenesbordadosucursalrealizadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnordenesbordadosucursalrealizadasActionPerformed
-        if(ordenesrealizadas.ventanaordenesbordadogenerada == true)
+        if(ordenesterminadas.ventanaordenesbordadogenerada == true)
     {
         
         
          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de bordados realizados ya está abierta");
      
-        ordenesrealizadas.btnfrente.doClick();
+        ordenesterminadas.btnfrente.doClick();
         
     }
     else    
     {    
-    ordenesrealizadas  ventana = new ordenesrealizadas();
+    ordenesterminadas  ventana = new ordenesterminadas();
     ventana.setVisible(true);
     ventana.setLocationRelativeTo(null);
     ventana.setTitle("Ordenes bordado realizadas");

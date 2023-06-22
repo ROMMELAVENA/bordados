@@ -397,16 +397,16 @@ public class tallas extends javax.swing.JFrame {
         String continuar = "no";
 
         if (ordencamisa.lbprenda.getText().equals("Camisa")) {
-            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisa.lbnumeroventa.getText() + "' AND articulo LIKE 'CAMISA%' ORDER BY ARTICULO ";
+            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisa.lbnumerodeventa.getText() + "' AND articulo LIKE 'CAMISA%' ORDER BY ARTICULO ";
             continuar = "si";
         } else if (ordencamisa.lbprenda.getText().equals("Chamarra desmontable")) {
-            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisa.lbnumeroventa.getText() + "' AND articulo LIKE 'CHAMARRA DE MANGAS DESMONTABLES%' ORDER BY ARTICULO ";
+            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisa.lbnumerodeventa.getText() + "' AND articulo LIKE 'CHAMARRA DE MANGAS DESMONTABLES%' ORDER BY ARTICULO ";
             continuar = "si";
         } else if (ordencamisa.lbprenda.getText().equals("Playera")) {
-            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisa.lbnumeroventa.getText() + "' AND articulo LIKE 'PLAYERA%' ORDER BY ARTICULO ";
+            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisa.lbnumerodeventa.getText() + "' AND articulo LIKE 'PLAYERA%' ORDER BY ARTICULO ";
             continuar = "si";
         } else if (ordencamisa.lbprenda.getText().equals("Camisola")) {
-            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisa.lbnumeroventa.getText() + "' AND articulo LIKE 'CAMISOLA%' ORDER BY ARTICULO ";
+            sql = "SELECT articulo,cantidad FROM historial_ventas where numero = '" + ordencamisa.lbnumerodeventa.getText() + "' AND articulo LIKE 'CAMISOLA%' ORDER BY ARTICULO ";
             continuar = "si";
         } else {
             continuar = "no";
@@ -779,7 +779,7 @@ public class tallas extends javax.swing.JFrame {
                 JasperReport reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("/img/ticketnumeroaleatorio.jasper"));
                 Map parametro = new HashMap();
                 parametro.put("prenda", ordencamisa.lbprenda.getText());
-                parametro.put("numerodeventa", ordencamisa.lbnumeroventa.getText());
+                parametro.put("numerodeventa", ordencamisa.lbnumerodeventa.getText());
                 parametro.put("nombrecliente", ordencamisa.lbcliente.getText());
                 parametro.put("identificador", ordencamisa.lbbordacliente.getText());
                 
@@ -807,7 +807,7 @@ public class tallas extends javax.swing.JFrame {
                 exporter.setParameter(JRExporterParameter.JASPER_PRINT, jprint);
 
                 
-               JasperExportManager.exportReportToPdfFile(jprint, "C:\\ticketsbanco\\ticketnumeroaleatorio"+ordencamisa.lbnumeroventa.getText()+".pdf");
+               JasperExportManager.exportReportToPdfFile(jprint, "C:\\ticketsbanco\\ticketnumeroaleatorio"+ordencamisa.lbnumerodeventa.getText()+".pdf");
                javax.print.PrintService services = PrintServiceLookup.lookupDefaultPrintService();
       
         

@@ -76,7 +76,7 @@ public class ordencamisa extends javax.swing.JFrame {
     String remanentebordadosstring = "";
     int nuevoremanentebordadosint = 0;
     String nuevoremanentebordadossstring = "";
-    
+    String numerodeventa = "";
     String fechaubicacion = "";
 
     String bordadosutilizadosstring = "";
@@ -192,7 +192,7 @@ public class ordencamisa extends javax.swing.JFrame {
         initComponents();
         ventanaordencamisa = true;
 
-        lbnumeroventa.setVisible(false);
+        lbnumerodeventa.setVisible(false);
         lbtipo.setVisible(false);
 
         btnterminetodo.setEnabled(false);
@@ -220,26 +220,8 @@ public class ordencamisa extends javax.swing.JFrame {
     ImageIcon imageIcon = new ImageIcon(image.getScaledInstance(lbltallas.getWidth(), lbltallas.getHeight(), Image.SCALE_DEFAULT));
     lbltallas.setIcon(imageIcon);
 
-        /*
-        File file = new File("C:\\sistema\\configuracion.txt");
-        try {
-            Scanner sc = new Scanner(file);
-            while (sc.hasNext()) {
-                String line = sc.nextLine();
-                String str[] = line.split(":");
-                tiendalocal = str[1];
-            }
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-        */
-        
-        
-        
+       
         tiendalocal = principal.lbtiendalocal.getText();
-        
-        
-        
         
         
         
@@ -431,6 +413,10 @@ public class ordencamisa extends javax.swing.JFrame {
             if (rs.next()) {
 
                 lbcliente.setText(rs.getString("cliente"));
+               
+                numerodeventa = rs.getString("numero_venta");
+                lbnumerodeventa.setText(numerodeventa);
+                
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
                 lbfecha.setText(rs.getString("fecha"));
@@ -456,7 +442,6 @@ public class ordencamisa extends javax.swing.JFrame {
                 }
                 
 
-                //numerosucursalordencamisa=rs.getString("numero_orden");
                 sucursal=rs.getString("tienda");
                 
                 
@@ -1659,7 +1644,7 @@ public class ordencamisa extends javax.swing.JFrame {
     
      void codigocliente()
     {
-        String sql = "SELECT codigo_cliente FROM historial_ventas WHERE numero = '" + lbnumeroventa.getText() + "' ";
+        String sql = "SELECT codigo_cliente FROM historial_ventas WHERE numero = '" + lbnumerodeventa.getText() + "' ";
 
 
         try {
@@ -2250,7 +2235,7 @@ public class ordencamisa extends javax.swing.JFrame {
         /// busca las ordenes de camisa generadas 
 
         
-        String numero = lbnumeroventa.getText();
+        String numero = lbnumerodeventa.getText();
         String pedirarticulos = "";
         String ordenenvio = "";
         String sql2 = "Select solicito_articulos, enviada_ordenenvio from historial_ventas where numero = '" + numero + "'  ";
@@ -2524,7 +2509,7 @@ public class ordencamisa extends javax.swing.JFrame {
             
                 
  
-                pst.setString(1, lbnumeroventa.getText());
+                pst.setString(1, numerodeventa);
                 pst.setString(2, dia());
                 pst.setString(3, hora());
                 pst.setString(4, descripcion);
@@ -2533,15 +2518,33 @@ public class ordencamisa extends javax.swing.JFrame {
                 
                  if(tienenumerodesucursal.equals("no") )
                 {
-                    pst.setString(7, "00000000");
-                    pst.setString(8, "ninguno");
+                    
+                    
+                    if (sucursal.equals(tiendalocal))
+                        
+                    {
+                       numerosucursalordencamisa = numerodeventa;
+                        pst.setString(7, numerodeventa);
+                    }
+                    else
+                    {
+                   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encontró numero de venta ni numero de sucursal; llame a sistemas");
+                         
+                         
+                    }
+                    
+                    
+                   
+                   
                 }
                 else
                 {
                     pst.setString(7, numerosucursalordencamisa);
-                    pst.setString(8, sucursal);
+                   
                 } 
                 
+                  pst.setString(8, sucursal);
+                  
                 
                 pst.executeUpdate();
                 pst.close();
@@ -2571,7 +2574,7 @@ public class ordencamisa extends javax.swing.JFrame {
             
                 
  
-                pst.setString(1, lbnumeroventa.getText());
+                pst.setString(1, lbnumerodeventa.getText());
                 pst.setString(2, dia());
                 pst.setString(3, hora());
                 pst.setString(4, aplicacioninsertar);
@@ -2666,7 +2669,7 @@ public class ordencamisa extends javax.swing.JFrame {
         //// bordado
         
         try {
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumeroventa.getText()+"' and articulo ='"+descripcion+"'   ");
+                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumerodeventa.getText()+"' and articulo ='"+descripcion+"'   ");
                 pst.executeUpdate();
                 pst.close();
             
@@ -2689,7 +2692,7 @@ public class ordencamisa extends javax.swing.JFrame {
                
                
                 try {
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumeroventa.getText()+"' and articulo ='"+aplicacioninsertar+"'   ");
+                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumerodeventa.getText()+"' and articulo ='"+aplicacioninsertar+"'   ");
                 pst.executeUpdate();
                 pst.close();
             
@@ -2708,7 +2711,7 @@ public class ordencamisa extends javax.swing.JFrame {
     void agregaralsurtidasalhistorialdeventas(String ubicacion, String cantidad) 
       {
 
-        String numeroventa =  lbnumeroventa.getText();
+        String numeroventa =  lbnumerodeventa.getText();
         Object cantidadstring ="";
         String nuevacantidadstring = "";
         String estatusentrega ="";
@@ -2859,7 +2862,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad) 
       {
 
-        String numeroventa =  lbnumeroventa.getText();
+        String numeroventa =  lbnumerodeventa.getText();
         Object cantidadstring ="";
         String nuevacantidadstring = "";
         String estatusentrega ="";
@@ -3777,7 +3780,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel16 = new javax.swing.JLabel();
         btnsalir = new javax.swing.JButton();
         lbcliente = new javax.swing.JLabel();
-        lbnumeroventa = new javax.swing.JLabel();
+        lbnumerodeventa = new javax.swing.JLabel();
         btninsertarponchados = new javax.swing.JButton();
         lbtipo = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -3803,7 +3806,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel1 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         lbnombrecomercial = new javax.swing.JLabel();
-        lbventa = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         lbobservaciones = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
@@ -3929,7 +3931,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbcliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbcliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbnumeroventa.setText("00000000");
+        lbnumerodeventa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbnumerodeventa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btninsertarponchados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btninsertarponchados.setText("Replicar pnchados");
@@ -4068,9 +4071,6 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         lbnombrecomercial.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbnombrecomercial.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        lbventa.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lbventa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbobservaciones.setColumns(20);
         lbobservaciones.setRows(5);
@@ -4561,9 +4561,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btndatos)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(lbnumeroventa))
+                                                .addComponent(btndatos))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(2, 2, 2)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4584,7 +4582,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                                         .addGap(7, 7, 7)
                                                         .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(lbventa, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(lbnumerodeventa, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4650,8 +4648,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbventa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbnumerodeventa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4680,9 +4679,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addComponent(lbdiaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbnumeroventa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -5210,7 +5207,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
       
             
-           
+           sucursal = tiendalocal;
            nombrebordado =pechoizquierdonombre;
            String cantidadaplicacion = aplicacionpechoizquierdo;
            String cantidad = lbcantidad.getText();
@@ -7804,7 +7801,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbmangaizquierdanombre1;
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumerodelaotrasucursal;
-    public static javax.swing.JLabel lbnumeroventa;
+    public static javax.swing.JLabel lbnumerodeventa;
     public static javax.swing.JTextArea lbobservaciones;
     public static javax.swing.JLabel lborden;
     public javax.swing.JLabel lbotraubicacion;
@@ -7823,7 +7820,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbsucursal;
     public javax.swing.JLabel lbsumapuntos;
     public static javax.swing.JLabel lbtipo;
-    public static javax.swing.JLabel lbventa;
     // End of variables declaration//GEN-END:variables
 
     connectar cc = new connectar();

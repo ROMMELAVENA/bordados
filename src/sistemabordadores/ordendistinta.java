@@ -3526,7 +3526,7 @@ public class ordendistinta extends javax.swing.JFrame {
 
         lbnombreconcepto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setText("Cantidad");
         jLabel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 

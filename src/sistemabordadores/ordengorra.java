@@ -60,7 +60,7 @@ public class ordengorra extends javax.swing.JFrame {
 
     String nuevosbordadosutilizadosstring = "";
     int nuevosbordadosutilizadosint = 0;
-    
+    String numerodeventa = "";
     String latiendaestaconectada = "si";
     String numerodeorden = "";
     
@@ -242,6 +242,9 @@ public class ordengorra extends javax.swing.JFrame {
             if (rs.next()) {
 
                 lbcliente.setText(rs.getString("cliente"));
+                
+                numerodeventa = rs.getString("numero_venta");
+                lbnumerodeventa.setText(numerodeventa);
               
                 lbcantidad.setText(rs.getString("cantidad"));
                 lbfechaentrega.setText(rs.getString("fecha_entrega"));
@@ -545,7 +548,7 @@ public class ordengorra extends javax.swing.JFrame {
     void datostienda() {
         /// busca las ordenes de camisa generadas 
 
-        String numero = lbnumeroventa.getText();
+        String numero = lbnumerodeventa.getText();
         String pedirarticulos = "";
         String ordenenvio = "";
         String sql2 = "Select solicito_articulos, enviada_ordenenvio from historial_ventas where numero = '" + numero + "' AND (solicito_articulos NOT IN ('0') or enviada_ordenenvio NOT IN ('no')) and estatus_pago not in ('cancelada') ";
@@ -1677,7 +1680,7 @@ public class ordengorra extends javax.swing.JFrame {
         //// bordado
         
           try {
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumeroventa.getText()+"' and articulo ='"+articulo+"'   ");
+                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumerodeventa.getText()+"' and articulo ='"+articulo+"'   ");
                 pst.executeUpdate();
                 pst.close();
             
@@ -1703,7 +1706,7 @@ public class ordengorra extends javax.swing.JFrame {
             
                 
  
-                pst.setString(1, lbnumeroventa.getText());
+                pst.setString(1, lbnumerodeventa.getText());
                 pst.setString(2, dia());
                 pst.setString(3, hora());
                 pst.setString(4, descripcion);
@@ -1751,7 +1754,7 @@ public class ordengorra extends javax.swing.JFrame {
             
                 
  
-                pst.setString(1, lbnumeroventa.getText());
+                pst.setString(1, lbnumerodeventa.getText());
                 pst.setString(2, dia());
                 pst.setString(3, hora());
                 pst.setString(4, aplicacioninsertar);
@@ -1850,7 +1853,7 @@ public class ordengorra extends javax.swing.JFrame {
     void agregaralsurtidasalhistorialdeventas(String ubicacion, String cantidad) 
       {
 
-        String numeroventa =  lbnumeroventa.getText();
+        String numeroventa =  lbnumerodeventa.getText();
         Object cantidadstring ="";
         String nuevacantidadstring = "";
         String estatusentrega ="";
@@ -1965,7 +1968,7 @@ public class ordengorra extends javax.swing.JFrame {
      void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad) 
       {
 
-        String numeroventa =  lbnumeroventa.getText();
+        String numeroventa =  lbnumerodeventa.getText();
         Object cantidadstring ="";
         String nuevacantidadstring = "";
         String estatusentrega ="";
@@ -2084,7 +2087,7 @@ public class ordengorra extends javax.swing.JFrame {
     
      void codigocliente()
     {
-        String sql = "SELECT codigo_cliente FROM historial_ventas WHERE numero = '" + lbnumeroventa.getText() + "' ";
+        String sql = "SELECT codigo_cliente FROM historial_ventas WHERE numero = '" + lbnumerodeventa.getText() + "' ";
 
 
         try {
@@ -2648,7 +2651,7 @@ public class ordengorra extends javax.swing.JFrame {
         lbcantidad = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lbfotomontaje = new javax.swing.JLabel();
-        lbnumeroventa = new javax.swing.JLabel();
+        lbnumerodeventa = new javax.swing.JLabel();
         lbtienda = new javax.swing.JLabel();
         lbnumero = new javax.swing.JLabel();
         lbtiendaalaquereplicara = new javax.swing.JLabel();
@@ -2790,7 +2793,7 @@ public class ordengorra extends javax.swing.JFrame {
         jPanel1.add(lbfotomontaje);
         lbfotomontaje.setBounds(10, 0, 1010, 670);
 
-        lbnumeroventa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbnumerodeventa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbtienda.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbtienda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -3135,7 +3138,7 @@ public class ordengorra extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbnumeroventa, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbnumerodeventa, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3306,7 +3309,7 @@ public class ordengorra extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbnumeroventa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbnumerodeventa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -4852,7 +4855,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     private javax.swing.JLabel lbladoizquierdonombre1;
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumero;
-    public static javax.swing.JLabel lbnumeroventa;
+    public static javax.swing.JLabel lbnumerodeventa;
     public static javax.swing.JTextArea lbobservaciones;
     public static javax.swing.JLabel lborden;
     public static javax.swing.JLabel lbprenda;

@@ -1809,7 +1809,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                         
                         
-                        ordencamisa.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordencamisa.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordencamisa.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordencamisa.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
                         ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
@@ -1859,7 +1859,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         orden.setVisible(true);
 
                         ordengorra.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordengorra.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordengorra.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                       
                         ordengorra.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
                         ordengorra.tipotabla=(tabla.getValueAt(fila, 10).toString());
@@ -1905,7 +1905,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                             orden.setVisible(true);
 
                             ordenpantalon.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                            ordenpantalon.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                            ordenpantalon.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                          
                             ordenpantalon.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
                             ordenpantalon.tipotabla = (tabla.getValueAt(fila, 10).toString());
@@ -2006,7 +2006,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                          Object lugar = (tabla.getValueAt(fila, 4).toString());
                          
                         ordenparche.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordenparche.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordenparche.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordenparche.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
                         ordenparche.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
                         ordenparche.tipotabla=(tabla.getValueAt(fila, 10).toString());
@@ -2055,7 +2055,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         orden.setVisible(true);
 
                         ordencorbata.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordencorbata.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordencorbata.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
                         ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         

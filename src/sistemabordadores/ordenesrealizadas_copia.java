@@ -565,7 +565,7 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
                         orden.setVisible(true);
 
                         ordencamisa.lborden.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordencamisa.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
+                        ordencamisa.lbnumerodeventa.setText(tablacamisa.getValueAt(fila, 5).toString());
                         ordencamisa.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
                          ordencamisa.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
                          ordencamisa.enquesucursalsebordara=(tablacamisa.getValueAt(fila, 4).toString());
@@ -591,7 +591,7 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
                         orden.setVisible(true);
 
                         ordengorra.lborden.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordengorra.lbnumeroventa.setText(tablacamisa.getValueAt(fila, 5).toString());
+                        ordengorra.lbnumerodeventa.setText(tablacamisa.getValueAt(fila, 5).toString());
                      
 
                         
@@ -655,13 +655,13 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ordenesrealizadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordenesterminadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ordenesrealizadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordenesterminadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ordenesrealizadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordenesterminadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ordenesrealizadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordenesterminadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -1691,7 +1691,7 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ordenesrealizadas().setVisible(true);
+                new ordenesterminadas().setVisible(true);
             }
         });
     }

@@ -1866,7 +1866,7 @@ public static boolean ventanaordenparcheanteriores = false;
         jLabel1.setText("Cantidad");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbprenda.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbprenda.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbprenda.setText("Parche");
         lbprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 

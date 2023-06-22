@@ -91,7 +91,7 @@ public class ordencamisa extends javax.swing.JFrame {
     int traspaso = 0;
     String ipdelaotratienda = "";
     
-    
+    String numeroordendeenviosolicitada = "";
    
     String numerosucursal = "";
     String sucursal = "";
@@ -192,7 +192,6 @@ public class ordencamisa extends javax.swing.JFrame {
         initComponents();
         ventanaordencamisa = true;
 
-        lbnumerodeventa.setVisible(false);
         lbtipo.setVisible(false);
 
         btnterminetodo.setEnabled(false);
@@ -398,7 +397,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
         
 
-        String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
+        String sql = "Select fecha,hora,cliente,numero_venta,numero_orden,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
                 + "   pecho_izquierdo,pecho_derecho,manga_izquierda,manga_derecha,espalda,otra_ubicacion,otra_ubicacion2,"
                 + "   cantidad_pecho_izquierdo,cantidad_pecho_derecho,cantidad_manga_izquierda,cantidad_manga_derecha,cantidad_espalda,"
                 + "   pecho_izquierdo_nombre,pecho_derecho_nombre,manga_izquierda_nombre,manga_derecha_nombre,espalda_nombre,"
@@ -416,6 +415,8 @@ public class ordencamisa extends javax.swing.JFrame {
                
                 numerodeventa = rs.getString("numero_venta");
                 lbnumerodeventa.setText(numerodeventa);
+                
+                numeroordendeenviosolicitada =  rs.getString("numero_orden");
                 
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
@@ -2523,8 +2524,8 @@ public class ordencamisa extends javax.swing.JFrame {
                     if (sucursal.equals(tiendalocal))
                         
                     {
-                       numerosucursalordencamisa = numerodeventa;
-                        pst.setString(7, numerodeventa);
+                       numerosucursalordencamisa = numeroordendeenviosolicitada;
+                     
                     }
                     else
                     {
@@ -2539,10 +2540,11 @@ public class ordencamisa extends javax.swing.JFrame {
                 }
                 else
                 {
-                    pst.setString(7, numerosucursalordencamisa);
+                   
                    
                 } 
-                
+                 
+                  pst.setString(7, numerosucursalordencamisa);
                   pst.setString(8, sucursal);
                   
                 
@@ -2734,14 +2736,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
         else
         {
-         //    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:15px ;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacion+" no se pudo surtir debido a que NO SE ENCONTRÓ EN LA VENTA; QUIZAS SE CAMBIO DE NOMBRE");
-
-             
-             
-         // JOPTION EN 2 RENGLONES tip    
-             
-             
-               //   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Preguntale al cliente si estan correctas las personas autorizadas para COMPRAR Y PARA RECIBIR");
+     
         String observacion = "\n no se pudo surtir debido a que NO SE ENCONTRÓ EN LA VENTA; QUIZAS SE CAMBIO DE NOMBRE";
         
         String[] lineas = observacion.split("\n");
@@ -2761,26 +2756,137 @@ JOptionPane.showMessageDialog(null, mensaje);
             System.out.println (ex);
         }
         
-        if(estatusentregaventa.equals("surtida totalmente entregada totalmente"))
-        {
-            
-        }
-        else
-        {
         
-      if(cantidadstring ==null || cantidadstring.equals("")||cantidadstring.equals(" "))
+        
+          if(cantidadstring ==null || cantidadstring.equals("")||cantidadstring.equals(" "))
       {
           cantidadstring ="0";
-      }
+      } 
+          
        
-        
-        
-        int cantidadstringint = Integer.parseInt(cantidadstring.toString());
         int cantidadint =  Integer.parseInt(cantidad);
 
         int nuevacantidadint = cantidadint;
         nuevacantidadstring =  String.valueOf(nuevacantidadint);
             
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        // AQUI LO VAS A MODIFICAR ROMMEL, QUE ENTRE CUANDO SEA ORDEN DE ENVIO, NO CUANDO ESTE SURTIDA Y ENTREGADA TOTALMENTE
+        if(estatusentregaventa.equals("surtida totalmente entregada totalmente") )
+        {
+            
+            
+            
+         if(sucursal.equals(tiendalocal))    
+         
+                 {
+                     
+          
+            
+            
+            try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtida = '" + nuevacantidadstring + "' WHERE numero_sucursal ='" + numeroordendeenviosolicitada + "' and articulo = '" + ubicacion + "'      ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+
+        ////Actualiza el estatus
+
+      String cantidadsurtida = "";  
+      String cantidadvendida = "";  
+      String cantidadentregada = "";  
+       
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero_sucursal = '"+numeroordendeenviosolicitada+"'  ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL3);
+
+        if (rs.next()) 
+        {
+
+        cantidadvendida = rs.getString("cantidad");
+        cantidadsurtida = rs.getString("surtida");
+        cantidadentregada = rs.getString("enviadas");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+        System.out.println (ex);
+        }
+      
+        
+      
+      /////
+      
+      double cantidadvendidadouble = Double.parseDouble(cantidadvendida);
+      double cantidadsurtidadouble = Double.parseDouble(cantidadsurtida);
+      double cantidadenviadadouble = Double.parseDouble(cantidadentregada);
+      
+        
+        if((cantidadvendidadouble == (cantidadsurtidadouble + cantidadenviadadouble)) && cantidadenviadadouble  == 0 )
+        {
+          estatusentrega ="surtida totalmente no enviada";  
+        }
+        else
+            
+            
+              if((cantidadvendidadouble == (cantidadsurtidadouble + cantidadenviadadouble)) && cantidadenviadadouble  > 0 )
+        {
+          estatusentrega ="surtida totalmente enviada parcialmente";  
+        }
+       
+        else
+            
+         if((cantidadvendidadouble > (cantidadsurtidadouble + cantidadenviadadouble ))  && cantidadenviadadouble  == 0 )
+        {
+          estatusentrega ="surtida parcialmente no enviada";  
+        }
+         
+       
+        else
+        {
+          estatusentrega ="surtida parcialmente enviada parcialmente";   
+        }    
+        
+          try {
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET estatus_entrega = '" + estatusentrega + "' WHERE numero_sucursal='" + numeroordendeenviosolicitada + "'       ");
+              pst.executeUpdate();
+              pst.close();
+          } catch (Exception e) {
+
+              System.out.println(e);
+          }
+      
+
+        }
+      
+                     
+                 
+            
+            
+            
+            
+        }
+        else
+        {
+        
+     
+        
+      
             
             
             try{

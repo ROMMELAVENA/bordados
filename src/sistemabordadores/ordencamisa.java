@@ -87,7 +87,7 @@ public class ordencamisa extends javax.swing.JFrame {
 
     String primero = "";
     String ultimo = "";
-
+    String nombrebordado = "";
     int traspaso = 0;
     String ipdelaotratienda = "";
     
@@ -371,7 +371,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
         
         
-        String sql = "SELECT color1,color2,color3,color4,color5,color6,color7,color8,color9,color10,color11,color12,color13,color14,color15,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,hilo8,hilo9,hilo10,hilo11,hilo12,hilo13,hilo14,hilo15 FROM colorido_bordados where identificador_prenda = '"+lbidentificador.getText()+"' and codigo = '"+codigocliente+"' AND nombre = '"+lbcliente.getText()+"' ";
+        String sql = "SELECT color1,color2,color3,color4,color5,color6,color7,color8,color9,color10,color11,color12,color13,color14,color15,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,hilo8,hilo9,hilo10,hilo11,hilo12,hilo13,hilo14,hilo15 FROM colorido_bordados where nombrebordado = '"+nombrebordado+"' and codigo = '"+codigocliente+"' AND nombre = '"+lbcliente.getText()+"' ";
 
 
             try {
@@ -2628,7 +2628,7 @@ public class ordencamisa extends javax.swing.JFrame {
            if(cantidadaplicacionint > 0)
            {
                int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
-               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
+            
                
                String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
 
@@ -5035,7 +5035,7 @@ JOptionPane.showMessageDialog(null, mensaje);
  
             
             
-            String nombrebordado = mangaizquierdanombre;
+            nombrebordado = mangaizquierdanombre;
             String cantidadaplicacion = aplicacionmangaizquierda;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
@@ -5119,7 +5119,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
  
                 
-                String nombrebordado = mangaizquierdanombre;
+                nombrebordado = mangaizquierdanombre;
                 String cantidadaplicacion = aplicacionmangaizquierda;
              
                 nombredelatabla = "historial_ordenes_camisa_recibidas";
@@ -5183,7 +5183,8 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnpechoizquierdotermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoizquierdotermineActionPerformed
 
         
-      regresaralaconeccionlocal();  
+      regresaralaconeccionlocal(); 
+      
       fechaubicacion  = "pecho_izquierdo_fecha";
       String ubicacion = "cantidad_pecho_izquierdo";
         
@@ -5195,13 +5196,22 @@ JOptionPane.showMessageDialog(null, mensaje);
         else
         { 
         
+            
+            
+            
+            
+            
+            
+            
+            //ESTA SUCURSAL
+            
         if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
             
       
             
            
-           String nombrebordado =pechoizquierdonombre;
+           nombrebordado =pechoizquierdonombre;
            String cantidadaplicacion = aplicacionpechoizquierdo;
            String cantidad = lbcantidad.getText();
            nombredelatabla = "historial_ordenes_camisa";
@@ -5278,13 +5288,28 @@ JOptionPane.showMessageDialog(null, mensaje);
         
             
         }
-        else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
+        
+        
+        
+        
+        
+        
+        
+        
+        else 
+            
+            
+         // OTRA SUCURSAL NO SE QUE ES 
+            
+            if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
         {    
         
         
         JFileChooser adjuntar = new JFileChooser(rutadedondeestanlosbordados);
 
         int respuesta = adjuntar.showOpenDialog(this);
+        
+        
         if (respuesta == JFileChooser.APPROVE_OPTION) {
             File archivoelegido = adjuntar.getSelectedFile();
             String fl = archivoelegido.toString();
@@ -5294,11 +5319,23 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         }
         }
-    else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+  
+            
+            
+            
+            
+        else 
+                
+                
+                
+                
+        // OTRA SUCURSAL           
+            
+            if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
             
    
-            String nombrebordado = pechoizquierdonombre;
+            nombrebordado = pechoizquierdonombre;
             String cantidadaplicacion = aplicacionpechoizquierdo;
            
             nombredelatabla = "historial_ordenes_camisa_recibidas";
@@ -5392,7 +5429,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
       
            
-            String nombrebordado = espaldanombre;
+            nombrebordado = espaldanombre;
             String cantidadaplicacion = aplicacionespalda;
            
             nombredelatabla = "historial_ordenes_camisa";
@@ -5473,7 +5510,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
             
 
-            String nombrebordado = espaldanombre;
+            nombrebordado = espaldanombre;
             String cantidadaplicacion = aplicacionespalda;
            
             nombredelatabla = "historial_ordenes_camisa_recibidas";
@@ -5556,7 +5593,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
      
             
-            String nombrebordado = pechoderechonombre;
+            nombrebordado = pechoderechonombre;
             String cantidadaplicacion = aplicacionpechoderecho;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
@@ -5639,7 +5676,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
      
-            String nombrebordado = pechoderechonombre;
+            nombrebordado = pechoderechonombre;
             String cantidadaplicacion = aplicacionpechoderecho;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa_recibidas";
@@ -5728,7 +5765,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             
-            String nombrebordado = mangaderechanombre;
+            nombrebordado = mangaderechanombre;
             String cantidadaplicacion = aplicacionmangaderecha;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
@@ -5811,7 +5848,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
             
        
-            String nombrebordado = mangaderechanombre;
+            nombrebordado = mangaderechanombre;
             String cantidadaplicacion = aplicacionmangaderecha;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa_recibidas";
@@ -6329,7 +6366,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             else
             {
             String ubicacion = "cantidad_otra_ubicacion";
-            String nombrebordado = otraubicacionnombre;
+            nombrebordado = otraubicacionnombre;
             String cantidadaplicacion = aplicacionotraubicacion;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
@@ -6416,7 +6453,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      
             
             String ubicacion = "cantidad_otra_ubicacion";
-            String nombrebordado = otraubicacionnombre;
+            nombrebordado = otraubicacionnombre;
             String cantidadaplicacion = aplicacionotraubicacion;
             nombredelatabla = "historial_ordenes_camisa_recibidas";
             String cantidad = lbcantidad.getText();
@@ -6504,7 +6541,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
      
             String ubicacion = "cantidad_otra_ubicacion2";
-            String nombrebordado = otraubicacion2nombre;
+            nombrebordado = otraubicacion2nombre;
             String cantidadaplicacion = aplicacionotraubicacion2;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
@@ -6590,7 +6627,7 @@ JOptionPane.showMessageDialog(null, mensaje);
    
 
                 String ubicacion = "cantidad_otra_ubicacion2";
-                String nombrebordado = otraubicacion2nombre;
+                nombrebordado = otraubicacion2nombre;
                 String cantidadaplicacion = aplicacionotraubicacion2;
                 String cantidad = lbcantidad.getText();
                 nombredelatabla = "historial_ordenes_camisa_recibidas";
@@ -7073,7 +7110,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);         
                   
            
-           String nombrebordado =pechoizquierdonombre;
+           nombrebordado =pechoizquierdonombre;
            String cantidadaplicacion = aplicacionpechoizquierdo;
            String cantidad = lbcantidad.getText();
            nombredelatabla = "historial_ordenes_camisa";
@@ -7152,7 +7189,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     String fecha = "pecho_derecho_fecha";
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha); 
                     
-                    String nombrebordado = pechoderechonombre;
+                    nombrebordado = pechoderechonombre;
                     String cantidadaplicacion = aplicacionpechoderecho;
                     String cantidad = lbcantidad.getText();
                     nombredelatabla = "historial_ordenes_camisa";
@@ -7232,7 +7269,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String fecha = "manga_izquierda_fecha";
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
             
-            String nombrebordado = mangaizquierdanombre;
+            nombrebordado = mangaizquierdanombre;
             String cantidadaplicacion = aplicacionmangaizquierda;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
@@ -7305,7 +7342,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String fecha = "manga_derecha_fecha";
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha); 
             
-            String nombrebordado = mangaderechanombre;
+            nombrebordado = mangaderechanombre;
             String cantidadaplicacion = aplicacionmangaderecha;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
@@ -7386,7 +7423,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha); 
             
             
-            String nombrebordado =espaldanombre;
+            nombrebordado =espaldanombre;
            String cantidadaplicacion = aplicacionespalda;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
@@ -7467,7 +7504,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String fecha = "otra_ubicacion_fecha";
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha); 
             
-            String nombrebordado = otraubicacionnombre;
+            nombrebordado = otraubicacionnombre;
             String cantidadaplicacion = aplicacionotraubicacion;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";
@@ -7549,7 +7586,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);            
         
             
-            String nombrebordado = otraubicacion2nombre;
+            nombrebordado = otraubicacion2nombre;
             String cantidadaplicacion = aplicacionotraubicacion2;
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_camisa";

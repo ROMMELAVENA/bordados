@@ -1601,9 +1601,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(9).setMinWidth(100);
             tabla.getColumnModel().getColumn(9).setPreferredWidth(120);
             tabla.getColumnModel().getColumn(9).setMaxWidth(220);
-            tabla.getColumnModel().getColumn(10).setMinWidth(0);
-            tabla.getColumnModel().getColumn(10).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(10).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(10).setMinWidth(50);
+            tabla.getColumnModel().getColumn(10).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(10).setMaxWidth(150);
             tabla.getColumnModel().getColumn(11).setMinWidth(100);
             tabla.getColumnModel().getColumn(11).setPreferredWidth(450);
             tabla.getColumnModel().getColumn(11).setMaxWidth(800);

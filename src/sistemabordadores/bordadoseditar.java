@@ -662,7 +662,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                 
                  /// COLORIDOS BORDADOS
                 
-                sql = "SELECT distinct identificador_prenda from colorido_bordados where codigo = '"+codigodelcliente+"' ";
+                sql = "SELECT distinct nombrebordado from colorido_bordados where codigo = '"+codigodelcliente+"' ";
 
                 try {
 
@@ -894,7 +894,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                  /// COLORIDOS BORDADOS
                 
                 
-                 sql = "SELECT distinct identificador_prenda from colorido_bordados where codigo = '"+codigodelcliente+"' ";
+                 sql = "SELECT distinct nombrebordado from colorido_bordados where codigo = '"+codigodelcliente+"' ";
 
                 try {
 
@@ -1043,7 +1043,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                  /// COLORIDOS BORDADOS
                 
                 
-                 sql = "SELECT distinct identificador_prenda from colorido_bordados where codigo = '"+codigodelcliente+"' ";
+                 sql = "SELECT distinct nombrebordado from colorido_bordados where codigo = '"+codigodelcliente+"' ";
 
                 try {
 
@@ -1142,7 +1142,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                  /// COLORIDOS BORDADOS
                 
                 
-                 sql = "SELECT distinct identificador_prenda from colorido_bordados where codigo = '"+codigodelcliente+"' ";
+                 sql = "SELECT distinct nombrebordado from colorido_bordados where codigo = '"+codigodelcliente+"' ";
 
                 try {
 
@@ -9988,7 +9988,7 @@ public class bordadoseditar extends javax.swing.JFrame {
             {
                 
             
-            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and identificador_prenda = '"+puntadas+"' ";
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombrebordado = '"+puntadas+"' ";
 
                       
             try {
@@ -10140,7 +10140,7 @@ public class bordadoseditar extends javax.swing.JFrame {
             {
                 
             
-            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and identificador_prenda = '"+puntadas+"' ";
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombrebordado = '"+puntadas+"' ";
 
                       
             try {
@@ -10344,7 +10344,7 @@ public class bordadoseditar extends javax.swing.JFrame {
             {
                 
             
-            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and identificador_prenda = '"+puntadas+"' ";
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombrebordado = '"+puntadas+"' ";
 
                       
             try {
@@ -10492,7 +10492,7 @@ public class bordadoseditar extends javax.swing.JFrame {
             {
                 
             
-            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and identificador_prenda = '"+puntadas+"' ";
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombrebordado = '"+puntadas+"' ";
 
                       
             try {
@@ -10642,7 +10642,7 @@ public class bordadoseditar extends javax.swing.JFrame {
             {
                 
             
-            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and identificador_prenda = '"+puntadas+"' ";
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombrebordado = '"+puntadas+"' ";
 
                       
             try {
@@ -10786,7 +10786,7 @@ public class bordadoseditar extends javax.swing.JFrame {
             {
                 
             
-            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and identificador_prenda = '"+puntadas+"' ";
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombrebordado = '"+puntadas+"' ";
 
                       
             try {
@@ -10944,7 +10944,7 @@ public class bordadoseditar extends javax.swing.JFrame {
             {
                 
             
-            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and identificador_prenda = '"+puntadas+"' ";
+            String sql2 = "SELECT distinct puntadas FROM colorido_bordados where codigo = '"+codigodelcliente+"' and nombrebordado = '"+puntadas+"' ";
 
                       
             try {

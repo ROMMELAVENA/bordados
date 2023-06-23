@@ -49,6 +49,8 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
     String  prendafotomontaje ="";
     String  nombreprendafotomontaje ="";      
     String actualizarbordado ="no";
+    
+    String identificador = "";
    
     
     
@@ -158,7 +160,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
         
         lbconsecutivo.setVisible(false);
         
-        txtidentificadordeprenda.setEnabled(false);
+        txtidentificador.setEnabled(false);
         txt1.setEnabled(false);
         txt2.setEnabled(false);
         txt3.setEnabled(false);
@@ -247,7 +249,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
        
         
         codigodelcliente = lbcodigocliente.getText();
-        identificadordeprenda = txtidentificadordeprenda.getText().trim();
+        identificadordeprenda = txtidentificador.getText().trim();
         numeroconsecutivo = lbconsecutivo.getText();
        
        
@@ -337,7 +339,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
                           
                         
                         
-                        txtidentificadordeprenda.setText(identificadordeprenda);
+                        txtidentificador.setText(identificadordeprenda);
                        lbidentificadordeprendaanterior.setText(identificadordeprenda);
            
             cbubicacion1.setSelectedItem(ubicacion1);          
@@ -740,7 +742,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
     void actualizarlaubicacion(String ubicacion,String numeroventa,String nombrebordado,String nombrearticuloactualizar,String numerocotizacion)
     {
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET ARTICULO = '"+ubicacion.trim()+ "' ,identificador_prenda = '"+txtidentificadordeprenda.getText()+"' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+nombrearticuloactualizar+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET ARTICULO = '"+ubicacion.trim()+ "' ,identificador_prenda = '"+txtidentificador.getText()+"' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+nombrearticuloactualizar+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -827,12 +829,12 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
         jLabel50 = new javax.swing.JLabel();
         btndatos = new javax.swing.JButton();
         lbnombrecomercial = new javax.swing.JLabel();
-        txtidentificadordeprenda = new javax.swing.JTextField();
+        txtidentificador = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         lbidentificadordeprendaanterior = new javax.swing.JLabel();
         lbconsecutivo = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        lbidentificador = new javax.swing.JLabel();
+        lbbordacliente = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
         cbubicacion7 = new javax.swing.JComboBox<>();
         cbubicacion1 = new javax.swing.JComboBox<>();
@@ -1183,19 +1185,19 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
         lbnombrecomercial.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbnombrecomercial.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        txtidentificadordeprenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        txtidentificadordeprenda.setForeground(new java.awt.Color(153, 0, 0));
-        txtidentificadordeprenda.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtidentificador.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtidentificador.setForeground(new java.awt.Color(153, 0, 0));
+        txtidentificador.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtidentificadordeprendaFocusGained(evt);
+                txtidentificadorFocusGained(evt);
             }
         });
-        txtidentificadordeprenda.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtidentificador.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtidentificadordeprendaKeyPressed(evt);
+                txtidentificadorKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtidentificadordeprendaKeyReleased(evt);
+                txtidentificadorKeyReleased(evt);
             }
         });
 
@@ -1208,11 +1210,11 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
         lbconsecutivo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel11.setText("Identificador");
+        jLabel11.setText("Bordacliente");
         jLabel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbbordacliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbbordacliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel51.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1402,7 +1404,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
                                 .addGap(7, 7, 7)
                                 .addComponent(jLabel11)
                                 .addGap(7, 7, 7)
-                                .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -1414,7 +1416,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtidentificadordeprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
@@ -1426,13 +1428,13 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
                     .addComponent(lbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtidentificadordeprenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1611,7 +1613,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
 
        
     
-        identificadordeprenda = txtidentificadordeprenda.getText();
+        identificadordeprenda = txtidentificador.getText();
         
         if (pasa.equals("si"))
             
@@ -1681,7 +1683,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
         String rutadelarchivo = "";
         String existe = "";
         prenda = lbprenda.getText();
-        identificadordeprenda = txtidentificadordeprenda.getText().trim();
+        identificadordeprenda = txtidentificador.getText().trim();
         
        String SQL = "SELECT imagen,extension_imagen FROM bordados_puntadas where codigo = '"+codigodelcliente+"' and tipo = '"+prenda+"' and identificador_prenda = '"+identificadordeprenda+"'  ";
 
@@ -1771,7 +1773,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
    
         String existe = "";
         prenda = lbprenda.getText();
-        identificadordeprenda = txtidentificadordeprenda.getText().trim();
+        identificadordeprenda = txtidentificador.getText().trim();
         
         
         int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea Eliminar esta Imagen permanentemente?", null, JOptionPane.YES_NO_OPTION);
@@ -1838,7 +1840,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
        
         String existe = "";
         String codigodelcliente = lbcodigocliente.getText();
-        identificadordeprenda= txtidentificadordeprenda.getText().trim();
+        identificadordeprenda= txtidentificador.getText().trim();
         prenda = lbprenda.getText();
         String numeroconsecutivo = lbconsecutivo.getText();
         
@@ -1902,15 +1904,15 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
       cargarelfotomontaje();
     }//GEN-LAST:event_btndatosActionPerformed
 
-    private void txtidentificadordeprendaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtidentificadordeprendaFocusGained
-       txtidentificadordeprenda.selectAll();
-    }//GEN-LAST:event_txtidentificadordeprendaFocusGained
+    private void txtidentificadorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtidentificadorFocusGained
+       txtidentificador.selectAll();
+    }//GEN-LAST:event_txtidentificadorFocusGained
 
-    private void txtidentificadordeprendaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidentificadordeprendaKeyReleased
+    private void txtidentificadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidentificadorKeyReleased
 
         
            
-         String nombre = txtidentificadordeprenda.getText();
+         String nombre = txtidentificador.getText();
         
       
          if (nombre.contains("  "))
@@ -1920,11 +1922,11 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
         
             
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de no dejar 2 espacios entre las palabras");
-                txtidentificadordeprenda.requestFocus();
-                txtidentificadordeprenda.selectAll();
+                txtidentificador.requestFocus();
+                txtidentificador.selectAll();
                 
                 
-            txtidentificadordeprenda.setText(nombreanterior);    
+            txtidentificador.setText(nombreanterior);    
                 
             
            
@@ -1937,11 +1939,11 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
          {
         
         
-       String cadena = (txtidentificadordeprenda.getText()).toUpperCase();
+       String cadena = (txtidentificador.getText()).toUpperCase();
 
-        int pos = txtidentificadordeprenda.getCaretPosition();
-         txtidentificadordeprenda.setText(txtidentificadordeprenda.getText().toUpperCase());
-         txtidentificadordeprenda.setCaretPosition(pos);
+        int pos = txtidentificador.getCaretPosition();
+         txtidentificador.setText(txtidentificador.getText().toUpperCase());
+         txtidentificador.setCaretPosition(pos);
 
         
      
@@ -1957,7 +1959,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
          
          
      
-    }//GEN-LAST:event_txtidentificadordeprendaKeyReleased
+    }//GEN-LAST:event_txtidentificadorKeyReleased
 
     private void txt1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt1KeyReleased
 
@@ -2358,13 +2360,13 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
       
     }//GEN-LAST:event_txt7KeyReleased
 
-    private void txtidentificadordeprendaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidentificadordeprendaKeyPressed
+    private void txtidentificadorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidentificadorKeyPressed
       
         
-        nombreanterior = txtidentificadordeprenda.getText();
+        nombreanterior = txtidentificador.getText();
         
         
-    }//GEN-LAST:event_txtidentificadordeprendaKeyPressed
+    }//GEN-LAST:event_txtidentificadorKeyPressed
 
     private void txt1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt1KeyPressed
         
@@ -2609,8 +2611,13 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
 
     private void btnautorizarpuntadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnautorizarpuntadasActionPerformed
 
+        
+        identificador = txtidentificador.getText();
+        
+        
+        
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE codigo='" + lbcodigocliente.getText() + "'  AND numero_consecutivo = '" + consecutivo + "'  ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET autorizacion_puntadas = 'si' WHERE codigo='" + lbcodigocliente.getText() + "'  AND identificador_prenda = '" + identificador + "'  ");
             pst.executeUpdate();
             pst.close();
 
@@ -2664,11 +2671,11 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel52;
     private javax.swing.JSeparator jSeparator2;
     public static javax.swing.JLabel lbanuncio;
+    public static javax.swing.JLabel lbbordacliente;
     public static javax.swing.JLabel lbcliente;
     public static javax.swing.JLabel lbcodigocliente;
     public static javax.swing.JLabel lbconsecutivo;
     private javax.swing.JLabel lbfotomontaje;
-    public static javax.swing.JLabel lbidentificador;
     private javax.swing.JLabel lbidentificadordeprendaanterior;
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbprenda;
@@ -2681,7 +2688,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
     private javax.swing.JTextField txt6;
     private javax.swing.JTextField txt7;
     public static javax.swing.JTextField txtconsecutivo;
-    public static javax.swing.JTextField txtidentificadordeprenda;
+    public static javax.swing.JTextField txtidentificador;
     // End of variables declaration//GEN-END:variables
 connectar cc = new connectar();
 Connection cn = cc.conexion();

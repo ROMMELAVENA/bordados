@@ -87,7 +87,7 @@ public class bordadosdelclientecatalogoVer extends AbstractCellEditor implements
         bordadoseditardistinta.lbcliente.setText(bordadosdelclientecatalogo.cbcomboclientes.getSelectedItem().toString());
         bordadoseditardistinta.lbnombrecomercial.setText(bordadosdelclientecatalogo.cbnombrecomercial.getSelectedItem().toString());
         bordadoseditardistinta.lbcodigocliente.setText(bordadosdelclientecatalogo.lbcodigocliente.getText());
-        bordadoseditardistinta.txtidentificadordeprenda.setText(nombrebordado.toString());
+        bordadoseditardistinta.txtidentificador.setText(nombrebordado.toString());
         bordadoseditardistinta.txtconsecutivo.setText(numeroconsecutivo.toString());
         bordadoseditardistinta.lbprenda.setText(prendatabla.toString());
         bordadoseditardistinta.lbanuncio.setText("DISTINTA");

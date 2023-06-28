@@ -1927,48 +1927,59 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 
                 
                 
+           
                 
-                // PONCHADO
+                // CORBATA
                 
-                else if (tipo.equals("Orden ponchado")) 
+                else if (tipo.equals("Orden corbata")||tipo.equals("Corbata")) 
                 {
-                    if (ordenponchado.ventanaordenparcheanteriores == true) 
-                    {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de ponchado ya está abierta");
-
-                    }
-                    else 
-                    {
+                   
+                    
                         
-                       
-                        fotomontajeautorizado ="si";
-                        
-                         if (fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida")) {
-                            ordenponchado orden = new ordenponchado();
-                            orden.setVisible(true);
+                        if (ordencorbata.ventanaordencorbataanteriores == true) 
+                        {
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de corbata ya está abierta");
 
-                            ordenponchado.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
-                            ordenponchado.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                            ordenponchado.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
-                            ordenponchado.tipotabla = (tabla.getValueAt(fila, 10).toString());
-                            tabla.clearSelection();
-                           
-                         }
+                        }
+                        else 
+                        {
+                        
+                        Object numerodefolio = tabla.getValueAt(fila, 0);
+                        Object nombre_tabla = "historial_ordenes_corbata";
+                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        
+                        
+                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
+                        {    
+                            
+                        ordencorbata orden = new ordencorbata();
+                        orden.setVisible(true);
+
+                        ordencorbata.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencorbata.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        
+                         tabla.clearSelection();
+                         
+                        
+                        }
                          else
                         {
                           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
-                        }  
-                        
+                        }   
+                         
                     }
+                        
+                 
+                   
                 }
                 
                 
                 
                 
                 
-                
-                
-                // PARCHE
+                     // PARCHE
                 
                 else if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
                 {
@@ -2028,51 +2039,52 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 }
                 
                 
-                // CORBATA
                 
-                else if (tipo.equals("Orden corbata")||tipo.equals("Corbata")) 
+                
+                
+                
+                
+                
+                // PONCHADO
+                
+                else if (tipo.equals("Orden ponchado")) 
                 {
-                   
-                    
-                        
-                        if (ordencorbata.ventanaordencorbataanteriores == true) 
-                        {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de corbata ya está abierta");
+                    if (ordenponchado.ventanaordenparcheanteriores == true) 
+                    {
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de ponchado ya está abierta");
 
-                        }
-                        else 
-                        {
+                    }
+                    else 
+                    {
                         
-                        Object numerodefolio = tabla.getValueAt(fila, 0);
-                        Object nombre_tabla = "historial_ordenes_corbata";
-                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                       
+                        fotomontajeautorizado ="si";
                         
-                        
-                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
-                        {    
-                            
-                        ordencorbata orden = new ordencorbata();
-                        orden.setVisible(true);
+                         if (fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida")) {
+                            ordenponchado orden = new ordenponchado();
+                            orden.setVisible(true);
 
-                        ordencorbata.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordencorbata.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
-                        
-                         tabla.clearSelection();
-                         
-                        
-                        }
+                            ordenponchado.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                            ordenponchado.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                            ordenponchado.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                            ordenponchado.tipotabla = (tabla.getValueAt(fila, 10).toString());
+                            tabla.clearSelection();
+                           
+                         }
                          else
                         {
                           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
-                        }   
-                         
-                    }
+                        }  
                         
-                 
-                   
+                    }
                 }
+                
+                
+                
+                
+                
+                
+                
                 
                 
                 // PORTA NOMBRE ESCOLAR

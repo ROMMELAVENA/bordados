@@ -114,7 +114,7 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
 
     void datos() {
 
-        DefaultTableModel modelo = (DefaultTableModel) tablacamisa.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
 
 
         String[] datos = new String[10];
@@ -349,8 +349,8 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"sql orden portanombremultiple" + ex);
         }        
         
-        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tablacamisa.getModel());
-        tablacamisa.setRowSorter(sorter);
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tabla.getModel());
+        tabla.setRowSorter(sorter);
         List<RowSorter.SortKey> sortKeys = new ArrayList<>(100);
         sortKeys.add(new RowSorter.SortKey(0, SortOrder.DESCENDING));
         sorter.setSortKeys(sortKeys);
@@ -360,8 +360,8 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
     
     void limpiartabla() {
         try {
-            DefaultTableModel modelo = (DefaultTableModel) tablacamisa.getModel();
-            int filas = tablacamisa.getRowCount();
+            DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+            int filas = tabla.getRowCount();
             for (int i = 0; filas > i; i++) {
                 modelo.removeRow(0);
             }
@@ -399,7 +399,7 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablacamisa = new javax.swing.JTable();
+        tabla = new javax.swing.JTable();
         btnsalir = new javax.swing.JButton();
         lbnumero = new javax.swing.JLabel();
         lbinterface = new javax.swing.JLabel();
@@ -408,7 +408,7 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
         btnfrente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Ordenes bordado realizadas");
+        setTitle("Ordenes realizadas");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -423,8 +423,8 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
             }
         });
 
-        tablacamisa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        tablacamisa.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -440,25 +440,25 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tablacamisa.setRowHeight(32);
-        tablacamisa.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabla.setRowHeight(32);
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablacamisaMouseClicked(evt);
+                tablaMouseClicked(evt);
             }
         });
-        tablacamisa.addKeyListener(new java.awt.event.KeyAdapter() {
+        tabla.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                tablacamisaKeyPressed(evt);
+                tablaKeyPressed(evt);
             }
         });
-        jScrollPane1.setViewportView(tablacamisa);
-        if (tablacamisa.getColumnModel().getColumnCount() > 0) {
-            tablacamisa.getColumnModel().getColumn(3).setMinWidth(0);
-            tablacamisa.getColumnModel().getColumn(3).setPreferredWidth(0);
-            tablacamisa.getColumnModel().getColumn(3).setMaxWidth(0);
-            tablacamisa.getColumnModel().getColumn(4).setMinWidth(0);
-            tablacamisa.getColumnModel().getColumn(4).setPreferredWidth(0);
-            tablacamisa.getColumnModel().getColumn(4).setMaxWidth(0);
+        jScrollPane1.setViewportView(tabla);
+        if (tabla.getColumnModel().getColumnCount() > 0) {
+            tabla.getColumnModel().getColumn(3).setMinWidth(0);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(4).setMinWidth(0);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(4).setMaxWidth(0);
         }
 
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -545,40 +545,52 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowOpened
 
-    private void tablacamisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablacamisaMouseClicked
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
 
         if (evt.getClickCount() == 2) {
 
-            int fila = tablacamisa.getSelectedRow();
+            int fila = tabla.getSelectedRow();
 
             if (fila >= 0) {
 
-                Object tipo = tablacamisa.getValueAt(fila, 3).toString();
+                Object tipo = tabla.getValueAt(fila, 3).toString();
 
-                if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) {
-                    if (ordencamisa.ventanaordencamisa == true) {
+                if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) 
+                
+                {
+                    if (ordencamisa.ventanaordencamisa == true) 
+                    
+                    {
                         
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
+                        JOptionPane.showMessageDialog(null, "La orden de camisa ya esta abierta");
 
-                    } else {
-                        ordencamisa orden = new ordencamisa();
-                        orden.setVisible(true);
+                    } 
+                    
+                    else 
+                    
+                    {
+                        ordencamisa ventana = new ordencamisa();
+                        ventana.setVisible(true);
 
-                        ordencamisa.lborden.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordencamisa.lbnumerodeventa.setText(tablacamisa.getValueAt(fila, 5).toString());
-                        ordencamisa.lbprenda.setText(tablacamisa.getValueAt(fila, 2).toString());
-                         ordencamisa.lbtipo.setText(tablacamisa.getValueAt(fila, 3).toString());
-                         ordencamisa.enquesucursalsebordara=(tablacamisa.getValueAt(fila, 4).toString());
-                        ordencamisa.tipotabla=(tablacamisa.getValueAt(fila, 10).toString());
-                        tablacamisa.clearSelection();
+                        ordencamisa.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencamisa.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordencamisa.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
+                         ordencamisa.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                         ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        tabla.clearSelection();
 
                        
                     }
 
                 
-                } else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) {
+                }
+                
+                else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
+                
+                {
                     if (ordengorra.ventanaordengorra == true) {
-                        JOptionPane.showMessageDialog(null, "Favor de cerrar la ventana de orden de camisa anteriores");
+                        JOptionPane.showMessageDialog(null, "La orden de gorra ya esta abierta");
 
                     } 
                     
@@ -587,20 +599,171 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
                     
                     
                     {
-                        ordengorra orden = new ordengorra();
-                        orden.setVisible(true);
+                        ordengorra ventana = new ordengorra();
+                        ventana.setVisible(true);
 
-                        ordengorra.lborden.setText(tablacamisa.getValueAt(fila, 0).toString());
-                        ordengorra.lbnumerodeventa.setText(tablacamisa.getValueAt(fila, 5).toString());
-                     
-
+                        ordengorra.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordengorra.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordengorra.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordengorra.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        tabla.clearSelection();
                         
                     }
-                } else {
-
-                  
-
                 }
+                
+               
+                
+                
+                
+                
+                
+                // PANTALON
+                
+                else if (tipo.equals("Orden pantalon")) {
+                    if (ordenpantalon.ventanaordenpantalonanteriores == true) 
+                    {
+                        
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de pantalon ya esta abierta");
+
+                    } 
+                    
+                    else
+                    {
+                        
+                        
+                        ordenpantalon ventana = new ordenpantalon();
+                        ventana.setVisible(true);
+
+                        ordenpantalon.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenpantalon.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordenpantalon.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordenpantalon.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        tabla.clearSelection();
+                        
+                        
+                      
+                    }
+
+                
+                } 
+                
+                
+                
+                
+                
+           
+                
+                // CORBATA
+                
+                else if (tipo.equals("Orden corbata")||tipo.equals("Corbata")) 
+                {
+                   
+                    
+                        
+                        if (ordencorbata.ventanaordencorbataanteriores == true) 
+                        {
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de corbata ya está abierta");
+
+                        }
+                        else 
+                        {
+                        
+                      
+                            
+                            ordencorbata ventana = new ordencorbata();
+                        ventana.setVisible(true);
+
+                        ordencorbata.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencorbata.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordencorbata.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordencorbata.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        tabla.clearSelection();
+                         
+                    }
+                        
+                 
+                   
+                }
+                
+                
+                
+                
+                
+                     // PARCHE
+                
+                else if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
+                {
+                    if (ordenparche.ventanaordenparcheanteriores == true) {
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de parche ya está abierta");
+
+                    }
+                    
+                    
+                    else 
+                    
+                    
+                    
+                    
+                    {
+                        
+                           ordenparche ventana = new ordenparche();
+                        ventana.setVisible(true);
+
+                        ordenparche.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenparche.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordenparche.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordenparche.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        tabla.clearSelection();
+                         
+                 
+                         
+                        
+                    }
+                }
+                
+                
+                
+                
+                
+                
+                
+                
+                // PONCHADO
+                
+                else if (tipo.equals("Orden ponchado")) 
+                {
+                    if (ordenponchado.ventanaordenparcheanteriores == true) 
+                    {
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de ponchado ya está abierta");
+
+                    }
+                    else 
+                    {
+                          ordenponchado ventana = new ordenponchado();
+                        ventana.setVisible(true);
+
+                     //   ordenponchado.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                     //   ordenponchado.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordenponchado.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordenponchado.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        tabla.clearSelection();
+                         
+                     
+                        
+                    }
+                }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
 
             }
 
@@ -609,7 +772,7 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_tablacamisaMouseClicked
+    }//GEN-LAST:event_tablaMouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         ventanaordenesbordadogenerada = false;
@@ -624,12 +787,12 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
         this.toFront();
     }//GEN-LAST:event_btnfrenteActionPerformed
 
-    private void tablacamisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablacamisaKeyPressed
+    private void tablaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaKeyPressed
       if (evt.getKeyCode() == KeyEvent.VK_F5) 
         {
             btnactualizar.doClick();
         }
-    }//GEN-LAST:event_tablacamisaKeyPressed
+    }//GEN-LAST:event_tablaKeyPressed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
        if (evt.getKeyCode() == KeyEvent.VK_F5) 
@@ -1704,7 +1867,7 @@ public class ordenesrealizadas_copia extends javax.swing.JFrame {
     public static javax.swing.JLabel lbinterface;
     public static javax.swing.JLabel lbnumero;
     public static javax.swing.JLabel lbtienda;
-    private javax.swing.JTable tablacamisa;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 connectar cc = new connectar();
 Connection cn = cc.conexion();

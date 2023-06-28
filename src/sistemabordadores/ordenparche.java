@@ -2454,7 +2454,7 @@ else
         }
          
          
-         /*         try {    
+         /*        try {    
             agregarfotomontajeotrasucursal();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);

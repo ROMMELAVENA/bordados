@@ -2720,8 +2720,9 @@ public class ordencamisa extends javax.swing.JFrame {
       {
 
         String numeroventa =  lbnumerodeventa.getText();
-        Object cantidadstring ="";
-        String nuevacantidadstring = "";
+        String surtidaactualstring ="";
+        int surtidaactualint =  0;
+        String nuevasurtidastring = "";
         String estatusentrega ="";
         String estatusentregaventa = "";
         
@@ -2735,7 +2736,8 @@ public class ordencamisa extends javax.swing.JFrame {
             
        
 
-        cantidadstring = rs.getString("cantidad");
+        surtidaactualstring = rs.getString("cantidad");
+        surtidaactualint = Integer.parseInt(surtidaactualstring);
         estatusentregaventa= rs.getString("estatus_entrega");
 
         }
@@ -2743,7 +2745,7 @@ public class ordencamisa extends javax.swing.JFrame {
         else
         {
      
-        String observacion = "\n no se pudo surtir debido a que NO SE ENCONTRÓ EN LA VENTA; QUIZAS SE CAMBIO DE NOMBRE";
+        String observacion = "\n no se pudo surtir debido a que NO SE ENCONTRÓ EN LA VENTA; QUIZAS SE CAMBIO LA DESCRIPCION DEL BORDADO";
         
         String[] lineas = observacion.split("\n");
         
@@ -2764,16 +2766,16 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-          if(cantidadstring ==null || cantidadstring.equals("")||cantidadstring.equals(" "))
+          if(surtidaactualstring ==null || surtidaactualstring.equals("")||surtidaactualstring.equals(" "))
       {
-          cantidadstring ="0";
+          surtidaactualstring ="0";
       } 
           
        
-        int cantidadint =  Integer.parseInt(cantidad);
-
-        int nuevacantidadint = cantidadint;
-        nuevacantidadstring =  String.valueOf(nuevacantidadint);
+        int surtidasint =  Integer.parseInt(cantidad);
+        int surtidasnuevasint = surtidaactualint + surtidasint;
+       
+        nuevasurtidastring =  String.valueOf(surtidasnuevasint);
             
         
         
@@ -2799,7 +2801,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtida = '" + nuevacantidadstring + "' WHERE numero_sucursal ='" + numeroordendeenviosolicitada + "' and articulo = '" + ubicacion + "'      ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtida = '" + nuevasurtidastring + "' WHERE numero_sucursal ='" + numeroordendeenviosolicitada + "' and articulo = '" + ubicacion + "'      ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -2897,7 +2899,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevacantidadstring + "' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'      ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevasurtidastring + "' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'      ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {

@@ -758,7 +758,7 @@ public class ordencamisa extends javax.swing.JFrame {
                      if(botonhabilitado1.equals("si"))
                    {
                      btnpechoizquierdocancelar.setEnabled(true);
-                //  ROMMEL QUITAR COMENTARIO    btnpechoizquierdotermine.setEnabled(false);
+                   btnpechoizquierdotermine.setEnabled(false);  //  ROMMEL PONERLE FALSE 
                    
                      
                    }
@@ -773,8 +773,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if(cantidadpechoderecho.equals("0")  && botonhabilitado2.equals("si") )
                 {
                    btnpechoderechotermine.setEnabled(true);
-              //     btnpechoderecho.setText("Pecho derecho");
-             //      btnpechoderecho.setForeground(Color.green.darker());
+            
                    if(botonhabilitado2.equals("si"))
                    {
                    listabotones.add("btnpechoderecho");
@@ -788,7 +787,7 @@ public class ordencamisa extends javax.swing.JFrame {
                      if(botonhabilitado2.equals("si"))
                    {
                     btnpechoderechocancelar.setEnabled(true);
-                    btnpechoderechotermine.setEnabled(false);   
+                       btnpechoderechotermine.setEnabled(true);    //  ROMMEL PONERLE FALSE
                     
                    }
                    else
@@ -815,7 +814,7 @@ public class ordencamisa extends javax.swing.JFrame {
                    if(botonhabilitado3.equals("si"))
                    {
                   btnmangaizquierdacancelar.setEnabled(true);
-             //  ROMMEL QUITAR COMENTARIO            btnmangaizquierdatermine.setEnabled(false); 
+                       btnmangaizquierdatermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
                    
                    }
                   
@@ -827,8 +826,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if(cantidadmangaderecha.equals("0")  && botonhabilitado4.equals("si") )
                 {
                    btnmangaderechatetermine.setEnabled(true);
-              //     btnmangaderecha.setText("Manga Derecha");
-              //     btnmangaderecha.setForeground(Color.green.darker());
+         
                     if(botonhabilitado4.equals("si"))
                    {
                    listabotones.add("btnmangaderecha");
@@ -843,7 +841,7 @@ public class ordencamisa extends javax.swing.JFrame {
                      if(botonhabilitado4.equals("si"))
                    {
                  btnmangaderechacancelar.setEnabled(true);
-              //  ROMMEL QUITAR COMENTARIO        btnmangaderechatetermine.setEnabled(false);
+                 btnmangaderechatetermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
               
                     
                    }
@@ -863,8 +861,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 if(cantidadespalda.equals("0")  && botonhabilitado5.equals("si") )
                 {
                    btnespaldatetermine.setEnabled(true);
-              //     btnespalda.setText("Espalda");
-              //     btnespalda.setForeground(Color.green.darker());
+            
                    if(botonhabilitado5.equals("si"))
                    {
                    listabotones.add("btnespalda");
@@ -878,7 +875,7 @@ public class ordencamisa extends javax.swing.JFrame {
                    if(botonhabilitado5.equals("si"))
                    {
                    btnespaldacancelar.setEnabled(true);
-                //  ROMMEL QUITAR COMENTARIO         btnespaldatetermine.setEnabled(false);
+                   btnespaldatetermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
                   
                    }
                    else
@@ -907,7 +904,7 @@ public class ordencamisa extends javax.swing.JFrame {
                     if(botonhabilitado6.equals("si"))
                    {
                    btnotraubicacioncancelar.setEnabled(true);
-                //  ROMMEL QUITAR COMENTARIO         btnotraubicaciontetermine.setEnabled(false);
+                   btnotraubicaciontetermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
                   
                    }
                   
@@ -931,7 +928,7 @@ public class ordencamisa extends javax.swing.JFrame {
                      if(botonhabilitado7.equals("si"))
                    {
                  btnotraubicacion2cancelar.setEnabled(true);
-                 //  ROMMEL QUITAR COMENTARIO     btnotraubicacion2tetermine.setEnabled(false);
+                 btnotraubicacion2tetermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
                  
                    }
                   

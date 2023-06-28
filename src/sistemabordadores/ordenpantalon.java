@@ -2093,19 +2093,43 @@ public class ordenpantalon extends javax.swing.JFrame {
       {
 
         String numeroventa =  lbnumerodeventa.getText();
-        Object cantidadstring ="";
-        String nuevacantidadstring = "";
+        String surtidaactualstring ="";
+        int surtidaactualint =  0;
+        String nuevasurtidastring = "";
         String estatusentrega ="";
+        String estatusentregaventa = "";
         
-        String SQL2 = "select cantidad from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
+        String SQL2 = "select articulo,cantidad,estatus_entrega from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
 
         if (rs.next()) 
         {
-        cantidadstring = rs.getString("cantidad");
+            
+       
 
+        surtidaactualstring = rs.getString("cantidad");
+        surtidaactualint = Integer.parseInt(surtidaactualstring);
+        estatusentregaventa= rs.getString("estatus_entrega");
+
+        }
+        
+        else
+        {
+     
+        String observacion = "\n no se pudo surtir debido a que NO SE ENCONTRÓ EN LA VENTA; QUIZAS SE CAMBIO LA DESCRIPCION DEL BORDADO";
+        
+        String[] lineas = observacion.split("\n");
+        
+        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacion+"" + lineas[0] + "</span><br>";
+        if (lineas.length > 1) {
+         mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
+}
+
+JOptionPane.showMessageDialog(null, mensaje);
+             
+             
         }
         
 
@@ -2113,24 +2137,25 @@ public class ordenpantalon extends javax.swing.JFrame {
             System.out.println (ex);
         }
         
-      if(cantidadstring ==null || cantidadstring.equals("")||cantidadstring.equals(" "))
+        
+        
+          if(surtidaactualstring ==null || surtidaactualstring.equals("")||surtidaactualstring.equals(" "))
       {
-          cantidadstring ="0";
-      }
+          surtidaactualstring ="0";
+      } 
+          
        
-        
-        
-        int cantidadstringint = Integer.parseInt(cantidadstring.toString());
-        int cantidadint =  Integer.parseInt(cantidad);
-
-        int nuevacantidadint = cantidadint;
-        nuevacantidadstring =  String.valueOf(nuevacantidadint);
+        int surtidasint =  Integer.parseInt(cantidad);
+        int surtidasnuevasint = surtidaactualint + surtidasint;
+       
+        nuevasurtidastring =  String.valueOf(surtidasnuevasint);
             
+      
             
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevacantidadstring + "' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'      ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevasurtidastring + "' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'      ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {

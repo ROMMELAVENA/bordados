@@ -46,7 +46,7 @@ public class ordencorbata extends javax.swing.JFrame {
     String primero = "";
     String ultimo = "";
     String lugar = "";
-    
+    String fechaubicacion = "";
     String prenda = "";
      String ipdelaotratienda = "";
       String numerosucursal = "";
@@ -78,6 +78,9 @@ public class ordencorbata extends javax.swing.JFrame {
     String tiendalocal = "";
     String iplocal = principal.lbiplocal.getText();
     
+    
+       public static final Color anaranjado = new Color(255,166,77);
+    
 
     public ordencorbata() {
         initComponents();
@@ -108,7 +111,7 @@ public class ordencorbata extends javax.swing.JFrame {
 
         String folio = lborden.getText();
 
-        String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_puntadas,cantidad_frente from historial_ordenes_corbata where numero = '" + folio + "'";
+        String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_puntadas,cantidad_frente,estatus_orden from historial_ordenes_corbata where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -169,6 +172,49 @@ public class ordencorbata extends javax.swing.JFrame {
 
                 lblugar.setText(rs.getString("lugar"));
                 lugar =rs.getString("lugar");
+                
+                
+                
+                
+                 String estatusorden = rs.getString("estatus_orden");
+                 lbestatus.setText(estatusorden);
+                
+                if(estatusorden.equals("realizada totalmente"))
+                {
+                  btnterminetodo.setEnabled(false);
+                  lbestatus.setForeground(Color.green.darker());
+               
+                  
+                  
+                }
+                else
+                {
+                   btnterminetodo.setEnabled(true); 
+                    btnterminetodo.setEnabled(true);
+                   
+                   
+                  if(estatusorden.equals("realizada parcialmente"))
+                  {
+                      
+                       lbestatus.setForeground(anaranjado);
+                      
+                  }
+                  else
+                  {
+                      lbestatus.setForeground(Color.red);
+                  }
+                   
+                   
+                   
+                   
+                   
+                }   
+                
+                
+                
+                
+                
+                
 
             }
 
@@ -1852,7 +1898,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
       
             String ubicacion = "cantidad_frente";
-            String fechaubicacion = "frente_fecha";
+            fechaubicacion = "frente_fecha";
         
            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion); 
            

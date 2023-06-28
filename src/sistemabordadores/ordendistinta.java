@@ -47,7 +47,7 @@ public class ordendistinta extends javax.swing.JFrame {
     String remanentebordadosstring = "";
     int nuevoremanentebordadosint = 0;
     String nuevoremanentebordadossstring = "";
-    
+     String fechaubicacion = "";
      String consecutivo = "";
 
     String bordadosutilizadosstring = "";
@@ -160,8 +160,15 @@ public class ordendistinta extends javax.swing.JFrame {
         String botonhabilitado5 = "si";
         String botonhabilitado6 = "si";
         String botonhabilitado7 = "si";
+        
+        
+        
     
     ArrayList<String> listabotones = new ArrayList<String>();
+    
+    
+    
+       public static final Color anaranjado = new Color(255,166,77);
 
     
 
@@ -240,7 +247,43 @@ public class ordendistinta extends javax.swing.JFrame {
 
                 
                 tipoprenda = rs.getString("tipo");
-                estatusorden = rs.getString("estatus_orden");
+           
+                
+                
+                
+                 estatusorden = rs.getString("estatus_orden");
+                 lbestatus.setText(estatusorden);
+                
+                if(estatusorden.equals("realizada totalmente"))
+                {
+                  btnterminetodo.setEnabled(false);
+                  lbestatus.setForeground(Color.green.darker());
+               
+                  
+                  
+                }
+                else
+                {
+                   btnterminetodo.setEnabled(true); 
+                    btnterminetodo.setEnabled(true);
+                   
+                   
+                  if(estatusorden.equals("realizada parcialmente"))
+                  {
+                      
+                       lbestatus.setForeground(anaranjado);
+                      
+                  }
+                  else
+                  {
+                      lbestatus.setForeground(Color.red);
+                  }
+                   
+                   
+                   
+                   
+                   
+                }   
                 
                 String observacion = rs.getString("observacion");
                 
@@ -3337,6 +3380,8 @@ public class ordendistinta extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lbestatus = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden distinta");
@@ -3802,6 +3847,14 @@ public class ordendistinta extends javax.swing.JFrame {
         jLabel23.setText("Identificador");
         jLabel23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Estatus");
+        jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbestatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbestatus.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -4013,7 +4066,6 @@ public class ordendistinta extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
@@ -4024,7 +4076,13 @@ public class ordendistinta extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(lbestatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
@@ -4079,7 +4137,12 @@ public class ordendistinta extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbnumeroventa)
@@ -4436,7 +4499,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             String ubicacion = "distinta2_cantidad";
-            String fechaubicacion = "distinta2_fecha";
+            fechaubicacion = "distinta2_fecha";
           
             String cantidadaplicacion = distinta2aplicacion;
             String cantidad = lbcantidad.getText();
@@ -4470,7 +4533,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             String ubicacion = "distinta4_cantidad";
-            String fechaubicacion = "distinta4_fecha";
+            fechaubicacion = "distinta4_fecha";
            
             String cantidadaplicacion = distinta4aplicacion;
             String cantidad = lbcantidad.getText();
@@ -4501,7 +4564,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             String ubicacion = "distinta5_cantidad";
-            String fechaubicacion = "distinta5_fecha";
+            fechaubicacion = "distinta5_fecha";
            
             String cantidadaplicacion = distinta5aplicacion;
             
@@ -4533,7 +4596,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             String ubicacion = "distinta3_cantidad";
-            String fechaubicacion = "distinta3_fecha";
+            fechaubicacion = "distinta3_fecha";
             
             String cantidadaplicacion = distinta3aplicacion;
             String cantidad = lbcantidad.getText();
@@ -4564,7 +4627,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             String ubicacion = "distinta1_cantidad";
-            String fechaubicacion = "distinta1_fecha";
+            fechaubicacion = "distinta1_fecha";
          
             String cantidadaplicacion = distinta1aplicacion;
             String cantidad = lbcantidad.getText();
@@ -4656,7 +4719,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             String ubicacion = "distinta6_cantidad";
-            String fechaubicacion = "distinta6_fecha"; 
+            fechaubicacion = "distinta6_fecha"; 
             
             String cantidadaplicacion = distinta6aplicacion;
             String cantidad = lbcantidad.getText();
@@ -4687,7 +4750,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             String ubicacion = "distinta7_cantidad";
-            String fechaubicacion = "distinta7_fecha";
+            fechaubicacion = "distinta7_fecha";
           
             
             String cantidadaplicacion = distinta7aplicacion;
@@ -5209,6 +5272,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -5245,6 +5309,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbdistinta6nombre;
     public static javax.swing.JLabel lbdistinta7;
     public static javax.swing.JLabel lbdistinta7nombre;
+    public static javax.swing.JLabel lbestatus;
     public static javax.swing.JLabel lbfecha;
     private javax.swing.JLabel lbfotomontaje;
     public static javax.swing.JLabel lbidentificador;

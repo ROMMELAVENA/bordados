@@ -59,7 +59,7 @@ public static boolean ventanaordenparcheanteriores = false;
         String numerodeventa = "";
         String descripcion = "";
         String aplicacioninsertar = "";
-        
+        String fechaubicacion = "";
         String tienefotomontaje = "";
         String rutaimagen = "";
         String codigocliente = "";
@@ -85,6 +85,9 @@ public static boolean ventanaordenparcheanteriores = false;
         String iplocal = ingresotienda.iplocal;
      
      public static String enquesucursalsebordara ="";
+     
+     
+        public static final Color anaranjado = new Color(255,166,77);
     
     
    
@@ -165,22 +168,39 @@ public static boolean ventanaordenparcheanteriores = false;
                 mostrarrenglones();
                 
              
-                 String estatusorden = rs.getString("estatus_orden");
+              String estatusorden = rs.getString("estatus_orden");
+                 lbestatus.setText(estatusorden);
                 
                 if(estatusorden.equals("realizada totalmente"))
                 {
-                  btnterminetodo.setEnabled(true);  
-                  btnterminetodo.setText("Cancelar");
-                  btnterminetodo.setForeground(Color.red.darker());
+                  btnterminetodo.setEnabled(false);
+                  lbestatus.setForeground(Color.green.darker());
+               
+                  
+                  
                 }
                 else
                 {
                    btnterminetodo.setEnabled(true); 
-                   btnterminetodo.setText("Hecho");
-                   btnterminetodo.setForeground(Color.green.darker());
-                } 
-                
-                
+                    btnterminetodo.setEnabled(true);
+                   
+                   
+                  if(estatusorden.equals("realizada parcialmente"))
+                  {
+                      
+                       lbestatus.setForeground(anaranjado);
+                      
+                  }
+                  else
+                  {
+                      lbestatus.setForeground(Color.red);
+                  }
+                   
+                   
+                   
+                   
+                   
+                }   
              
             }
 
@@ -287,7 +307,7 @@ public static boolean ventanaordenparcheanteriores = false;
                 lbfecha.setText("");
               
                
-                lbestatusentrega.setText("");
+                lbestatus.setText("");
             
               
               
@@ -1726,7 +1746,7 @@ public static boolean ventanaordenparcheanteriores = false;
         lbhoraentrega = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         lbcliente = new javax.swing.JLabel();
-        lbestatusentrega = new javax.swing.JLabel();
+        lbestatus = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         lbsumapuntos = new javax.swing.JLabel();
@@ -1851,8 +1871,8 @@ public static boolean ventanaordenparcheanteriores = false;
         lbcliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbcliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbestatusentrega.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbestatusentrega.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbestatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbestatus.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel29.setText("Estatus:");
@@ -2106,7 +2126,7 @@ public static boolean ventanaordenparcheanteriores = false;
                                 .addGap(28, 28, 28)
                                 .addComponent(jLabel29)
                                 .addGap(14, 14, 14)
-                                .addComponent(lbestatusentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btndatos))
                             .addGroup(layout.createSequentialGroup()
@@ -2232,7 +2252,7 @@ public static boolean ventanaordenparcheanteriores = false;
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbestatusentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btndatos))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2533,7 +2553,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         cantidadparchesactualizar = lbcantidad.getText();
         nombredelparche = lbprenda.getText();
         
-        String fechaubicacion = "parche_fecha";
+        fechaubicacion = "parche_fecha";
      
                 
         insertarlacantidadylafechaenlaubicacion((String) cantidadparchesactualizar,(String)nombredelparche, (String) fechaubicacion);
@@ -2731,12 +2751,38 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnfrentetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrentetermineActionPerformed
 
         
-        /*
+        
+        
+         regresaralaconeccionlocal(); 
+      
+      fechaubicacion  = "pecho_izquierdo_fecha";
+      String ubicacion = "cantidad_pecho_izquierdo";
+        
+      String cantidad = lbcantidad.getText();
+      
+        
+         if(cantidad.equals("0"))
+        {
+           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
+        }
+        else
+        { 
+        
+        
+        
+        
+        
+        
+        /*9
+        
+        
+        
+        
         if(lugar.equals("Esta sucursal"))
         {
 
             String ubicacion = "cantidad_frente";
-            String fechaubicacion = "frente_fecha";
+            fechaubicacion = "frente_fecha";
 
             actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
 
@@ -2755,10 +2801,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
         }
-        else
-        {
-
-        }
+      
+        
 
         try {
             datosOrdenesLocales();
@@ -2769,7 +2813,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         this.dispose();
 
 
-*/
+
+        */
+        
+        
+        }
 
 
 
@@ -2825,7 +2873,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbcliente;
     public javax.swing.JLabel lbcodigofrente;
     public javax.swing.JLabel lbcolorfrente;
-    private javax.swing.JLabel lbestatusentrega;
+    private javax.swing.JLabel lbestatus;
     private javax.swing.JLabel lbfecha;
     private javax.swing.JLabel lbfechaentrega;
     private javax.swing.JLabel lbfotomontaje;

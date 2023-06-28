@@ -54,7 +54,7 @@ public class ordengorra extends javax.swing.JFrame {
     String remanentebordadosstring = "";
     int nuevoremanentebordadosint = 0;
     String nuevoremanentebordadossstring = "";
-
+    String fechaubicacion = "";
     String bordadosutilizadosstring = "";
     int bordadosutilizadosint = 0;
 
@@ -116,6 +116,9 @@ public class ordengorra extends javax.swing.JFrame {
    String rutaatras = "";
    String rutaladoizquierdo = "";
    String rutaladoderecho = "";
+   
+   
+      public static final Color anaranjado = new Color(255,166,77);
    
  
 
@@ -518,19 +521,42 @@ public class ordengorra extends javax.swing.JFrame {
                 lbobservaciones.setText(observacion);
                 
                 }  
+                
+                
                   
-                String estatusorden = rs.getString("estatus_orden");
+               String estatusorden = rs.getString("estatus_orden");
+                 lbestatus.setText(estatusorden);
                 
                 if(estatusorden.equals("realizada totalmente"))
                 {
-                  btnterminetodo.setEnabled(false);  
+                  btnterminetodo.setEnabled(false);
+                  lbestatus.setForeground(Color.green.darker());
+               
+                  
+                  
                 }
                 else
                 {
                    btnterminetodo.setEnabled(true); 
+                    btnterminetodo.setEnabled(true);
+                   
+                   
+                  if(estatusorden.equals("realizada parcialmente"))
+                  {
+                      
+                       lbestatus.setForeground(anaranjado);
+                      
+                  }
+                  else
+                  {
+                      lbestatus.setForeground(Color.red);
+                  }
+                   
+                   
+                   
+                   
+                   
                 }   
-                
-                  
 
             }
 
@@ -3656,7 +3682,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
            
             String ubicacion = "cantidad_lado_derecho";
-            String fechaubicacion = "lado_derecho_fecha";
+            fechaubicacion = "lado_derecho_fecha";
          
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             
@@ -4080,7 +4106,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
                 
                 String ubicacion = "cantidad_frente";
-                String fechaubicacion = "frente_fecha";
+                fechaubicacion = "frente_fecha";
          
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
          
@@ -4158,7 +4184,7 @@ JOptionPane.showMessageDialog(null, mensaje);
    
             
             String ubicacion = "cantidad_lado_izquierdo";
-            String fechaubicacion = "lado_izquierdo_fecha";
+            fechaubicacion = "lado_izquierdo_fecha";
          
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             
@@ -4221,7 +4247,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
               
             String ubicacion = "cantidad_atras";
-            String fechaubicacion = "atras_fecha";
+            fechaubicacion = "atras_fecha";
          
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             

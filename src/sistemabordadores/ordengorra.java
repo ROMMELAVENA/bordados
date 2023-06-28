@@ -1905,7 +1905,7 @@ public class ordengorra extends javax.swing.JFrame {
         String estatusentrega ="";
         String estatusentregaventa = "";
         
-        String SQL2 = "select articulo,cantidad,estatus_entrega from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
+        String SQL2 = "select articulo,surtida,estatus_entrega from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -1915,7 +1915,7 @@ public class ordengorra extends javax.swing.JFrame {
             
        
 
-        surtidaactualstring = rs.getString("cantidad");
+        surtidaactualstring = rs.getString("surtida");
         surtidaactualint = Integer.parseInt(surtidaactualstring);
         estatusentregaventa= rs.getString("estatus_entrega");
 

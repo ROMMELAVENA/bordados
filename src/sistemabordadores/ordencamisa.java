@@ -758,7 +758,7 @@ public class ordencamisa extends javax.swing.JFrame {
                      if(botonhabilitado1.equals("si"))
                    {
                      btnpechoizquierdocancelar.setEnabled(true);
-                   btnpechoizquierdotermine.setEnabled(false);  //  ROMMEL PONERLE FALSE 
+                   btnpechoizquierdotermine.setEnabled(true);  //  ROMMEL PONERLE FALSE 
                    
                      
                    }

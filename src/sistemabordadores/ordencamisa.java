@@ -1273,6 +1273,7 @@ public class ordencamisa extends javax.swing.JFrame {
                    listabotones.add("btnpechoderecho");
                    btnterminetodo.setEnabled(true);
                    
+                   
                    }
                   
                 }

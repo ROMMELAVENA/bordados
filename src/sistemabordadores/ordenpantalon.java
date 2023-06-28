@@ -66,7 +66,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     ///
     String descripcion = "";
     String aplicacioninsertar = "";
-    
+    String numeroordendeenviosolicitada = "";
     String ladoizquierdofrentenombre = "";
     String ladoderechofrentenombre = "";
     String ladoizquierdoatrasnombre = "";
@@ -196,7 +196,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 prenda = rs.getString("prenda");
                 
-                numerosucursalordenpantalon=rs.getString("numero_orden");
+                numeroordendeenviosolicitada=rs.getString("numero_orden");
                 sucursal="ninguno"; //rs.getString("tienda");
                 
                  if(numerosucursalordenpantalon ==null  || numerosucursalordenpantalon.equals("") ||numerosucursalordenpantalon.equals(" ") )
@@ -1842,16 +1842,37 @@ public class ordenpantalon extends javax.swing.JFrame {
                 pst.setString(5, identificador);
                 pst.setString(6, lbcantidad.getText());
                 
-                 if(tienenumerodesucursal.equals("no") )
+                  if(sucursal.equals("") || sucursal.equals("ninguno") )
                 {
-                    pst.setString(7, "00000000");
-                    pst.setString(8, "ninguno");
+                    
+                    sucursal = tiendalocal;
+                   numeroordendeenviosolicitada = "0";
                 }
-                else
-                {
-                    pst.setString(7, numerosucursalordenpantalon);
-                    pst.setString(8, sucursal);
-                } 
+                 
+                 else
+                     
+                 {
+                    
+                    if (sucursal.equals(tiendalocal))
+                        
+                    {
+                       numerosucursal = numeroordendeenviosolicitada;
+                     
+                    }
+                    else
+                    {
+                   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encontró numero de venta ni numero de sucursal; llame a sistemas");
+                         
+                         
+                    }
+                    
+                    
+                 }
+                  
+                  pst.setString(7, numeroordendeenviosolicitada);
+                  pst.setString(8, sucursal);
+                  
+                  
                 
                 pst.executeUpdate();
                 pst.close();
@@ -2040,7 +2061,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         
     }
     
-     void agregaralsurtidasalhistorialdeventas(String ubicacion, String cantidad) 
+     void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad) 
       {
 
         String numeroventa =  lbnumerodeventa.getText();
@@ -3794,7 +3815,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "";
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             
         
@@ -3873,7 +3894,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "";
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
            
         }
@@ -3949,7 +3970,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "";
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
         
         
@@ -4024,7 +4045,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "";
             String cantidad = lbcantidad.getText();
             agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             
         

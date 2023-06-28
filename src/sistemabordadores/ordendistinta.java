@@ -1534,7 +1534,7 @@ public class ordendistinta extends javax.swing.JFrame {
     
 
     
-    void agregaralsurtidasalhistorialdeventas(String ubicacion, String cantidad) 
+    void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad) 
       {
 
         String numeroventa =  lbnumeroventa.getText();
@@ -4450,7 +4450,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + "";
 
             agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -4482,7 +4482,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + "";
 
             agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
         //sumapuntos(); 
             
@@ -4514,7 +4514,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + "";
 
             agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -4545,7 +4545,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + "";
 
             agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -4579,7 +4579,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + "";
 
             agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -4668,7 +4668,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + "";
 
             agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -4700,7 +4700,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + "";
 
             agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
             

@@ -72,7 +72,7 @@ public static boolean ventanaordenparcheanteriores = false;
        String numerosucursalordencamisa = "";
        String tienenumerodesucursal = "";
        String sucursal = "";
-       
+       String numeroordendeenviosolicitada = "";
         String ipdelaotratienda = "";
        
         String latiendaestaconectada = "si";
@@ -110,7 +110,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
         
      
-     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,tipo,estatus_entrega,articulo,parche,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden FROM historial_ordenes_parche WHERE numero = '"+numerodeorden+"' ";
+     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,tipo,estatus_entrega,articulo,parche,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,numero_orden FROM historial_ordenes_parche WHERE numero = '"+numerodeorden+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -127,6 +127,8 @@ public static boolean ventanaordenparcheanteriores = false;
                 
                 numerodeventa = rs.getString("numero_venta");
                 lbnumerodeventa.setText(numerodeventa);
+                
+                numeroordendeenviosolicitada=rs.getString("numero_orden");
                 
                 parche = rs.getString("parche");
                 nombre = rs.getString("articulo");
@@ -391,16 +393,35 @@ public static boolean ventanaordenparcheanteriores = false;
                 pst.setString(5, "ninguno");
                 pst.setString(6, cantidad);
                 
-                if(tienenumerodesucursal.equals("no") )
+                 if(sucursal.equals("") || sucursal.equals("ninguno") )
                 {
-                    pst.setString(7, "00000000");
-                    pst.setString(8, "ninguno");
+                    
+                    sucursal = tiendalocal;
+                    numeroordendeenviosolicitada = "0";
                 }
-                else
-                {
-                    pst.setString(7, numerosucursalordencamisa);
-                    pst.setString(8, sucursal);
-                } 
+                 
+                 else
+                     
+                 {
+                    
+                    if (sucursal.equals(tiendalocal))
+                        
+                    {
+                       numerosucursal = numeroordendeenviosolicitada;
+                     
+                    }
+                    else
+                    {
+                   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encontró numero de venta ni numero de sucursal; llame a sistemas");
+                         
+                         
+                    }
+                    
+                    
+                 }
+                 
+                 pst.setString(7, numeroordendeenviosolicitada);
+                  pst.setString(8, sucursal);
                 
                 
                 pst.executeUpdate();
@@ -1135,7 +1156,7 @@ public static boolean ventanaordenparcheanteriores = false;
     }
     
     
-    void agregaralsurtidasalhistorialdeventas(String ubicacion, String cantidad) 
+    void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad) 
       {
 
         
@@ -2524,7 +2545,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         descripcion ="BORDADO PARCHE".concat(" ").concat(lbprenda.getText());
         aplicacioninsertar = "APLICACION PARCHE1";
         agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
-        agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad) ;
+        agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
         }
         
         sumapuntos();
@@ -2724,7 +2745,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO CORBATA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "";
             agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion);
-            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();
 

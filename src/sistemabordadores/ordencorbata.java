@@ -617,7 +617,7 @@ public class ordencorbata extends javax.swing.JFrame {
     
     
     
-    void agregaralsurtidasalhistorialdeventas(String ubicacion, String cantidad) 
+    void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad) 
       {
 
         String numeroventa =  lbnumerodeventa.getText();
@@ -1861,7 +1861,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO CORBATA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "";
             agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
-            agregaralsurtidasalhistorialdeventas((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();
             

@@ -2337,7 +2337,7 @@ public class ordencamisa extends javax.swing.JFrame {
     
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set "+ubicacion+"='0', "+fecha+"='' where numero = '"+lborden.getText()+"'");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set "+ubicacion+"='0' where numero = '"+lborden.getText()+"'");
                     pst.executeUpdate();
                     pst.close();
 
@@ -3638,7 +3638,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                
                try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='"+nuevoestatusorden+"',fecha = '"+dia()+"'  where numero='" + lborden.getText() + "' and prenda='" +prenda+ "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='"+nuevoestatusorden+"' where numero='" + lborden.getText() + "' and prenda='" +prenda+ "'   ");
                     pst.executeUpdate();
                     pst.close();
 

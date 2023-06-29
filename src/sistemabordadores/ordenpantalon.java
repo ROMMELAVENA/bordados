@@ -1272,7 +1272,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 lbbordacliente.setText(rs.getString("borda_cliente"));
                 prenda = rs.getString("prenda");
                 numerosucursal = rs.getString("numero_sucursal_orden");
-                lbnumerosucursal.setText(numerosucursal);
+                lbnumerodelaotrasucursal.setText(numerosucursal);
                 sucursal=rs.getString("tienda");
                 
                 ladoizquierdofrentenombre = rs.getString("lado_izquierdo_frente");
@@ -2528,11 +2528,26 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
                 
                
-           
-            
-           
+                
+                
+                 
            if(tienecantidad == botonesactivados)
            {
+               
+             nuevoestatusorden = "realizada totalmente";
+               
+           }
+         
+           else
+       
+           {
+               
+               nuevoestatusorden = "realizada parcialmente";
+            
+           }   
+               
+           
+            
                try {
 
                     PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + numerodeorden + "'   ");
@@ -2543,22 +2558,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                   
                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
                 }
+          
                
-           }
-           else
-           {
-                try {
-
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set estatus_orden='generada' where numero='" + numerodeorden + "'   ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                  
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
-                }
-               
-           }    
+              
 
 
         }
@@ -2566,6 +2568,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         } catch (SQLException ex) {
             System.out.println(ex);
         }
+        
+        
+        
+         lbestatus.setText(nuevoestatusorden);
         
         
     }
@@ -2621,7 +2627,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         btnvercolorido = new javax.swing.JButton();
         btndatos = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
-        lbnumerosucursal = new javax.swing.JLabel();
+        lbnumerodelaotrasucursal = new javax.swing.JLabel();
         lbprenda = new javax.swing.JLabel();
         btnladoderechofrentecancelar = new javax.swing.JButton();
         btnladoderechoatrascancelar = new javax.swing.JButton();
@@ -2889,8 +2895,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel28.setText("Numero de sucursal");
         jLabel28.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbnumerosucursal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbnumerosucursal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbnumerodelaotrasucursal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbnumerodelaotrasucursal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbprenda.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbprenda.setText("Pantalon");
@@ -3195,7 +3201,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                                     .addGap(167, 167, 167)
                                                     .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(lbnumerosucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(lbnumerodelaotrasucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGap(212, 212, 212)
@@ -3245,7 +3251,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbnumerosucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbnumerodelaotrasucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
@@ -4665,8 +4671,8 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbladoizquierdofrentepuntadas;
     public static javax.swing.JLabel lbladoizquierdofrentepuntadas1;
     public static javax.swing.JLabel lbnombrecomercial;
+    public static javax.swing.JLabel lbnumerodelaotrasucursal;
     public static javax.swing.JLabel lbnumerodeventa;
-    public static javax.swing.JLabel lbnumerosucursal;
     public static javax.swing.JTextArea lbobservaciones;
     public static javax.swing.JLabel lborden;
     public static javax.swing.JLabel lbprenda;

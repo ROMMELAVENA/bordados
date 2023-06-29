@@ -124,7 +124,7 @@ public static boolean ventanaordenparcheanteriores = false;
             while (rs.next()) 
             {
                 
-                lbnumerosucursal.setText(rs.getString("numero"));
+                lbnumerodelaotrasucursal.setText(rs.getString("numero"));
                 lbfecha.setText(rs.getString("fecha"));
                 lbhora.setText(rs.getString("hora"));
                 lbcliente.setText(rs.getString("cliente"));
@@ -475,7 +475,7 @@ public static boolean ventanaordenparcheanteriores = false;
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set cantidad_parche='" +cantidadponchadosactualizar+ "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lbnumerosucursal.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set cantidad_parche='" +cantidadponchadosactualizar+ "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lbnumerodelaotrasucursal.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -502,7 +502,7 @@ public static boolean ventanaordenparcheanteriores = false;
     {
         try {
 
-            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set cantidad_parche='0',estatus_orden = 'generada', "+fecha+"='' where numero = '" + lbnumerosucursal.getText() + "'  ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set cantidad_parche='0',estatus_orden = 'generada', "+fecha+"='' where numero = '" + lbnumerodelaotrasucursal.getText() + "'  ");
             pst.executeUpdate();
             pst.close();
 
@@ -543,6 +543,113 @@ public static boolean ventanaordenparcheanteriores = false;
     
     
     
+    void agregarexistenciabordados(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
+    {
+        
+       
+        
+        //// bordado
+        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad,numero_sucursal,sucursal) VALUES (?,?,?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
+            
+                
+ 
+                pst.setString(1, lbnumerodeventa.getText());
+                pst.setString(2, dia());
+                pst.setString(3, hora());
+                pst.setString(4, descripcion);
+                pst.setString(5, identificador);
+                pst.setString(6, lbcantidad.getText());
+                
+                 if(sucursal.equals("") || sucursal.equals("ninguno") )
+                {
+                    
+                    sucursal = tiendalocal;
+                   numeroordendeenviosolicitada = "0";
+                }
+                 
+                 else
+                     
+                 {
+                    
+                    if (sucursal.equals(tiendalocal))
+                        
+                    {
+                       numerosucursal = numeroordendeenviosolicitada;
+                     
+                    }
+                    else
+                    {
+                   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encontró numero de venta ni numero de sucursal; llame a sistemas");
+                         
+                         
+                    }
+                    
+                    
+                 }
+                 
+                 pst.setString(7, numeroordendeenviosolicitada);
+                  pst.setString(8, sucursal);
+                
+                
+                
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
+            
+           if(cantidadaplicacion==null || cantidadaplicacion.equals("")||cantidadaplicacion.equals(" "))
+           {
+               cantidadaplicacion = "0";
+           }
+            
+           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+           
+           
+           if(cantidadaplicacionint > 0)
+           {
+               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
+               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
+               
+               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad,numero_orden,sucursal) VALUES (?,?,?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
+            
+                
+ 
+                pst.setString(1, lbnumerodeventa.getText());
+                pst.setString(2, dia());
+                pst.setString(3, hora());
+                pst.setString(4, aplicacioninsertar);
+                pst.setString(5, identificador);
+                pst.setString(6, String.valueOf(totalaplicaciones));
+                 if(tienenumerodesucursal.equals("no") )
+                {
+                    pst.setString(7, "00000000");
+                    pst.setString(8, "ninguno");
+                }
+                else
+                {
+                    pst.setString(7, numerosucursalordenbordado);
+                    pst.setString(8, sucursal);
+                } 
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+               
+           }
+        
+        
+    }
     
     
     
@@ -655,6 +762,173 @@ public static boolean ventanaordenparcheanteriores = false;
         
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+     void estacompletalaorden()
+    {
+        
+        String cantidad = "0";
+        int tienecantidad = 0;
+        int botonesactivados = 0;
+        
+         String sql = "Select parchexxxxx from "+nombredelatabla+" where numero = '"+lborden.getText()+"' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                cantidad = rs.getString("cantidadxxxxxxx");   
+                String cantidadladoizquierdo = rs.getString("cantidad_lado_izquierdoxxxx");
+                String ladoizquierdo = rs.getString("lado_izquierdoxxxxxxxxxx");
+                
+                
+                if(ladoizquierdo==null || ladoizquierdo.equals("")||ladoizquierdo.equals(" ") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   botonesactivados = botonesactivados + 1; 
+                } 
+                
+              /*-  
+                if(ladoderecho==null || ladoderecho.equals("")||ladoderecho.equals(" ") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   botonesactivados = botonesactivados + 1; 
+                }
+                
+                if(frente==null || frente.equals("")||frente.equals(" ") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   botonesactivados = botonesactivados + 1; 
+                }
+                
+                if(atras==null || atras.equals("")||atras.equals(" ") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   botonesactivados = botonesactivados + 1; 
+                }
+                
+               
+           
+           
+                ////////////////////////////////////////////////////////////////
+                
+                 if(cantidadladoizquierdo.equals("0") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1; 
+                } 
+                
+                
+                if(cantidadladoderecho.equals("0") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1; 
+                }
+                
+                if(cantidadatras.equals("0") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1;
+                }
+                
+                if(cantidadfrente.equals("0"))
+                {
+                    
+                    
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1;
+                }
+                
+               
+                
+                
+                
+                   if(tienecantidad == botonesactivados)
+           {
+               
+             nuevoestatusorden = "realizada totalmente";
+               
+           }
+         
+           else
+       
+           {
+               
+               nuevoestatusorden = "realizada parcialmente";
+            
+           }   
+                
+                */
+           
+               try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada totalmente' ,fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
+                }
+               
+           
+           
+           
+        }
+            rs.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+        
+        
+        lbestatus.setText(nuevoestatusorden);
+        
+        
+    }
+    
+    
+    
+    
+    
     
     
     
@@ -858,6 +1132,36 @@ public static boolean ventanaordenparcheanteriores = false;
     
     
     
+       
+    void insertarlacantidadylafechaenlaubicacion(String ubicacion, String fechaubicacion)
+    {
+        try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set "+ubicacion+" = '"+lbcantidad.getText()+"',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
+                }
+        
+        
+        String ubicacionsinguiones = ubicacion;
+        ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
+        
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+        
+        
+        try {
+            datosOrdenesLocales();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
     
     
     
@@ -942,6 +1246,40 @@ public static boolean ventanaordenparcheanteriores = false;
         
     }
     
+     
+     
+     
+    
+    void insertarlacantidadylafechaenlaubicacionotrasucursal(String ubicacion)
+    {
+        try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche_recibidas set "+ubicacion+"='" + lbcantidad.getText() + "',fecha='"+dia()+"' where numero = '"+lborden.getText()+"'  ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
+                }
+        
+        
+        String ubicacionsinguiones = ubicacion;
+        ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
+        
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+        
+        
+        try {
+            datosotrasucursal();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+    }
+    
+    
+    
     
     
     
@@ -970,7 +1308,7 @@ public static boolean ventanaordenparcheanteriores = false;
                 lbbordacliente.setText(rs.getString("borda_cliente"));
                 lbcantidad.setText(rs.getString("cantidad"));
                
-                lbnumerosucursal.setText(rs.getString("numero_sucursal_orden"));
+                lbnumerodelaotrasucursal.setText(rs.getString("numero_sucursal_orden"));
            //     lbnumeroventa.setText(rs.getString("numero_venta"));
                 
               
@@ -1477,6 +1815,92 @@ JOptionPane.showMessageDialog(null, mensaje);
       
     }
     
+    
+    
+    
+    
+    
+    
+    
+    void agregarexistenciabordadosotrasucursal(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
+    {
+        
+       
+        
+        //// bordado
+       String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
+            
+                
+ 
+                pst.setString(1, lbnumerodelaotrasucursal.getText());
+                pst.setString(2, sucursal);
+                pst.setString(3, dia());
+                pst.setString(4, hora());
+                pst.setString(5, descripcion);
+                pst.setString(6, "ninguno");
+                pst.setString(7, lbcantidad.getText());
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
+            
+           if(cantidadaplicacion==null || cantidadaplicacion.equals("")||cantidadaplicacion.equals(" "))
+           {
+               cantidadaplicacion = "0";
+           }
+            
+           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+           
+           
+           if(cantidadaplicacionint > 0)
+           {
+               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
+               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
+               
+               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
+            
+                
+ 
+                pst.setString(1, lbnumerodelaotrasucursal.getText());
+                pst.setString(2, sucursal);
+                pst.setString(3, dia());
+                pst.setString(4, hora());
+                pst.setString(5, aplicacioninsertar);
+                pst.setString(6, identificador);
+                pst.setString(7, String.valueOf(totalaplicaciones));
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+               
+           }
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
      void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad) 
       {
 
@@ -1644,7 +2068,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         double costopuntada = 0.0;
         Object puntadaobject = "";
         
-        String sql = "SELECT puntadas from historial_ordenes_parche where numero = '"+lbnumerosucursal.getText()+"' ";
+        String sql = "SELECT puntadas from historial_ordenes_parche where numero = '"+lbnumerodelaotrasucursal.getText()+"' ";
 
         try {
             PreparedStatement prst = cn.prepareStatement(sql);
@@ -1704,7 +2128,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         double costopuntada = 0.0;
         Object puntadaobject = "";
         
-        String sql = "SELECT puntadas from historial_ordenes_parche where numero = '"+lbnumerosucursal.getText()+"' ";
+        String sql = "SELECT puntadas from historial_ordenes_parche where numero = '"+lbnumerodelaotrasucursal.getText()+"' ";
 
         try {
             PreparedStatement prst = cn.prepareStatement(sql);
@@ -1926,7 +2350,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        lbnumerosucursal = new javax.swing.JLabel();
+        lbnumerodelaotrasucursal = new javax.swing.JLabel();
         btnsalir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lbfotomontaje = new javax.swing.JLabel();
@@ -1972,14 +2396,14 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbprenda1 = new javax.swing.JLabel();
         lbprenda2 = new javax.swing.JLabel();
         lbprenda3 = new javax.swing.JLabel();
-        btnfrentecancelar = new javax.swing.JButton();
-        btnfrenteponchado = new javax.swing.JButton();
+        btncancelar = new javax.swing.JButton();
+        btnponchado = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        lbfrente = new javax.swing.JLabel();
-        lbfrentenombre = new javax.swing.JLabel();
-        lbcodigofrente = new javax.swing.JLabel();
-        lbcolorfrente = new javax.swing.JLabel();
-        btnfrentetermine = new javax.swing.JButton();
+        lbpuntadas = new javax.swing.JLabel();
+        lbnombre = new javax.swing.JLabel();
+        lbcodigo = new javax.swing.JLabel();
+        lbcolor = new javax.swing.JLabel();
+        btntermine = new javax.swing.JButton();
         lbcantidad1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -2004,8 +2428,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel13.setText("Número sucursal");
         jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbnumerosucursal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbnumerosucursal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbnumerodelaotrasucursal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbnumerodelaotrasucursal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnsalir.setText("Salir");
@@ -2210,21 +2634,21 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbprenda3.setText("Tipo");
         lbprenda3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnfrentecancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnfrentecancelar.setText("Cancelar");
-        btnfrentecancelar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnfrentecancelar.addActionListener(new java.awt.event.ActionListener() {
+        btncancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btncancelar.setText("Cancelar");
+        btncancelar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btncancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnfrentecancelarActionPerformed(evt);
+                btncancelarActionPerformed(evt);
             }
         });
 
-        btnfrenteponchado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnfrenteponchado.setText("Ponchado");
-        btnfrenteponchado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnfrenteponchado.addActionListener(new java.awt.event.ActionListener() {
+        btnponchado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnponchado.setText("Ponchado");
+        btnponchado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnponchado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnfrenteponchadoActionPerformed(evt);
+                btnponchadoActionPerformed(evt);
             }
         });
 
@@ -2233,24 +2657,24 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel8.setText("Parche");
         jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbfrente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbfrente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbpuntadas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbpuntadas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbfrentenombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbfrentenombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbnombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbnombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcodigofrente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbcodigofrente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcodigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcodigo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolorfrente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbcolorfrente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcolor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcolor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnfrentetermine.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnfrentetermine.setText("Termine");
-        btnfrentetermine.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnfrentetermine.addActionListener(new java.awt.event.ActionListener() {
+        btntermine.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btntermine.setText("Termine");
+        btntermine.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btntermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnfrentetermineActionPerformed(evt);
+                btntermineActionPerformed(evt);
             }
         });
 
@@ -2301,21 +2725,21 @@ JOptionPane.showMessageDialog(null, mensaje);
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbfrentenombre, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbpuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnfrentetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btntermine, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnfrentecancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbcodigofrente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbcolorfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbcolor, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnfrenteponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1239, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2364,7 +2788,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbnumerosucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbnumerodelaotrasucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -2425,7 +2849,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbnumerosucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lbnumerodelaotrasucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2466,14 +2890,14 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbfrentenombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbcodigofrente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbcolorfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnfrenteponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbpuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbcolor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnfrentetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnfrentecancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btntermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -2942,27 +3366,23 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
     }//GEN-LAST:event_btndatosActionPerformed
 
-    private void btnfrentecancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrentecancelarActionPerformed
+    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnfrentecancelarActionPerformed
+    }//GEN-LAST:event_btncancelarActionPerformed
 
-    private void btnfrenteponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteponchadoActionPerformed
+    private void btnponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnponchadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnfrenteponchadoActionPerformed
+    }//GEN-LAST:event_btnponchadoActionPerformed
 
-    private void btnfrentetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrentetermineActionPerformed
+    private void btntermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermineActionPerformed
 
         
         
-        
-         regresaralaconeccionlocal(); 
       
-      fechaubicacion  = "pecho_izquierdo_fecha";
-      String ubicacion = "cantidad_pecho_izquierdo";
-        
-      String cantidad = lbcantidad.getText();
+      fechaubicacion  = "frente_fecha";
+      String ubicacion = "cantidad_frente";
+     
       
-        
          if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
@@ -2973,58 +3393,82 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-        
-        
-        /*9
-        
-        
-        
-        
-        if(lugar.equals("Esta sucursal"))
+        if(lugar.equals("Esta sucursal")  && tipotabla.equals("Local"))
         {
 
-            String ubicacion = "cantidad_frente";
-            fechaubicacion = "frente_fecha";
+          
 
-            actualizarlascantidadesbordadas((String) ubicacion, (String) fechaubicacion);
-
-            String cantidad = cantidadbordados;
+               
+         
+            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
+         
+            
             String cantidadaplicacion = "0";
-            descripcion = "BORDADO CORBATA FRENTE "+frentenombre+ "";
-            aplicacioninsertar = "";
-            agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion);
+            descripcion = "BORDADO GORRA FRENTE "+nombre+ "";
+            aplicacioninsertar = "APLICACION GORRA FRENTE";
+            String cantidad = lbcantidad.getText();
+            nombredelatabla = "historial_ordenes_gorra";
+            agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
-            sumapuntos();
-
-            if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
-            {
-                ordenesporrealizar.btnactualizar.doClick();
-            }
-
+            sumapuntos();    
+        
+           
         }
+         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local") && (tienenumerodesucursal.equals("no")) )
+        {
+
+        JFileChooser adjuntar = new JFileChooser();
       
-        
 
-        try {
-            datosOrdenesLocales();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
+        int respuesta = adjuntar.showOpenDialog(this);
+        if (respuesta == JFileChooser.APPROVE_OPTION) {
+            File archivoelegido = adjuntar.getSelectedFile();
+         //   rutadelarchivo = archivoelegido.toString();
+
+            
+            btntermine.setEnabled(false);
+         //   descargado = 1;
+
         }
-
-        this.dispose();
-
-
-
-        */
-        
         
         }
+         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+        {
+            
+            
+          
+            
+            insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
+            String cantidadaplicacion = "0";
+            descripcion = "BORDADO GORRA FRENTE "+nombre+ "";
+            aplicacioninsertar = "APLICACION GORRA FRENTE";
+            nombredelatabla = "historial_ordenes_gorra_recibidas";
+            String cantidad = lbcantidad.getText();
+            agregarexistenciabordadosotrasucursal((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+          //  estacompletalaorden();
+            sumapuntos();  
+                
+            
+            
+            
+            
+            
+            
+            
+            
+              
+            
+        }
+    
+        
+        btndatos.doClick();
+        
+
+        }
 
 
-
-
-    }//GEN-LAST:event_btnfrentetermineActionPerformed
+    }//GEN-LAST:event_btntermineActionPerformed
 
     
     ResultSet rs;
@@ -3040,14 +3484,14 @@ JOptionPane.showMessageDialog(null, mensaje);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btncancelar;
     private javax.swing.JButton btndatos;
     private javax.swing.JButton btneditarbordado;
     private javax.swing.JButton btnfotomontajesinpuntadas;
-    private javax.swing.JButton btnfrentecancelar;
-    private javax.swing.JButton btnfrenteponchado;
-    private javax.swing.JButton btnfrentetermine;
+    private javax.swing.JButton btnponchado;
     private javax.swing.JButton btnreplicarponchados;
     public static javax.swing.JButton btnsalir;
+    private javax.swing.JButton btntermine;
     private javax.swing.JButton btnterminetodo;
     private javax.swing.JButton btnvercolorido;
     private javax.swing.JButton btnverfotomontaje;
@@ -3074,26 +3518,26 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel lbcantidad;
     public javax.swing.JLabel lbcantidad1;
     public static javax.swing.JLabel lbcliente;
-    public javax.swing.JLabel lbcodigofrente;
-    public javax.swing.JLabel lbcolorfrente;
+    public javax.swing.JLabel lbcodigo;
+    public javax.swing.JLabel lbcolor;
     private javax.swing.JLabel lbestatus;
     private javax.swing.JLabel lbfecha;
     private javax.swing.JLabel lbfechaentrega;
     private javax.swing.JLabel lbfotomontaje;
-    public static javax.swing.JLabel lbfrente;
-    public javax.swing.JLabel lbfrentenombre;
     private javax.swing.JLabel lbhora;
     private javax.swing.JLabel lbhoraentrega;
     private javax.swing.JLabel lbidentificador;
+    public javax.swing.JLabel lbnombre;
     public static javax.swing.JLabel lbnombrecomercial;
+    public static javax.swing.JLabel lbnumerodelaotrasucursal;
     public static javax.swing.JLabel lbnumerodeventa;
-    public static javax.swing.JLabel lbnumerosucursal;
     public static javax.swing.JTextArea lbobservacion;
     public static javax.swing.JLabel lborden;
     private javax.swing.JLabel lbprenda;
     private javax.swing.JLabel lbprenda1;
     private javax.swing.JLabel lbprenda2;
     private javax.swing.JLabel lbprenda3;
+    public static javax.swing.JLabel lbpuntadas;
     public static javax.swing.JLabel lbsucursal;
     public javax.swing.JLabel lbsumapuntos;
     public static javax.swing.JLabel lbtipo;

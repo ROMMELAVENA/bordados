@@ -101,13 +101,13 @@
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
                                       <Component id="lbcantidad" min="-2" pref="71" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="lbnumero" min="-2" pref="108" max="-2" attributes="0"/>
+                                  <Component id="lbnumerodelaotrasucursal" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -177,8 +177,8 @@
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnatrastetermine" min="-2" pref="90" max="-2" attributes="0"/>
-                                      <Component id="btnladoizquierdotetermine" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Component id="btnatrastermine" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Component id="btnladoizquierdotermine" min="-2" pref="90" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -202,7 +202,7 @@
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnladoderechotetermine" min="-2" pref="90" max="-2" attributes="0"/>
+                                  <Component id="btnladoderechotermine" min="-2" pref="90" max="-2" attributes="0"/>
                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                                   <Component id="btnladoderechocancelar" min="-2" pref="90" max="-2" attributes="0"/>
                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
@@ -214,7 +214,7 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="btnfrentetermine" min="-2" pref="90" max="-2" attributes="0"/>
+                              <Component id="btnfrentermine" min="-2" pref="90" max="-2" attributes="0"/>
                               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                               <Component id="btnfrentecancelar" min="-2" pref="90" max="-2" attributes="0"/>
                               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
@@ -316,7 +316,7 @@
                                           <Component id="jLabel19" min="-2" pref="30" max="-2" attributes="0"/>
                                           <Component id="lbtienda" min="-2" pref="30" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="lbnumero" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lbnumerodelaotrasucursal" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel17" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
@@ -394,7 +394,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lbfrente" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="btnfrentetermine" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="btnfrentermine" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="btnfrentecancelar" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="lbcodigofrente" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="lbcolorfrente" min="-2" pref="30" max="-2" attributes="0"/>
@@ -429,13 +429,13 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="btnatrastetermine" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="btnatrastermine" min="-2" pref="30" max="-2" attributes="0"/>
                                           <Component id="lbcantidad2" min="-2" pref="30" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lbcantidad3" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="btnladoizquierdotetermine" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="btnladoizquierdotermine" min="-2" pref="30" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -446,7 +446,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lbcantidad4" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="lbladoderecho" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btnladoderechotetermine" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btnladoderechotermine" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="btnladoderechocancelar" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="lbcodigoladoderecho" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="lbcolorladoderecho" min="-2" pref="30" max="-2" attributes="0"/>
@@ -711,7 +711,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbnumero">
+    <Component class="javax.swing.JLabel" name="lbnumerodelaotrasucursal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
@@ -765,7 +765,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnverfotomontajeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnatrastetermine">
+    <Component class="javax.swing.JButton" name="btnatrastermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -773,10 +773,10 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnatrastetermineActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnatrastermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnladoizquierdotetermine">
+    <Component class="javax.swing.JButton" name="btnladoizquierdotermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -784,10 +784,10 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdotetermineActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdotermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnfrentetermine">
+    <Component class="javax.swing.JButton" name="btnfrentermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -795,10 +795,10 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnfrentetermineActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnfrentermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnladoderechotetermine">
+    <Component class="javax.swing.JButton" name="btnladoderechotermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -806,7 +806,7 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechotetermineActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechotermineActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">

@@ -74,21 +74,21 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel8" min="-2" pref="80" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="lbfrentenombre" min="-2" pref="253" max="-2" attributes="0"/>
+                      <Component id="lbnombre" min="-2" pref="253" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbfrente" min="-2" pref="253" max="-2" attributes="0"/>
+                      <Component id="lbpuntadas" min="-2" pref="253" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="lbcantidad1" min="-2" pref="70" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnfrentetermine" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Component id="btntermine" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnfrentecancelar" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Component id="btncancelar" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbcodigofrente" min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="lbcodigo" min="-2" pref="80" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbcolorfrente" min="-2" pref="125" max="-2" attributes="0"/>
+                      <Component id="lbcolor" min="-2" pref="125" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnfrenteponchado" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Component id="btnponchado" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jPanel1" min="-2" pref="1239" max="-2" attributes="0"/>
@@ -142,7 +142,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel13" min="-2" pref="114" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lbnumerosucursal" min="-2" pref="111" max="-2" attributes="0"/>
+                              <Component id="lbnumerodelaotrasucursal" min="-2" pref="111" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -217,7 +217,7 @@
                                   <Component id="jLabel14" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="lbsucursal" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jLabel13" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbnumerosucursal" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="lbnumerodelaotrasucursal" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -270,14 +270,14 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel8" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbfrentenombre" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbfrente" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbcodigofrente" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbcolorfrente" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btnfrenteponchado" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lbnombre" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lbpuntadas" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lbcodigo" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lbcolor" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btnponchado" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="btnfrentetermine" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="btnfrentecancelar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btntermine" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btncancelar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Component id="lbcantidad1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
@@ -322,7 +322,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbnumerosucursal">
+    <Component class="javax.swing.JLabel" name="lbnumerodelaotrasucursal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -922,7 +922,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnfrentecancelar">
+    <Component class="javax.swing.JButton" name="btncancelar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
@@ -935,10 +935,10 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnfrentecancelarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncancelarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnfrenteponchado">
+    <Component class="javax.swing.JButton" name="btnponchado">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
@@ -951,7 +951,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnfrenteponchadoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnponchadoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
@@ -968,7 +968,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbfrente">
+    <Component class="javax.swing.JLabel" name="lbpuntadas">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
@@ -983,7 +983,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbfrentenombre">
+    <Component class="javax.swing.JLabel" name="lbnombre">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
@@ -998,7 +998,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbcodigofrente">
+    <Component class="javax.swing.JLabel" name="lbcodigo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
@@ -1013,7 +1013,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbcolorfrente">
+    <Component class="javax.swing.JLabel" name="lbcolor">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
@@ -1028,7 +1028,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnfrentetermine">
+    <Component class="javax.swing.JButton" name="btntermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
@@ -1041,7 +1041,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnfrentetermineActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btntermineActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbcantidad1">

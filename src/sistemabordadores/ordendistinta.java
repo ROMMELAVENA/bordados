@@ -42,6 +42,8 @@ public class ordendistinta extends javax.swing.JFrame {
     int bordadosdisponiblesint = 0;
     String cantidadprendasstring = "";
     int cantidadprendasint = 0;
+    String cantidad = "";
+    
      String cliente = "";
     int remanentebordadosint = 0;
     String remanentebordadosstring = "";
@@ -1344,7 +1346,7 @@ public class ordendistinta extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='" + lbcantidad.getText() + "',"+fechaubicacion+" = '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='" + cantidad + "',"+fechaubicacion+" = '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1412,7 +1414,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 pst.setString(3, hora());
                 pst.setString(4, descripcion);
                 pst.setString(5, identificador);
-                pst.setString(6, lbcantidad.getText());
+                pst.setString(6, cantidad);
                 pst.executeUpdate();
                 pst.close();
 
@@ -1431,7 +1433,7 @@ public class ordendistinta extends javax.swing.JFrame {
            
            if(cantidadaplicacionint > 0)
            {
-               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
+               int cantidadprendasint = Integer.parseInt(cantidad);
                int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
                
                String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
@@ -1478,7 +1480,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 pst.setString(4, hora());
                 pst.setString(5, descripcion);
                 pst.setString(6, identificador);
-                pst.setString(7, lbcantidad.getText());
+                pst.setString(7, cantidad);
                 pst.executeUpdate();
                 pst.close();
 
@@ -1497,8 +1499,8 @@ public class ordendistinta extends javax.swing.JFrame {
            
            if(cantidadaplicacionint > 0)
            {
-               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
-               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
+               int cantidadprendasint = Integer.parseInt(cantidad);
+           
                
                String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
 
@@ -1513,7 +1515,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 pst.setString(4, hora());
                 pst.setString(5, descripcion);
                 pst.setString(6, identificador);
-                pst.setString(7, lbcantidad.getText());
+                pst.setString(7, cantidad);
                 pst.executeUpdate();
                 pst.close();
 
@@ -2682,9 +2684,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     void sumapuntos()
     {
-        
-        String cantidad = "0";
-        
+   
          String sql = "Select cantidad,cantidad_pecho_izquierdo,pecho_izquierdo,"
                   + "cantidad_pecho_derecho,pecho_derecho,"
                   + "cantidad_manga_izquierda,manga_izquierda,"
@@ -2700,7 +2700,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             while (rs.next()) {
 
-                       cantidad = rs.getString("cantidad");   
+                cantidad = rs.getString("cantidad");   
                 String cantidadpechoizquierdo = rs.getString("cantidad_pecho_izquierdo");
                 String pechoizquierdo = rs.getString("pecho_izquierdo");
                 String cantidadpechoderecho = rs.getString("cantidad_pecho_derecho");
@@ -4670,7 +4670,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta2termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta2termineActionPerformed
 
-    if(lbcantidad.getText().equals("0"))
+    if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
@@ -4682,7 +4682,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             fechaubicacion = "distinta2_fecha";
           
             String cantidadaplicacion = distinta2aplicacion;
-            String cantidad = lbcantidad.getText();
+         
             nombredelatabla = "historial_ordenes_distinta";
         
             
@@ -4704,7 +4704,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta4termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta4termineActionPerformed
 
-         if(lbcantidad.getText().equals("0"))
+         if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
@@ -4716,7 +4716,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             fechaubicacion = "distinta4_fecha";
            
             String cantidadaplicacion = distinta4aplicacion;
-            String cantidad = lbcantidad.getText();
+           
             nombredelatabla = "historial_ordenes_distinta";
          
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
@@ -4735,7 +4735,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta5termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta5termineActionPerformed
 
-         if(lbcantidad.getText().equals("0"))
+         if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
@@ -4748,7 +4748,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            
             String cantidadaplicacion = distinta5aplicacion;
             
-            String cantidad = lbcantidad.getText();
+         
             nombredelatabla = "historial_ordenes_distinta";
             
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
@@ -4767,7 +4767,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta3termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta3termineActionPerformed
      
-        if(lbcantidad.getText().equals("0"))
+        if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
@@ -4779,7 +4779,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             fechaubicacion = "distinta3_fecha";
             
             String cantidadaplicacion = distinta3aplicacion;
-            String cantidad = lbcantidad.getText();
+       
             nombredelatabla = "historial_ordenes_distinta";
             
             insertarlacantidadylafechaenlaubicacion((String) ubicacion,(String) fechaubicacion);
@@ -4798,7 +4798,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta1termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta1termineActionPerformed
 
-        if(lbcantidad.getText().equals("0"))
+        if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
@@ -4810,8 +4810,6 @@ JOptionPane.showMessageDialog(null, mensaje);
             fechaubicacion = "distinta1_fecha";
          
             String cantidadaplicacion = distinta1aplicacion;
-            String cantidad = lbcantidad.getText();
-         
             
             nombredelatabla = "historial_ordenes_distinta";
             
@@ -4890,7 +4888,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta6termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta6termineActionPerformed
 
-       if(lbcantidad.getText().equals("0"))
+       if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
@@ -4902,7 +4900,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             fechaubicacion = "distinta6_fecha"; 
             
             String cantidadaplicacion = distinta6aplicacion;
-            String cantidad = lbcantidad.getText();
+           
             nombredelatabla = "historial_ordenes_distinta";
             
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
@@ -4921,7 +4919,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta7termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta7termineActionPerformed
        
-        if(lbcantidad.getText().equals("0"))
+        if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
@@ -4934,7 +4932,7 @@ JOptionPane.showMessageDialog(null, mensaje);
           
             
             String cantidadaplicacion = distinta7aplicacion;
-            String cantidad = lbcantidad.getText();
+          
             nombredelatabla = "historial_ordenes_distinta";
             
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
@@ -5057,7 +5055,7 @@ JOptionPane.showMessageDialog(null, mensaje);
              
            
             String cantidadaplicacion = distinta1aplicacion;
-            String cantidad = lbcantidad.getText();
+           
             nombredelatabla = "historial_ordenes_distinta";
            
 
@@ -5092,9 +5090,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
             
             
-            String nombrebordado = distinta2nombre;
+           
             String cantidadaplicacion = distinta2aplicacion;
-            String cantidad = lbcantidad.getText();
+          
             nombredelatabla = "historial_ordenes_distinta";
             
 
@@ -5127,9 +5125,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
             
             
-            String nombrebordado =distinta3nombre;
+           
            String cantidadaplicacion = distinta3aplicacion;
-           String cantidad = lbcantidad.getText();
+         
            nombredelatabla = "historial_ordenes_distinta";
            
            
@@ -5160,9 +5158,9 @@ JOptionPane.showMessageDialog(null, mensaje);
            eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha); 
             
             
-           String nombrebordado =distinta4nombre;
+           
            String cantidadaplicacion = distinta4aplicacion;
-           String cantidad = lbcantidad.getText();
+         
            nombredelatabla = "historial_ordenes_distinta";
           
            
@@ -5195,9 +5193,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
             
             
-            String nombrebordado =distinta5nombre;
+         
            String cantidadaplicacion = distinta5aplicacion;
-           String cantidad = lbcantidad.getText();
+          
            nombredelatabla = "historial_ordenes_distinta";
            
 
@@ -5228,9 +5226,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
             
             
-            String nombrebordado = distinta6nombre;
+         
             String cantidadaplicacion = distinta6aplicacion;
-            String cantidad = lbcantidad.getText();
+           
             nombredelatabla = "historial_ordenes_distinta";
             
 
@@ -5261,9 +5259,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
             
             
-            String nombrebordado = distinta7nombre;
+         
             String cantidadaplicacion = distinta7aplicacion;
-            String cantidad = lbcantidad.getText();
+            
             nombredelatabla = "historial_ordenes_distinta";
             
 

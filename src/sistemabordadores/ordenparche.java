@@ -181,7 +181,8 @@ public static boolean ventanaordenparcheanteriores = false;
                 {
                   btnterminetodo.setEnabled(false);
                   lbestatus.setForeground(Color.green.darker());
-               
+                  lbcantidad1.setText(cantidad);
+                  lbcantidad1.setForeground(Color.GREEN.darker());
                   
                   
                 }
@@ -196,10 +197,13 @@ public static boolean ventanaordenparcheanteriores = false;
                       
                        lbestatus.setForeground(anaranjado);
                       
+                      
                   }
                   else
                   {
                       lbestatus.setForeground(Color.red);
+                      lbcantidad1.setText("0");
+                      lbcantidad1.setForeground(Color.red.darker());
                   }
                    
                    
@@ -207,6 +211,26 @@ public static boolean ventanaordenparcheanteriores = false;
                    
                    
                 }   
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
              
             }
 
@@ -619,7 +643,7 @@ public static boolean ventanaordenparcheanteriores = false;
                 pst.setString(3, hora());
                 pst.setString(4, descripcion);
                 pst.setString(5, identificador);
-                pst.setString(6, lbcantidad.getText());
+                pst.setString(6, cantidad);
                 
                  if(sucursal.equals("") || sucursal.equals("ninguno") )
                 {
@@ -671,7 +695,7 @@ public static boolean ventanaordenparcheanteriores = false;
            
            if(cantidadaplicacionint > 0)
            {
-               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
+               int cantidadprendasint = Integer.parseInt(cantidad);
                int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
                
                String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad,numero_orden,sucursal) VALUES (?,?,?,?,?,?,?,?)";
@@ -1195,7 +1219,7 @@ public static boolean ventanaordenparcheanteriores = false;
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set "+ubicacion+" = '"+lbcantidad.getText()+"',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set "+ubicacion+" = '"+cantidad+"',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1312,7 +1336,7 @@ public static boolean ventanaordenparcheanteriores = false;
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche_recibidas set "+ubicacion+"='" + lbcantidad.getText() + "',fecha='"+dia()+"' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche_recibidas set "+ubicacion+"='" + cantidad + "',fecha='"+dia()+"' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1899,7 +1923,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 pst.setString(4, hora());
                 pst.setString(5, descripcion);
                 pst.setString(6, "ninguno");
-                pst.setString(7, lbcantidad.getText());
+                pst.setString(7, cantidad);
                 pst.executeUpdate();
                 pst.close();
 
@@ -1918,7 +1942,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            
            if(cantidadaplicacionint > 0)
            {
-               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
+               int cantidadprendasint = Integer.parseInt(cantidad);
                int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
                
                String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
@@ -2121,8 +2145,8 @@ JOptionPane.showMessageDialog(null, mensaje);
              String costostring = "0";
         
 
-        Object cantidadobject = lbcantidad.getText();
-        int cantidadparcheint = Integer.parseInt(cantidadobject.toString());
+     
+        int cantidadparcheint = Integer.parseInt(cantidad);
         double costopuntada = 0.0;
         Object puntadaobject = "";
         
@@ -2181,8 +2205,8 @@ JOptionPane.showMessageDialog(null, mensaje);
               String costostring = "0";
         
 
-        Object cantidadobject = lbcantidad.getText();
-        int cantidadparcheint = Integer.parseInt(cantidadobject.toString());
+     
+        int cantidadparcheint = Integer.parseInt(cantidad);
         double costopuntada = 0.0;
         Object puntadaobject = "";
         
@@ -3211,7 +3235,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if(btnterminetodo.getText().equals("Cancelar"))
         {
             
-        cantidadparchesactualizar = lbcantidad.getText();
+      
         nombredelparche = lbprenda.getText();
         String fecha = "parche_fecha";
    
@@ -3219,7 +3243,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) cantidadparchesactualizar,(String)nombredelparche,(String)fecha);
    
         String cantidadaplicacion = lbaplicacion1.getText();
-        String cantidad = lbcantidad.getText();
+       
       
         
         descripcion ="BORDADO PARCHE".concat(" ").concat(lbprenda.getText());
@@ -3230,7 +3254,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         else
         {
-        cantidadparchesactualizar = lbcantidad.getText();
+     
         nombredelparche = lbprenda.getText();
         
         fechaubicacion = "parche_fecha";
@@ -3241,7 +3265,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         String cantidadaplicacion = lbaplicacion1.getText();
-        String cantidad = lbcantidad.getText();
+       
         descripcion ="BORDADO PARCHE".concat(" ").concat(lbprenda.getText());
         aplicacioninsertar = "APLICACION PARCHE1";
         agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
@@ -3464,7 +3488,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidadaplicacion = "0";
             descripcion = "BORDADO GORRA FRENTE "+nombre+ "";
             aplicacioninsertar = "APLICACION GORRA FRENTE";
-            String cantidad = lbcantidad.getText();
+            
             nombredelatabla = "historial_ordenes_gorra";
             agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
@@ -3502,7 +3526,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO GORRA FRENTE "+nombre+ "";
             aplicacioninsertar = "APLICACION GORRA FRENTE";
             nombredelatabla = "historial_ordenes_gorra_recibidas";
-            String cantidad = lbcantidad.getText();
+           
             agregarexistenciabordadosotrasucursal((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
           //  estacompletalaorden();
             sumapuntos();  

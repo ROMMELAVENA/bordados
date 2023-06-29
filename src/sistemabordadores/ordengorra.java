@@ -395,7 +395,7 @@ public class ordengorra extends javax.swing.JFrame {
                    btnfrenteponchado.setEnabled(true);  
                 
                    
-             //      btnfrentetermine.setText("Frente");
+         
                    btnfrentermine.setForeground(Color.green.darker());
                    if(botonactivado1.equals("si"))
                    {
@@ -473,7 +473,7 @@ public class ordengorra extends javax.swing.JFrame {
                    btnladoizquierdotermine.setEnabled(true); 
                   btnladoizquierdoponchado.setEnabled(true);  
                    
-              //     btnladoizquierdotetermine.setText("Lado Izquierdo");
+           
                    btnladoizquierdotermine.setForeground(Color.green.darker());
                    if(botonactivado2.equals("si"))
                    {
@@ -509,7 +509,7 @@ public class ordengorra extends javax.swing.JFrame {
                    btnladoderechoponchado.setEnabled(true);  
                    
                    
-               //    btnatrastetermine.setText("Atras");
+        
                    btnatrastermine.setForeground(Color.green.darker());
               
                    

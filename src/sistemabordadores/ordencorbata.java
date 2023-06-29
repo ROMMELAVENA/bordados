@@ -56,12 +56,14 @@ public class ordencorbata extends javax.swing.JFrame {
     public static String tipotabla = "";
      String numerodeorden = "";
     String nuevoestatusorden = "";
+    
+    String cantidad = "";
 
     String frentenombre = "";
     String terminetodo ="";
     String descripcion ="";
     String aplicacioninsertar = "";
-    String cantidadbordados = "";
+   
     String codigocliente ="";
     String tienefotomontaje ="";
     String rutaimagen ="";
@@ -150,7 +152,7 @@ public class ordencorbata extends javax.swing.JFrame {
                 identificador =rs.getString("identificador_prenda"); 
                 lbidentificador.setText(identificador);
                 
-                cantidadbordados = rs.getString("cantidad"); 
+                cantidad = rs.getString("cantidad"); 
                 
                 String frentecantidad = rs.getString("cantidad_frente");
                 if(frentecantidad.equals("0"))
@@ -175,18 +177,24 @@ public class ordencorbata extends javax.swing.JFrame {
 
                 lblugar.setText(rs.getString("lugar"));
                 lugar =rs.getString("lugar");
+               
+               
                 
                 
                 
                 
-                 String estatusorden = rs.getString("estatus_orden");
+                
+                
+                
+                String estatusorden = rs.getString("estatus_orden");
                  lbestatus.setText(estatusorden);
                 
                 if(estatusorden.equals("realizada totalmente"))
                 {
                   btnterminetodo.setEnabled(false);
                   lbestatus.setForeground(Color.green.darker());
-               
+                  lbcantidad1.setText(cantidad);
+                  lbcantidad1.setForeground(Color.GREEN.darker());
                   
                   
                 }
@@ -205,6 +213,9 @@ public class ordencorbata extends javax.swing.JFrame {
                   else
                   {
                       lbestatus.setForeground(Color.red);
+                      lbcantidad1.setText("0");
+                      lbcantidad1.setForeground(Color.red.darker());
+                      
                   }
                    
                    
@@ -575,7 +586,7 @@ public class ordencorbata extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + lbcantidad.getText() + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + cantidad + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -620,7 +631,7 @@ public class ordencorbata extends javax.swing.JFrame {
                 pst.setString(3, hora());
                 pst.setString(4, descripcion);
                 pst.setString(5, identificador);
-                pst.setString(6, lbcantidad.getText());
+                pst.setString(6, cantidad);
                 pst.executeUpdate();
                 pst.close();
 
@@ -633,7 +644,7 @@ public class ordencorbata extends javax.swing.JFrame {
            
            if(cantidadaplicacionint > 0)
            {
-               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
+               int cantidadprendasint = Integer.parseInt(cantidad);
                int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
                
                String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
@@ -893,7 +904,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 identificador =rs.getString("identificador_prenda"); 
                 lbidentificador.setText(identificador);
                 
-                cantidadbordados = rs.getString("cantidad"); 
+                cantidad = rs.getString("cantidad"); 
                 
                 String frentecantidad = rs.getString("cantidad_frente");
                 if(frentecantidad.equals("0"))
@@ -1197,14 +1208,13 @@ JOptionPane.showMessageDialog(null, mensaje);
     {
         
         
-        double importeladoizquierdo = 0.0;
-        double importeladoderecho = 0.0;
+     
         double importefrente = 0.0;
-        double importeatras = 0.0;
+     
 
         String costostring = "0";
-        Object cantidadobject = lbcantidad.getText();
-        int cantidadint = Integer.parseInt(cantidadobject.toString());
+       
+        int cantidadint = Integer.parseInt(cantidad);
         Object cantidad = ""; 
         Object cantidadfrente = "";
 
@@ -2081,7 +2091,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion); 
            
-            String cantidad = cantidadbordados;
+           
             String cantidadaplicacion = "0";
             descripcion = "BORDADO CORBATA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "";

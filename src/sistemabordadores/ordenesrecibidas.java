@@ -650,7 +650,6 @@ void limpiartabla() {
                     String clienteordenrecibida = tabla1.getValueAt(fila, 2).toString();
                     String numeroordenrecibida = tabla1.getValueAt(fila, 0).toString();
                     ordengorra.lbcliente.setText(clienteordenrecibida);
-                    ordengorra.lbnumero.setText(numeroordenrecibida);
                     ordengorra.lborden.setText(numeroordenrecibida);
 
                     ventana.setVisible(true);

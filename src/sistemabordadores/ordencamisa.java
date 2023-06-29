@@ -1297,7 +1297,9 @@ public class ordencamisa extends javax.swing.JFrame {
                     botonhabilitado7 = "si";
                 } 
 
-                lbcantidad.setText(rs.getString("cantidad"));
+                
+                cantidad = rs.getString("cantidad");
+                lbcantidad.setText(cantidad);
 
                 aplicacionpechoizquierdo = rs.getString("aplicacion_pecho_izquierdo");
 

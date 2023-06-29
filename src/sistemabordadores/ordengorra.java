@@ -49,6 +49,7 @@ public class ordengorra extends javax.swing.JFrame {
     int bordadosdisponiblesint = 0;
     String cantidadprendasstring = "";
     int cantidadprendasint = 0;
+    String cantidad = "";
     String cliente = "";
     int remanentebordadosint = 0;
     String remanentebordadosstring = "";
@@ -247,8 +248,11 @@ public class ordengorra extends javax.swing.JFrame {
                 
                 numerodeventa = rs.getString("numero_venta");
                 lbnumerodeventa.setText(numerodeventa);
-              
-                lbcantidad.setText(rs.getString("cantidad"));
+                
+                
+                cantidad = rs.getString("cantidad");
+                lbcantidad.setText(cantidad);
+                
                 lbfechaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
                 
@@ -376,6 +380,18 @@ public class ordengorra extends javax.swing.JFrame {
                 
                 lugar = rs.getString("lugar");
                 
+                
+                
+                
+                
+                //////////////////////////////////////////
+                
+                
+                
+                
+                
+                
+                
                 String cantidadfrente = rs.getString("cantidad_frente");
                 String cantidadladoderecho = rs.getString("cantidad_lado_derecho");
                 String cantidadladoizquierdo = rs.getString("cantidad_lado_izquierdo");
@@ -394,6 +410,12 @@ public class ordengorra extends javax.swing.JFrame {
                    if(botonactivado1.equals("si"))
                    {
                    listabotones.add("btnfrente");
+                   
+                   
+                    lbcantidad1.setText("0");
+                    lbcantidad1.setForeground(Color.red.darker());
+               
+                   
                    }
                 }
                 else
@@ -401,7 +423,10 @@ public class ordengorra extends javax.swing.JFrame {
                      if(botonactivado1.equals("si"))
                    {
                   btnfrentecancelar.setEnabled(true);
-                     
+                  
+                   lbcantidad1.setText(cantidad);
+                   lbcantidad1.setForeground(Color.GREEN.darker());
+                  
 
                      
                    }
@@ -421,11 +446,15 @@ public class ordengorra extends javax.swing.JFrame {
                    btnatrasponchado.setEnabled(true);  
                    
                    
-                //   btnladoderechotetermine.setText("Lado Derecho");
+              
                    btnladoderechotetermine.setForeground(Color.green.darker());
                    if(botonactivado3.equals("si"))
                    {
                     listabotones.add("btnladoderecho");
+                     lbcantidad2.setText("0");
+                    lbcantidad2.setForeground(Color.red.darker());
+                    
+                    
                    }
                 }
                 else
@@ -433,6 +462,8 @@ public class ordengorra extends javax.swing.JFrame {
                      if(botonactivado3.equals("si"))
                    {
                  btnatrascancelar.setEnabled(true);
+                 lbcantidad2.setText(cantidad);
+                 lbcantidad2.setForeground(Color.GREEN.darker());
                   
                      
 
@@ -457,6 +488,8 @@ public class ordengorra extends javax.swing.JFrame {
                    if(botonactivado2.equals("si"))
                    {
                    listabotones.add("btnladoizquierdo");
+                   lbcantidad3.setText("0");
+                    lbcantidad3.setForeground(Color.red.darker());
                    }
                 }
                 else
@@ -464,6 +497,8 @@ public class ordengorra extends javax.swing.JFrame {
                       if(botonactivado2.equals("si"))
                    {
                  btnladoizquierdocancelar.setEnabled(true);
+                  lbcantidad3.setText(cantidad);
+                 lbcantidad3.setForeground(Color.GREEN.darker());
                 
 
                    }
@@ -491,6 +526,8 @@ public class ordengorra extends javax.swing.JFrame {
                    if(botonactivado4.equals("si"))
                    {
                     listabotones.add("btnatras");
+                     lbcantidad4.setText("0");
+                    lbcantidad4.setForeground(Color.red.darker());
                    }
                 }
                 else
@@ -498,6 +535,8 @@ public class ordengorra extends javax.swing.JFrame {
                       if(botonactivado4.equals("si"))
                    {
                  btnladoderechocancelar.setEnabled(true);
+                  lbcantidad4.setText(cantidad);
+                 lbcantidad4.setForeground(Color.GREEN.darker());
                 
 
                    }
@@ -780,7 +819,10 @@ public class ordengorra extends javax.swing.JFrame {
                 lbcliente.setText(rs.getString("cliente"));
                 lbnombrecomercial.setText(rs.getString("nombre_comercial"));
                 lbbordacliente.setText(rs.getString("borda_cliente"));
+                
+                cantidad = rs.getString("cantidad");
                 lbcantidad.setText(rs.getString("cantidad"));
+                
                 lbfechaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
                 lbnumero.setText(rs.getString("numero_sucursal_orden"));

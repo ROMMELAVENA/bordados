@@ -162,6 +162,14 @@ public class ordendistinta extends javax.swing.JFrame {
         String botonhabilitado7 = "si";
         
         
+    String cantidaddistinta1 = "";
+    String cantidaddistinta2 = "";
+    String cantidaddistinta3 = "";
+    String cantidaddistinta4 = "";
+    String cantidaddistinta5 = "";
+    String cantidaddistinta6 = "";
+    String cantidaddistinta7 = "";
+        
         
     
     ArrayList<String> listabotones = new ArrayList<String>();
@@ -465,7 +473,7 @@ public class ordendistinta extends javax.swing.JFrame {
                     
                 if(distinta1nombre==null||distinta1nombre.equals("")||distinta1nombre.equals(" "))
                 {
-                   btndistinta1tetermine.setEnabled(false);
+                   btndistinta1termine.setEnabled(false);
                    
                    btndistinta1ponnchado.setEnabled(false);
                    
@@ -488,7 +496,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                  if(distinta2nombre==null||distinta2nombre.equals("")||distinta2nombre.equals(" "))
                 {
-                   btndistinta2tetermine.setEnabled(false);
+                   btndistinta2termine.setEnabled(false);
                    
                    btndistinta2ponnchado.setEnabled(false);
                    
@@ -510,7 +518,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                  if(distinta3nombre==null||distinta3nombre.equals("")||distinta3nombre.equals(" "))
                 {
-                   btndistinta3tetermine.setEnabled(false);
+                   btndistinta3termine.setEnabled(false);
                    
                    btndistinta3ponnchado.setEnabled(false);
                    
@@ -531,7 +539,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                 if(distinta4nombre==null||distinta4nombre.equals("")||distinta4nombre.equals(" "))
                 {
-                   btndistinta4tetermine.setEnabled(false);
+                   btndistinta4termine.setEnabled(false);
                    
                    btndistinta4ponnchado.setEnabled(false);
                    
@@ -552,7 +560,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                 if(distinta5nombre==null||distinta5nombre.equals("")||distinta5nombre.equals(" "))
                 {
-                   btndistinta5tetermine.setEnabled(false);
+                   btndistinta5termine.setEnabled(false);
                    
                    btndistinta5ponnchado.setEnabled(false);
                    
@@ -573,7 +581,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                 if(distinta6nombre==null||distinta6nombre.equals("")||distinta6nombre.equals(" "))
                 {
-                   btndistinta6tetermine.setEnabled(false);
+                   btndistinta6termine.setEnabled(false);
                    
                    btndistinta6ponnchado.setEnabled(false);
                    
@@ -595,7 +603,7 @@ public class ordendistinta extends javax.swing.JFrame {
                 
                 if(distinta7nombre==null||distinta7nombre.equals("")||distinta7nombre.equals(" "))
                 {
-                   btndistinta7tetermine.setEnabled(false);
+                   btndistinta7termine.setEnabled(false);
                    
                    btndistinta7ponnchado.setEnabled(false);
                    
@@ -633,37 +641,37 @@ public class ordendistinta extends javax.swing.JFrame {
                     
                      if(distinta1nombre!=null && Integer.parseInt(distinta1cantidad) > 0  )
                      {
-                         btndistinta1tetermine.setEnabled(false);
+                         btndistinta1termine.setEnabled(false);
                    //  cancelar1.setVisible(true);
                      }
                      else if(distinta2nombre!=null && Integer.parseInt(distinta2cantidad) > 0  )
                      {
-                         btndistinta2tetermine.setEnabled(false);
+                         btndistinta2termine.setEnabled(false);
                 //       cancelar2.setVisible(true);
                      }
                       else if( distinta3nombre!=null && Integer.parseInt(distinta3cantidad) > 0  )
                      {
-                         btndistinta3tetermine.setEnabled(false);
+                         btndistinta3termine.setEnabled(false);
                   //       cancelar3.setVisible(true);
                      }
                      else if( distinta4nombre!=null && Integer.parseInt(distinta4cantidad) > 0  )
                      {
-                         btndistinta4tetermine.setEnabled(false);
+                         btndistinta4termine.setEnabled(false);
                   //       cancelar4.setVisible(true);
                      }
                      else if( distinta5nombre!=null && Integer.parseInt(distinta5cantidad) > 0  )
                      {
-                         btndistinta5tetermine.setEnabled(false);
+                         btndistinta5termine.setEnabled(false);
                     //     cancelar5.setVisible(true);
                      }
                      else if( distinta6nombre!=null && Integer.parseInt(distinta6cantidad) > 0  )
                      {
-                         btndistinta6tetermine.setEnabled(false);
+                         btndistinta6termine.setEnabled(false);
                   //       cancelar6.setVisible(true);
                      }
                      else if( distinta7nombre!=null && Integer.parseInt(distinta7cantidad) > 0  )
                      {
-                         btndistinta7tetermine.setEnabled(false);
+                         btndistinta7termine.setEnabled(false);
                    //      cancelar7.setVisible(true);
                      }
                      
@@ -677,37 +685,37 @@ public class ordendistinta extends javax.swing.JFrame {
                     
                      if(distinta1nombre!=null && Integer.parseInt(distinta1cantidad) == 0  )
                      {
-                         btndistinta1tetermine.setEnabled(true);
+                         btndistinta1termine.setEnabled(true);
                //          cancelar1.setVisible(false);
                      }
                      else if(distinta2nombre!=null && Integer.parseInt(distinta2cantidad) == 0  )
                      {
-                         btndistinta2tetermine.setEnabled(true);
+                         btndistinta2termine.setEnabled(true);
                   //       cancelar2.setVisible(false);
                      }
                       else if( distinta3nombre!=null && Integer.parseInt(distinta3cantidad) == 0  )
                      {
-                         btndistinta3tetermine.setEnabled(true);
+                         btndistinta3termine.setEnabled(true);
                //          cancelar3.setVisible(false);
                      }
                      else if( distinta4nombre!=null && Integer.parseInt(distinta4cantidad) == 0  )
                      {
-                         btndistinta4tetermine.setEnabled(true);
+                         btndistinta4termine.setEnabled(true);
                  //        cancelar4.setVisible(false);
                      }
                      else if( distinta5nombre!=null && Integer.parseInt(distinta5cantidad) == 0  )
                      {
-                         btndistinta5tetermine.setEnabled(true);
+                         btndistinta5termine.setEnabled(true);
                  //        cancelar5.setVisible(false);
                      }
                      else if( distinta6nombre!=null && Integer.parseInt(distinta6cantidad) == 0  )
                      {
-                         btndistinta6tetermine.setEnabled(true);
+                         btndistinta6termine.setEnabled(true);
                 //         cancelar6.setVisible(false);
                      }
                      else if( distinta7nombre!=null && Integer.parseInt(distinta7cantidad) == 0  )
                      {
-                         btndistinta7tetermine.setEnabled(true);
+                         btndistinta7termine.setEnabled(true);
                 //         cancelar7.setVisible(false);
                      }
                      
@@ -890,13 +898,13 @@ public class ordendistinta extends javax.swing.JFrame {
         }
         else
         {
-            btndistinta1tetermine.setEnabled(false);
-            btndistinta2tetermine.setEnabled(false);
-            btndistinta3tetermine.setEnabled(false);
-            btndistinta4tetermine.setEnabled(false);
-            btndistinta5tetermine.setEnabled(false);
-            btndistinta6tetermine.setEnabled(false);
-            btndistinta7tetermine.setEnabled(false);
+            btndistinta1termine.setEnabled(false);
+            btndistinta2termine.setEnabled(false);
+            btndistinta3termine.setEnabled(false);
+            btndistinta4termine.setEnabled(false);
+            btndistinta5termine.setEnabled(false);
+            btndistinta6termine.setEnabled(false);
+            btndistinta7termine.setEnabled(false);
             
             ordencamisaimagencontorno p = new ordencamisaimagencontorno();
             jPanel1.add(p);
@@ -2053,6 +2061,25 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
+                
+                
+                cantidaddistinta1 =rs.getString("distinta1_cantidad");
+                cantidaddistinta2 =rs.getString("distinta2_cantidad");         
+                cantidaddistinta3 =rs.getString("distinta3_cantidad"); 
+                cantidaddistinta4 =rs.getString("distinta4_cantidad");
+                cantidaddistinta5 =rs.getString("distinta5_cantidad");
+                cantidaddistinta6 =rs.getString("distinta6_cantidad");
+                cantidaddistinta7 =rs.getString("distinta7_cantidad2");
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 if(lugar.equals("Esta sucursal"))
                 {
                 
@@ -2061,16 +2088,27 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 if(distinta1nombre==null||distinta1nombre.equals("")||distinta1nombre.equals(" "))
                 {
-                   btndistinta1tetermine.setEnabled(false);
+                   btndistinta1termine.setEnabled(false);
                    
                 }
                 else
                 {
+                    
+                    
+                     if(cantidaddistinta1.equals("0") && botonhabilitado1.equals("si") )
+                {
+                    
+                    lbcantidad1.setText("0");
+                    lbcantidad1.setForeground(Color.red.darker());
+                }
 
                    
                    if(botonhabilitado1.equals("si"))
                    {
                    listabotones.add("btndistinta1");
+                   lbcantidad1.setText("0");
+                    lbcantidad1.setForeground(Color.red.darker());
+                   
                    }
 
                     
@@ -2082,84 +2120,136 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                  if(distinta2nombre==null||distinta2nombre.equals("")||distinta2nombre.equals(" "))
                 {
-                   btndistinta2tetermine.setEnabled(false);
+                   btndistinta2termine.setEnabled(false);
                    
                 }
                 else
                 {
-
+                    
+                    
+                     if(cantidaddistinta2.equals("0") && botonhabilitado2.equals("si") )
+                {
+                   btndistinta2termine.setEnabled(true);
+                   lbcantidad2.setText("0");
+                    lbcantidad2.setForeground(Color.red.darker());
                  
+                }
+                     
                    
+                  
 
                    if(botonhabilitado2.equals("si"))
                    {
                    listabotones.add("btndistinta2");
+                   lbcantidad2.setText("0");
+                    lbcantidad2.setForeground(Color.red.darker());
+                    
                    }
                    
                     
-                    
+                     
                 } 
                 
+                 
+                 
+                 
+                 
+                 
                  if(distinta3nombre==null||distinta3nombre.equals("")||distinta3nombre.equals(" "))
                 {
-                   btndistinta3tetermine.setEnabled(false);
+                   btndistinta3termine.setEnabled(false);
                    
                 }
                 else
                 {
                     
                     
-                  
+                         if(cantidaddistinta3.equals("0") && botonhabilitado3.equals("si") )
+                {
+                   btndistinta3termine.setEnabled(true);
+                    lbcantidad3.setText("0");
+                    lbcantidad3.setForeground(Color.red.darker());
+                   
+                }
+                         
+                    
                    if(botonhabilitado3.equals("si"))
                    {
                    listabotones.add("btndistinta3");
+                   lbcantidad3.setText("0");
+                    lbcantidad3.setForeground(Color.red.darker());
+                   
                    }
 
-                    
-                    
+                 
                 } 
                 
                 if(distinta4nombre==null||distinta4nombre.equals("")||distinta4nombre.equals(" "))
                 {
-                   btndistinta4tetermine.setEnabled(false);
+                   btndistinta4termine.setEnabled(false);
                    
                 }
                 else
                 {
                     
                     
+                        if(cantidaddistinta4.equals("0") && botonhabilitado4.equals("si") )
+                {
+                   btndistinta4termine.setEnabled(true);
+                    lbcantidad4.setText("0");
+                    lbcantidad4.setForeground(Color.red.darker());
+                    
+                } 
                   
                    if(botonhabilitado4.equals("si"))
                    {
                    listabotones.add("btndistinta4");
+                   lbcantidad4.setText("0");
+                    lbcantidad4.setForeground(Color.red.darker());
+                    
                    }
 
+                }
                     
-                    
-                } 
+                
+                
+                
+                
+                
                 
                 if(distinta5nombre==null||distinta5nombre.equals("")||distinta5nombre.equals(" "))
                 {
-                   btndistinta5tetermine.setEnabled(false);
+                   btndistinta5termine.setEnabled(false);
                    
                 }
                 else
                 {
                     
+                     if(cantidaddistinta5.equals("0") && botonhabilitado5.equals("si") )
+                {
+                    btndistinta5termine.setEnabled(true);
+                    lbcantidad5.setText("0");
+                    lbcantidad5.setForeground(Color.red.darker());
                     
+                    
+                }
                   
                    if(botonhabilitado5.equals("si"))
                    {
                    listabotones.add("btndistinta5");
+                   lbcantidad5.setText("0");
+                    lbcantidad5.setForeground(Color.red.darker());
+                  
                    }
 
                     
+                
                     
                 } 
                 
                 if(distinta6nombre==null||distinta6nombre.equals("")||distinta6nombre.equals(" "))
                 {
-                   btndistinta6tetermine.setEnabled(false);
+                   btndistinta6termine.setEnabled(false);
                    
                 }
                 else
@@ -2167,29 +2257,48 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     
                   
-                   if(botonhabilitado6.equals("si"))
-                   {
-                   listabotones.add("btndistinta6");
+                     if(cantidaddistinta6.equals("0") && botonhabilitado6.equals("si") )
+                {
+                    btndistinta6termine.setEnabled(true);
+                    lbcantidad6.setText("0");
+                    lbcantidad6.setForeground(Color.red.darker());
                    }
 
                     
+                   if(botonhabilitado6.equals("si"))
+                   {
+                   listabotones.add("btndistinta6");
+                   lbcantidad6.setText("0");
+                    lbcantidad6.setForeground(Color.red.darker());
+                  
+                   }
+                   
                     
                 }
                 
                 
                 if(distinta7nombre==null||distinta7nombre.equals("")||distinta7nombre.equals(" "))
                 {
-                   btndistinta7tetermine.setEnabled(false);
+                   btndistinta7termine.setEnabled(false);
                    
                 }
                 else
                 {
                     
+                     if(cantidaddistinta7.equals("0") && botonhabilitado7.equals("si") )
+                {
+                    btndistinta7termine.setEnabled(true);
+                    lbcantidad7.setText("0");
+                    lbcantidad7.setForeground(Color.red.darker());
                     
+                }
                    
                    if(botonhabilitado7.equals("si"))
                    {
                    listabotones.add("btndistinta7");
+                    lbcantidad7.setText("0");
+                    lbcantidad7.setForeground(Color.red.darker());
+                   
                    }
                    
                     
@@ -2215,37 +2324,37 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                      if(distinta1nombre!=null && Integer.parseInt(distinta1cantidad) > 0  )
                      {
-                         btndistinta1tetermine.setEnabled(false);
+                         btndistinta1termine.setEnabled(false);
           //               cancelar1.setVisible(true);
                      }
                      else if(distinta2nombre!=null && Integer.parseInt(distinta2cantidad) > 0  )
                      {
-                         btndistinta2tetermine.setEnabled(false);
+                         btndistinta2termine.setEnabled(false);
            //              cancelar2.setVisible(true);
                      }
                       else if( distinta3nombre!=null && Integer.parseInt(distinta3cantidad) > 0  )
                      {
-                         btndistinta3tetermine.setEnabled(false);
+                         btndistinta3termine.setEnabled(false);
               //           cancelar3.setVisible(true);
                      }
                      else if( distinta4nombre!=null && Integer.parseInt(distinta4cantidad) > 0  )
                      {
-                         btndistinta4tetermine.setEnabled(false);
+                         btndistinta4termine.setEnabled(false);
               //           cancelar4.setVisible(true);
                      }
                      else if( distinta5nombre!=null && Integer.parseInt(distinta5cantidad) > 0  )
                      {
-                         btndistinta5tetermine.setEnabled(false);
+                         btndistinta5termine.setEnabled(false);
            //              cancelar5.setVisible(true);
                      }
                      else if( distinta6nombre!=null && Integer.parseInt(distinta6cantidad) > 0  )
                      {
-                         btndistinta6tetermine.setEnabled(false);
+                         btndistinta6termine.setEnabled(false);
             //             cancelar6.setVisible(true);
                      }
                      else if( distinta7nombre!=null && Integer.parseInt(distinta7cantidad) > 0  )
                      {
-                         btndistinta7tetermine.setEnabled(false);
+                         btndistinta7termine.setEnabled(false);
             //             cancelar7.setVisible(true);
                      }
                      
@@ -2259,37 +2368,37 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                      if(distinta1nombre!=null && Integer.parseInt(distinta1cantidad) == 0  )
                      {
-                         btndistinta1tetermine.setEnabled(true);
+                         btndistinta1termine.setEnabled(true);
             //             cancelar1.setVisible(false);
                      }
                      else if(distinta2nombre!=null && Integer.parseInt(distinta2cantidad) == 0  )
                      {
-                         btndistinta2tetermine.setEnabled(true);
+                         btndistinta2termine.setEnabled(true);
            //              cancelar2.setVisible(false);
                      }
                       else if( distinta3nombre!=null && Integer.parseInt(distinta3cantidad) == 0  )
                      {
-                         btndistinta3tetermine.setEnabled(true);
+                         btndistinta3termine.setEnabled(true);
            //              cancelar3.setVisible(false);
                      }
                      else if( distinta4nombre!=null && Integer.parseInt(distinta4cantidad) == 0  )
                      {
-                         btndistinta4tetermine.setEnabled(true);
+                         btndistinta4termine.setEnabled(true);
             //             cancelar4.setVisible(false);
                      }
                      else if( distinta5nombre!=null && Integer.parseInt(distinta5cantidad) == 0  )
                      {
-                         btndistinta5tetermine.setEnabled(true);
+                         btndistinta5termine.setEnabled(true);
             //             cancelar5.setVisible(false);
                      }
                      else if( distinta6nombre!=null && Integer.parseInt(distinta6cantidad) == 0  )
                      {
-                         btndistinta6tetermine.setEnabled(true);
+                         btndistinta6termine.setEnabled(true);
           //               cancelar6.setVisible(false);
                      }
                      else if( distinta7nombre!=null && Integer.parseInt(distinta7cantidad) == 0  )
                      {
-                         btndistinta7tetermine.setEnabled(true);
+                         btndistinta7termine.setEnabled(true);
             //             cancelar7.setVisible(false);
                      }
                      
@@ -3330,13 +3439,13 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         lbbordacliente = new javax.swing.JLabel();
-        btndistinta1tetermine = new javax.swing.JButton();
-        btndistinta2tetermine = new javax.swing.JButton();
-        btndistinta3tetermine = new javax.swing.JButton();
-        btndistinta4tetermine = new javax.swing.JButton();
-        btndistinta5tetermine = new javax.swing.JButton();
-        btndistinta6tetermine = new javax.swing.JButton();
-        btndistinta7tetermine = new javax.swing.JButton();
+        btndistinta1termine = new javax.swing.JButton();
+        btndistinta2termine = new javax.swing.JButton();
+        btndistinta3termine = new javax.swing.JButton();
+        btndistinta4termine = new javax.swing.JButton();
+        btndistinta5termine = new javax.swing.JButton();
+        btndistinta6termine = new javax.swing.JButton();
+        btndistinta7termine = new javax.swing.JButton();
         lbsumapuntos = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -3529,59 +3638,59 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbbordacliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbbordacliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btndistinta1tetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndistinta1tetermine.setText("Termine");
-        btndistinta1tetermine.addActionListener(new java.awt.event.ActionListener() {
+        btndistinta1termine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndistinta1termine.setText("Termine");
+        btndistinta1termine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndistinta1tetermineActionPerformed(evt);
+                btndistinta1termineActionPerformed(evt);
             }
         });
 
-        btndistinta2tetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndistinta2tetermine.setText("Termine");
-        btndistinta2tetermine.addActionListener(new java.awt.event.ActionListener() {
+        btndistinta2termine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndistinta2termine.setText("Termine");
+        btndistinta2termine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndistinta2tetermineActionPerformed(evt);
+                btndistinta2termineActionPerformed(evt);
             }
         });
 
-        btndistinta3tetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndistinta3tetermine.setText("Termine");
-        btndistinta3tetermine.addActionListener(new java.awt.event.ActionListener() {
+        btndistinta3termine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndistinta3termine.setText("Termine");
+        btndistinta3termine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndistinta3tetermineActionPerformed(evt);
+                btndistinta3termineActionPerformed(evt);
             }
         });
 
-        btndistinta4tetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndistinta4tetermine.setText("Termine");
-        btndistinta4tetermine.addActionListener(new java.awt.event.ActionListener() {
+        btndistinta4termine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndistinta4termine.setText("Termine");
+        btndistinta4termine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndistinta4tetermineActionPerformed(evt);
+                btndistinta4termineActionPerformed(evt);
             }
         });
 
-        btndistinta5tetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndistinta5tetermine.setText("Termine");
-        btndistinta5tetermine.addActionListener(new java.awt.event.ActionListener() {
+        btndistinta5termine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndistinta5termine.setText("Termine");
+        btndistinta5termine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndistinta5tetermineActionPerformed(evt);
+                btndistinta5termineActionPerformed(evt);
             }
         });
 
-        btndistinta6tetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndistinta6tetermine.setText("Termine");
-        btndistinta6tetermine.addActionListener(new java.awt.event.ActionListener() {
+        btndistinta6termine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndistinta6termine.setText("Termine");
+        btndistinta6termine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndistinta6tetermineActionPerformed(evt);
+                btndistinta6termineActionPerformed(evt);
             }
         });
 
-        btndistinta7tetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndistinta7tetermine.setText("Termine");
-        btndistinta7tetermine.addActionListener(new java.awt.event.ActionListener() {
+        btndistinta7termine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndistinta7termine.setText("Termine");
+        btndistinta7termine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndistinta7tetermineActionPerformed(evt);
+                btndistinta7termineActionPerformed(evt);
             }
         });
 
@@ -4009,11 +4118,11 @@ JOptionPane.showMessageDialog(null, mensaje);
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(1, 1, 1)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(btndistinta5tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(btndistinta7tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(btndistinta5termine, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(btndistinta7termine, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(14, 14, 14))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(btndistinta6tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btndistinta6termine, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btndistinta5cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4028,14 +4137,14 @@ JOptionPane.showMessageDialog(null, mensaje);
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(3, 3, 3)
-                                                .addComponent(btndistinta1tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btndistinta1termine, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(btndistinta1cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(25, 25, 25)
                                                 .addComponent(lbcodigomangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(4, 4, 4)
-                                                .addComponent(btndistinta2tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btndistinta2termine, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(btndistinta2cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
@@ -4043,12 +4152,12 @@ JOptionPane.showMessageDialog(null, mensaje);
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(btndistinta4tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(btndistinta4termine, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(14, 14, 14)
                                                         .addComponent(btndistinta4cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addGap(2, 2, 2)
-                                                        .addComponent(btndistinta3tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(btndistinta3termine, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addComponent(btndistinta3cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addGap(18, 18, 18)
@@ -4257,7 +4366,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                             .addGap(74, 74, 74)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(btndistinta3tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(btndistinta3termine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(btndistinta3cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(lbcantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4295,13 +4404,13 @@ JOptionPane.showMessageDialog(null, mensaje);
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                     .addComponent(btndistinta1cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(btndistinta1tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(btndistinta1termine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addComponent(lbcodigomangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGap(8, 8, 8)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                     .addComponent(btndistinta2cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(btndistinta2tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(btndistinta2termine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addComponent(lbcodigomangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(lbcodigopechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -4319,7 +4428,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lbcolorpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btndistinta4tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btndistinta4termine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btndistinta4cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(lbcodigopechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4328,17 +4437,17 @@ JOptionPane.showMessageDialog(null, mensaje);
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(lbcantidad6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(btndistinta5tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(btndistinta5termine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(btndistinta6tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(btndistinta6termine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(btndistinta6cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addComponent(lbdistinta5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(lbdistinta5nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(btndistinta7tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btndistinta7termine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4569,7 +4678,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     }//GEN-LAST:event_lbprendaMouseClicked
 
-    private void btndistinta2tetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta2tetermineActionPerformed
+    private void btndistinta2termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta2termineActionPerformed
 
     if(lbcantidad.getText().equals("0"))
         {
@@ -4601,9 +4710,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         }    
          
 
-    }//GEN-LAST:event_btndistinta2tetermineActionPerformed
+    }//GEN-LAST:event_btndistinta2termineActionPerformed
 
-    private void btndistinta4tetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta4tetermineActionPerformed
+    private void btndistinta4termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta4termineActionPerformed
 
          if(lbcantidad.getText().equals("0"))
         {
@@ -4632,9 +4741,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             
         } 
     
-    }//GEN-LAST:event_btndistinta4tetermineActionPerformed
+    }//GEN-LAST:event_btndistinta4termineActionPerformed
 
-    private void btndistinta5tetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta5tetermineActionPerformed
+    private void btndistinta5termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta5termineActionPerformed
 
          if(lbcantidad.getText().equals("0"))
         {
@@ -4664,9 +4773,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             
         } 
          
-    }//GEN-LAST:event_btndistinta5tetermineActionPerformed
+    }//GEN-LAST:event_btndistinta5termineActionPerformed
 
-    private void btndistinta3tetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta3tetermineActionPerformed
+    private void btndistinta3termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta3termineActionPerformed
      
         if(lbcantidad.getText().equals("0"))
         {
@@ -4695,9 +4804,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             
         }  
         
-    }//GEN-LAST:event_btndistinta3tetermineActionPerformed
+    }//GEN-LAST:event_btndistinta3termineActionPerformed
 
-    private void btndistinta1tetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta1tetermineActionPerformed
+    private void btndistinta1termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta1termineActionPerformed
 
         if(lbcantidad.getText().equals("0"))
         {
@@ -4732,7 +4841,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            
         
         
-    }//GEN-LAST:event_btndistinta1tetermineActionPerformed
+    }//GEN-LAST:event_btndistinta1termineActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         ventanaordencamisaanteriores = false;
@@ -4789,7 +4898,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     }//GEN-LAST:event_btnverfotomontajeActionPerformed
 
-    private void btndistinta6tetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta6tetermineActionPerformed
+    private void btndistinta6termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta6termineActionPerformed
 
        if(lbcantidad.getText().equals("0"))
         {
@@ -4818,9 +4927,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             
         } 
         
-    }//GEN-LAST:event_btndistinta6tetermineActionPerformed
+    }//GEN-LAST:event_btndistinta6termineActionPerformed
 
-    private void btndistinta7tetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta7tetermineActionPerformed
+    private void btndistinta7termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndistinta7termineActionPerformed
        
         if(lbcantidad.getText().equals("0"))
         {
@@ -4849,7 +4958,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             //sumapuntos(); 
             
         } 
-    }//GEN-LAST:event_btndistinta7tetermineActionPerformed
+    }//GEN-LAST:event_btndistinta7termineActionPerformed
 
     private void btnterminetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnterminetodoActionPerformed
       
@@ -4864,31 +4973,31 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             if(boton.equals("btndistinta1"))
             {
-                btndistinta1tetermine.doClick();
+                btndistinta1termine.doClick();
             }
             else if(boton.equals("btndistinta2"))
             {
-                btndistinta2tetermine.doClick();
+                btndistinta2termine.doClick();
             }
             else if(boton.equals("btndistinta3"))
             {
-                btndistinta3tetermine.doClick();
+                btndistinta3termine.doClick();
             }
             else if(boton.equals("btndistinta4"))
             {
-                btndistinta4tetermine.doClick();
+                btndistinta4termine.doClick();
             }
             else if(boton.equals("btndistinta5"))
             {
-                btndistinta5tetermine.doClick();
+                btndistinta5termine.doClick();
             }
             else if(boton.equals("btndistinta6"))
             {
-                btndistinta6tetermine.doClick();
+                btndistinta6termine.doClick();
             }
             else if(boton.equals("btndistinta7"))
             {
-                btndistinta7tetermine.doClick();
+                btndistinta7termine.doClick();
             }
             
         }
@@ -5311,25 +5420,25 @@ JOptionPane.showMessageDialog(null, mensaje);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btndistinta1cancelar;
     private javax.swing.JButton btndistinta1ponnchado;
-    private javax.swing.JButton btndistinta1tetermine;
+    private javax.swing.JButton btndistinta1termine;
     private javax.swing.JButton btndistinta2cancelar;
     private javax.swing.JButton btndistinta2ponnchado;
-    private javax.swing.JButton btndistinta2tetermine;
+    private javax.swing.JButton btndistinta2termine;
     private javax.swing.JButton btndistinta3cancelar;
     private javax.swing.JButton btndistinta3ponnchado;
-    private javax.swing.JButton btndistinta3tetermine;
+    private javax.swing.JButton btndistinta3termine;
     private javax.swing.JButton btndistinta4cancelar;
     private javax.swing.JButton btndistinta4ponnchado;
-    private javax.swing.JButton btndistinta4tetermine;
+    private javax.swing.JButton btndistinta4termine;
     private javax.swing.JButton btndistinta5cancelar;
     private javax.swing.JButton btndistinta5ponnchado;
-    private javax.swing.JButton btndistinta5tetermine;
+    private javax.swing.JButton btndistinta5termine;
     private javax.swing.JButton btndistinta6cancelar;
     private javax.swing.JButton btndistinta6ponnchado;
-    private javax.swing.JButton btndistinta6tetermine;
+    private javax.swing.JButton btndistinta6termine;
     private javax.swing.JButton btndistinta7cancelar;
     private javax.swing.JButton btndistinta7ponnchado;
-    private javax.swing.JButton btndistinta7tetermine;
+    private javax.swing.JButton btndistinta7termine;
     private javax.swing.JButton btneditarbordado;
     private javax.swing.JButton btneliminar;
     public static javax.swing.JButton btnsalir;

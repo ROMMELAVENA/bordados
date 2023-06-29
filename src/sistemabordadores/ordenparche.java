@@ -174,6 +174,9 @@ public static boolean ventanaordenparcheanteriores = false;
               String estatusorden = rs.getString("estatus_orden");
                  lbestatus.setText(estatusorden);
                 
+                 
+                 
+                 
                 if(estatusorden.equals("realizada totalmente"))
                 {
                   btnterminetodo.setEnabled(false);

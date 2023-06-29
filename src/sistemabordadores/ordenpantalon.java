@@ -357,7 +357,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                     if( activadoladoizquierdofrente.equals("si"))
                     {
                
-                       btnladoderechofrentecancelar.setEnabled(true);
+                       btnladoizquierdofrentecancelar.setEnabled(true);
                         lbcantidad1.setText(cantidad);
                    lbcantidad1.setForeground(Color.GREEN.darker());
                         
@@ -1791,7 +1791,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         String ubicacionsinguiones = ubicacion;
         ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
         
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+    //    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
         
         
        
@@ -1821,7 +1821,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         String ubicacionsinguiones = ubicacion;
         ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
         
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+    //    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
         
         
        
@@ -1851,7 +1851,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         String ubicacionsinguiones = ubicacion;
         ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
         
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+     //   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
         
         
        

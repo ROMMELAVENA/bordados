@@ -1711,7 +1711,7 @@ public class ordengorra extends javax.swing.JFrame {
         String ubicacionsinguiones = ubicacion;
         ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
         
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+      //  JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
         
         
         try {
@@ -1740,7 +1740,7 @@ public class ordengorra extends javax.swing.JFrame {
         String ubicacionsinguiones = ubicacion;
         ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
         
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+     //   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
         
         
         try {
@@ -1774,7 +1774,7 @@ public class ordengorra extends javax.swing.JFrame {
         String ubicacionsinguiones = ubicacion;
         ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
         
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+     //   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
         
         
         try {

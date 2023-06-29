@@ -207,17 +207,7 @@ public class ordendistinta extends javax.swing.JFrame {
     
   
         
-        File file = new File("C:\\sistema\\configuracion.txt");
-        try {
-            Scanner sc = new Scanner(file);
-            while (sc.hasNext()) {
-                String line = sc.nextLine();
-                String str[] = line.split(":");
-                tiendalocal = str[1];
-            }
-        } catch (IOException e) {
-            System.out.println(e);
-        }
+        tiendalocal = principal.lbtiendalocal.getText();
         
     }
 
@@ -765,7 +755,7 @@ public class ordendistinta extends javax.swing.JFrame {
   
     
     
-    void agregarfotomontaje() throws FileNotFoundException, IOException  
+    void cargarfotomontaje() throws FileNotFoundException, IOException  
     {
         
       
@@ -1032,7 +1022,7 @@ public class ordendistinta extends javax.swing.JFrame {
     
     
     
-     void agregarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
+     void cargarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
     {
         
         String numero = lborden.getText();
@@ -4580,7 +4570,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      hilosycolor();
      
      try {    
-            agregarfotomontaje();
+            cargarfotomontaje();
         } catch (IOException ex) {
             Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
         }

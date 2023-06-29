@@ -140,17 +140,7 @@ public class ordengorra extends javax.swing.JFrame {
         
                   
                 
-           File file = new File("C:\\sistema\\configuracion.txt");
-        try {
-            Scanner sc = new Scanner(file);
-            while (sc.hasNext()) {
-                String line = sc.nextLine();
-                String str[] = line.split(":");
-                tiendalocal = str[1];
-            }
-        } catch (IOException e) {
-            System.out.println(e);
-        }
+        tiendalocal = principal.lbtiendalocal.getText();
         
         
         if(tiendalocal.equals("cdmxcentro"))
@@ -678,15 +668,97 @@ public class ordengorra extends javax.swing.JFrame {
 
     }
     
-    void agregarfotomontaje() throws FileNotFoundException, IOException  
+    
+    
+      void agregarexistenciabordadosotrasucursal(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
+    {
+        
+       
+        
+        //// bordado
+        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
+            
+                
+ 
+                pst.setString(1, lbnumerodelaotrasucursal.getText());
+                pst.setString(2, sucursal);
+                pst.setString(3, dia());
+                pst.setString(4, hora());
+                pst.setString(5, descripcion);
+                pst.setString(6, lbidentificador.getText());
+                pst.setString(7, cantidad);
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
+            
+           if(cantidadaplicacion==null || cantidadaplicacion.equals("") ||cantidadaplicacion.equals(" "))
+           {
+              cantidadaplicacion = "0"; 
+           }
+            
+           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+           
+           
+           if(cantidadaplicacionint > 0)
+           {
+               int cantidadprendasint = Integer.parseInt(cantidad);
+            
+               
+               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
+
+            try {
+                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
+            
+                
+ 
+                 pst.setString(1, lbnumerodelaotrasucursal.getText());
+                pst.setString(2, sucursal);
+                pst.setString(3, dia());
+                pst.setString(4, hora());
+                pst.setString(5, descripcion);
+                pst.setString(6, lbidentificador.getText());
+                pst.setString(7, cantidad);
+                pst.executeUpdate();
+                pst.close();
+
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+               
+           }
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    void cargarfotomontaje() throws FileNotFoundException, IOException  
     {
         
        
        
         BufferedImage img = null;
-        
-      
-        btnverfotomontaje.setEnabled(false);
+         btnverfotomontaje.setEnabled(false);
      
 
        String sql = "Select extension_imagen,imagen,numero_consecutivo,puntadas_en_fotomontajes from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'GORRA'   ";  ///
@@ -713,7 +785,7 @@ public class ordengorra extends javax.swing.JFrame {
                     lbfotomontaje.setVisible(false);
                     btnverfotomontaje.setEnabled(false);
                     tienefotomontaje = "no";
-                   // btnagregarfotomontaje.setEnabled(true);
+                   // btncargarfotomontaje.setEnabled(true);
                     
                     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
                     
@@ -739,7 +811,7 @@ public class ordengorra extends javax.swing.JFrame {
                     btnverfotomontaje.setEnabled(true);
                     tienefotomontaje = "si";
                     btnverfotomontaje.setEnabled(true);
-                    //btnagregarfotomontaje.setEnabled(false);
+                    //btncargarfotomontaje.setEnabled(false);
 
                     Blob archivo = rs.getBlob("imagen");
                     String nombredelarchivo = rs.getString("extension_imagen");
@@ -1183,7 +1255,7 @@ public class ordengorra extends javax.swing.JFrame {
      
      /*
      
- void agregarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
+ void cargarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
     {
         
         String numero = lborden.getText();
@@ -1426,7 +1498,7 @@ public class ordengorra extends javax.swing.JFrame {
                 {
 
                     tienefotomontaje = "no";
-                   // btnagregarfotomontaje.setEnabled(true);
+                   // btncargarfotomontaje.setEnabled(true);
 
                     
                 } 
@@ -1451,7 +1523,7 @@ public class ordengorra extends javax.swing.JFrame {
                     btnverfotomontaje.setEnabled(true);
                     tienefotomontaje = "si";
                     btnverfotomontaje.setEnabled(true);
-                    //btnagregarfotomontaje.setEnabled(false);
+                    //btncargarfotomontaje.setEnabled(false);
 
                     Blob archivo = rs.getBlob("imagen");
                     String nombredelarchivo = rs.getString("imagen_nombre");
@@ -1714,7 +1786,7 @@ public class ordengorra extends javax.swing.JFrame {
         
         /*
          try {
-            agregarfotomontajeotrasucursal();
+            cargarfotomontajeotrasucursal();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1870,72 +1942,6 @@ public class ordengorra extends javax.swing.JFrame {
         
     }
     
-    void agregarexistenciabordadosotrasucursal(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
-    {
-        
-       
-        
-        //// bordado
-       String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
-            
-                
- 
-                pst.setString(1, lbnumerodelaotrasucursal.getText());
-                pst.setString(2, sucursal);
-                pst.setString(3, dia());
-                pst.setString(4, hora());
-                pst.setString(5, descripcion);
-                pst.setString(6, "ninguno");
-                pst.setString(7, lbcantidad.getText());
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-            
-           if(cantidadaplicacion==null || cantidadaplicacion.equals("")||cantidadaplicacion.equals(" "))
-           {
-               cantidadaplicacion = "0";
-           }
-            
-           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-           
-           
-           if(cantidadaplicacionint > 0)
-           {
-               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
-               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
-               
-               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
-            
-                
- 
-                pst.setString(1, lbnumerodelaotrasucursal.getText());
-                pst.setString(2, sucursal);
-                pst.setString(3, dia());
-                pst.setString(4, hora());
-                pst.setString(5, aplicacioninsertar);
-                pst.setString(6, identificador);
-                pst.setString(7, String.valueOf(totalaplicaciones));
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-               
-           }
-        
-        
-    }
     
     
     void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad) 
@@ -3693,7 +3699,7 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equa
          hilosycolor();
         
         try {
-            agregarfotomontaje();
+            cargarfotomontaje();
         } catch (IOException ex) {
             Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4657,7 +4663,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          hilosycolor();
         
         try {
-            agregarfotomontaje();
+            cargarfotomontaje();
         } catch (IOException ex) {
             Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4682,7 +4688,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
          
          /*
          try {    
-            agregarfotomontajeotrasucursal();
+            cargarfotomontajeotrasucursal();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         } 

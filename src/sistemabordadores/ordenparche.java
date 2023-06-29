@@ -226,6 +226,64 @@ public static boolean ventanaordenparcheanteriores = false;
     }
     
     
+   
+   
+    void hilosycolor()
+    {
+       
+     
+
+        String sql = "Select hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7,color1,color2,color3,color4,color5,color6,color7,numero_consecutivo from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'parche'   ";
+
+        try {
+            Statement st1 = cn.createStatement();
+            ResultSet rs1 = st1.executeQuery(sql);
+            if (rs1.next()) 
+            {
+                Object hilo1 = rs1.getString("hilo1");
+                Object hilo2 = rs1.getString("hilo2");
+                Object hilo3 = rs1.getString("hilo3");
+                Object hilo4 = rs1.getString("hilo4");
+               
+                
+                
+                
+                
+                Object codigo1 = rs1.getString("color1");
+                Object codigo2 = rs1.getString("color2");
+                Object codigo3 = rs1.getString("color3");
+                Object codigo4 = rs1.getString("color4");
+             
+                
+                
+                consecutivo = rs1.getString("numero_consecutivo");
+                
+                if(codigo1.equals("ninguno"))
+                {
+                   
+                }
+                else
+                {
+         //         lbcolormangaderecha.setText(codigo1.toString());
+         //         lbcodigoladoderechofrente.setText(hilo1.toString());
+                }  
+                
+          
+                
+                    
+                
+            }
+            rs1.close();
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } 
+        
+    }
+    
+    
+    
+    
     
     
     
@@ -2219,7 +2277,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }
     
     
-     void agregarfotomontaje() throws FileNotFoundException, IOException  
+     void cargarfotomontaje() throws FileNotFoundException, IOException  
     {
         
         
@@ -3045,14 +3103,14 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equa
         Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
     }
         
-        codigocliente();
+      codigocliente();
         
         cliente();
         
-     //    hilosycolor();
+         hilosycolor();
         
         try {
-            agregarfotomontaje();
+            cargarfotomontaje();
         } catch (IOException ex) {
             Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
         }

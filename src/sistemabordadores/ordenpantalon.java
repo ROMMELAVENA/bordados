@@ -124,22 +124,9 @@ public class ordenpantalon extends javax.swing.JFrame {
          
            
                 
+        tiendalocal = principal.lbtiendalocal.getText();   
                 
-                
-                
-       
-        File file = new File("C:\\sistema\\configuracion.txt");
-        try {
-            Scanner sc = new Scanner(file);
-            while (sc.hasNext()) {
-                String line = sc.nextLine();
-                String str[] = line.split(":");
-                tiendalocal = str[1];
-            }
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-        
+   
         
         if(tiendalocal.equals("cdmxcentro"))
         {
@@ -494,7 +481,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         }         
 
         datostienda();
-     //   agregarfotomontaje();
+        cargarfotomontaje();
 
     }
     
@@ -613,11 +600,11 @@ public class ordenpantalon extends javax.swing.JFrame {
      
      
      
-     /*
-      void agregarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
+    
+      void cargarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
     {
         
-        String numero = lbfolio.getText();
+        String numero = lborden.getText();
         prenda = "Pantalon";
         BufferedImage img = null;
         btnverfotomontaje.setEnabled(false);
@@ -628,7 +615,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         {
             
       
-        numerosucursal = lbnumerosucursal.getText();
+        numerosucursal = lbnumerodelaotrasucursal.getText();
         
 
         String sql7 = "Select prenda,tienda,identificador_prenda from historial_ordenes_pantalon where numero = '" + numerosucursal + "' ";
@@ -765,7 +752,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         {
             
             
-            sdsd
+           
             
         
 
@@ -888,15 +875,15 @@ public class ordenpantalon extends javax.swing.JFrame {
 
         
         }
-        
+         */
         
     }
 
+        }
     
-     */
      
      
-     
+    }
      
      
  
@@ -990,13 +977,13 @@ public class ordenpantalon extends javax.swing.JFrame {
     
     
     
-     void agregarfotomontaje() throws FileNotFoundException, IOException  
+     void cargarfotomontaje() throws FileNotFoundException, IOException  
     {
         
       
         BufferedImage img = null;
         btnverfotomontaje.setEnabled(false);
-        String puntadasenfotomontajes = "";
+     
 
        String sql = "Select extension_imagen,imagen,numero_consecutivo,puntadas_en_fotomontajes from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'PANTALON'   ";  ///
 
@@ -1006,7 +993,7 @@ public class ordenpantalon extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
             {
-                 puntadasenfotomontajes=rs.getString("puntadas_en_fotomontajes");
+                 consecutivo=rs.getString("numero_consecutivo");
                 Blob blob = rs.getBlob("imagen");
                 if (blob == null) 
                 {
@@ -1117,7 +1104,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     }
      
      /*
-     void agregarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
+     void cargarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
     {
         
         String numero = lbfolio.getText();
@@ -1834,15 +1821,17 @@ public class ordenpantalon extends javax.swing.JFrame {
             Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        /*
         
-       try {    
-            agregarfotomontajeotrasucursal();
+        
+          
+        try {
+            cargarfotomontajeotrasucursal();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
         }
+      
         
-        */
+        
         
         
     }  
@@ -3786,6 +3775,10 @@ public static String dia() {
    
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
+        
+        
+        
+        
          if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
     {
         
@@ -3797,10 +3790,16 @@ public static String dia() {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
      
+     
+      codigocliente();
+        
+        cliente();
+        
+         hilosycolor();
         
      
      try {    
-            agregarfotomontaje();
+            cargarfotomontaje();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4425,7 +4424,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
      
      try {    
-            agregarfotomontaje();
+            cargarfotomontaje();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4455,13 +4454,13 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
          
          
-         /*
+         
          try {    
-            agregarfotomontajeotrasucursal();
+            cargarfotomontajeotrasucursal();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         } 
-        */
+        
 
          
         btnreplicar.setEnabled(false);

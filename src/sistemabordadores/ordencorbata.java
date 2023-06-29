@@ -88,6 +88,9 @@ public class ordencorbata extends javax.swing.JFrame {
         lbcantidad.setText("0");
         
       btncancelar.setEnabled(false);
+      
+      
+       tiendalocal = principal.lbtiendalocal.getText();
        
 
     }
@@ -240,7 +243,7 @@ public class ordencorbata extends javax.swing.JFrame {
         }
 
 
-    //    agregarfotomontaje();
+      cargarfotomontaje();
         
         
         
@@ -351,7 +354,7 @@ public class ordencorbata extends javax.swing.JFrame {
     
     
     
-    void agregarfotomontaje() throws FileNotFoundException, IOException  
+    void cargarfotomontaje() throws FileNotFoundException, IOException  
     {
         
     
@@ -1943,7 +1946,7 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equa
          hilosycolor();
         
         try {
-            agregarfotomontaje();
+            cargarfotomontaje();
         } catch (IOException ex) {
             Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
         }

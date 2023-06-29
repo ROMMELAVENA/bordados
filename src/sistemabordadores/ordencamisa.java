@@ -1793,7 +1793,7 @@ public class ordencamisa extends javax.swing.JFrame {
   
     
     
-    void agregarfotomontaje() throws FileNotFoundException, IOException  
+    void cargarfotomontaje() throws FileNotFoundException, IOException  
     {
         
     
@@ -2074,7 +2074,7 @@ public class ordencamisa extends javax.swing.JFrame {
     
     
     
-     void agregarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
+     void cargarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
     {
         
         String numero = lborden.getText();
@@ -5387,7 +5387,7 @@ JOptionPane.showMessageDialog(null, mensaje);
    
      
      try {    
-            agregarfotomontaje();
+            cargarfotomontaje();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -7352,7 +7352,7 @@ JOptionPane.showMessageDialog(null, mensaje);
    
      
      try {    
-            agregarfotomontaje();
+            cargarfotomontaje();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -7385,7 +7385,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (sucursal.equals(cc))
          
          try {    
-            agregarfotomontajeotrasucursal();
+            cargarfotomontajeotrasucursal();
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         } 

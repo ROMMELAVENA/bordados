@@ -71,7 +71,7 @@ public class ordencamisa extends javax.swing.JFrame {
     int bordadosdisponiblesint = 0;
     String cantidadprendasstring = "";
     int cantidadprendasint = 0;
-   
+    String cantidad = "";
     int remanentebordadosint = 0;
     String remanentebordadosstring = "";
     int nuevoremanentebordadosint = 0;
@@ -427,7 +427,10 @@ public class ordencamisa extends javax.swing.JFrame {
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
                 lbfecha.setText(rs.getString("fecha"));
-                lbcantidad.setText(rs.getString("cantidad"));
+                
+                cantidad = rs.getString("cantidad");
+                lbcantidad.setText(cantidad);
+                
                 lbdiaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
                 identificador = rs.getString("identificador_prenda");
@@ -451,6 +454,13 @@ public class ordencamisa extends javax.swing.JFrame {
 
                 sucursal=rs.getString("tienda");
                 
+               
+                
+                
+                
+                
+                
+                
                 
                 
                   pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
@@ -459,7 +469,7 @@ public class ordencamisa extends javax.swing.JFrame {
                   String pechoizquierdo = rs.getString("pecho_izquierdo");
                   lbpechoizquierdo.setText(pechoizquierdo);
                
-                
+                  
                 if (pechoizquierdo == null | pechoizquierdo.equals("")) {
 
                     btnpechoizquierdotermine.setEnabled(false);
@@ -641,6 +651,9 @@ public class ordencamisa extends javax.swing.JFrame {
 
                 
                 
+            
+                
+                
                 
                 
 
@@ -711,13 +724,6 @@ public class ordencamisa extends javax.swing.JFrame {
                 
                 
                 
-                
-                
-                
-                
-                
-                
-                
                 String cantidadpechoizquiedo =rs.getString("cantidad_pecho_izquierdo");
                 String cantidadpechoderecho =rs.getString("cantidad_pecho_derecho");         
                 String cantidadmangaizquierda =rs.getString("cantidad_manga_izquierda"); 
@@ -739,8 +745,10 @@ public class ordencamisa extends javax.swing.JFrame {
                     
                     
                     
+                       lbcantidad1.setText(cantidad);
+                    lbcantidad1.setForeground(Color.red.darker());
                     
-                    
+                
                     
                     
                     
@@ -2403,7 +2411,7 @@ public class ordencamisa extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set "+ubicacion+"='" + lbcantidad.getText() + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set "+ubicacion+"='" + cantidad + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -2423,7 +2431,7 @@ public class ordencamisa extends javax.swing.JFrame {
         }
         else
         {    
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+     //   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
         }
         
         try {
@@ -2452,7 +2460,7 @@ public class ordencamisa extends javax.swing.JFrame {
          
             
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set "+ubicacion+"='" + lbcantidad.getText() + "',fecha = '"+dia()+"',"+fechaubicacion+" = '"+dia()+"'  where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set "+ubicacion+"='" + cantidad + "',fecha = '"+dia()+"',"+fechaubicacion+" = '"+dia()+"'  where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
                     
@@ -2504,7 +2512,7 @@ public class ordencamisa extends javax.swing.JFrame {
         
        
         identificador = lbidentificador.getText();
-        String cantidad = lbcantidad.getText();
+       
         
         
         //// bordado
@@ -2573,7 +2581,7 @@ public class ordencamisa extends javax.swing.JFrame {
            
            if(cantidadaplicacionint > 0)
            {
-               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
+               int cantidadprendasint = Integer.parseInt(cantidad);
                int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
                
                String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
@@ -2620,7 +2628,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 pst.setString(4, hora());
                 pst.setString(5, descripcion);
                 pst.setString(6, lbidentificador.getText());
-                pst.setString(7, lbcantidad.getText());
+                pst.setString(7, cantidad);
                 pst.executeUpdate();
                 pst.close();
 
@@ -2639,7 +2647,7 @@ public class ordencamisa extends javax.swing.JFrame {
            
            if(cantidadaplicacionint > 0)
            {
-               int cantidadprendasint = Integer.parseInt(lbcantidad.getText());
+               int cantidadprendasint = Integer.parseInt(cantidad);
             
                
                String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
@@ -2655,7 +2663,7 @@ public class ordencamisa extends javax.swing.JFrame {
                 pst.setString(4, hora());
                 pst.setString(5, descripcion);
                 pst.setString(6, lbidentificador.getText());
-                pst.setString(7, lbcantidad.getText());
+                pst.setString(7, cantidad);
                 pst.executeUpdate();
                 pst.close();
 
@@ -2793,7 +2801,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
-         if(sucursal.equals(tiendalocal))    
+         if(sucursal.equals(tiendalocal) && !numeroordendeenviosolicitada.equals("0"))    
          
                  {
                      
@@ -2817,7 +2825,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       String cantidadvendida = "";  
       String cantidadentregada = "";  
        
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero_sucursal = '"+numeroordendeenviosolicitada+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroordendeenviosolicitada+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -3504,149 +3512,290 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                     
                     
+                    
                 }
                 else
                 {
-                   botonesactivados = botonesactivados + 1; 
+                    
+                     if(cantidadpechoizquierdo.equals("0") )
+                {
+                    lbcantidad1.setText(cantidad);
+                    lbcantidad1.setForeground(Color.red.darker());
+                    
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1; 
+                   
+                    botonesactivados = botonesactivados + 1; 
+                   lbcantidad1.setText(cantidad);
+                   lbcantidad1.setForeground(Color.GREEN.darker());
+                   
                 } 
+                    
+                    
+                    
+                  
+                } 
+                
+                
+                
                 
                 
                 if(pechoderecho==null || pechoderecho.equals("")||pechoderecho.equals(" ")||pechoderecho.equals("ninguno") )
                 {
                     
+                   
                     
                 }
                 else
                 {
-                   botonesactivados = botonesactivados + 1; 
+                    
+                    
+                     if(cantidadpechoderecho.equals("0") )
+                {
+                    
+                     lbcantidad2.setText(cantidad);
+                    lbcantidad2.setForeground(Color.red.darker());
+                    
                 }
+                else
+                {
+                   tienecantidad = tienecantidad + 1; 
+                   
+                     botonesactivados = botonesactivados + 1;
+                    lbcantidad2.setText(cantidad);
+                     lbcantidad2.setForeground(Color.GREEN.darker());
+                }
+                     
+                     
+                 
+                }
+                
+                
+                
+                
+                
+                
+                    
+                if(mangaizquierda==null || mangaizquierda.equals("")||mangaizquierda.equals(" ")||mangaizquierda.equals("ninguno") )
+                {
+                    
+                  
+                    
+                }
+                else
+                {
+                    
+                    
+                    
+                    
+                    
+                    
+                        if(cantidadmangaizquierda.equals("0"))
+                {
+                    
+                    
+                      lbcantidad3.setText(cantidad);
+                    lbcantidad3.setForeground(Color.red.darker());
+                    
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1;
+                   
+                    botonesactivados = botonesactivados + 1;
+                   lbcantidad3.setText(cantidad);
+                    lbcantidad3.setForeground(Color.GREEN.darker());
+                }
+                        
+                        
+                        
+                  
+                }
+                
+                
+                
+                
+                
+                
+                
                 
                 if(mangaderecha==null || mangaderecha.equals("")||mangaderecha.equals(" ")||mangaderecha.equals("ninguno") )
                 {
                     
                     
+                    
                 }
                 else
                 {
-                   botonesactivados = botonesactivados + 1; 
+                    
+                    
+                    
+                     if(cantidadmangaderecha.equals("0") )
+                {
+                    
+                    lbcantidad4.setText(cantidad);
+                    lbcantidad4.setForeground(Color.red.darker());
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1;
+                   
+                    botonesactivados = botonesactivados + 1;
+                   lbcantidad4.setText(cantidad);
+                    lbcantidad4.setForeground(Color.GREEN.darker());
+                    
+                }
+                    
+                  
                 }
                 
-                if(mangaizquierda==null || mangaizquierda.equals("")||mangaizquierda.equals(" ")||mangaizquierda.equals("ninguno") )
-                {
-                    
-                    
-                }
-                else
-                {
-                   botonesactivados = botonesactivados + 1; 
-                }
+                
+                
+                
+                
+            
                 
                 if(espalda==null || espalda.equals("")||espalda.equals(" ")||espalda.equals("ninguno") )
                 {
                     
+                  
                     
                 }
                 else
                 {
-                   botonesactivados = botonesactivados + 1; 
+                    
+                    
+                      if(cantidadespalda.equals("0") )
+                {
+                      lbcantidad5.setText(cantidad);
+                    lbcantidad5.setForeground(Color.red.darker());
+                    
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1;
+                   
+                   botonesactivados = botonesactivados + 1;
+                   lbcantidad5.setText(cantidad);
+                    lbcantidad5.setForeground(Color.GREEN.darker());
+                    
+                    
                 }
             
+                      
+                      
+                   
+                }
+            
+                
+                
+                
+                
+                
                 
                 if(otraubicacion==null || otraubicacion.equals("")||otraubicacion.equals(" ")||otraubicacion.equals("ninguno") )
                 {
                     
+                   
                     
                 }
                 else
                 {
-                   botonesactivados = botonesactivados + 1; 
+                    
+                    
+                      
+                if(cantidadotraubicacion.equals("0") )
+                {
+                    
+                     lbcantidad6.setText(cantidad);
+                    lbcantidad6.setForeground(Color.red.darker());
+                    
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1; 
+                     botonesactivados = botonesactivados + 1;
+                   lbcantidad6.setText(cantidad);
+                    lbcantidad6.setForeground(Color.GREEN.darker());
+                   
                 }
             
+                
+                
+                
+                 
+                }
+            
+                
+                
+                
+                
+                
+                
            if(otraubicacion2==null || otraubicacion2.equals("")||otraubicacion2.equals(" ")||otraubicacion2.equals("ninguno") )
                 {
                     
                     
+                    
                 }
                 else
                 {
-                   botonesactivados = botonesactivados + 1; 
+                    
+                     if(cantidadotraubicacion2.equals("0") )
+                {
+                    
+                    lbcantidad7.setText(cantidad);
+                    lbcantidad7.setForeground(Color.red.darker());
                 }
+                else
+                {
+                   tienecantidad = tienecantidad + 1; 
+                   
+                    botonesactivados = botonesactivados + 1;
+                   lbcantidad7.setText(cantidad);
+                    lbcantidad7.setForeground(Color.GREEN.darker());
+                    
+                }
+           
+                    
+                  
+                }
+           
+           
+           
+           
+           
+           
            
            
                 ////////////////////////////////////////////////////////////////
                 
-                 if(cantidadpechoizquierdo.equals("0") )
-                {
-                    
-                    
-                }
-                else
-                {
-                   tienecantidad = tienecantidad + 1; 
-                } 
                 
                 
-                if(cantidadpechoderecho.equals("0") )
-                {
-                    
-                    
-                }
-                else
-                {
-                   tienecantidad = tienecantidad + 1; 
-                }
                 
-                if(cantidadmangaderecha.equals("0") )
-                {
-                    
-                    
-                }
-                else
-                {
-                   tienecantidad = tienecantidad + 1;
-                }
                 
-                if(cantidadmangaizquierda.equals("0"))
-                {
-                    
-                    
-                }
-                else
-                {
-                   tienecantidad = tienecantidad + 1;
-                }
                 
-                if(cantidadespalda.equals("0") )
-                {
-                    
-                    
-                }
-                else
-                {
-                   tienecantidad = tienecantidad + 1;
-                }
-            
                 
-                if(cantidadotraubicacion.equals("0") )
-                {
-                    
-                    
-                }
-                else
-                {
-                   tienecantidad = tienecantidad + 1; 
-                }
-            
-           if(cantidadotraubicacion2.equals("0") )
-                {
-                    
-                    
-                }
-                else
-                {
-                   tienecantidad = tienecantidad + 1; 
-                }
-           
+               
+                
+                
+               
+                
+                
+                
+              
+                  
+                  
+                
+               
+                
+              
+                
+              
+              
+          
             
            
            if(tienecantidad == botonesactivados)
@@ -3991,6 +4140,13 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbotraubicacion2nombre = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         lbestatus = new javax.swing.JLabel();
+        lbcantidad7 = new javax.swing.JLabel();
+        lbcantidad6 = new javax.swing.JLabel();
+        lbcantidad5 = new javax.swing.JLabel();
+        lbcantidad4 = new javax.swing.JLabel();
+        lbcantidad3 = new javax.swing.JLabel();
+        lbcantidad2 = new javax.swing.JLabel();
+        lbcantidad1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden camisa");
@@ -4505,6 +4661,27 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbestatus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbestatus.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        lbcantidad7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcantidad7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbcantidad6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcantidad6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbcantidad5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcantidad5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbcantidad4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcantidad4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbcantidad3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcantidad3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbcantidad2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcantidad2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbcantidad1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcantidad1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -4538,22 +4715,38 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addGap(2, 2, 2)
                                 .addComponent(lbotraubicacionnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lbotraubicacion2nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbmangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(7, 7, 7)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbcantidad2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbcantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbcantidad4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbcantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbcantidad6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(10, 10, 10))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbcantidad7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
                                 .addComponent(btnpechoizquierdotermine, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(14, 14, 14)
                                 .addComponent(btnpechoizquierdocancelar)
                                 .addGap(18, 18, 18)
                                 .addComponent(lbhilo1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbmangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(5, 5, 5)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnpechoderechotermine, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnmangaizquierdatermine, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4569,20 +4762,12 @@ JOptionPane.showMessageDialog(null, mensaje);
                                     .addComponent(lbhilo3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbhilo4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
                                 .addComponent(btnespaldatetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(14, 14, 14)
                                 .addComponent(btnespaldacancelar)
                                 .addGap(18, 18, 18)
                                 .addComponent(lbhilo5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
-                                        .addComponent(lbotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lbotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(3, 3, 3)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(2, 2, 2)
@@ -4616,15 +4801,15 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addComponent(btnotraubicacion2ponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(274, 274, 274)
+                                .addGap(168, 168, 168)
                                 .addComponent(btninsertarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(254, 254, 254)
+                                .addGap(148, 148, 148)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
                                 .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(264, 264, 264)
+                                .addGap(158, 158, 158)
                                 .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
@@ -4799,108 +4984,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnpechoizquierdotermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnpechoizquierdocancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbhilo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(7, 7, 7)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
-                                        .addComponent(lbpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(lbmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(lbmangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnpechoderechotermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(btnmangaizquierdatermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(btnmangaderechatetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lbcolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                    .addComponent(lbhilo2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(lbhilo3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                    .addComponent(btnpechoderechocancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(7, 7, 7)
-                                                    .addComponent(btnmangaizquierdacancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(btnmangaizquierdaponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(7, 7, 7)
-                                                .addComponent(btnmangaderechacancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGap(10, 10, 10)
-                                                .addComponent(lbhilo4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(4, 4, 4)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
-                                        .addComponent(lbespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
-                                        .addComponent(btnespaldatetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnespaldacancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addComponent(lbhilo5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(lbotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(lbotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(btnotraubicaciontetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(btnotraubicacion2tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(btnotraubicacioncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(5, 5, 5)
-                                        .addComponent(btnotraubicacion2cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(7, 7, 7)
-                                        .addComponent(lbhilo6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(5, 5, 5)
-                                        .addComponent(lbhilo7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbcolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(7, 7, 7)
-                                    .addComponent(lbcolor2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(47, 47, 47)
-                                    .addComponent(lbcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(5, 5, 5)
-                                    .addComponent(lbcolor5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(5, 5, 5)
-                                    .addComponent(lbcolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(5, 5, 5)
-                                    .addComponent(lbcolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(btnpechoizquierdoponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(7, 7, 7)
-                                    .addComponent(btnpechoderechoponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(46, 46, 46)
-                                    .addComponent(btnmangaderechaponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(4, 4, 4)
-                                    .addComponent(btnespaldaponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(btnotraubicacionponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(5, 5, 5)
-                                    .addComponent(btnotraubicacion2ponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -4937,16 +5020,134 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addGap(7, 7, 7)
                                 .addComponent(lbmangaderechanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7)
-                                .addComponent(lbespaldanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbotraubicacionnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbotraubicacionnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbespaldanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbotraubicacionnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbotraubicacionnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbcantidad6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbotraubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbotraubicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbotraubicacion2nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbotraubicacion2nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(27, 27, 27))
+                                    .addComponent(lbotraubicacion2nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbcantidad7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lbcolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(7, 7, 7)
+                                    .addComponent(lbcolor2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(47, 47, 47)
+                                    .addComponent(lbcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(5, 5, 5)
+                                    .addComponent(lbcolor5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(5, 5, 5)
+                                    .addComponent(lbcolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(5, 5, 5)
+                                    .addComponent(lbcolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(btnpechoizquierdoponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(7, 7, 7)
+                                    .addComponent(btnpechoderechoponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(46, 46, 46)
+                                    .addComponent(btnmangaderechaponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(4, 4, 4)
+                                    .addComponent(btnespaldaponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(10, 10, 10)
+                                    .addComponent(btnotraubicacionponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(5, 5, 5)
+                                    .addComponent(btnotraubicacion2ponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(lbpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(lbmangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(lbmangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnpechoizquierdotermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnpechoizquierdocancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbhilo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(7, 7, 7)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(lbcolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                            .addComponent(lbhilo2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                            .addComponent(lbhilo3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                            .addComponent(btnpechoderechocancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addGap(7, 7, 7)
+                                                            .addComponent(btnmangaizquierdacancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addComponent(btnmangaizquierdaponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(7, 7, 7)
+                                                        .addComponent(btnmangaderechacancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                        .addGap(10, 10, 10)
+                                                        .addComponent(lbhilo4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(btnpechoderechotermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(7, 7, 7)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(lbcantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(10, 10, 10)
+                                                        .addComponent(lbcantidad4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(btnmangaizquierdatermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(10, 10, 10)
+                                                        .addComponent(btnmangaderechatetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(7, 7, 7)
+                                        .addComponent(lbcantidad2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(4, 4, 4)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnespaldacancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addComponent(lbhilo5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(3, 3, 3)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbcantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnespaldatetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(btnotraubicacioncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(btnotraubicacion2cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnotraubicacion2tetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(7, 7, 7)
+                                        .addComponent(lbhilo6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(lbhilo7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(btnotraubicaciontetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addGap(37, 37, 37))
         );
 
         pack();
@@ -5136,7 +5337,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                                 
                                                 
                                                 
-         if(lbcantidad.getText().equals("0"))
+         if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
@@ -5150,7 +5351,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             nombrebordado = mangaizquierdanombre;
             String cantidadaplicacion = aplicacionmangaizquierda;
-            String cantidad = lbcantidad.getText();
+          
             nombredelatabla = "historial_ordenes_camisa";
           
             
@@ -5300,9 +5501,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
       fechaubicacion  = "pecho_izquierdo_fecha";
       String ubicacion = "cantidad_pecho_izquierdo";
-        
-      String cantidad = lbcantidad.getText();
-      
+       
         
          if(cantidad.equals("0"))
         {
@@ -5527,11 +5726,6 @@ JOptionPane.showMessageDialog(null, mensaje);
            String ubicacion = "cantidad_espalda";
                   
          
-                                                
-                                                
-        
-        String cantidad = lbcantidad.getText();
-        
         if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
@@ -5695,7 +5889,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String ubicacion = "cantidad_pecho_derecho";
         
                                         
-         if(lbcantidad.getText().equals("0"))
+         if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
@@ -5710,7 +5904,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             nombrebordado = pechoderechonombre;
             String cantidadaplicacion = aplicacionpechoderecho;
-            String cantidad = lbcantidad.getText();
+           
             nombredelatabla = "historial_ordenes_camisa";
           
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
@@ -5793,7 +5987,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      
             nombrebordado = pechoderechonombre;
             String cantidadaplicacion = aplicacionpechoderecho;
-            String cantidad = lbcantidad.getText();
+           
             nombredelatabla = "historial_ordenes_camisa_recibidas";
          
             
@@ -5869,7 +6063,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                         
                                         
                                         
-        if(lbcantidad.getText().equals("0"))
+        if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
@@ -5882,7 +6076,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             nombrebordado = mangaderechanombre;
             String cantidadaplicacion = aplicacionmangaderecha;
-            String cantidad = lbcantidad.getText();
+           
             nombredelatabla = "historial_ordenes_camisa";
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
 
@@ -5965,7 +6159,7 @@ JOptionPane.showMessageDialog(null, mensaje);
        
             nombrebordado = mangaderechanombre;
             String cantidadaplicacion = aplicacionmangaderecha;
-            String cantidad = lbcantidad.getText();
+         
             nombredelatabla = "historial_ordenes_camisa_recibidas";
             insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
             if (prenda.toUpperCase().equals("CAMISA")) {
@@ -6460,7 +6654,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          
                                         
                                         
-        if(lbcantidad.getText().equals("0"))
+        if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
@@ -6483,7 +6677,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String ubicacion = "cantidad_otra_ubicacion";
             nombrebordado = otraubicacionnombre;
             String cantidadaplicacion = aplicacionotraubicacion;
-            String cantidad = lbcantidad.getText();
+          
             nombredelatabla = "historial_ordenes_camisa";
      
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
@@ -6571,7 +6765,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombrebordado = otraubicacionnombre;
             String cantidadaplicacion = aplicacionotraubicacion;
             nombredelatabla = "historial_ordenes_camisa_recibidas";
-            String cantidad = lbcantidad.getText();
+          
             insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
               if (prenda.toUpperCase().equals("CAMISA")) {
 
@@ -6645,7 +6839,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          
                                                 
                                                 
-        if(lbcantidad.getText().equals("0"))
+        if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
@@ -6658,7 +6852,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String ubicacion = "cantidad_otra_ubicacion2";
             nombrebordado = otraubicacion2nombre;
             String cantidadaplicacion = aplicacionotraubicacion2;
-            String cantidad = lbcantidad.getText();
+           
             nombredelatabla = "historial_ordenes_camisa";
       
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
@@ -6744,7 +6938,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 String ubicacion = "cantidad_otra_ubicacion2";
                 nombrebordado = otraubicacion2nombre;
                 String cantidadaplicacion = aplicacionotraubicacion2;
-                String cantidad = lbcantidad.getText();
+              
                 nombredelatabla = "historial_ordenes_camisa_recibidas";
                 insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
                   if (prenda.toUpperCase().equals("CAMISA")) {
@@ -7227,7 +7421,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            
            nombrebordado =pechoizquierdonombre;
            String cantidadaplicacion = aplicacionpechoizquierdo;
-           String cantidad = lbcantidad.getText();
+         
            nombredelatabla = "historial_ordenes_camisa";
            
            
@@ -7306,7 +7500,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     nombrebordado = pechoderechonombre;
                     String cantidadaplicacion = aplicacionpechoderecho;
-                    String cantidad = lbcantidad.getText();
+                   
                     nombredelatabla = "historial_ordenes_camisa";
                     
 
@@ -7386,7 +7580,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             nombrebordado = mangaizquierdanombre;
             String cantidadaplicacion = aplicacionmangaizquierda;
-            String cantidad = lbcantidad.getText();
+         
             nombredelatabla = "historial_ordenes_camisa";
              
             
@@ -7459,7 +7653,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             nombrebordado = mangaderechanombre;
             String cantidadaplicacion = aplicacionmangaderecha;
-            String cantidad = lbcantidad.getText();
+         
             nombredelatabla = "historial_ordenes_camisa";
             
 
@@ -7540,7 +7734,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             nombrebordado =espaldanombre;
            String cantidadaplicacion = aplicacionespalda;
-            String cantidad = lbcantidad.getText();
+         
             nombredelatabla = "historial_ordenes_camisa";
             
         
@@ -7621,7 +7815,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             nombrebordado = otraubicacionnombre;
             String cantidadaplicacion = aplicacionotraubicacion;
-            String cantidad = lbcantidad.getText();
+           
             nombredelatabla = "historial_ordenes_camisa";
             
 
@@ -7703,7 +7897,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             nombrebordado = otraubicacion2nombre;
             String cantidadaplicacion = aplicacionotraubicacion2;
-            String cantidad = lbcantidad.getText();
+          
             nombredelatabla = "historial_ordenes_camisa";
           
             
@@ -7886,6 +8080,13 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JScrollPane jScrollPane6;
     public static javax.swing.JLabel lbbordacliente;
     public static javax.swing.JLabel lbcantidad;
+    public javax.swing.JLabel lbcantidad1;
+    public javax.swing.JLabel lbcantidad2;
+    public javax.swing.JLabel lbcantidad3;
+    public javax.swing.JLabel lbcantidad4;
+    public javax.swing.JLabel lbcantidad5;
+    public javax.swing.JLabel lbcantidad6;
+    public javax.swing.JLabel lbcantidad7;
     public static javax.swing.JLabel lbcliente;
     public javax.swing.JLabel lbcolor1;
     public javax.swing.JLabel lbcolor2;

@@ -487,6 +487,8 @@ public class ordengorra extends javax.swing.JFrame {
                    
                //    btnatrastetermine.setText("Atras");
                    btnatrastetermine.setForeground(Color.green.darker());
+              
+                   
                    if(botonactivado4.equals("si"))
                    {
                     listabotones.add("btnatras");

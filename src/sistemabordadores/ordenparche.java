@@ -210,13 +210,6 @@ public static boolean ventanaordenparcheanteriores = false;
            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
-        
-   
-    try {
-        agregarfotomontaje();
-    } catch (IOException ex) {
-        Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
-    }
         sumapuntos();
       
         
@@ -2479,13 +2472,6 @@ else
         }
          
          
-         /*        try {    
-            agregarfotomontajeotrasucursal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        
-        */ 
          
          
          sumapuntos();

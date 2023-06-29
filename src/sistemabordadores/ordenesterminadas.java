@@ -1331,6 +1331,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
             }
         });
 
+        cbmes.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         cbmes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         cbmes.setSelectedIndex(-1);
         cbmes.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
@@ -1547,46 +1548,10 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 
                 else
                     
-                    
-                    if (tipo.equals("Orden ponchado")) 
-                {
-                    if (ordenponchado.ventanaordenparcheanteriores == true) {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado anteriores");
-
-                    } else {
-                        ordenponchado orden = new ordenponchado();
-                        orden.setVisible(true);
-
-                        ordenponchado.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
-                        ordenponchado.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                         tabla.clearSelection();
-                         this.setState(this.ICONIFIED);
-                        
-                    }
-                }
-                    
-                    
-                else
+             
                         
                         
-                        if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
-                {
-                    if (ordenparche.ventanaordenparcheanteriores == true) {
-                        JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado anteriores");
-
-                    } else {
-                        ordenparche orden = new ordenparche();
-                        orden.setVisible(true);
-
-                        ordenparche.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                         tabla.clearSelection();
-                         this.setState(this.ICONIFIED);
-                        
-                    }
-                }
-                        
-                        
-                else 
+                       
                             
                             
                             if (tipo.equals("Orden corbata")) 
@@ -1597,8 +1562,8 @@ public class ordenesterminadas extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de corbata anteriores");
 
                     } else {
-                        ordencorbata orden = new ordencorbata();
-                        orden.setVisible(true);
+                        ordencorbata ventana = new ordencorbata();
+                        ventana.setVisible(true);
 
                         ordencorbata.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         ordencorbata.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
@@ -1619,6 +1584,62 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 else 
                                 
                                 
+                                
+                                 if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
+                {
+                    if (ordenparche.ventanaordenparcheanteriores == true) {
+                        JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado anteriores");
+
+                    } 
+                    
+                    else
+                    
+                    {
+                        ordenparche ventana = new ordenparche();
+                        ventana.setVisible(true);
+
+                        ordenparche.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenparche.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                   
+                        ordenparche.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                        ordenparche.tipotabla = (tabla.getValueAt(fila, 10).toString());
+                        tabla.clearSelection();
+                        this.setState(this.ICONIFIED);
+                        
+                    }
+                }
+                        
+                        
+                else 
+                                
+                                
+                                
+                                
+                                       
+                    if (tipo.equals("Orden ponchado")) 
+                {
+                    if (ordenponchado.ventanaordenparcheanteriores == true) {
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado anteriores");
+
+                    } else {
+                        ordenponchado orden = new ordenponchado();
+                        orden.setVisible(true);
+
+                        ordenponchado.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenponchado.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        
+                        ordenponchado.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordenponchado.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                         tabla.clearSelection();
+                         this.setState(this.ICONIFIED);
+                        
+                    }
+                }
+                    
+                    
+                else
+                                
+                                
                                 if (tipo.equals("Porta nombre escolar")) 
                 {
                    
@@ -1627,8 +1648,9 @@ public class ordenesterminadas extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de portanombre");
 
                     } else {
-                            ordenportanombreescolar orden = new ordenportanombreescolar();
-                            orden.setVisible(true);
+                            ordenportanombreescolar ventana = new ordenportanombreescolar();
+                            ventana.setVisible(true);
+                            
                             ordenportanombreescolar.lbnumero.setText(tabla.getValueAt(fila, 0).toString());
                             tabla.clearSelection();
                             this.setState(this.ICONIFIED);
@@ -1649,8 +1671,9 @@ public class ordenesterminadas extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de portanombre");
 
                     } else {
-                            ordenportanombremultiple orden = new ordenportanombremultiple();
-                            orden.setVisible(true);
+                            ordenportanombremultiple ventana = new ordenportanombremultiple();
+                            ventana.setVisible(true);
+                            
                             ordenportanombremultiple.lbnumerohistorialordenesbordados.setText(tabla.getValueAt(fila, 0).toString());
                             tabla.clearSelection();
                             this.setState(this.ICONIFIED);
@@ -1670,10 +1693,11 @@ public class ordenesterminadas extends javax.swing.JFrame {
                     } 
                     else 
                     {
-                        Object numerodefolio = tabla.getValueAt(fila, 0);
-
+                      
                         ordeninternagorra orden = new ordeninternagorra();
                         orden.setVisible(true);
+                        
+                        
                         ordeninternagorra.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
                         tabla.clearSelection();
 

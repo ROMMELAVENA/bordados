@@ -1643,6 +1643,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             }
         });
 
+        cbmes.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         cbmes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         cbmes.setSelectedIndex(-1);
         cbmes.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {

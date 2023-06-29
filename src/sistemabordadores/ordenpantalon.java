@@ -497,7 +497,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         }         
 
         datostienda();
-        agregarfotomontaje();
+     //   agregarfotomontaje();
 
     }
     
@@ -3783,15 +3783,7 @@ public static String dia() {
         } catch (IOException ex) {
             Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
-         /*
-         try {    
-            agregarfotomontajeotrasucursal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        
-         */
+       
          
          
         btnreplicar.setEnabled(false);

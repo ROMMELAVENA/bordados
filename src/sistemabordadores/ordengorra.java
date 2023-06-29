@@ -3643,15 +3643,6 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
         }
          
          
-         /*         try {    
-            agregarfotomontajeotrasucursal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        
-        */ 
-         
-         
          sumapuntos();
     }
 

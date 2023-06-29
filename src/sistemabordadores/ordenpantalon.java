@@ -226,15 +226,8 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                         
                 
-                
-                
-                
-                
-                
-                
-            //    lbladoizquierdofrente.setText(rs.getString("lado_izquierdo_frente"));
-                String ladoizquierdofrente = rs.getString("lado_izquierdo_frente");
-                if (ladoizquierdofrente == null || ladoizquierdofrente.equals("")) 
+              
+                if (ladoizquierdofrentenombre == null || ladoizquierdofrentenombre.equals("")) 
                 {
                     
                   btnladoizquierdofrentetetermine.setEnabled(false);
@@ -244,12 +237,11 @@ public class ordenpantalon extends javax.swing.JFrame {
 
                 } else {
 
-                   
-                    String b = rs.getString("lado_izquierdo_frente_puntadas");
-                    lbladoizquierdofrentepuntadas.setText(rs.getString("lado_izquierdo_frente_puntadas"));
+                   lbladoizquierdofrentenombre.setText(rs.getString("lado_izquierdo_frente"));
+                   lbladoizquierdofrentepuntadas.setText(rs.getString("lado_izquierdo_frente_puntadas"));
                     btnladoizquierdofrentetetermine.setEnabled(true);
-               //     btnladoizquierdofrentetetermine.setText("Lado Izquierdo Frente");
-                    btnladoizquierdofrentetetermine.setForeground(Color.green.darker());
+             
+                 
                     activadoladoizquierdofrente ="si";
                     
                     
@@ -259,10 +251,8 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 /// lado derecho frente
                 
-             //   lbladoderechofrente.setText(rs.getString("lado_derecho_frente"));
-                String ladoderechofrente = rs.getString("lado_derecho_frente");
-
-                if (ladoderechofrente == null || ladoderechofrente.equals("")) 
+               
+                if (ladoderechofrentenombre == null || ladoderechofrentenombre.equals("")) 
                 {
                     btnladoderechofrentetetermine.setEnabled(false);
                     btnladoderechofrenteponchado.setEnabled(false);
@@ -270,10 +260,10 @@ public class ordenpantalon extends javax.swing.JFrame {
                 else
                 {
 
+                     lbladoderechofrentenombre.setText(rs.getString("lado_derecho_frente"));
                     lbladoderechofrentepuntadas.setText(rs.getString("lado_derecho_frente_puntadas"));
                     btnladoderechofrentetetermine.setEnabled(true);
-                //    btnladoderechofrentetetermine.setText("Lado Derecho Frente");
-                    btnladoderechofrentetetermine.setForeground(Color.green.darker());
+          
                     activadoladoderechofrente ="si";
                    
                 }
@@ -282,9 +272,9 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 
                 
-             //   lbdadoizquierdoatras.setText(rs.getString("lado_izquierdo_atras"));
-                String ladoizquierdoatras = rs.getString("lado_izquierdo_atras");
-                if (ladoizquierdoatras == null || ladoizquierdoatras.equals(""))
+                
+            
+                if (ladoizquierdoatrasnombre == null || ladoizquierdoatrasnombre.equals(""))
                 {
                     btnladoizquierdoatrastetermine.setEnabled(false);
                     btnladoizquierdoatrasponchado.setEnabled(false);
@@ -293,23 +283,17 @@ public class ordenpantalon extends javax.swing.JFrame {
                 {
 
 
+                    lbladoizquierdoatrasnombre.setText(rs.getString("lado_izquierdo_atras"));
                     lbladoizquierdoatraspuntadas.setText(rs.getString("lado_izquierdo_atras_puntadas"));
                     btnladoizquierdoatrastetermine.setEnabled(true);
                     activadoladoizquierdoatras ="si";
-              //      btnladoizquierdoatrastetermine.setText("Lado Izquierdo Atras");
-                    btnladoizquierdoatrastetermine.setForeground(Color.green.darker());
+           
                    
                     
                 }
 
-                
-                
-                
-                
-                
-              //  lbladoderechoatras.setText(rs.getString("lado_derecho_atras"));
-                String ladoderechoatras = rs.getString("lado_derecho_atras");
-                if (ladoderechoatras == null || ladoderechoatras.equals("")) 
+               
+                if (ladoderechoatrasnombre == null || ladoderechoatrasnombre.equals("")) 
                 {
                      btnladoderechoatrastetermine.setEnabled(false);
                      btnladoderechoatrasponchado.setEnabled(false);
@@ -318,11 +302,9 @@ public class ordenpantalon extends javax.swing.JFrame {
                 {
 
 
-                   
+                   lbladoderechoatrasnombre.setText(rs.getString("lado_derecho_atras"));
                     lbladoderechoatraspuntadas.setText(rs.getString("lado_derecho_atras_puntadas"));
                     btnladoderechoatrastetermine.setEnabled(true);
-               //     btnladoderechoatrastetermine.setText("Lado Derecho Atras");
-                    btnladoderechoatrastetermine.setForeground(Color.green.darker());
                     activadoladoderechoatras ="si";
                     
                    
@@ -2630,10 +2612,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         btnladoderechoatrasponchado = new javax.swing.JButton();
         btnladoizquierdofrenteponchado = new javax.swing.JButton();
         btnladoizquierdoatrasponchado = new javax.swing.JButton();
-        lbladoizquierdoatraspuntadas1 = new javax.swing.JLabel();
-        lbladoderechoatraspuntadas1 = new javax.swing.JLabel();
-        lbladoderechofrentepuntadas1 = new javax.swing.JLabel();
-        lbladoizquierdofrentepuntadas1 = new javax.swing.JLabel();
+        lbladoizquierdoatrasnombre = new javax.swing.JLabel();
+        lbladoderechoatrasnombre = new javax.swing.JLabel();
+        lbladoderechofrentenombre = new javax.swing.JLabel();
+        lbladoizquierdofrentenombre = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -2971,19 +2953,19 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
         });
 
-        lbladoizquierdoatraspuntadas1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbladoizquierdoatraspuntadas1.setForeground(new java.awt.Color(255, 0, 0));
-        lbladoizquierdoatraspuntadas1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbladoizquierdoatrasnombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbladoizquierdoatrasnombre.setForeground(new java.awt.Color(255, 0, 0));
+        lbladoizquierdoatrasnombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbladoderechoatraspuntadas1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbladoderechoatraspuntadas1.setForeground(new java.awt.Color(255, 0, 0));
-        lbladoderechoatraspuntadas1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbladoderechoatrasnombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbladoderechoatrasnombre.setForeground(new java.awt.Color(255, 0, 0));
+        lbladoderechoatrasnombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbladoderechofrentepuntadas1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbladoderechofrentepuntadas1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbladoderechofrentenombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbladoderechofrentenombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbladoizquierdofrentepuntadas1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbladoizquierdofrentepuntadas1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbladoizquierdofrentenombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbladoizquierdofrentenombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setText("Fecha de elaboracion");
@@ -3067,10 +3049,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                                         .addComponent(lbladoderechoatras1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(lbladoderechoatraspuntadas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lbladoderechofrentepuntadas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lbladoizquierdoatraspuntadas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lbladoizquierdofrentepuntadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(lbladoderechoatrasnombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lbladoderechofrentenombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lbladoizquierdoatrasnombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lbladoizquierdofrentenombre, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lbladoderechoatraspuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3148,10 +3130,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                                         .addComponent(btnfotomontajesinpuntadas))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGap(45, 45, 45)
-                                            .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -3198,7 +3176,11 @@ JOptionPane.showMessageDialog(null, mensaje);
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(jLabel30)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                    .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(lbidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addGap(0, 0, Short.MAX_VALUE))))
                                 .addGap(0, 15, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -3305,13 +3287,13 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addGap(7, 7, 7)
                             .addComponent(lbladoderechoatraspuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(lbladoizquierdofrentepuntadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbladoizquierdofrentenombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(10, 10, 10)
-                            .addComponent(lbladoderechofrentepuntadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbladoderechofrentenombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(10, 10, 10)
-                            .addComponent(lbladoizquierdoatraspuntadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbladoizquierdoatrasnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(7, 7, 7)
-                            .addComponent(lbladoderechoatraspuntadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbladoderechoatrasnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -4659,16 +4641,16 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel lbfotomontaje;
     public static javax.swing.JLabel lbidentificador;
     public static javax.swing.JLabel lbladoderechoatras1;
+    public static javax.swing.JLabel lbladoderechoatrasnombre;
     public static javax.swing.JLabel lbladoderechoatraspuntadas;
-    public static javax.swing.JLabel lbladoderechoatraspuntadas1;
     public static javax.swing.JLabel lbladoderechofrente1;
+    public static javax.swing.JLabel lbladoderechofrentenombre;
     public static javax.swing.JLabel lbladoderechofrentepuntadas;
-    public static javax.swing.JLabel lbladoderechofrentepuntadas1;
+    public static javax.swing.JLabel lbladoizquierdoatrasnombre;
     public static javax.swing.JLabel lbladoizquierdoatraspuntadas;
-    public static javax.swing.JLabel lbladoizquierdoatraspuntadas1;
     public static javax.swing.JLabel lbladoizquierdofrente1;
+    public static javax.swing.JLabel lbladoizquierdofrentenombre;
     public static javax.swing.JLabel lbladoizquierdofrentepuntadas;
-    public static javax.swing.JLabel lbladoizquierdofrentepuntadas1;
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumerodelaotrasucursal;
     public static javax.swing.JLabel lbnumerodeventa;

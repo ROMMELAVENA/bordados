@@ -319,6 +319,15 @@ public class ordenpantalon extends javax.swing.JFrame {
                 }
                 
                 
+                
+                
+                
+                
+                
+                
+                
+                
+                
               
                 
                 if(lugar.equals("Esta sucursal"))
@@ -327,6 +336,8 @@ public class ordenpantalon extends javax.swing.JFrame {
                   
                 
                 String cantidadladoizquierdofrente = rs.getString("cantidad_lado_izquierdo_frente");
+                
+                
                  if(cantidadladoizquierdofrente.equals("0") && activadoladoizquierdofrente.equals("si"))
                 {
                     btnladoizquierdofrentetetermine.setEnabled(true);
@@ -2217,6 +2228,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if(cantidadvendidadouble == cantidadsurtidadouble && cantidadentregadadouble == 0 )
         {
           estatusentrega ="surtida totalmente no entregada";  
+          
         }
         else  if(cantidadvendidadouble == (cantidadsurtidadouble + cantidadentregadadouble )  &&  cantidadentregadadouble <  cantidadvendidadouble  )
         {

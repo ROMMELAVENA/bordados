@@ -96,6 +96,9 @@ public static boolean ventanaordenparcheanteriores = false;
         initComponents();
         ventanaordenparcheanteriores = true;
         btndatos.setVisible(false);
+        
+        
+         tiendalocal = principal.lbtiendalocal.getText();
 
     }
 

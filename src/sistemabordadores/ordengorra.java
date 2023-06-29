@@ -72,7 +72,7 @@ public class ordengorra extends javax.swing.JFrame {
     String primero = "";
     String ultimo = "";
     String ipdelaotratienda = "";
-    
+    String nuevoestatusorden = "";
    
     int traspaso = 0;
 
@@ -2334,11 +2334,26 @@ public class ordengorra extends javax.swing.JFrame {
                 }
                 
                
-           
-            
-           
-           if(tienecantidad == botonesactivados)
+                
+                
+                
+                   if(tienecantidad == botonesactivados)
            {
+               
+             nuevoestatusorden = "realizada totalmente";
+               
+           }
+         
+           else
+       
+           {
+               
+               nuevoestatusorden = "realizada parcialmente";
+            
+           }   
+                
+                
+           
                try {
 
                     PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada totalmente' ,fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
@@ -2350,28 +2365,18 @@ public class ordengorra extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
                 }
                
-           }
-           else
-           {
-               try {
-
-                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='generada' where numero='" + lborden.getText() + "'   ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
-                }
-               
-           }    
-
-
+           
+           
+           
         }
             rs.close();
         } catch (SQLException ex) {
             System.out.println(ex);
         }
+        
+        
+        
+        lbestatus.setText(nuevoestatusorden);
         
         
     }

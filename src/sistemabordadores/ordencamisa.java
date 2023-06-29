@@ -3950,6 +3950,14 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         
         
+        
+        
+        
+        lbestatus.setText(nuevoestatusorden);
+        
+        
+        
+        
     }
     
    

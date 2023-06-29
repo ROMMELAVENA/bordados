@@ -55,7 +55,7 @@ public class ordencorbata extends javax.swing.JFrame {
     Connection con = null;
     public static String tipotabla = "";
      String numerodeorden = "";
-    
+    String nuevoestatusorden = "";
 
     String frentenombre = "";
     String terminetodo ="";

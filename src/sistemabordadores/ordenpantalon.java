@@ -62,7 +62,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     String numeropedido = "";
     String tiendaalaqueselesolicito = "";
     String lugar = "";
-    
+    String nuevoestatusorden = "";
     ///
     String descripcion = "";
     String aplicacioninsertar = "";

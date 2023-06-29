@@ -49,7 +49,7 @@ public class ordendistinta extends javax.swing.JFrame {
     String nuevoremanentebordadossstring = "";
      String fechaubicacion = "";
      String consecutivo = "";
-
+    String nuevoestatusorden = "";
     String bordadosutilizadosstring = "";
     int bordadosutilizadosint = 0;
 

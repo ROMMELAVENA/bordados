@@ -42,7 +42,7 @@ public static boolean ventanaordenparcheanteriores = false;
         String numerocatalogoubicacion = "";
         String numerocatalogocolores = "";
         String prenda = "";
-        
+        String nuevoestatusorden = "";
         String cantidad = "";
         String cantidadparche = "";
         String parche = "";

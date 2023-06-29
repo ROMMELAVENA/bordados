@@ -178,6 +178,15 @@ public class ordencamisa extends javax.swing.JFrame {
     String rutadedondeestanlosbordados = "";
     
     
+    String cantidadpechoizquierdo = "";
+    String cantidadpechoderecho = "";
+    String cantidadmangaizquierda = "";
+    String cantidadmangaderecha = "";
+    String cantidadespalda = "";
+    String cantidadotraubicacion = "";
+    String cantidadotraubicacion2 = "";
+    
+    
     ArrayList<String> listabotones = new ArrayList<String>();
     ArrayList<String> listahilos = new ArrayList<String>();
     
@@ -386,6 +395,17 @@ public class ordencamisa extends javax.swing.JFrame {
         
     }
     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
     
     void datosOrdenesLocales() throws IOException {
 
@@ -481,8 +501,13 @@ public class ordencamisa extends javax.swing.JFrame {
                 }
                  else
                 {
-                     btnterminetodo.setEnabled(true);
                     
+                    
+                     btnterminetodo.setEnabled(true);
+                 
+                     
+                     
+                     
                 }
                 
                 
@@ -721,16 +746,16 @@ public class ordencamisa extends javax.swing.JFrame {
 
 
                 
+                ///////////////////////////////////////////////////              
                 
                 
-                
-                String cantidadpechoizquiedo =rs.getString("cantidad_pecho_izquierdo");
-                String cantidadpechoderecho =rs.getString("cantidad_pecho_derecho");         
-                String cantidadmangaizquierda =rs.getString("cantidad_manga_izquierda"); 
-                String cantidadmangaderecha =rs.getString("cantidad_manga_derecha");
-                String cantidadespalda =rs.getString("cantidad_espalda");
-                String cantidadotraubicacion =rs.getString("cantidad_otra_ubicacion");
-                String cantidadotraubicacion2 =rs.getString("cantidad_otra_ubicacion2");
+                cantidadpechoizquierdo =rs.getString("cantidad_pecho_izquierdo");
+                cantidadpechoderecho =rs.getString("cantidad_pecho_derecho");         
+                cantidadmangaizquierda =rs.getString("cantidad_manga_izquierda"); 
+                cantidadmangaderecha =rs.getString("cantidad_manga_derecha");
+                cantidadespalda =rs.getString("cantidad_espalda");
+                cantidadotraubicacion =rs.getString("cantidad_otra_ubicacion");
+                cantidadotraubicacion2 =rs.getString("cantidad_otra_ubicacion2");
                 
                 
                 if(lugar.equals("Esta sucursal"))
@@ -745,8 +770,7 @@ public class ordencamisa extends javax.swing.JFrame {
                     
                     
                     
-                       lbcantidad1.setText(cantidad);
-                    lbcantidad1.setForeground(Color.red.darker());
+                      
                     
                 
                     
@@ -756,13 +780,20 @@ public class ordencamisa extends javax.swing.JFrame {
                 
                 //// pecho izquierdo    
                     
-                if(cantidadpechoizquiedo.equals("0") && botonhabilitado1.equals("si") )
+                if(cantidadpechoizquierdo.equals("0") && botonhabilitado1.equals("si") )
                 {
                    btnpechoizquierdotermine.setEnabled(true);
        
                    if(botonhabilitado1.equals("si"))
                    {
                    listabotones.add("btnpechoizquierdo");
+                   
+                   
+                     lbcantidad1.setText("0");
+                    lbcantidad1.setForeground(Color.red.darker());
+                      
+                   
+                   
                    }
                   
                 }
@@ -773,6 +804,12 @@ public class ordencamisa extends javax.swing.JFrame {
                    {
                      btnpechoizquierdocancelar.setEnabled(true);
                    btnpechoizquierdotermine.setEnabled(true);  //  ROMMEL PONERLE FALSE 
+                   
+                   
+                     lbcantidad1.setText(cantidad);
+                   lbcantidad1.setForeground(Color.GREEN.darker());
+                   
+                   
                    
                      
                    }
@@ -792,6 +829,20 @@ public class ordencamisa extends javax.swing.JFrame {
                    {
                    listabotones.add("btnpechoderecho");
                    
+                   
+                     lbcantidad2.setText("0");
+                    lbcantidad2.setForeground(Color.red.darker());
+                    
+                   
+                         
+                  
+                   
+                   
+                   
+                   
+                   
+                   
+                   
                    }
                   
                 }
@@ -802,12 +853,12 @@ public class ordencamisa extends javax.swing.JFrame {
                    {
                     btnpechoderechocancelar.setEnabled(true);
                        btnpechoderechotermine.setEnabled(true);    //  ROMMEL PONERLE FALSE
+                       
+                         lbcantidad2.setText(cantidad);
+                   lbcantidad2.setForeground(Color.GREEN.darker());
                     
                    }
-                   else
-                   {
-                    
-                   }
+                  
                
                 } 
                 
@@ -819,6 +870,12 @@ public class ordencamisa extends javax.swing.JFrame {
                    if(botonhabilitado3.equals("si"))
                    {
                    listabotones.add("btnmangaizquierda");
+                   
+                    lbcantidad3.setText("0");
+                    lbcantidad3.setForeground(Color.red.darker());
+                   
+                
+                   
                    }
                   
                 }
@@ -829,6 +886,9 @@ public class ordencamisa extends javax.swing.JFrame {
                    {
                   btnmangaizquierdacancelar.setEnabled(true);
                        btnmangaizquierdatermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
+                       
+                        lbcantidad3.setText(cantidad);
+                   lbcantidad3.setForeground(Color.GREEN.darker());
                    
                    }
                   
@@ -844,6 +904,16 @@ public class ordencamisa extends javax.swing.JFrame {
                     if(botonhabilitado4.equals("si"))
                    {
                    listabotones.add("btnmangaderecha");
+                   
+                    lbcantidad4.setText("0");
+                    lbcantidad4.setForeground(Color.red.darker());
+                    
+                   
+                  
+                   
+                             
+                             
+                             
                    }
                    
                    
@@ -856,6 +926,10 @@ public class ordencamisa extends javax.swing.JFrame {
                    {
                  btnmangaderechacancelar.setEnabled(true);
                  btnmangaderechatetermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
+                 
+                 
+                  lbcantidad4.setText(cantidad);
+                   lbcantidad4.setForeground(Color.GREEN.darker());
               
                     
                    }
@@ -879,6 +953,11 @@ public class ordencamisa extends javax.swing.JFrame {
                    if(botonhabilitado5.equals("si"))
                    {
                    listabotones.add("btnespalda");
+                   
+                   lbcantidad5.setText("0");
+                    lbcantidad5.setForeground(Color.red.darker());
+                   
+                          
                    }
                   
                    
@@ -890,12 +969,13 @@ public class ordencamisa extends javax.swing.JFrame {
                    {
                    btnespaldacancelar.setEnabled(true);
                    btnespaldatetermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
+                   
+                   
+                    lbcantidad5.setText(cantidad);
+                   lbcantidad5.setForeground(Color.GREEN.darker());
                   
                    }
-                   else
-                   {
-                   
-                   }    
+                    
                     
                     
                 } 
@@ -908,6 +988,12 @@ public class ordencamisa extends javax.swing.JFrame {
                    if(botonhabilitado6.equals("si"))
                    {
                    listabotones.add("btnotraubicacion");
+                   
+                   
+                   lbcantidad6.setText("0");
+                    lbcantidad6.setForeground(Color.red.darker());
+                       
+                           
                    }
                    
                    
@@ -919,6 +1005,10 @@ public class ordencamisa extends javax.swing.JFrame {
                    {
                    btnotraubicacioncancelar.setEnabled(true);
                    btnotraubicaciontetermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
+                   
+                   
+                     lbcantidad6.setText(cantidad);
+                   lbcantidad6.setForeground(Color.GREEN.darker());
                   
                    }
                   
@@ -927,11 +1017,17 @@ public class ordencamisa extends javax.swing.JFrame {
                 if(cantidadotraubicacion2.equals("0")  && botonhabilitado7.equals("si") )
                 {
                    btnotraubicacion2tetermine.setEnabled(true);
-              //     btnotraubicacion2.setText("Otra ubicacion2");
-               //    btnotraubicacion2.setForeground(Color.green.darker());
+           
                    if(botonhabilitado7.equals("si"))
                    {
                        listabotones.add("btnotraubicacion2");
+                       
+                      
+                         lbcantidad7.setText("0");
+                    lbcantidad7.setForeground(Color.red.darker());
+                       
+                            
+                               
                    }
                   
                    
@@ -943,6 +1039,10 @@ public class ordencamisa extends javax.swing.JFrame {
                    {
                  btnotraubicacion2cancelar.setEnabled(true);
                  btnotraubicacion2tetermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
+                 
+                 
+                  lbcantidad7.setText(cantidad);
+                   lbcantidad7.setForeground(Color.GREEN.darker());
                  
                    }
                   
@@ -3519,7 +3619,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                      if(cantidadpechoizquierdo.equals("0") )
                 {
-                    lbcantidad1.setText(cantidad);
+                    lbcantidad1.setText("0");
                     lbcantidad1.setForeground(Color.red.darker());
                     
                 }
@@ -3555,7 +3655,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      if(cantidadpechoderecho.equals("0") )
                 {
                     
-                     lbcantidad2.setText(cantidad);
+                     lbcantidad2.setText("0");
                     lbcantidad2.setForeground(Color.red.darker());
                     
                 }
@@ -3596,7 +3696,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                     
                     
-                      lbcantidad3.setText(cantidad);
+                      lbcantidad3.setText("0");
                     lbcantidad3.setForeground(Color.red.darker());
                     
                 }
@@ -3635,7 +3735,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      if(cantidadmangaderecha.equals("0") )
                 {
                     
-                    lbcantidad4.setText(cantidad);
+                    lbcantidad4.setText("0");
                     lbcantidad4.setForeground(Color.red.darker());
                 }
                 else
@@ -3669,7 +3769,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                       if(cantidadespalda.equals("0") )
                 {
-                      lbcantidad5.setText(cantidad);
+                      lbcantidad5.setText("0");
                     lbcantidad5.setForeground(Color.red.darker());
                     
                 }
@@ -3709,7 +3809,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 if(cantidadotraubicacion.equals("0") )
                 {
                     
-                     lbcantidad6.setText(cantidad);
+                     lbcantidad6.setText("0");
                     lbcantidad6.setForeground(Color.red.darker());
                     
                 }
@@ -3746,7 +3846,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      if(cantidadotraubicacion2.equals("0") )
                 {
                     
-                    lbcantidad7.setText(cantidad);
+                    lbcantidad7.setText("0");
                     lbcantidad7.setForeground(Color.red.darker());
                 }
                 else
@@ -4238,7 +4338,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
         });
 
-        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbidentificador.setForeground(new java.awt.Color(153, 0, 0));
         lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -4662,24 +4762,31 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbestatus.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcantidad7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcantidad7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcantidad6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcantidad6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcantidad5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcantidad5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcantidad4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcantidad4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcantidad3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcantidad3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcantidad2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcantidad2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcantidad1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbcantidad1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

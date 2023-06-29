@@ -102,13 +102,13 @@ public static boolean ventanaordenparcheanteriores = false;
     
     
     
-    void datosOrdenesLocales()
-    {
+   void datosOrdenesLocales() throws IOException {
+    
         
         
         limpiar();
         renglon = 0;
-        String folio = lbnumerosucursal.getText();
+     
         numerodeorden = lborden.getText();
         
         
@@ -210,10 +210,161 @@ public static boolean ventanaordenparcheanteriores = false;
            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
-        sumapuntos();
+        
+        datostienda();
+        
+        
+    //    sumapuntos();
       
         
     }
+    
+    
+    
+    
+    
+    
+    void datostienda() 
+    {
+        /// busca las ordenes de camisa generadas 
+
+        
+        String numero = lbnumerodeventa.getText();
+        String pedirarticulos = "";
+        String ordenenvio = "";
+        String sql2 = "Select solicito_articulos, enviada_ordenenvio from historial_ventas where numero = '" + numero + "'  ";
+
+        try {
+            PreparedStatement prst = cn.prepareStatement(sql2);
+            ResultSet rs = prst.executeQuery();
+            if (rs.next()) {
+                pedirarticulos = rs.getString("solicito_articulos");
+                ordenenvio = rs.getString("enviada_ordenenvio");
+
+            }
+        } catch (Exception exx) {
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+exx+"");
+
+        }
+
+        if (pedirarticulos.equals("si")) 
+        {
+            
+            
+            
+            String sql3 = "Select numero,sucursal from historial_pedidos_sucursal_solicitados where numventa = '" + numero + "' and estatus_entrega not in ('cancelada') and sucursal = '"+sucursal+"'  ";
+
+            try {
+                PreparedStatement prst = cn.prepareStatement(sql3);
+                ResultSet rs = prst.executeQuery();
+                if (rs.next()) {
+                //    numerosolicitoarticulos = rs.getString("numero");
+                //    tiendasolicitoarticulos = rs.getString("sucursal");
+                    
+                    
+                 //   cbsucursal.addItem(tiendasolicitoarticulos);
+                 //   lbnumerodelaotrasucursal.setText(numerosolicitoarticulos);
+                }
+            } catch (Exception exx) {
+                
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+exx+"");
+
+            }
+            
+            /// solicito articulos de la
+            
+
+        }
+        else 
+        {
+            if (ordenenvio.equals("si")) 
+            {
+
+                
+                
+                String sql3 = "Select distinct numero,sucursal from historial_ordenes_envio_solicitadas where numero_venta = '" + numero + "' and sucursal = '"+sucursal+"' ";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql3);
+                    ResultSet rs = prst.executeQuery();
+                    while (rs.next()) 
+                    {
+                //        numeroordenenvio = rs.getString("numero");
+                //        tiendaordenenvio = rs.getString("sucursal");
+                        
+                       
+                    }
+                } catch (Exception exx) {
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+exx+"");
+
+                }
+                
+                
+             //   cbsucursal.addItem(tiendaordenenvio);
+             //   lbnumerodelaotrasucursal.setText(numeroordenenvio);
+
+            }
+            
+            /*
+            
+            if (tiendaordenenvio.equals(tiendalocal)) 
+            {
+
+                String sql4 = "Select numero,sucursal from historial_pedidos_sucursal_solicitados where numero = '" + numeroordenenvio + "' and estatus_entrega not in ('cancelada')  ";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sql4);
+                    ResultSet rs = prst.executeQuery();
+                    if (rs.next())
+                    {
+                        numerosolicitoarticulos = rs.getString("numero");
+                        tiendasolicitoarticulos = rs.getString("sucursal");
+
+                        cbsucursal.addItem(tiendasolicitoarticulos);
+                        lbnumerodelaotrasucursal.setText(numerosolicitoarticulos);
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+                    
+                } catch (Exception exx) {
+                   
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+exx+"");
+
+                }
+
+            } else {
+                cbsucursal.addItem(tiendaordenenvio);
+                cbsucursal.setSelectedItem(tiendaordenenvio);
+                lbnumerodelaotrasucursal.setText(numeroordenenvio);
+            }
+                  */
+            
+        }
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     void mostrarrenglones()
@@ -332,7 +483,11 @@ public static boolean ventanaordenparcheanteriores = false;
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Actualizado correctamente ");
 
+    try {
         datosOrdenesLocales();
+    } catch (IOException ex) {
+        Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
+    }
         
         
     }
@@ -355,7 +510,11 @@ public static boolean ventanaordenparcheanteriores = false;
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Actualizado correctamente ");
 
+    try {
         datosOrdenesLocales();
+    } catch (IOException ex) {
+        Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
+    }
         
         
     }  
@@ -478,7 +637,7 @@ public static boolean ventanaordenparcheanteriores = false;
            
             try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + numerodeorden + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -500,7 +659,7 @@ public static boolean ventanaordenparcheanteriores = false;
      void datosotrasucursal () throws FileNotFoundException, IOException
     {
         
-        numerodeorden = lborden.getText();
+        numerodeorden = numerodeorden;
         prenda = "Parche";
        
        
@@ -1019,6 +1178,10 @@ public static boolean ventanaordenparcheanteriores = false;
      
      
      
+     regresaralaconeccionlocal();
+     
+     
+     
      
      try {
             
@@ -1478,7 +1641,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String sql = "SELECT puntadas from historial_ordenes_parche where numero = '"+lbnumerosucursal.getText()+"' ";
 
         try {
-            PreparedStatement prst = con.prepareStatement(sql);
+            PreparedStatement prst = cn.prepareStatement(sql);
             ResultSet rs = prst.executeQuery();
             if (rs.next()) {
 
@@ -1524,7 +1687,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         else
         {
             
-             regresaralaconeccionlocal();
+          //   regresaralaconeccionlocal();
              
              
               String costostring = "0";
@@ -1535,7 +1698,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         double costopuntada = 0.0;
         Object puntadaobject = "";
         
-        String sql = "SELECT puntadas from historial_ordenes_parche where numero = ' "+lbnumerosucursal.getText()+"' ";
+        String sql = "SELECT puntadas from historial_ordenes_parche where numero = '"+lbnumerosucursal.getText()+"' ";
 
         try {
             PreparedStatement prst = cn.prepareStatement(sql);
@@ -1628,6 +1791,11 @@ JOptionPane.showMessageDialog(null, mensaje);
     
      void agregarfotomontaje() throws FileNotFoundException, IOException  
     {
+        
+        
+        
+        
+        
         codigocliente();
         String puntadasenfotomontajes = "";
         BufferedImage img = null;
@@ -2197,11 +2365,11 @@ JOptionPane.showMessageDialog(null, mensaje);
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lbnumerodeventa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(lbnumerodeventa, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(191, 191, 191)
+                                        .addGap(8, 8, 8)
                                         .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(7, 7, 7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnvercolorido, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(12, 12, 12)
                                         .addComponent(btnfotomontajesinpuntadas)))
@@ -2432,7 +2600,11 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equa
       
          nombredelatabla = "historial_ordenes_parche";
 
-         datosOrdenesLocales();
+    try {
+        datosOrdenesLocales();
+    } catch (IOException ex) {
+        Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
+    }
         
         codigocliente();
         
@@ -2738,7 +2910,11 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndatosActionPerformed
       
+    try {
         datosOrdenesLocales();
+    } catch (IOException ex) {
+        Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
+    }
         cliente();
         numeroconsecutivo();
         

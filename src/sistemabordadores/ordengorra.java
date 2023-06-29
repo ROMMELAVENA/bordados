@@ -228,9 +228,8 @@ public class ordengorra extends javax.swing.JFrame {
 
     void datosOrdenesLocales() throws IOException {
 
-        btnreplicarponchados.setEnabled(true);
-
         numerodeorden = lborden.getText();
+        
         String botonactivado1 = "";
         String botonactivado2 = "";
         String botonactivado3 = "";
@@ -4548,6 +4547,9 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndatosActionPerformed
 
+        
+        
+        
         if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
     {
       

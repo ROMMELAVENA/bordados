@@ -560,10 +560,10 @@ public class ordengorra extends javax.swing.JFrame {
                 
                 
                   
-               String estatusorden = rs.getString("estatus_orden");
-                 lbestatus.setText(estatusorden);
+               String estatus = rs.getString("estatus_orden");
+                 lbestatus.setText(estatus);
                 
-                if(estatusorden.equals("realizada totalmente"))
+                if(estatus.equals("realizada totalmente"))
                 {
                   btnterminetodo.setEnabled(false);
                   lbestatus.setForeground(Color.green.darker());
@@ -577,7 +577,7 @@ public class ordengorra extends javax.swing.JFrame {
                     btnterminetodo.setEnabled(true);
                    
                    
-                  if(estatusorden.equals("realizada parcialmente"))
+                  if(estatus.equals("realizada parcialmente"))
                   {
                       
                        lbestatus.setForeground(anaranjado);
@@ -589,10 +589,13 @@ public class ordengorra extends javax.swing.JFrame {
                   }
                    
                    
-                   
-                   
-                   
                 }   
+                
+                
+                
+                
+                
+                
 
             }
 
@@ -887,7 +890,7 @@ public class ordengorra extends javax.swing.JFrame {
         prenda = "Gorra";
 
         String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,numero_sucursal_orden,\n" +
-                     "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,tienda,numero_sucursal,identificador_prenda from historial_ordenes_gorra_recibidas where numero = '" + numerodeorden + "' and prenda = '" + prenda + "'";
+                     "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,tienda,numero_sucursal,identificador_prenda,estatus_orden from historial_ordenes_gorra_recibidas where numero = '" + numerodeorden + "' and prenda = '" + prenda + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -997,6 +1000,37 @@ public class ordengorra extends javax.swing.JFrame {
                 lbidentificador.setText(identificador);
                 
                
+                
+                String estatus = rs.getString("estatus_orden");
+                 lbestatus.setText(estatus);
+                
+                if(estatus.equals("realizada totalmente"))
+                {
+                  btnterminetodo.setEnabled(false);
+                  lbestatus.setForeground(Color.green.darker());
+               
+                  
+                  
+                }
+                else
+                {
+                   btnterminetodo.setEnabled(true); 
+                    btnterminetodo.setEnabled(true);
+                   
+                   
+                  if(estatus.equals("realizada parcialmente"))
+                  {
+                      
+                       lbestatus.setForeground(anaranjado);
+                      
+                  }
+                  else
+                  {
+                      lbestatus.setForeground(Color.red);
+                  }
+                   
+                   
+                }   
                 
                 
                 

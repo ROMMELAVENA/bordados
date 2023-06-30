@@ -199,62 +199,37 @@
                               <Component id="lbotraubicacion2" min="-2" pref="250" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="lbcantidad7" min="-2" pref="70" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnpechoizquierdotermine" min="-2" pref="85" max="-2" attributes="0"/>
-                              <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
-                              <Component id="btnpechoizquierdocancelar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                              <Component id="lbhilo1" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnpechoderechotermine" min="-2" pref="85" max="-2" attributes="0"/>
-                                  <Component id="btnmangaizquierdatermine" min="-2" pref="85" max="-2" attributes="0"/>
-                                  <Component id="btnmangaderechatetermine" min="-2" pref="85" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnpechoderechocancelar" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnmangaizquierdacancelar" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnmangaderechacancelar" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lbhilo2" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="lbhilo3" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="lbhilo4" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnespaldatetermine" min="-2" pref="85" max="-2" attributes="0"/>
-                              <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
-                              <Component id="btnespaldacancelar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                              <Component id="lbhilo5" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                                      <Component id="btnotraubicaciontetermine" min="-2" pref="85" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="btnotraubicacion2tetermine" min="-2" pref="85" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnotraubicacioncancelar" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnotraubicacion2cancelar" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lbhilo6" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="lbhilo7" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="btnotraubicaciontetermine" alignment="1" min="-2" pref="85" max="-2" attributes="0"/>
+                          <Component id="btnotraubicacion2tetermine" alignment="1" min="-2" pref="85" max="-2" attributes="0"/>
+                          <Component id="btnmangaderechatetermine" alignment="1" min="-2" pref="85" max="-2" attributes="0"/>
+                          <Component id="btnmangaizquierdatermine" alignment="1" min="-2" pref="85" max="-2" attributes="0"/>
+                          <Component id="btnpechoderechotermine" alignment="1" min="-2" pref="85" max="-2" attributes="0"/>
+                          <Component id="btnpechoizquierdotermine" alignment="1" min="-2" pref="85" max="-2" attributes="0"/>
+                          <Component id="btnespaldatetermine" alignment="1" min="-2" pref="85" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnpechoizquierdocancelar" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnpechoderechocancelar" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnmangaizquierdacancelar" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnmangaderechacancelar" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnespaldacancelar" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnotraubicacioncancelar" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnotraubicacion2cancelar" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lbhilo1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="lbhilo2" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="lbhilo3" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="lbhilo4" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="lbhilo5" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="lbhilo6" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="lbhilo7" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">

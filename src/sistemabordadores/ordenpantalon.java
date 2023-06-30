@@ -1286,7 +1286,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         String activadoladoderechofrente = "";
         String activadoladoderechoatras = "";
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_sucursal_orden,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda from historial_ordenes_pantalon_recibidas where numero = '" + numerodeorden + "' and prenda = '" + prenda + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_sucursal_orden,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,estatus_orden from historial_ordenes_pantalon_recibidas where numero = '" + numerodeorden + "' and prenda = '" + prenda + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -1315,7 +1315,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 
                 
-                
+                // LADO IZQUIERDO FRENTE
                 
                 if (ladoizquierdofrente == null || ladoizquierdofrente.equals("")) 
                 {
@@ -1323,7 +1323,11 @@ public class ordenpantalon extends javax.swing.JFrame {
                   btnladoizquierdofrentetetermine.setEnabled(false);
                   btnladoizquierdofrenteponchado.setEnabled(false);
 
-                } else {
+                }
+                
+                else
+                
+                {
 
 
                     String b = rs.getString("lado_izquierdo_frente_puntadas");
@@ -1341,9 +1345,14 @@ public class ordenpantalon extends javax.swing.JFrame {
                 }
 
                 
-                /// lado derecho frente
                 
-             //   lbladoderechofrente.setText(rs.getString("lado_derecho_frente"));
+                
+                
+                
+                
+                
+                /// LADO DERECHO FRENTE
+           
                 String ladoderechofrente = rs.getString("lado_derecho_frente");
 
                 if (ladoderechofrente == null || ladoderechofrente.equals("")) 
@@ -1365,8 +1374,13 @@ public class ordenpantalon extends javax.swing.JFrame {
                     activadoladoderechofrente ="si";
                     
                 }
-
-             //   lbdadoizquierdoatras.setText(rs.getString("lado_izquierdo_atras"));
+                
+                
+                
+                
+                
+                // LADO IZQUIERDO ATRAS
+                
                 String ladoizquierdoatras = rs.getString("lado_izquierdo_atras");
              
                 if (ladoizquierdoatras == null || ladoizquierdoatras.equals("")) 
@@ -1390,7 +1404,9 @@ public class ordenpantalon extends javax.swing.JFrame {
            //     lbladoderechoatras.setText(rs.getString("lado_derecho_atras"));
                 String ladoderechoatras = rs.getString("lado_derecho_atras");
              
-                if (ladoderechoatras == null || ladoderechoatras.equals("")) {
+                if (ladoderechoatras == null || ladoderechoatras.equals("")) 
+                
+                {
                     
                      btnladoderechoatrastetermine.setEnabled(false);
                       btnladoderechoatrasponchado.setEnabled(false);
@@ -1421,6 +1437,37 @@ public class ordenpantalon extends javax.swing.JFrame {
                  identificador =  rs.getString("identificador_prenda");
                 lbidentificador.setText(identificador);
                 
+                
+                 String estatus = rs.getString("estatus_orden");
+                 lbestatus.setText(estatus);
+                
+                if(estatus.equals("realizada totalmente"))
+                {
+                  btnterminetodo.setEnabled(false);
+                  lbestatus.setForeground(Color.green.darker());
+               
+                  
+                  
+                }
+                else
+                {
+                   btnterminetodo.setEnabled(true); 
+                    btnterminetodo.setEnabled(true);
+                   
+                   
+                  if(estatus.equals("realizada parcialmente"))
+                  {
+                      
+                       lbestatus.setForeground(anaranjado);
+                      
+                  }
+                  else
+                  {
+                      lbestatus.setForeground(Color.red);
+                  }
+                   
+                   
+                }   
                 
                 
                 
@@ -1457,7 +1504,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 String cantidadladoderechofrente = rs.getString("cantidad_lado_derecho_frente");
              
-                if(cantidadladoderechofrente.equals("0")&& cantidadladoderechofrente.equals("si"))
+                if(cantidadladoderechofrente.equals("0")&& activadoladoderechofrente.equals("si"))
                 {
                    btnladoderechofrentetetermine.setEnabled(true);
                    btnladoderechofrenteponchado.setEnabled(true);
@@ -1495,7 +1542,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 
                 
                 String cantidadladoderechoatras = rs.getString("cantidad_lado_derecho_atras");
-                if(cantidadladoderechoatras.equals("0")&& activadoladoderechoatras.equals("si"))
+                if(cantidadladoderechoatras.equals("0") && activadoladoderechoatras.equals("si"))
                 {
                     btnladoderechoatrastetermine.setEnabled(true);
                     btnladoderechoatrasponchado.setEnabled(true);

@@ -40,7 +40,7 @@ public class bordadoseditar extends javax.swing.JFrame {
     String nombrebordadoanterior = "";
     String codigodelcliente = "";
     String numerocamisa = "";
-    String identificadordeprenda = "";
+    String identificador = "";
     String rutaarchivo = "";
     String nombrearchivo = "";
     String consultaborrado ="";
@@ -390,7 +390,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         btndatos.setVisible(false);
         lbcodigocliente.setVisible(false);
         btnimportarfotomontaje.setVisible(false);
-        lbidentificadordeprendaanterior.setVisible(false);
+        lbidentificadoranterior.setVisible(false);
 
        
         lbconsecutivo.setVisible(false);
@@ -902,7 +902,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     ResultSet rs2 = st2.executeQuery(sql);
                     while (rs2.next()) 
                     {
-                        String puntadas = rs2.getString("identificador_prenda");
+                        String puntadas = rs2.getString("nombrebordado");
                         cbbordados1.addItem(puntadas);
                         cbbordados2.addItem(puntadas);
                         cbbordados3.addItem(puntadas);
@@ -1473,7 +1473,7 @@ public class bordadoseditar extends javax.swing.JFrame {
        
         
         codigodelcliente = lbcodigocliente.getText();
-        identificadordeprenda = txtidentificador.getText().trim();
+        identificador = txtidentificador.getText().trim();
         consecutivo = lbconsecutivo.getText();
         
         prenda = lbprenda.getText();
@@ -1511,7 +1511,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                         + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
                         + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7 "
-                        + " FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' "; 
+                        + " FROM bordados_puntadas where identificador_prenda = '"+identificador+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' "; 
             
 
         
@@ -1522,7 +1522,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                 if (rs.next()) {
 
                    
-                        identificadordeprenda = rs.getString("identificador_prenda");
+                        identificador = rs.getString("identificador_prenda");
                         pechoizquierdo = rs.getString("pecho_izquierdo");
                         pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                         pechoizquierdoaplicacion = rs.getString("pecho_izquierdo_aplicacion");
@@ -1580,8 +1580,8 @@ public class bordadoseditar extends javax.swing.JFrame {
                         cbhilo7.setSelectedItem(rs.getString("hilo7"));
                         
                         
-                        txtidentificador.setText(identificadordeprenda);
-                       lbidentificadordeprendaanterior.setText(identificadordeprenda);
+                        txtidentificador.setText(identificador);
+                       lbidentificadoranterior.setText(identificador);
                         cbpuntadas1.setSelectedItem(pechoizquierdo);
             txt1.setText(pechoizquierdonombre);
             cbaplicacioncantidad1.setSelectedItem(pechoizquierdoaplicacion);
@@ -1675,7 +1675,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                         + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
                         + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,hilo1,hilo2,hilo3 "
-                        + "FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + "FROM bordados_puntadas where identificador_prenda = '"+identificador+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
 
             try {
@@ -1685,7 +1685,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                 if (rs.next()) {
 
                    
-                        identificadordeprenda = rs.getString("identificador_prenda");
+                        identificador = rs.getString("identificador_prenda");
                         pechoizquierdo = rs.getString("pecho_izquierdo");
                         pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                         pechoizquierdoaplicacion = rs.getString("pecho_izquierdo_aplicacion");
@@ -1722,8 +1722,8 @@ public class bordadoseditar extends javax.swing.JFrame {
                       
                         
                         
-                        txtidentificador.setText(identificadordeprenda);
-                        lbidentificadordeprendaanterior.setText(identificadordeprenda);
+                        txtidentificador.setText(identificador);
+                        lbidentificadoranterior.setText(identificador);
                     
                         
             cbpuntadas1.setSelectedItem(pechoizquierdo);
@@ -1820,7 +1820,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                          + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
                         + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,hilo1,hilo2,hilo3 "
-                        + "FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + "FROM bordados_puntadas where identificador_prenda = '"+identificador+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
 
             try {
@@ -1830,7 +1830,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                 if (rs.next()) {
 
                    
-                        identificadordeprenda = rs.getString("identificador_prenda");
+                        identificador = rs.getString("identificador_prenda");
                         pechoizquierdo = rs.getString("pecho_izquierdo");
                         pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                         pechoizquierdoaplicacion = rs.getString("pecho_izquierdo_aplicacion");
@@ -1858,8 +1858,8 @@ public class bordadoseditar extends javax.swing.JFrame {
                       
                         
                         
-           txtidentificador.setText(identificadordeprenda);
-           lbidentificadordeprendaanterior.setText(identificadordeprenda);
+           txtidentificador.setText(identificador);
+           lbidentificadoranterior.setText(identificador);
            cbpuntadas1.setSelectedItem(pechoizquierdo);
                         
             txt1.setText(pechoizquierdonombre);
@@ -1959,7 +1959,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                         + "lado_derecho,lado_derecho_nombre,"
                         + "atras,atras_nombre,"
                         + "color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4 "
-                        + " FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + " FROM bordados_puntadas where identificador_prenda = '"+identificador+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
             
             
@@ -1972,8 +1972,8 @@ public class bordadoseditar extends javax.swing.JFrame {
                 {
 
                         
-                        identificadordeprenda = rs.getString("identificador_prenda");
-                        lbidentificadordeprendaanterior.setText(identificadordeprenda);
+                        identificador = rs.getString("identificador_prenda");
+                        lbidentificadoranterior.setText(identificador);
                         frentegorra = rs.getString("frente");
                         frentegorranombre = rs.getString("frente_nombre");
                         frentegorraaplicacion = rs.getString("frente_aplicacion");
@@ -2079,7 +2079,7 @@ public class bordadoseditar extends javax.swing.JFrame {
             
                 sql = "SELECT identificador_prenda,parche,parche_nombre,parche_aplicacion,parche_aplicacion_color,numero_consecutivo,"
                         + "color1,hilo1"
-                        + " FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + " FROM bordados_puntadas where identificador_prenda = '"+identificador+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
             
             
@@ -2092,8 +2092,8 @@ public class bordadoseditar extends javax.swing.JFrame {
                 {
 
                         
-                        identificadordeprenda = rs.getString("identificador_prenda");
-                        lbidentificadordeprendaanterior.setText(identificadordeprenda);
+                        identificador = rs.getString("identificador_prenda");
+                        lbidentificadoranterior.setText(identificador);
                         
                         parche = rs.getString("parche");
                         parchenombre = rs.getString("parche_nombre");
@@ -2202,7 +2202,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                            + "pantalon_lado_izquierdo_atras,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_izquierdo_atras_aplicacion,pantalon_lado_izquierdo_atras_aplicacion_color,"
                            + "pantalon_lado_derecho_atras,pantalon_lado_derecho_atras_nombre,pantalon_lado_derecho_atras_aplicacion,pantalon_lado_derecho_atras_aplicacion_color,"
                        + "color1,color2,color3,color4,color5,hilo1,hilo2,hilo3,hilo4,hilo5"
-                        + "  FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
+                        + "  FROM bordados_puntadas where identificador_prenda = '"+identificador+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
             
 
@@ -2212,8 +2212,8 @@ public class bordadoseditar extends javax.swing.JFrame {
                 ResultSet rs = st.executeQuery(sql);
                 if (rs.next()) {
 
-                        identificadordeprenda = rs.getString("identificador_prenda");
-                        lbidentificadordeprendaanterior.setText(identificadordeprenda);
+                        identificador = rs.getString("identificador_prenda");
+                        lbidentificadoranterior.setText(identificador);
                         ladoizquierdofrentepantalon = rs.getString("pantalon_lado_izquierdo_frente");
                         ladoizquierdofrentepantalonnombre = rs.getString("pantalon_lado_izquierdo_frente_nombre");
                         ladoizquierdofrentepantalonaplicacion = rs.getString("pantalon_lado_izquierdo_frente_aplicacion");
@@ -2342,8 +2342,8 @@ public class bordadoseditar extends javax.swing.JFrame {
                 ResultSet rs = st.executeQuery(sql);
                 if (rs.next()) {
 
-                        identificadordeprenda = rs.getString("identificador_prenda");
-                        lbidentificadordeprendaanterior.setText(identificadordeprenda);
+                        identificador = rs.getString("identificador_prenda");
+                        lbidentificadoranterior.setText(identificador);
                         frentecorbata = rs.getString("corbata_frente");
                         frentecorbatanombre = rs.getString("corbata_frente_nombre");
                   
@@ -2431,7 +2431,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                         + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
                         + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7 "
-                        + " FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' "; 
+                        + " FROM bordados_puntadas where identificador_prenda = '"+identificador+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' "; 
             
 
         
@@ -2442,7 +2442,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                 if (rs.next()) {
 
                    
-                        identificadordeprenda = rs.getString("identificador_prenda");
+                        identificador = rs.getString("identificador_prenda");
                         pechoizquierdo = rs.getString("pecho_izquierdo");
                         pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                         pechoizquierdoaplicacion = rs.getString("pecho_izquierdo_aplicacion");
@@ -2500,8 +2500,8 @@ public class bordadoseditar extends javax.swing.JFrame {
                         cbhilo7.setSelectedItem(rs.getString("hilo7"));
                         
                         
-                        txtidentificador.setText(identificadordeprenda);
-                       lbidentificadordeprendaanterior.setText(identificadordeprenda);
+                        txtidentificador.setText(identificador);
+                       lbidentificadoranterior.setText(identificador);
                         cbpuntadas1.setSelectedItem(pechoizquierdo);
             txt1.setText(pechoizquierdonombre);
             cbaplicacioncantidad1.setSelectedItem(pechoizquierdoaplicacion);
@@ -2684,7 +2684,7 @@ public class bordadoseditar extends javax.swing.JFrame {
     {
         
          String autorizacionpuntadas = "";
-         String sql = "SELECT autorizacion_puntadas FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"'  and codigo = '"+codigodelcliente+"'  ";
+         String sql = "SELECT autorizacion_puntadas FROM bordados_puntadas where identificador_prenda = '"+identificador+"'  and codigo = '"+codigodelcliente+"'  ";
 
 
             try {
@@ -2866,7 +2866,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         
         try {
        
-            String sql = "SELECT numero,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  ";
+            String sql = "SELECT numero,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadoranterior.getText()+"'  ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
@@ -2885,7 +2885,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion1 ;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("PECHO DERECHO"))
                 {
@@ -2893,7 +2893,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion2;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("MANGA IZQUIERDA"))
                 {
@@ -2901,7 +2901,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion3;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("MANGA DERECHA"))
                 {
@@ -2909,7 +2909,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion4;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("ESPALDA"))
                 {
@@ -2917,7 +2917,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion5;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("OTRA UBICACION"))
                 {
@@ -2925,7 +2925,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion6;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("OTRA UBICACION2"))
                 {
@@ -2933,7 +2933,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion7;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 
                 
@@ -2950,7 +2950,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         
         try {
        
-            String sql = "SELECT numero,articulo FROM historial_cotizaciones where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  ";
+            String sql = "SELECT numero,articulo FROM historial_cotizaciones where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadoranterior.getText()+"'  ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
@@ -2969,7 +2969,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion1.concat("").concat(txt1.getText()) ;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("PECHO DERECHO"))
                 {
@@ -2977,7 +2977,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion2.concat("").concat(txt2.getText()) ;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("MANGA IZQUIERDA"))
                 {
@@ -2985,7 +2985,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion3.concat("").concat(txt3.getText()) ;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("MANGA DERECHA"))
                 {
@@ -2993,7 +2993,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion4.concat("").concat(txt4.getText()) ;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("ESPALDA"))
                 {
@@ -3001,7 +3001,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion5.concat("").concat(txt5.getText()) ;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("OTRA UBICACION"))
                 {
@@ -3009,7 +3009,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion6.concat("").concat(txt6.getText()) ;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("OTRA UBICACION2"))
                 {
@@ -3017,7 +3017,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion7.concat("").concat(txt7.getText()) ;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 
                 
@@ -3050,7 +3050,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         
         try {
        
-            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  ";
+            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadoranterior.getText()+"'  ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
@@ -3066,7 +3066,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion1;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("ATRAS"))
                 {
@@ -3074,7 +3074,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion2;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("LADO IZQUIERDO"))
                 {
@@ -3082,7 +3082,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion3;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("LADO DERECHO"))
                 {
@@ -3090,7 +3090,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion4;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 
                 
@@ -3121,7 +3121,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         
         try {
        
-            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  ";
+            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadoranterior.getText()+"'  ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
@@ -3137,7 +3137,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion1;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("FRENTE LADO DERECHO"))
                 {
@@ -3145,7 +3145,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion2;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("ATRAS LADO IZQUIERDO"))
                 {
@@ -3153,7 +3153,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion3;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("ATRAS LADO DERECHOO"))
                 {
@@ -3161,7 +3161,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion4;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 
                 
@@ -3191,7 +3191,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         
         try {
        
-            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  ";
+            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadoranterior.getText()+"'  ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
@@ -3207,7 +3207,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion1;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("PECHO DERECHO"))
                 {
@@ -3215,7 +3215,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion2;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("ESPALDA"))
                 {
@@ -3223,7 +3223,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion3;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("OTRA UBICACION2"))
                 {
@@ -3231,7 +3231,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion5;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 else if(articulo.contains("OTRA UBICACION"))
                 {
@@ -3239,7 +3239,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion4;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 
                 
@@ -3270,7 +3270,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         
         try {
        
-            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  ";
+            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadoranterior.getText()+"'  ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
@@ -3286,7 +3286,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion1;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 
                 
@@ -3368,7 +3368,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         
         try {
        
-            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  ";
+            String sql = "SELECT numero,numero_cotizacion,articulo FROM historial_ventas where codigo_cliente='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadoranterior.getText()+"'  ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) 
@@ -3384,7 +3384,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     nombrearticuloactualizar = articulo;
                     ubicacion = ubicacion1;
                     
-                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
+                    actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
                 
                 
@@ -3431,7 +3431,7 @@ public class bordadoseditar extends javax.swing.JFrame {
             if(nombrearticuloactualizar.startsWith("APLICACION"))
         {
              try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET identificador_prenda = '"+txtidentificador.getText()+"' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+nombrearticuloactualizar+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET identificador_prenda = '"+txtidentificador.getText()+"' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadoranterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+nombrearticuloactualizar+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3443,7 +3443,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         {    
         
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET ARTICULO = '"+ubicacion.trim()+ "' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+nombrearticuloactualizar+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET ARTICULO = '"+ubicacion.trim()+ "' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadoranterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+nombrearticuloactualizar+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3453,7 +3453,7 @@ public class bordadoseditar extends javax.swing.JFrame {
        
         
         try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET identificador_prenda = '"+txtidentificador.getText()+"' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadordeprendaanterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+ubicacion.trim()+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE HISTORIAL_VENTAS SET identificador_prenda = '"+txtidentificador.getText()+"' WHERE codigo_cliente='" + codigodelcliente + "' and identificador_prenda = '" +lbidentificadoranterior.getText()+ "'  AND numero = '" + numeroventa + "' and articulo = '"+ubicacion.trim()+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -3517,7 +3517,7 @@ public class bordadoseditar extends javax.swing.JFrame {
     void quevaainsertar()
     {
       
-        Object nombrebordado = lbidentificadordeprendaanterior.getText();
+        Object nombrebordado = lbidentificadoranterior.getText();
         
         String nombre1 = txt1.getText();
         String nombre2 = txt2.getText();
@@ -3717,7 +3717,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         
         String numero = "";
         String existeenelhistorial ="";
-        String sql = "Select numero from historial_ordenes_camisa  where  identificador_prenda='"+identificadordeprenda+"' and cliente = '"+lbcliente.getText()+"' ";
+        String sql = "Select numero from historial_ordenes_camisa  where  identificador_prenda='"+identificador+"' and cliente = '"+lbcliente.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -3753,7 +3753,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         
          String numero = "";
         String existeenelhistorial ="";
-        String sql = "Select numero from historial_ordenes_gorra  where  identificador_prenda='"+identificadordeprenda+"' and cliente = '"+lbcliente.getText()+"' ";
+        String sql = "Select numero from historial_ordenes_gorra  where  identificador_prenda='"+identificador+"' and cliente = '"+lbcliente.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -3787,7 +3787,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         
          String numero = "";
         String existeenelhistorial ="";
-        String sql = "Select numero from historial_ordenes_pantalon  where  identificador_prenda='"+identificadordeprenda+"' and cliente = '"+lbcliente.getText()+"' ";
+        String sql = "Select numero from historial_ordenes_pantalon  where  identificador_prenda='"+identificador+"' and cliente = '"+lbcliente.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -3822,7 +3822,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         
          String numero = "";
         String existeenelhistorial ="";
-        String sql = "Select numero from historial_ordenes_corbata  where  identificador_prenda='"+identificadordeprenda+"' and cliente = '"+lbcliente.getText()+"' ";
+        String sql = "Select numero from historial_ordenes_corbata  where  identificador_prenda='"+identificador+"' and cliente = '"+lbcliente.getText()+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -3917,7 +3917,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtcodigocatalogobordados = new javax.swing.JLabel();
         btnimportarfotomontaje = new javax.swing.JButton();
-        lbidentificadordeprendaanterior = new javax.swing.JLabel();
+        lbidentificadoranterior = new javax.swing.JLabel();
         lbconsecutivo = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         lbbordacliente = new javax.swing.JLabel();
@@ -3951,7 +3951,6 @@ public class bordadoseditar extends javax.swing.JFrame {
         cbbordados4 = new javax.swing.JComboBox<>();
         cbbordados5 = new javax.swing.JComboBox<>();
         btnautorizarpuntadas = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -4372,7 +4371,6 @@ public class bordadoseditar extends javax.swing.JFrame {
         });
 
         lbprenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lbprenda.setForeground(new java.awt.Color(153, 0, 0));
         lbprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbetiqueta7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -4516,7 +4514,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("Identificador de prenda");
+        jLabel3.setText("Identificador");
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txtcodigocatalogobordados.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -4859,10 +4857,6 @@ public class bordadoseditar extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel12.setText("Identificador");
-        jLabel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setText("Nombre comercial");
         jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -4882,7 +4876,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(12, 12, 12)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbidentificadordeprendaanterior, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbidentificadoranterior, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(lbetiqueta7, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(18, 18, 18))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -5014,7 +5008,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                                                 .addComponent(cbaplicacioncolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -5027,17 +5021,15 @@ public class bordadoseditar extends javax.swing.JFrame {
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(287, 287, 287)
                                 .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
+                                .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
+                                .addGap(212, 212, 212)
                                 .addComponent(lbconsecutivo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(62, 62, 62)
                                 .addComponent(lbcodigocliente, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -5078,31 +5070,30 @@ public class bordadoseditar extends javax.swing.JFrame {
                     .addComponent(lbnombrecomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(lbconsecutivo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(lbcodigocliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtcodigocatalogobordados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
                         .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(txtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(lbconsecutivo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(lbcodigocliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtcodigocatalogobordados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
@@ -5166,7 +5157,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                                 .addComponent(lbetiqueta6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbidentificadordeprendaanterior, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbidentificadoranterior, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbetiqueta7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
@@ -5570,7 +5561,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                 
                 try {
        
-                String sql = "SELECT codigo FROM bordados_puntadas where codigo='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadordeprendaanterior.getText()+"'  AND tipo = '"+prenda+"'   ";
+                String sql = "SELECT codigo FROM bordados_puntadas where codigo='"+codigodelcliente+"' and identificador_prenda = '"+lbidentificadoranterior.getText()+"'  AND tipo = '"+prenda+"'   ";
 
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -7148,7 +7139,7 @@ public class bordadoseditar extends javax.swing.JFrame {
 
         
     
-        identificadordeprenda = txtidentificador.getText();
+        identificador = txtidentificador.getText();
         
         if (pasa.equals("si"))
             
@@ -7169,7 +7160,7 @@ public class bordadoseditar extends javax.swing.JFrame {
             FileInputStream input = null;
             try {
 
-                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigodelcliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = '"+lbprenda.getText()+"'  ";
+                String sql = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigodelcliente+"' and identificador_prenda = '"+identificador+"' and tipo = '"+lbprenda.getText()+"'  ";
 
                 myStmt = cn.prepareStatement(sql);
                 File theFile = new File(rutaarchivo);
@@ -7189,7 +7180,7 @@ public class bordadoseditar extends javax.swing.JFrame {
             }
 
             try {
-                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"' where codigo='"+codigodelcliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = '"+lbprenda.getText()+"'  ");
+                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombrearchivo+"' where codigo='"+codigodelcliente+"' and identificador_prenda = '"+identificador+"' and tipo = '"+lbprenda.getText()+"'  ");
                 pst.executeUpdate();
                 pst.close();
             } catch (Exception e) {
@@ -12000,11 +11991,11 @@ public class bordadoseditar extends javax.swing.JFrame {
 
             PreparedStatement myStmt = null;
             FileInputStream input = null;
-            identificadordeprenda = txtidentificador.getText();
+            identificador = txtidentificador.getText();
 
             try {
 
-                String sql3 = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = '"+tipo+"'  and numero_consecutivo = '"+lbconsecutivo.getText()+"' ";
+                String sql3 = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and identificador_prenda = '"+identificador+"' and tipo = '"+tipo+"'  and numero_consecutivo = '"+lbconsecutivo.getText()+"' ";
 
                 myStmt = cn.prepareStatement(sql3);
                 File theFile = new File(rutadelarchivo);
@@ -12017,7 +12008,7 @@ public class bordadoseditar extends javax.swing.JFrame {
             }
 
             try {
-                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombredelarchivo+"' where codigo='"+codigocliente+"' and identificador_prenda = '"+identificadordeprenda+"' and tipo = '"+tipo+"'  and numero_consecutivo = '"+lbconsecutivo.getText()+"' ");
+                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombredelarchivo+"' where codigo='"+codigocliente+"' and identificador_prenda = '"+identificador+"' and tipo = '"+tipo+"'  and numero_consecutivo = '"+lbconsecutivo.getText()+"' ");
                 pst.executeUpdate();
                 System.out.println(pst);
                 pst.close();
@@ -12114,7 +12105,6 @@ public class bordadoseditar extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbpuntadas7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -12138,7 +12128,7 @@ public class bordadoseditar extends javax.swing.JFrame {
     private javax.swing.JLabel lbetiqueta6;
     private javax.swing.JLabel lbetiqueta7;
     private javax.swing.JLabel lbfotomontaje;
-    private javax.swing.JLabel lbidentificadordeprendaanterior;
+    private javax.swing.JLabel lbidentificadoranterior;
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbprenda;
     private javax.swing.JLabel lbpuntadas5;

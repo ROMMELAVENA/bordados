@@ -5070,7 +5070,7 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     public static javax.swing.JLabel lbtiendaalaquereplicara;
     // End of variables declaration//GEN-END:variables
 
-    connectar cc = new connectar();
+    coneccionlocal cc = new coneccionlocal();
     Connection cn = cc.conexion();
 
 }

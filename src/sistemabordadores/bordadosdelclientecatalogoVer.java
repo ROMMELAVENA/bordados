@@ -158,7 +158,7 @@ public class bordadosdelclientecatalogoVer extends AbstractCellEditor implements
         return new JLabel();
     }
     
-    connectar cc = new connectar();
+    coneccionlocal cc = new coneccionlocal();
     Connection cn = cc.conexion();
     
 }

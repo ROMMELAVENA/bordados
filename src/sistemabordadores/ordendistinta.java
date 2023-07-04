@@ -5509,7 +5509,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel lbtitulo;
     // End of variables declaration//GEN-END:variables
 
-    connectar cc = new connectar();
+    coneccionlocal cc = new coneccionlocal();
     Connection cn = cc.conexion();
 
 }

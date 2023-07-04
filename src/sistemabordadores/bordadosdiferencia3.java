@@ -983,7 +983,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 
-connectar cc = new connectar();
+coneccionlocal cc = new coneccionlocal();
 Connection cn = cc.conexion();
 
 }

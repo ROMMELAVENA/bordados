@@ -615,7 +615,7 @@ this.dispose();
     public static javax.swing.JTable tabla;
     private javax.swing.JTextField ubic;
     // End of variables declaration//GEN-END:variables
-    connectar cc= new connectar();
+    coneccionlocal cc= new coneccionlocal();
     Connection cn= cc.conexion();
 
 }

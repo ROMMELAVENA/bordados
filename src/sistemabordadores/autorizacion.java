@@ -414,6 +414,6 @@ public class autorizacion extends javax.swing.JFrame {
     public static javax.swing.JLabel lbnivel;
     public static javax.swing.JPasswordField txtpassword;
     // End of variables declaration//GEN-END:variables
-connectar cc = new connectar();
+    coneccionlocal cc = new coneccionlocal();
     Connection cn = cc.conexion();
 }

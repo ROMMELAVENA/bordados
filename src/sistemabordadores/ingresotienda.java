@@ -14,7 +14,7 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 
 public class ingresotienda extends javax.swing.JFrame {
-  public static String ip="";
+ 
   public static String correo="";
   public static String contrasenacorreo="";
   public static boolean ventanaingresotienda=false;
@@ -23,7 +23,9 @@ public class ingresotienda extends javax.swing.JFrame {
   public static String iplocal = ""; 
   public static String tiendalocal = ""; 
 
-
+   Connection cnsucursal = null;
+    
+    
   
  
  

@@ -2609,7 +2609,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     public static javax.swing.JLabel lbtienda;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
-connectar cc = new connectar();
+coneccionlocal cc = new coneccionlocal();
 Connection cn = cc.conexion();
 
 }

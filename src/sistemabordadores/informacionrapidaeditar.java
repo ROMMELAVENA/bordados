@@ -775,7 +775,7 @@ public class informacionrapidaeditar extends javax.swing.JFrame {
     public static javax.swing.JTextField txtcodigo;
     public static javax.swing.JTextField txtdescripcion;
     // End of variables declaration//GEN-END:variables
-    connectar cc = new connectar();
+    coneccionlocal cc = new coneccionlocal();
     Connection cn = cc.conexion();
 
 }

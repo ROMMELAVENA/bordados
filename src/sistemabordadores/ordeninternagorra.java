@@ -1774,7 +1774,7 @@ public class ordeninternagorra extends javax.swing.JFrame {
     private javax.swing.JLabel lbtitulo3;
     // End of variables declaration//GEN-END:variables
 
-    connectar cc = new connectar();
+    coneccionlocal cc = new coneccionlocal();
     Connection cn = cc.conexion();
 
 }

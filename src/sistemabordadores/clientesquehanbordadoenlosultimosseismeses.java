@@ -346,7 +346,7 @@ public class clientesquehanbordadoenlosultimosseismeses extends javax.swing.JFra
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
-connectar cc = new connectar();
+coneccionlocal cc = new coneccionlocal();
 Connection cn = cc.conexion();
 
 

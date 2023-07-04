@@ -5692,6 +5692,8 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnpechoizquierdotermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoizquierdotermineActionPerformed
 
         
+    //  btnpechoizquierdotermine
+        
       regresaralaconeccionlocal(); 
       
       fechaubicacion  = "pecho_izquierdo_fecha";
@@ -8336,7 +8338,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbtipo;
     // End of variables declaration//GEN-END:variables
 
-    connectar cc = new connectar();
+    coneccionlocal cc = new coneccionlocal();
     Connection cn = cc.conexion();
 
 }

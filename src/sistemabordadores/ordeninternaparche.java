@@ -1436,7 +1436,7 @@ void modificarexistenciaykardex(String descripcion, String cantidad) {
     private javax.swing.JLabel lbtipo;
     // End of variables declaration//GEN-END:variables
 
- connectar cc = new connectar();
+ coneccionlocal cc = new coneccionlocal();
     Connection cn = cc.conexion();
 
 

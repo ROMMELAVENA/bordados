@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
-public class connectar {
+public class coneccionlocal {
     Connection conectar=null;
     Connection cn=null;
     String iplocal = ingresotienda.iplocal;

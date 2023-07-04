@@ -2216,7 +2216,7 @@ public class colorido extends javax.swing.JFrame {
     public static javax.swing.JLabel lbidentificador;
     // End of variables declaration//GEN-END:variables
 
-    connectar cc = new connectar();
+    coneccionlocal cc = new coneccionlocal();
     Connection cn = cc.conexion();
 
 

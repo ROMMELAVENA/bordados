@@ -1005,7 +1005,7 @@ void limpiartabla() {
     private javax.swing.JTable tabla1;
     private javax.swing.JTable tabla2;
     // End of variables declaration//GEN-END:variables
-connectar cc = new connectar();
+coneccionlocal cc = new coneccionlocal();
     Connection cn = cc.conexion();
 
 }

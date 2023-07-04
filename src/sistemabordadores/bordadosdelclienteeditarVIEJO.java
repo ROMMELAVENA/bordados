@@ -12133,7 +12133,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
     public static javax.swing.JLabel txtcodigocatalogobordados;
     public static javax.swing.JTextField txtidentificadordeprenda;
     // End of variables declaration//GEN-END:variables
-connectar cc = new connectar();
+coneccionlocal cc = new coneccionlocal();
 Connection cn = cc.conexion();
 
 }

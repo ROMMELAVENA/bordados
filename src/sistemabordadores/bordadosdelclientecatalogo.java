@@ -3280,7 +3280,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
     public static javax.swing.JLabel lbinterface;
     public static javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
-connectar cc = new connectar();
+coneccionlocal cc = new coneccionlocal();
     Connection cn = cc.conexion();
 
 }

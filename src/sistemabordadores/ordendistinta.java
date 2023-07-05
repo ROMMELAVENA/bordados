@@ -2596,14 +2596,8 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 st.close();
             } catch (SQLException ex) {
-                JOptionPane op = new JOptionPane();
-                JLabel label = new JLabel("<HTML><b style=\"Color:red; font-size:20px;\">Error al buscar tiendas".toUpperCase());
-                label.setFont(new Font("Arial", Font.BOLD, 40));
-                label.setOpaque(true);
-                label.setForeground(Color.red.brighter());
-                label.setBackground(Color.YELLOW.brighter());
-                op.showMessageDialog(null, label, "ERROR!!", op.WARNING_MESSAGE);
-                //JOptionPane.showMessageDialog(null, "Error al buscar tiendas");
+               
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al buscar tiendas");
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);

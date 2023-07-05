@@ -58,20 +58,20 @@ public class ordengorra extends javax.swing.JFrame {
     String fechaubicacion = "";
     String bordadosutilizadosstring = "";
     int bordadosutilizadosint = 0;
-
+    Connection cnsucursal = null;
     String nuevosbordadosutilizadosstring = "";
     int nuevosbordadosutilizadosint = 0;
     String numerodeventa = "";
-    String latiendaestaconectada = "si";
+    String tiendaconectada = "si";
     String numerodeorden = "";
     String numeroordendeenviosolicitada = "";
     String prenda ="";
-    
+   
     Connection con = null;
 
     String primero = "";
     String ultimo = "";
-    String ipdelaotratienda = "";
+    String ipsucursal = "";
     String nuevoestatusorden = "";
    
     int traspaso = 0;
@@ -1053,7 +1053,7 @@ public class ordengorra extends javax.swing.JFrame {
              
             
                 
-              if (latiendaestaconectada.equals("si"))
+              if (tiendaconectada.equals("si"))
 
                       {
       
@@ -1067,7 +1067,7 @@ public class ordengorra extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
        
          
-            con = DriverManager.getConnection("jdbc:mysql://" + ipdelaotratienda + "/" + sucursal + "", "root", "sistemas");
+            con = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
       
 
         
@@ -1217,7 +1217,7 @@ public class ordengorra extends javax.swing.JFrame {
 
                 if (rs.next()) {
 
-                    ipdelaotratienda = rs.getString("ip");
+                    ipsucursal = rs.getString("ip");
               
 
                 } else {
@@ -1226,14 +1226,8 @@ public class ordengorra extends javax.swing.JFrame {
 
                 st.close();
             } catch (SQLException ex) {
-                JOptionPane op = new JOptionPane();
-                JLabel label = new JLabel("<HTML><b style=\"Color:red; font-size:20px;\">Error al buscar tiendas".toUpperCase());
-                label.setFont(new Font("Arial", Font.BOLD, 40));
-                label.setOpaque(true);
-                label.setForeground(Color.red.brighter());
-                label.setBackground(Color.YELLOW.brighter());
-                op.showMessageDialog(null, label, "ERROR!!", op.WARNING_MESSAGE);
-                //JOptionPane.showMessageDialog(null, "Error al buscar tiendas");
+               
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al buscar tiendas");
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
@@ -1258,12 +1252,12 @@ public class ordengorra extends javax.swing.JFrame {
                 
                 
 
-                ping = InetAddress.getByName(ipdelaotratienda);
+                ping = InetAddress.getByName(ipsucursal);
             
                 if (ping.isReachable(5000)) 
                 {
                   
-                  latiendaestaconectada = "si";
+                  tiendaconectada = "si";
                    
 
                 }
@@ -1272,7 +1266,7 @@ public class ordengorra extends javax.swing.JFrame {
                 
                 {
                     
-                    latiendaestaconectada = "no";
+                    tiendaconectada = "no";
                     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
                     
 
@@ -1284,7 +1278,35 @@ public class ordengorra extends javax.swing.JFrame {
                 
             }
 
-        }         
+        }      
+        
+        
+        
+           if (tiendaconectada.equals("si"))
+          
+                
+            {       
+            
+               try { 
+                     
+                     
+                     
+            cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
+        } catch (SQLException ex) {
+            Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+            
+            
+            }
+        
+        
+        
+        
+        
+        
+        
+        
 
      
  }
@@ -3956,7 +3978,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         Connection conn = null;
 
-        ipdelaotratienda = strIP;
+        ipsucursal = strIP;
         sucursal = strBD;
 
         FileInputStream input = null;
@@ -3971,7 +3993,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://" + ipdelaotratienda + "/" + sucursal + "", "root", "sistemas");
+            conn = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
 
           
                 
@@ -4498,7 +4520,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
-                cn = DriverManager.getConnection("jdbc:mysql://" + ipdelaotratienda + "/" + sucursal + "", "root", "sistemas");
+                cn = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
             } catch (SQLException ex) {
                 Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
             }

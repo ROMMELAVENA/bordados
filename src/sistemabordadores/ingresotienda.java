@@ -18,7 +18,7 @@ public class ingresotienda extends javax.swing.JFrame {
   public static String correo="";
   public static String contrasenacorreo="";
   public static boolean ventanaingresotienda=false;
-  public static String tienda_bd="";
+ 
  
   public static String iplocal = ""; 
   public static String tiendalocal = ""; 
@@ -141,6 +141,8 @@ public class ingresotienda extends javax.swing.JFrame {
                 ping = InetAddress.getByName(iplocal);
                 if (ping.isReachable(5000)) 
                 {
+                    
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:green; font-size:20px;\">Tienda local conectada correctamente"); 
                     lbtiendaconectada.setText("Tienda conectada");
                     lbtiendaconectada.setBackground(Color.GREEN);
                     btnentrar.setEnabled(true);
@@ -156,6 +158,8 @@ public class ingresotienda extends javax.swing.JFrame {
                 }
                 else 
                 {
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda local");   
                     lbtiendaconectada.setText("Error al conectar con tienda");
                     lbtiendaconectada.setBackground(Color.red);
                     btnentrar.setEnabled(false);
@@ -163,6 +167,7 @@ public class ingresotienda extends javax.swing.JFrame {
                 }
             } catch (IOException ex) {
                 System.out.println(ex);
+                
             }
 
         }

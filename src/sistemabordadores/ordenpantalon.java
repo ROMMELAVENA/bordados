@@ -47,7 +47,7 @@ public class ordenpantalon extends javax.swing.JFrame {
     String iplocal = principal.lbiplocal.getText();
     String sucursal = "";
     String tiendaconectada = "si";
-    Connection con = null;
+  
     String numerosucursal = "";
     String fechaubicacion = "";
     String cantidadprendasstring = "";
@@ -1594,13 +1594,13 @@ public class ordenpantalon extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
        
          
-            con = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
+            cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
       
 
         String sql7 = "Select cliente,lugar,identificador_prenda from historial_ordenes_pantalon where numero = '" + numerosucursal + "' ";
 
         try {
-            Statement st = con.createStatement();
+            Statement st = cnsucursal.createStatement();
             ResultSet rs = st.executeQuery(sql7);
             if (rs.next()) {
 
@@ -1629,7 +1629,7 @@ public class ordenpantalon extends javax.swing.JFrame {
 
         try {
 
-            Statement st = con.createStatement();
+            Statement st = cnsucursal.createStatement();
             ResultSet rs = st.executeQuery(sql4);
             while (rs.next()) 
             {

@@ -130,11 +130,11 @@ public class ingresotienda extends javax.swing.JFrame {
 
     void pingtienda()
     {
-        Object tienda = cbtienda.getSelectedItem();
+     
         InetAddress ping;
        
 
-        if (tienda == null) {
+        if (tiendalocal == null) {
         } else {
             try {
                 lbtiendaconectada.setText("");
@@ -142,7 +142,7 @@ public class ingresotienda extends javax.swing.JFrame {
                 if (ping.isReachable(5000)) 
                 {
                     
-                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:green; font-size:20px;\">Tienda local conectada correctamente"); 
+                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:green; font-size:20px;\">Se conecto a la tienda de "+tiendalocal+" correctamente "); 
                     lbtiendaconectada.setText("Tienda conectada");
                     lbtiendaconectada.setBackground(Color.GREEN);
                     btnentrar.setEnabled(true);
@@ -159,7 +159,7 @@ public class ingresotienda extends javax.swing.JFrame {
                 else 
                 {
                     
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda local");   
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda local, pidale al Encargado que revise su hamachi");   
                     lbtiendaconectada.setText("Error al conectar con tienda");
                     lbtiendaconectada.setBackground(Color.red);
                     btnentrar.setEnabled(false);

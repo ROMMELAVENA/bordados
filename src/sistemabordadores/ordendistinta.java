@@ -32,6 +32,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import static sistemabordadores.ordenparche.lbcliente;
 
 public class ordendistinta extends javax.swing.JFrame {
 
@@ -64,7 +65,7 @@ public class ordendistinta extends javax.swing.JFrame {
     String ultimo = "";
     String iplocal = principal.lbiplocal.getText();
     int traspaso = 0;
-    String ipdelaotratienda = "";
+    String ipsucursal = "";
    
 
     String numerosucursal = "";
@@ -80,8 +81,8 @@ public class ordendistinta extends javax.swing.JFrame {
     
      String numerodeorden = "";
 
-    String latiendaestaconectada = "si";
-    Connection con = null;
+    String tiendaconectada = "si";
+    Connection cnsucursal = null;
     
     
     ///// para insertar
@@ -213,7 +214,7 @@ public class ordendistinta extends javax.swing.JFrame {
         
     }
 
-    void datosOrdenesLocales() throws IOException {
+    void datostiendalocal() throws IOException {
 
         String folio = lborden.getText();
         
@@ -240,7 +241,9 @@ public class ordendistinta extends javax.swing.JFrame {
             if (rs.next()) 
             {
 
-                lbcliente.setText(rs.getString("cliente"));
+                 cliente = rs.getString("cliente");
+                lbcliente.setText(cliente);
+                
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
                 lbfecha.setText(rs.getString("fecha"));
@@ -918,7 +921,7 @@ public class ordendistinta extends javax.swing.JFrame {
     
     
     
-    void verfotomontaje(){
+    void verfotomontajetiendalocal(){
         
         
         
@@ -1013,6 +1016,108 @@ public class ordendistinta extends javax.swing.JFrame {
         
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    void verfotomontajesucursal(){
+        
+        
+        
+        
+        
+          cliente = lbcliente.getText();
+       
+        String prenda =lbprenda.getText().toUpperCase();
+      
+      
+        String rutadelarchivo = "";
+        String existe = "";
+        
+        //// prenda del fotomontaje
+        String sql = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";
+
+        try {
+            Statement st1 = cn.createStatement();
+            ResultSet rs1 = st1.executeQuery(sql);
+            if (rs1.next()) 
+            {
+                Object camisa1 = rs1.getString("imagen");
+                if (camisa1 == null||camisa1.equals("")||camisa1.equals(" ")) 
+                {
+                    existe = "no";
+                    
+                } else 
+                
+                {
+                    String nombredelarchivo = rs1.getString("extension_imagen");
+                    if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
+                    {
+                        
+                     rutadelarchivo = "C:\\archivospdf\\fotomontaje."+nombredelarchivo+" ";   
+                   
+                    }
+                    else
+                    {
+                        
+                   nombredelarchivo = nombredelarchivo.replace(" ","");
+                   rutadelarchivo = "C:\\archivospdf\\"+nombredelarchivo+" ";
+                    
+                    }
+                    existe = "si";
+                    File file = new File(rutadelarchivo);
+                    FileOutputStream output = new FileOutputStream(file);
+                    Blob archivo = rs1.getBlob("imagen");
+                    InputStream inStream = archivo.getBinaryStream();
+                    int length = -1;
+                    int size = (int) archivo.length();
+                    byte[] buffer = new byte[size];
+                    while ((length = inStream.read(buffer)) != -1) {
+                        output.write(buffer, 0, length);
+                    }
+ 
+                    output.close();
+                }
+            }
+            rs1.close();
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+
+        if (existe.equals("si")) 
+        {
+            String fileLocal = new String(rutadelarchivo);
+            try {
+
+                File path = new File(fileLocal);
+                Desktop.getDesktop().open(path);
+
+            } catch (IOException e) {
+                System.out.println(e);
+            } catch (IllegalArgumentException e) {
+
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:5px;\">No se pudo encontrar el archivo","Error",JOptionPane.ERROR_MESSAGE);
+                System.out.println(e);
+            }
+        
+        } 
+        
+        
+        
+        
+        
+        
+        
+    }
     
     
     
@@ -1332,7 +1437,7 @@ public class ordendistinta extends javax.swing.JFrame {
         }
         
         try {
-            datosOrdenesLocales();
+            datostiendalocal();
         } catch (IOException ex) {
             Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1372,7 +1477,7 @@ public class ordendistinta extends javax.swing.JFrame {
         
         /*
         try {
-            datosOrdenesLocales();
+            datostiendalocal();
         } catch (IOException ex) {
             Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1875,7 +1980,10 @@ JOptionPane.showMessageDialog(null, mensaje);
             if (rs.next()) 
             {
 
-                lbcliente.setText(rs.getString("cliente"));
+                 cliente = rs.getString("cliente");
+                lbcliente.setText(cliente);
+                
+                
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
                 lbfecha.setText(rs.getString("fecha"));
@@ -2428,25 +2536,18 @@ JOptionPane.showMessageDialog(null, mensaje);
              
             
                 
-              if (latiendaestaconectada.equals("si"))
+              if (tiendaconectada.equals("si"))
 
                       {
                 
                 
                  try {
          
-                     
-                     
-            Class.forName("com.mysql.jdbc.Driver");
-       
-         
-            con = DriverManager.getConnection("jdbc:mysql://" + ipdelaotratienda + "/" + sucursal + "", "root", "sistemas");
-      
 
         String sql7 = "Select cliente,lugar,identificador_prenda from historial_ordenes_pantalon where numero = '" + numerosucursal + "' ";
 
         try {
-            Statement st = con.createStatement();
+            Statement st = cnsucursal.createStatement();
             ResultSet rs = st.executeQuery(sql7);
             if (rs.next()) {
 
@@ -2475,7 +2576,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         try {
 
-            Statement st = con.createStatement();
+            Statement st = cnsucursal.createStatement();
             ResultSet rs = st.executeQuery(sql4);
             while (rs.next()) 
             {
@@ -2572,8 +2673,9 @@ JOptionPane.showMessageDialog(null, mensaje);
      
      try {
             
+            Connection con = null;
             Class.forName("com.mysql.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
+            con = DriverManager.getConnection("jdbc:mysql://" + iplocal + "/tiendas", "root", "sistemas");
 
             try {
               
@@ -2582,12 +2684,12 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 String sql = "SELECT ip FROM catalogo_tiendas where tienda = '" + sucursal + "'";
 
-                Statement st = cn.prepareStatement(sql);
+                Statement st = con.prepareStatement(sql);
                 ResultSet rs = st.executeQuery(sql);
 
                 if (rs.next()) {
 
-                    ipdelaotratienda = rs.getString("ip");
+                    ipsucursal = rs.getString("ip");
               
 
                 } else {
@@ -2622,12 +2724,25 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
 
-                ping = InetAddress.getByName(ipdelaotratienda);
+                ping = InetAddress.getByName(ipsucursal);
             
                 if (ping.isReachable(5000)) 
                 {
                   
-                  latiendaestaconectada = "si";
+                  tiendaconectada = "si";
+                  
+                  
+                  
+                    try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                  
+                  
                    
 
                 }
@@ -2636,7 +2751,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 {
                     
-                    latiendaestaconectada = "no";
+                    tiendaconectada = "no";
                     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
                     
 
@@ -4554,7 +4669,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         nombredelatabla = "historial_ordenes_distinta";
         
      try {
-            datosOrdenesLocales();
+            datostiendalocal();
         } catch (IOException ex) {
             Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4839,43 +4954,20 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-        
         if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
     {
    
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-      
-                 cn = DriverManager.getConnection("jdbc:mysql://" + iplocal + "/" + tiendalocal + "", "root", "sistemas");
-            } catch (SQLException ex) {
-                Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
-            }
-       
-       
+        verfotomontajetiendalocal();
       
         
     }
     else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
     {
        
-        
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                cn = DriverManager.getConnection("jdbc:mysql://" + ipdelaotratienda + "/" + sucursal + "", "root", "sistemas");
-            } catch (SQLException ex) {
-                Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
-        
+       
+         verfotomontajesucursal();
     }
+        
         
 
     }//GEN-LAST:event_btnverfotomontajeActionPerformed

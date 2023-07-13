@@ -18,7 +18,7 @@ public class autorizacion extends javax.swing.JFrame {
     private String contraseñausuario = "";
     String numerohistorial = "";
     String contraseñaingresada ="";
-    String database = "";
+  
     String tiendalocal = "";
     String interfaz = "";
     public static String autorizo ="";

@@ -119,7 +119,7 @@ public static boolean ventanaordenparcheanteriores = false;
                 
                 String estatusorden = rs.getString("estatus_orden");
                 
-                if(estatusorden.equals("realizada"))
+                if(estatusorden.equals("realizada totalmente"))
                 {
                   bnthecho.setEnabled(true); 
                   bnthecho.setText("Cancelar");
@@ -193,7 +193,7 @@ public static boolean ventanaordenparcheanteriores = false;
                 
                 String estatusorden = rs.getString("estatus_orden");
                 
-                if(estatusorden.equals("realizada"))
+                if(estatusorden.equals("realizada totalmente"))
                 {
                   bnthecho.setEnabled(true); 
                   bnthecho.setText("Cancelar");
@@ -282,7 +282,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + lbfolio.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + lbfolio.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -318,7 +318,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados_recibidos set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + lbfolio.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados_recibidos set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + lbfolio.getText() + "'   ");
                     pst.executeUpdate();
                     pst.close();
 

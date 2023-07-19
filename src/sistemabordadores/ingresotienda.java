@@ -79,7 +79,7 @@ public class ingresotienda extends javax.swing.JFrame {
          modelo.addElement(tiendalocal);
          cbtienda.setModel(modelo);
          AutoCompleteDecorator.decorate(cbtienda);
-       //  cbtienda.setSelectedIndex(-1);
+       
          cbtienda.setSelectedItem(tiendalocal);
          
          

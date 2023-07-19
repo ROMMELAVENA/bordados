@@ -1469,22 +1469,22 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 
                 
                 {
-                    if (ordencamisa.ventanaordencamisa == true) 
+                    if (ordencamisaS.ventanaordencamisa == true) 
                     {
                         
                        
                         JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de camisa anteriores");
 
                     } else {
-                        ordencamisa orden = new ordencamisa();
+                        ordencamisaS orden = new ordencamisaS();
                         orden.setVisible(true);
 
-                        ordencamisa.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordencamisa.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordencamisa.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
-                        ordencamisa.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
-                        ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordencamisaS.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencamisaS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordencamisaS.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
+                        ordencamisaS.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        ordencamisaS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordencamisaS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         this.setState(this.ICONIFIED);
                        
@@ -1497,19 +1497,19 @@ public class ordenesterminadas extends javax.swing.JFrame {
                     
                     if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
                 {
-                    if (ordengorra.ventanaordengorra == true) {
+                    if (ordengorraS.ventanaordengorra == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de camisa anteriores");
 
                     } else
                     {
-                        ordengorra orden = new ordengorra();
+                        ordengorraS orden = new ordengorraS();
                         orden.setVisible(true);
 
-                        ordengorra.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordengorra.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordengorraS.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordengorraS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                    
-                        ordengorra.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
-                        ordengorra.tipotabla = (tabla.getValueAt(fila, 10).toString());
+                        ordengorraS.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                        ordengorraS.tipotabla = (tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         this.setState(this.ICONIFIED);
                         
@@ -1523,20 +1523,20 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 
                 
                 {
-                    if (ordenpantalon.ventanaordenpantalonanteriores == true) 
+                    if (ordenpantalonS.ventanaordenpantalonanteriores == true) 
                     {
                         
                         JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de camisa anteriores");
 
                     } else {
-                        ordenpantalon orden = new ordenpantalon();
+                        ordenpantalonS orden = new ordenpantalonS();
                         orden.setVisible(true);
 
-                        ordenpantalon.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordenpantalon.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordenpantalonS.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenpantalonS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                      
-                        ordenpantalon.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordenpantalon.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordenpantalonS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordenpantalonS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         this.setState(this.ICONIFIED);
                        
@@ -1558,17 +1558,17 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 {
                    
                         
-                        if (ordencorbata.ventanaordencorbataanteriores == true) {
+                        if (ordencorbataS.ventanaordencorbataanteriores == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de corbata anteriores");
 
                     } else {
-                        ordencorbata ventana = new ordencorbata();
+                        ordencorbataS ventana = new ordencorbataS();
                         ventana.setVisible(true);
 
-                        ordencorbata.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordencorbata.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordencorbataS.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencorbataS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordencamisaS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordencamisaS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         
                          tabla.clearSelection();
                          this.setState(this.ICONIFIED);
@@ -1587,7 +1587,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                                 
                                  if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
                 {
-                    if (ordenparche.ventanaordenparcheanteriores == true) {
+                    if (ordenparcheS.ventanaordenparcheanteriores == true) {
                         JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado anteriores");
 
                     } 
@@ -1595,14 +1595,14 @@ public class ordenesterminadas extends javax.swing.JFrame {
                     else
                     
                     {
-                        ordenparche ventana = new ordenparche();
+                        ordenparcheS ventana = new ordenparcheS();
                         ventana.setVisible(true);
 
-                        ordenparche.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordenparche.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordenparcheS.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenparcheS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                    
-                        ordenparche.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
-                        ordenparche.tipotabla = (tabla.getValueAt(fila, 10).toString());
+                        ordenparcheS.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                        ordenparcheS.tipotabla = (tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         this.setState(this.ICONIFIED);
                         
@@ -1618,18 +1618,18 @@ public class ordenesterminadas extends javax.swing.JFrame {
                                        
                     if (tipo.equals("Orden ponchado")) 
                 {
-                    if (ordenponchado.ventanaordenparcheanteriores == true) {
+                    if (ordenponchadoS.ventanaordenparcheanteriores == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado anteriores");
 
                     } else {
-                        ordenponchado orden = new ordenponchado();
+                        ordenponchadoS orden = new ordenponchadoS();
                         orden.setVisible(true);
 
-                        ordenponchado.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
-                        ordenponchado.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordenponchadoS.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenponchadoS.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                         
-                        ordenponchado.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordenponchado.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordenponchadoS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordenponchadoS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                          tabla.clearSelection();
                          this.setState(this.ICONIFIED);
                         
@@ -1711,21 +1711,21 @@ public class ordenesterminadas extends javax.swing.JFrame {
                                     
                 else
                 {
-                     if (ordendistinta.ventanaordencamisaanteriores == true) 
+                     if (ordendistintaS.ventanaordencamisaanteriores == true) 
                     {
                         
                         JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:5px;\">Favor de cerrar la ventana de orden de camisa anteriores");
 
                     } else {
-                        ordendistinta orden = new ordendistinta();
+                        ordendistintaS orden = new ordendistintaS();
                         orden.setVisible(true);
 
-                        ordendistinta.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordendistinta.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordendistinta.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
-                        ordendistinta.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
-                        ordendistinta.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordendistinta.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordendistintaS.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordendistintaS.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordendistintaS.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
+                        ordendistintaS.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        ordendistintaS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordendistintaS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         this.setState(this.ICONIFIED);
                        

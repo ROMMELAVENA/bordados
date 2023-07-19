@@ -266,7 +266,7 @@ public class autorizacion extends javax.swing.JFrame {
 
             if (contraseñaingresada.equals(contraseñausuario) ||contraseñaingresada.equals("1")||contraseñaingresada.equals("root") ) {
 
-                ordencamisa.ordencamisaautorizacion="si"; 
+                ordencamisaS.ordencamisaautorizacion="si"; 
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -285,7 +285,7 @@ public class autorizacion extends javax.swing.JFrame {
 
             if (contraseñaingresada.equals(contraseñausuario) ||contraseñaingresada.equals("1")||contraseñaingresada.equals("root") ) {
 
-                ordengorra.ordengorraautorizacion="si"; 
+                ordengorraS.ordengorraautorizacion="si"; 
                 ventanaautorizacion = false;
                 this.dispose();
 

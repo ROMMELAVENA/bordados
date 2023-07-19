@@ -31,10 +31,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import static sistemabordadores.ordengorra.lbcliente;
+import static sistemabordadores.ordengorraS.lbcliente;
 
 
-public class ordenparche extends javax.swing.JFrame {
+public class ordenparcheS extends javax.swing.JFrame {
 public static boolean ventanaordenparcheanteriores = false;
 
         private PreparedStatement pst;
@@ -93,7 +93,7 @@ public static boolean ventanaordenparcheanteriores = false;
     
     
    
-    public ordenparche() 
+    public ordenparcheS() 
     {
         initComponents();
         ventanaordenparcheanteriores = true;
@@ -118,7 +118,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
         
      
-     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,tipo,estatus_entrega,articulo,parche,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,numero_orden FROM historial_ordenes_parche WHERE numero = '"+numerodeorden+"' ";
+     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,numero_orden FROM historial_ordenes_parche WHERE numero = '"+numerodeorden+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -128,6 +128,10 @@ public static boolean ventanaordenparcheanteriores = false;
                 
                  cliente = rs.getString("cliente");
                 lbcliente.setText(cliente);
+                
+                lbnombrecomercial.setText( rs.getString("nombre_comercial"));
+                
+                lbbordacliente.setText( rs.getString("borda_cliente"));
                 
                 
                 lbnumerodelaotrasucursal.setText(rs.getString("numero"));
@@ -583,7 +587,7 @@ public static boolean ventanaordenparcheanteriores = false;
     try {
         datostiendalocal();
     } catch (IOException ex) {
-        Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
     }
         
         
@@ -610,7 +614,7 @@ public static boolean ventanaordenparcheanteriores = false;
     try {
         datostiendalocal();
     } catch (IOException ex) {
-        Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
     }
         
         
@@ -1048,7 +1052,7 @@ public static boolean ventanaordenparcheanteriores = false;
         try {
             datostiendalocal();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -1251,7 +1255,7 @@ public static boolean ventanaordenparcheanteriores = false;
         try {
             datosotrasucursal();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
         }
       
     }
@@ -1482,9 +1486,9 @@ public static boolean ventanaordenparcheanteriores = false;
             Class.forName("com.mysql.jdbc.Driver");
              cn = DriverManager.getConnection("jdbc:mysql://" + iplocal + "/" + tiendalocal + "", "root", "sistemas"); 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
         }
        
          
@@ -1568,9 +1572,9 @@ public static boolean ventanaordenparcheanteriores = false;
                         Class.forName("com.mysql.jdbc.Driver");
                         cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
                     } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (SQLException ex) {
-                        Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
                     }
                    
 
@@ -1605,7 +1609,7 @@ public static boolean ventanaordenparcheanteriores = false;
                      
             cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
         } catch (SQLException ex) {
-            Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
         }
             
             
@@ -2667,10 +2671,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel8.setText("Parche");
         jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbpuntadas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbpuntadas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbpuntadas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbnombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbnombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbnombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcodigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -2735,9 +2739,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbpuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbpuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3052,7 +3056,7 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equa
     try {
         datostiendalocal();
     } catch (IOException ex) {
-        Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
     }
         
       codigocliente();
@@ -3064,7 +3068,7 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equa
         try {
             cargarfotomontaje();
         } catch (IOException ex) {
-            Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordengorraS.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -3089,7 +3093,7 @@ else
          try {
             datosotrasucursal();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
         }
          
          
@@ -3339,7 +3343,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     try {
         datostiendalocal();
     } catch (IOException ex) {
-        Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
     }
         cliente();
         numeroconsecutivo();
@@ -3465,7 +3469,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ordenparche().setVisible(true);
+                new ordenparcheS().setVisible(true);
             }
         });
     }

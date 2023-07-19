@@ -162,16 +162,16 @@
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lbpechoizquierdonombre" alignment="0" min="-2" pref="450" max="-2" attributes="0"/>
-                          <Component id="lbpechoderechonombre" alignment="0" min="-2" pref="450" max="-2" attributes="0"/>
-                          <Component id="lbmangaizquierdanombre" alignment="0" min="-2" pref="450" max="-2" attributes="0"/>
-                          <Component id="lbmangaderechanombre" alignment="0" min="-2" pref="450" max="-2" attributes="0"/>
-                          <Component id="lbespaldanombre" alignment="0" min="-2" pref="450" max="-2" attributes="0"/>
+                          <Component id="lbpechoizquierdonombre" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
+                          <Component id="lbpechoderechonombre" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
+                          <Component id="lbmangaizquierdanombre" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
+                          <Component id="lbmangaderechanombre" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
+                          <Component id="lbespaldanombre" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                              <Component id="lbotraubicacionnombre" min="-2" pref="450" max="-2" attributes="0"/>
+                              <Component id="lbotraubicacionnombre" min="-2" pref="250" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="lbotraubicacion2nombre" alignment="0" min="-2" pref="450" max="-2" attributes="0"/>
+                          <Component id="lbotraubicacion2nombre" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -193,7 +193,6 @@
                                   <Component id="lbcantidad6" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                                   <Component id="lbcantidad1" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="lbotraubicacion2" min="-2" pref="250" max="-2" attributes="0"/>
@@ -201,7 +200,7 @@
                               <Component id="lbcantidad7" min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnotraubicaciontetermine" alignment="1" min="-2" pref="85" max="-2" attributes="0"/>
                           <Component id="btnotraubicacion2tetermine" alignment="1" min="-2" pref="85" max="-2" attributes="0"/>

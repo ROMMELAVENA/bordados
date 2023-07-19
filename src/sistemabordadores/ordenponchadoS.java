@@ -11,7 +11,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 
-public class ordenponchado extends javax.swing.JFrame {
+public class ordenponchadoS extends javax.swing.JFrame {
 public static boolean ventanaordenparcheanteriores = false;
 
         private PreparedStatement pst;
@@ -40,7 +40,7 @@ public static boolean ventanaordenparcheanteriores = false;
        
         
    
-    public ordenponchado() {
+    public ordenponchadoS() {
         initComponents();
         ventanaordenparcheanteriores = true;    
         bnthecho.setEnabled(false);
@@ -1228,7 +1228,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ordenponchado().setVisible(true);
+                new ordenponchadoS().setVisible(true);
             }
         });
     }

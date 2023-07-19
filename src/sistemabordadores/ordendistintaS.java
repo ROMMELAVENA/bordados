@@ -33,9 +33,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import static sistemabordadores.ordenparche.lbcliente;
+import static sistemabordadores.ordenparcheS.lbcliente;
 
-public class ordendistinta extends javax.swing.JFrame {
+public class ordendistintaS extends javax.swing.JFrame {
 
     public static boolean ventanaordencamisaanteriores = false;
     public static String ordenbordadocamisa = "";
@@ -184,7 +184,7 @@ public class ordendistinta extends javax.swing.JFrame {
 
     
 
-    public ordendistinta() {
+    public ordendistintaS() {
         initComponents();
         ventanaordencamisaanteriores = true;
 
@@ -221,7 +221,7 @@ public class ordendistinta extends javax.swing.JFrame {
         
         datostienda();
 
-        String sql = "Select codigo,tipo,estatus_orden,numero,numero_venta,fecha,hora,cliente,tipo,identificador_prenda,estatus_orden,estatus_entrega,articulo,cantidad,prenda,cantidad_bordados,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,\n" +
+        String sql = "Select codigo,tipo,estatus_orden,numero,numero_venta,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,identificador_prenda,estatus_orden,estatus_entrega,articulo,cantidad,prenda,cantidad_bordados,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,\n" +
 "	   distinta1,distinta1_ubicacion,distinta1_nombre,distinta1_cantidad,distinta1_aplicacion,distinta1_aplicacion_color,\n" +
 "	   distinta2,distinta2_ubicacion,distinta2_nombre,distinta2_cantidad,distinta2_aplicacion,distinta2_aplicacion_color, \n" +
 "	   distinta3,distinta3_ubicacion,distinta3_nombre,distinta3_cantidad,distinta3_aplicacion,distinta3_aplicacion_color, \n" +
@@ -239,6 +239,10 @@ public class ordendistinta extends javax.swing.JFrame {
 
                  cliente = rs.getString("cliente");
                 lbcliente.setText(cliente);
+                
+                lbnombrecomercial.setText( rs.getString("nombre_comercial"));
+                
+                lbbordacliente.setText( rs.getString("borda_cliente"));
                 
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
@@ -1435,7 +1439,7 @@ public class ordendistinta extends javax.swing.JFrame {
         try {
             datostiendalocal();
         } catch (IOException ex) {
-            Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordendistintaS.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -1475,7 +1479,7 @@ public class ordendistinta extends javax.swing.JFrame {
         try {
             datostiendalocal();
         } catch (IOException ex) {
-            Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordendistintaS.class.getName()).log(Level.SEVERE, null, ex);
         }
         */
         
@@ -2733,9 +2737,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                         Class.forName("com.mysql.jdbc.Driver");
                         cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
                     } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (SQLException ex) {
-                        Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
                     }
                   
                   
@@ -3881,7 +3885,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
         });
 
-        lbdistinta2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbdistinta2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btndistinta1cancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -4026,43 +4030,43 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
         });
 
-        lbdistinta1nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta1nombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbdistinta1nombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbdistinta1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbdistinta1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbdistinta2nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta2nombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbdistinta2nombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbdistinta3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbdistinta3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbdistinta3nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta3nombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbdistinta3nombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbdistinta4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbdistinta4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbdistinta4nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta4nombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbdistinta4nombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbdistinta6nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta6nombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbdistinta6nombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbdistinta6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbdistinta6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbdistinta5nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta5nombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbdistinta5nombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbdistinta5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbdistinta5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbdistinta7nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta7nombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbdistinta7nombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbdistinta7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbdistinta7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbdistinta7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -4132,51 +4136,56 @@ JOptionPane.showMessageDialog(null, mensaje);
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(lbdistinta1nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(lbdistinta1nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(lbdistinta3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addComponent(lbdistinta3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addGap(21, 21, 21))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lbdistinta2nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lbdistinta2nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbdistinta3nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbdistinta2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbdistinta1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(lbdistinta3nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbdistinta2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbdistinta1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(20, 20, 20)
                                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(12, 12, 12)
-                                        .addComponent(lbdistinta4, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbdistinta4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(19, 19, 19)
-                                        .addComponent(lbdistinta4nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lbdistinta4nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(20, 20, 20)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(lbdistinta6nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lbdistinta6, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(285, 285, 285)
+                                                        .addComponent(lbdistinta7, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(14, 14, 14)
+                                                        .addComponent(lbdistinta7nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(lbdistinta5nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(lbdistinta5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(321, 321, 321)
-                                            .addComponent(lbdistinta7, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(lbdistinta7nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(lbdistinta6nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(lbdistinta6, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(lbdistinta5nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(lbdistinta5, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(0, 0, Short.MAX_VALUE)))))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -4330,7 +4339,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                     .addComponent(lbestatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 231, Short.MAX_VALUE))
+                                        .addGap(0, 192, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -4492,14 +4501,13 @@ JOptionPane.showMessageDialog(null, mensaje);
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                             .addGap(7, 7, 7)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lbdistinta6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lbcantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(lbcantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lbdistinta6nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                .addComponent(lbdistinta6nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lbdistinta6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(layout.createSequentialGroup()
@@ -4674,7 +4682,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      try {
             datostiendalocal();
         } catch (IOException ex) {
-            Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordendistintaS.class.getName()).log(Level.SEVERE, null, ex);
         }
      
      codigocliente();
@@ -4684,7 +4692,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      try {    
             cargarfotomontaje();
         } catch (IOException ex) {
-            Logger.getLogger(ordendistinta.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordendistintaS.class.getName()).log(Level.SEVERE, null, ex);
         }
 
       
@@ -5413,14 +5421,78 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ordendistinta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordendistintaS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ordendistinta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordendistintaS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ordendistinta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordendistintaS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ordendistinta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ordendistintaS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -5489,7 +5561,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ordendistinta().setVisible(true);
+                new ordendistintaS().setVisible(true);
             }
         });
     }

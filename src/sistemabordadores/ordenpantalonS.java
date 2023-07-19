@@ -35,9 +35,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import static sistemabordadores.ordengorra.lbcliente;
+import static sistemabordadores.ordengorraS.lbcliente;
 
-public class ordenpantalon extends javax.swing.JFrame {
+public class ordenpantalonS extends javax.swing.JFrame {
 
     public static boolean ventanaordenpantalonanteriores = false;
     public static String ordenbordadopantalon = "";
@@ -111,7 +111,7 @@ public class ordenpantalon extends javax.swing.JFrame {
        
        
 
-    public ordenpantalon()
+    public ordenpantalonS()
     {
         initComponents();
         ventanaordenpantalonanteriores = true;
@@ -172,7 +172,7 @@ public class ordenpantalon extends javax.swing.JFrame {
 
         
 
-        String sql = "Select fecha,hora,cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,numero_orden from historial_ordenes_pantalon where numero = '" + numerodeorden + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,numero_orden from historial_ordenes_pantalon where numero = '" + numerodeorden + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -181,6 +181,10 @@ public class ordenpantalon extends javax.swing.JFrame {
 
                 cliente = rs.getString("cliente");
                 lbcliente.setText(cliente);
+                
+                lbnombrecomercial.setText( rs.getString("nombre_comercial"));
+                
+                lbbordacliente.setText( rs.getString("borda_cliente"));
                 
                 
                  numerodeventa = rs.getString("numero_venta");
@@ -1929,9 +1933,9 @@ public class ordenpantalon extends javax.swing.JFrame {
                         Class.forName("com.mysql.jdbc.Driver");
                         cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
                     } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (SQLException ex) {
-                        Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
                     }
                    
 
@@ -1969,7 +1973,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                      
             cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
         } catch (SQLException ex) {
-            Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
         }
             
             
@@ -2018,7 +2022,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         try {
             datostiendalocal();
         } catch (IOException ex) {
-            Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordenpantalonS.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -2048,7 +2052,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         try {
             datostiendalocal();
         } catch (IOException ex) {
-            Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordenpantalonS.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -2078,7 +2082,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         try {
             datosotrasucursal();
         } catch (IOException ex) {
-            Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordenpantalonS.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -2087,7 +2091,7 @@ public class ordenpantalon extends javax.swing.JFrame {
         try {
             cargarfotomontajeotrasucursal();
         } catch (IOException ex) {
-            Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordenpantalonS.class.getName()).log(Level.SEVERE, null, ex);
         }
       
         
@@ -2116,7 +2120,7 @@ public class ordenpantalon extends javax.swing.JFrame {
                 pst.setString(5, identificador);
                 pst.setString(6, cantidad);
                 
-                  if(sucursal.equals("") || sucursal.equals("ninguno") )
+                  if(sucursal.equals("") || sucursal.equals("ninguno") || sucursal.equals("0") )
                 {
                     
                     sucursal = tiendalocal;
@@ -3104,18 +3108,18 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbobservaciones.setRows(5);
         jScrollPane6.setViewportView(lbobservaciones);
 
-        lbladoderechoatraspuntadas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbladoderechoatraspuntadas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbladoderechoatraspuntadas.setForeground(new java.awt.Color(255, 0, 0));
         lbladoderechoatraspuntadas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbladoizquierdoatraspuntadas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbladoizquierdoatraspuntadas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbladoizquierdoatraspuntadas.setForeground(new java.awt.Color(255, 0, 0));
         lbladoizquierdoatraspuntadas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbladoizquierdofrentepuntadas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbladoizquierdofrentepuntadas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbladoizquierdofrentepuntadas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbladoderechofrentepuntadas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbladoderechofrentepuntadas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbladoderechofrentepuntadas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnfotomontajesinpuntadas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -3232,18 +3236,18 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
         });
 
-        lbladoizquierdoatrasnombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbladoizquierdoatrasnombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbladoizquierdoatrasnombre.setForeground(new java.awt.Color(255, 0, 0));
         lbladoizquierdoatrasnombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbladoderechoatrasnombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbladoderechoatrasnombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbladoderechoatrasnombre.setForeground(new java.awt.Color(255, 0, 0));
         lbladoderechoatrasnombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbladoderechofrentenombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbladoderechofrentenombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbladoderechofrentenombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbladoizquierdofrentenombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbladoizquierdofrentenombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbladoizquierdofrentenombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -3331,7 +3335,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                             .addComponent(lbladoderechoatrasnombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(lbladoderechofrentenombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(lbladoizquierdoatrasnombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lbladoizquierdofrentenombre, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(lbladoizquierdofrentenombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lbladoderechoatraspuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4048,7 +4052,7 @@ public static String dia() {
      try {
             datostiendalocal();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
         }
      
      
@@ -4062,7 +4066,7 @@ public static String dia() {
      try {    
             cargarfotomontaje();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
         }
 
          if(enquesucursalsebordara.equals("Otra sucursal"))
@@ -4086,7 +4090,7 @@ public static String dia() {
          try {
             datosotrasucursal();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
         }
        
          
@@ -4212,7 +4216,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          try {
                  datostiendalocal();
              } catch (IOException ex) {
-                 Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
+                 Logger.getLogger(ordenpantalonS.class.getName()).log(Level.SEVERE, null, ex);
              }
 
         
@@ -4289,7 +4293,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          try {
                  datostiendalocal();
              } catch (IOException ex) {
-                 Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
+                 Logger.getLogger(ordenpantalonS.class.getName()).log(Level.SEVERE, null, ex);
              }
         
         
@@ -4364,7 +4368,7 @@ JOptionPane.showMessageDialog(null, mensaje);
           try {
                  datostiendalocal();
              } catch (IOException ex) {
-                 Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
+                 Logger.getLogger(ordenpantalonS.class.getName()).log(Level.SEVERE, null, ex);
              }
          
          
@@ -4438,7 +4442,7 @@ JOptionPane.showMessageDialog(null, mensaje);
              try {
                  datostiendalocal();
              } catch (IOException ex) {
-                 Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
+                 Logger.getLogger(ordenpantalonS.class.getName()).log(Level.SEVERE, null, ex);
              }
          
          
@@ -4530,7 +4534,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         try {
             datostiendalocal();
         } catch (IOException ex) {
-            Logger.getLogger(ordenpantalon.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordenpantalonS.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         terminetodo = "no";
@@ -4655,7 +4659,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      try {
             datostiendalocal();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
         }
      
         
@@ -4663,7 +4667,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      try {    
             cargarfotomontaje();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
         }
 
          if(enquesucursalsebordara.equals("Otra sucursal"))
@@ -4687,7 +4691,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          try {
             datosotrasucursal();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
         }
          
          
@@ -4695,7 +4699,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          try {    
             cargarfotomontajeotrasucursal();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
         } 
         
 
@@ -4832,7 +4836,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ordenpantalon().setVisible(true);
+                new ordenpantalonS().setVisible(true);
             }
         });
     }

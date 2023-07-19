@@ -30,10 +30,10 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import static sistemabordadores.ordencamisa.lborden;
-import static sistemabordadores.ordengorra.lbcliente;
+import static sistemabordadores.ordencamisaS.lborden;
+import static sistemabordadores.ordengorraS.lbcliente;
 
-public class ordencorbata extends javax.swing.JFrame {
+public class ordencorbataS extends javax.swing.JFrame {
 
     public static boolean ventanaordencorbataanteriores = false;
     public static String ordenbordadocorbata = "";
@@ -85,7 +85,7 @@ public class ordencorbata extends javax.swing.JFrame {
        public static final Color anaranjado = new Color(255,166,77);
     
 
-    public ordencorbata() {
+    public ordencorbataS() {
         initComponents();
         ventanaordencorbataanteriores = true;
         lbcantidad.setText("0");
@@ -117,7 +117,7 @@ public class ordencorbata extends javax.swing.JFrame {
 
         String folio = lborden.getText();
 
-        String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_puntadas,cantidad_frente,estatus_orden from historial_ordenes_corbata where numero = '" + folio + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_puntadas,cantidad_frente,estatus_orden from historial_ordenes_corbata where numero = '" + folio + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -126,6 +126,10 @@ public class ordencorbata extends javax.swing.JFrame {
 
                cliente = rs.getString("cliente");
                 lbcliente.setText(cliente);
+                
+                lbnombrecomercial.setText( rs.getString("nombre_comercial"));
+                
+                lbbordacliente.setText( rs.getString("borda_cliente"));
                 
                 lbnumerodeventa.setText(rs.getString("numero_venta"));
                 lbcantidad.setText(rs.getString("cantidad_bordados"));
@@ -702,7 +706,7 @@ public class ordencorbata extends javax.swing.JFrame {
         try {
             datostiendalocal();
         } catch (IOException ex) {
-            Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -1257,9 +1261,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                         Class.forName("com.mysql.jdbc.Driver");
                         cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
                     } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (SQLException ex) {
-                        Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
                     }
        
           
@@ -1306,7 +1310,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      
             cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
         } catch (SQLException ex) {
-            Logger.getLogger(ordenparche.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
         }
             
             
@@ -1736,10 +1740,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbprenda4.setText("Prenda");
         lbprenda4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbnombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbnombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbnombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbpuntadas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbpuntadas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbpuntadas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcantidad1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -1847,9 +1851,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                 .addGap(12, 12, 12)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
-                .addComponent(lbnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
-                .addComponent(lbpuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbpuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
                 .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -2058,7 +2062,7 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equa
         try {
             datostiendalocal();
         } catch (IOException ex) {
-            Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordengorraS.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         codigocliente();
@@ -2070,7 +2074,7 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equa
         try {
             cargarfotomontajetiendalocal();
         } catch (IOException ex) {
-            Logger.getLogger(ordengorra.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordengorraS.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -2098,7 +2102,7 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equa
          try {
             datosotrasucursal();
         } catch (IOException ex) {
-            Logger.getLogger(ordencamisa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
         }
          
          
@@ -2152,7 +2156,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         try {     
             datosOrdenesLocales();
         } catch (IOException ex) {
-            Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -2233,7 +2237,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         try {
             datostiendalocal();
         } catch (IOException ex) {
-            Logger.getLogger(ordencorbata.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -2434,7 +2438,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ordencorbata().setVisible(true);
+                new ordencorbataS().setVisible(true);
             }
         });
     }

@@ -1783,7 +1783,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 
                 if (tipo.equals("Orden camisa")||tipo.equals("Orden Camisa")) 
                 {
-                    if (ordencamisa.ventanaordencamisa == true) 
+                    if (ordencamisaS.ventanaordencamisa == true) 
                     {
                         
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de camisa ya está abierta");
@@ -1803,25 +1803,25 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                             
                             
                         
-                        ordencamisa orden = new ordencamisa();
+                        ordencamisaS orden = new ordencamisaS();
                         orden.setVisible(true);
 
-                        ordencamisa.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencamisaS.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         
                         
                         
-                        ordencamisa.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordencamisa.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
-                        ordencamisa.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
-                        ordencamisa.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordencamisa.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordencamisaS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordencamisaS.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
+                        ordencamisaS.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        ordencamisaS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordencamisaS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         
                         
                         }
                         else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje, preguntele al Encargado si ya lo autorizó");   
                         }    
                         
                         
@@ -1841,7 +1841,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 
                 else if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
                 {
-                    if (ordengorra.ventanaordengorra == true) {
+                    if (ordengorraS.ventanaordengorra == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de gorra ya está abierta");
 
                     }
@@ -1856,21 +1856,21 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida"))
                         {
 
-                        ordengorra orden = new ordengorra();
+                        ordengorraS orden = new ordengorraS();
                         orden.setVisible(true);
 
-                        ordengorra.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordengorra.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordengorraS.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordengorraS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                       
-                        ordengorra.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordengorra.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordengorraS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordengorraS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         
                          
                         } 
                         else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje, preguntele al Encargado si ya lo autorizó");   
                         }    
                         
                     }
@@ -1884,7 +1884,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 // PANTALON
                 
                 else if (tipo.equals("Orden pantalon")) {
-                    if (ordenpantalon.ventanaordenpantalonanteriores == true) 
+                    if (ordenpantalonS.ventanaordenpantalonanteriores == true) 
                     {
                         
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de pantalon ya está abierta");
@@ -1902,21 +1902,21 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         
                         if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida"))
                         {
-                             ordenpantalon orden = new ordenpantalon();
+                             ordenpantalonS orden = new ordenpantalonS();
                             orden.setVisible(true);
 
-                            ordenpantalon.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                            ordenpantalon.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                            ordenpantalonS.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                            ordenpantalonS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                          
-                            ordenpantalon.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
-                            ordenpantalon.tipotabla = (tabla.getValueAt(fila, 10).toString());
+                            ordenpantalonS.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                            ordenpantalonS.tipotabla = (tabla.getValueAt(fila, 10).toString());
                             tabla.clearSelection();
                            
                             
                         }
                         else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje, preguntele al Encargado si ya lo autorizó");   
                         }
                        
                     }
@@ -1937,7 +1937,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                    
                     
                         
-                        if (ordencorbata.ventanaordencorbataanteriores == true) 
+                        if (ordencorbataS.ventanaordencorbataanteriores == true) 
                         {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de corbata ya está abierta");
 
@@ -1953,13 +1953,13 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
                         {    
                             
-                        ordencorbata orden = new ordencorbata();
+                        ordencorbataS orden = new ordencorbataS();
                         orden.setVisible(true);
 
-                        ordencorbata.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordencorbata.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordencorbata.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordencorbata.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordencorbataS.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencorbataS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordencorbataS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordencorbataS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         
                          tabla.clearSelection();
                          
@@ -1967,7 +1967,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         }
                          else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje, preguntele al Encargado si ya lo autorizó");   
                         }   
                          
                     }
@@ -1984,7 +1984,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 
                 else if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
                 {
-                    if (ordenparche.ventanaordenparcheanteriores == true) {
+                    if (ordenparcheS.ventanaordenparcheanteriores == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de parche ya está abierta");
 
                     }
@@ -2008,21 +2008,21 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         {
                         
                         
-                        ordenparche orden = new ordenparche();
+                        ordenparcheS orden = new ordenparcheS();
                         orden.setVisible(true);
 
-                        ordenparche.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenparcheS.lborden.setText(tabla.getValueAt(fila, 0).toString());
                          tabla.clearSelection();
                        
                          
                          Object lugar = (tabla.getValueAt(fila, 4).toString());
                          
-                        ordenparche.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordenparche.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordenparche.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
-                        ordenparche.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordenparche.tipotabla=(tabla.getValueAt(fila, 10).toString());
-                        ordenparche.lbsucursal.setText(tabla.getValueAt(fila, 7).toString());
+                        ordenparcheS.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenparcheS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordenparcheS.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        ordenparcheS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordenparcheS.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordenparcheS.lbsucursal.setText(tabla.getValueAt(fila, 7).toString());
                         
                         tabla.clearSelection();    
                          
@@ -2050,7 +2050,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 
                 else if (tipo.equals("Orden ponchado")) 
                 {
-                    if (ordenponchado.ventanaordenparcheanteriores == true) 
+                    if (ordenponchadoS.ventanaordenparcheanteriores == true) 
                     {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de ponchado ya está abierta");
 
@@ -2062,19 +2062,19 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         fotomontajeautorizado ="si";
                         
                          if (fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida")) {
-                            ordenponchado orden = new ordenponchado();
+                            ordenponchadoS orden = new ordenponchadoS();
                             orden.setVisible(true);
 
-                            ordenponchado.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
-                            ordenponchado.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                            ordenponchado.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
-                            ordenponchado.tipotabla = (tabla.getValueAt(fila, 10).toString());
+                            ordenponchadoS.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                            ordenponchadoS.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                            ordenponchadoS.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                            ordenponchadoS.tipotabla = (tabla.getValueAt(fila, 10).toString());
                             tabla.clearSelection();
                            
                          }
                          else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje, preguntele al Encargado si ya lo autorizó");   
                         }  
                         
                     }
@@ -2117,7 +2117,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         }
                          else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje, preguntele al Encargado si ya lo autorizó");   
                         }     
                             
                         
@@ -2160,7 +2160,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         }    
                           else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje, preguntele al Encargado si ya lo autorizó");   
                         }     
                             
                         
@@ -2200,7 +2200,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                     
                     // ORDEN DISTINTA
                     
-                    if (ordendistinta.ventanaordencamisaanteriores == true) 
+                    if (ordendistintaS.ventanaordencamisaanteriores == true) 
                     {
                         
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de distinta ya está abierta");
@@ -2217,22 +2217,22 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
                         {
                         
-                        ordendistinta orden = new ordendistinta();
+                        ordendistintaS orden = new ordendistintaS();
                         orden.setVisible(true);
 
-                        ordendistinta.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordendistinta.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordendistinta.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
-                        ordendistinta.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
-                        ordendistinta.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordendistinta.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordendistintaS.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordendistintaS.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordendistintaS.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
+                        ordendistintaS.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
+                        ordendistintaS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordendistintaS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         
                         
                         }
                         else
                         {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje");   
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje, preguntele al Encargado si ya lo autorizó");   
                         }    
                         
                         

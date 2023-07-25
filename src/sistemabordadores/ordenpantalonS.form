@@ -139,17 +139,11 @@
                                   <Component id="btnladoizquierdoatrasponchado" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                                   <Component id="btnladoderechoatrasponchado" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="btnreplicar" min="-2" pref="154" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace pref="365" max="32767" attributes="0"/>
-                                      <Component id="btnterminetodo" min="-2" pref="242" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="btnreplicar" alignment="1" min="-2" pref="154" max="-2" attributes="0"/>
+                                  <Component id="btnterminetodo" alignment="1" min="-2" pref="242" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jLabel1" min="-2" pref="116" max="-2" attributes="0"/>
                                       <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
                                       <Component id="lbsumapuntos" min="-2" pref="154" max="-2" attributes="0"/>

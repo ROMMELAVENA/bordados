@@ -287,10 +287,6 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         
-        
-        
-        
-        
          
            /// historial ordenes corbata
         
@@ -379,6 +375,89 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         
+        
+        //// distinta
+        
+        
+        
+        
+        String sqldistinta = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad  "
+                         + "FROM historial_ordenes_distinta where lugar = 'Esta sucursal' "
+                         + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora  ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqldistinta);
+            while (rs.next()) {
+                datos[0] = rs.getString("numero");
+                datos[1] = rs.getString("cliente");
+                datos[2] = "Distinta";
+                datos[3] = rs.getString("tipo");
+                datos[4] = rs.getString("lugar");
+                datos[5] = rs.getString("numero_venta");
+                datos[6] = rs.getString("fecha");
+                datos[7] = "";
+                datos[8] = "";
+                datos[9] = "";
+                datos[10] = "Local";
+                datos[11] = rs.getString("identificador_prenda");
+                datos[12] = rs.getString("observacion");
+                datos[13] = rs.getString("cantidad");
+
+                modelo.addRow(datos);
+
+            }
+
+            
+
+        } catch (SQLException ex) {
+          
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
+        }
+        
+        
+        
+        
+        
+        
+            
+         //// historial_orden_ponchado
+         
+         
+         
+         
+        String[] datos9 = new String[15];
+        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,observaciones  FROM historial_ordenes_ponchados where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlponchados);
+            while (rs.next()) {
+                datos9[0] = rs.getString("numero");
+                datos9[1] = rs.getString("cliente");
+                datos9[2] = "Muestra";
+                datos9[3] = rs.getString("tipo");
+                datos9[4] = rs.getString("lugar");
+                datos9[5] = rs.getString("numero_venta");
+                datos9[6] = rs.getString("fecha");
+                datos9[7] = "";
+                datos9[8] = "";
+                datos9[9] = "";
+                datos9[10] = "Local";
+                datos9[11] = "Muestra";
+                datos9[12] = rs.getString("observaciones");
+                datos9[13] = "1";
+                modelo.addRow(datos9);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+          
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
+        }
         
         
         
@@ -475,86 +554,6 @@ public class ordenesporrealizar extends javax.swing.JFrame {
      
         
         
-        
-            
-         //// historial_orden_ponchado
-         
-         
-         
-         
-        String[] datos9 = new String[15];
-        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,observaciones  FROM historial_ordenes_ponchados where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
-
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sqlponchados);
-            while (rs.next()) {
-                datos9[0] = rs.getString("numero");
-                datos9[1] = rs.getString("cliente");
-                datos9[2] = "Ponchado";
-                datos9[3] = rs.getString("tipo");
-                datos9[4] = rs.getString("lugar");
-                datos9[5] = rs.getString("numero_venta");
-                datos9[6] = rs.getString("fecha");
-                datos9[7] = "";
-                datos9[8] = "";
-                datos9[9] = "";
-                datos9[10] = "Local";
-                datos9[11] = "Ponchado";
-                datos9[12] = rs.getString("observaciones");
-                datos9[13] = "1";
-                modelo.addRow(datos9);
-
-            }
-
-            
-
-        } catch (SQLException ex)
-        {
-          
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
-        }
-        
-        
-        
-        //// distinta
-        
-        
-        
-        
-        String sqldistinta = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad  "
-                         + "FROM historial_ordenes_distinta where lugar = 'Esta sucursal' "
-                         + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora  ";
-
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sqldistinta);
-            while (rs.next()) {
-                datos[0] = rs.getString("numero");
-                datos[1] = rs.getString("cliente");
-                datos[2] = "Distinta";
-                datos[3] = rs.getString("tipo");
-                datos[4] = rs.getString("lugar");
-                datos[5] = rs.getString("numero_venta");
-                datos[6] = rs.getString("fecha");
-                datos[7] = "";
-                datos[8] = "";
-                datos[9] = "";
-                datos[10] = "Local";
-                datos[11] = rs.getString("identificador_prenda");
-                datos[12] = rs.getString("observacion");
-                datos[13] = rs.getString("cantidad");
-
-                modelo.addRow(datos);
-
-            }
-
-            
-
-        } catch (SQLException ex) {
-          
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
-        }
         
         //// historial ordenes internas
         
@@ -2050,7 +2049,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 
                 else if (tipo.equals("Orden ponchado")) 
                 {
-                    if (ordenponchadoS.ventanaordenparcheanteriores == true) 
+                    if (ordenponchadoS.ventanaordenponchado == true) 
                     {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de ponchado ya está abierta");
 

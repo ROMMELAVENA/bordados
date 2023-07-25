@@ -1501,71 +1501,7 @@ public class ordendistintaS extends javax.swing.JFrame {
     }
     
     
-    void agregarexistenciabordados(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
-    {
-        
-       
-        
-        //// bordado
-        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
-            
-                
- 
-                pst.setString(1, lbnumeroventa.getText());
-                pst.setString(2, dia());
-                pst.setString(3, hora());
-                pst.setString(4, descripcion);
-                pst.setString(5, identificador);
-                pst.setString(6, cantidad);
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-            
-           if(cantidadaplicacion==null || cantidadaplicacion.equals("") ||cantidadaplicacion.equals(" "))
-           {
-              cantidadaplicacion = "0"; 
-           }
-            
-           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-           
-           
-           if(cantidadaplicacionint > 0)
-           {
-               int cantidadprendasint = Integer.parseInt(cantidad);
-               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
-               
-               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
-            
-                
- 
-                pst.setString(1, lbnumeroventa.getText());
-                pst.setString(2, dia());
-                pst.setString(3, hora());
-                pst.setString(4, aplicacioninsertar);
-                pst.setString(5, identificador);
-                pst.setString(6, String.valueOf(totalaplicaciones));
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-               
-           }
-        
-        
-    }
-    
+  
     void agregarexistenciabordadosotrasucursal(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
     {
         
@@ -1634,53 +1570,6 @@ public class ordendistintaS extends javax.swing.JFrame {
     }
     
     
-    void agregarexistenciabordadoscancelar(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
-    {
-        
-      
-       
-        
-        //// bordado
-        
-        try {
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumeroventa.getText()+"' and articulo ='"+descripcion+"'   ");
-                pst.executeUpdate();
-                pst.close();
-            
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-      
-
-       //// aplicacion      
-           if(cantidadaplicacion==null || cantidadaplicacion.equals("") ||cantidadaplicacion.equals(" "))
-           {
-              cantidadaplicacion = "0"; 
-           }
-            
-           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-           
-           
-           if(cantidadaplicacionint > 0)
-           {
-               
-               
-                try {
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumeroventa.getText()+"' and articulo ='"+aplicacioninsertar+"'   ");
-                pst.executeUpdate();
-                pst.close();
-            
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-               
-               
-           }
-        
-        
-    }
-    
-
     
     void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad) 
      
@@ -4812,7 +4701,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + "";
 
-            agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+          
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
@@ -4844,7 +4733,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + "";
 
-            agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
         //sumapuntos(); 
@@ -4876,7 +4765,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + "";
 
-            agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
@@ -4907,7 +4796,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + "";
 
-            agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
@@ -4939,7 +4828,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + "";
 
-            agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
@@ -5005,7 +4894,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + "";
 
-            agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
@@ -5037,7 +4926,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + "";
 
-            agregarexistenciabordados((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
@@ -5160,7 +5049,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + "";
                          
             
-            agregarexistenciabordadoscancelar((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+           
             agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos();
@@ -5197,7 +5086,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + "";  
 
-       agregarexistenciabordadoscancelar((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+     
        agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
        estacompletalaorden(); 
        //sumapuntos(); 
@@ -5232,7 +5121,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + "";  
             
-       agregarexistenciabordadoscancelar((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+      
        agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
        estacompletalaorden(); 
       // sumapuntos();
@@ -5265,7 +5154,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + "";  
 
-       agregarexistenciabordadoscancelar((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+     
        agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;   
        estacompletalaorden(); 
        //sumapuntos();   
@@ -5299,7 +5188,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + "";  
 
-       agregarexistenciabordadoscancelar((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+     
        agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;   
        estacompletalaorden();
        //sumapuntos();       
@@ -5333,7 +5222,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + "";  
             
-            agregarexistenciabordadoscancelar((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+         
             agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
             estacompletalaorden();
            // sumapuntos();
@@ -5365,7 +5254,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + " ";
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + "";  
 
-            agregarexistenciabordadoscancelar((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+       
             agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
             estacompletalaorden();
           //  sumapuntos();

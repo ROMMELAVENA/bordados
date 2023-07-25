@@ -1618,7 +1618,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                                        
                     if (tipo.equals("Orden ponchado")) 
                 {
-                    if (ordenponchadoS.ventanaordenparcheanteriores == true) {
+                    if (ordenponchadoS.ventanaordenponchado == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado anteriores");
 
                     } else {

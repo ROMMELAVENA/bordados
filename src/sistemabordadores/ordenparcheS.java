@@ -638,118 +638,6 @@ public static boolean ventanaordenparcheanteriores = false;
     
     
     
-    void agregarexistenciabordados(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
-    {
-        
-       
-        
-        //// bordado
-        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad,numero_sucursal,sucursal) VALUES (?,?,?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
-            
-                
- 
-                pst.setString(1, lbnumerodeventa.getText());
-                pst.setString(2, dia());
-                pst.setString(3, hora());
-                pst.setString(4, descripcion);
-                pst.setString(5, identificador);
-                pst.setString(6, cantidad);
-                
-                 if(sucursal.equals("") || sucursal.equals("ninguno") )
-                {
-                    
-                    sucursal = tiendalocal;
-                   numeroordendeenviosolicitada = "0";
-                }
-                 
-                 else
-                     
-                 {
-                    
-                    if (sucursal.equals(tiendalocal))
-                        
-                    {
-                       numerosucursal = numeroordendeenviosolicitada;
-                     
-                    }
-                    else
-                    {
-                   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encontró numero de venta ni numero de sucursal; llame a sistemas");
-                         
-                         
-                    }
-                    
-                    
-                 }
-                 
-                 pst.setString(7, numeroordendeenviosolicitada);
-                  pst.setString(8, sucursal);
-                
-                
-                
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-            
-           if(cantidadaplicacion==null || cantidadaplicacion.equals("")||cantidadaplicacion.equals(" "))
-           {
-               cantidadaplicacion = "0";
-           }
-            
-           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-           
-           
-           if(cantidadaplicacionint > 0)
-           {
-               int cantidadprendasint = Integer.parseInt(cantidad);
-               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
-               
-               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad,numero_orden,sucursal) VALUES (?,?,?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
-            
-                
- 
-                pst.setString(1, lbnumerodeventa.getText());
-                pst.setString(2, dia());
-                pst.setString(3, hora());
-                pst.setString(4, aplicacioninsertar);
-                pst.setString(5, identificador);
-                pst.setString(6, String.valueOf(totalaplicaciones));
-                 if(tienenumerodesucursal.equals("no") )
-                {
-                    pst.setString(7, "00000000");
-                    pst.setString(8, "ninguno");
-                }
-                else
-                {
-                    pst.setString(7, numerosucursalordenbordado);
-                    pst.setString(8, sucursal);
-                } 
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-               
-           }
-        
-        
-    }
-    
-    
-    
-    
-    
     
     
     
@@ -1644,50 +1532,6 @@ public static boolean ventanaordenparcheanteriores = false;
     
     
     
-    
-    void agregarexistenciabordadoscancelar(String descripcion,String aplicacioninsertar,String cantidadaplicacion,String cantidad)
-    {
-        
-         //// bordado
-        
-        try {
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+numerodeventa+"' and articulo ='"+descripcion+"'   ");
-                pst.executeUpdate();
-                pst.close();
-            
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-      
-
-       //// aplicacion      
-           if(cantidadaplicacion==null || cantidadaplicacion.equals("") ||cantidadaplicacion.equals(" "))
-           {
-              cantidadaplicacion = "0"; 
-           }
-            
-           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-           
-           
-           if(cantidadaplicacionint > 0)
-           {
-               
-               
-                try {
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+numerodeventa+"' and articulo ='"+aplicacioninsertar+"'   ");
-                pst.executeUpdate();
-                pst.close();
-            
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-               
-               
-           }
-        
-        
-        
-    }
     
     
     void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad) 
@@ -3180,7 +3024,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         descripcion ="BORDADO PARCHE".concat(" ").concat(lbprenda.getText());
         aplicacioninsertar = "APLICACION PARCHE1";
-        agregarexistenciabordadoscancelar((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
+       
         agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
             
         }
@@ -3399,7 +3243,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION GORRA FRENTE";
             
             nombredelatabla = "historial_ordenes_gorra";
-            agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+           
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();    

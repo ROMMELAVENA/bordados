@@ -393,14 +393,14 @@ public class ordencorbataS extends javax.swing.JFrame {
                 Blob blob = rs.getBlob("imagen");
                 if (blob == null) 
                 {
-
+/*
                     ordencorbataimagen p = new ordencorbataimagen();
                     jPanel1.add(p);
                     jPanel1.repaint();
                     lbfotomontaje.setVisible(false);
                     btnverfotomontaje.setEnabled(false);
                     tienefotomontaje = "no";
-             
+             */
                     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
                     
                 } 
@@ -475,10 +475,14 @@ public class ordencorbataS extends javax.swing.JFrame {
         }
         else
         {
+            
+            /*
             btntermine.setEnabled(false);
             ordencorbataimagen p = new ordencorbataimagen();
             jPanel1.add(p);
             jPanel1.repaint();
+            */
+            
             lbfotomontaje.setVisible(false);
             btnverfotomontaje.setEnabled(false);
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
@@ -712,65 +716,6 @@ public class ordencorbataS extends javax.swing.JFrame {
         
     }
     
-    
-    void agregarexistenciabordados(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
-    {
-        
-       
-        
-        //// bordado
-        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
-            
-                
- 
-                pst.setString(1, lbnumerodeventa.getText());
-                pst.setString(2, dia());
-                pst.setString(3, hora());
-                pst.setString(4, descripcion);
-                pst.setString(5, identificador);
-                pst.setString(6, cantidad);
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-           
-           
-           if(cantidadaplicacionint > 0)
-           {
-               int cantidadprendasint = Integer.parseInt(cantidad);
-               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
-               
-               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
-            
-                
- 
-                pst.setString(1, lbnumerodeventa.getText());
-                pst.setString(2, dia());
-                pst.setString(3, hora());
-                pst.setString(4, aplicacioninsertar);
-                pst.setString(5, identificador);
-                pst.setString(6, String.valueOf(totalaplicaciones));
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-               
-           }
-        
-        
-    }
     
     
     
@@ -2216,7 +2161,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidadaplicacion = "0";
             descripcion = "BORDADO CORBATA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "";
-            agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();

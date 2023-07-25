@@ -2100,147 +2100,6 @@ public class ordenpantalonS extends javax.swing.JFrame {
         
     }  
 
-    void agregarexistenciabordados(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
-    {
-        
-       
-        
-        //// bordado
-        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad,numero_sucursal,sucursal) VALUES (?,?,?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
-            
-                
- 
-                pst.setString(1, lbnumerodeventa.getText());
-                pst.setString(2, dia());
-                pst.setString(3, hora());
-                pst.setString(4, descripcion);
-                pst.setString(5, identificador);
-                pst.setString(6, cantidad);
-                
-                  if(sucursal.equals("") || sucursal.equals("ninguno") || sucursal.equals("0") )
-                {
-                    
-                    sucursal = tiendalocal;
-                   numeroordendeenviosolicitada = "0";
-                }
-                 
-                 else
-                     
-                 {
-                    
-                    if (sucursal.equals(tiendalocal))
-                        
-                    {
-                       numerosucursal = numeroordendeenviosolicitada;
-                     
-                    }
-                    else
-                    {
-                   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encontró numero de venta ni numero de sucursal; llame a sistemas");
-                         
-                         
-                    }
-                    
-                    
-                 }
-                  
-                  pst.setString(7, numeroordendeenviosolicitada);
-                  pst.setString(8, sucursal);
-                  
-                  
-                
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-           
-           
-           if(cantidadaplicacionint > 0)
-           {
-               int cantidadprendasint = Integer.parseInt(cantidad);
-               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
-               
-               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad,numero_sucursal,sucursal) VALUES (?,?,?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
-                pst.setString(1, lbnumerodeventa.getText());
-                pst.setString(2, dia());
-                pst.setString(3, hora());
-                pst.setString(4, aplicacioninsertar);
-                pst.setString(5, identificador);
-                pst.setString(6, String.valueOf(totalaplicaciones));
-                  if(tienenumerodesucursal.equals("no") )
-                {
-                    pst.setString(7, "00000000");
-                    pst.setString(8, "ninguno");
-                }
-                else
-                {
-                    pst.setString(7, numerosucursalordenpantalon);
-                    pst.setString(8, sucursal);
-                } 
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-               
-           }
-        
-        
-    }
-    
-    
-    void agregarexistenciabordadoscancelar(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
-    {
-        
-        try {
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumerodeventa.getText()+"' and articulo ='"+descripcion+"'   ");
-                pst.executeUpdate();
-                pst.close();
-            
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-      
-
-       //// aplicacion      
-           if(cantidadaplicacion==null || cantidadaplicacion.equals("") ||cantidadaplicacion.equals(" "))
-           {
-              cantidadaplicacion = "0"; 
-           }
-            
-           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-           
-           
-           if(cantidadaplicacionint > 0)
-           {
-               
-               
-                try {
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumerodeventa.getText()+"' and articulo ='"+aplicacioninsertar+"'   ");
-                pst.executeUpdate();
-                pst.close();
-            
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-               
-               
-           }
-
-        
-    }
-    
     
     
       
@@ -4160,7 +4019,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO PANTALON FRENTE LADO IZQUIERDO "+ladoizquierdofrentenombre + "";
             aplicacioninsertar = "";
            
-            agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+          
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             
@@ -4239,7 +4098,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO PANTALON ATRAS LADO IZQUIERDO "+ladoizquierdoatrasnombre + "";
             aplicacioninsertar = "";
           
-            agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+         
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
            
@@ -4315,7 +4174,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO PANTALON ATRAS LADO DERECHO "+ladoderechoatrasnombre + "";
             aplicacioninsertar = "";
             
-            agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+       
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
         
@@ -4390,7 +4249,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO PANTALON FRENTE LADO DERECHO "+ladoderechofrentenombre + "";
             aplicacioninsertar = "";
            
-            agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+          
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             
@@ -4727,7 +4586,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      descripcion = "BORDADO PANTALON FRENTE LADO DERECHO " + ladoderechofrentenombre + "";
                      aplicacioninsertar = "";
                     
-                     agregarexistenciabordadoscancelar((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+                    
                      agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
                      estacompletalaorden();
                  }
@@ -4746,7 +4605,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      descripcion = "BORDADO PANTALON ATRAS LADO DERECHO "+ladoderechoatrasnombre + "";
                      aplicacioninsertar = "";
                     
-                     agregarexistenciabordadoscancelar((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+                   
                      agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
                      estacompletalaorden();
                  }
@@ -4766,7 +4625,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      descripcion = "BORDADO PANTALON FRENTE LADO IZQUIERDO "+ladoizquierdofrentenombre + "";
                      aplicacioninsertar = "";
                    
-                     agregarexistenciabordadoscancelar((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+                    
                      agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
                      estacompletalaorden();
                  }
@@ -4785,7 +4644,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      descripcion = "BORDADO PANTALON ATRAS LADO IZQUIERDO "+ladoizquierdoatrasnombre + "";
                      aplicacioninsertar = "";
                    
-                     agregarexistenciabordadoscancelar((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+                    
                      agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
                      estacompletalaorden();
                  }

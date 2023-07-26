@@ -4030,7 +4030,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lborden.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lborden.setForeground(new java.awt.Color(0, 0, 153));
         lborden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -4078,7 +4077,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         });
 
         lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lbidentificador.setForeground(new java.awt.Color(153, 0, 0));
+        lbidentificador.setForeground(new java.awt.Color(0, 0, 153));
         lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -4086,7 +4085,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcantidad.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lbcantidad.setForeground(new java.awt.Color(153, 0, 0));
         lbcantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 

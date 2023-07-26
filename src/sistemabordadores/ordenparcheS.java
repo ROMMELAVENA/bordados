@@ -2387,7 +2387,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lbidentificador.setForeground(new java.awt.Color(153, 0, 0));
+        lbidentificador.setForeground(new java.awt.Color(0, 0, 153));
         lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbaplicacion1.setBorder(javax.swing.BorderFactory.createEtchedBorder());

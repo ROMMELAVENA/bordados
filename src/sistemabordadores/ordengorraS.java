@@ -229,8 +229,8 @@ public class ordengorraS extends javax.swing.JFrame {
                 numeroordendeenviosolicitada=rs.getString("numero_orden");
                 sucursal=rs.getString("tienda");
                 
-                lbtiendaalaquereplicara.setText(sucursal);
-                lbtienda.setText(sucursal);
+                lbsucursal.setText(sucursal);
+             
                 
                 if(numerosucursalordenbordado ==null  || numerosucursalordenbordado.equals("") ||numerosucursalordenbordado.equals(" ") )
                 {
@@ -620,7 +620,7 @@ public class ordengorraS extends javax.swing.JFrame {
                 if (rs.next()) {
                     numerosolicitoarticulos = rs.getString("numero");
                     tiendasolicitoarticulos = rs.getString("sucursal");
-                    lbtiendaalaquereplicara.setText(tiendasolicitoarticulos);
+                    lbsucursal.setText(tiendasolicitoarticulos);
                     lbnumerodelaotrasucursal.setText(numerosolicitoarticulos);
                 }
             } catch (Exception exx) {
@@ -640,7 +640,7 @@ public class ordengorraS extends javax.swing.JFrame {
                     while (rs.next()) {
                         numeroordenenvio = rs.getString("numero");
                         tiendaordenenvio = rs.getString("sucursal");
-                        lbtiendaalaquereplicara.setText(tiendaordenenvio);
+                        lbsucursal.setText(tiendaordenenvio);
                         lbnumerodelaotrasucursal.setText(numeroordenenvio);
                     }
                 } catch (Exception exx) {
@@ -2812,9 +2812,8 @@ public class ordengorraS extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lbfotomontaje = new javax.swing.JLabel();
         lbnumerodeventa = new javax.swing.JLabel();
-        lbtienda = new javax.swing.JLabel();
+        lbsucursal = new javax.swing.JLabel();
         lbnumerodelaotrasucursal = new javax.swing.JLabel();
-        lbtiendaalaquereplicara = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         btnverfotomontaje = new javax.swing.JButton();
         btnatrastermine = new javax.swing.JButton();
@@ -2863,7 +2862,6 @@ public class ordengorraS extends javax.swing.JFrame {
         btnfrenteponchado = new javax.swing.JButton();
         btnladoderechoponchado = new javax.swing.JButton();
         lbnombrecomercial = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         lbfecha = new javax.swing.JLabel();
         lbprenda1 = new javax.swing.JLabel();
@@ -2959,14 +2957,11 @@ public class ordengorraS extends javax.swing.JFrame {
 
         lbnumerodeventa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbtienda.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbtienda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbsucursal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbsucursal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbnumerodelaotrasucursal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbnumerodelaotrasucursal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        lbtiendaalaquereplicara.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbtiendaalaquereplicara.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setText("Numero de Sucursal:");
@@ -3218,11 +3213,6 @@ public class ordengorraS extends javax.swing.JFrame {
         lbnombrecomercial.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbnombrecomercial.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel21.setText("Replicar a:");
-        jLabel21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel22.setText("Fecha de elaboración");
         jLabel22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -3330,7 +3320,7 @@ public class ordengorraS extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(38, 38, 38)
-                                        .addComponent(lbtienda, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
@@ -3424,25 +3414,16 @@ public class ordengorraS extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(lbcolorfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
-                                .addComponent(btnfrenteponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnfrenteponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(225, 225, 225)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(225, 225, 225)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lbtiendaalaquereplicara, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabel18)
@@ -3502,7 +3483,7 @@ public class ordengorraS extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbtienda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(lbsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(lbnumerodelaotrasucursal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3605,17 +3586,12 @@ public class ordengorraS extends javax.swing.JFrame {
                             .addGap(10, 10, 10)
                             .addComponent(lbladoderechonombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbtiendaalaquereplicara, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lbfrentepuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3624,7 +3600,9 @@ public class ordengorraS extends javax.swing.JFrame {
                         .addComponent(lbladoizquierdopuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(lbladoderechopuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(5, 5, 5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -3887,7 +3865,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
 
         String path = "";
-        String tiendaalaquesereplicara = lbtiendaalaquereplicara.getText();
+        String tiendaalaquesereplicara = lbsucursal.getText();
         String strIP = "";
         String strBD = "";
         String strBDlocal = "";
@@ -5048,7 +5026,6 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel26;
@@ -5096,9 +5073,8 @@ else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Reci
     public static javax.swing.JLabel lborden;
     public static javax.swing.JLabel lbprenda;
     public static javax.swing.JLabel lbprenda1;
+    public static javax.swing.JLabel lbsucursal;
     public javax.swing.JLabel lbsumapuntos;
-    public static javax.swing.JLabel lbtienda;
-    public static javax.swing.JLabel lbtiendaalaquereplicara;
     // End of variables declaration//GEN-END:variables
 
     coneccionlocal cc = new coneccionlocal();

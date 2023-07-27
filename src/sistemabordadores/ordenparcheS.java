@@ -67,7 +67,7 @@ public static boolean ventanaordenparcheanteriores = false;
         String codigocliente = "";
      
        String lugar = "";
-       String numerodeorden = "";
+       String numeroordendebordadolocalorecibida = "";
        String identificador = "";
        String consecutivo = "";
        String tieneunaobservacion = "";
@@ -116,11 +116,11 @@ public static boolean ventanaordenparcheanteriores = false;
         limpiar();
         renglon = 0;
      
-        numerodeorden = lborden.getText();
+        numeroordendebordadolocalorecibida = lborden.getText();
         
         
    
-     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,parche_nombre,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,numero_orden FROM historial_ordenes_parche WHERE numero = '"+numerodeorden+"' ";
+     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,parche_nombre,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,numero_orden FROM historial_ordenes_parche WHERE numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -719,7 +719,7 @@ public static boolean ventanaordenparcheanteriores = false;
            
             try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + numerodeorden + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + numeroordendebordadolocalorecibida + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -746,7 +746,7 @@ public static boolean ventanaordenparcheanteriores = false;
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select parchexxxxx from "+nombredelatabla+" where numero = '"+lborden.getText()+"' ";
+         String sql = "Select parche from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -869,7 +869,7 @@ public static boolean ventanaordenparcheanteriores = false;
            
                try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada totalmente' ,fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada totalmente' ,fecha='"+dia()+"' where numero='" +numeroordendebordadolocalorecibida+ "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -907,7 +907,7 @@ public static boolean ventanaordenparcheanteriores = false;
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set "+ubicacion+" = '"+cantidad+"',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set "+ubicacion+" = '"+cantidad+"',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1109,11 +1109,10 @@ public static boolean ventanaordenparcheanteriores = false;
     void insertarlacantidadylafechaenlaubicacionotrasucursal(String ubicacion)
     {
         
-         String numerodeordendebordadorecibida = lborden.getText();
-        
+      
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche_recibidos set "+ubicacion+"='" + cantidad + "',parche_fecha='"+dia()+"' where numero = '"+numerodeordendebordadorecibida+"'");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche_recibidos set "+ubicacion+"='" + cantidad + "',parche_fecha='"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"'");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1149,18 +1148,17 @@ public static boolean ventanaordenparcheanteriores = false;
         btnreplicarponchados.setEnabled(true);
         btnterminetodo.setEnabled(true);
 
-        numerodeorden = lborden.getText();
+        numeroordendebordadolocalorecibida = lborden.getText();
         prenda = "Parche";
         sucursal = lbsucursal.getText();
 
-        String sql = "Select numero,numero_sucursal_orden,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,cantidad,parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,identificador_prenda FROM historial_ordenes_parche_recibidos where numero = '" + numerodeorden + "' and tienda = '" + sucursal + "'";
+        String sql = "Select numero,numero_sucursal_orden,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,cantidad,parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,identificador_prenda FROM historial_ordenes_parche_recibidos where numero = '" + numeroordendebordadolocalorecibida + "' and tienda = '" + sucursal + "'";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             if (rs.next()) {
 
-                 lborden.setText(rs.getString("numero"));
                
                  
                  cliente = rs.getString("cliente");
@@ -1830,20 +1828,17 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if (lugar.equals("Otra sucursal"))
         {
-        
-            tiendaconectada();
-            
-            
+         
             
              String costostring = "0";
         
-
+         String numerohistorialordenesparchereciba = "";
      
         int cantidadparcheint = Integer.parseInt(cantidad);
         double costopuntada = 0.0;
         Object puntadaobject = "";
         
-        String sql = "SELECT parche from historial_ordenes_parche where numero = '"+lbnumerodelaotrasucursal.getText()+"' ";
+        String sql = "SELECT parche from historial_ordenes_parche_recibidos where numero = '"+lbnumerodelaotrasucursal.getText()+"' ";
 
         try {
             PreparedStatement prst = cn.prepareStatement(sql);
@@ -1892,9 +1887,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         else
         {
             
-          //   regresaralaconeccionlocal();
-             
-             
+               
               String costostring = "0";
         
 
@@ -3151,23 +3144,15 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
             String cantidadaplicacion = "0";
-            descripcion = "BORDADO PARCHE "+nombreparche+ ""; 
+         //   descripcion = "BORDADO PARCHE "+nombreparche+ ""; 
             aplicacioninsertar = "APLICACION PARCHE";
             nombredelatabla = "historial_ordenes_parche_recibidos";
            
             
-               agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;   
-    
                estacompletalaorden(); 
     
                sumapuntos();   
         
-            
-          //  estacompletalaorden();
-            sumapuntos();  
-                
-            
-            
             
             
             

@@ -55,7 +55,7 @@ public class ordencorbataS extends javax.swing.JFrame {
     String tiendaconectada = "si";
   
     public static String tipotabla = "";
-     String numerodeorden = "";
+     String numeroordendebordadolocalorecibida = "";
     String nuevoestatusorden = "";
     Connection cnsucursal = null;
     String cantidad = "";
@@ -113,11 +113,12 @@ public class ordencorbataS extends javax.swing.JFrame {
     
     void datostiendalocal() throws IOException {
 
-        lbtitulofrente.setText("");
+         
+        numeroordendebordadolocalorecibida = lborden.getText();
 
-        String folio = lborden.getText();
+        
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_puntadas,cantidad_frente,estatus_orden from historial_ordenes_corbata where numero = '" + folio + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_puntadas,cantidad_frente,estatus_orden from historial_ordenes_corbata where numero = '" + numeroordendebordadolocalorecibida + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -355,7 +356,7 @@ public class ordencorbataS extends javax.swing.JFrame {
         
          try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set "+ubicacion+"='0', "+fecha+"='' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set "+ubicacion+"='0', "+fecha+"='' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -690,7 +691,7 @@ public class ordencorbataS extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + cantidad + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + cantidad + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -898,12 +899,12 @@ JOptionPane.showMessageDialog(null, mensaje);
      void datosotrasucursal () throws FileNotFoundException, IOException
     {
         
-        numerodeorden = lborden.getText();
+        numeroordendebordadolocalorecibida = lborden.getText();
         prenda = "Corbata";
        
        
         
-         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_puntadas,cantidad_frente,identificador_prenda,numero_sucursal_orden from historial_ordenes_corbata where numero = '" + numerodeorden + "' and prenda = '" + prenda + "'";
+         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_puntadas,cantidad_frente,identificador_prenda,numero_sucursal_orden from historial_ordenes_corbata where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
      
         try {
             Statement st = cn.createStatement();
@@ -1303,7 +1304,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         Object cantidadfrente = "";
 
         
-            String sql = "Select cantidad,cantidad_frente from historial_ordenes_corbata where numero = '"+lborden.getText()+"' ";
+            String sql = "Select cantidad,cantidad_frente from historial_ordenes_corbata where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -1366,7 +1367,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set estatus_orden='realizada',fecha='"+dia()+"' where numero='" + numeroordendebordadolocalorecibida + "'   ");
                     pst.executeUpdate();
                     pst.close();
 

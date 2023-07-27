@@ -74,7 +74,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
     String ladoizquierdoatrasnombre = "";
     String ladoderechoatrasnombre = "";
  
-     String numerodeorden = "";
+     String numeroordendebordadolocalorecibida = "";
     
     String rutaimagen="";
     String rutaladoizquierdofrente="";
@@ -159,7 +159,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
       
         String numeroventa ="";
         
-         numerodeorden = lborden.getText();
+         numeroordendebordadolocalorecibida = lborden.getText();
       
         String prenda ="";
       
@@ -172,7 +172,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
 
         
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,numero_orden from historial_ordenes_pantalon where numero = '" + numerodeorden + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,numero_orden from historial_ordenes_pantalon where numero = '" + numeroordendebordadolocalorecibida + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -788,7 +788,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
       void cargarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
     {
         
-        String numero = lborden.getText();
+        
         prenda = "Pantalon";
         BufferedImage img = null;
         btnverfotomontaje.setEnabled(false);
@@ -940,7 +940,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
             
         
 
-       String sql = "Select imagen_nombre,imagen from historial_ordenes_pantalon_recibidas where numero = '"+numero+"'  and prenda = '"+prenda+"'   ";  ///
+       String sql = "Select imagen_nombre,imagen from historial_ordenes_pantalon_recibidas where numero = '"+numeroordendebordadolocalorecibida+"'  and prenda = '"+prenda+"'   ";  ///
 
         try {
 
@@ -1422,7 +1422,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
      void datosotrasucursal () throws FileNotFoundException, IOException
     {
         
-         numerodeorden = lborden.getText();
+         numeroordendebordadolocalorecibida = lborden.getText();
          prenda = "Pantalon";
        
 
@@ -1431,7 +1431,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
         String activadoladoderechofrente = "";
         String activadoladoderechoatras = "";
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_sucursal_orden,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,estatus_orden from historial_ordenes_pantalon_recibidas where numero = '" + numerodeorden + "' and prenda = '" + prenda + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_sucursal_orden,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,estatus_orden from historial_ordenes_pantalon_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -2002,7 +2002,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set "+ubicacion+"='" + cantidad + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+numerodeorden+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set "+ubicacion+"='" + cantidad + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -2032,7 +2032,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set "+ubicacion+"='0', "+fecha+"='' where numero = '"+numerodeorden+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set "+ubicacion+"='0', "+fecha+"='' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -2063,7 +2063,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon_recibidas set "+ubicacion+"='" + cantidad + "',fecha='"+dia()+"' where numero = '"+numerodeorden+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon_recibidas set "+ubicacion+"='" + cantidad + "',fecha='"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -2418,7 +2418,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
 
          try (
-                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_pantalon_recibidas where numero = '" + numerodeorden + "' ")) {
+                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_pantalon_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' ")) {
              ResultSet rs = ps.executeQuery();
 
              if (rs.next()) {
@@ -2464,7 +2464,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          String sql = "Select cantidad,cantidad_lado_izquierdo_frente,lado_izquierdo_frente,"
                   + "cantidad_lado_derecho_frente,lado_derecho_frente,"
                   + "cantidad_lado_izquierdo_atras,lado_izquierdo_atras,"
-                  + "cantidad_lado_derecho_atras,lado_derecho_atras from historial_ordenes_pantalon where numero = '"+numerodeorden+"' ";
+                  + "cantidad_lado_derecho_atras,lado_derecho_atras from historial_ordenes_pantalon where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -2597,7 +2597,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
                try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + numerodeorden + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + numeroordendebordadolocalorecibida + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -3796,7 +3796,7 @@ public static String dia() {
           
             try {
 
-                PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon SET estatus_orden='enviado' WHERE numero='" + numerodeorden + "'");
+                PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon SET estatus_orden='enviado' WHERE numero='" + numeroordendebordadolocalorecibida + "'");
                 pst.executeUpdate();
                 pst.close();
             } catch (Exception e) {

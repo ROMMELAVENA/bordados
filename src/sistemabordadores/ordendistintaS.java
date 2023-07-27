@@ -80,7 +80,7 @@ public class ordendistintaS extends javax.swing.JFrame {
     String lugar = "";
     String prenda ="";
     
-     String numerodeorden = "";
+     String numeroordendebordadolocalorecibida = "";
 
     String tiendaconectada = "si";
     Connection cnsucursal = null;
@@ -217,7 +217,7 @@ public class ordendistintaS extends javax.swing.JFrame {
 
     void datostiendalocal() throws IOException {
 
-        String folio = lborden.getText();
+        numeroordendebordadolocalorecibida = lborden.getText();
         
         datostienda();
 
@@ -229,7 +229,7 @@ public class ordendistintaS extends javax.swing.JFrame {
 "	   distinta5,distinta5_ubicacion,distinta5_nombre,distinta5_cantidad,distinta5_aplicacion,distinta5_aplicacion_color,\n" +
 "	   distinta6,distinta6_ubicacion,distinta6_nombre,distinta6_cantidad,distinta6_aplicacion,distinta6_aplicacion_color,\n" +
 "	   distinta7,distinta7_ubicacion,distinta7_nombre,distinta7_cantidad,distinta7_aplicacion,distinta7_aplicacion_color,\n" +
-"	   lugar,fotomontaje_autorizado from historial_ordenes_distinta where numero = '"+folio+"'  ";
+"	   lugar,fotomontaje_autorizado from historial_ordenes_distinta where numero = '"+numeroordendebordadolocalorecibida+"'  ";
 
         try {
             Statement st = cn.createStatement();
@@ -1132,7 +1132,7 @@ public class ordendistintaS extends javax.swing.JFrame {
      void cargarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
     {
         
-        String numero = lborden.getText();
+       
         String prenda =lbprenda.getText();
         BufferedImage img = null;
         btnverfotomontaje.setEnabled(false);
@@ -1140,7 +1140,7 @@ public class ordendistintaS extends javax.swing.JFrame {
         
         
 
-       String sql = "Select imagen_nombre,imagen from historial_ordenes_camisa_recibidas where numero = '"+numero+"'  and prenda = '"+prenda+"'   ";  ///
+       String sql = "Select imagen_nombre,imagen from historial_ordenes_camisa_recibidas where numero = '"+numeroordendebordadolocalorecibida+"'  and prenda = '"+prenda+"'   ";  ///
 
         try {
 
@@ -1413,7 +1413,7 @@ public class ordendistintaS extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='0', "+fecha+"='' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='0', "+fecha+"='' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1451,7 +1451,7 @@ public class ordendistintaS extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='" + cantidad + "',"+fechaubicacion+" = '"+dia()+"' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='" + cantidad + "',"+fechaubicacion+" = '"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1773,7 +1773,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
      void datosotrasucursal () throws FileNotFoundException, IOException
     {
-         numerodeorden = lborden.getText();
+         numeroordendebordadolocalorecibida = lborden.getText();
          prenda = "Distinta";
 
 
@@ -1791,7 +1791,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 "	   distinta5,distinta5_ubicacion,distinta5_nombre,distinta5_cantidad,distinta5_aplicacion,distinta5_aplicacion_color,\n" +
 "	   distinta6,distinta6_ubicacion,distinta6_nombre,distinta6_cantidad,distinta6_aplicacion,distinta6_aplicacion_color,\n" +
 "	   distinta7,distinta7_ubicacion,distinta7_nombre,distinta7_cantidad,distinta7_aplicacion,distinta7_aplicacion_color,\n" +
-"	   lugar,fotomontaje_autorizado,identificador_prenda from historial_ordenes_distinta where where numero = '" + numerodeorden + "' and prenda = '" + prenda + "' ";
+"	   lugar,fotomontaje_autorizado,identificador_prenda from historial_ordenes_distinta where where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "' ";
 
         try {
             Statement st = cn.createStatement();
@@ -2620,7 +2620,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                   + "cantidad_espalda,espalda,"
                   + "cantidad_otra_ubicacion,otra_ubicacion,"
                   + "cantidad_otra_ubicacion2,otra_ubicacion2,"
-                  + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2 from "+nombredelatabla+" where numero = '"+lborden.getText()+"' ";
+                  + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2 from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -2959,7 +2959,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
          String sql = "Select cantidad,distinta1_cantidad,distinta1,distinta2_cantidad,distinta2,"
                   + "distinta3_cantidad,distinta3,distinta4_cantidad,distinta4,distinta4_cantidad,distinta4,"
-                  + "distinta5_cantidad,distinta5,distinta6_cantidad,distinta6,distinta7_cantidad,distinta7 from "+nombredelatabla+" where numero = '"+lborden.getText()+"' ";
+                  + "distinta5_cantidad,distinta5,distinta6_cantidad,distinta6,distinta7_cantidad,distinta7 from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -3137,7 +3137,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            {
                try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + lborden.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + numeroordendebordadolocalorecibida + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -3291,7 +3291,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
 
          try (
-                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_gorra_recibidas where numero = '" + lborden.getText() + "' ")) {
+                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_gorra_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' ")) {
              ResultSet rs = ps.executeQuery();
 
              if (rs.next()) {

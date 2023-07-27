@@ -1161,7 +1161,7 @@ public class ordencamisaS extends javax.swing.JFrame {
                 + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,\n"
                 + "aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,\n"
                 + "lugar,estatus_orden,numero_sucursal_orden,tienda,numero_sucursal,identificador_prenda\n"
-                + "from historial_ordenes_camisa_recibidas where numero = '" + numerodeorden + "' and prenda = '" + prenda + "'";
+                + "from historial_ordenes_camisa_recibidos where numero = '" + numerodeorden + "' and prenda = '" + prenda + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -2516,7 +2516,7 @@ public class ordencamisaS extends javax.swing.JFrame {
          
             
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set "+ubicacion+"='" + cantidad + "',fecha = '"+dia()+"',"+fechaubicacion+" = '"+dia()+"'  where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa_recibidos set "+ubicacion+"='" + cantidad + "',fecha = '"+dia()+"',"+fechaubicacion+" = '"+dia()+"'  where numero = '"+lborden.getText()+"'  ");
                     pst.executeUpdate();
                     pst.close();
                     
@@ -3696,7 +3696,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String existe = "";
         
         //// prenda del fotomontaje
-        String sql = "Select imagen,imagen_nombre from historial_ordenes_camisa_recibidas where numero = '"+lborden.getText()+"'   ";
+        String sql = "Select imagen,imagen_nombre from historial_ordenes_camisa_recibidos where numero = '"+lborden.getText()+"'   ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -3824,7 +3824,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
 
          try (
-                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_camisa_recibidas where numero = '" + lborden.getText() + "' ")) {
+                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_camisa_recibidos where numero = '" + lborden.getText() + "' ")) {
              ResultSet rs = ps.executeQuery();
 
              if (rs.next()) {
@@ -5136,7 +5136,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
     {
         
-        nombredelatabla = "historial_ordenes_camisa_recibidas";
+        nombredelatabla = "h";
         
          try {
             datosotrasucursal();
@@ -5296,7 +5296,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 nombrebordado = mangaizquierdanombre;
                 String cantidadaplicacion = aplicacionmangaizquierda;
              
-                nombredelatabla = "historial_ordenes_camisa_recibidas";
+                nombredelatabla = "historial_ordenes_camisa_recibidos";
             
                 insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
                  
@@ -5514,7 +5514,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombrebordado = pechoizquierdonombre;
             String cantidadaplicacion = aplicacionpechoizquierdo;
            
-            nombredelatabla = "historial_ordenes_camisa_recibidas";
+            nombredelatabla = "historial_ordenes_camisa_recibidos";
         
             insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
          
@@ -5684,7 +5684,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombrebordado = espaldanombre;
             String cantidadaplicacion = aplicacionespalda;
            
-            nombredelatabla = "historial_ordenes_camisa_recibidas";
+            nombredelatabla = "historial_ordenes_camisa_recibidos";
             insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
             if (prenda.toUpperCase().equals("CAMISA")) {
 
@@ -5850,7 +5850,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombrebordado = pechoderechonombre;
             String cantidadaplicacion = aplicacionpechoderecho;
            
-            nombredelatabla = "historial_ordenes_camisa_recibidas";
+            nombredelatabla = "historial_ordenes_camisa_recibidos";
          
             
             insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
@@ -6022,7 +6022,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombrebordado = mangaderechanombre;
             String cantidadaplicacion = aplicacionmangaderecha;
          
-            nombredelatabla = "historial_ordenes_camisa_recibidas";
+            nombredelatabla = "historial_ordenes_camisa_recibidos";
             insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
             if (prenda.toUpperCase().equals("CAMISA")) {
 
@@ -6185,7 +6185,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 try {
 
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set manga_izquierda_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
+                    String sql2 = "UPDATE historial_ordenes_camisa_recibidos set manga_izquierda_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
                     PreparedStatement modificar = conn.prepareStatement(sql2);
                     modificar.setBinaryStream(1, input);
                     traspaso = modificar.executeUpdate();
@@ -6197,7 +6197,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 try {
 
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set manga_izquierda_ponchado_nombre='" + nombrearchivo1 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
+                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidos set manga_izquierda_ponchado_nombre='" + nombrearchivo1 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -6224,7 +6224,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 try {
 
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set pecho_izquierdo_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
+                    String sql2 = "UPDATE historial_ordenes_camisa_recibidos set pecho_izquierdo_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
                     PreparedStatement modificar = conn.prepareStatement(sql2);
                     modificar.setBinaryStream(1, input2);
                     traspaso = modificar.executeUpdate();
@@ -6238,7 +6238,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 try {
 
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set pecho_izquierdo_ponchado_nombre='" + nombrearchivo2 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
+                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidos set pecho_izquierdo_ponchado_nombre='" + nombrearchivo2 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -6266,7 +6266,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 try {
 
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set espalda_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
+                    String sql2 = "UPDATE historial_ordenes_camisa_recibidos set espalda_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
                     PreparedStatement modificar = conn.prepareStatement(sql2);
                     modificar.setBinaryStream(1, input3);
                     traspaso = modificar.executeUpdate();
@@ -6279,7 +6279,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 try {
 
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set espalda_ponchado_nombre='" + nombrearchivo3 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
+                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidos set espalda_ponchado_nombre='" + nombrearchivo3 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -6306,7 +6306,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 try {
 
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set manga_derecha_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
+                    String sql2 = "UPDATE historial_ordenes_camisa_recibidos set manga_derecha_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
                     PreparedStatement modificar = conn.prepareStatement(sql2);
                     modificar.setBinaryStream(1, input4);
                     traspaso = modificar.executeUpdate();
@@ -6318,7 +6318,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 try {
 
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set manga_derecha_ponchado_nombre='" + nombrearchivo4 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
+                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidos set manga_derecha_ponchado_nombre='" + nombrearchivo4 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -6346,7 +6346,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 try {
 
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set pecho_derecho_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
+                    String sql2 = "UPDATE historial_ordenes_camisa_recibidos set pecho_derecho_ponchado=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
                     PreparedStatement modificar = conn.prepareStatement(sql2);
                     modificar.setBinaryStream(1, input5);
                     traspaso = modificar.executeUpdate();
@@ -6358,7 +6358,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 try {
 
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set pecho_derecho_ponchado_nombre='" + nombrearchivo5 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
+                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidos set pecho_derecho_ponchado_nombre='" + nombrearchivo5 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -6386,7 +6386,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 try {
 
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set imagen=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
+                    String sql2 = "UPDATE historial_ordenes_camisa_recibidos set imagen=? where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
                     PreparedStatement modificar = conn.prepareStatement(sql2);
                     modificar.setBinaryStream(1, input6);
                     traspaso = modificar.executeUpdate();
@@ -6398,7 +6398,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 try {
 
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set imagen_nombre='" + nombrearchivo6 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
+                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidos set imagen_nombre='" + nombrearchivo6 + "' where numero_sucursal_orden='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -6606,7 +6606,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String ubicacion = "cantidad_otra_ubicacion";
             nombrebordado = otraubicacionnombre;
             String cantidadaplicacion = aplicacionotraubicacion;
-            nombredelatabla = "historial_ordenes_camisa_recibidas";
+            nombredelatabla = "historial_ordenes_camisa_recibidos";
           
             insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
               if (prenda.toUpperCase().equals("CAMISA")) {
@@ -6781,7 +6781,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 nombrebordado = otraubicacion2nombre;
                 String cantidadaplicacion = aplicacionotraubicacion2;
               
-                nombredelatabla = "historial_ordenes_camisa_recibidas";
+                nombredelatabla = "historial_ordenes_camisa_recibidos";
                 insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
                   if (prenda.toUpperCase().equals("CAMISA")) {
 
@@ -7083,7 +7083,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
     {
         
-        nombredelatabla = "historial_ordenes_camisa_recibidas";
+        nombredelatabla = "historial_ordenes_camisa_recibidos";
         
          try {
             datosotrasucursal();

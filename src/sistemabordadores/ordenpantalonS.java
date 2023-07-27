@@ -2131,72 +2131,6 @@ public class ordenpantalonS extends javax.swing.JFrame {
     }
     
     
-    void agregarexistenciabordadosotrasucursal(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
-    {
-        
-       
-        
-        //// bordado
-        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
-            
-                
- 
-                pst.setString(1, lbnumerodeventa.getText());
-                pst.setString(2, sucursal);
-                pst.setString(3, dia());
-                pst.setString(4, hora());
-                pst.setString(5, descripcion);
-                pst.setString(6, "ninguno");
-                pst.setString(7, cantidad);
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-            
-           if(cantidadaplicacion==null || cantidadaplicacion.equals("") ||cantidadaplicacion.equals(" "))
-           {
-              cantidadaplicacion = "0"; 
-           }
-            
-           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-           
-           
-           if(cantidadaplicacionint > 0)
-           {
-               int cantidadprendasint = Integer.parseInt(cantidad);
-            
-               
-               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
-            
-                
- 
-                 pst.setString(1,lbnumerodeventa.getText());
-                pst.setString(2, sucursal);
-                pst.setString(3, dia());
-                pst.setString(4, hora());
-                pst.setString(5, descripcion);
-                pst.setString(6, "ninguno");
-                pst.setString(7, cantidad);
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-               
-           }
-        
-        
-    }
     
      void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad) 
       {
@@ -4052,7 +3986,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            
             nombredelatabla = "historial_ordenes_pantalon_recibidas";
             insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
-            agregarexistenciabordadosotrasucursal((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            
             estacompletalaorden();
             
             
@@ -4128,7 +4062,7 @@ JOptionPane.showMessageDialog(null, mensaje);
           
             nombredelatabla = "historial_ordenes_pantalon_recibidas";
             insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
-            agregarexistenciabordadosotrasucursal((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            
             estacompletalaorden();
             
             
@@ -4204,7 +4138,7 @@ JOptionPane.showMessageDialog(null, mensaje);
           
             nombredelatabla = "historial_ordenes_pantalon_recibidas";
             insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
-            agregarexistenciabordadosotrasucursal((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            
             estacompletalaorden();
             
             
@@ -4279,7 +4213,7 @@ JOptionPane.showMessageDialog(null, mensaje);
           
             nombredelatabla = "historial_ordenes_pantalon_recibidas";
             insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
-            agregarexistenciabordadosotrasucursal((String) descripcion, (String) aplicacioninsertar, (String) cantidadaplicacion);
+            
             estacompletalaorden();
             
             

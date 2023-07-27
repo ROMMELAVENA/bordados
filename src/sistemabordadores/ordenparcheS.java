@@ -47,6 +47,7 @@ public static boolean ventanaordenparcheanteriores = false;
         String cantidad = "";
         String cantidadparche = "";
         String parche = "";
+        String nombreparche = "";
         String nombre = "";
         String ubicacion = "";
         String aplicacion = "";
@@ -98,6 +99,7 @@ public static boolean ventanaordenparcheanteriores = false;
         initComponents();
         ventanaordenparcheanteriores = true;
         btndatos.setVisible(false);
+        lbhora.setVisible(false);
         
         
          tiendalocal = principal.lbtiendalocal.getText();
@@ -118,7 +120,7 @@ public static boolean ventanaordenparcheanteriores = false;
         
         
    
-     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,numero_orden,puntadas FROM historial_ordenes_parche WHERE numero = '"+numerodeorden+"' ";
+     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,parche_nombre,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,numero_orden FROM historial_ordenes_parche WHERE numero = '"+numerodeorden+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -147,6 +149,7 @@ public static boolean ventanaordenparcheanteriores = false;
                 
                 parche = rs.getString("parche");
                 lbpuntadas.setText(parche);
+                nombreparche = rs.getString("parche_nombre");
                 nombre = rs.getString("articulo");
                 cantidad = rs.getString("cantidad");
                 cantidadparche = rs.getString("cantidad_parche");
@@ -222,9 +225,6 @@ public static boolean ventanaordenparcheanteriores = false;
                    
                    
                 }   
-                
-                lbpuntadas.setText(rs.getString("puntadas"));
-              
                 
                 
                 
@@ -1108,9 +1108,12 @@ public static boolean ventanaordenparcheanteriores = false;
     
     void insertarlacantidadylafechaenlaubicacionotrasucursal(String ubicacion)
     {
+        
+         String numerodeordendebordadorecibida = lborden.getText();
+        
         try {
 
-                    PreparedStatement pst = cnsucursal.prepareStatement("UPDATE historial_ordenes_parche_recibidas set "+ubicacion+"='" + cantidad + "',fecha='"+dia()+"' where numero = '"+lborden.getText()+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche_recibidos set "+ubicacion+"='" + cantidad + "',parche_fecha='"+dia()+"' where numero = '"+numerodeordendebordadorecibida+"'");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1669,81 +1672,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-    void agregarexistenciabordadosotrasucursal(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
-    {
-        
-       
-        
-        //// bordado
-       String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
-            
-                
- 
-                pst.setString(1, lbnumerodelaotrasucursal.getText());
-                pst.setString(2, sucursal);
-                pst.setString(3, dia());
-                pst.setString(4, hora());
-                pst.setString(5, descripcion);
-                pst.setString(6, "ninguno");
-                pst.setString(7, cantidad);
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-            
-           if(cantidadaplicacion==null || cantidadaplicacion.equals("")||cantidadaplicacion.equals(" "))
-           {
-               cantidadaplicacion = "0";
-           }
-            
-           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-           
-           
-           if(cantidadaplicacionint > 0)
-           {
-               int cantidadprendasint = Integer.parseInt(cantidad);
-               int totalaplicaciones = cantidadprendasint * cantidadaplicacionint;
-               
-               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
-            
-                
- 
-                pst.setString(1, lbnumerodelaotrasucursal.getText());
-                pst.setString(2, sucursal);
-                pst.setString(3, dia());
-                pst.setString(4, hora());
-                pst.setString(5, aplicacioninsertar);
-                pst.setString(6, identificador);
-                pst.setString(7, String.valueOf(totalaplicaciones));
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-               
-           }
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -1915,14 +1843,14 @@ JOptionPane.showMessageDialog(null, mensaje);
         double costopuntada = 0.0;
         Object puntadaobject = "";
         
-        String sql = "SELECT puntadas from historial_ordenes_parche where numero = '"+lbnumerodelaotrasucursal.getText()+"' ";
+        String sql = "SELECT parche from historial_ordenes_parche where numero = '"+lbnumerodelaotrasucursal.getText()+"' ";
 
         try {
             PreparedStatement prst = cn.prepareStatement(sql);
             ResultSet rs = prst.executeQuery();
             if (rs.next()) {
 
-                puntadaobject = rs.getString("puntadas");
+                puntadaobject = rs.getString("parche");
                 
 
             }
@@ -1975,14 +1903,14 @@ JOptionPane.showMessageDialog(null, mensaje);
         double costopuntada = 0.0;
         Object puntadaobject = "";
         
-        String sql = "SELECT puntadas from historial_ordenes_parche where numero = '"+lbnumerodelaotrasucursal.getText()+"' ";
+        String sql = "SELECT parche from historial_ordenes_parche where numero = '"+lbnumerodelaotrasucursal.getText()+"' ";
 
         try {
             PreparedStatement prst = cn.prepareStatement(sql);
             ResultSet rs = prst.executeQuery();
             if (rs.next()) {
 
-                puntadaobject = rs.getString("puntadas");
+                puntadaobject = rs.getString("parche");
                 
 
             }
@@ -2614,13 +2542,12 @@ JOptionPane.showMessageDialog(null, mensaje);
                 .addComponent(lbcolor, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addComponent(btnponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112)
+                .addGap(45, 45, 45)
+                .addComponent(lbhora, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btndatos)
                 .addGap(67, 67, 67)
                 .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(1618, 1618, 1618)
-                .addComponent(lbhora, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2700,9 +2627,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                     .addComponent(lbcolor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbhora, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbhora, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37))
         );
 
         pack();
@@ -3181,10 +3108,10 @@ JOptionPane.showMessageDialog(null, mensaje);
          
             
             String cantidadaplicacion = "0";
-            descripcion = "BORDADO GORRA FRENTE "+nombre+ "";
-            aplicacioninsertar = "APLICACION GORRA FRENTE";
+            descripcion = "BORDADO PARCHE "+nombreparche+ "";
+            aplicacioninsertar = "APLICACION PARCHE";
             
-            nombredelatabla = "historial_ordenes_gorra";
+            nombredelatabla = "historial_ordenes_parche";
            
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
@@ -3210,6 +3137,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         
         }
+            
+            
+            
          else
                 
                 
@@ -3221,11 +3151,18 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
             String cantidadaplicacion = "0";
-            descripcion = "BORDADO PARCHE "+nombre+ "";
+            descripcion = "BORDADO PARCHE "+nombreparche+ ""; 
             aplicacioninsertar = "APLICACION PARCHE";
             nombredelatabla = "historial_ordenes_parche_recibidos";
            
-            agregarexistenciabordadosotrasucursal((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+            
+               agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;   
+    
+               estacompletalaorden(); 
+    
+               sumapuntos();   
+        
+            
           //  estacompletalaorden();
             sumapuntos();  
                 

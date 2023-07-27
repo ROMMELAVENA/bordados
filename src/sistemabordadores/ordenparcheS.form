@@ -142,14 +142,12 @@
               <Component id="lbcolor" min="-2" pref="125" max="-2" attributes="0"/>
               <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
               <Component id="btnponchado" min="-2" pref="100" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="lbhora" min="-2" pref="55" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btndatos" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="67" pref="67" max="-2" attributes="0"/>
               <Component id="btnterminetodo" min="-2" pref="223" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="1618" pref="1618" max="-2" attributes="0"/>
-              <Component id="lbhora" min="-2" pref="55" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -246,9 +244,9 @@
                   <Component id="btnponchado" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbnombre" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel8" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbhora" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="lbhora" min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

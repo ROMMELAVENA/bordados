@@ -656,87 +656,6 @@ public class ordengorraS extends javax.swing.JFrame {
     
     
     
-      void agregarexistenciabordadosotrasucursal(String descripcion,String aplicacioninsertar,String cantidadaplicacion)
-    {
-        
-       
-        
-        //// bordado
-        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
-            
-                
- 
-                pst.setString(1, lbnumerodelaotrasucursal.getText());
-                pst.setString(2, sucursal);
-                pst.setString(3, dia());
-                pst.setString(4, hora());
-                pst.setString(5, descripcion);
-                pst.setString(6, lbidentificador.getText());
-                pst.setString(7, cantidad);
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-            
-           if(cantidadaplicacion==null || cantidadaplicacion.equals("") ||cantidadaplicacion.equals(" "))
-           {
-              cantidadaplicacion = "0"; 
-           }
-            
-           int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-           
-           
-           if(cantidadaplicacionint > 0)
-           {
-               int cantidadprendasint = Integer.parseInt(cantidad);
-            
-               
-               String Insertaraplicacion = "INSERT INTO historial_bordados_existencia(numero_sucursal,sucursal,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(Insertaraplicacion);
-            
-                
- 
-                 pst.setString(1, lbnumerodelaotrasucursal.getText());
-                pst.setString(2, sucursal);
-                pst.setString(3, dia());
-                pst.setString(4, hora());
-                pst.setString(5, descripcion);
-                pst.setString(6, lbidentificador.getText());
-                pst.setString(7, cantidad);
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-               
-           }
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     void cargarfotomontaje() throws FileNotFoundException, IOException  
     {
@@ -3851,7 +3770,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "";
             nombredelatabla = "historial_ordenes_gorra_recibidas";
            
-            agregarexistenciabordadosotrasucursal((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion);
+          
             estacompletalaorden();
             sumapuntos();  
             
@@ -4282,7 +4201,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION GORRA FRENTE";
             nombredelatabla = "historial_ordenes_gorra_recibidas";
             String cantidad = lbcantidad.getText();
-            agregarexistenciabordadosotrasucursal((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+             
             estacompletalaorden();
             sumapuntos();  
                 
@@ -4359,7 +4278,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
             aplicacioninsertar = "";
             String cantidad = lbcantidad.getText();
-            agregarexistenciabordadosotrasucursal((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion);
+            
             estacompletalaorden();
             sumapuntos(); 
             
@@ -4423,7 +4342,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "";
             nombredelatabla = "historial_ordenes_gorra_recibidas";
             String cantidad = lbcantidad.getText();
-            agregarexistenciabordadosotrasucursal((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion); 
+             
             estacompletalaorden();
             sumapuntos();   
             

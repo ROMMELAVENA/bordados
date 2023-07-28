@@ -208,7 +208,7 @@ public class ordencamisaS extends javax.swing.JFrame {
     {
         initComponents();
         ventanaordencamisa = true;
-
+         lbautorizacion.setVisible(false);
         lbtipo.setVisible(false);
 
         btnterminetodo.setEnabled(false);
@@ -399,7 +399,99 @@ public class ordencamisaS extends javax.swing.JFrame {
      
      
      
+     void datos(){
+         
+         
+           
+        prenda = lbprenda.getText();
+        nombredelatabla = "historial_ordenes_camisa";
+        
+    if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
+    {
+        
+        
+        
+     try {
+            datostiendalocal();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
+        }
      
+     codigocliente();
+     
+      cliente();
+     
+   
+     
+     try {    
+            cargarfotomontaje();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+      
+      if(enquesucursalsebordara.equals("Otra sucursal"))
+        {
+        btnterminetodo.setEnabled(false);
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");
+        
+        }
+     
+        
+        
+    } 
+    
+    else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
+    {
+        
+        nombredelatabla = "h";
+        
+         try {
+            datosotrasucursal();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+       
+    }   
+      datoscolorido();  
+      sumapuntos();
+      
+      AudioClip sonido;
+      if(tieneunaobservacion.equals("si"))
+        {
+            sonido= java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));    
+            sonido.play();
+            
+        }
+      
+      
+        String observacion = lbobservaciones.getText();
+        
+        if (observacion.equals(""))
+        {
+            
+        }
+        else
+        {
+         
+       // joption en 2 renglones tip
+       
+String[] lineas = observacion.split("\n");
+
+String mensaje = "<HTML><span style=\"Color:red;font-size:25px;\">NOTA: " + lineas[0] + "</span><br>";
+if (lineas.length > 1) {
+    mensaje += "<span style=\"Color:red; font-size:25px;\">" + lineas[1] + "</span>";
+}
+
+JOptionPane.showMessageDialog(null, mensaje);
+
+
+
+        }
+      
+         
+     }
      
      
      
@@ -3974,6 +4066,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbcantidad3 = new javax.swing.JLabel();
         lbcantidad2 = new javax.swing.JLabel();
         lbcantidad1 = new javax.swing.JLabel();
+        lbautorizacion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden camisa");
@@ -4508,6 +4601,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbcantidad1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        lbautorizacion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbautorizacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -4607,7 +4703,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel26)
                                 .addGap(12, 12, 12)
-                                .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbautorizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(lbpechoizquierdonombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4822,7 +4920,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbautorizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -5072,94 +5171,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
    
-        
-        prenda = lbprenda.getText();
-        nombredelatabla = "historial_ordenes_camisa";
-        
-    if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
-    {
-        
-        
-        
-     try {
-            datostiendalocal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-     
-     codigocliente();
-     
-      cliente();
-     
-   
-     
-     try {    
-            cargarfotomontaje();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-      
-      if(enquesucursalsebordara.equals("Otra sucursal"))
-        {
-        btnterminetodo.setEnabled(false);
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");
-        
-        }
-     
-        
-        
-    } 
-    
-    else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
-    {
-        
-        nombredelatabla = "h";
-        
-         try {
-            datosotrasucursal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         
-       
-    }   
-      datoscolorido();  
-      sumapuntos();
-      
-      AudioClip sonido;
-      if(tieneunaobservacion.equals("si"))
-        {
-            sonido= java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));    
-            sonido.play();
-            
-        }
-      
-      
-        String observacion = lbobservaciones.getText();
-        
-        if (observacion.equals(""))
-        {
-            
-        }
-        else
-        {
-         
-       // joption en 2 renglones tip
-       
-String[] lineas = observacion.split("\n");
-
-String mensaje = "<HTML><span style=\"Color:red;font-size:25px;\">NOTA: " + lineas[0] + "</span><br>";
-if (lineas.length > 1) {
-    mensaje += "<span style=\"Color:red; font-size:25px;\">" + lineas[1] + "</span>";
-}
-
-JOptionPane.showMessageDialog(null, mensaje);
-
-
-
-        }
-      
+      datos();
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -6979,59 +6991,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btndatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndatosActionPerformed
   
         
-        
-        
-        if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
-    {
-        
-        nombredelatabla = "historial_ordenes_camisa";
-        
-     try {
-            datostiendalocal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-     
-     codigocliente();
-     
-     cliente();
-     
-   
-     
-     try {    
-            cargarfotomontaje();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-      
-      if(enquesucursalsebordara.equals("Otra sucursal"))
-        {
-        btnterminetodo.setEnabled(false);
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");
-        
-        }
-     
-        
-        
-    } 
-    
-    else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
-    {
-        
-        nombredelatabla = "historial_ordenes_camisa_recibidos";
-        
-         try {
-            datosotrasucursal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         
-       
-    }   
-      datoscolorido();  
-      sumapuntos();
-      
+        datos();
       
       
     }//GEN-LAST:event_btndatosActionPerformed
@@ -7877,6 +7837,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane6;
+    public javax.swing.JLabel lbautorizacion;
     public static javax.swing.JLabel lbbordacliente;
     public static javax.swing.JLabel lbcantidad;
     public javax.swing.JLabel lbcantidad1;

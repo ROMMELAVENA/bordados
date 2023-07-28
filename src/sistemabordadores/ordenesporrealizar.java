@@ -22,6 +22,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     String tiendalocal = "";
     String fotomontajeautorizado = "";
     public static String localuotrasucursal ="";
+    String sucursal = "";
 
     public ordenesporrealizar() {
         initComponents();
@@ -1813,6 +1814,15 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordencamisaS.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordencamisaS.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
                         ordencamisaS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        
+                           sucursal = tabla.getValueAt(fila, 7).toString();
+                        if (sucursal==null || sucursal.equals(""))
+                        {
+                            sucursal = tiendalocal;
+                        }
+                        ordencamisaS.lbsucursal.setText(sucursal);
+                        
+                        
                         ordencamisaS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         
@@ -1862,6 +1872,16 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordengorraS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                       
                         ordengorraS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        
+                           sucursal = tabla.getValueAt(fila, 7).toString();
+                        if (sucursal==null || sucursal.equals(""))
+                        {
+                            sucursal = tiendalocal;
+                        }
+                        ordengorraS.lbsucursal.setText(sucursal);
+                        
+                        
+                        
                         ordengorraS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         
@@ -1908,6 +1928,17 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                             ordenpantalonS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                          
                             ordenpantalonS.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                            
+                            
+                               sucursal = tabla.getValueAt(fila, 7).toString();
+                        if (sucursal==null || sucursal.equals(""))
+                        {
+                            sucursal = tiendalocal;
+                        }
+                        ordenpantalonS.lbsucursal.setText(sucursal);
+                        
+                        
+                        
                             ordenpantalonS.tipotabla = (tabla.getValueAt(fila, 10).toString());
                             tabla.clearSelection();
                            
@@ -1958,6 +1989,16 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordencorbataS.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         ordencorbataS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordencorbataS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        
+                           sucursal = tabla.getValueAt(fila, 7).toString();
+                        if (sucursal==null || sucursal.equals(""))
+                        {
+                            sucursal = tiendalocal;
+                        }
+                        ordencorbataS.lbsucursal.setText(sucursal);
+                        
+                        
+                        
                         ordencorbataS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         
                          tabla.clearSelection();
@@ -1988,14 +2029,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
 
                     }
                     
-                    
                     else 
                     
-                    
-                    
-                    
                     {
-                        
                         
                    Object numerodefolio = tabla.getValueAt(fila, 0);
                         Object nombre_tabla = "historial_ordenes_gorra";
@@ -2020,6 +2056,16 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                         ordenparcheS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordenparcheS.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
                         ordenparcheS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        
+                           sucursal = tabla.getValueAt(fila, 7).toString();
+                        if (sucursal==null || sucursal.equals(""))
+                        {
+                            sucursal = tiendalocal;
+                        }
+                        ordenparcheS.lbsucursal.setText(sucursal);
+                        
+                        
+                        
                         ordenparcheS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         ordenparcheS.lbsucursal.setText(tabla.getValueAt(fila, 7).toString());
                         
@@ -2067,6 +2113,16 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                             ordenponchadoS.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
                             ordenponchadoS.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                             ordenponchadoS.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                            
+                            
+                               sucursal = tabla.getValueAt(fila, 7).toString();
+                        if (sucursal==null || sucursal.equals(""))
+                        {
+                            sucursal = tiendalocal;
+                        }
+                        ordenponchadoS.lbsucursal.setText(sucursal);
+                        
+                        
                             ordenponchadoS.tipotabla = (tabla.getValueAt(fila, 10).toString());
                             tabla.clearSelection();
                            

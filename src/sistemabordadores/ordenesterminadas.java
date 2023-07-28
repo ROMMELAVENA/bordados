@@ -21,6 +21,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
     String fechafinal = "";
     String nombrecliente = "";
     String tiendalocal = "";
+    String sucursal = "";
     public static String localuotrasucursal ="";
 
     public ordenesterminadas() {
@@ -542,6 +543,11 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         
         
+        
+        
+        
+        
+        
         // ORDENES DE OTRAS SUCURSALES
         //////////////////////////////
         /////////////////////////////
@@ -617,9 +623,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
             System.out.println(ex);
         }
         
-        tieneponchados();
-
-        
+         
         
         
         /// PANTALON
@@ -654,7 +658,93 @@ public class ordenesterminadas extends javax.swing.JFrame {
             System.out.println(ex);
         }
         
+        
+        
+        
+        
+        
+        /// CORBATA
+        
+        String[] datos16 = new String[12];
+
+        String sql16 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_corbata_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql16);
+            while (rs.next()) {
+                datos16[0] = rs.getString("numero");
+                datos16[1] = rs.getString("cliente");
+                datos16[2] = rs.getString("prenda");
+                datos16[3] = rs.getString("tipo");
+                datos16[4] = rs.getString("lugar");
+                datos16[5] = "0000000";  
+                datos16[6] = rs.getString("fecha");
+                datos16[7] = rs.getString("tienda");
+                datos16[8] = rs.getString("numero_sucursal_orden");
+                datos16[9] = "";
+                datos16[10] = "Recibida";
+            
+                modelo.addRow(datos16);
+
+            }
+
+            tabla.setModel(modelo);
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+        
+        
+        
+         /// PARCHE
+        
+        String[] datos17 = new String[12];
+
+        String sql17 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_parche_recibidos  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql17);
+            while (rs.next()) {
+                datos17[0] = rs.getString("numero");
+                datos17[1] = rs.getString("cliente");
+                datos17[2] = rs.getString("prenda");
+                datos17[3] = rs.getString("tipo");
+                datos17[4] = rs.getString("lugar");
+                datos17[5] = "0000000";  
+                datos17[6] = rs.getString("fecha");
+                datos17[7] = rs.getString("tienda");
+                datos17[8] = rs.getString("numero_sucursal_orden");
+                datos17[9] = "";
+                datos17[10] = "Recibida";
+            
+                modelo.addRow(datos17);
+
+            }
+
+            tabla.setModel(modelo);
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+       
+        
+        
         tieneponchados();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
  
         
@@ -1449,6 +1539,8 @@ public class ordenesterminadas extends javax.swing.JFrame {
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
 
+        
+        
         if (evt.getClickCount() == 2) {
 
             int fila = tabla.getSelectedRow();
@@ -1483,7 +1575,17 @@ public class ordenesterminadas extends javax.swing.JFrame {
                         ordencamisaS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordencamisaS.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordencamisaS.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
-                        ordencamisaS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordencamisaS.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                       
+                         
+                          sucursal = tabla.getValueAt(fila, 7).toString();
+                        if (sucursal==null || sucursal.equals(""))
+                        {
+                            sucursal = tiendalocal;
+                        }
+                        ordencamisaS.lbsucursal.setText(sucursal);
+                        
+                        
                         ordencamisaS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         this.setState(this.ICONIFIED);
@@ -1509,6 +1611,15 @@ public class ordenesterminadas extends javax.swing.JFrame {
                         ordengorraS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                    
                         ordengorraS.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                        
+                         sucursal = tabla.getValueAt(fila, 7).toString();
+                        if (sucursal==null || sucursal.equals(""))
+                        {
+                            sucursal = tiendalocal;
+                        }
+                        ordengorraS.lbsucursal.setText(sucursal);
+                        
+                        
                         ordengorraS.tipotabla = (tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         this.setState(this.ICONIFIED);
@@ -1536,6 +1647,15 @@ public class ordenesterminadas extends javax.swing.JFrame {
                         ordenpantalonS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                      
                         ordenpantalonS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        
+                         sucursal = tabla.getValueAt(fila, 7).toString();
+                        if (sucursal==null || sucursal.equals(""))
+                        {
+                            sucursal = tiendalocal;
+                        }
+                        ordenpantalonS.lbsucursal.setText(sucursal);
+                        
+                        
                         ordenpantalonS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         this.setState(this.ICONIFIED);
@@ -1568,6 +1688,15 @@ public class ordenesterminadas extends javax.swing.JFrame {
                         ordencorbataS.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         ordencorbataS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordencamisaS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        
+                         sucursal = tabla.getValueAt(fila, 7).toString();
+                        if (sucursal==null || sucursal.equals(""))
+                        {
+                            sucursal = tiendalocal;
+                        }
+                        ordencamisaS.lbsucursal.setText(sucursal);
+                        
+                        
                         ordencamisaS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         
                          tabla.clearSelection();
@@ -1587,7 +1716,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                                 
                                  if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
                 {
-                    if (ordenparcheS.ventanaordenparcheanteriores == true) {
+                    if (ordenparcheS.ventanaordenparche == true) {
                         JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado anteriores");
 
                     } 
@@ -1602,6 +1731,18 @@ public class ordenesterminadas extends javax.swing.JFrame {
                         ordenparcheS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                    
                         ordenparcheS.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                        
+                        
+                        
+                        
+                          sucursal = tabla.getValueAt(fila, 7).toString();
+                        if (sucursal==null || sucursal.equals(""))
+                        {
+                            sucursal = tiendalocal;
+                        }
+                        ordenparcheS.lbsucursal.setText(sucursal);
+                        
+                        
                         ordenparcheS.tipotabla = (tabla.getValueAt(fila, 10).toString());
                         tabla.clearSelection();
                         this.setState(this.ICONIFIED);
@@ -1629,6 +1770,15 @@ public class ordenesterminadas extends javax.swing.JFrame {
                         ordenponchadoS.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                         
                         ordenponchadoS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        
+                         sucursal = tabla.getValueAt(fila, 7).toString();
+                        if (sucursal==null || sucursal.equals(""))
+                        {
+                            sucursal = tiendalocal;
+                        }
+                        ordenponchadoS.lbsucursal.setText(sucursal);
+                        
+                        
                         ordenponchadoS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                          tabla.clearSelection();
                          this.setState(this.ICONIFIED);

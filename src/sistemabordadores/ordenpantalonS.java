@@ -122,8 +122,8 @@ public class ordenpantalonS extends javax.swing.JFrame {
         btnladoderechofrentecancelar.setEnabled(false);
         btnladoderechoatrascancelar.setEnabled(false);        
         btnladoizquierdofrentecancelar.setEnabled(false);        
-         btnladoizquierdoatrascancelar.setEnabled(false);
-         
+        btnladoizquierdoatrascancelar.setEnabled(false);
+       lbautorizacion.setVisible(false);
            
                 
         tiendalocal = principal.lbtiendalocal.getText();   
@@ -776,7 +776,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
         }
         
         
-        lbscursal.setText(tiendaalaqueselesolicito);
+        lbsucursal.setText(tiendaalaqueselesolicito);
 
     }
     
@@ -2638,7 +2638,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         btnreplicar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lbfotomontaje = new javax.swing.JLabel();
-        lbscursal = new javax.swing.JLabel();
+        lbsucursal = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         lbcantidad = new javax.swing.JLabel();
         btnladoderechofrentetetermine = new javax.swing.JButton();
@@ -2704,6 +2704,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbcantidad4 = new javax.swing.JLabel();
         lbcantidad3 = new javax.swing.JLabel();
         lbcantidad2 = new javax.swing.JLabel();
+        lbautorizacion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden Pantalon");
@@ -2772,8 +2773,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         jPanel1.add(lbfotomontaje);
         lbfotomontaje.setBounds(0, 0, 1160, 720);
 
-        lbscursal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbscursal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbsucursal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbsucursal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setText("Cantidad");
@@ -3087,6 +3088,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbcantidad2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        lbautorizacion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbautorizacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -3228,7 +3232,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(lbscursal, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lbsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3240,7 +3244,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel30)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(lbautorizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3293,7 +3299,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lbnumerodelaotrasucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbscursal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
@@ -3321,7 +3327,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbautorizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -3519,7 +3526,7 @@ public static String dia() {
         String cliente = lbcliente.getText();
 
         String path = "";
-        String tiendaalaquesereplicara = lbscursal.getText();
+        String tiendaalaquesereplicara = lbsucursal.getText();
         String stringIP = "";
         String stringlocal = "";
         String stringBDlocal = "";
@@ -4670,6 +4677,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane6;
+    public javax.swing.JLabel lbautorizacion;
     public static javax.swing.JLabel lbbordacliente;
     public static javax.swing.JLabel lbcantidad;
     public javax.swing.JLabel lbcantidad1;
@@ -4706,7 +4714,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JTextArea lbobservaciones;
     public static javax.swing.JLabel lborden;
     public static javax.swing.JLabel lbprenda;
-    private javax.swing.JLabel lbscursal;
+    public static javax.swing.JLabel lbsucursal;
     public javax.swing.JLabel lbsumapuntos;
     // End of variables declaration//GEN-END:variables
 

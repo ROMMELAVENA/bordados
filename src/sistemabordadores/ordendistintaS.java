@@ -215,6 +215,82 @@ public class ordendistintaS extends javax.swing.JFrame {
         
     }
 
+    
+    
+    
+    void datos(){
+        
+        
+        
+         if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
+    {
+        
+        nombredelatabla = "historial_ordenes_distinta";
+        
+     try {
+            datostiendalocal();
+        } catch (IOException ex) {
+            Logger.getLogger(ordendistintaS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+     codigocliente();
+     
+     hilosycolor();
+     
+     try {    
+            cargarfotomontaje();
+        } catch (IOException ex) {
+            Logger.getLogger(ordendistintaS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+      
+     
+        
+        
+    } 
+    
+    
+     AudioClip sonido;
+      if(tieneunaobservacion.equals("si"))
+        {
+            sonido= java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));    
+            sonido.play();
+            
+        }
+    
+     
+      
+       String observacion = lbobservaciones.getText();
+        
+        if (observacion.equals(""))
+        {
+            
+        }
+        else
+        {
+         
+       
+String[] lineas = observacion.split("\n");
+
+String mensaje = "<HTML><span style=\"Color:red;font-size:25px;\">NOTA: " + lineas[0] + "</span><br>";
+if (lineas.length > 1) {
+    mensaje += "<span style=\"Color:red; font-size:25px;\">" + lineas[1] + "</span>";
+}
+
+JOptionPane.showMessageDialog(null, mensaje);
+
+
+
+        }
+
+        
+        
+        
+    }
+    
+    
+    
+    
     void datostiendalocal() throws IOException {
 
         numeroordendebordadolocalorecibida = lborden.getText();
@@ -4459,69 +4535,8 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
    
-    if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
-    {
         
-        nombredelatabla = "historial_ordenes_distinta";
-        
-     try {
-            datostiendalocal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordendistintaS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-     
-     codigocliente();
-     
-     hilosycolor();
-     
-     try {    
-            cargarfotomontaje();
-        } catch (IOException ex) {
-            Logger.getLogger(ordendistintaS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-      
-     
-        
-        
-    } 
-    
-    
-     AudioClip sonido;
-      if(tieneunaobservacion.equals("si"))
-        {
-            sonido= java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));    
-            sonido.play();
-            
-        }
-    
-     
-      
-       String observacion = lbobservaciones.getText();
-        
-        if (observacion.equals(""))
-        {
-            
-        }
-        else
-        {
-         
-       
-String[] lineas = observacion.split("\n");
-
-String mensaje = "<HTML><span style=\"Color:red;font-size:25px;\">NOTA: " + lineas[0] + "</span><br>";
-if (lineas.length > 1) {
-    mensaje += "<span style=\"Color:red; font-size:25px;\">" + lineas[1] + "</span>";
-}
-
-JOptionPane.showMessageDialog(null, mensaje);
-
-
-
-        }
-
-        
-   //sumapuntos();
+        datos();
         
     }//GEN-LAST:event_formWindowOpened
 

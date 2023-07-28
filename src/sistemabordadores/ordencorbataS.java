@@ -112,6 +112,131 @@ public class ordencorbataS extends javax.swing.JFrame {
     }
     
     
+    
+    
+    
+    
+    void datos(){
+        
+        
+        
+        
+        
+        
+if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
+    {
+      
+         nombredelatabla = "historial_ordenes_gorra";
+
+        try {
+            datostiendalocal();
+        } catch (IOException ex) {
+            Logger.getLogger(ordengorraS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        codigocliente();
+        
+        cliente();
+        
+         hilosycolor();
+        
+        try {
+            cargarfotomontaje();
+        } catch (IOException ex) {
+            Logger.getLogger(ordengorraS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        if(enquesucursalsebordara.equals("Otra sucursal")  )
+        {
+            
+         btnterminetodo.setEnabled(false);
+         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");
+        
+        }
+       
+        sumapuntos();
+        
+    }
+
+
+
+
+     else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
+    {
+        
+        nombredelatabla = "historial_ordenes_corbata_recibidas";
+        
+         try {
+            datosotrasucursal();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+         sumapuntos();
+    }
+
+
+        AudioClip sonido;
+        if (tieneunaobservacion.equals("si")) {
+            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));
+            sonido.play();
+
+        }
+        
+        
+        
+        
+         String observacion = lbobservaciones.getText();
+        
+        if (observacion.equals(""))
+        {
+            
+        }
+        else
+        {
+         
+       
+String[] lineas = observacion.split("\n");
+
+String mensaje = "<HTML><span style=\"Color:red;font-size:25px;\">NOTA: " + lineas[0] + "</span><br>";
+if (lineas.length > 1) {
+    mensaje += "<span style=\"Color:red; font-size:25px;\">" + lineas[1] + "</span>";
+}
+
+JOptionPane.showMessageDialog(null, mensaje);
+        
+        
+        
+        
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     void datostiendalocal() throws IOException {
 
          
@@ -1974,153 +2099,9 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
       
         
+        datos();
         
-        
-        
-        
-if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
-    {
-      
-         nombredelatabla = "historial_ordenes_gorra";
-
-        try {
-            datostiendalocal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordengorraS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        codigocliente();
-        
-        cliente();
-        
-         hilosycolor();
-        
-        try {
-            cargarfotomontaje();
-        } catch (IOException ex) {
-            Logger.getLogger(ordengorraS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        
-        if(enquesucursalsebordara.equals("Otra sucursal")  )
-        {
-            
-         btnterminetodo.setEnabled(false);
-         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");
-        
-        }
-       
-        sumapuntos();
-        
-    }
-
-
-
-
-     else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
-    {
-        
-        nombredelatabla = "historial_ordenes_corbata_recibidas";
-        
-         try {
-            datosotrasucursal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         
-         
-         sumapuntos();
-    }
-
-
-        AudioClip sonido;
-        if (tieneunaobservacion.equals("si")) {
-            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));
-            sonido.play();
-
-        }
-        
-        
-        
-        
-         String observacion = lbobservaciones.getText();
-        
-        if (observacion.equals(""))
-        {
-            
-        }
-        else
-        {
-         
-       
-String[] lineas = observacion.split("\n");
-
-String mensaje = "<HTML><span style=\"Color:red;font-size:25px;\">NOTA: " + lineas[0] + "</span><br>";
-if (lineas.length > 1) {
-    mensaje += "<span style=\"Color:red; font-size:25px;\">" + lineas[1] + "</span>";
-}
-
-JOptionPane.showMessageDialog(null, mensaje);
-        
-        
-        
-        
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-       /* 
-        
-        try {     
-            datosOrdenesLocales();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        cliente();
-        sumapuntos();       
-        hilosycolor();
-        
-         AudioClip sonido;
-      if(tieneunaobservacion.equals("si"))
-        {
-            sonido= java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));    
-            sonido.play();
-            
-        }
-      
-      
-      
-       String observacion = lbobservaciones.getText();
-        
-        if (observacion.equals(""))
-        {
-            
-        }
-        else
-        {
-         
-       
-String[] lineas = observacion.split("\n");
-
-String mensaje = "<HTML><span style=\"Color:red;font-size:25px;\">NOTA: " + lineas[0] + "</span><br>";
-if (lineas.length > 1) {
-    mensaje += "<span style=\"Color:red; font-size:25px;\">" + lineas[1] + "</span>";
-}
-
-JOptionPane.showMessageDialog(null, mensaje);
-
-
-
-        }
-*/
+  
         
     }//GEN-LAST:event_formWindowOpened
 

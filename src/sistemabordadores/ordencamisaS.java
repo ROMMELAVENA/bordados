@@ -2109,7 +2109,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         prenda = lbprenda.getText();
    
        
-        String sql = "SELECT imagen,extension_imagen FROM bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";  ///
+        String sql = "SELECT imagen,extension_imagen FROM bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = '"+prenda+"'   ";  ///
     
     
             

@@ -542,7 +542,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
     
      
         //// prenda del fotomontaje
-        String sql = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'PANTALON'   ";
+        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'PANTALON'   ";
 
         try {
             Statement st1 = cn.createStatement();

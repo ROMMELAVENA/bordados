@@ -1014,7 +1014,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String existe = "";
         
         //// prenda del fotomontaje
-        String sql = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'Parche'   ";
+        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'Parche'   ";
 
         try {
             Statement st1 = cn.createStatement();
@@ -2099,7 +2099,11 @@ JOptionPane.showMessageDialog(null, mensaje);
     
      void codigocliente()
     {
-        String sql = "SELECT codigo_cliente FROM historial_ventas WHERE numero = '"+numerodeventa+"' ";
+        
+        
+        
+        
+        String sql = "SELECT codigo_cliente FROM historial_ventas WHERE numero = '"+lbnumerodeventa.getText()+"' ";
 
 
         try {
@@ -2122,10 +2126,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     {
         
         
-        
-        
-        
-        codigocliente();
         String puntadasenfotomontajes = "";
         BufferedImage img = null;
 

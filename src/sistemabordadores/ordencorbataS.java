@@ -254,7 +254,7 @@ public class ordencorbataS extends javax.swing.JFrame {
         }
 
 
-      cargarfotomontajetiendalocal();
+      cargarfotomontaje();
         
         
         
@@ -365,7 +365,7 @@ public class ordencorbataS extends javax.swing.JFrame {
     
     
     
-    void cargarfotomontajetiendalocal() throws FileNotFoundException, IOException  
+    void cargarfotomontaje() throws FileNotFoundException, IOException  
     {
         
     
@@ -1996,7 +1996,7 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equa
          hilosycolor();
         
         try {
-            cargarfotomontajetiendalocal();
+            cargarfotomontaje();
         } catch (IOException ex) {
             Logger.getLogger(ordengorraS.class.getName()).log(Level.SEVERE, null, ex);
         }

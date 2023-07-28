@@ -219,7 +219,7 @@ public class ordendistintaS extends javax.swing.JFrame {
 
         numeroordendebordadolocalorecibida = lborden.getText();
         
-        datostienda();
+        datosdepedidosyenvios();
 
         String sql = "Select codigo,tipo,estatus_orden,numero,numero_venta,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,identificador_prenda,estatus_orden,estatus_entrega,articulo,cantidad,prenda,cantidad_bordados,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,\n" +
 "	   distinta1,distinta1_ubicacion,distinta1_nombre,distinta1_cantidad,distinta1_aplicacion,distinta1_aplicacion_color,\n" +
@@ -1285,7 +1285,7 @@ public class ordendistintaS extends javax.swing.JFrame {
     
     
     
-    void datostienda() 
+    void datosdepedidosyenvios() 
     {
         /// busca las ordenes de camisa generadas 
 

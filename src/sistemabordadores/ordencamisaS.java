@@ -1190,7 +1190,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                  
                  
                  
-        datostienda();
+        datosdepedidosyenvios();
         
         
        
@@ -2357,7 +2357,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-    void datostienda() 
+    void datosdepedidosyenvios() 
     {
         /// busca las ordenes de camisa generadas 
 

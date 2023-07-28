@@ -525,7 +525,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
 
         }         
 
-        datostienda();
+        datosdepedidosyenvios();
         cargarfotomontaje();
 
     }
@@ -713,7 +713,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
     
     
     
-     void datostienda() {
+     void datosdepedidosyenvios() {
         /// busca las ordenes de pantalon generadas 
 
         String numero = lbnumerodeventa.getText();

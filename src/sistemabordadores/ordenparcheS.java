@@ -293,32 +293,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
                 nombre = rs.getString("articulo");
                 cantidad = rs.getString("cantidad");
                 cantidadparche = rs.getString("cantidad_parche");

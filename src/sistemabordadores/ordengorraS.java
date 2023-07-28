@@ -580,14 +580,14 @@ public class ordengorraS extends javax.swing.JFrame {
             System.out.println(ex);
         }
         
-        datostienda();
+        datosdepedidosyenvios();
         
 
     }
 
     
     
-    void datostienda() {
+    void datosdepedidosyenvios() {
         /// busca las ordenes de camisa generadas 
 
         String numero = lbnumerodeventa.getText();

@@ -1413,7 +1413,7 @@ public class ordendistintaS extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='0', "+fecha+"='' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+fecha+"='' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 

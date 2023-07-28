@@ -1618,7 +1618,7 @@ public class ordengorraS extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_gorra set "+ubicacion+"='0', "+fecha+" = null where numero = '"+numeroordendebordadolocalorecibida+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+fecha+" = null where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1648,7 +1648,7 @@ public class ordengorraS extends javax.swing.JFrame {
     
     
     
-    void insertarlacantidadylafechaenlaubicacionotrasucursal(String ubicacion)
+    void insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO(String ubicacion)
     {
         try {
 
@@ -3761,7 +3761,9 @@ JOptionPane.showMessageDialog(null, mensaje);
            
             
             String ubicacion = "cantidad_lado_derecho";
-            insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
+            
+            insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
+            
             String cantidadaplicacion = "0";
             descripcion = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
             aplicacioninsertar = "";
@@ -4192,7 +4194,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             
           
           
-            insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
+            insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
+            
             String cantidadaplicacion = "0";
             descripcion = "BORDADO GORRA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "APLICACION GORRA FRENTE";
@@ -4270,7 +4273,9 @@ JOptionPane.showMessageDialog(null, mensaje);
       
             nombredelatabla = "historial_ordenes_gorra_recibidas";
             String ubicacion = "cantidad_lado_izquierdo";
-            insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
+            
+            insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
+            
             String cantidadaplicacion = "0";
             descripcion = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
             aplicacioninsertar = "";
@@ -4333,7 +4338,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             String ubicacion = "cantidad_atras";
-            insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
+            
+            insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
+            
             String cantidadaplicacion = "0";
             descripcion = "BORDADO GORRA ATRAS "+atrasnombre+ "";
             aplicacioninsertar = "";

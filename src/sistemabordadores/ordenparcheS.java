@@ -22,6 +22,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,7 +36,7 @@ import static sistemabordadores.ordengorraS.lbcliente;
 
 
 public class ordenparcheS extends javax.swing.JFrame {
-public static boolean ventanaordenparcheanteriores = false;
+public static boolean ventanaordenparche = false;
 
         private PreparedStatement pst;
         String cliente = "";
@@ -47,12 +48,12 @@ public static boolean ventanaordenparcheanteriores = false;
         String cantidad = "";
         String cantidadparche = "";
         String parche = "";
-        String nombreparche = "";
+        String parchenombre = "";
         String nombre = "";
         String ubicacion = "";
         String aplicacion = "";
         String observacion = "";
-        int renglon = 0;
+       
         String numerosucursalordenbordado = "";
         String primero = "";
         String ultimo = "";
@@ -86,6 +87,12 @@ public static boolean ventanaordenparcheanteriores = false;
         
         String tiendalocal = "";
         String iplocal = ingresotienda.iplocal;
+        
+        String terminetodo = "";
+        
+        ArrayList<String> listabotones = new ArrayList<String>();
+         ArrayList<String> listahilos = new ArrayList<String>();
+        
      
      public static String enquesucursalsebordara ="";
      
@@ -97,10 +104,10 @@ public static boolean ventanaordenparcheanteriores = false;
     public ordenparcheS() 
     {
         initComponents();
-        ventanaordenparcheanteriores = true;
+        ventanaordenparche = true;
         btndatos.setVisible(false);
         lbhora.setVisible(false);
-        
+        btnterminetodo.setEnabled(false);
         
          tiendalocal = principal.lbtiendalocal.getText();
 
@@ -108,13 +115,119 @@ public static boolean ventanaordenparcheanteriores = false;
 
     
     
+    void datos(){
+        
+        
+          
+if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
+    {
+      
+         nombredelatabla = "historial_ordenes_parche";
+
+    try {
+        datostiendalocal();
+    } catch (IOException ex) {
+        Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
+      codigocliente();
+        
+        cliente();
+        
+         hilosycolor();
+        
+        try {
+            cargarfotomontaje();
+        } catch (IOException ex) {
+            Logger.getLogger(ordengorraS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        if(enquesucursalsebordara.equals("Otra sucursal") && (numerosucursalordenbordado == null || numerosucursalordenbordado.equals("") || numerosucursalordenbordado.equals(" ") ) )
+        {
+            
+         
+         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");
+        
+        }
+       
+        sumapuntos();
+        
+    }
+else
+    
+    if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
+    {
+        nombredelatabla = "historial_ordenes_parche_recibidos";
+        
+         try {
+            datosotrasucursal();
+        } catch (IOException ex) {
+            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+         
+         
+         sumapuntos();
+    }
+
+
+        AudioClip sonido;
+        if (tieneunaobservacion.equals("si")) {
+            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));
+            sonido.play();
+
+        }
+        
+        
+        
+        
+         String observacion = lbobservacion.getText();
+        
+        if (observacion.equals(""))
+        {
+            
+        }
+        else
+        {
+         
+       
+String[] lineas = observacion.split("\n");
+
+String mensaje = "<HTML><span style=\"Color:red;font-size:25px;\">NOTA: " + lineas[0] + "</span><br>";
+if (lineas.length > 1) {
+    mensaje += "<span style=\"Color:red; font-size:25px;\">" + lineas[1] + "</span>";
+}
+
+JOptionPane.showMessageDialog(null, mensaje);
+        
+        
+        
+        
+        }
+        
+      
+      
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
     
    void datostiendalocal() throws IOException {
     
-        
+        String botonhabilitado1 = "si";
+       
         
         limpiar();
-        renglon = 0;
+   
      
         numeroordendebordadolocalorecibida = lborden.getText();
         
@@ -135,7 +248,8 @@ public static boolean ventanaordenparcheanteriores = false;
                 
                 lbbordacliente.setText( rs.getString("borda_cliente"));
                 
-                
+              //  estatusentrega = rs.getString("estatus_entrega");
+                        
                 lbnumerodelaotrasucursal.setText(rs.getString("numero"));
                 lbfechaelaboracion.setText(rs.getString("fecha"));
                 lbhora.setText(rs.getString("hora"));
@@ -147,9 +261,63 @@ public static boolean ventanaordenparcheanteriores = false;
                 
                 numeroordendeenviosolicitada=rs.getString("numero_orden");
                 
+                
+                
+                
+                
                 parche = rs.getString("parche");
-                lbpuntadas.setText(parche);
-                nombreparche = rs.getString("parche_nombre");
+                lbparche.setText(parche);
+                parchenombre = rs.getString("parche_nombre");
+               
+                
+                
+                  
+                if (parche == null || parche.equals("") || parche.equals("ninguno")) {
+
+              
+                    botonhabilitado1 = "no";
+                    btnparcheponchado.setEnabled(false);
+                 
+                    
+                }
+                 else
+                {
+                    
+                    lbparche.setText(parche);
+                     btnterminetodo.setEnabled(true);
+                     
+                }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 nombre = rs.getString("articulo");
                 cantidad = rs.getString("cantidad");
                 cantidadparche = rs.getString("cantidad_parche");
@@ -181,9 +349,6 @@ public static boolean ventanaordenparcheanteriores = false;
                
                 sucursal= "ninguno";//rs.getString("tienda")
 
-                renglon = renglon +1 ; 
-                mostrarrenglones();
-                
              
               String estatusorden = rs.getString("estatus_orden");
                  lbestatus.setText(estatusorden);
@@ -222,9 +387,28 @@ public static boolean ventanaordenparcheanteriores = false;
                    
                    
                    
-                   
-                   
                 }   
+                
+                
+                
+                
+                cantidad = rs.getString("cantidad"); 
+                
+               
+                if(cantidadparche.equals("0"))
+                {
+                
+                }
+                else
+                {
+                    btntermine.setEnabled(false);
+                }    
+                
+              
+                
+                
+                
+                
                 
                 
                 
@@ -435,62 +619,6 @@ public static boolean ventanaordenparcheanteriores = false;
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    void mostrarrenglones()
-    {
-        
-        if (renglon==1)
-        {
-            lbcantidad.setText(cantidad);
-            lbcantidad1.setText(cantidad);
-            
-            lbprenda.setText(parche);
-            lbnombre.setText(identificador);
-          
-            lbaplicacion1.setText(aplicacion);
-     
-     //       lbobservacion.setText(observacion);
-            
-            if(cantidadparche.equals("0"))
-            {
-               btnterminetodo.setEnabled(true);
-            }
-            else
-            {
-               btnterminetodo.setEnabled(false); 
-            }    
-            
-        }
-       
-        
-      
-      
-        
-    }
-    
-   
-    
-    
-    
-    
-    
  
     void numeroconsecutivo()
     {
@@ -528,8 +656,8 @@ public static boolean ventanaordenparcheanteriores = false;
      {
          
          
-                lbcantidad.setText("");
-                lbcantidad1.setText("");
+                lbcantidad.setText("0");
+                lbcantidad1.setText("0");
                 
                 lbprenda.setText("");
                 
@@ -609,7 +737,7 @@ public static boolean ventanaordenparcheanteriores = false;
     
      public static String dia() {
         Date fecha = new Date();
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
         return formatoFecha.format(fecha);
     }
 
@@ -742,11 +870,11 @@ public static boolean ventanaordenparcheanteriores = false;
      void estacompletalaorden()
     {
         
-        String cantidad = "0";
+       
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select parche from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select cantidad,cantidad_parche from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -754,103 +882,45 @@ public static boolean ventanaordenparcheanteriores = false;
 
             while (rs.next()) {
 
-                cantidad = rs.getString("cantidadxxxxxxx");   
-                String cantidadladoizquierdo = rs.getString("cantidad_lado_izquierdoxxxx");
-                String ladoizquierdo = rs.getString("lado_izquierdoxxxxxxxxxx");
-                
-                
-                if(ladoizquierdo==null || ladoizquierdo.equals("")||ladoizquierdo.equals(" ") )
-                {
-                    
-                    
-                }
-                else
-                {
-                   botonesactivados = botonesactivados + 1; 
-                } 
-                
-              /*-  
-                if(ladoderecho==null || ladoderecho.equals("")||ladoderecho.equals(" ") )
-                {
-                    
-                    
-                }
-                else
-                {
-                   botonesactivados = botonesactivados + 1; 
-                }
-                
-                if(frente==null || frente.equals("")||frente.equals(" ") )
-                {
-                    
-                    
-                }
-                else
-                {
-                   botonesactivados = botonesactivados + 1; 
-                }
-                
-                if(atras==null || atras.equals("")||atras.equals(" ") )
-                {
-                    
-                    
-                }
-                else
-                {
-                   botonesactivados = botonesactivados + 1; 
-                }
-                
+                cantidad = rs.getString("cantidad");   
+                String cantidadubicacion1 = rs.getString("cantidad_parche");
                
-           
-           
-                ////////////////////////////////////////////////////////////////
                 
-                 if(cantidadladoizquierdo.equals("0") )
+                
+                if(cantidadubicacion1==null || cantidadubicacion1.equals("")||cantidadubicacion1.equals(" ") )
                 {
                     
+                    
+                }
+                else
+                {
+                    
+                    
+                    
+                         if(cantidadubicacion1.equals("0") )
+                {
+                    lbcantidad1.setText("0");
+                    lbcantidad1.setForeground(Color.red.darker());
                     
                 }
                 else
                 {
                    tienecantidad = tienecantidad + 1; 
+                   
+                    botonesactivados = botonesactivados + 1; 
+                   lbcantidad1.setText(cantidad);
+                   lbcantidad1.setForeground(Color.GREEN.darker());
+                   
+                } 
+                    
                 } 
                 
                 
-                if(cantidadladoderecho.equals("0") )
-                {
-                    
-                    
-                }
-                else
-                {
-                   tienecantidad = tienecantidad + 1; 
-                }
-                
-                if(cantidadatras.equals("0") )
-                {
-                    
-                    
-                }
-                else
-                {
-                   tienecantidad = tienecantidad + 1;
-                }
-                
-                if(cantidadfrente.equals("0"))
-                {
-                    
-                    
-                }
-                else
-                {
-                   tienecantidad = tienecantidad + 1;
-                }
-                
-               
                 
                 
                 
-                   if(tienecantidad == botonesactivados)
+                
+                    if(tienecantidad == botonesactivados)
            {
                
              nuevoestatusorden = "realizada totalmente";
@@ -865,11 +935,12 @@ public static boolean ventanaordenparcheanteriores = false;
             
            }   
                 
-                */
-           
+                
+                
+             
                try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='realizada totalmente' ,fecha='"+dia()+"' where numero='" +numeroordendebordadolocalorecibida+ "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='"+nuevoestatusorden+"' where numero='" +numeroordendebordadolocalorecibida+ "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1106,7 +1177,7 @@ public static boolean ventanaordenparcheanteriores = false;
      
      
     
-    void insertarlacantidadylafechaenlaubicacionotrasucursal(String ubicacion)
+    void insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO(String ubicacion)
     {
         
       
@@ -1152,7 +1223,7 @@ public static boolean ventanaordenparcheanteriores = false;
         prenda = "Parche";
         sucursal = lbsucursal.getText();
 
-        String sql = "Select numero,numero_sucursal_orden,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,cantidad,parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,identificador_prenda FROM historial_ordenes_parche_recibidos where numero = '" + numeroordendebordadolocalorecibida + "' and tienda = '" + sucursal + "'";
+        String sql = "Select numero,numero_sucursal_orden,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,cantidad,parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,identificador_prenda,cantidad_parche,parche_fecha FROM historial_ordenes_parche_recibidos where numero = '" + numeroordendebordadolocalorecibida + "' and tienda = '" + sucursal + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -1166,9 +1237,7 @@ public static boolean ventanaordenparcheanteriores = false;
               
                 lbnombrecomercial.setText(rs.getString("nombre_comercial"));
                 lbbordacliente.setText(rs.getString("borda_cliente"));
-                lbcantidad.setText(rs.getString("cantidad"));
-                lbcantidad1.setText(rs.getString("cantidad"));
-                
+             
                
                 lbnumerodelaotrasucursal.setText(rs.getString("numero_sucursal_orden"));
            //     lbnumeroventa.setText(rs.getString("numero_venta"));
@@ -1183,19 +1252,63 @@ public static boolean ventanaordenparcheanteriores = false;
                 
                 
                 parche = rs.getString("parche");
-                lbpuntadas.setText(parche);
+                lbparche.setText(parche);
                 
                 nombre = rs.getString("articulo");
          
                 
                 cantidad = rs.getString("cantidad");
                 lbcantidad.setText(cantidad);
-                lbcantidad1.setText(cantidad);
+                
                 
                 
            //     cantidadparche = rs.getString("cantidad");
                 aplicacion = rs.getString("aplicacion");
                 observacion = rs.getString("observacion");
+                
+                
+                lbestatus.setText(rs.getString("estatus_orden"));
+                
+                 String estatusorden = rs.getString("estatus_orden");
+                 lbestatus.setText(estatusorden);
+                
+                 
+                 
+                 
+                if(estatusorden.equals("realizada totalmente"))
+                {
+                  btnterminetodo.setEnabled(false);
+                  btntermine.setEnabled(false);
+                  
+                  lbestatus.setForeground(Color.green.darker());
+                 
+                  
+                }
+                else
+                {
+                   btnterminetodo.setEnabled(true); 
+                    btnterminetodo.setEnabled(true);
+                   
+                   
+                  if(estatusorden.equals("realizada parcialmente"))
+                  {
+                      
+                       lbestatus.setForeground(anaranjado);
+                      
+                      
+                  }
+                  else
+                  {
+                      lbestatus.setForeground(Color.red);
+                      lbcantidad1.setText("0");
+                      lbcantidad1.setForeground(Color.red.darker());
+                  }
+                   
+                   
+                   
+                }
+                   
+                
                 
                 identificador = rs.getString("identificador_prenda");
                 lbidentificador.setText(identificador);
@@ -1204,11 +1317,8 @@ public static boolean ventanaordenparcheanteriores = false;
                 
                 lugar = rs.getString("lugar");
                 
-                identificador =  rs.getString("identificador_prenda");
-                lbidentificador.setText(identificador);
-                lbnombre.setText(identificador);
-               
-                
+             
+                lbcantidad1.setText( rs.getString("cantidad_parche"));
                 
                 
 
@@ -1350,6 +1460,26 @@ public static boolean ventanaordenparcheanteriores = false;
      
      
      
+      
+       void eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion(String ubicacion, String fecha){
+        
+         try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+fecha+"='' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+                }
+        
+        
+        
+    }
+    
+    
+    
      
      
      
@@ -2161,9 +2291,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbprenda2 = new javax.swing.JLabel();
         lbprenda3 = new javax.swing.JLabel();
         btncancelar = new javax.swing.JButton();
-        btnponchado = new javax.swing.JButton();
+        btnparcheponchado = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        lbpuntadas = new javax.swing.JLabel();
+        lbparche = new javax.swing.JLabel();
         lbnombre = new javax.swing.JLabel();
         lbcodigo = new javax.swing.JLabel();
         lbcolor = new javax.swing.JLabel();
@@ -2267,27 +2397,30 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel23.setText("Nombre comercial");
         jLabel23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        lbcantidad.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Cantidad");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbprenda.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbprenda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbprenda.setText("Parche");
         lbprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbidentificador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbidentificador.setForeground(new java.awt.Color(0, 0, 153));
         lbidentificador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        lbaplicacion1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbaplicacion1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Aplicacion");
         jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnterminetodo.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btnterminetodo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnterminetodo.setForeground(new java.awt.Color(0, 102, 0));
         btnterminetodo.setText("**-Termine todo***");
         btnterminetodo.addActionListener(new java.awt.event.ActionListener() {
@@ -2312,10 +2445,11 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Numero de orden");
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        lborden.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lborden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -2357,8 +2491,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel9.setText("No. de venta");
         jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        lbnumerodeventa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbnumerodeventa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        lbtipo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbtipo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnreplicarponchados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -2371,15 +2507,15 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbsucursal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbsucursal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbprenda1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbprenda1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbprenda1.setText("Prenda");
         lbprenda1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbprenda2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbprenda2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbprenda2.setText("Identificador");
         lbprenda2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbprenda3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbprenda3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbprenda3.setText("Tipo");
         lbprenda3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -2392,12 +2528,12 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
         });
 
-        btnponchado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnponchado.setText("Ponchado");
-        btnponchado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnponchado.addActionListener(new java.awt.event.ActionListener() {
+        btnparcheponchado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnparcheponchado.setText("Ponchado");
+        btnparcheponchado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnparcheponchado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnponchadoActionPerformed(evt);
+                btnparcheponchadoActionPerformed(evt);
             }
         });
 
@@ -2406,8 +2542,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel8.setText("Parche");
         jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbpuntadas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbpuntadas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbparche.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbparche.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbnombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbnombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -2457,7 +2593,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(btnverfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2498,25 +2634,25 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel29)
                                 .addGap(6, 6, 6)
-                                .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btndatos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbhora, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
-                                .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8)
-                                .addComponent(lbfechaelaboracion, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbfechaelaboracion, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8)
-                                .addComponent(lbnumerodeventa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbnumerodeventa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(lbhora, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btndatos)
-                            .addGap(119, 119, 119)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2525,7 +2661,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addGap(12, 12, 12)
                             .addComponent(lbnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(lbpuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbparche, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(12, 12, 12)
                             .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(5, 5, 5)
@@ -2537,11 +2673,12 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addGap(7, 7, 7)
                             .addComponent(lbcolor, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(5, 5, 5)
-                            .addComponent(btnponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnparcheponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(60, 60, 60)
-                            .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(13, 13, 13))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2602,35 +2739,28 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbhora, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbhora, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbpuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbparche, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btntermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcolor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnparcheponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lbnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37))
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -2700,232 +2830,69 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
        
-        ventanaordenparcheanteriores = false;
+        ventanaordenparche = false;
         this.dispose();
         
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        ventanaordenparcheanteriores = false;
+     
+        ventanaordenparche = false;
+        this.dispose();
+        
     }//GEN-LAST:event_formWindowClosing
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        
-        
-        
-        /*
-        datostiendalocal();
-        cliente();
-        numeroconsecutivo();
-        
-         AudioClip sonido;
-      if(tieneunaobservacion.equals("si"))
-        {
-            sonido= java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));    
-            sonido.play();
-            
-        }
-      
-      
-        String observacion = lbobservacion.getText();
-        
-        if (observacion.equals(""))
-        {
-            
-        }
-        else
-        {
-         
-       
-String[] lineas = observacion.split("\n");
-
-String mensaje = "<HTML><span style=\"Color:red;font-size:25px;\">NOTA: " + lineas[0] + "</span><br>";
-if (lineas.length > 1) {
-    mensaje += "<span style=\"Color:red; font-size:25px;\">" + lineas[1] + "</span>";
-}
-
-JOptionPane.showMessageDialog(null, mensaje);
-        
-        
-        
-        
-        }
-
-*/
-        
-        
-        
-        
-        
-        
-        
-        
-if((enquesucursalsebordara.equals("Esta sucursal") ||enquesucursalsebordara.equals("Otra sucursal")) && tipotabla.equals("Local"))    
-    {
-      
-         nombredelatabla = "historial_ordenes_parche";
-
-    try {
-        datostiendalocal();
-    } catch (IOException ex) {
-        Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
-    }
-        
-      codigocliente();
-        
-        cliente();
-        
-         hilosycolor();
-        
-        try {
-            cargarfotomontaje();
-        } catch (IOException ex) {
-            Logger.getLogger(ordengorraS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        
-        if(enquesucursalsebordara.equals("Otra sucursal") && (numerosucursalordenbordado == null || numerosucursalordenbordado.equals("") || numerosucursalordenbordado.equals(" ") ) )
-        {
-            
-         btnterminetodo.setEnabled(false);
-         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");
-        
-        }
-       
-        sumapuntos();
-        
-    }
-else
-    
-    if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
-    {
-        nombredelatabla = "historial_ordenes_parche_recibidos";
-        
-         try {
-            datosotrasucursal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         
-         
-         
-         
-         sumapuntos();
-    }
-
-
-        AudioClip sonido;
-        if (tieneunaobservacion.equals("si")) {
-            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));
-            sonido.play();
-
-        }
-        
-        
-        
-        
-         String observacion = lbobservacion.getText();
-        
-        if (observacion.equals(""))
-        {
-            
-        }
-        else
-        {
-         
-       
-String[] lineas = observacion.split("\n");
-
-String mensaje = "<HTML><span style=\"Color:red;font-size:25px;\">NOTA: " + lineas[0] + "</span><br>";
-if (lineas.length > 1) {
-    mensaje += "<span style=\"Color:red; font-size:25px;\">" + lineas[1] + "</span>";
-}
-
-JOptionPane.showMessageDialog(null, mensaje);
-        
-        
-        
-        
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        datos();
         
         
     }//GEN-LAST:event_formWindowOpened
 
     private void btnterminetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnterminetodoActionPerformed
 
-        if(btnterminetodo.getText().equals("Cancelar"))
-        {
-            
-      
-        tipo = lbprenda.getText();
-        String fecha = "parche_fecha";
-   
-        
-        eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) cantidadparchesactualizar,(String)tipo,(String)fecha);
-   
-        String cantidadaplicacion = lbaplicacion1.getText();
-       
       
         
-        descripcion ="BORDADO PARCHE".concat(" ").concat(lbprenda.getText());
-        aplicacioninsertar = "APLICACION PARCHE1";
-       
-        agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
+        
+        
+        terminetodo = "si";
+        
+        
+        for(int i = 0; i < listabotones.size(); i++)
+        {
+            Object boton =  listabotones.get(i);
+            
+            
+           
             
         }
-        else
-        {
-     
-        tipo = lbprenda.getText();
-        
-        fechaubicacion = "parche_fecha";
-     
-                
-        insertarlacantidadylafechaenlaubicacion((String) cantidadparchesactualizar,(String)tipo, (String) fechaubicacion);
         
         
         
-        String cantidadaplicacion = lbaplicacion1.getText();
-       
-        descripcion ="BORDADO PARCHE".concat(" ").concat(lbprenda.getText());
-        aplicacioninsertar = "APLICACION PARCHE1";
-        agregarexistenciabordados((String) descripcion,(String) aplicacioninsertar,(String) cantidadaplicacion,(String) cantidad); 
-        agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
-        }
         
-        sumapuntos();
-        
-        
+         terminetodo = "no";
+         btnterminetodo.setEnabled(false);
+         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se actualizo");
+         
          if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
+         
+         this.dispose();
+         ventanaordenparche = false;
         
-        ventanaordenparcheanteriores = false;
-        this.dispose();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
     }//GEN-LAST:event_btnterminetodoActionPerformed
@@ -3054,38 +3021,35 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndatosActionPerformed
       
-    try {
-        datostiendalocal();
-    } catch (IOException ex) {
-        Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
-    }
-        cliente();
-        numeroconsecutivo();
         
-         AudioClip sonido;
-      if(tieneunaobservacion.equals("si"))
-        {
-            sonido= java.applet.Applet.newAudioClip(getClass().getResource("/sonidos/tienesunaobservacion.wav"));    
-            sonido.play();
-            
-        }
+      datos();
+      
+      
     }//GEN-LAST:event_btndatosActionPerformed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
-        // TODO add your handling code here:
+      
+          String ubicacion = "cantidad_parche";
+                    String fecha = "parche_fecha";
+                    eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_btncancelarActionPerformed
 
-    private void btnponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnponchadoActionPerformed
+    private void btnparcheponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnparcheponchadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnponchadoActionPerformed
+    }//GEN-LAST:event_btnparcheponchadoActionPerformed
 
     private void btntermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermineActionPerformed
 
-        
-        
+       
       
       fechaubicacion  = "parche_fecha";
-      String ubicacion = "cantidad_parche";
+      String fechaubicacion = "cantidad_parche";
      
       
          if(cantidad.equals("0"))
@@ -3102,22 +3066,19 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
           
-
-               
-         
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
          
             
             String cantidadaplicacion = "0";
-            descripcion = "BORDADO PARCHE "+nombreparche+ "";
+            descripcion = "BORDADO PARCHE "+parchenombre+ "";
             aplicacioninsertar = "APLICACION PARCHE";
             
-            nombredelatabla = "historial_ordenes_parche";
+           
            
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
             sumapuntos();    
-        
+      
            
         }
          else 
@@ -3147,25 +3108,23 @@ JOptionPane.showMessageDialog(null, mensaje);
                 if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
         {
             
+         
             
           
+            insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) fechaubicacion);
+          
             
-            insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
             String cantidadaplicacion = "0";
-         //   descripcion = "BORDADO PARCHE "+nombreparche+ ""; 
+         //   descripcion = "BORDADO PARCHE "+parchenombre+ ""; 
             aplicacioninsertar = "APLICACION PARCHE";
-            nombredelatabla = "historial_ordenes_parche_recibidos";
+        
            
             
                estacompletalaorden(); 
     
                sumapuntos();   
         
-            
-            
-            
-            
-            
+           
             
               
             
@@ -3198,7 +3157,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JButton btndatos;
     private javax.swing.JButton btneditarbordado;
     private javax.swing.JButton btnfotomontajesinpuntadas;
-    private javax.swing.JButton btnponchado;
+    private javax.swing.JButton btnparcheponchado;
     private javax.swing.JButton btnreplicarponchados;
     public static javax.swing.JButton btnsalir;
     private javax.swing.JButton btntermine;
@@ -3239,11 +3198,11 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbnumerodeventa;
     public static javax.swing.JTextArea lbobservacion;
     public static javax.swing.JLabel lborden;
+    public static javax.swing.JLabel lbparche;
     private javax.swing.JLabel lbprenda;
     private javax.swing.JLabel lbprenda1;
     private javax.swing.JLabel lbprenda2;
     private javax.swing.JLabel lbprenda3;
-    public static javax.swing.JLabel lbpuntadas;
     public static javax.swing.JLabel lbsucursal;
     public javax.swing.JLabel lbsumapuntos;
     public static javax.swing.JLabel lbtipo;

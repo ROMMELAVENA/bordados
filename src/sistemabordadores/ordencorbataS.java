@@ -155,8 +155,8 @@ public class ordencorbataS extends javax.swing.JFrame {
                 
                 }
 
-                lbpuntadas.setText(rs.getString("frente"));
-                frentenombre= rs.getString("frente");
+                lbfrente.setText(rs.getString("frente"));
+                frentenombre= rs.getString("frente_nombre");
                 identificador =rs.getString("identificador_prenda"); 
                 lbidentificador.setText(identificador);
                 
@@ -172,16 +172,7 @@ public class ordencorbataS extends javax.swing.JFrame {
                     btntermine.setEnabled(false);
                 }    
                 
-                
-                if (frentenombre == null || frentenombre.equals("")) 
-                {
-
-                } else {
-
-                    lbtitulofrente.setText(frentenombre);
-                    lbfrentepuntadas.setText(rs.getString("frente_puntadas"));
-
-                }
+              
 
                
                 lugar =rs.getString("lugar");
@@ -356,7 +347,7 @@ public class ordencorbataS extends javax.swing.JFrame {
         
          try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set "+ubicacion+"='0', "+fecha+"='' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+fecha+"='' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -469,9 +460,9 @@ public class ordencorbataS extends javax.swing.JFrame {
         if(tienefotomontaje.equals("si"))
         {
           
-            lbtitulofrente.setVisible(false);
-            lbpuntadas.setVisible(false);
-            lbfrentepuntadas.setVisible(false);
+          
+            lbfrente.setVisible(false);
+     
 
         }
         else
@@ -939,7 +930,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 }
 
-                lbpuntadas.setText(rs.getString("frente"));
+                lbfrente.setText(rs.getString("frente"));
                 frentenombre= rs.getString("frente");
                 identificador =rs.getString("identificador_prenda"); 
                 lbidentificador.setText(identificador);
@@ -957,15 +948,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }    
                 
                 
-                if (frentenombre == null || frentenombre.equals("")) 
-                {
-
-                } else {
-
-                    lbtitulofrente.setText(frentenombre);
-                    lbfrentepuntadas.setText(rs.getString("frente_puntadas"));
-
-                }
+               
 
             
                 lugar =rs.getString("lugar");
@@ -1331,7 +1314,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 // FRENTE
                 double costopuntadafrente = 0.0;
 
-                Object frenteobject = lbfrentepuntadas.getText();
+                Object frenteobject = lbfrente.getText();
 
                 String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + frenteobject + "'";
 
@@ -1403,8 +1386,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel23 = new javax.swing.JLabel();
         lbestatus = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        lbtitulofrente = new javax.swing.JLabel();
-        lbfrentepuntadas = new javax.swing.JLabel();
         lbfotomontaje = new javax.swing.JLabel();
         lbnombrecomercial = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
@@ -1433,8 +1414,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbprenda2 = new javax.swing.JLabel();
         lbprenda3 = new javax.swing.JLabel();
         lbprenda4 = new javax.swing.JLabel();
-        lbnombre = new javax.swing.JLabel();
-        lbpuntadas = new javax.swing.JLabel();
+        lbfrentenombre = new javax.swing.JLabel();
+        lbfrente = new javax.swing.JLabel();
         lbcantidad1 = new javax.swing.JLabel();
         lbnumerodelaotrasucursal = new javax.swing.JLabel();
         lbsucursal = new javax.swing.JLabel();
@@ -1527,14 +1508,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         jPanel1.setMinimumSize(new java.awt.Dimension(800, 800));
         jPanel1.setName(""); // NOI18N
         jPanel1.setLayout(null);
-
-        lbtitulofrente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jPanel1.add(lbtitulofrente);
-        lbtitulofrente.setBounds(500, 120, 360, 20);
-
-        lbfrentepuntadas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jPanel1.add(lbfrentepuntadas);
-        lbfrentepuntadas.setBounds(500, 180, 360, 20);
         jPanel1.add(lbfotomontaje);
         lbfotomontaje.setBounds(10, 10, 1090, 620);
 
@@ -1679,11 +1652,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbprenda4.setText("Prenda");
         lbprenda4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbnombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbnombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbfrentenombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbfrentenombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbpuntadas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbpuntadas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbfrente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbfrente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcantidad1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbcantidad1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1705,9 +1678,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
-                        .addComponent(lbnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbfrentenombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
-                        .addComponent(lbpuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
                         .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1892,8 +1865,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addGap(53, 53, 53)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(lbnombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(lbpuntadas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(lbfrentenombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(lbfrente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(lbcantidad1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(btntermine, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(btncancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
@@ -2418,11 +2391,11 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbfechaelaboracion;
     public static javax.swing.JLabel lbfechaentrega;
     private javax.swing.JLabel lbfotomontaje;
-    public static javax.swing.JLabel lbfrentepuntadas;
+    public static javax.swing.JLabel lbfrente;
+    public javax.swing.JLabel lbfrentenombre;
     public static javax.swing.JLabel lbhoraelaboracion;
     public static javax.swing.JLabel lbhoraentrega;
     private javax.swing.JLabel lbidentificador;
-    public javax.swing.JLabel lbnombre;
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumerodelaotrasucursal;
     public static javax.swing.JLabel lbnumerodeventa;
@@ -2433,10 +2406,8 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel lbprenda2;
     private javax.swing.JLabel lbprenda3;
     private javax.swing.JLabel lbprenda4;
-    public static javax.swing.JLabel lbpuntadas;
     public static javax.swing.JLabel lbsucursal;
     public javax.swing.JLabel lbsumapuntos;
-    private javax.swing.JLabel lbtitulofrente;
     // End of variables declaration//GEN-END:variables
 
     coneccionlocal cc = new coneccionlocal();

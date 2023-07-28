@@ -35,9 +35,9 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel7" min="-2" pref="80" max="-2" attributes="0"/>
                       <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                      <Component id="lbnombre" min="-2" pref="250" max="-2" attributes="0"/>
+                      <Component id="lbfrentenombre" min="-2" pref="250" max="-2" attributes="0"/>
                       <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                      <Component id="lbpuntadas" min="-2" pref="250" max="-2" attributes="0"/>
+                      <Component id="lbfrente" min="-2" pref="250" max="-2" attributes="0"/>
                       <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
                       <Component id="lbcantidad1" min="-2" pref="81" max="-2" attributes="0"/>
                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
@@ -259,8 +259,8 @@
               </Group>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel7" alignment="1" pref="30" max="32767" attributes="0"/>
-                  <Component id="lbnombre" alignment="1" pref="30" max="32767" attributes="0"/>
-                  <Component id="lbpuntadas" alignment="1" pref="30" max="32767" attributes="0"/>
+                  <Component id="lbfrentenombre" alignment="1" pref="30" max="32767" attributes="0"/>
+                  <Component id="lbfrente" alignment="1" pref="30" max="32767" attributes="0"/>
                   <Component id="lbcantidad1" alignment="1" pref="30" max="32767" attributes="0"/>
                   <Component id="btntermine" alignment="1" pref="30" max="32767" attributes="0"/>
                   <Component id="btncancelar" alignment="1" pref="30" max="32767" attributes="0"/>
@@ -552,33 +552,6 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lbtitulofrente">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="14" style="1"/>
-            </Property>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="500" y="120" width="360" height="20"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lbfrentepuntadas">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="14" style="1"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="500" y="180" width="360" height="20"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="javax.swing.JLabel" name="lbfotomontaje">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -961,7 +934,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbnombre">
+    <Component class="javax.swing.JLabel" name="lbfrentenombre">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -976,7 +949,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbpuntadas">
+    <Component class="javax.swing.JLabel" name="lbfrente">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>

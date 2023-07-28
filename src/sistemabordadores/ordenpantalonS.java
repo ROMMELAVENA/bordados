@@ -2032,7 +2032,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon set "+ubicacion+"='0', "+fecha+"='' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+fecha+"='' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -2059,7 +2059,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
     }  
       
       
-    void insertarlacantidadylafechaenlaubicacionotrasucursal(String ubicacion)
+    void insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO(String ubicacion)
     {
         try {
 
@@ -3989,7 +3989,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidadaplicacion = "0";
            
             nombredelatabla = "historial_ordenes_pantalon_recibidas";
-            insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
+            
+            insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
             
             estacompletalaorden();
             
@@ -4065,7 +4066,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidadaplicacion = "0";
           
             nombredelatabla = "historial_ordenes_pantalon_recibidas";
-            insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
+            
+            insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
             
             estacompletalaorden();
             
@@ -4141,7 +4143,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidadaplicacion = "0";
           
             nombredelatabla = "historial_ordenes_pantalon_recibidas";
-            insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
+            
+            insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
             
             estacompletalaorden();
             
@@ -4216,7 +4219,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidadaplicacion = "0";
           
             nombredelatabla = "historial_ordenes_pantalon_recibidas";
-            insertarlacantidadylafechaenlaubicacionotrasucursal((String) ubicacion);
+            
+            insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
             
             estacompletalaorden();
             

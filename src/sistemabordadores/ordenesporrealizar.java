@@ -1983,7 +1983,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 
                 else if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
                 {
-                    if (ordenparcheS.ventanaordenparcheanteriores == true) {
+                    if (ordenparcheS.ventanaordenparche == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de parche ya está abierta");
 
                     }

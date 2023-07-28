@@ -890,6 +890,7 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btndistinta1termineMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta1termineActionPerformed"/>
       </Events>
     </Component>
@@ -901,6 +902,7 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btndistinta2termineMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta2termineActionPerformed"/>
       </Events>
     </Component>
@@ -912,6 +914,7 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btndistinta3termineMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta3termineActionPerformed"/>
       </Events>
     </Component>
@@ -923,6 +926,7 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btndistinta4termineMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta4termineActionPerformed"/>
       </Events>
     </Component>
@@ -934,6 +938,7 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btndistinta5termineMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta5termineActionPerformed"/>
       </Events>
     </Component>
@@ -945,6 +950,7 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btndistinta6termineMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta6termineActionPerformed"/>
       </Events>
     </Component>
@@ -956,6 +962,7 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btndistinta7termineMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta7termineActionPerformed"/>
       </Events>
     </Component>
@@ -1345,6 +1352,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btndistinta1cancelarMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta1cancelarActionPerformed"/>
       </Events>
     </Component>
@@ -1356,6 +1364,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btndistinta2cancelarMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta2cancelarActionPerformed"/>
       </Events>
     </Component>
@@ -1367,6 +1376,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btndistinta3cancelarMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta3cancelarActionPerformed"/>
       </Events>
     </Component>
@@ -1378,6 +1388,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btndistinta4cancelarMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta4cancelarActionPerformed"/>
       </Events>
     </Component>
@@ -1389,6 +1400,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btndistinta5cancelarMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta5cancelarActionPerformed"/>
       </Events>
     </Component>
@@ -1400,6 +1412,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btndistinta6cancelarMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta6cancelarActionPerformed"/>
       </Events>
     </Component>
@@ -1411,6 +1424,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btndistinta7cancelarMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndistinta7cancelarActionPerformed"/>
       </Events>
     </Component>
@@ -1962,7 +1976,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
   </SubComponents>

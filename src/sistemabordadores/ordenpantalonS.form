@@ -655,6 +655,7 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoderechofrentetetermineMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechofrentetetermineActionPerformed"/>
       </Events>
     </Component>
@@ -666,6 +667,7 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoderechoatrastetermineMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechoatrastetermineActionPerformed"/>
       </Events>
     </Component>
@@ -677,6 +679,7 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoizquierdofrentetetermineMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdofrentetetermineActionPerformed"/>
       </Events>
     </Component>
@@ -688,6 +691,7 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoizquierdoatrastetermineMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdoatrastetermineActionPerformed"/>
       </Events>
     </Component>
@@ -1131,6 +1135,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoderechofrentecancelarMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechofrentecancelarActionPerformed"/>
       </Events>
     </Component>
@@ -1142,6 +1147,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoderechoatrascancelarMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechoatrascancelarActionPerformed"/>
       </Events>
     </Component>
@@ -1153,6 +1159,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoizquierdofrentecancelarMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdofrentecancelarActionPerformed"/>
       </Events>
     </Component>
@@ -1164,6 +1171,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoizquierdoatrascancelarMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdoatrascancelarActionPerformed"/>
       </Events>
     </Component>
@@ -1517,7 +1525,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
   </SubComponents>

@@ -130,6 +130,247 @@ public class autorizacion extends javax.swing.JFrame {
                 }
           
         
+                
+                
+                
+                
+                
+                
+                
+                
+                  
+        if (interfaz.equals("parchecancelar"))
+        
+        {
+          
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordenparcheS.lbautorizacion.setText("si"); ////////////
+                ordenparcheS.btncancelar.doClick();
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+        
+        
+        
+        
+        
+        
+        
+           else
+            
+            
+            
+            
+            if (interfaz.equals("camisacancelar"))
+        
+        {
+          
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordencamisaS.lbautorizacion.setText("si"); ////////////
+                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+                
+                
+               
+                
+                
+                
+                
+                
+                
+                
+        
+          else
+            
+            
+            
+            
+            if (interfaz.equals("gorracancelar"))
+        
+        {
+          
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordengorraS.lbautorizacion.setText("si"); ////////////
+               JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");;
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+        
+        
+        
+          else
+            
+            
+            
+            
+            if (interfaz.equals("pantaloncancelar"))
+        
+        {
+          
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordenpantalonS.lbautorizacion.setText("si"); ////////////
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+        
+        
+          else
+            
+            
+            
+            
+            if (interfaz.equals("corbatacancelar"))
+        
+        {
+          
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordencorbataS.lbautorizacion.setText("si"); ////////////
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ventanaautorizacion = false;
+                this.dispose();
+                
+                
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+        
+        
+        
+          else
+            
+            
+            
+            
+            if (interfaz.equals("distintacancelar"))
+        
+        {
+          
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordendistintaS.lbautorizacion.setText("si"); ////////////
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+        
+        
+                
+                
+                
+                
         
     }
     

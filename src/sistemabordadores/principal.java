@@ -2469,7 +2469,7 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnactualizarpuntosActionPerformed
 
     private void btnordenesbordadosucursalrealizadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnordenesbordadosucursalrealizadasActionPerformed
-        if(ordenesterminadas.ventanaordenesbordadogenerada == true)
+        if(ordenesterminadas.ventanaordenesterminadas == true)
     {
         
         

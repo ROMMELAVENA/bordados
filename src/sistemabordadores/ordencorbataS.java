@@ -1241,6 +1241,124 @@ JOptionPane.showMessageDialog(null, mensaje);
      
      
     
+     
+     
+     
+    
+     void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad) 
+      {
+
+        
+        Object cantidadstring ="";
+        String nuevacantidadstring = "";
+        String estatusentrega ="";
+        
+        String SQL2 = "select cantidad from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacion + "' ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL2);
+
+        if (rs.next()) 
+        {
+
+        cantidadstring = rs.getString("cantidad");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+      if(cantidadstring ==null || cantidadstring.equals("")||cantidadstring.equals(" "))
+      {
+          cantidadstring ="0";
+      }
+       
+        
+        
+        int cantidadstringint = Integer.parseInt(cantidadstring.toString());
+        int cantidadint =  Integer.parseInt(cantidad);
+
+        int nuevacantidadint = cantidadstringint - cantidadint;
+        nuevacantidadstring =  String.valueOf(nuevacantidadint);
+            
+            
+            
+            try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevacantidadstring + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacion + "'      ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+
+        ////Actualiza el estatus
+
+      String cantidadsurtida = "";  
+      String cantidadvendida = "";  
+      String cantidadentregada = "";  
+       
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas from historial_ventas where numero = '"+numerodeventa+"'  ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL3);
+
+        if (rs.next()) 
+        {
+
+        cantidadvendida = rs.getString("cantidad");
+        cantidadsurtida = rs.getString("surtida");
+        cantidadentregada = rs.getString("entregadas");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+        System.out.println (ex);
+        }
+      
+        
+      
+      /////
+      
+      double cantidadvendidadouble = Double.parseDouble(cantidadvendida);
+      double cantidadsurtidadouble = Double.parseDouble(cantidadsurtida);
+      double cantidadentregadadouble = Double.parseDouble(cantidadentregada);
+      
+        
+        if(cantidadvendidadouble == cantidadsurtidadouble && cantidadentregadadouble == 0 )
+        {
+          estatusentrega ="surtida totalmente no entregada";  
+        }
+        else  if(cantidadvendidadouble == (cantidadsurtidadouble + cantidadentregadadouble )  &&  cantidadentregadadouble <  cantidadvendidadouble  )
+        {
+          estatusentrega ="surtida totalmente entregada parcialmente";  
+        }
+        
+        else
+        {
+          estatusentrega ="surtida parcialmente no entregada";   
+        }    
+        
+          try {
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numerodeventa + "'       ");
+              pst.executeUpdate();
+              pst.close();
+          } catch (Exception e) {
+
+              System.out.println(e);
+          }
+      
+
+      
+    }
+    
     
     
      
@@ -1550,14 +1668,14 @@ JOptionPane.showMessageDialog(null, mensaje);
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden corbata");
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
-            }
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
             }
         });
 
@@ -1651,6 +1769,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         btntermine.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btntermine.setText("Termine");
         btntermine.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btntermine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btntermineMouseReleased(evt);
+            }
+        });
         btntermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btntermineActionPerformed(evt);
@@ -1737,6 +1860,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         btncancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btncancelar.setText("Cancelar");
         btncancelar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btncancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btncancelarMouseReleased(evt);
+            }
+        });
         btncancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncancelarActionPerformed(evt);
@@ -2297,11 +2425,51 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btnfrenteponchadoActionPerformed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
-       
+
+        
+            String autorizado = lbautorizacion.getText();
+        if (autorizado.equals("si"))     
+        {
+            
+            
+        
+    
+            
         
                     String ubicacion = "cantidad_frente";
                     String fecha = "frente_fecha";
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
+                    
+                    
+                     descripcion = "BORDADO CORBATA FRENTE " +frentenombre+ "";
+                    
+                    
+                    agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
+                    
+                    
+                    
+                        lbautorizacion.setText("no");
+                
+                     }
+            
+       else
+        {
+            if (autorizacion.ventanaautorizacion == true)
+            {
+          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de autorización");
+            }
+            
+            else
+            {
+            autorizacion ventana = new autorizacion();
+            ventana.setVisible(true);
+            ventana.setLocationRelativeTo(null);
+            autorizacion.lbinterfaz.setText("corbatacancelar");
+            autorizacion.lbnivel.setText("2");
+
+        }
+        }    
+                    
         
         
     }//GEN-LAST:event_btncancelarActionPerformed
@@ -2333,6 +2501,42 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
     }//GEN-LAST:event_btnterminetodoActionPerformed
+
+    private void btntermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntermineMouseReleased
+               
+                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         {
+             ordenesporrealizar.btnactualizar.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btnactualizar.doClick();
+         }
+        
+        
+                datos();
+    }//GEN-LAST:event_btntermineMouseReleased
+
+    private void btncancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelarMouseReleased
+             
+                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         {
+             ordenesporrealizar.btnactualizar.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btnactualizar.doClick();
+         }
+        
+        
+                datos();
+    }//GEN-LAST:event_btncancelarMouseReleased
 
     ResultSet rs;
     ResultSet rs2;
@@ -2373,7 +2577,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane6;
-    public javax.swing.JLabel lbautorizacion;
+    public static javax.swing.JLabel lbautorizacion;
     public static javax.swing.JLabel lbautorizado;
     public static javax.swing.JLabel lbbordacliente;
     public static javax.swing.JLabel lbcantidad;

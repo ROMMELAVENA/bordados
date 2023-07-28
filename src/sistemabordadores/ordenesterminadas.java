@@ -16,7 +16,7 @@ import static sistemabordadores.ordenesterminadas.btnactualizar;
 
 public class ordenesterminadas extends javax.swing.JFrame {
 
-    public static boolean ventanaordenesbordadogenerada = false;
+    public static boolean ventanaordenesterminadas = false;
     String fechainicial = "";
     String fechafinal = "";
     String nombrecliente = "";
@@ -26,7 +26,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
 
     public ordenesterminadas() {
         initComponents();
-        ventanaordenesbordadogenerada = true;
+        ventanaordenesterminadas = true;
         lbinterface.setVisible(false);
         lbtienda.setVisible(false);
         btnactualizar.setVisible(false);
@@ -1526,7 +1526,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-        ventanaordenesbordadogenerada = false;
+        ventanaordenesterminadas = false;
         this.dispose();
     }//GEN-LAST:event_btnsalirActionPerformed
 
@@ -1893,7 +1893,8 @@ public class ordenesterminadas extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaMouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        ventanaordenesbordadogenerada = false;
+        ventanaordenesterminadas = false;
+        this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed

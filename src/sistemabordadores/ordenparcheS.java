@@ -296,6 +296,31 @@ JOptionPane.showMessageDialog(null, mensaje);
                 nombre = rs.getString("articulo");
                 cantidad = rs.getString("cantidad");
                 cantidadparche = rs.getString("cantidad_parche");
+                
+                
+                
+                 if(cantidadparche.equals("0"))
+                {
+                lbcantidad1.setForeground(Color.red.darker());
+                    
+                }
+                else
+                {
+                    btntermine.setEnabled(false);
+                   lbcantidad1.setForeground(Color.GREEN.darker());
+                  
+                }    
+                
+              
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 aplicacion = rs.getString("aplicacion");
              
                 observacion = rs.getString("observacion");
@@ -335,8 +360,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                   btnterminetodo.setEnabled(false);
                   lbestatus.setForeground(Color.green.darker());
-                  lbcantidad1.setText(cantidad);
-                  lbcantidad1.setForeground(Color.GREEN.darker());
+                  
                   
                   
                 }
@@ -356,8 +380,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                   else
                   {
                       lbestatus.setForeground(Color.red);
-                      lbcantidad1.setText("0");
-                      lbcantidad1.setForeground(Color.red.darker());
+                    
                   }
                    
                    
@@ -368,25 +391,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 cantidad = rs.getString("cantidad"); 
-                
+                lbcantidad1.setText(cantidad);
                
-                if(cantidadparche.equals("0"))
-                {
-                
-                }
-                else
-                {
-                    btntermine.setEnabled(false);
-                }    
-                
-              
-                
-                
-                
-                
-                
-                
-                
+               
                 
              
             }
@@ -682,32 +689,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
     }
       
-     void eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion(String cantidadponchadosactualizar,String tipo, String fecha)
-    {
-        try {
-
-            PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set cantidad_parche='0',estatus_orden = 'generada', "+fecha+"='' where numero = '" + lbnumerodelaotrasucursal.getText() + "'  ");
-            pst.executeUpdate();
-            pst.close();
-
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">" + ex + "");
-        }
-        
-        
-        String ubicacionsinguiones = ubicacion;
-        ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
-        
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Actualizado correctamente ");
-
-    try {
-        datostiendalocal();
-    } catch (IOException ex) {
-        Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
-    }
-        
-        
-    }  
+  
       
     
      public static String dia() {
@@ -1215,12 +1197,7 @@ JOptionPane.showMessageDialog(null, mensaje);
              
                
                 lbnumerodelaotrasucursal.setText(rs.getString("numero_sucursal_orden"));
-           //     lbnumeroventa.setText(rs.getString("numero_venta"));
-                
-              
-         //       sucursal= rs.getString("tienda");
-           //     numerosucursal= rs.getString("numero_sucursal");
-                
+         
                 lbfechaelaboracion.setText(rs.getString("fecha"));
                 lbhora.setText(rs.getString("hora"));
                 
@@ -1236,8 +1213,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                 lbcantidad.setText(cantidad);
                 
                 
-                
-           //     cantidadparche = rs.getString("cantidad");
                 aplicacion = rs.getString("aplicacion");
                 observacion = rs.getString("observacion");
                 
@@ -1275,8 +1250,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                   else
                   {
                       lbestatus.setForeground(Color.red);
-                      lbcantidad1.setText("0");
-                      lbcantidad1.setForeground(Color.red.darker());
+                    
                   }
                    
                    
@@ -1292,8 +1266,25 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 lugar = rs.getString("lugar");
                 
-             
-                lbcantidad1.setText( rs.getString("cantidad_parche"));
+                cantidadparche = rs.getString("cantidad_parche");
+                lbcantidad1.setText(cantidadparche);
+                
+                
+                
+                 if(cantidadparche.equals("0"))
+                {
+                lbcantidad1.setForeground(Color.red.darker());
+                    
+                }
+                else
+                {
+                    btntermine.setEnabled(false);
+                   lbcantidad1.setForeground(Color.GREEN.darker());
+                  
+                }    
+                
+              
+                
                 
                 
 
@@ -1438,9 +1429,17 @@ JOptionPane.showMessageDialog(null, mensaje);
       
        void eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion(String ubicacion, String fecha){
         
+           
+           
+             String estatus = "generada";
+           
+           
+           
+           
+           
          try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+fecha+"='' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set estatus_orden = '"+estatus+"', "+ubicacion+"='0', "+fecha+"=null where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1448,6 +1447,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
                 }
+         
+         
+         
+            datos();
         
         
         
@@ -2533,6 +2536,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         btntermine.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btntermine.setText("Termine");
         btntermine.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btntermine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btntermineMouseReleased(evt);
+            }
+        });
         btntermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btntermineActionPerformed(evt);
@@ -2841,13 +2849,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         terminetodo = "si";
         
         
-        for(int i = 0; i < listabotones.size(); i++)
+        if (btntermine.isEnabled())
+            
         {
-            Object boton =  listabotones.get(i);
-            
-            
-           
-            
+            btntermine.doClick();
         }
         
         
@@ -2994,7 +2999,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             lbfotomontaje.setIcon(icono);
             this.repaint();
 
-            btndatos.doClick();
+             datos();
 
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Fotomontaje agregado correctamente");
 
@@ -3025,11 +3030,17 @@ JOptionPane.showMessageDialog(null, mensaje);
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
         
         
+                    
+                    descripcion = "BORDADO PARCHE " +parchenombre+ "";
+                    
+                    
+                    agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
+                    
+                    
+                    
+                    
                 lbautorizacion.setText("no");
-                    
-                    
-                    
-                    
+                
                      }
             
        else
@@ -3144,19 +3155,44 @@ JOptionPane.showMessageDialog(null, mensaje);
                sumapuntos();   
         
            
-            
+               
+        
               
             
         }
     
         
-        btndatos.doClick();
+       
         
 
         }
 
 
     }//GEN-LAST:event_btntermineActionPerformed
+
+    private void btntermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntermineMouseReleased
+       
+        
+        
+               
+                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         {
+             ordenesporrealizar.btnactualizar.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btnactualizar.doClick();
+         }
+        
+        
+                datos();
+            
+        
+        
+    }//GEN-LAST:event_btntermineMouseReleased
 
     
     ResultSet rs;
@@ -3172,7 +3208,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btncancelar;
+    public static javax.swing.JButton btncancelar;
     private javax.swing.JButton btndatos;
     private javax.swing.JButton btneditarbordado;
     private javax.swing.JButton btnfotomontajesinpuntadas;
@@ -3200,7 +3236,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel lbaplicacion1;
-    public javax.swing.JLabel lbautorizacion;
+    public static javax.swing.JLabel lbautorizacion;
     public static javax.swing.JLabel lbbordacliente;
     private javax.swing.JLabel lbcantidad;
     public javax.swing.JLabel lbcantidad1;

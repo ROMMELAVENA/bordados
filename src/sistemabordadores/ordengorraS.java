@@ -3014,6 +3014,11 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         btnatrastermine.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnatrastermine.setText("Termine");
+        btnatrastermine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnatrastermineMouseReleased(evt);
+            }
+        });
         btnatrastermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnatrastermineActionPerformed(evt);
@@ -3022,6 +3027,11 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         btnladoizquierdotermine.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnladoizquierdotermine.setText("Termine");
+        btnladoizquierdotermine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnladoizquierdotermineMouseReleased(evt);
+            }
+        });
         btnladoizquierdotermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnladoizquierdotermineActionPerformed(evt);
@@ -3030,6 +3040,11 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         btnfrentermine.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnfrentermine.setText("Termine");
+        btnfrentermine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnfrentermineMouseReleased(evt);
+            }
+        });
         btnfrentermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnfrentermineActionPerformed(evt);
@@ -3038,6 +3053,11 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         btnladoderechotermine.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnladoderechotermine.setText("Termine");
+        btnladoderechotermine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnladoderechotermineMouseReleased(evt);
+            }
+        });
         btnladoderechotermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnladoderechotermineActionPerformed(evt);
@@ -3187,6 +3207,11 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         btnatrascancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnatrascancelar.setText("Cancelar");
+        btnatrascancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnatrascancelarMouseReleased(evt);
+            }
+        });
         btnatrascancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnatrascancelarActionPerformed(evt);
@@ -3195,6 +3220,11 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         btnladoizquierdocancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnladoizquierdocancelar.setText("Cancelar");
+        btnladoizquierdocancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnladoizquierdocancelarMouseReleased(evt);
+            }
+        });
         btnladoizquierdocancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnladoizquierdocancelarActionPerformed(evt);
@@ -3203,6 +3233,11 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         btnfrentecancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnfrentecancelar.setText("Cancelar");
+        btnfrentecancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnfrentecancelarMouseReleased(evt);
+            }
+        });
         btnfrentecancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnfrentecancelarActionPerformed(evt);
@@ -3211,6 +3246,11 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         btnladoderechocancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnladoderechocancelar.setText("Cancelar");
+        btnladoderechocancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnladoderechocancelarMouseReleased(evt);
+            }
+        });
         btnladoderechocancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnladoderechocancelarActionPerformed(evt);
@@ -4599,9 +4639,12 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnatrascancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrascancelarActionPerformed
                  
         
-                    if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado de Atras?", "WARNING",
-                        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
-                    {
+                  String autorizado = lbautorizacion.getText();
+        if (autorizado.equals("si"))     
+        {
+            
+            
+            
                     String ubicacion = "cantidad_atras";
                     String fecha = "atras_fecha";
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
@@ -4619,15 +4662,43 @@ JOptionPane.showMessageDialog(null, mensaje);
                     estacompletalaorden();
                     sumapuntos();
                     
-                }   
+                    
+                       lbautorizacion.setText("no");
+                
+                     }
+            
+       else
+        {
+            if (autorizacion.ventanaautorizacion == true)
+            {
+          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de autorización");
+            }
+            
+            else
+            {
+            autorizacion ventana = new autorizacion();
+            ventana.setVisible(true);
+            ventana.setLocationRelativeTo(null);
+            autorizacion.lbinterfaz.setText("gorracancelar");
+            autorizacion.lbnivel.setText("2");
+
+        }
+        }    
+                    
+              
     }//GEN-LAST:event_btnatrascancelarActionPerformed
 
     private void btnladoizquierdocancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdocancelarActionPerformed
             
         
-                if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado de lado izquierdo?", "WARNING",
-                        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
-                {
+                   String autorizado = lbautorizacion.getText();
+        if (autorizado.equals("si"))     
+        {
+            
+            
+        
+    
+            
                     String ubicacion = "cantidad_lado_izquierdo";
                     String fecha = "lado_izquierdo_fecha";
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
@@ -4645,16 +4716,43 @@ JOptionPane.showMessageDialog(null, mensaje);
                     estacompletalaorden();
                     sumapuntos();
 
-                }
+               
+                    
+                       lbautorizacion.setText("no");
+                
+                     }
+            
+       else
+        {
+            if (autorizacion.ventanaautorizacion == true)
+            {
+          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de autorización");
+            }
+            
+            else
+            {
+            autorizacion ventana = new autorizacion();
+            ventana.setVisible(true);
+            ventana.setLocationRelativeTo(null);
+            autorizacion.lbinterfaz.setText("gorracancelar");
+            autorizacion.lbnivel.setText("2");
+
+        }
+        }    
 
     }//GEN-LAST:event_btnladoizquierdocancelarActionPerformed
 
     private void btnfrentecancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrentecancelarActionPerformed
       
         
-                 if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado de frente gorra?", "WARNING",
-                        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
-                {
+                 String autorizado = lbautorizacion.getText();
+        if (autorizado.equals("si"))     
+        {
+            
+            
+        
+    
+            
                     String ubicacion = "cantidad_frente";
                     String fecha = "frente_fecha";
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
@@ -4671,17 +4769,43 @@ JOptionPane.showMessageDialog(null, mensaje);
                     agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
                     estacompletalaorden();
                     sumapuntos();
+                    
+                    
+                       lbautorizacion.setText("no");
+                
+                     }
+            
+       else
+        {
+            if (autorizacion.ventanaautorizacion == true)
+            {
+          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de autorización");
+            }
+            
+            else
+            {
+            autorizacion ventana = new autorizacion();
+            ventana.setVisible(true);
+            ventana.setLocationRelativeTo(null);
+            autorizacion.lbinterfaz.setText("gorracancelar");
+            autorizacion.lbnivel.setText("2");
 
-                }
+        }
+        }    
+
+                
     }//GEN-LAST:event_btnfrentecancelarActionPerformed
 
     private void btnladoderechocancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechocancelarActionPerformed
        
+         String autorizado = lbautorizacion.getText();
+        if (autorizado.equals("si"))     
+        {
+            
+            
         
-        if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cancelar este bordado de lado derecho?", "WARNING",
-              
-                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
-                {
+    
+            
             String ubicacion = "cantidad_lado_derecho";
             String fecha = "lado_derecho_fecha";
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
@@ -4699,7 +4823,33 @@ JOptionPane.showMessageDialog(null, mensaje);
             estacompletalaorden();
             sumapuntos();   
                     
-                }
+               
+            
+               lbautorizacion.setText("no");
+                
+                     }
+            
+       else
+        {
+            if (autorizacion.ventanaautorizacion == true)
+            {
+          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de autorización");
+            }
+            
+            else
+            {
+            autorizacion ventana = new autorizacion();
+            ventana.setVisible(true);
+            ventana.setLocationRelativeTo(null);
+            autorizacion.lbinterfaz.setText("gorracancelar");
+            autorizacion.lbnivel.setText("2");
+
+        }
+        }    
+            
+        
+        
+            
     }//GEN-LAST:event_btnladoderechocancelarActionPerformed
 
     private void btnatrasponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasponchadoActionPerformed
@@ -4729,6 +4879,152 @@ JOptionPane.showMessageDialog(null, mensaje);
                         
                 descargarponchado((String) ubicacion,(String) ubicacionnombre); 
     }//GEN-LAST:event_btnladoderechoponchadoActionPerformed
+
+    private void btnfrentermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfrentermineMouseReleased
+              
+                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         {
+             ordenesporrealizar.btnactualizar.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btnactualizar.doClick();
+         }
+        
+        
+                datos();
+    }//GEN-LAST:event_btnfrentermineMouseReleased
+
+    private void btnatrastermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnatrastermineMouseReleased
+             
+                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         {
+             ordenesporrealizar.btnactualizar.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btnactualizar.doClick();
+         }
+        
+        
+                datos();
+    }//GEN-LAST:event_btnatrastermineMouseReleased
+
+    private void btnladoizquierdotermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdotermineMouseReleased
+             
+                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         {
+             ordenesporrealizar.btnactualizar.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btnactualizar.doClick();
+         }
+        
+        
+                datos();
+    }//GEN-LAST:event_btnladoizquierdotermineMouseReleased
+
+    private void btnladoderechotermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechotermineMouseReleased
+              
+                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         {
+             ordenesporrealizar.btnactualizar.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btnactualizar.doClick();
+         }
+        
+        
+                datos();
+    }//GEN-LAST:event_btnladoderechotermineMouseReleased
+
+    private void btnfrentecancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfrentecancelarMouseReleased
+            
+                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         {
+             ordenesporrealizar.btnactualizar.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btnactualizar.doClick();
+         }
+        
+        
+                datos();
+    }//GEN-LAST:event_btnfrentecancelarMouseReleased
+
+    private void btnatrascancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnatrascancelarMouseReleased
+            
+                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         {
+             ordenesporrealizar.btnactualizar.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btnactualizar.doClick();
+         }
+        
+        
+                datos();
+    }//GEN-LAST:event_btnatrascancelarMouseReleased
+
+    private void btnladoizquierdocancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdocancelarMouseReleased
+              
+                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         {
+             ordenesporrealizar.btnactualizar.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btnactualizar.doClick();
+         }
+        
+        
+                datos();
+    }//GEN-LAST:event_btnladoizquierdocancelarMouseReleased
+
+    private void btnladoderechocancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechocancelarMouseReleased
+              
+                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         {
+             ordenesporrealizar.btnactualizar.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btnactualizar.doClick();
+         }
+        
+        
+                datos();
+                
+                
+    }//GEN-LAST:event_btnladoderechocancelarMouseReleased
 
  
 
@@ -4932,7 +5228,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbatrasnombre;
     private javax.swing.JLabel lbatrasnombre1;
     public static javax.swing.JLabel lbatraspuntadas;
-    public javax.swing.JLabel lbautorizacion;
+    public static javax.swing.JLabel lbautorizacion;
     public static javax.swing.JLabel lbbordacliente;
     public static javax.swing.JLabel lbcantidad;
     public javax.swing.JLabel lbcantidad1;

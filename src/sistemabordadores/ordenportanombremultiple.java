@@ -410,55 +410,7 @@ public class ordenportanombremultiple extends javax.swing.JFrame {
       }  
 
 
-      
-       void agregarexistenciabordados(String ubicacioninsertar)
-    {
-        
        
-        
-        //// bordado
-        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
-            
-                
- 
-                pst.setString(1, lbnumeroventa.getText());
-                pst.setString(2, dia());
-                pst.setString(3, hora());
-                pst.setString(4, ubicacioninsertar);
-                pst.setString(5, "ninguno");
-                pst.setString(6, lbcantidadprendas.getText());
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-           
-        
-        
-    }
-       
-     void agregarexistenciabordadoscancelar(String ubicacioninsertar)
-    {
-
-        //// bordado
-          try {
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+lbnumeroventa.getText()+"' and articulo ='"+ubicacioninsertar+"'   ");
-                pst.executeUpdate();
-                pst.close();
-            
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-
-           
-        
-        
-    }  
      
     void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad) 
       {
@@ -1396,7 +1348,7 @@ public class ordenportanombremultiple extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
 
-        agregarexistenciabordadoscancelar((String) articulo);
+      
         agregaralsurtidasalhistorialdeventascancelar((String) articulo, (String) cantidad) ;
         
        
@@ -1433,7 +1385,7 @@ public class ordenportanombremultiple extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
 
-        agregarexistenciabordados((String) articulo);
+     
         agregaralsurtidasalhistorialdeventas((String) articulo, (String) cantidad) ;
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Porta nombre realizado con exito");

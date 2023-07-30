@@ -529,58 +529,6 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
       
 
 
-      
-       void agregarexistenciabordados(String ubicacioninsertar)
-    {
-        
-       
-        
-        //// bordado
-        String InsertarSQL = "INSERT INTO historial_bordados_existencia(numero,dia,hora,articulo,concepto,cantidad) VALUES (?,?,?,?,?,?)";
-
-            try {
-                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
-            
-                
- 
-                pst.setString(1, lbnumerodeventa.getText());
-                pst.setString(2, dia());
-                pst.setString(3, hora());
-                pst.setString(4, ubicacioninsertar);
-                pst.setString(5, nombreconcepto);
-                pst.setString(6, lbcantidadtotal.getText());
-                pst.executeUpdate();
-                pst.close();
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-           
-        
-        
-    }
-       
-     void agregarexistenciabordadoscancelar(String ubicacioninsertar)
-    {
-        
-       
-        
-        //// bordado
-         try {
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM historial_bordados_existencia WHERE numero='"+numeroventa+"' and articulo ='"+ubicacioninsertar+"'   ");
-                pst.executeUpdate();
-                pst.close();
-            
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-
-           
-        
-        
-    }   
-
     public static String dia() {
         Date fecha = new Date();
         SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
@@ -1304,7 +1252,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
        
          
         
-        agregarexistenciabordadoscancelar((String) articulo); 
+      
         agregaralsurtidasalhistorialdeventas((String) articulo, (String) cantidad) ;
         
         btnrealizada.setEnabled(false);
@@ -1346,7 +1294,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
         btnrealizada.setEnabled(false);
          
         
-        agregarexistenciabordados((String) articulo); 
+      
         agregaralsurtidasalhistorialdeventas((String) articulo, (String) cantidad) ;
         
       }

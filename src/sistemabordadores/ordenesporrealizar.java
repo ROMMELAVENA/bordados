@@ -695,7 +695,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos11 = new String[15];
 
-        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden,observacion,identificador_prenda,cantidad FROM historial_ordenes_gorra_recibidas  where (estatus_orden = 'generada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by hora  ";
+        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada,observacion,identificador_prenda,cantidad FROM historial_ordenes_gorra_recibidas  where (estatus_orden = 'generada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by hora  ";
 
         try {
             Statement st2 = cn.createStatement();
@@ -710,7 +710,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos11[5] = "0000000";  
                 datos11[6] = rs2.getString("fecha");
                 datos11[7] = rs2.getString("tienda");
-                datos11[8] = rs2.getString("numero_sucursal_orden");
+                datos11[8] = rs2.getString("numero_orden_o_pedido_solicitada");
                 datos11[9] = "";
                 datos11[10] = "Recibida";
                 datos11[11] = rs2.getString("identificador_prenda");
@@ -739,7 +739,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos12 = new String[15];
 
-        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden,observacion,identificador_prenda,cantidad  FROM historial_ordenes_pantalon_recibidas where (estatus_orden = 'generada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
+        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada,observacion,identificador_prenda,cantidad  FROM historial_ordenes_pantalon_recibidas where (estatus_orden = 'generada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
 
         try {
             Statement st = cn.createStatement();
@@ -753,7 +753,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos12[5] = "0000000";  
                 datos12[6] = rs.getString("fecha");
                 datos12[7] = rs.getString("tienda");
-                datos12[8] = rs.getString("numero_sucursal_orden");
+                datos12[8] = rs.getString("numero_orden_o_pedido_solicitada");
                 datos12[9] = "";
                 datos12[10] = "Recibida";
                 datos12[11] = rs.getString("identificador_prenda");
@@ -785,7 +785,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos42 = new String[15];
         
-        String sqlparches2 = "SELECT Distinct numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden,observacion,identificador_prenda,cantidad  FROM historial_ordenes_parche_recibidos where (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+        String sqlparches2 = "SELECT Distinct numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada,observacion,identificador_prenda,cantidad  FROM historial_ordenes_parche_recibidos where (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
@@ -802,7 +802,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos42[5] = "0000000";  
                 datos42[6] = rs.getString("fecha");
                 datos42[7] = rs.getString("tienda");
-                datos42[8] = rs.getString("numero_sucursal_orden");
+                datos42[8] = rs.getString("numero_orden_o_pedido_solicitada");
                 datos42[9] = "";
                 datos42[10] = "Recibida";
                 datos42[11] = rs.getString("identificador_prenda");

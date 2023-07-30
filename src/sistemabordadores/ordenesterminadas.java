@@ -595,7 +595,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos10 = new String[12];
 
-        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_gorra_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by hora  ";
+        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_gorra_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by hora  ";
 
         try {
             Statement st = cn.createStatement();
@@ -609,7 +609,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 datos10[5] = "0000000";  
                 datos10[6] = rs.getString("fecha");
                 datos10[7] = rs.getString("tienda");
-                datos10[8] = rs.getString("numero_sucursal_orden");
+                datos10[8] = rs.getString("numero_orden_o_pedido_solicitada");
                 datos10[9] = "";
                 datos10[10] = "Recibida";
 
@@ -630,7 +630,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos11 = new String[12];
 
-        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_pantalon_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
+        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_pantalon_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
 
         try {
             Statement st = cn.createStatement();
@@ -644,7 +644,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 datos11[5] = "0000000";  
                 datos11[6] = rs.getString("fecha");
                 datos11[7] = rs.getString("tienda");
-                datos11[8] = rs.getString("numero_sucursal_orden");
+                datos11[8] = rs.getString("numero_orden_o_pedido_solicitada");
                 datos11[9] = "";
                 datos11[10] = "Recibida";
             
@@ -667,7 +667,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos16 = new String[12];
 
-        String sql16 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_corbata_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
+        String sql16 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_corbata_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
 
         try {
             Statement st = cn.createStatement();
@@ -681,7 +681,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 datos16[5] = "0000000";  
                 datos16[6] = rs.getString("fecha");
                 datos16[7] = rs.getString("tienda");
-                datos16[8] = rs.getString("numero_sucursal_orden");
+                datos16[8] = rs.getString("numero_orden_o_pedido_solicitada");
                 datos16[9] = "";
                 datos16[10] = "Recibida";
             
@@ -702,7 +702,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos17 = new String[12];
 
-        String sql17 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_sucursal_orden  FROM historial_ordenes_parche_recibidos  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
+        String sql17 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_parche_recibidos  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
 
         try {
             Statement st = cn.createStatement();
@@ -716,7 +716,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 datos17[5] = "0000000";  
                 datos17[6] = rs.getString("fecha");
                 datos17[7] = rs.getString("tienda");
-                datos17[8] = rs.getString("numero_sucursal_orden");
+                datos17[8] = rs.getString("numero_orden_o_pedido_solicitada");
                 datos17[9] = "";
                 datos17[10] = "Recibida";
             

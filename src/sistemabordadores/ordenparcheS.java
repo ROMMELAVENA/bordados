@@ -501,15 +501,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             }
             
-            
-            
-            else
-                
-            {
-                
-                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">No se insertó si es orden de envio o pedido");
-                
-            }
+          
             
             
         } catch (Exception exx) {

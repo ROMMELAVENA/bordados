@@ -785,7 +785,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos42 = new String[15];
         
-        String sqlparches2 = "SELECT Distinct numero,numero_orden_parcehe_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada,observacion,identificador_prenda,cantidad  FROM historial_ordenes_parche_recibidos where (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+        String sqlparches2 = "SELECT Distinct numero,numero_orden_parche_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada,observacion,identificador_prenda,cantidad  FROM historial_ordenes_parche_recibidas where (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
@@ -835,7 +835,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         
-        String sql16 = "SELECT Distinct numero,cliente,tipo,lugar,numero_orden_ponchado_solicitada,fecha,observacion  FROM historial_ordenes_ponchados_recibidos where (estatus_orden = 'generada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+        String sql16 = "SELECT Distinct numero,cliente,tipo,lugar,numero_orden_ponchado_solicitada,fecha,observacion  FROM historial_ordenes_ponchados_recibidas where (estatus_orden = 'generada' or estatus_orden = 'realizada parcialmente') and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
 
         try {
             Statement st = cn.createStatement();
@@ -846,7 +846,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos9[2] = "Ponchado";
                 datos9[3] = rs.getString("tipo");
                 datos9[4] = "Otra sucursal";
-                datos9[5] = rs.getString("numero_sucursal");
+                datos9[5] = rs.getString("numero_orden_ponchado_solicitada");
                 datos9[6] = rs.getString("fecha");
                 datos9[7] = "";
                 datos9[8] = "";

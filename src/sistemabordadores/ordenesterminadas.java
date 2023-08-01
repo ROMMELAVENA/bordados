@@ -702,7 +702,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos17 = new String[12];
 
-        String sql17 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_parche_recibidos  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
+        String sql17 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_parche_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
 
         try {
             Statement st = cn.createStatement();

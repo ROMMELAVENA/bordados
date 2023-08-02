@@ -903,7 +903,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         prenda = "Gorra";
 
         String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,numero_orden_o_pedido_solicitada,\n" +
-                     "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,tienda,numero_sucursal,identificador_prenda,estatus_orden from historial_ordenes_gorra_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
+                     "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,tienda,numero_orden_gorra_solicitada,identificador_prenda,estatus_orden from historial_ordenes_gorra_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -929,7 +929,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 frentenombre = rs.getString("frente");
                 atrasnombre = rs.getString("atras");
                 sucursal= rs.getString("tienda");
-                numerosucursal= rs.getString("numero_sucursal");
+                numerosucursal= rs.getString("numero_orden_gorra_solicitada");
                 
                                
                 

@@ -1224,7 +1224,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion2,otra_ubicacion2_nombre,\n"
                 + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,\n"
                 + "aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,\n"
-                + "lugar,estatus_orden,numero_orden_o_pedido_solicitada,tienda,numero_sucursal,identificador_prenda\n"
+                + "lugar,estatus_orden,numero_orden_o_pedido_solicitada,tienda,numero_orden_camisa_solicitada,identificador_prenda\n"
                 + "from historial_ordenes_camisa_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
 
         try {
@@ -1242,7 +1242,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 prenda = (rs.getString("prenda"));
                 lbfecha.setText(rs.getString("fecha"));
                 lbnumerodelaotrasucursal.setText(rs.getString("numero_orden_o_pedido_solicitada"));
-                numerosucursal = rs.getString("numero_sucursal");
+                numerosucursal = rs.getString("numero_orden_camisa_solicitada");
                 
                 sucursal = rs.getString("tienda");
                 lbsucursal.setText(sucursal);
@@ -1687,7 +1687,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             Statement st = cnsucursal.createStatement();
             ResultSet rs = st.executeQuery(sql4);
-            while (rs.next()) 
+            if (rs.next()) 
             {
                 
                 Blob blob = rs.getBlob("imagen");
@@ -1749,6 +1749,17 @@ JOptionPane.showMessageDialog(null, mensaje);
                
 
             } //end while
+            
+            
+            else
+                
+            {
+                
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">No se encotro imangen con el nombre de este identificador; quizas el encardo de la otra tienda cambio el nombre del identificador");
+                
+            }
+            
+            
             rs.close();
         } catch (SQLException ex) 
         {

@@ -11,6 +11,7 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 
 
+
 public class bordadosdelclientecatalogoEditar extends AbstractCellEditor implements TableCellEditor, ActionListener {
     
     Boolean currentValue;

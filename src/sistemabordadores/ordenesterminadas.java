@@ -8,10 +8,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import static sistemabordadores.ordenesterminadas.btnactualizar;
 
 public class ordenesterminadas extends javax.swing.JFrame {
@@ -50,94 +56,6 @@ public class ordenesterminadas extends javax.swing.JFrame {
 
     }
     
-    
-     void fechas()
-    {
-    
-        Calendar now = Calendar.getInstance();
-        int año = now.get(Calendar.YEAR);
-        int mes = now.get(Calendar.MONTH) + 1 ;
-        cbaño.setSelectedItem(String.valueOf(año));
-        
-        
-               if(mes ==1)
-               {
-                   fechainicial = ""+año+"-01-01";
-                   fechafinal = ""+año+"-01-31";   
-                   cbmes.setSelectedItem("Enero");
-               }
-               else if(mes ==2)
-               {
-                   fechainicial = ""+año+"-02-01";
-                   fechafinal = ""+año+"-02-29";  
-                   cbmes.setSelectedItem("Febrero");
-               }
-               else if(mes ==3)
-               {
-                   fechainicial = ""+año+"-03-01";  
-                   fechafinal = ""+año+"-03-31";  
-                   cbmes.setSelectedItem("Marzo");
-               }
-               else if(mes ==4)
-               {
-                   fechainicial = ""+año+"-04-01";
-                   fechafinal = ""+año+"-04-30"; 
-                   cbmes.setSelectedItem("Abril");
-               }
-               else if(mes ==5)
-               {
-                   fechainicial = ""+año+"-05-01";  
-                   fechafinal = ""+año+"-05-31"; 
-                   cbmes.setSelectedItem("Mayo");
-               }
-               else if(mes ==6)
-               {
-                   fechainicial = ""+año+"-06-01";  
-                   fechafinal = ""+año+"-06-30"; 
-                   cbmes.setSelectedItem("Junio");
-               }
-               else if(mes ==7)
-               {
-                   fechainicial = ""+año+"-07-01"; 
-                   fechafinal = ""+año+"-07-31"; 
-                   cbmes.setSelectedItem("Julio");
-               }
-               else if(mes ==8)
-               {
-                   fechainicial = ""+año+"-08-01";
-                   fechafinal = ""+año+"-08-31" ;
-                   cbmes.setSelectedItem("Agosto");
-               }
-               else if(mes ==9)
-               {
-                   fechainicial = ""+año+"-09-01"; 
-                   fechafinal = ""+año+"-09-30";  
-                   cbmes.setSelectedItem("Septiembre");
-               }
-               else if(mes ==10)
-               {
-                   fechainicial = ""+año+"-10-01"; 
-                   fechafinal = ""+año+"-10-31"; 
-                   cbmes.setSelectedItem("Octubre");
-               }
-               else if(mes ==11)
-               {
-                   fechainicial = ""+año+"-11-01"; 
-                   fechafinal = ""+año+"-11-30";  
-                   cbmes.setSelectedItem("Noviembre");
-               }
-               else if(mes ==12)
-               {
-                   fechainicial = ""+año+"-12-01"; 
-                   fechafinal = ""+año+"-12-31"; 
-                   cbmes.setSelectedItem("Diciembre");
-               }
-               
-        
-        
-    }
-    
-     
      
      
      
@@ -160,7 +78,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  "
                          + "FROM historial_ordenes_camisa where lugar = 'Esta sucursal' "
-                         + "and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora  ";
+                         + "and estatus_orden = 'realizada totalmente'  order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
@@ -202,7 +120,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos2 = new String[12];
         
-        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_gorra where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente'  and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_gorra where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
@@ -237,7 +155,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos3 = new String[12];
         
-         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_pantalon where lugar = 'Esta sucursal' and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_pantalon where lugar = 'Esta sucursal' and estatus_orden = 'realizada totalmente' order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
@@ -274,7 +192,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos4 = new String[12];
         
-        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
@@ -310,7 +228,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
          String[] datos6 = new String[12];
         
-        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_corbata where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
+        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_corbata where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' order by fecha desc ";
 
         try {
             Statement st = cn.createStatement();
@@ -346,7 +264,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos7 = new String[12];
         
-        String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres where  estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
+        String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres where  estatus_orden = 'realizada totalmente' order by fecha desc ";
 
         try {
             Statement st = cn.createStatement();
@@ -384,7 +302,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos8 = new String[12];
 
-         String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres_multiple where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora ";
+         String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres_multiple where estatus_orden = 'realizada totalmente'  order by fecha desc ";
 
         try {
             Statement st = cn.createStatement();
@@ -428,7 +346,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
          
          String[] datos5 = new String[12];
         
-        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora";
+        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
@@ -464,7 +382,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
          String sqldistinta = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  "
                          + "FROM historial_ordenes_distinta where lugar = 'Esta sucursal' "
-                         + "and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora  ";
+                         + "and estatus_orden = 'realizada totalmente' order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
@@ -497,7 +415,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
          //// historial ordenes internas
         
-        String sql5 = "Select numero,tipo,fecha,cantidad,prenda,descripcion,hora from historial_ordenes_bordados_interno where estatus_entrega = 'entregada' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora ";
+        String sql5 = "Select numero,tipo,fecha,cantidad,prenda,descripcion,hora from historial_ordenes_bordados_interno where estatus_entrega = 'entregada'  order by fecha desc ";
 
         try {
             Statement st5 = cn.createStatement();
@@ -559,7 +477,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos9 = new String[12];
 
-        String sql3 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by hora "; //and tienda not in('"+tiendalocal+"')
+        String sql3 = "SELECT numero,numero_orden_camisa_solicitada,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus_orden = 'realizada totalmente' order by fecha desc "; //and tienda not in('"+tiendalocal+"')
 
         try {
             Statement st = cn.createStatement();
@@ -573,7 +491,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 datos9[5] = "00000000";
                 datos9[6] = rs.getString("fecha");
                 datos9[7] = rs.getString("tienda");
-                datos9[8] = rs.getString("numero_sucursal");
+                datos9[8] = rs.getString("numero_orden_camisa_solicitada");
                 datos9[9] = "";
                 datos9[10] = "Recibida";
 
@@ -595,7 +513,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos10 = new String[12];
 
-        String sql4 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_gorra_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by hora  ";
+        String sql4 = "SELECT numero,numero_orden_gorra_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_gorra_recibidas  where estatus_orden = 'realizada totalmente'  order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
@@ -630,7 +548,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos11 = new String[12];
 
-        String sql15 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_pantalon_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
+        String sql15 = "SELECT numero,numero_orden_pantalon_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_pantalon_recibidas  where estatus_orden = 'realizada totalmente' order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
@@ -667,7 +585,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos16 = new String[12];
 
-        String sql16 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_corbata_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
+        String sql16 = "SELECT numero,numero_orden_corbata_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_corbata_recibidas  where estatus_orden = 'realizada totalmente'   order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
@@ -702,7 +620,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos17 = new String[12];
 
-        String sql17 = "SELECT numero,numero_sucursal,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_parche_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'   order by hora  ";
+        String sql17 = "SELECT numero,numero_orden_parche_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_parche_recibidas  where estatus_orden = 'realizada totalmente'  order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
@@ -769,7 +687,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  "
                          + "FROM historial_ordenes_camisa where lugar = 'Otra sucursal' "
-                         + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"'  ";
+                         + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada')  ";
 
         try {
             Statement st = cn.createStatement();
@@ -803,7 +721,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos2 = new String[12];
         
-        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada')";
 
         try {
             Statement st = cn.createStatement();
@@ -837,7 +755,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos3 = new String[12];
         
-         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') ";
 
         try {
             Statement st = cn.createStatement();
@@ -873,7 +791,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos4 = new String[12];
         
-        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada')  ";
 
         try {
             Statement st = cn.createStatement();
@@ -908,7 +826,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
          
          String[] datos5 = new String[12];
         
-        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada')  ";
 
         try {
             Statement st = cn.createStatement();
@@ -942,7 +860,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
          String[] datos6 = new String[12];
         
-        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') and fecha between '"+fechainicial+"' and '"+fechafinal+"' ";
+        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') ";
 
         try {
             Statement st = cn.createStatement();
@@ -1216,80 +1134,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         }
 }
     
-    void datoscombos()
-     {
-         Object mescombo = cbmes.getSelectedItem();
-        Object año = cbaño.getSelectedItem();
-        
-          if(mescombo.equals("Enero"))
-               {
-                   fechainicial = ""+año+"-01-01";
-                   fechafinal = ""+año+"-01-31";      
-               }
-               else if(mescombo.equals("Febrero"))
-               {
-                   fechainicial = ""+año+"-02-01";
-                   fechafinal = ""+año+"-02-29";       
-               }
-               else if(mescombo.equals("Marzo"))
-               {
-                   fechainicial = ""+año+"-03-01";  
-                   fechafinal = ""+año+"-03-31";       
-               }
-               else if(mescombo.equals("Abril"))
-               {
-                   fechainicial = ""+año+"-04-01";
-                   fechafinal = ""+año+"-04-30";     
-               }
-               else if(mescombo.equals("Mayo"))
-               {
-                   fechainicial = ""+año+"-05-01";  
-                   fechafinal = ""+año+"-05-31";         
-               }
-               else if(mescombo.equals("Junio"))
-               {
-                   fechainicial = ""+año+"-06-01";  
-                   fechafinal = ""+año+"-06-30";         
-               }
-               else if(mescombo.equals("Julio"))
-               {
-                   fechainicial = ""+año+"-07-01"; 
-                   fechafinal = ""+año+"-07-31";        
-               }
-               else if(mescombo.equals("Agosto"))
-               {
-                   fechainicial = ""+año+"-08-01";
-                   fechafinal = ""+año+"-08-31" ;       
-               }
-               else if(mescombo.equals("Septiembre"))
-               {
-                   fechainicial = ""+año+"-09-01"; 
-                   fechafinal = ""+año+"-09-30";       
-               }
-               else if(mescombo.equals("Octubre"))
-               {
-                   fechainicial = ""+año+"-10-01"; 
-                   fechafinal = ""+año+"-10-31";      
-               }
-               else if(mescombo.equals("Noviembre"))
-               {
-                   fechainicial = ""+año+"-11-01"; 
-                   fechafinal = ""+año+"-11-30";        
-               }
-               else if(mescombo.equals("Diciembre"))
-               {
-                   fechainicial = ""+año+"-12-01"; 
-                   fechafinal = ""+año+"-12-31";        
-               }
-          
-          
-             
-       
-           datos(); 
-        
-        
-         
-     }
+    
     
 
     @SuppressWarnings("unchecked")
@@ -1299,18 +1144,13 @@ public class ordenesterminadas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         btnsalir = new javax.swing.JButton();
-        lbnumero = new javax.swing.JLabel();
         lbinterface = new javax.swing.JLabel();
         lbtienda = new javax.swing.JLabel();
         btnactualizar = new javax.swing.JButton();
         btnfrente = new javax.swing.JButton();
-        cbmes = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        cbaño = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Ordenes realizadas");
+        setTitle("Ordenes terminadas");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -1373,9 +1213,6 @@ public class ordenesterminadas extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(5).setMinWidth(0);
             tabla.getColumnModel().getColumn(5).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(5).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(6).setMinWidth(0);
-            tabla.getColumnModel().getColumn(6).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(6).setMaxWidth(0);
             tabla.getColumnModel().getColumn(7).setMinWidth(50);
             tabla.getColumnModel().getColumn(7).setPreferredWidth(120);
             tabla.getColumnModel().getColumn(7).setMaxWidth(180);
@@ -1401,8 +1238,6 @@ public class ordenesterminadas extends javax.swing.JFrame {
             }
         });
 
-        lbnumero.setText(" ");
-
         lbinterface.setText(" ");
 
         lbtienda.setText(" ");
@@ -1421,45 +1256,6 @@ public class ordenesterminadas extends javax.swing.JFrame {
             }
         });
 
-        cbmes.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        cbmes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
-        cbmes.setSelectedIndex(-1);
-        cbmes.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbmesPopupMenuWillBecomeInvisible(evt);
-            }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                cbmesPopupMenuWillBecomeVisible(evt);
-            }
-        });
-        cbmes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmesActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Mes");
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel10.setText("Año");
-
-        cbaño.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cbaño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030" }));
-        cbaño.setSelectedIndex(-1);
-        cbaño.setToolTipText("");
-        cbaño.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-                cbañoPopupMenuWillBecomeInvisible(evt);
-            }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1471,16 +1267,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(cbaño, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1178, 1178, 1178)
+                                .addGap(1658, 1658, 1658)
                                 .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1496,22 +1283,9 @@ public class ordenesterminadas extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbnumero)
-                        .addGap(14, 14, 14))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(cbaño, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(5, 5, 5)))
-                .addGap(7, 7, 7)
+                .addGap(6, 6, 6)
+                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 876, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1531,8 +1305,24 @@ public class ordenesterminadas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        fechas();
+        
         datos(); 
+        
+        
+        
+          TableRowSorter<TableModel> sorter = new TableRowSorter<>(tabla.getModel());
+tabla.setRowSorter(sorter);
+List<RowSorter.SortKey> sortKeys = new ArrayList<>();
+ 
+int columnIndexToSort = 6;
+sortKeys.add(new RowSorter.SortKey(columnIndexToSort, SortOrder.DESCENDING));
+ 
+sorter.setSortKeys(sortKeys);
+sorter.sort();
+
+
+
+
         
         
     }//GEN-LAST:event_formWindowOpened
@@ -1926,25 +1716,6 @@ public class ordenesterminadas extends javax.swing.JFrame {
             btnactualizar.doClick();
         }
     }//GEN-LAST:event_formKeyPressed
-
-    private void cbmesPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbmesPopupMenuWillBecomeInvisible
-
-        datoscombos();
-
-    }//GEN-LAST:event_cbmesPopupMenuWillBecomeInvisible
-
-    private void cbmesPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbmesPopupMenuWillBecomeVisible
-
-    }//GEN-LAST:event_cbmesPopupMenuWillBecomeVisible
-
-    private void cbmesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbmesActionPerformed
-
-    private void cbañoPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbañoPopupMenuWillBecomeInvisible
-
-        datoscombos();
-    }//GEN-LAST:event_cbañoPopupMenuWillBecomeInvisible
 
     /**
      * @param args the command line arguments
@@ -3008,13 +2779,8 @@ public class ordenesterminadas extends javax.swing.JFrame {
     public static javax.swing.JButton btnactualizar;
     public static javax.swing.JButton btnfrente;
     private javax.swing.JButton btnsalir;
-    private javax.swing.JComboBox<String> cbaño;
-    private javax.swing.JComboBox<String> cbmes;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel lbinterface;
-    public static javax.swing.JLabel lbnumero;
     public static javax.swing.JLabel lbtienda;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables

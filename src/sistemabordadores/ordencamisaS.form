@@ -74,7 +74,7 @@
                               <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                               <Component id="btnotraubicacion2ponchado" min="-2" pref="90" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btninsertarponchados" min="-2" pref="186" max="-2" attributes="0"/>
+                              <Component id="btnreplicarponchados" min="-2" pref="186" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="btnterminetodo" min="-2" pref="197" max="-2" attributes="0"/>
                           </Group>
@@ -158,12 +158,12 @@
                                       <Component id="jLabel20" min="-2" pref="107" max="-2" attributes="0"/>
                                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                                       <Component id="lbhoraentrega" min="-2" pref="84" max="-2" attributes="0"/>
-                                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                                      <Component id="btndatos" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                                       <Component id="jLabel4" min="-2" pref="117" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="btndatos" min="-2" pref="91" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
@@ -380,10 +380,12 @@
                           <Component id="lbdiaentrega" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jLabel20" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="lbhoraentrega" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btndatos" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btndatos" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
                       <Component id="jScrollPane6" min="-2" pref="77" max="-2" attributes="0"/>
                       <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
@@ -602,7 +604,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnotraubicacion2ponchado" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="btnterminetodo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btninsertarponchados" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btnreplicarponchados" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -741,7 +743,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btninsertarponchados">
+    <Component class="javax.swing.JButton" name="btnreplicarponchados">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -749,7 +751,7 @@
         <Property name="text" type="java.lang.String" value="Replicar pnchados"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btninsertarponchadosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnreplicarponchadosActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbtipo">

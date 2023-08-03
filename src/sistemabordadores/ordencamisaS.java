@@ -212,7 +212,7 @@ public class ordencamisaS extends javax.swing.JFrame {
         lbtipo.setVisible(false);
 
         btnterminetodo.setEnabled(false);
-        btndatos.setVisible(false);
+     //   btndatos.setVisible(false);
         
         
         btnpechoizquierdocancelar.setEnabled(false);
@@ -576,19 +576,25 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                
                 
+                
+                
+                
+                
+                
+                
+                
+                
+                
                   pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                   lbpechoizquierdonombre.setText(pechoizquierdonombre);
               
                   String pechoizquierdo = rs.getString("pecho_izquierdo");
                   
-               
-                  
                 if (pechoizquierdo == null || pechoizquierdo.equals("") || pechoizquierdo.equals("ninguno")) {
 
                     btnpechoizquierdotermine.setEnabled(false);
                     botonhabilitado1 = "no";
-                    
-                    btnpechoizquierdoponchado.setEnabled(false);
+                     btnpechoizquierdoponchado.setEnabled(false);
                  
                     
                 }
@@ -597,6 +603,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     lbpechoizquierdo.setText(pechoizquierdo);
                      btnterminetodo.setEnabled(true);
+                     botonhabilitado1 = "si";
+                     btnpechoizquierdoponchado.setEnabled(true);
                  
                      
                      
@@ -630,6 +638,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     lbpechoderecho.setText(pechoderecho);
                      btnterminetodo.setEnabled(true);
+                     botonhabilitado2 = "si";
                      
                 }
                 
@@ -659,6 +668,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     lbmangaizquierda.setText(mangaizquierda);
                      btnterminetodo.setEnabled(true);
+                      botonhabilitado3 = "si";
                    
                      
                 }
@@ -686,6 +696,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                      lbmangaderecha.setText(mangaderecha);
                      btnterminetodo.setEnabled(true);
+                     botonhabilitado4 = "si";
                     
                 }
 
@@ -710,6 +721,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     lbespalda.setText(espalda);
                      btnterminetodo.setEnabled(true);
+                      botonhabilitado5 = "si";
                    
                 }
                 
@@ -735,6 +747,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                      lbotraubicacion.setText(otraubicacion);
                      btnterminetodo.setEnabled(true);
+                      botonhabilitado6 = "si";
                  
                 }
 
@@ -760,6 +773,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                      lbotraubicacion2.setText(otraubicacion2);
                      btnterminetodo.setEnabled(true);
+                     botonhabilitado7 = "si";
                    
                 }
 
@@ -846,177 +860,196 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                 
                     
-                    btninsertarponchados.setEnabled(false);
+                    btnreplicarponchados.setEnabled(false);
                   
-                
-                    
-                    
-                    
-                    
-                    
-                      
-                    
-                
-                    
-                    
-                    
                     
                 
                 //// pecho izquierdo    
                     
-                if(cantidadpechoizquierdo.equals("0") && botonhabilitado1.equals("si") )
+                if( botonhabilitado1.equals("si") )
                 {
                    btnpechoizquierdotermine.setEnabled(true);
+                   
+                   
+                   
        
-                   if(botonhabilitado1.equals("si"))
+                   if(cantidadpechoizquierdo.equals("0"))
                    {
+                       
+                       
                    listabotones.add("btnpechoizquierdo");
                    
                    
                      lbcantidad1.setText("0");
                     lbcantidad1.setForeground(Color.red.darker());
+                    
+                       
+                   
+                   
+                   }
+                   
+                   else
+                   {
+                       
+                        btnpechoizquierdocancelar.setEnabled(true);
+                   btnpechoizquierdotermine.setEnabled(true);  //  ROMMEL PONERLE FALSE 
+                   
+                     lbcantidad1.setText(cantidad);
+                   lbcantidad1.setForeground(Color.GREEN.darker());
                       
-                   
-                   
+                       
                    }
                   
                 }
                 else
                 {
                     
-                     if(botonhabilitado1.equals("si"))
-                   {
-                     btnpechoizquierdocancelar.setEnabled(true);
-                   btnpechoizquierdotermine.setEnabled(true);  //  ROMMEL PONERLE FALSE 
-                   
-                   
-                     lbcantidad1.setText(cantidad);
-                   lbcantidad1.setForeground(Color.GREEN.darker());
-                   
-                   
-                   
-                     
-                   }
-                     
+                 btnpechoizquierdotermine.setEnabled(false);
+                 btnpechoizquierdoponchado.setEnabled(false);
                   
                 
                 } 
                 
+                
+                
+                
+                
+                
+                
+                
+                
                
                 //// pecho derecho
                 
-                if(cantidadpechoderecho.equals("0")  && botonhabilitado2.equals("si") )
+                if(  botonhabilitado2.equals("si") )
                 {
                    btnpechoderechotermine.setEnabled(true);
             
-                   if(botonhabilitado2.equals("si"))
+                   
+                   
+                   if(cantidadpechoderecho.equals("0"))
                    {
                    listabotones.add("btnpechoderecho");
                    
+                   
+                    btnpechoderechotermine.setEnabled(true);
+                           btnpechoderechoponchado.setEnabled(true);
                    
                      lbcantidad2.setText("0");
                     lbcantidad2.setForeground(Color.red.darker());
                     
                    
-                         
-                  
-                   
-                   
-                   
-                   
-                   
-                   
-                   
                    }
-                  
-                }
-                else
-                {
-                    
-                     if(botonhabilitado2.equals("si"))
-                   {
-                    btnpechoderechocancelar.setEnabled(true);
+                   
+                   else
+                   {                       
+                       
+                         btnpechoderechocancelar.setEnabled(true);
                        btnpechoderechotermine.setEnabled(true);    //  ROMMEL PONERLE FALSE
                        
                          lbcantidad2.setText(cantidad);
                    lbcantidad2.setForeground(Color.GREEN.darker());
-                    
-                   }
-                  
-               
-                } 
-                
-                
-                if(cantidadmangaizquierda.equals("0")  && botonhabilitado3.equals("si") )
-                {
-                   btnmangaizquierdatermine.setEnabled(true);
-            
-                   if(botonhabilitado3.equals("si"))
-                   {
-                   listabotones.add("btnmangaizquierda");
-                   
-                    lbcantidad3.setText("0");
-                    lbcantidad3.setForeground(Color.red.darker());
-                   
-                
-                   
                    }
                   
                 }
                 else
                 {
                     
-                   if(botonhabilitado3.equals("si"))
+                   btnpechoderechotermine.setEnabled(false);
+                           btnpechoderechoponchado.setEnabled(false);
+                } 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                if(  botonhabilitado3.equals("si") )
+                {
+                   
+            
+                   if(cantidadmangaizquierda.equals("0"))
                    {
-                  btnmangaizquierdacancelar.setEnabled(true);
+                       
+                       btnmangaizquierdatermine.setEnabled(true);
+                       btnmangaizquierdaponchado.setEnabled(true);
+                       
+                         listabotones.add("btnmangaizquierda");
+                   
+                    lbcantidad3.setText("0");
+                    lbcantidad3.setForeground(Color.red.darker());
+                       
+                   }
+                       else
+                       {
+                               
+                           
+                            btnmangaizquierdacancelar.setEnabled(true);
                        btnmangaizquierdatermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
                        
                         lbcantidad3.setText(cantidad);
                    lbcantidad3.setForeground(Color.GREEN.darker());
+                               
+                               }
+                       
+                  
+                }
+                else
+                {
+                    
+                     btnmangaizquierdatermine.setEnabled(false);
+                       btnmangaizquierdaponchado.setEnabled(false);
+                       
                    
-                   }
                   
                 } 
                 
                 
                 
                     
-                if(cantidadmangaderecha.equals("0")  && botonhabilitado4.equals("si") )
+                if(  botonhabilitado4.equals("si") )
                 {
-                   btnmangaderechatetermine.setEnabled(true);
+                  
          
-                    if(botonhabilitado4.equals("si"))
+                    if(cantidadmangaderecha.equals("0"))
                    {
+                       
+                       
                    listabotones.add("btnmangaderecha");
+                   
+                    btnmangaderechatetermine.setEnabled(true);
+                   btnmangaderechaponchado.setEnabled(true);
                    
                     lbcantidad4.setText("0");
                     lbcantidad4.setForeground(Color.red.darker());
                     
-                   
-                  
-                   
-                             
-                             
+                          
                              
                    }
-                   
-                   
-                   
-                }
-                else
-                {
                     
-                     if(botonhabilitado4.equals("si"))
-                   {
-                 btnmangaderechacancelar.setEnabled(true);
+                    else
+                    {
+                        
+                         btnmangaderechacancelar.setEnabled(true);
                  btnmangaderechatetermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
                  
                  
                   lbcantidad4.setText(cantidad);
                    lbcantidad4.setForeground(Color.GREEN.darker());
-              
-                    
-                   }
+                        
+                    }
+                   
+                   
+                   
+                }
+                else
+                {
+                      btnmangaderechatetermine.setEnabled(false);
+                   btnmangaderechaponchado.setEnabled(false);
+                 
                  
                 } 
                 
@@ -1030,49 +1063,64 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                if(cantidadespalda.equals("0")  && botonhabilitado5.equals("si") )
+                if(  botonhabilitado5.equals("si") )
                 {
-                   btnespaldatetermine.setEnabled(true);
+                 
             
-                   if(botonhabilitado5.equals("si"))
+                   if(cantidadespalda.equals("0"))
                    {
                    listabotones.add("btnespalda");
+                   
+                   
+                     btnespaldatetermine.setEnabled(true);
+                     btnespaldaponchado.setEnabled(true);
                    
                    lbcantidad5.setText("0");
                     lbcantidad5.setForeground(Color.red.darker());
                    
                           
                    }
+                   
+                   else
+                   {
+                         btnespaldacancelar.setEnabled(true);
+                   btnespaldatetermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
+                   
+                   
+                    lbcantidad5.setText(cantidad);
+                   lbcantidad5.setForeground(Color.GREEN.darker());
+                       
+                   }
                   
                    
                 }
                 else
                 {
                     
-                   if(botonhabilitado5.equals("si"))
-                   {
-                   btnespaldacancelar.setEnabled(true);
-                   btnespaldatetermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
-                   
-                   
-                    lbcantidad5.setText(cantidad);
-                   lbcantidad5.setForeground(Color.GREEN.darker());
-                  
-                   }
+                   btnespaldatetermine.setEnabled(false);
+                     btnespaldaponchado.setEnabled(false);
                     
                     
                     
                 } 
                 
                 
-                if(cantidadotraubicacion.equals("0")  && botonhabilitado6.equals("si") )
+                
+                
+                
+                
+                
+                
+                if(  botonhabilitado6.equals("si") )
                 {
-                   btnotraubicaciontetermine.setEnabled(true);
+                  
               
-                   if(botonhabilitado6.equals("si"))
+                   if(cantidadotraubicacion.equals("0") )
                    {
                    listabotones.add("btnotraubicacion");
                    
+                    btnotraubicaciontetermine.setEnabled(true);
+                   btnotraubicacionponchado.setEnabled(true);
                    
                    lbcantidad6.setText("0");
                     lbcantidad6.setForeground(Color.red.darker());
@@ -1080,32 +1128,49 @@ JOptionPane.showMessageDialog(null, mensaje);
                            
                    }
                    
-                   
-                }
-                else
-                {
-                    
-                    if(botonhabilitado6.equals("si"))
+                   else
                    {
-                   btnotraubicacioncancelar.setEnabled(true);
+                       
+                        btnotraubicacioncancelar.setEnabled(true);
                    btnotraubicaciontetermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
                    
                    
                      lbcantidad6.setText(cantidad);
                    lbcantidad6.setForeground(Color.GREEN.darker());
-                  
+                       
                    }
+                   
+                   
+                }
+                else
+                {
+                    
+                    btnotraubicaciontetermine.setEnabled(false);
+                   btnotraubicacionponchado.setEnabled(false);
                   
                 } 
                 
-                if(cantidadotraubicacion2.equals("0")  && botonhabilitado7.equals("si") )
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                if(  botonhabilitado7.equals("si") )
                 {
-                   btnotraubicacion2tetermine.setEnabled(true);
+                   
            
-                   if(botonhabilitado7.equals("si"))
+                   if(cantidadotraubicacion2.equals("0"))
                    {
                        listabotones.add("btnotraubicacion2");
                        
+                      btnotraubicacion2tetermine.setEnabled(true);
+                      btnotraubicacion2ponchado.setEnabled(true);
                       
                          lbcantidad7.setText("0");
                     lbcantidad7.setForeground(Color.red.darker());
@@ -1113,22 +1178,25 @@ JOptionPane.showMessageDialog(null, mensaje);
                             
                                
                    }
+                   
+                   else
+                   {
+                         btnotraubicacion2cancelar.setEnabled(true);
+                 btnotraubicacion2tetermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
+                 
+                 
+                  lbcantidad7.setText(cantidad);
+                   lbcantidad7.setForeground(Color.GREEN.darker());
+                       
+                   }
                   
                    
                 }
                 else
                 {
                     
-                     if(botonhabilitado7.equals("si"))
-                   {
-                 btnotraubicacion2cancelar.setEnabled(true);
-                 btnotraubicacion2tetermine.setEnabled(true);   //  ROMMEL PONERLE FALSE 
-                 
-                 
-                  lbcantidad7.setText(cantidad);
-                   lbcantidad7.setForeground(Color.GREEN.darker());
-                 
-                   }
+                   btnotraubicacion2tetermine.setEnabled(false);
+                      btnotraubicacion2ponchado.setEnabled(false);
                   
                 } 
                 
@@ -1138,7 +1206,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 else
                 {
                     
-                    btninsertarponchados.setEnabled(true);
+                    btnreplicarponchados.setEnabled(true);
                  
                     
                 } 
@@ -1489,7 +1557,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
               
 
-                    btninsertarponchados.setEnabled(false);
+                    btnreplicarponchados.setEnabled(false);
                   
                     
                     
@@ -2641,9 +2709,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         int surtidaactualint =  0;
         String nuevasurtidastring = "";
         String estatusentrega ="";
-        String estatusentregaventa = "";
+       
         
-        String SQL2 = "select articulo,surtida,estatus_entrega from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
+        String SQL2 = "select articulo,surtida from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -2655,7 +2723,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         surtidaactualstring = rs.getString("surtida");
         surtidaactualint = Integer.parseInt(surtidaactualstring);
-        estatusentregaventa= rs.getString("estatus_entrega");
+      
 
         }
         
@@ -2704,8 +2772,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         // AQUI LO VAS A MODIFICAR ROMMEL, QUE ENTRE CUANDO SEA ORDEN DE ENVIO, NO CUANDO ESTE SURTIDA Y ENTREGADA TOTALMENTE
-        if(estatusentregaventa.equals("surtida totalmente entregada totalmente") )
-        {
+      
             
             
             
@@ -2727,13 +2794,18 @@ JOptionPane.showMessageDialog(null, mensaje);
                             }
        
 
+
+      
         ////Actualiza el estatus
 
-      String cantidadsurtida = "";  
-      String cantidadvendida = "";  
-      String cantidadentregada = "";  
+      String vendidastring = "";    
+      String surtidastring = "";  
+      String entregadastring = "";  
+      String ordenstring = "";
+      String cambiadastring = "";
+      String virtualstring = "";
        
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroordendeenviosolicitada+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numeroventa+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -2741,9 +2813,12 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (rs.next()) 
         {
 
-        cantidadvendida = rs.getString("cantidad");
-        cantidadsurtida = rs.getString("surtida");
-        cantidadentregada = rs.getString("enviadas");
+        vendidastring = rs.getString("cantidad");
+        surtidastring = rs.getString("surtida");
+        entregadastring = rs.getString("entregadas");
+        ordenstring = rs.getString("orden");
+        cambiadastring = rs.getString("cambiada");
+        virtualstring = rs.getString("cantidad_virtual");
         
 
         }
@@ -2754,41 +2829,52 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
       
         
+        
+        
+        
+        
       
-      /////
+     ////Actualiza el estatus
       
-      double cantidadvendidadouble = Double.parseDouble(cantidadvendida);
-      double cantidadsurtidadouble = Double.parseDouble(cantidadsurtida);
-      double cantidadenviadadouble = Double.parseDouble(cantidadentregada);
+     
+      
+      int vendida = Integer.parseInt(vendidastring);
+      int surtida = Integer.parseInt(surtidastring);
+      int entregada = Integer.parseInt(entregadastring);
+      int orden = Integer.parseInt(ordenstring);
+      int cambiada = Integer.parseInt(cambiadastring);
+      int virtual = Integer.parseInt(virtualstring);
       
         
-        if((cantidadvendidadouble == (cantidadsurtidadouble + cantidadenviadadouble)) && cantidadenviadadouble  == 0 )
+        if(vendida == (surtida + orden + cambiada + virtual + entregada) && entregada == 0 )
         {
-          estatusentrega ="surtida totalmente no enviada";  
+          estatusentrega ="surtida totalmente no entregada";  
         }
+        
         else
-            
-            
-              if((cantidadvendidadouble == (cantidadsurtidadouble + cantidadenviadadouble)) && cantidadenviadadouble  > 0 )
+          if(vendida == (surtida + orden + cambiada + virtual + entregada) && entregada > 0 )
         {
-          estatusentrega ="surtida totalmente enviada parcialmente";  
+          estatusentrega ="surtida totalmente entregada parcialmente";  
         }
-       
-        else
-            
-         if((cantidadvendidadouble > (cantidadsurtidadouble + cantidadenviadadouble ))  && cantidadenviadadouble  == 0 )
+          
+          
+           else
+          if(vendida > (surtida + orden + cambiada + virtual + entregada) && entregada > 0 )
         {
-          estatusentrega ="surtida parcialmente no enviada";  
+          estatusentrega ="surtida totalmente entregada parcialmente";  
         }
-         
-       
+     
+        
         else
         {
-          estatusentrega ="surtida parcialmente enviada parcialmente";   
+          estatusentrega ="surtida parcialmente no entregada";   
         }    
         
+        
+        
+        
           try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET estatus_entrega = '" + estatusentrega + "' WHERE numero_sucursal='" + numeroordendeenviosolicitada + "'       ");
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
               pst.executeUpdate();
               pst.close();
           } catch (Exception e) {
@@ -2796,12 +2882,7 @@ JOptionPane.showMessageDialog(null, mensaje);
               System.out.println(e);
           }
       
-
-        }
       
-                     
-                 
-            
             
             
             
@@ -2887,7 +2968,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
       
       
-      }  
+      }
     
     
      void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad) 
@@ -2945,13 +3026,18 @@ JOptionPane.showMessageDialog(null, mensaje);
                             }
        
 
+      
+            
         ////Actualiza el estatus
 
-      String cantidadsurtida = "";  
-      String cantidadvendida = "";  
-      String cantidadentregada = "";  
+      String vendidastring = "";    
+      String surtidastring = "";  
+      String entregadastring = "";  
+      String ordenstring = "";
+      String cambiadastring = "";
+      String virtualstring = "";
        
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas from historial_ventas where numero = '"+numeroventa+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numeroventa+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -2959,9 +3045,12 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (rs.next()) 
         {
 
-        cantidadvendida = rs.getString("cantidad");
-        cantidadsurtida = rs.getString("surtida");
-        cantidadentregada = rs.getString("entregadas");
+        vendidastring = rs.getString("cantidad");
+        surtidastring = rs.getString("surtida");
+        entregadastring = rs.getString("entregadas");
+        ordenstring = rs.getString("orden");
+        cambiadastring = rs.getString("cambiada");
+        virtualstring = rs.getString("cantidad_virtual");
         
 
         }
@@ -2973,35 +3062,40 @@ JOptionPane.showMessageDialog(null, mensaje);
       
         
       
-      /////
-      
-      double cantidadvendidadouble = Double.parseDouble(cantidadvendida);
-      double cantidadsurtidadouble = Double.parseDouble(cantidadsurtida);
-      double cantidadentregadadouble = Double.parseDouble(cantidadentregada);
+      int vendida = Integer.parseInt(vendidastring);
+      int surtida = Integer.parseInt(surtidastring);
+      int entregada = Integer.parseInt(entregadastring);
+      int orden = Integer.parseInt(ordenstring);
+      int cambiada = Integer.parseInt(cambiadastring);
+      int virtual = Integer.parseInt(virtualstring);
       
         
-      
-         
-    //  si tiene orden de envio le cambio el estatus a la orden de envio
-              
-               
-       {     
-              
-      
-      
-        if(cantidadvendidadouble == cantidadsurtidadouble && cantidadentregadadouble == 0 )
+        if(vendida == (surtida + orden + cambiada + virtual + entregada) && entregada == 0 )
         {
           estatusentrega ="surtida totalmente no entregada";  
         }
-        else  if(cantidadvendidadouble == (cantidadsurtidadouble + cantidadentregadadouble )  &&  cantidadentregadadouble <  cantidadvendidadouble  )
+        
+        else
+          if(vendida == (surtida + orden + cambiada + virtual + entregada) && entregada > 0 )
         {
           estatusentrega ="surtida totalmente entregada parcialmente";  
         }
+          
+          
+           else
+          if(vendida > (surtida + orden + cambiada + virtual + entregada) && entregada > 0 )
+        {
+          estatusentrega ="surtida totalmente entregada parcialmente";  
+        }
+     
         
         else
         {
           estatusentrega ="surtida parcialmente no entregada";   
         }    
+        
+        
+        
         
           try {
               PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
@@ -3012,11 +3106,9 @@ JOptionPane.showMessageDialog(null, mensaje);
               System.out.println(e);
           }
       
+   
           
           
-          
-          
-          }
         
       
       
@@ -3977,7 +4069,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         btnsalir = new javax.swing.JButton();
         lbcliente = new javax.swing.JLabel();
         lbnumerodeventa = new javax.swing.JLabel();
-        btninsertarponchados = new javax.swing.JButton();
+        btnreplicarponchados = new javax.swing.JButton();
         lbtipo = new javax.swing.JLabel();
         btneditarbordado = new javax.swing.JButton();
         btnverfotomontaje = new javax.swing.JButton();
@@ -4136,11 +4228,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbnumerodeventa.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbnumerodeventa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btninsertarponchados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btninsertarponchados.setText("Replicar pnchados");
-        btninsertarponchados.addActionListener(new java.awt.event.ActionListener() {
+        btnreplicarponchados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnreplicarponchados.setText("Replicar pnchados");
+        btnreplicarponchados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btninsertarponchadosActionPerformed(evt);
+                btnreplicarponchadosActionPerformed(evt);
             }
         });
 
@@ -4739,7 +4831,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addGap(5, 5, 5)
                                 .addComponent(btnotraubicacion2ponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btninsertarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
@@ -4810,12 +4902,12 @@ JOptionPane.showMessageDialog(null, mensaje);
                                         .addGap(7, 7, 7)
                                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(12, 12, 12)
-                                        .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(5, 5, 5)
-                                        .addComponent(btndatos))
+                                        .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(2, 2, 2)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(2, 2, 2)
                                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -5005,10 +5097,11 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbdiaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(7, 7, 7)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(7, 7, 7)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
@@ -5178,7 +5271,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnotraubicacion2ponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btninsertarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
 
         pack();
@@ -6163,7 +6256,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
     }//GEN-LAST:event_btnmangaderechatetermineActionPerformed
 
-    private void btninsertarponchadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninsertarponchadosActionPerformed
+    private void btnreplicarponchadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreplicarponchadosActionPerformed
        
         
        
@@ -6529,7 +6622,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
    
 
-    }//GEN-LAST:event_btninsertarponchadosActionPerformed
+    }//GEN-LAST:event_btnreplicarponchadosActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
        
@@ -8308,7 +8401,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JButton btnespaldaponchado;
     private javax.swing.JButton btnespaldatetermine;
     private javax.swing.JButton btnfotomontajesinpuntadas;
-    private javax.swing.JButton btninsertarponchados;
     private javax.swing.JButton btnmangaderechacancelar;
     private javax.swing.JButton btnmangaderechaponchado;
     private javax.swing.JButton btnmangaderechatetermine;
@@ -8327,6 +8419,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JButton btnpechoizquierdocancelar;
     private javax.swing.JButton btnpechoizquierdoponchado;
     private javax.swing.JButton btnpechoizquierdotermine;
+    private javax.swing.JButton btnreplicarponchados;
     public static javax.swing.JButton btnsalir;
     private javax.swing.JButton btnterminetodo;
     private javax.swing.JButton btnvercolorido;
@@ -8393,7 +8486,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumerodelaotrasucursal;
     public static javax.swing.JLabel lbnumerodeventa;
-    private javax.swing.JLabel lbnumeroordenopedidosolicitado;
+    public static javax.swing.JLabel lbnumeroordenopedidosolicitado;
     public static javax.swing.JTextArea lbobservaciones;
     public static javax.swing.JLabel lborden;
     public javax.swing.JLabel lbotraubicacion;

@@ -365,6 +365,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                    
                
+                    btnfrenteponchado.setEnabled(false);
+                    
+                    
                 }
                 else
                 {
@@ -372,8 +375,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                      lbfrentenombre.setText(frentenombre);
                     lbfrentepuntadas.setText(rs.getString("puntadas_frente"));
                     botonactivado1 = "si";
-                   btnterminetodo.setEnabled(true);
-                   btnfrentetermine.setEnabled(true);
+                  
+                  
                    btnfrenteponchado.setEnabled(true);  
                     
                 }    
@@ -386,7 +389,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 String atras =  rs.getString("atras");
                 if(atras ==null||atras.equals("") || atras.equals("ninguno"))
                 {
-                   
+                    btnatrasponchado.setEnabled(false);  
                 }
                  else
                 {
@@ -395,8 +398,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     lbatrasnombre.setText(atrasnombre);
                     lbatraspuntadas.setText(rs.getString("puntadas_atras"));
                      botonactivado4 = "si";
-                      btnterminetodo.setEnabled(true);
-                      btnatrastermine.setEnabled(true);
+                    
                       btnatrasponchado.setEnabled(true);  
                 } 
                 
@@ -412,15 +414,14 @@ JOptionPane.showMessageDialog(null, mensaje);
                
                 if(ladoizquierdo ==null||ladoizquierdo.equals("") || ladoizquierdo.equals("ninguno"))
                 {
-                  
+                  btnladoizquierdoponchado.setEnabled(false);  
                 }
                 else
                 {
                      lbladoizquierdonombre.setText(ladoizquierdonombre);
                     lbladoizquierdopuntadas.setText(rs.getString("puntadas_lado_izquierdo"));
                      botonactivado2 = "si";
-                      btnterminetodo.setEnabled(true);
-                      btnladoizquierdotermine.setEnabled(true);
+                     
                       btnladoizquierdoponchado.setEnabled(true);  
                 }    
                 
@@ -433,7 +434,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                  String ladoderecho =  rs.getString("lado_derecho");
                 if(ladoderecho ==null || ladoderecho.equals("") || ladoderecho.equals("ninguno"))
                 {
-                   
+                   btnladoderechoponchado.setEnabled(false); 
                 }
                  else
                 {
@@ -441,8 +442,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      lbladoderechonombre.setText(ladoderechonombre);
                     lbladoderechopuntadas.setText(rs.getString("puntadas_lado_derecho"));
                      botonactivado3 = "si";
-                      btnterminetodo.setEnabled(true);
-                      btnladoderechotermine.setEnabled(true);
+                      
                       btnladoderechoponchado.setEnabled(true);  
                 }  
                 
@@ -497,7 +497,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                    listabotones.add("btnfrente");
                    
                    
-                   btnfrentetermine.setEnabled(true); 
+                   btnfrentetermine.setEnabled(true);
+                   btnfrentecancelar.setEnabled(false);
+                   
                    btnfrenteponchado.setEnabled(true);  
                    
                     lbcantidad1.setText("0");
@@ -523,7 +525,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     
                   btnfrentetermine.setEnabled(false); 
-                   btnfrenteponchado.setEnabled(false);    
+                   
                    
                    
                 }
@@ -545,9 +547,11 @@ JOptionPane.showMessageDialog(null, mensaje);
                    {
                     listabotones.add("btnladoderecho");
                     
-                       btnladoderechotermine.setEnabled(true); 
+                       btnladoderechotermine.setEnabled(true);
+                       
+                       
                     btnatrasponchado.setEnabled(true); 
-                    
+                     btnatrascancelar.setEnabled(false);
                     
                      lbcantidad2.setText("0");
                     lbcantidad2.setForeground(Color.red.darker());
@@ -559,7 +563,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                        
                    {
                         btnatrascancelar.setEnabled(true);
-                         btnladoderechotermine.setEnabled(false); 
+                         btnladoderechotermine.setEnabled(false);
+                         
+                         
                  lbcantidad2.setText(cantidad);
                  lbcantidad2.setForeground(Color.GREEN.darker());
                        
@@ -573,7 +579,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     
                      btnladoderechotermine.setEnabled(false); 
-                    btnatrasponchado.setEnabled(false); 
+                  
                     
                   
                 } 
@@ -603,7 +609,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                    listabotones.add("btnladoizquierdo");
                    
                      btnladoizquierdotermine.setEnabled(true);
-                     btnladoizquierdoponchado.setEnabled(true); 
+                      btnladoizquierdocancelar.setEnabled(false);
                      
                      
                    lbcantidad3.setText("0");
@@ -626,7 +632,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                     
                      btnladoizquierdotermine.setEnabled(false);
-                     btnladoizquierdoponchado.setEnabled(false); 
+                 
                      
                      
                      
@@ -651,7 +657,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     
                      btnatrastermine.setEnabled(true);
-                     btnladoderechoponchado.setEnabled(true); 
+                      btnladoderechocancelar.setEnabled(false);
                     
                     
                      lbcantidad4.setText("0");
@@ -662,6 +668,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                    {
                       btnladoderechocancelar.setEnabled(true);
                        btnatrastermine.setEnabled(false);
+                       
                   lbcantidad4.setText(cantidad);
                  lbcantidad4.setForeground(Color.GREEN.darker());  
                        
@@ -672,7 +679,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                     
                       btnatrastermine.setEnabled(false);
-                     btnladoderechoponchado.setEnabled(false); 
+                    
                      
                      
                  
@@ -720,7 +727,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 else
                 {
                    btnterminetodo.setEnabled(true); 
-                    btnterminetodo.setEnabled(true);
+                  
                    
                    
                   if(estatus.equals("realizada parcialmente"))
@@ -1885,7 +1892,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String estatusentrega ="";
        
         
-        String SQL2 = "select articulo,surtida from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
+        String SQL2 = "select articulo,surtida from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "'  and prenda = '"+prenda+"' ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -2044,7 +2051,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String estatusentrega ="";
        
         
-        String SQL2 = "select cantidad from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' ";
+        String SQL2 = "select cantidad from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"'";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -2081,7 +2088,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+nuevacantidadstring+"' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'      ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+nuevacantidadstring+"' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"'    ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -4733,7 +4740,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
                     
                     
-                    String cantidadaplicacion = "0";
+                  
                     descripcion = "BORDADO GORRA FRENTE " + frentenombre + "";
                     aplicacioninsertar = "APLICACION GORRA FRENTE";
                     String cantidad = lbcantidad.getText();
@@ -4746,7 +4753,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     
                        lbautorizacion.setText("no");
-                       btnfrentecancelar.setEnabled(false);
+                 //      btnfrentecancelar.setEnabled(false);
                        
                        
                 

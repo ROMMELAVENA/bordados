@@ -390,19 +390,40 @@ JOptionPane.showMessageDialog(null, mensaje);
                 distinta7cantidad =rs.getString("distinta7_cantidad");
                
                 
+                
+                
+                
+                
+                
                 distinta1nombre = rs.getString("distinta1_nombre");
                 distinta1ubicacion = rs.getString("distinta1_ubicacion");
-                distinta1 = rs.getString("distinta1");
+                
                 lbdistinta1nombre.setText(distinta1nombre);
                 lbdistinta1.setText(distinta1);
               
+                
+                
                 if (distinta1 == null || distinta1.equals("")||distinta1.equals(" ")) 
                 {
 
                    
                     botonhabilitado1 = "no";
                     
+                    btndistinta1ponnchado.setEnabled(false);
+                    
 
+                }
+                
+                
+                else
+                {
+                    
+                    distinta1 = rs.getString("distinta1");
+                    
+                    botonhabilitado1 = "si";
+                    
+                    btndistinta1ponnchado.setEnabled(true);
+                    
                 }
                   
 
@@ -412,77 +433,227 @@ JOptionPane.showMessageDialog(null, mensaje);
                 distinta2= rs.getString("distinta2");
                 lbdistinta2nombre.setText(distinta2nombre);
                 lbdistinta2.setText(distinta2);
-                if (distinta2 == null | distinta2.equals("")) 
+                
+                
+                
+                
+               if (distinta2 == null || distinta2.equals("")||distinta2.equals(" ")) 
                 {
 
                    
                     botonhabilitado2 = "no";
+                    
+                    btndistinta2ponnchado.setEnabled(false);
+                    
 
                 }
-
+                
+                
+                else
+                {
+                    
+                    distinta2 = rs.getString("distinta2");
+                    
+                    botonhabilitado2 = "si";
+                    
+                    btndistinta2ponnchado.setEnabled(true);
+                    
+                }
+                
+                
                 distinta3nombre = rs.getString("distinta3_nombre");
                 distinta3 = rs.getString("distinta3");
+                
+                
+                
                 lbdistinta3nombre.setText(distinta3nombre);
                 lbdistinta3.setText(distinta3);
-                if (distinta3 == null | distinta3.equals("")) {
+                
+                
+                
+                
+                
+                
+                if (distinta3 == null || distinta3.equals("")||distinta3.equals(" ")) 
+                {
 
                    
                     botonhabilitado3 = "no";
+                    
+                    btndistinta3ponnchado.setEnabled(false);
+                    
 
                 }
+                
+                
+                else
+                {
+                    
+                    distinta3 = rs.getString("distinta3");
+                    
+                    botonhabilitado3 = "si";
+                    
+                    btndistinta3ponnchado.setEnabled(true);
+                    
+                }
+                
+                
 
                 distinta4nombre = rs.getString("distinta4_nombre");
                 distinta4 = rs.getString("distinta4");
                 lbdistinta4nombre.setText(distinta4nombre);
                 lbdistinta4.setText(distinta4);
-                if (distinta4 == null | distinta4.equals("")) 
+               
+                
+                
+                
+                if (distinta4 == null || distinta4.equals("")||distinta4.equals(" ")) 
                 {
 
                    
                     botonhabilitado4 = "no";
                     
+                    btndistinta4ponnchado.setEnabled(false);
+                    
+
                 }
+                
+                
+                else
+                {
+                    
+                    distinta4 = rs.getString("distinta4");
+                    
+                    botonhabilitado4 = "si";
+                    
+                    btndistinta4ponnchado.setEnabled(true);
+                    
+                }
+                
+                
+                
 
                 distinta5nombre = rs.getString("distinta5_nombre");
                 distinta5 = rs.getString("distinta5");
                 lbdistinta5nombre.setText(distinta5nombre);
                 lbdistinta5.setText(distinta5);
-                if (distinta5 == null | distinta5.equals("")) 
+              
+                
+                
+                
+               if (distinta5 == null || distinta5.equals("")||distinta5.equals(" ")) 
                 {
+
                    
                     botonhabilitado5 = "no";
+                    
+                    btndistinta5ponnchado.setEnabled(false);
+                    
 
                 }
+                
+                
+                else
+                {
+                    
+                    distinta5 = rs.getString("distinta5");
+                    
+                    botonhabilitado5 = "si";
+                    
+                    btndistinta5ponnchado.setEnabled(true);
+                    
+                }
+                
+                
+                
+                
 
 
                 distinta6nombre = rs.getString("distinta6_nombre");
                 distinta6 = rs.getString("distinta6");
                 lbdistinta6nombre.setText(distinta6nombre);
                 lbdistinta6.setText(distinta6);
-                if (distinta6 == null | distinta6.equals("")) {
+               
+                
+                
+                
+                
+                if (distinta6 == null || distinta6.equals("")||distinta6.equals(" ")) 
+                {
 
-                  
+                   
                     botonhabilitado6 = "no";
+                    
+                    btndistinta6ponnchado.setEnabled(false);
+                    
 
                 }
+                
+                
+                else
+                {
+                    
+                    distinta6 = rs.getString("distinta6");
+                    
+                    botonhabilitado6 = "si";
+                    
+                    btndistinta6ponnchado.setEnabled(true);
+                    
+                }
+                
+                
+                
+                
 
                 distinta7nombre = rs.getString("distinta7_nombre");
                 distinta7 = rs.getString("distinta7");
                 lbdistinta7nombre.setText(distinta7nombre);
                 lbdistinta7.setText(distinta7);
             
-                if (distinta7 == null | distinta7.equals("")) {
+               
+                
+                
+                
+                if (distinta7 == null || distinta7.equals("")||distinta7.equals(" ")) 
+                {
 
                    
                     botonhabilitado7 = "no";
+                    
+                    btndistinta7ponnchado.setEnabled(false);
                     
 
                 }
                 
                 
+                else
+                {
+                    
+                    distinta7 = rs.getString("distinta7");
+                    
+                    botonhabilitado7 = "si";
+                    
+                    btndistinta7ponnchado.setEnabled(true);
+                    
+                }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                distinta1aplicacion = rs.getString("distinta1_aplicacion");
 
-                if (distinta1aplicacion.equals("ninguno")) {
+               
+               
+               
+               
+               if (distinta1aplicacion.equals("ninguno")) {
                     distinta1aplicacion = "";
                 }
 
@@ -538,160 +709,427 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                     cbsucursal.setEnabled(false);
-                
-                
                     
                     
-                if(distinta1nombre==null||distinta1nombre.equals("")||distinta1nombre.equals(" "))
-                {
-                   btndistinta1termine.setEnabled(false);
-                   
-                   btndistinta1ponnchado.setEnabled(false);
-                   
-                }
-                else
-                {
-
-                   
-                   if(botonhabilitado1.equals("si"))
-                   {
-                   listabotones.add("btndistinta1");
-                   }
-
                     
-                } 
-                
-                
-                
-                /// distinta2
-                
-                 if(distinta2nombre==null||distinta2nombre.equals("")||distinta2nombre.equals(" "))
-                {
-                   btndistinta2termine.setEnabled(false);
-                   
-                   btndistinta2ponnchado.setEnabled(false);
-                   
-                }
-                else
-                {
-
                  
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                if( botonhabilitado1.equals("si") )
+                {
+                  
                    
-
-                   if(botonhabilitado2.equals("si"))
+                   
+                   
+       
+                   if(cantidaddistinta1.equals("0"))
                    {
+                       
+                       
+                   listabotones.add("btndistinta1");
+                   
+                    btndistinta1termine.setEnabled(true);
+                    btndistinta1cancelar.setEnabled(false);
+                     
+                   
+                     lbcantidad1.setText("0");
+                    lbcantidad1.setForeground(Color.red.darker());
+                    
+                       
+                   
+                   
+                   }
+                   
+                   else
+                   {
+                       
+                        btndistinta1cancelar.setEnabled(true);
+                   btndistinta1termine.setEnabled(false);  
+                   
+                     lbcantidad1.setText(cantidad);
+                   lbcantidad1.setForeground(Color.GREEN.darker());
+                      
+                       
+                   }
+                  
+                }
+                else
+                {
+                    
+                 btndistinta1termine.setEnabled(false);
+               
+                  
+                
+                } 
+                       
+                    
+                    
+                    
+                
+                
+                
+                
+                
+                
+                //2
+                     
+                if( botonhabilitado2.equals("si") )
+                {
+                  
+                   
+                   
+                   
+       
+                   if(cantidaddistinta2.equals("0"))
+                   {
+                       
+                       
                    listabotones.add("btndistinta2");
+                   
+                    btndistinta2termine.setEnabled(true);
+                    btndistinta2cancelar.setEnabled(false);
+                     
+                   
+                     lbcantidad2.setText("0");
+                    lbcantidad2.setForeground(Color.red.darker());
+                    
+                       
+                   
+                   
                    }
                    
-                    
-                    
-                } 
-                
-                 if(distinta3nombre==null||distinta3nombre.equals("")||distinta3nombre.equals(" "))
-                {
-                   btndistinta3termine.setEnabled(false);
+                   else
+                   {
+                       
+                        btndistinta2cancelar.setEnabled(true);
+                   btndistinta2termine.setEnabled(false);  
                    
-                   btndistinta3ponnchado.setEnabled(false);
-                   
+                     lbcantidad2.setText(cantidad);
+                   lbcantidad2.setForeground(Color.GREEN.darker());
+                      
+                       
+                   }
+                  
                 }
                 else
                 {
                     
-                    
+                 btndistinta2termine.setEnabled(false);
+               
                   
-                   if(botonhabilitado3.equals("si"))
+                
+                } 
+                       
+               
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                ///3
+                
+                     
+                if( botonhabilitado3.equals("si") )
+                {
+                  
+                   
+                   
+                   
+       
+                   if(cantidaddistinta3.equals("0"))
                    {
+                       
+                       
                    listabotones.add("btndistinta3");
+                   
+                    btndistinta3termine.setEnabled(true);
+                    btndistinta3cancelar.setEnabled(false);
+                     
+                   
+                     lbcantidad3.setText("0");
+                    lbcantidad3.setForeground(Color.red.darker());
+                    
+                       
+                   
+                   
                    }
-
-                    
-                    
-                } 
-                
-                if(distinta4nombre==null||distinta4nombre.equals("")||distinta4nombre.equals(" "))
-                {
-                   btndistinta4termine.setEnabled(false);
                    
-                   btndistinta4ponnchado.setEnabled(false);
+                   else
+                   {
+                       
+                        btndistinta3cancelar.setEnabled(true);
+                   btndistinta3termine.setEnabled(false);  
                    
+                     lbcantidad3.setText(cantidad);
+                   lbcantidad3.setForeground(Color.GREEN.darker());
+                      
+                       
+                   }
+                  
                 }
                 else
                 {
                     
-                    
+                 btndistinta3termine.setEnabled(false);
+               
                   
-                   if(botonhabilitado4.equals("si"))
+                
+                } 
+                       
+               
+                
+                
+                
+                
+                
+                
+                ///4
+                
+                     
+                if( botonhabilitado4.equals("si") )
+                {
+                  
+                   
+                   
+                   
+       
+                   if(cantidaddistinta4.equals("0"))
                    {
+                       
+                       
                    listabotones.add("btndistinta4");
+                   
+                    btndistinta4termine.setEnabled(true);
+                    btndistinta4cancelar.setEnabled(false);
+                     
+                   
+                     lbcantidad4.setText("0");
+                    lbcantidad4.setForeground(Color.red.darker());
+                    
+                       
+                   
+                   
                    }
-
-                    
-                    
-                } 
-                
-                if(distinta5nombre==null||distinta5nombre.equals("")||distinta5nombre.equals(" "))
-                {
-                   btndistinta5termine.setEnabled(false);
                    
-                   btndistinta5ponnchado.setEnabled(false);
+                   else
+                   {
+                       
+                        btndistinta4cancelar.setEnabled(true);
+                   btndistinta4termine.setEnabled(false);  
                    
+                     lbcantidad4.setText(cantidad);
+                   lbcantidad4.setForeground(Color.GREEN.darker());
+                      
+                       
+                   }
+                  
                 }
                 else
                 {
                     
-                    
+                 btndistinta4termine.setEnabled(false);
+               
                   
-                   if(botonhabilitado5.equals("si"))
+                
+                } 
+                       
+               
+                
+                
+                
+                
+                
+                
+                
+                
+                //5
+                
+                     
+                if( botonhabilitado5.equals("si") )
+                {
+                  
+                   
+                   
+                   
+       
+                   if(cantidaddistinta5.equals("0"))
                    {
+                       
+                       
                    listabotones.add("btndistinta5");
+                   
+                    btndistinta5termine.setEnabled(true);
+                    btndistinta5cancelar.setEnabled(false);
+                     
+                   
+                     lbcantidad5.setText("0");
+                    lbcantidad5.setForeground(Color.red.darker());
+                    
+                       
+                   
+                   
                    }
-
-                    
-                    
-                } 
-                
-                if(distinta6nombre==null||distinta6nombre.equals("")||distinta6nombre.equals(" "))
-                {
-                   btndistinta6termine.setEnabled(false);
                    
-                   btndistinta6ponnchado.setEnabled(false);
+                   else
+                   {
+                       
+                        btndistinta5cancelar.setEnabled(true);
+                   btndistinta5termine.setEnabled(false);  
                    
-                }
-                else
-                {
-                    
-                    
+                     lbcantidad5.setText(cantidad);
+                   lbcantidad5.setForeground(Color.GREEN.darker());
+                      
+                       
+                   }
                   
-                   if(botonhabilitado6.equals("si"))
-                   {
-                   listabotones.add("btndistinta6");
-                   }
-
-                    
-                    
-                }
-                
-                
-                if(distinta7nombre==null||distinta7nombre.equals("")||distinta7nombre.equals(" "))
-                {
-                   btndistinta7termine.setEnabled(false);
-                   
-                   btndistinta7ponnchado.setEnabled(false);
-                   
                 }
                 else
                 {
                     
-                    
+                 btndistinta5termine.setEnabled(false);
+               
+                  
+                
+                } 
+                       
+               
+                
+                
+                
+                
+                
+                
+                
+                //6
+                
+                     
+                if( botonhabilitado6.equals("si") )
+                {
+                  
                    
-                   if(botonhabilitado7.equals("si"))
+                   
+                   
+       
+                   if(cantidaddistinta6.equals("0"))
                    {
-                   listabotones.add("btndistinta7");
+                       
+                       
+                   listabotones.add("btndistinta6");
+                   
+                    btndistinta6termine.setEnabled(true);
+                    btndistinta6cancelar.setEnabled(false);
+                     
+                   
+                     lbcantidad6.setText("0");
+                    lbcantidad6.setForeground(Color.red.darker());
+                    
+                       
+                   
+                   
                    }
                    
+                   else
+                   {
+                       
+                        btndistinta6cancelar.setEnabled(true);
+                   btndistinta6termine.setEnabled(false);  
+                   
+                     lbcantidad6.setText(cantidad);
+                   lbcantidad6.setForeground(Color.GREEN.darker());
+                      
+                       
+                   }
+                  
+                }
+                else
+                {
                     
-                } 
+                 btndistinta6termine.setEnabled(false);
+               
+                  
                 
+                } 
+                       
+               
+                
+                
+                
+                
+                
+                
+                
+                //7
+                
+                
+                     
+                if( botonhabilitado7.equals("si") )
+                {
+                  
+                   
+                   
+                   
+       
+                   if(cantidaddistinta7.equals("0"))
+                   {
+                       
+                       
+                   listabotones.add("btndistinta7");
+                   
+                    btndistinta7termine.setEnabled(true);
+                    btndistinta7cancelar.setEnabled(false);
+                     
+                   
+                     lbcantidad7.setText("0");
+                    lbcantidad7.setForeground(Color.red.darker());
+                    
+                       
+                   
+                   
+                   }
+                   
+                   else
+                   {
+                       
+                        btndistinta7cancelar.setEnabled(true);
+                   btndistinta7termine.setEnabled(false);  
+                   
+                     lbcantidad7.setText(cantidad);
+                   lbcantidad7.setForeground(Color.GREEN.darker());
+                      
+                       
+                   }
+                  
+                }
+                else
+                {
+                    
+                 btndistinta7termine.setEnabled(false);
+               
+                  
+                
+                } 
+                       
+               
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                 
                 
                 
@@ -705,95 +1143,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                 }
                 
-                
-                
-                if(estatusorden.equals("realizada totalmente"))
-                {
-                    
-                     if(distinta1nombre!=null && Integer.parseInt(distinta1cantidad) > 0  )
-                     {
-                         btndistinta1termine.setEnabled(false);
-                   //  cancelar1.setVisible(true);
-                     }
-                     else if(distinta2nombre!=null && Integer.parseInt(distinta2cantidad) > 0  )
-                     {
-                         btndistinta2termine.setEnabled(false);
-                //       cancelar2.setVisible(true);
-                     }
-                      else if( distinta3nombre!=null && Integer.parseInt(distinta3cantidad) > 0  )
-                     {
-                         btndistinta3termine.setEnabled(false);
-                  //       cancelar3.setVisible(true);
-                     }
-                     else if( distinta4nombre!=null && Integer.parseInt(distinta4cantidad) > 0  )
-                     {
-                         btndistinta4termine.setEnabled(false);
-                  //       cancelar4.setVisible(true);
-                     }
-                     else if( distinta5nombre!=null && Integer.parseInt(distinta5cantidad) > 0  )
-                     {
-                         btndistinta5termine.setEnabled(false);
-                    //     cancelar5.setVisible(true);
-                     }
-                     else if( distinta6nombre!=null && Integer.parseInt(distinta6cantidad) > 0  )
-                     {
-                         btndistinta6termine.setEnabled(false);
-                  //       cancelar6.setVisible(true);
-                     }
-                     else if( distinta7nombre!=null && Integer.parseInt(distinta7cantidad) > 0  )
-                     {
-                         btndistinta7termine.setEnabled(false);
-                   //      cancelar7.setVisible(true);
-                     }
-                     
-                     
-                     btnterminetodo.setEnabled(false);
-                    
-                    
-                }
-                else if(estatusorden.equals("generada"))
-                {
-                    
-                     if((distinta1nombre!=null || !distinta1nombre.equals("")) && Integer.parseInt(distinta1cantidad) == 0  )
-                     {
-                         btndistinta1termine.setEnabled(true);
-               //          cancelar1.setVisible(false);
-                     }
-                     else if(distinta2nombre!=null && Integer.parseInt(distinta2cantidad) == 0  )
-                     {
-                         btndistinta2termine.setEnabled(true);
-                  //       cancelar2.setVisible(false);
-                     }
-                      else if( distinta3nombre!=null && Integer.parseInt(distinta3cantidad) == 0  )
-                     {
-                         btndistinta3termine.setEnabled(true);
-               //          cancelar3.setVisible(false);
-                     }
-                     else if( distinta4nombre!=null && Integer.parseInt(distinta4cantidad) == 0  )
-                     {
-                         btndistinta4termine.setEnabled(true);
-                 //        cancelar4.setVisible(false);
-                     }
-                     else if( distinta5nombre!=null && Integer.parseInt(distinta5cantidad) == 0  )
-                     {
-                         btndistinta5termine.setEnabled(true);
-                 //        cancelar5.setVisible(false);
-                     }
-                     else if( distinta6nombre!=null && Integer.parseInt(distinta6cantidad) == 0  )
-                     {
-                         btndistinta6termine.setEnabled(true);
-                //         cancelar6.setVisible(false);
-                     }
-                     else if( distinta7nombre!=null && Integer.parseInt(distinta7cantidad) == 0  )
-                     {
-                         btndistinta7termine.setEnabled(true);
-                //         cancelar7.setVisible(false);
-                     }
-                     
-                     btnterminetodo.setEnabled(true);
-                    
-                    
-                }
                 
 
             

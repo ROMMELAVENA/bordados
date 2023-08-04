@@ -323,21 +323,16 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lbfrentenombre1" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbfrentenombre" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbcantidad1" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btnfrentetermine" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btnfrentecancelar" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbcodigofrente" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbcolorfrente" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbsumapuntos" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbfrentepuntadas" min="-2" pref="30" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="lbfrentenombre1" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbfrentenombre" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbcantidad1" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="btnfrentetermine" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="btnfrentecancelar" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbcodigofrente" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbcolorfrente" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="jLabel7" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbsumapuntos" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbfrentepuntadas" min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btnfrenteponchado" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>

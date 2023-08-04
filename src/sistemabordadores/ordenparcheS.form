@@ -67,15 +67,17 @@
                                   <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                                   <Component id="lbidentificador" min="-2" pref="530" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel7" min="-2" pref="103" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel7" min="-2" pref="103" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btndatos" min="-2" pref="113" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="jScrollPane6" min="-2" pref="436" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                   <Component id="lbestatus" min="-2" pref="375" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="btndatos" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                                   <Component id="lbhora" min="-2" pref="55" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="lbautorizacion" min="-2" pref="53" max="-2" attributes="0"/>
@@ -129,9 +131,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel8" min="-2" pref="80" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="lbnombre" min="-2" pref="361" max="-2" attributes="0"/>
+                      <Component id="lbparchenombre" min="-2" pref="361" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbparche" min="-2" pref="320" max="-2" attributes="0"/>
+                      <Component id="lbparchepuntadas" min="-2" pref="320" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="lbcantidad1" min="-2" pref="70" max="-2" attributes="0"/>
                       <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
@@ -230,14 +232,16 @@
                           <Component id="lbidentificador" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                      <Component id="jLabel7" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel7" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btndatos" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
                       <Component id="jScrollPane6" min="-2" pref="86" max="-2" attributes="0"/>
                       <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel29" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="lbestatus" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btndatos" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="lbhora" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="lbautorizacion" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
@@ -250,7 +254,7 @@
               </Group>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lbparche" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbparchepuntadas" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbcantidad1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="btntermine" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="btncancelar" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
@@ -261,7 +265,7 @@
                       <Component id="btnreplicarponchados" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="btnterminetodo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="lbnombre" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbparchenombre" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel8" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
@@ -908,7 +912,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbparche">
+    <Component class="javax.swing.JLabel" name="lbparchepuntadas">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -923,7 +927,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbnombre">
+    <Component class="javax.swing.JLabel" name="lbparchenombre">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>

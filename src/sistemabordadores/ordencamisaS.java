@@ -4297,6 +4297,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lborden.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lborden.setForeground(new java.awt.Color(0, 0, 153));
         lborden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -4315,6 +4316,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbcliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbnumerodeventa.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbnumerodeventa.setForeground(new java.awt.Color(0, 0, 153));
         lbnumerodeventa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnreplicarponchados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -4898,16 +4900,14 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addGap(4, 4, 4)
                                 .addComponent(jLabel13)
                                 .addGap(7, 7, 7)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(85, 85, 85)
-                                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(7, 7, 7)
+                                .addComponent(lborden, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
                                 .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
                                 .addComponent(lbnumerodeventa, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
@@ -5120,7 +5120,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(7, 7, 7)
                             .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(3, 12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

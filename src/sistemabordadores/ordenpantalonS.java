@@ -4164,7 +4164,7 @@ public static String dia() {
           
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO PANTALON FRENTE LADO IZQUIERDO "+ladoizquierdofrentenombre + "";
             aplicacioninsertar = "";
            
@@ -4200,7 +4200,7 @@ public static String dia() {
             
             String ubicacion = "cantidad_lado_izquierdo_frente";
           
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
            
             nombredelatabla = "historial_ordenes_pantalon_recibidas";
             
@@ -4244,7 +4244,7 @@ public static String dia() {
           
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO PANTALON ATRAS LADO IZQUIERDO "+ladoizquierdoatrasnombre + "";
             aplicacioninsertar = "";
           
@@ -4284,7 +4284,7 @@ public static String dia() {
             
             String ubicacion = "cantidad_lado_izquierdo_atras";
            
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
           
             nombredelatabla = "historial_ordenes_pantalon_recibidas";
             
@@ -4328,7 +4328,7 @@ public static String dia() {
             
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO PANTALON ATRAS LADO DERECHO "+ladoderechoatrasnombre + "";
             aplicacioninsertar = "";
             
@@ -4364,7 +4364,7 @@ public static String dia() {
             
             String ubicacion = "cantidad_lado_derecho_atras";
           
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
           
             nombredelatabla = "historial_ordenes_pantalon_recibidas";
             
@@ -4407,7 +4407,7 @@ public static String dia() {
             
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO PANTALON FRENTE LADO DERECHO "+ladoderechofrentenombre + "";
             aplicacioninsertar = "";
            
@@ -4442,7 +4442,7 @@ public static String dia() {
         
             String ubicacion = "cantidad_lado_derecho_frente";
           
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
           
             nombredelatabla = "historial_ordenes_pantalon_recibidas";
             
@@ -4689,7 +4689,7 @@ public static String dia() {
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
                     
                     
-                     String cantidadaplicacion = "0";
+                     cantidadaplicacion = "0";
                      descripcion = "BORDADO PANTALON FRENTE LADO DERECHO " + ladoderechofrentenombre + "";
                      aplicacioninsertar = "";
                     
@@ -4737,7 +4737,7 @@ public static String dia() {
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
                     
                     
-                     String cantidadaplicacion = "0";
+                     cantidadaplicacion = "0";
                      descripcion = "BORDADO PANTALON ATRAS LADO DERECHO "+ladoderechoatrasnombre + "";
                      aplicacioninsertar = "";
                     
@@ -4843,7 +4843,7 @@ public static String dia() {
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
                     
                     
-                     String cantidadaplicacion = "0";
+                     cantidadaplicacion = "0";
                      descripcion = "BORDADO PANTALON ATRAS LADO IZQUIERDO "+ladoizquierdoatrasnombre + "";
                      aplicacioninsertar = "";
                    

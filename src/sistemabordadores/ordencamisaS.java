@@ -2790,7 +2790,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-    void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad) 
+    void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 
         String numeroventa =  lbnumerodeventa.getText();
@@ -2870,11 +2870,52 @@ JOptionPane.showMessageDialog(null, mensaje);
                  {
                      
           
-            
+             
+                     
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtida = '" + nuevasurtidastring + "' WHERE numero_sucursal ='" + numeroordendeenviosolicitada + "' and articulo = '" + ubicacion + "'   and prenda = '"+prenda+"'    ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtida = '" + nuevasurtidastring + "', WHERE numero_sucursal ='" + numeroordendeenviosolicitada + "' and articulo = '" + ubicacion + "'   and prenda = '"+prenda+"'    ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+            
+            
+                     
+            
+            
+            // TIENE APLICACION
+            
+            
+            
+            
+            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
+            {
+                
+                
+                
+                
+            }
+            
+            else
+            {
+                
+                int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+                cantidadaplicacionint = cantidadaplicacionint * surtidasnuevasint;
+                
+                String totalaplicaciones = String.valueOf(cantidadaplicacionint);
+                
+            
+          
+            
+            
+              try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtida = '" + totalaplicaciones + "' WHERE numero_sucursal ='" + numeroordendeenviosolicitada + "' and articulo = '" + ubicacionaplicacion + "'   and prenda = '"+prenda+"'    ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -2883,6 +2924,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                             }
        
 
+            }
+              
 
       
         ////Actualiza el estatus
@@ -2994,6 +3037,51 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 System.out.println(e);
                             }
        
+            
+            
+            
+            
+            
+            
+              
+            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
+            {
+                
+                
+                
+                
+            }
+            
+            else
+            {
+                
+                int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+                cantidadaplicacionint = cantidadaplicacionint * surtidasnuevasint;
+                
+               String totalaplicaciones = String.valueOf(cantidadaplicacionint);
+                
+            
+            
+            
+             try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + totalaplicaciones + "' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacionaplicacion + "'  and identificador_prenda = '"+identificador+"'   ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+             
+             
+             
+            
+            }
+            
+            
+            
 
         ////Actualiza el estatus
 
@@ -3060,7 +3148,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       }
     
     
-     void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad) 
+     void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 
         String numeroventa =  lbnumerodeventa.getText();
@@ -3114,7 +3202,47 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 System.out.println(e);
                             }
        
+            
+            
+            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
+                
+            {
+                
+            }
+            
+            else
+                
+            {
+                
+                
+              int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+                cantidadaplicacionint = cantidadaplicacionint * nuevacantidadint;
+                
+               String totalaplicaciones = String.valueOf(cantidadaplicacionint);
+                
+                
+                
+                
+                
+            
+            
+             try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+totalaplicaciones+"' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacionaplicacion + "'  and identificador_prenda = '"+identificador+"'");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
 
+                                System.out.println(e);
+                            }
+            
+            
+            
+            
+            
+            
+            }
       
             
         ////Actualiza el estatus
@@ -5473,7 +5601,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             nombrebordado = mangaizquierdanombre;
-            String cantidadaplicacion = aplicacionmangaizquierda;
+            cantidadaplicacion = aplicacionmangaizquierda;
           
             nombredelatabla = "historial_ordenes_camisa";
           
@@ -5523,7 +5651,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             sumapuntos();
             
@@ -5561,7 +5689,7 @@ JOptionPane.showMessageDialog(null, mensaje);
  
                 
                 nombrebordado = mangaizquierdanombre;
-                String cantidadaplicacion = aplicacionmangaizquierda;
+                cantidadaplicacion = aplicacionmangaizquierda;
              
                 nombredelatabla = "historial_ordenes_camisa_recibidas";
             
@@ -5724,7 +5852,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
      
    
-       agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;   
+       agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
     
        estacompletalaorden(); 
     
@@ -5934,7 +6062,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             sumapuntos();      
             
@@ -6107,14 +6235,11 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             sumapuntos();
             
             
-            
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;  
-       
             
         }
          else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
@@ -6281,7 +6406,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             sumapuntos();  
             
@@ -6874,7 +6999,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
           
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             sumapuntos();
             
@@ -7055,7 +7180,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             sumapuntos();
             
@@ -7532,7 +7657,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
      
-       agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;   
+       agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;   
        estacompletalaorden(); 
        sumapuntos();   
         
@@ -7632,7 +7757,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                     }
                    
-                    agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
+                   agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ; 
                     estacompletalaorden();
                     sumapuntos();
             
@@ -7730,7 +7855,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
     
-       agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
+       agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ; 
        estacompletalaorden(); 
        sumapuntos(); 
        
@@ -7835,7 +7960,7 @@ JOptionPane.showMessageDialog(null, mensaje);
              
             
           
-            agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ; 
             estacompletalaorden();
             sumapuntos();
                  
@@ -7940,7 +8065,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
      
-       agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;   
+      agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;  
        estacompletalaorden();
        sumapuntos();       
             
@@ -8043,7 +8168,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             }
           
-            agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ; 
             estacompletalaorden();
             sumapuntos();
             
@@ -8146,7 +8271,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
            
-            agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ; 
             estacompletalaorden();
             sumapuntos();
             

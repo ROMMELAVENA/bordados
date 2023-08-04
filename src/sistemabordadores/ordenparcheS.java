@@ -3735,7 +3735,7 @@ JOptionPane.showMessageDialog(null, mensaje);
              insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             
             
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO PARCHE "+parchenombre+ "";
             aplicacioninsertar = "APLICACION PARCHE";
             
@@ -3789,7 +3789,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) fechaubicacion);
           
             
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
          //   descripcion = "BORDADO PARCHE "+parchenombre+ ""; 
             aplicacioninsertar = "APLICACION PARCHE";
             

@@ -5083,7 +5083,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String ubicacion = "distinta2_cantidad";
             fechaubicacion = "distinta2_fecha";
           
-            String cantidadaplicacion = distinta2aplicacion;
+            cantidadaplicacion = distinta2aplicacion;
          
             nombredelatabla = "historial_ordenes_distinta";
         
@@ -5121,7 +5121,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String ubicacion = "distinta4_cantidad";
             fechaubicacion = "distinta4_fecha";
            
-            String cantidadaplicacion = distinta4aplicacion;
+            cantidadaplicacion = distinta4aplicacion;
            
             nombredelatabla = "historial_ordenes_distinta";
          
@@ -5155,7 +5155,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String ubicacion = "distinta5_cantidad";
             fechaubicacion = "distinta5_fecha";
            
-            String cantidadaplicacion = distinta5aplicacion;
+            cantidadaplicacion = distinta5aplicacion;
             
          
             nombredelatabla = "historial_ordenes_distinta";
@@ -5192,7 +5192,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String ubicacion = "distinta3_cantidad";
             fechaubicacion = "distinta3_fecha";
             
-            String cantidadaplicacion = distinta3aplicacion;
+            cantidadaplicacion = distinta3aplicacion;
        
             nombredelatabla = "historial_ordenes_distinta";
             
@@ -5228,7 +5228,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String ubicacion = "distinta1_cantidad";
             fechaubicacion = "distinta1_fecha";
          
-            String cantidadaplicacion = distinta1aplicacion;
+            cantidadaplicacion = distinta1aplicacion;
             
             nombredelatabla = "historial_ordenes_distinta";
             
@@ -5300,7 +5300,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String ubicacion = "distinta6_cantidad";
             fechaubicacion = "distinta6_fecha"; 
             
-            String cantidadaplicacion = distinta6aplicacion;
+            cantidadaplicacion = distinta6aplicacion;
            
             nombredelatabla = "historial_ordenes_distinta";
             
@@ -5338,7 +5338,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             fechaubicacion = "distinta7_fecha";
           
             
-            String cantidadaplicacion = distinta7aplicacion;
+            cantidadaplicacion = distinta7aplicacion;
           
             nombredelatabla = "historial_ordenes_distinta";
             
@@ -5466,7 +5466,7 @@ JOptionPane.showMessageDialog(null, mensaje);
              
              
            
-            String cantidadaplicacion = distinta1aplicacion;
+            cantidadaplicacion = distinta1aplicacion;
            
             nombredelatabla = "historial_ordenes_distinta";
            
@@ -5543,7 +5543,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
            
-            String cantidadaplicacion = distinta2aplicacion;
+            cantidadaplicacion = distinta2aplicacion;
           
             nombredelatabla = "historial_ordenes_distinta";
             
@@ -5605,7 +5605,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
            
-           String cantidadaplicacion = distinta3aplicacion;
+           cantidadaplicacion = distinta3aplicacion;
          
            nombredelatabla = "historial_ordenes_distinta";
            
@@ -5669,7 +5669,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
            
-           String cantidadaplicacion = distinta4aplicacion;
+           cantidadaplicacion = distinta4aplicacion;
          
            nombredelatabla = "historial_ordenes_distinta";
           
@@ -5732,7 +5732,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
          
-           String cantidadaplicacion = distinta5aplicacion;
+           cantidadaplicacion = distinta5aplicacion;
           
            nombredelatabla = "historial_ordenes_distinta";
            
@@ -5793,7 +5793,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
          
-            String cantidadaplicacion = distinta6aplicacion;
+            cantidadaplicacion = distinta6aplicacion;
            
             nombredelatabla = "historial_ordenes_distinta";
             
@@ -5855,7 +5855,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
          
-            String cantidadaplicacion = distinta7aplicacion;
+            cantidadaplicacion = distinta7aplicacion;
             
             nombredelatabla = "historial_ordenes_distinta";
             

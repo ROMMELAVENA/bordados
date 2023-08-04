@@ -3775,7 +3775,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
             aplicacioninsertar = "";
             nombredelatabla = "historial_ordenes_gorra";
@@ -3817,7 +3817,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
             
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
             aplicacioninsertar = "";
             nombredelatabla = "historial_ordenes_gorra_recibidas";
@@ -4209,7 +4209,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
          
             
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO GORRA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "APLICACION GORRA FRENTE";
             String cantidad = lbcantidad.getText();
@@ -4247,7 +4247,7 @@ JOptionPane.showMessageDialog(null, mensaje);
           
             insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
             
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO GORRA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "APLICACION GORRA FRENTE";
             nombredelatabla = "historial_ordenes_gorra_recibidas";
@@ -4288,7 +4288,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             
             
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
             aplicacioninsertar = "";
             nombredelatabla = "historial_ordenes_gorra";
@@ -4327,7 +4327,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
             
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
             aplicacioninsertar = "";
             String cantidad = lbcantidad.getText();
@@ -4356,7 +4356,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             
           
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO GORRA ATRAS "+atrasnombre+ "";
             aplicacioninsertar = "";
             nombredelatabla = "historial_ordenes_gorra";
@@ -4395,7 +4395,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
             
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO GORRA ATRAS "+atrasnombre+ "";
             aplicacioninsertar = "";
             nombredelatabla = "historial_ordenes_gorra_recibidas";
@@ -4632,7 +4632,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
                     
                     
-                    String cantidadaplicacion = "0";
+                    cantidadaplicacion = "0";
                     descripcion = "BORDADO GORRA ATRAS " + atrasnombre + "";
                     aplicacioninsertar = "";
                     nombredelatabla = "historial_ordenes_gorra";
@@ -4685,7 +4685,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
                     
                     
-                    String cantidadaplicacion = "0";
+                    cantidadaplicacion = "0";
                     descripcion = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
                     aplicacioninsertar = "";
                     String cantidad = lbcantidad.getText();
@@ -4797,7 +4797,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
             
             
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
             aplicacioninsertar = "";
             nombredelatabla = "historial_ordenes_gorra";

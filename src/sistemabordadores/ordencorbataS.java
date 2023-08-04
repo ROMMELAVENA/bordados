@@ -2316,7 +2316,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion); 
            
            
-            String cantidadaplicacion = "0";
+            cantidadaplicacion = "0";
             descripcion = "BORDADO CORBATA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "";
        

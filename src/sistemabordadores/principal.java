@@ -32,6 +32,8 @@ public class principal extends javax.swing.JFrame {
     public static String contraseñaauditoria  = "";
     public static String contraseñabordador  = "";
     public static String contraseñaencargado  = "";
+    
+    public static String tiendalocal  = "";
 
 
     public principal() 
@@ -45,7 +47,7 @@ public class principal extends javax.swing.JFrame {
         
         lbnumero.setVisible(false);
         lbiplocal.setVisible(false);
-        lbtiendalocal.setVisible(false);
+      //  lbtiendalocal.setVisible(false);
         
         
         btnclienteshanbordadoultimos6meses.setText("<html><p>Clientes que han bordado</p><center><p>en los ultimos 6 meses</p></center></html>");
@@ -54,6 +56,10 @@ public class principal extends javax.swing.JFrame {
      
        
         contraseñas();
+        
+        
+       
+        
         
     }
 
@@ -2483,8 +2489,7 @@ public class principal extends javax.swing.JFrame {
     ordenesterminadas  ventana = new ordenesterminadas();
     ventana.setVisible(true);
     ventana.setLocationRelativeTo(null);
-    ventana.setTitle("Ordenes bordado realizadas");
-    
+   
     
     }
     }//GEN-LAST:event_btnordenesbordadosucursalrealizadasActionPerformed
@@ -2602,7 +2607,10 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnclienteshanbordadoultimos6a12mesesActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+      
+        
+         tiendalocal = lbtiendalocal.getText();
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void btnvertablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvertablaActionPerformed

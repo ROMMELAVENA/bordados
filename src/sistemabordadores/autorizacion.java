@@ -144,7 +144,7 @@ public class autorizacion extends javax.swing.JFrame {
         {
           
             
-            contraseñaingresada = "0707";
+            contraseñaauditoria = "0707";
          
             if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
             
@@ -187,7 +187,7 @@ public class autorizacion extends javax.swing.JFrame {
         {
           
             
-            contraseñaingresada = "0707";
+            contraseñaauditoria = "0707";
          
             if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
             
@@ -232,7 +232,7 @@ public class autorizacion extends javax.swing.JFrame {
         
         {
           
-         contraseñaingresada = "0707";
+        contraseñaauditoria = "0707";
          
          
             if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
@@ -272,7 +272,7 @@ public class autorizacion extends javax.swing.JFrame {
         {
             
             
-            contraseñaingresada = "0707";
+           contraseñaauditoria = "0707";
           
          
             if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
@@ -311,7 +311,7 @@ public class autorizacion extends javax.swing.JFrame {
         {
             
             
-            contraseñaingresada = "0707";
+           contraseñaauditoria = "0707";
           
          
             if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
@@ -353,7 +353,7 @@ public class autorizacion extends javax.swing.JFrame {
         {
           
             
-            contraseñaingresada = "0707";
+           contraseñaauditoria = "0707";
             
             
             

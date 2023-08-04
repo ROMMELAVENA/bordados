@@ -1922,7 +1922,7 @@ sorter.sort();
                     {
                         
                    Object numerodefolio = tabla.getValueAt(fila, 0);
-                        Object nombre_tabla = "historial_ordenes_gorra";
+                        Object nombre_tabla = "historial_ordenes_parche";
                         autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
                         
                         

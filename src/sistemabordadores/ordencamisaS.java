@@ -80,6 +80,7 @@ public class ordencamisaS extends javax.swing.JFrame {
     String nuevoremanentebordadossstring = "";
     String numerodeventa = "";
     String fechaubicacion = "";
+    String ubicacion = "";
     Connection cnsucursal = null;
     String bordadosutilizadosstring = "";
     int bordadosutilizadosint = 0;
@@ -102,7 +103,7 @@ public class ordencamisaS extends javax.swing.JFrame {
 
     String numeroordenenvio = "";
     String tiendaordenenvio = "";
-    String tiendalocal = "";
+    String tiendalocal = principal.tiendalocal;
     String iplocal = principal.lbiplocal.getText();
     String codigocliente = "";
     String lugar = "";
@@ -5451,7 +5452,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         
           
-          String ubicacion = "cantidad_manga_izquierda";
+          ubicacion = "cantidad_manga_izquierda";
           fechaubicacion  = "manga_izquierda_fecha";
           
         
@@ -5624,7 +5625,7 @@ JOptionPane.showMessageDialog(null, mensaje);
        
       
       fechaubicacion  = "pecho_izquierdo_fecha";
-      String ubicacion = "cantidad_pecho_izquierdo";
+      ubicacion = "cantidad_pecho_izquierdo";
        
         
          if(cantidad.equals("0"))
@@ -5848,7 +5849,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
           
           fechaubicacion  = "espalda_fecha";
-           String ubicacion = "cantidad_espalda";
+           ubicacion = "cantidad_espalda";
                   
          
         if(cantidad.equals("0"))
@@ -6011,7 +6012,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      
         
         fechaubicacion  = "pecho_derecho_fecha";
-        String ubicacion = "cantidad_pecho_derecho";
+        ubicacion = "cantidad_pecho_derecho";
         
                                         
          if(cantidad.equals("0"))
@@ -6183,7 +6184,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
          
           fechaubicacion  = "manga_derecha_fecha";
-          String ubicacion = "cantidad_manga_derecha";
+          ubicacion = "cantidad_manga_derecha";
                  
                         
                                         
@@ -6778,7 +6779,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
             else
             {
-            String ubicacion = "cantidad_otra_ubicacion";
+            ubicacion = "cantidad_otra_ubicacion";
             nombrebordado = otraubicacionnombre;
             String cantidadaplicacion = aplicacionotraubicacion;
           
@@ -6865,7 +6866,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
      
             
-            String ubicacion = "cantidad_otra_ubicacion";
+            ubicacion = "cantidad_otra_ubicacion";
             nombrebordado = otraubicacionnombre;
             String cantidadaplicacion = aplicacionotraubicacion;
             nombredelatabla = "historial_ordenes_camisa_recibidas";
@@ -6953,7 +6954,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
      
-            String ubicacion = "cantidad_otra_ubicacion2";
+            ubicacion = "cantidad_otra_ubicacion2";
             nombrebordado = otraubicacion2nombre;
             String cantidadaplicacion = aplicacionotraubicacion2;
            
@@ -7039,7 +7040,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
    
 
-                String ubicacion = "cantidad_otra_ubicacion2";
+                ubicacion = "cantidad_otra_ubicacion2";
                 nombrebordado = otraubicacion2nombre;
                 String cantidadaplicacion = aplicacionotraubicacion2;
               
@@ -7322,7 +7323,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      
         
         
-         String ubicacion = "otra_ubicacion2_ponchado";
+         ubicacion = "otra_ubicacion2_ponchado";
                 String ubicacionnombre = "otra_ubicacion2_ponchado_nombre";
 
                 descargarponchado((String) ubicacion, (String) ubicacionnombre);
@@ -7335,7 +7336,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
         
         
-           String ubicacion ="otra_ubicacion_ponchado";
+           ubicacion ="otra_ubicacion_ponchado";
                 String ubicacionnombre ="otra_ubicacion_ponchado_nombre";
                         
                 descargarponchado((String) ubicacion,(String) ubicacionnombre); 
@@ -7348,7 +7349,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
         
         
-            String ubicacion ="espalda_ponchado";
+            ubicacion ="espalda_ponchado";
                 String ubicacionnombre ="espalda_ponchado_nombre";
                         
                 descargarponchado((String) ubicacion,(String) ubicacionnombre); 
@@ -7360,7 +7361,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnpechoizquierdoponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoizquierdoponchadoActionPerformed
     
         
-        String ubicacion ="pecho_izquierdo_ponchado";
+        ubicacion ="pecho_izquierdo_ponchado";
                 String ubicacionnombre ="pecho_izquierdo_ponchado_nombre";
                         
                 descargarponchado((String) ubicacion,(String) ubicacionnombre); 
@@ -7371,7 +7372,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnpechoderechoponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoderechoponchadoActionPerformed
    
         
-            String ubicacion ="pecho_derecho_ponchado";
+            ubicacion ="pecho_derecho_ponchado";
                 String ubicacionnombre ="pecho_derecho_ponchado_nombre";
                         
                 descargarponchado((String) ubicacion,(String) ubicacionnombre); 
@@ -7383,7 +7384,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnmangaizquierdaponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmangaizquierdaponchadoActionPerformed
     
         
-         String ubicacion ="manga_derecha_ponchado";
+         ubicacion ="manga_derecha_ponchado";
                 String ubicacionnombre ="manga_derecha_ponchado_nombre";
                         
                 descargarponchado((String) ubicacion,(String) ubicacionnombre); 
@@ -7396,7 +7397,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
         
         
-           String ubicacion ="manga_derecha_ponchado";
+           ubicacion ="manga_derecha_ponchado";
                 String ubicacionnombre ="manga_derecha_ponchado_nombre";
                         
                 descargarponchado((String) ubicacion,(String) ubicacionnombre); 
@@ -7419,7 +7420,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
     
             
-           String ubicacion = "cantidad_pecho_izquierdo";
+           ubicacion = "cantidad_pecho_izquierdo";
            String fechaubicacion = "pecho_izquierdo_fecha";
            
            eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion);         
@@ -7524,7 +7525,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
             
 
-                    String ubicacion = "cantidad_pecho_derecho";
+                    ubicacion = "cantidad_pecho_derecho";
                     String fechaubicacion = "pecho_derecho_fecha";
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
                     
@@ -7626,7 +7627,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
             
         
-            String ubicacion = "cantidad_manga_izquierda";
+            ubicacion = "cantidad_manga_izquierda";
             String fechaubicacion = "manga_izquierda_fecha";
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion);
             
@@ -7721,7 +7722,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
                
 
-            String ubicacion = "cantidad_manga_derecha";
+            ubicacion = "cantidad_manga_derecha";
             String fechaubicacion = "manga_derecha_fecha";
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
             
@@ -7828,7 +7829,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
             
         
-            String ubicacion = "cantidad_espalda";
+            ubicacion = "cantidad_espalda";
             String fechaubicacion = "espalda_fecha";
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
             
@@ -7934,7 +7935,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
             
         
-            String ubicacion = "cantidad_otra_ubicacion";
+            ubicacion = "cantidad_otra_ubicacion";
             String fechaubicacion = "otra_ubicacion_fecha";
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
             
@@ -8035,7 +8036,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
                  
                        
-            String ubicacion = "cantidad_otra_ubicacion2";
+            ubicacion = "cantidad_otra_ubicacion2";
             String fechaubicacion = "otra_ubicacion2_fecha";
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion);            
         

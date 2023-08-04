@@ -26,7 +26,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
     String fechainicial = "";
     String fechafinal = "";
     String nombrecliente = "";
-    String tiendalocal = "";
+    String tiendalocal = principal.tiendalocal;
     String sucursal = "";
     public static String localuotrasucursal ="";
 
@@ -38,20 +38,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         btnactualizar.setVisible(false);
         btnfrente.setVisible(false);
         
-        File file = new File("C:\\sistema\\configuracion.txt");
-        try {
-            Scanner sc = new Scanner(file);
-            while (sc.hasNext()) {
-                String line = sc.nextLine();
-                String str[] = line.split(":");
-                tiendalocal = str[1];
-            }
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-        
-          
-        
+       
         
 
     }
@@ -1355,7 +1342,7 @@ sorter.sort();
                     {
                         
                        
-                        JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de camisa anteriores");
+                        JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de camisa ya está abierta");
 
                     } else {
                         ordencamisaS orden = new ordencamisaS();
@@ -1390,7 +1377,7 @@ sorter.sort();
                     if (tipo.equals("Orden gorra")||tipo.equals("Orden Gorra")) 
                 {
                     if (ordengorraS.ventanaordengorra == true) {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de camisa anteriores");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de gorra ya está abierta");
 
                     } else
                     {
@@ -1427,7 +1414,7 @@ sorter.sort();
                     if (ordenpantalonS.ventanaordenpantalonanteriores == true) 
                     {
                         
-                        JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de camisa anteriores");
+                        JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">La orden de pantalon ya está abierta");
 
                     } else {
                         ordenpantalonS orden = new ordenpantalonS();
@@ -1469,7 +1456,7 @@ sorter.sort();
                    
                         
                         if (ordencorbataS.ventanaordencorbataanteriores == true) {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de corbata anteriores");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de corbata ya está abierta");
 
                     } else {
                         ordencorbataS ventana = new ordencorbataS();
@@ -1507,7 +1494,7 @@ sorter.sort();
                                  if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
                 {
                     if (ordenparcheS.ventanaordenparche == true) {
-                        JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado anteriores");
+                        JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">La orden de parche ya está abierta");
 
                     } 
                     
@@ -1550,7 +1537,7 @@ sorter.sort();
                     if (tipo.equals("Orden ponchado")) 
                 {
                     if (ordenponchadoS.ventanaordenponchado == true) {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de ponchado anteriores");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de ponchado ya está abierta");
 
                     } else {
                         ordenponchadoS orden = new ordenponchadoS();
@@ -1585,7 +1572,7 @@ sorter.sort();
                    
                         
                         if (ordenportanombreescolar.ventanaordenportanombreanterior == true) {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de portanombre");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de porta nombre ya está abierta");
 
                     } else {
                             ordenportanombreescolar ventana = new ordenportanombreescolar();
@@ -1608,7 +1595,7 @@ sorter.sort();
                    
                         
                         if (ordenportanombremultiple.ventanaordenportanombremultipleanterior == true) {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de portanombre");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de porta nombre multiple ya está abierta");
 
                     } else {
                             ordenportanombremultiple ventana = new ordenportanombremultiple();
@@ -1628,7 +1615,7 @@ sorter.sort();
                         
                     if (ordeninternagorra.ventanaordeninternagorraanterior == true) 
                     {
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de orden de portanombre");
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de gorra interna ya está abierta");
 
                     } 
                     else 
@@ -1654,7 +1641,7 @@ sorter.sort();
                      if (ordendistintaS.ventanaordencamisaanteriores == true) 
                     {
                         
-                        JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:5px;\">Favor de cerrar la ventana de orden de camisa anteriores");
+                        JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:5px;\">La orden de distinta ya esta abierta");
 
                     } else {
                         ordendistintaS orden = new ordendistintaS();

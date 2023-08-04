@@ -2415,13 +2415,19 @@ JOptionPane.showMessageDialog(null, mensaje);
                             }
        
 
+            
+            
+            
         ////Actualiza el estatus
 
-      String cantidadsurtida = "";  
-      String cantidadvendida = "";  
-      String cantidadentregada = "";  
+      String vendidastring = "";    
+      String surtidastring = "";  
+      String entregadastring = "";  
+      String ordenstring = "";
+      String cambiadastring = "";
+      String virtualstring = "";
        
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas from historial_ventas where numero = '"+numeroventa+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numeroventa+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -2429,9 +2435,12 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (rs.next()) 
         {
 
-        cantidadvendida = rs.getString("cantidad");
-        cantidadsurtida = rs.getString("surtida");
-        cantidadentregada = rs.getString("entregadas");
+        vendidastring = rs.getString("cantidad");
+        surtidastring = rs.getString("surtida");
+        entregadastring = rs.getString("entregadas");
+        ordenstring = rs.getString("orden");
+        cambiadastring = rs.getString("cambiada");
+        virtualstring = rs.getString("cantidad_virtual");
         
 
         }
@@ -2442,28 +2451,41 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
       
         
-      
-      /////
-      
-      double cantidadvendidadouble = Double.parseDouble(cantidadvendida);
-      double cantidadsurtidadouble = Double.parseDouble(cantidadsurtida);
-      double cantidadentregadadouble = Double.parseDouble(cantidadentregada);
+        
+      int vendida = Integer.parseInt(vendidastring);
+      int surtida = Integer.parseInt(surtidastring);
+      int entregada = Integer.parseInt(entregadastring);
+      int orden = Integer.parseInt(ordenstring);
+      int cambiada = Integer.parseInt(cambiadastring);
+      int virtual = Integer.parseInt(virtualstring);
       
         
-        if(cantidadvendidadouble == cantidadsurtidadouble && cantidadentregadadouble == 0 )
+        if(vendida == (surtida + orden + cambiada + virtual + entregada) && entregada == 0 )
         {
           estatusentrega ="surtida totalmente no entregada";  
-          
         }
-        else  if(cantidadvendidadouble == (cantidadsurtidadouble + cantidadentregadadouble )  &&  cantidadentregadadouble <  cantidadvendidadouble  )
+        
+        else
+          if(vendida == (surtida + orden + cambiada + virtual + entregada) && entregada > 0 )
         {
           estatusentrega ="surtida totalmente entregada parcialmente";  
         }
+          
+          
+           else
+          if(vendida > (surtida + orden + cambiada + virtual + entregada) && entregada > 0 )
+        {
+          estatusentrega ="surtida totalmente entregada parcialmente";  
+        }
+     
         
         else
         {
           estatusentrega ="surtida parcialmente no entregada";   
         }    
+        
+        
+        
         
           try {
               PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
@@ -2533,14 +2555,22 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 System.out.println(e);
                             }
        
-
+            
+            
+            
+            
+            
+            
         ////Actualiza el estatus
 
-      String cantidadsurtida = "";  
-      String cantidadvendida = "";  
-      String cantidadentregada = "";  
+      String vendidastring = "";    
+      String surtidastring = "";  
+      String entregadastring = "";  
+      String ordenstring = "";
+      String cambiadastring = "";
+      String virtualstring = "";
        
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas from historial_ventas where numero = '"+numeroventa+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numeroventa+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -2548,9 +2578,12 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (rs.next()) 
         {
 
-        cantidadvendida = rs.getString("cantidad");
-        cantidadsurtida = rs.getString("surtida");
-        cantidadentregada = rs.getString("entregadas");
+        vendidastring = rs.getString("cantidad");
+        surtidastring = rs.getString("surtida");
+        entregadastring = rs.getString("entregadas");
+        ordenstring = rs.getString("orden");
+        cambiadastring = rs.getString("cambiada");
+        virtualstring = rs.getString("cantidad_virtual");
         
 
         }
@@ -2564,24 +2597,36 @@ JOptionPane.showMessageDialog(null, mensaje);
       
       /////
       
-      double cantidadvendidadouble = Double.parseDouble(cantidadvendida);
-      double cantidadsurtidadouble = Double.parseDouble(cantidadsurtida);
-      double cantidadentregadadouble = Double.parseDouble(cantidadentregada);
+     
+      
+      int vendida = Integer.parseInt(vendidastring);
+      int surtida = Integer.parseInt(surtidastring);
+      int entregada = Integer.parseInt(entregadastring);
+      int orden = Integer.parseInt(ordenstring);
+      int cambiada = Integer.parseInt(cambiadastring);
+      int virtual = Integer.parseInt(virtualstring);
       
         
-        if(cantidadvendidadouble == cantidadsurtidadouble && cantidadentregadadouble == 0 )
+        if((surtida + orden + cambiada + virtual + entregada)== 0 )
         {
-          estatusentrega ="surtida totalmente no entregada";  
-        }
-        else  if(cantidadvendidadouble == (cantidadsurtidadouble + cantidadentregadadouble )  &&  cantidadentregadadouble <  cantidadvendidadouble  )
-        {
-          estatusentrega ="surtida totalmente entregada parcialmente";  
+          estatusentrega ="no surtida no entregada";  
         }
         
         else
+         if(((surtida + orden + cambiada + virtual + entregada)> 0) &&  entregada == 0)
         {
-          estatusentrega ="surtida parcialmente no entregada";   
-        }    
+          estatusentrega ="surtida parcialmente no entregada";  
+        }
+          
+           else
+           if(((surtida + orden + cambiada + virtual + entregada)> 0) &&  entregada > 0)
+        {
+          estatusentrega ="surtida parcialmente entregada parcialmente";  
+        }
+     
+       
+        
+        
         
           try {
               PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
@@ -2591,9 +2636,6 @@ JOptionPane.showMessageDialog(null, mensaje);
 
               System.out.println(e);
           }
-      
-
-        
       
       
       }  

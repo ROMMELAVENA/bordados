@@ -56,6 +56,7 @@ public class ordengorraS extends javax.swing.JFrame {
     int nuevoremanentebordadosint = 0;
     String nuevoremanentebordadossstring = "";
     String fechaubicacion = "";
+    String ubicacion = "";
     String bordadosutilizadosstring = "";
     int bordadosutilizadosint = 0;
     Connection cnsucursal = null;
@@ -109,7 +110,7 @@ public class ordengorraS extends javax.swing.JFrame {
    String consecutivo = "";
    String tieneunaobservacion = "";
    String tienenumerodesucursal = "";
-   String tiendalocal = "";
+   String tiendalocal = principal.tiendalocal;
    String rutadedondeestanlosbordados ="";
    
    String rutafrente = "";
@@ -137,9 +138,7 @@ public class ordengorraS extends javax.swing.JFrame {
           btnladoderechocancelar.setEnabled(false);
          lbautorizacion.setVisible(false);
                   
-                
-        tiendalocal = principal.lbtiendalocal.getText();
-        
+       
         
         if(tiendalocal.equals("cdmxcentro"))
         {
@@ -1371,7 +1370,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
          cliente = "";
         String numeroordensucursal = "";
-        String numeroventa = "";
+        String numerodeventa = "";
         String numerodeorden ="";
         
       
@@ -1405,8 +1404,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             if (rs2.next())
             {
 
-                numeroventa = rs2.getString("numero_venta");
-                lbnumeroventa.setText(numeroventa);
+                numerodeventa = rs2.getString("numero_venta");
+                lbnumerodeventa.setText(numerodeventa);
                 
 
             }
@@ -1885,14 +1884,14 @@ JOptionPane.showMessageDialog(null, mensaje);
     void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad) 
       {
 
-         String numeroventa =  lbnumerodeventa.getText();
+          numerodeventa =  lbnumerodeventa.getText();
         String surtidaactualstring ="";
         int surtidaactualint =  0;
         String nuevasurtidastring = "";
         String estatusentrega ="";
        
         
-        String SQL2 = "select articulo,surtida from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "'  and prenda = '"+prenda+"' ";
+        String SQL2 = "select articulo,surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacion + "'  and prenda = '"+prenda+"' ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -1949,7 +1948,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevasurtidastring + "' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'      ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevasurtidastring + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacion + "'      ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception ex) {
@@ -1968,7 +1967,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       String cambiadastring = "";
       String virtualstring = "";
        
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numeroventa+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numerodeventa+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -2029,7 +2028,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
           try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numerodeventa + "'       ");
               pst.executeUpdate();
               pst.close();
           } catch (Exception e) {
@@ -2045,13 +2044,13 @@ JOptionPane.showMessageDialog(null, mensaje);
      void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad) 
       {
 
-        String numeroventa =  lbnumerodeventa.getText();
+         numerodeventa =  lbnumerodeventa.getText();
         Object cantidadstring ="";
         String nuevacantidadstring = "";
         String estatusentrega ="";
        
         
-        String SQL2 = "select cantidad from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"'";
+        String SQL2 = "select cantidad from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"'";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -2088,7 +2087,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+nuevacantidadstring+"' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"'    ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+nuevacantidadstring+"' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"'    ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -2107,7 +2106,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       String cambiadastring = "";
       String virtualstring = "";
        
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numeroventa+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numerodeventa+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -2166,7 +2165,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
           try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numerodeventa + "'       ");
               pst.executeUpdate();
               pst.close();
           } catch (Exception e) {
@@ -2203,11 +2202,11 @@ JOptionPane.showMessageDialog(null, mensaje);
     void estacompletalaorden()
     {
         
-        String cantidad = "0";
+     
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select cantidad,lado_izquierdo,cantidad_lado_izquierdo,lado_derecho,cantidad_lado_derecho,frente,cantidad_frente,atras,cantidad_atras from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select lado_izquierdo,cantidad_lado_izquierdo,lado_derecho,cantidad_lado_derecho,frente,cantidad_frente,atras,cantidad_atras from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -3774,7 +3773,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
             
            
-            String ubicacion = "cantidad_lado_derecho";
+            ubicacion = "cantidad_lado_derecho";
             fechaubicacion = "lado_derecho_fecha";
          
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
@@ -4196,7 +4195,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         
         
-          String ubicacion = "cantidad_frente";
+                 ubicacion = "cantidad_frente";
                 fechaubicacion = "frente_fecha";
         
         
@@ -4283,7 +4282,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
    
             
-            String ubicacion = "cantidad_lado_izquierdo";
+            ubicacion = "cantidad_lado_izquierdo";
             fechaubicacion = "lado_izquierdo_fecha";
          
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
@@ -4348,7 +4347,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
             
               
-            String ubicacion = "cantidad_atras";
+            ubicacion = "cantidad_atras";
             fechaubicacion = "atras_fecha";
          
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);

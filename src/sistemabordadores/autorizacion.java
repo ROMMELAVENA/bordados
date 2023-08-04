@@ -251,7 +251,7 @@ public class autorizacion extends javax.swing.JFrame {
             
                 else
           
-            if (interfaz.equals("camisacancelar2"))
+            if (interfaz.equals("camisacancelar3"))
         
         {
           

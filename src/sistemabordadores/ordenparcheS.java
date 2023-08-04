@@ -53,7 +53,7 @@ public static boolean ventanaordenparche = false;
         String ubicacion = "";
         String aplicacion = "";
         String observacion = "";
-       
+        String cantidadaplicacion = "";
         String numerosucursalordenbordado = "";
         String primero = "";
         String ultimo = "";

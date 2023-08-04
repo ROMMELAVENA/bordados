@@ -84,7 +84,7 @@ public class ordencamisaS extends javax.swing.JFrame {
     Connection cnsucursal = null;
     String bordadosutilizadosstring = "";
     int bordadosutilizadosint = 0;
-
+    String cantidadaplicacion = "";
     String nuevosbordadosutilizadosstring = "";
     int nuevosbordadosutilizadosint = 0;
 
@@ -5632,6 +5632,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
       fechaubicacion  = "pecho_izquierdo_fecha";
       ubicacion = "cantidad_pecho_izquierdo";
+      
        
         
          if(cantidad.equals("0"))
@@ -5657,7 +5658,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
            sucursal = tiendalocal;
            nombrebordado =pechoizquierdonombre;
-           String cantidadaplicacion = aplicacionpechoizquierdo;
+           cantidadaplicacion = aplicacionpechoizquierdo;
        
            nombredelatabla = "historial_ordenes_camisa";
            
@@ -5665,7 +5666,6 @@ JOptionPane.showMessageDialog(null, mensaje);
            
            
            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);  
-           
            
            
            
@@ -5785,7 +5785,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
    
             nombrebordado = pechoizquierdonombre;
-            String cantidadaplicacion = aplicacionpechoizquierdo;
+            cantidadaplicacion = aplicacionpechoizquierdo;
            
             nombredelatabla = "historial_ordenes_camisa_recibidas";
         
@@ -5879,7 +5879,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
            
             nombrebordado = espaldanombre;
-            String cantidadaplicacion = aplicacionespalda;
+            cantidadaplicacion = aplicacionespalda;
            
             nombredelatabla = "historial_ordenes_camisa";
          
@@ -5964,7 +5964,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
 
             nombrebordado = espaldanombre;
-            String cantidadaplicacion = aplicacionespalda;
+            cantidadaplicacion = aplicacionespalda;
            
             nombredelatabla = "historial_ordenes_camisa_recibidas";
             insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
@@ -6139,7 +6139,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
      
             nombrebordado = pechoderechonombre;
-            String cantidadaplicacion = aplicacionpechoderecho;
+            cantidadaplicacion = aplicacionpechoderecho;
            
             nombredelatabla = "historial_ordenes_camisa_recibidas";
          
@@ -6232,7 +6232,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             
             nombrebordado = mangaderechanombre;
-            String cantidadaplicacion = aplicacionmangaderecha;
+            cantidadaplicacion = aplicacionmangaderecha;
            
             nombredelatabla = "historial_ordenes_camisa";
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
@@ -6317,7 +6317,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
        
             nombrebordado = mangaderechanombre;
-            String cantidadaplicacion = aplicacionmangaderecha;
+            cantidadaplicacion = aplicacionmangaderecha;
          
             nombredelatabla = "historial_ordenes_camisa_recibidas";
             insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
@@ -6817,7 +6817,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             {
             ubicacion = "cantidad_otra_ubicacion";
             nombrebordado = otraubicacionnombre;
-            String cantidadaplicacion = aplicacionotraubicacion;
+            cantidadaplicacion = aplicacionotraubicacion;
           
             nombredelatabla = "historial_ordenes_camisa";
      
@@ -6908,7 +6908,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             ubicacion = "cantidad_otra_ubicacion";
             nombrebordado = otraubicacionnombre;
-            String cantidadaplicacion = aplicacionotraubicacion;
+            cantidadaplicacion = aplicacionotraubicacion;
             nombredelatabla = "historial_ordenes_camisa_recibidas";
           
             insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
@@ -7000,7 +7000,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      
             ubicacion = "cantidad_otra_ubicacion2";
             nombrebordado = otraubicacion2nombre;
-            String cantidadaplicacion = aplicacionotraubicacion2;
+            cantidadaplicacion = aplicacionotraubicacion2;
            
             nombredelatabla = "historial_ordenes_camisa";
       
@@ -7089,7 +7089,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 ubicacion = "cantidad_otra_ubicacion2";
                 nombrebordado = otraubicacion2nombre;
-                String cantidadaplicacion = aplicacionotraubicacion2;
+                cantidadaplicacion = aplicacionotraubicacion2;
               
                 nombredelatabla = "historial_ordenes_camisa_recibidas";
                 
@@ -7682,7 +7682,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion);
             
             nombrebordado = mangaizquierdanombre;
-            String cantidadaplicacion = aplicacionmangaizquierda;
+            cantidadaplicacion = aplicacionmangaizquierda;
          
             nombredelatabla = "historial_ordenes_camisa";
              
@@ -7777,7 +7777,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
             
             nombrebordado = mangaderechanombre;
-            String cantidadaplicacion = aplicacionmangaderecha;
+            cantidadaplicacion = aplicacionmangaderecha;
          
             nombredelatabla = "historial_ordenes_camisa";
             
@@ -7990,7 +7990,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
             
             nombrebordado = otraubicacionnombre;
-            String cantidadaplicacion = aplicacionotraubicacion;
+            cantidadaplicacion = aplicacionotraubicacion;
            
             nombredelatabla = "historial_ordenes_camisa";
             
@@ -8092,7 +8092,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
             
             nombrebordado = otraubicacion2nombre;
-            String cantidadaplicacion = aplicacionotraubicacion2;
+            cantidadaplicacion = aplicacionotraubicacion2;
           
             nombredelatabla = "historial_ordenes_camisa";
           

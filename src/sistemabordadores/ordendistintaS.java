@@ -136,6 +136,7 @@ public class ordendistintaS extends javax.swing.JFrame {
     String tipoprenda = "";
     String estatusorden = "";
 
+    String cantidadaplicacion = "";
     
     String rutaimagen = "";
     String rutamangaderecha= "";

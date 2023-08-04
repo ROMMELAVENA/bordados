@@ -67,7 +67,7 @@ public class ordengorraS extends javax.swing.JFrame {
     String numeroordendebordadolocalorecibida = "";
     String numeroordendeenviosolicitada = "";
     String prenda ="";
-   
+    String cantidadaplicacion = "";
    
     String primero = "";
     String ultimo = "";

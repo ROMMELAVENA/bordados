@@ -64,7 +64,7 @@ public class ordencorbataS extends javax.swing.JFrame {
     String terminetodo ="";
     String descripcion ="";
     String aplicacioninsertar = "";
-   
+    String cantidadaplicacion = "";
     String codigocliente ="";
     String tienefotomontaje ="";
     String rutaimagen ="";

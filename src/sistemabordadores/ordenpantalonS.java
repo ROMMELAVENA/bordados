@@ -57,7 +57,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
     Connection cnsucursal = null;
     String bordadosutilizadosstring = "";
     int bordadosutilizadosint = 0;
-    
+    String cantidadaplicacion = "";
     String primero = "";
     String ultimo = "";
     String numerodeventa = "";

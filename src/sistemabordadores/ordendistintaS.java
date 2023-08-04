@@ -5462,6 +5462,11 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                      }
             
+        
+        
+        
+        
+        
        else
         {
             if (autorizacion.ventanaautorizacion == true)
@@ -5479,6 +5484,11 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         }
         }    
+        
+        
+        
+        
+        
         
      
     }//GEN-LAST:event_btndistinta1cancelarActionPerformed

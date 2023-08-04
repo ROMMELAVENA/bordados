@@ -2823,7 +2823,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         String[] lineas = observacion.split("\n");
         
-        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacion+"" + lineas[0] + "</span><br>";
+        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el artículo "+ubicacion+"" + lineas[0] + "</span><br>";
         if (lineas.length > 1) {
          mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
 }
@@ -5723,6 +5723,10 @@ JOptionPane.showMessageDialog(null, mensaje);
        estacompletalaorden(); 
     
        sumapuntos();   
+       
+       
+       
+       JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" se agregó correctamente");
         
         
             

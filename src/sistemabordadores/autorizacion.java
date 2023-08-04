@@ -429,9 +429,7 @@ public class autorizacion extends javax.swing.JFrame {
           else
             
             
-            
-            
-            if (interfaz.equals("gorracancelar"))
+            if (interfaz.equals("gorracancelar1"))
         
         {
           
@@ -443,7 +441,113 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordengorraS.lbautorizacion.setText("si"); ////////////
-               JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");;
+               ordengorraS.btnfrentecancelar.doClick();
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+            
+            
+            else
+            
+            
+            if (interfaz.equals("gorracancelar2"))
+        
+        {
+          
+        contraseñaauditoria = "0707";
+         
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordengorraS.lbautorizacion.setText("si"); ////////////
+               ordengorraS.
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+            
+            
+            else
+            
+            
+            if (interfaz.equals("gorracancelar3"))
+        
+        {
+          
+        contraseñaauditoria = "0707";
+         
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordengorraS.lbautorizacion.setText("si"); ////////////
+               ordengorraS.
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+            
+            
+            else
+            
+            
+            if (interfaz.equals("gorracancelar4"))
+        
+        {
+          
+        contraseñaauditoria = "0707";
+         
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordengorraS.lbautorizacion.setText("si"); ////////////
+              ordengorraS.
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -464,13 +568,9 @@ public class autorizacion extends javax.swing.JFrame {
         
         
         
-        
           else
-            
-            
-            
-            
-            if (interfaz.equals("pantaloncancelar"))
+           
+            if (interfaz.equals("pantaloncancelar1"))
         
         {
             
@@ -483,7 +583,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordenpantalonS.lbautorizacion.setText("si"); ////////////
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ordenpantalonS
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -501,6 +601,120 @@ public class autorizacion extends javax.swing.JFrame {
             
         }
       
+            
+            
+            
+                 else
+           
+            if (interfaz.equals("pantaloncancelar2"))
+        
+        {
+            
+            
+           contraseñaauditoria = "0707";
+          
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordenpantalonS.lbautorizacion.setText("si"); ////////////
+                ordenpantalonS
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+        
+            
+            
+            
+                 else
+           
+            if (interfaz.equals("pantaloncancelar3"))
+        
+        {
+            
+            
+           contraseñaauditoria = "0707";
+          
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordenpantalonS.lbautorizacion.setText("si"); ////////////
+                ordenpantalonS
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+        
+            
+            
+            
+                 else
+           
+            if (interfaz.equals("pantaloncancelar4"))
+        
+        {
+            
+            
+           contraseñaauditoria = "0707";
+          
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordenpantalonS.lbautorizacion.setText("si"); ////////////
+                ordenpantalonS
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+        
         
         
         
@@ -550,8 +764,7 @@ public class autorizacion extends javax.swing.JFrame {
             
             
             
-            
-            if (interfaz.equals("distintacancelar"))
+            if (interfaz.equals("distintacancelar1"))
         
         {
           
@@ -584,6 +797,264 @@ public class autorizacion extends javax.swing.JFrame {
             
         }
       
+        
+        
+        
+         
+          else
+            
+            
+            
+            if (interfaz.equals("distintacancelar2"))
+        
+        {
+          
+            
+           contraseñaauditoria = "0707";
+            
+            
+            
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordendistintaS.lbautorizacion.setText("si"); ////////////
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+       
+        
+        
+        
+        
+         
+          else
+            
+            
+            
+            if (interfaz.equals("distintacancelar3"))
+        
+        {
+          
+            
+           contraseñaauditoria = "0707";
+            
+            
+            
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordendistintaS.lbautorizacion.setText("si"); ////////////
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+       
+        
+        
+        
+         
+          else
+            
+            
+            
+            if (interfaz.equals("distintacancelar4"))
+        
+        {
+          
+            
+           contraseñaauditoria = "0707";
+            
+            
+            
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordendistintaS.lbautorizacion.setText("si"); ////////////
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+       
+        
+        
+        
+         
+          else
+            
+            
+            
+            if (interfaz.equals("distintacancelar5"))
+        
+        {
+          
+            
+           contraseñaauditoria = "0707";
+            
+            
+            
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordendistintaS.lbautorizacion.setText("si"); ////////////
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+       
+        
+        
+         
+          else
+            
+            
+            
+            if (interfaz.equals("distintacancelar6"))
+        
+        {
+          
+            
+           contraseñaauditoria = "0707";
+            
+            
+            
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordendistintaS.lbautorizacion.setText("si"); ////////////
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+       
+        
+        
+        
+         
+          else
+            
+            
+            
+            if (interfaz.equals("distintacancelar7"))
+        
+        {
+          
+            
+           contraseñaauditoria = "0707";
+            
+            
+            
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordendistintaS.lbautorizacion.setText("si"); ////////////
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+        
+       
         
         
         

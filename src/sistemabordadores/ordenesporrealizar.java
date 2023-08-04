@@ -18,6 +18,8 @@ import javax.swing.SortOrder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import net.coderazzi.filters.gui.AutoChoices;
+import net.coderazzi.filters.gui.TableFilterHeader;
 
 public class ordenesporrealizar extends javax.swing.JFrame {
 
@@ -25,7 +27,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     String fechainicial = "";
     String fechafinal = "";
     String nombrecliente = "";
-    String tiendalocal = "";
+    String tiendalocal = principal.tiendalocal;
     String fotomontajeautorizado = "";
     public static String localuotrasucursal ="";
     String sucursal = "";
@@ -38,18 +40,9 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         btnactualizar.setVisible(false);
         btnfrente.setVisible(false);
         
-        File file = new File("C:\\sistema\\configuracion.txt");
-        try {
-            Scanner sc = new Scanner(file);
-            while (sc.hasNext()) {
-                String line = sc.nextLine();
-                String str[] = line.split(":");
-                tiendalocal = str[1];
-            }
-        } catch (IOException e) {
-            System.out.println(e);
-        }
+        TableFilterHeader filterHeader = new TableFilterHeader(tabla, AutoChoices.ENABLED);
         
+       
           
  
         

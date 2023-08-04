@@ -178,11 +178,8 @@ public class autorizacion extends javax.swing.JFrame {
         
         
            else
-            
-            
-            
-            
-            if (interfaz.equals("camisacancelar"))
+          
+            if (interfaz.equals("camisacancelar1"))
         
         {
           
@@ -194,7 +191,8 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordencamisaS.lbautorizacion.setText("si"); ////////////
-                 JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ordencamisaS.btnpechoizquierdocancelar.doClick();
+                
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -215,6 +213,211 @@ public class autorizacion extends javax.swing.JFrame {
                 
                 
                
+            
+                else
+          
+            if (interfaz.equals("camisacancelar2"))
+        
+        {
+          
+            
+            contraseñaauditoria = "0707";
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordencamisaS.lbautorizacion.setText("si"); ////////////
+                 ordencamisaS.btnpechoderechocancelar.doClick();
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+       
+            
+            
+                else
+          
+            if (interfaz.equals("camisacancelar2"))
+        
+        {
+          
+            
+            contraseñaauditoria = "0707";
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordencamisaS.lbautorizacion.setText("si"); ////////////
+                  ordencamisaS.btnmangaizquierdacancelar.doClick();
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+       
+            
+                else
+          
+            if (interfaz.equals("camisacancelar4"))
+        
+        {
+          
+            
+            contraseñaauditoria = "0707";
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordencamisaS.lbautorizacion.setText("si"); ////////////
+                  ordencamisaS.btnmangaderechacancelar.doClick();
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+       
+            
+                else
+          
+            if (interfaz.equals("camisacancelar5"))
+        
+        {
+          
+            
+            contraseñaauditoria = "0707";
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordencamisaS.lbautorizacion.setText("si"); ////////////
+                  ordencamisaS.btnespaldacancelar.doClick();
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+       
+            
+                else
+          
+            if (interfaz.equals("camisacancelar6"))
+        
+        {
+          
+            
+            contraseñaauditoria = "0707";
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordencamisaS.lbautorizacion.setText("si"); ////////////
+                  ordencamisaS.btnotraubicacioncancelar.doClick();
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+       
+            
+                else
+          
+            if (interfaz.equals("camisacancelar7"))
+        
+        {
+          
+            
+            contraseñaauditoria = "0707";
+         
+            if (contraseñaingresada.equals(contraseñadireccion) || contraseñaingresada.equals(contraseñaadministracion) || contraseñaingresada.equals(contraseñaauditoria)||contraseñaingresada.equals("superroot") ) 
+            
+            {
+
+                ordencamisaS.lbautorizacion.setText("si"); ////////////
+                 ordencamisaS.btnotraubicacion2cancelar.doClick();
+                ventanaautorizacion = false;
+                this.dispose();
+
+            }
+            
+            else
+            
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">la clave no es correcta");
+                ventanaautorizacion = false;
+                this.dispose();
+            }
+            
+            
+            
+        }
+      
+       
                 
                 
                 

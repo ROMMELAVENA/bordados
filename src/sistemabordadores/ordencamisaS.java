@@ -2674,7 +2674,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         else
         {    
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" cancelada correctamente ");
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">"+ubicacionsinguiones+" cancelada correctamente ");
         }
         
         try {
@@ -2712,7 +2712,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         else
         {    
-     //   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+     //   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
         }
         
         try {
@@ -2749,7 +2749,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      String ubicacionsinguiones = ubicacion;
                          ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
                     
-                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
 
                 } catch (Exception ex) {
                     
@@ -6678,7 +6678,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
 
         if (traspaso > 0) {
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se inserto correctamente en la otra sucursal");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:greeen; font-size:20px;\">La orden se inserto correctamente en la otra sucursal");
 
             String numero = lbnumerodelaotrasucursal.getText();
             try {
@@ -6696,7 +6696,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         else
         {
-           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden NO SE INSERTO correctamente en la otra sucursal"); 
+           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">La orden NO SE INSERTO correctamente en la otra sucursal"); 
         }  
 
         
@@ -7503,7 +7503,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("camisacancelar");
+            autorizacion.lbinterfaz.setText("camisacancelar1");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -7604,7 +7604,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("camisacancelar");
+            autorizacion.lbinterfaz.setText("camisacancelar2");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -7700,7 +7700,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("camisacancelar");
+            autorizacion.lbinterfaz.setText("camisacancelar3");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -7808,7 +7808,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("camisacancelar");
+            autorizacion.lbinterfaz.setText("camisacancelar4");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -7912,7 +7912,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("camisacancelar");
+            autorizacion.lbinterfaz.setText("camisacancelar5");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -8014,7 +8014,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("camisacancelar");
+            autorizacion.lbinterfaz.setText("camisacancelar6");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -8117,7 +8117,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("camisacancelar");
+            autorizacion.lbinterfaz.setText("camisacancelar7");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -8483,28 +8483,28 @@ JOptionPane.showMessageDialog(null, mensaje);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btndatos;
     private javax.swing.JButton btneditarbordado;
-    private javax.swing.JButton btnespaldacancelar;
+    public static javax.swing.JButton btnespaldacancelar;
     private javax.swing.JButton btnespaldaponchado;
     private javax.swing.JButton btnespaldatetermine;
     private javax.swing.JButton btnfotomontajesinpuntadas;
-    private javax.swing.JButton btnmangaderechacancelar;
+    public static javax.swing.JButton btnmangaderechacancelar;
     private javax.swing.JButton btnmangaderechaponchado;
     private javax.swing.JButton btnmangaderechatetermine;
-    private javax.swing.JButton btnmangaizquierdacancelar;
+    public static javax.swing.JButton btnmangaizquierdacancelar;
     private javax.swing.JButton btnmangaizquierdaponchado;
-    private javax.swing.JButton btnmangaizquierdatermine;
-    private javax.swing.JButton btnotraubicacion2cancelar;
+    public static javax.swing.JButton btnmangaizquierdatermine;
+    public static javax.swing.JButton btnotraubicacion2cancelar;
     private javax.swing.JButton btnotraubicacion2ponchado;
     private javax.swing.JButton btnotraubicacion2tetermine;
-    private javax.swing.JButton btnotraubicacioncancelar;
+    public static javax.swing.JButton btnotraubicacioncancelar;
     private javax.swing.JButton btnotraubicacionponchado;
     private javax.swing.JButton btnotraubicaciontetermine;
-    private javax.swing.JButton btnpechoderechocancelar;
+    public static javax.swing.JButton btnpechoderechocancelar;
     private javax.swing.JButton btnpechoderechoponchado;
-    private javax.swing.JButton btnpechoderechotermine;
-    private javax.swing.JButton btnpechoizquierdocancelar;
+    public static javax.swing.JButton btnpechoderechotermine;
+    public static javax.swing.JButton btnpechoizquierdocancelar;
     private javax.swing.JButton btnpechoizquierdoponchado;
-    private javax.swing.JButton btnpechoizquierdotermine;
+    public static javax.swing.JButton btnpechoizquierdotermine;
     private javax.swing.JButton btnreplicarponchados;
     public static javax.swing.JButton btnsalir;
     private javax.swing.JButton btnterminetodo;

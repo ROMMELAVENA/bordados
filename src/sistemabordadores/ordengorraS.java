@@ -4181,7 +4181,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         else
         {
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden NO se inserto correctamente en la otra sucursal");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">La orden NO se inserto correctamente en la otra sucursal");
             
         } 
        
@@ -4494,7 +4494,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         terminetodo = "no";
         btnterminetodo.setEnabled(false);
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se actualizó correctamente");
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">La orden se actualizó correctamente");
         
         if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
         {

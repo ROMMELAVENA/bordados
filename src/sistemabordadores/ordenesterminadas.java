@@ -18,6 +18,8 @@ import javax.swing.SortOrder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import net.coderazzi.filters.gui.AutoChoices;
+import net.coderazzi.filters.gui.TableFilterHeader;
 import static sistemabordadores.ordenesterminadas.btnactualizar;
 
 public class ordenesterminadas extends javax.swing.JFrame {
@@ -32,6 +34,10 @@ public class ordenesterminadas extends javax.swing.JFrame {
 
     public ordenesterminadas() {
         initComponents();
+        
+        TableFilterHeader filterHeader = new TableFilterHeader(tabla, AutoChoices.ENABLED);
+        
+        
         ventanaordenesterminadas = true;
         lbinterface.setVisible(false);
         lbtienda.setVisible(false);

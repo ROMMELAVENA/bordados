@@ -4210,7 +4210,7 @@ public static String dia() {
             
             
             
-             
+             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
         }
         
@@ -4251,6 +4251,13 @@ public static String dia() {
          
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
+            
+            
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            
+            
+            
            
         }
          else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
@@ -4286,7 +4293,7 @@ public static String dia() {
             estacompletalaorden();
             
             
-            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
              
             
         }
@@ -4328,6 +4335,9 @@ public static String dia() {
        
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
             estacompletalaorden();
+            
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
         
         
         }
@@ -4363,7 +4373,7 @@ public static String dia() {
             estacompletalaorden();
             
             
-           
+           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
              
             
         }
@@ -4406,6 +4416,8 @@ public static String dia() {
             estacompletalaorden();
             
         
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
         
         }
         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
@@ -4437,6 +4449,9 @@ public static String dia() {
             insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
             
             estacompletalaorden();
+            
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
             
             
@@ -5052,16 +5067,16 @@ public static String dia() {
     private javax.swing.JButton btndatos;
     private javax.swing.JButton btneliminarbtneditarbordado;
     private javax.swing.JButton btnfotomontajesinpuntadas;
-    private javax.swing.JButton btnladoderechoatrascancelar;
+    public static javax.swing.JButton btnladoderechoatrascancelar;
     private javax.swing.JButton btnladoderechoatrasponchado;
     private javax.swing.JButton btnladoderechoatrastetermine;
-    private javax.swing.JButton btnladoderechofrentecancelar;
+    public static javax.swing.JButton btnladoderechofrentecancelar;
     private javax.swing.JButton btnladoderechofrenteponchado;
     private javax.swing.JButton btnladoderechofrentetetermine;
-    private javax.swing.JButton btnladoizquierdoatrascancelar;
+    public static javax.swing.JButton btnladoizquierdoatrascancelar;
     private javax.swing.JButton btnladoizquierdoatrasponchado;
     private javax.swing.JButton btnladoizquierdoatrastetermine;
-    private javax.swing.JButton btnladoizquierdofrentecancelar;
+    public static javax.swing.JButton btnladoizquierdofrentecancelar;
     private javax.swing.JButton btnladoizquierdofrenteponchado;
     private javax.swing.JButton btnladoizquierdofrentetetermine;
     private javax.swing.JButton btnreplicar;

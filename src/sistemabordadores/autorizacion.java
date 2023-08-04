@@ -477,7 +477,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordengorraS.lbautorizacion.setText("si"); ////////////
-               ordengorraS.
+               ordengorraS.btnatrascancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -512,7 +512,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordengorraS.lbautorizacion.setText("si"); ////////////
-               ordengorraS.
+               ordengorraS.btnladoizquierdocancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -547,7 +547,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordengorraS.lbautorizacion.setText("si"); ////////////
-              ordengorraS.
+              ordengorraS.btnladoderechocancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -583,7 +583,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordenpantalonS.lbautorizacion.setText("si"); ////////////
-                ordenpantalonS
+                ordenpantalonS.btnladoizquierdofrentecancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -619,7 +619,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordenpantalonS.lbautorizacion.setText("si"); ////////////
-                ordenpantalonS
+                ordenpantalonS.btnladoderechofrentecancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -657,7 +657,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordenpantalonS.lbautorizacion.setText("si"); ////////////
-                ordenpantalonS
+                ordenpantalonS.btnladoizquierdoatrascancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -695,7 +695,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordenpantalonS.lbautorizacion.setText("si"); ////////////
-                ordenpantalonS
+                ordenpantalonS.btnladoderechoatrascancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -736,7 +736,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordencorbataS.lbautorizacion.setText("si"); ////////////
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ordencorbataS.btncancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
                 
@@ -779,7 +779,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordendistintaS.lbautorizacion.setText("si"); ////////////
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ordendistintaS.btndistinta1cancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -820,7 +820,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordendistintaS.lbautorizacion.setText("si"); ////////////
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ordendistintaS.btndistinta2cancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -864,7 +864,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordendistintaS.lbautorizacion.setText("si"); ////////////
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ordendistintaS.btndistinta3cancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -907,7 +907,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordendistintaS.lbautorizacion.setText("si"); ////////////
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ordendistintaS.btndistinta4cancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -950,7 +950,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordendistintaS.lbautorizacion.setText("si"); ////////////
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ordendistintaS.btndistinta5cancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -992,7 +992,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordendistintaS.lbautorizacion.setText("si"); ////////////
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ordendistintaS.btndistinta6cancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -1035,7 +1035,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordendistintaS.lbautorizacion.setText("si"); ////////////
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Autorizado!!! ya puede cancelar el bordado");
+                ordendistintaS.btndistinta7cancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 

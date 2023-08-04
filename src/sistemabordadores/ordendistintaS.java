@@ -5098,6 +5098,10 @@ JOptionPane.showMessageDialog(null, mensaje);
             estacompletalaorden();
             //sumapuntos(); 
             
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            
+            
         }    
          
 
@@ -5129,6 +5133,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
         //sumapuntos(); 
+        
+        
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
         } 
     
@@ -5162,6 +5169,11 @@ JOptionPane.showMessageDialog(null, mensaje);
             estacompletalaorden();
             //sumapuntos(); 
             
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            
+            
+            
         } 
          
     }//GEN-LAST:event_btndistinta5termineActionPerformed
@@ -5192,6 +5204,11 @@ JOptionPane.showMessageDialog(null, mensaje);
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
+            
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            
+            
             
         }  
         
@@ -5224,6 +5241,11 @@ JOptionPane.showMessageDialog(null, mensaje);
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
+            
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            
+            
             
         }
             
@@ -5290,6 +5312,12 @@ JOptionPane.showMessageDialog(null, mensaje);
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             //sumapuntos(); 
+            
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            
+            
+            
             
         } 
         
@@ -6310,25 +6338,25 @@ JOptionPane.showMessageDialog(null, mensaje);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btndistinta1cancelar;
+    public static javax.swing.JButton btndistinta1cancelar;
     private javax.swing.JButton btndistinta1ponnchado;
     private javax.swing.JButton btndistinta1termine;
-    private javax.swing.JButton btndistinta2cancelar;
+    public static javax.swing.JButton btndistinta2cancelar;
     private javax.swing.JButton btndistinta2ponnchado;
     private javax.swing.JButton btndistinta2termine;
-    private javax.swing.JButton btndistinta3cancelar;
+    public static javax.swing.JButton btndistinta3cancelar;
     private javax.swing.JButton btndistinta3ponnchado;
     private javax.swing.JButton btndistinta3termine;
-    private javax.swing.JButton btndistinta4cancelar;
+    public static javax.swing.JButton btndistinta4cancelar;
     private javax.swing.JButton btndistinta4ponnchado;
     private javax.swing.JButton btndistinta4termine;
-    private javax.swing.JButton btndistinta5cancelar;
+    public static javax.swing.JButton btndistinta5cancelar;
     private javax.swing.JButton btndistinta5ponnchado;
     private javax.swing.JButton btndistinta5termine;
-    private javax.swing.JButton btndistinta6cancelar;
+    public static javax.swing.JButton btndistinta6cancelar;
     private javax.swing.JButton btndistinta6ponnchado;
     private javax.swing.JButton btndistinta6termine;
-    private javax.swing.JButton btndistinta7cancelar;
+    public static javax.swing.JButton btndistinta7cancelar;
     private javax.swing.JButton btndistinta7ponnchado;
     private javax.swing.JButton btndistinta7termine;
     private javax.swing.JButton btneditarbordado;

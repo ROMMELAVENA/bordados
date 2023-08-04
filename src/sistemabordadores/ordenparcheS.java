@@ -3752,7 +3752,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             sumapuntos();    
             
             
-            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
       
            
         }
@@ -3806,7 +3806,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                sumapuntos();   
         
            
-               
+               JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
         
               
             

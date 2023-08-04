@@ -5526,6 +5526,10 @@ JOptionPane.showMessageDialog(null, mensaje);
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             sumapuntos();
+            
+            
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
        
             
        
@@ -5610,6 +5614,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 sumapuntos();
             
        
+                
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
     
         }
         
@@ -5726,7 +5732,7 @@ JOptionPane.showMessageDialog(null, mensaje);
        
        
        
-       JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" se agregó correctamente");
+       JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
         
         
             
@@ -5837,6 +5843,10 @@ JOptionPane.showMessageDialog(null, mensaje);
             estacompletalaorden();
             sumapuntos();
             
+            
+           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+           
+            
 
         }
         
@@ -5926,7 +5936,11 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
-            sumapuntos();       
+            sumapuntos();      
+            
+            
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
         }
          else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
@@ -6004,6 +6018,11 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             estacompletalaorden();
             sumapuntos();
+            
+            
+            
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
            
             
@@ -6091,6 +6110,10 @@ JOptionPane.showMessageDialog(null, mensaje);
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
             estacompletalaorden();
             sumapuntos();
+            
+            
+            
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;  
        
             
         }
@@ -6174,6 +6197,10 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             estacompletalaorden();
             sumapuntos();
+            
+            
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
         
        
@@ -6260,6 +6287,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            
         }
         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
@@ -6336,6 +6365,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             estacompletalaorden();
             sumapuntos();  
+            
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
             
         }
@@ -6846,6 +6878,10 @@ JOptionPane.showMessageDialog(null, mensaje);
             estacompletalaorden();
             sumapuntos();
             
+            
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            
             }
             
         }
@@ -6927,6 +6963,10 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             estacompletalaorden();
             sumapuntos();
+            
+            
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
             
             
@@ -7020,6 +7060,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             sumapuntos();
             
             
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            
+            
             
         }
         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
@@ -7101,6 +7144,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 estacompletalaorden();
                 sumapuntos();
+                
+                
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
 
             
             

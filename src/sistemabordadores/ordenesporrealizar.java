@@ -2157,7 +2157,7 @@ sorter.sort();
                         orden.setVisible(true);
 
                         ordendistintaS.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordendistintaS.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordendistintaS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordendistintaS.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordendistintaS.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
                         ordendistintaS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());

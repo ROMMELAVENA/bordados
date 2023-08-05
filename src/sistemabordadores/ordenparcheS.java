@@ -1470,7 +1470,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         int surtidaactualint =  0;
         String surtidanuevastring = "";
         String estatusentrega ="";
-        int surtidanuevaint = 0;
+        int surtidasnuevasint = 0;
         int cantidadint = 0;
       
         
@@ -1521,9 +1521,9 @@ JOptionPane.showMessageDialog(null, mensaje);
           
        
          cantidadint =  Integer.parseInt(cantidad);
-        surtidanuevaint = surtidaactualint + cantidadint;
+        surtidasnuevasint = surtidaactualint + cantidadint;
        
-        surtidanuevastring =  String.valueOf(surtidanuevaint);
+        surtidanuevastring =  String.valueOf(surtidasnuevasint);
             
       
             
@@ -1539,6 +1539,49 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 System.out.println(e);
                             }
        
+            
+            
+            
+            
+            
+            
+            
+               
+            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
+            {
+                
+                
+                
+                
+            }
+            
+            else
+            {
+                
+                int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+                cantidadaplicacionint = cantidadaplicacionint * surtidasnuevasint;
+                
+                String totalaplicaciones = String.valueOf(cantidadaplicacionint);
+                
+            
+            
+            
+               try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + totalaplicaciones + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacionaplicacion + "'      ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception ex) {
+                            System.out.println (ex);
+                            }
+            
+            
+            
+            
+            }
+            
+            
             
             
             

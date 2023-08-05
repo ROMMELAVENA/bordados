@@ -2418,6 +2418,47 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
+               
+            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
+            {
+                
+                
+                
+                
+            }
+            
+            else
+            {
+                
+                int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+                cantidadaplicacionint = cantidadaplicacionint * surtidasnuevasint;
+                
+                String totalaplicaciones = String.valueOf(cantidadaplicacionint);
+                
+            
+            
+            
+               try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + totalaplicaciones + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacionaplicacion + "'      ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception ex) {
+                            System.out.println (ex);
+                            }
+            
+            
+            
+            
+            }
+            
+            
+            
+            
+            
+            
+            
         ////Actualiza el estatus
 
       String vendidastring = "";    

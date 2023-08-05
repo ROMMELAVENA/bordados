@@ -76,6 +76,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
  
      String numeroordendebordadolocalorecibida = "";
     
+    
     String rutaimagen="";
     String rutaladoizquierdofrente="";
     String rutaladoizquierdoatras="";
@@ -276,7 +277,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     void datostiendalocal() throws FileNotFoundException, IOException
     {
       
-        String numeroventa ="";
+       
         
          numeroordendebordadolocalorecibida = lborden.getText();
       
@@ -715,7 +716,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         
         
-         String sqlcodigo = "Select codigo_cliente from historial_ventas where numero = '" + numeroventa + "'  ";
+         String sqlcodigo = "Select codigo_cliente from historial_ventas where numero = '" + numerodeventa + "'  ";
 
         try {
 
@@ -1494,138 +1495,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
     }
-     
-     /*
-     void cargarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
-    {
-        
-        String numero = lbfolio.getText();
-        String numeroventa = lbnumeroventa.getText();
-        BufferedImage img = null;
-        btnverfotomontaje.setEnabled(false);
-
-       String sql = "Select imagen_nombre,imagen from historial_ordenes_pantalon_recibidas where numero = '"+lbfolio.getText()+"'   ";  ///
-
-        try {
-
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) 
-            {
-                
-                Blob blob = rs.getBlob("imagen");
-                if (blob == null) 
-                {
-
-                    ordencamisaimagencontorno p = new ordencamisaimagencontorno();
-                    jPanel1.add(p);
-                    jPanel1.repaint();
-                    lbfotomontaje.setVisible(false);
-                    btnverfotomontaje.setEnabled(false);
-                    tienefotomontaje = "no";
-               
-                    
-                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
-                    
-                } 
-                
-                else 
-                
-                {
-                    byte[] data = blob.getBytes(1, (int) blob.length());
-
-                    try {
-                        img = ImageIO.read(new ByteArrayInputStream(data));
-                    } catch (IOException ex) 
-                    {
-                      
-                      JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
-
-                    }
-
-                    if(img==null)
-                    {
-                       tienefotomontaje = "no"; 
-                    }
-                    else
-                    {
-                    
-                    Imagen imagen = new Imagen();
-                    imagen.setImagen(img);
-                    lbfotomontaje.setIcon(new ImageIcon(img.getScaledInstance(lbfotomontaje.getWidth(), lbfotomontaje.getHeight(), Image.SCALE_DEFAULT)));
-                    lbfotomontaje.setVisible(true);
-                    btnverfotomontaje.setEnabled(true);
-                    tienefotomontaje = "si";
-                    btnverfotomontaje.setEnabled(true);
-                  
-
-                        Blob archivo = rs.getBlob("imagen");
-                        String nombredelarchivo = rs.getString("imagen_nombre");
-                        if (nombredelarchivo.equals("jpg") || nombredelarchivo.equals("png") || nombredelarchivo.equals("jpeg") || nombredelarchivo.equals("JPEG") || nombredelarchivo.equals("PNG") || nombredelarchivo.equals("JPG")) {
-                            rutaimagen = "C:\\archivospdf\\FOTOMONTAJE." + nombredelarchivo + " ";
-                        } else {
-                            nombredelarchivo = nombredelarchivo.replace(" ", "");
-                            rutaimagen = "C:\\archivospdf\\" + nombredelarchivo + " ";
-                        }
-
-                        File file = new File(rutaimagen);
-                        FileOutputStream output = new FileOutputStream(file);
-                        InputStream inStream = archivo.getBinaryStream();
-                        int length = -1;
-                        int size = (int) archivo.length();
-                        byte[] buffer = new byte[size];
-                        while ((length = inStream.read(buffer)) != -1) {
-                            output.write(buffer, 0, length);
-
-                        }
-                   
-                    output.close();
-                    
-                    }
- 
-                }
-
-            } //end while
-            rs.close();
-        } catch (SQLException ex) 
-        {
-           
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
-        }
-        
-        
-        
-        if(tienefotomontaje.equals("si"))
-        {
-          
-
-            
-            
-            
-        
-        }
-        else
-        {
-            btnladoderechofrente.setEnabled(false);
-            btnladoderechoatras.setEnabled(false);
-            btnladoizquierdofrente.setEnabled(false);
-            btnladoizquierdoatras.setEnabled(false);
-            
-          
-            lbfotomontaje.setVisible(false);
-            btnverfotomontaje.setEnabled(false);
-         
-
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
-            
-        }  
-
-        
-        
-    }
-     
-     
-     */
+    
      
      void datosotrasucursal () throws FileNotFoundException, IOException
     {
@@ -2343,14 +2213,14 @@ JOptionPane.showMessageDialog(null, mensaje);
      void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 
-        String numeroventa =  lbnumerodeventa.getText();
+        numerodeventa =  lbnumerodeventa.getText();
         String surtidaactualstring ="";
         int surtidaactualint =  0;
         String nuevasurtidastring = "";
         String estatusentrega ="";
         String estatusentregaventa = "";
         
-         String SQL2 = "select articulo,surtida,estatus_entrega from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "'  and prenda = '"+prenda+"' ";
+         String SQL2 = "select articulo,surtida,estatus_entrega from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacion + "'  and prenda = '"+prenda+"' ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -2406,7 +2276,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevasurtidastring + "' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'      ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevasurtidastring + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacion + "'      ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -2468,7 +2338,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       String cambiadastring = "";
       String virtualstring = "";
        
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numeroventa+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numerodeventa+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -2529,7 +2399,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
           try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numerodeventa + "'       ");
               pst.executeUpdate();
               pst.close();
           } catch (Exception e) {
@@ -2545,13 +2415,13 @@ JOptionPane.showMessageDialog(null, mensaje);
      void agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 
-        String numeroventa =  lbnumerodeventa.getText();
+        numerodeventa =  lbnumerodeventa.getText();
         Object cantidadstring ="";
         String nuevacantidadstring = "";
         String estatusentrega ="";
         String estatusentregaventa = "";
         
-        String SQL2 = "select cantidad,estatus_entrega from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "'  and prenda = '"+prenda+"' ";
+        String SQL2 = "select cantidad,estatus_entrega from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacion + "'  and prenda = '"+prenda+"' ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -2588,7 +2458,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+nuevacantidadstring+"' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'      ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+nuevacantidadstring+"' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacion + "'      ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -2597,6 +2467,50 @@ JOptionPane.showMessageDialog(null, mensaje);
                             }
        
             
+            
+            
+            
+            
+            
+               if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
+                
+            {
+                
+            }
+            
+            else
+                
+            {
+                
+                
+              int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+                cantidadaplicacionint = cantidadaplicacionint * nuevacantidadint;
+                
+               String totalaplicaciones = String.valueOf(cantidadaplicacionint);
+                
+                
+                
+                
+                
+            
+            
+             try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+totalaplicaciones+"' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacionaplicacion + "'  and identificador_prenda = '"+identificador+"'");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+            
+            
+            
+            
+            
+            
+            }
             
             
             
@@ -2611,7 +2525,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       String cambiadastring = "";
       String virtualstring = "";
        
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numeroventa+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numerodeventa+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -2670,7 +2584,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
           try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numerodeventa + "'       ");
               pst.executeUpdate();
               pst.close();
           } catch (Exception e) {

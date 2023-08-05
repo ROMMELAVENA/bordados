@@ -2793,14 +2793,14 @@ JOptionPane.showMessageDialog(null, mensaje);
     void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 
-        String numeroventa =  lbnumerodeventa.getText();
+        numerodeventa =  lbnumerodeventa.getText();
         String surtidaactualstring ="";
         int surtidaactualint =  0;
         String nuevasurtidastring = "";
         String estatusentrega ="";
        
         
-        String SQL2 = "select articulo,surtida from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"' ";
+        String SQL2 = "select articulo,surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"' ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -2937,7 +2937,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       String cambiadastring = "";
       String virtualstring = "";
        
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numeroventa+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numerodeventa+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -3006,7 +3006,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
           try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numerodeventa + "'       ");
               pst.executeUpdate();
               pst.close();
           } catch (Exception e) {
@@ -3029,7 +3029,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevasurtidastring + "' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"'   ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevasurtidastring + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"'   ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -3066,7 +3066,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
              try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + totalaplicaciones + "' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacionaplicacion + "'  and identificador_prenda = '"+identificador+"'   ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + totalaplicaciones + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacionaplicacion + "'  and identificador_prenda = '"+identificador+"'   ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -3089,7 +3089,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       String cantidadvendida = "";  
       String cantidadentregada = "";  
        
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas from historial_ventas where numero = '"+numeroventa+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas from historial_ventas where numero = '"+numerodeventa+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -3133,7 +3133,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }    
         
           try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numerodeventa + "'       ");
               pst.executeUpdate();
               pst.close();
           } catch (Exception e) {
@@ -3151,13 +3151,13 @@ JOptionPane.showMessageDialog(null, mensaje);
      void agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 
-        String numeroventa =  lbnumerodeventa.getText();
+        numerodeventa =  lbnumerodeventa.getText();
         Object cantidadstring ="";
         String nuevacantidadstring = "";
         String estatusentrega ="";
        
         
-        String SQL2 = "select cantidad from historial_ventas where numero = '" + numeroventa + "' and articulo = '" + ubicacion + "' and identificador_prenda = '"+identificador+"'";
+        String SQL2 = "select cantidad from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacion + "' and identificador_prenda = '"+identificador+"'";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -3194,7 +3194,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+nuevacantidadstring+"' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"'");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+nuevacantidadstring+"' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"'");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -3229,7 +3229,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
              try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+totalaplicaciones+"' WHERE numero='" + numeroventa + "' and articulo = '" + ubicacionaplicacion + "'  and identificador_prenda = '"+identificador+"'");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+totalaplicaciones+"' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacionaplicacion + "'  and identificador_prenda = '"+identificador+"'");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -3254,7 +3254,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       String cambiadastring = "";
       String virtualstring = "";
        
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numeroventa+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numerodeventa+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -3315,7 +3315,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
           try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroventa + "'       ");
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numerodeventa + "'       ");
               pst.executeUpdate();
               pst.close();
           } catch (Exception e) {

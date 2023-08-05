@@ -2340,7 +2340,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-     void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad) 
+     void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 
         String numeroventa =  lbnumerodeventa.getText();
@@ -2501,7 +2501,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }
      
     
-     void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad) 
+     void agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 
         String numeroventa =  lbnumerodeventa.getText();
@@ -4169,7 +4169,7 @@ public static String dia() {
             aplicacioninsertar = "";
            
           
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             
         
@@ -4249,7 +4249,7 @@ public static String dia() {
             aplicacioninsertar = "";
           
          
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             
             
@@ -4333,7 +4333,7 @@ public static String dia() {
             aplicacioninsertar = "";
             
        
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             
             
@@ -4412,7 +4412,7 @@ public static String dia() {
             aplicacioninsertar = "";
            
           
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             
         
@@ -4694,7 +4694,7 @@ public static String dia() {
                      aplicacioninsertar = "";
                     
                     
-                     agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
+                     agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
                      estacompletalaorden();
                      
                      
@@ -4742,7 +4742,7 @@ public static String dia() {
                      aplicacioninsertar = "";
                     
                    
-                     agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
+                     agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
                      estacompletalaorden();
                  
                      
@@ -4802,7 +4802,7 @@ public static String dia() {
                      aplicacioninsertar = "";
                    
                     
-                     agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
+                     agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
                      estacompletalaorden();
                      
                      
@@ -4848,7 +4848,7 @@ public static String dia() {
                      aplicacioninsertar = "";
                    
                     
-                     agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
+                     agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
                      estacompletalaorden();
                      
                      

@@ -1881,7 +1881,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-    void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad) 
+    void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 
           numerodeventa =  lbnumerodeventa.getText();
@@ -1945,6 +1945,17 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
             
             try{
             
@@ -1954,6 +1965,59 @@ JOptionPane.showMessageDialog(null, mensaje);
                             } catch (Exception ex) {
                             System.out.println (ex);
                             }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+               
+            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
+            {
+                
+                
+                
+                
+            }
+            
+            else
+            {
+                
+                int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+                cantidadaplicacionint = cantidadaplicacionint * surtidasnuevasint;
+                
+                String totalaplicaciones = String.valueOf(cantidadaplicacionint);
+                
+            
+            
+            
+               try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + totalaplicaciones + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacionaplicacion + "'      ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception ex) {
+                            System.out.println (ex);
+                            }
+            
+            
+            
+            
+            }
+            
+            
+            
+            
+            
+            
+            
             
             
             
@@ -2041,7 +2105,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       }
     
     
-     void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad) 
+     void agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 
          numerodeventa =  lbnumerodeventa.getText();
@@ -3781,7 +3845,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombredelatabla = "historial_ordenes_gorra";
             String cantidad = lbcantidad.getText();
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
+            
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             sumapuntos();   
            
@@ -4215,7 +4280,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_gorra";
              
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             sumapuntos();    
         
@@ -4294,7 +4359,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombredelatabla = "historial_ordenes_gorra";
             String cantidad = lbcantidad.getText();
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             sumapuntos();   
             
@@ -4362,7 +4427,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombredelatabla = "historial_ordenes_gorra";
             String cantidad = lbcantidad.getText();
              
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             sumapuntos();    
             
@@ -4638,7 +4703,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     nombredelatabla = "historial_ordenes_gorra";
                     String cantidad = lbcantidad.getText();
                   
-                    agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
+                    agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) cantidad );
                     estacompletalaorden();
                     sumapuntos();
                     
@@ -4693,7 +4758,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                   
                     
                    
-                    agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
+                    agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
                     estacompletalaorden();
                     sumapuntos();
 
@@ -4749,7 +4814,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     nombredelatabla = "historial_ordenes_gorra";
                    
                  
-                    agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
+                    agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
                     estacompletalaorden();
                     sumapuntos();
                     
@@ -4804,7 +4869,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidad = lbcantidad.getText();
           
         
-            agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             sumapuntos();   
                     

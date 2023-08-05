@@ -868,7 +868,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-    void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad) 
+    void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 
           numerodeventa =  lbnumerodeventa.getText();
@@ -1271,7 +1271,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      
      
     
-     void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad) 
+     void agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 
         
@@ -2320,7 +2320,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             descripcion = "BORDADO CORBATA FRENTE "+frentenombre+ "";
             aplicacioninsertar = "";
        
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad) ;
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             sumapuntos();
             
@@ -2520,7 +2520,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      descripcion = "BORDADO CORBATA FRENTE " +frentenombre+ "";
                     
                     
-                    agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
+                    agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
                     
                     
                     

@@ -1924,7 +1924,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }
     
     
-    void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad) 
+    void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad, String ubicacionaplicacion) 
      
     
     
@@ -2089,7 +2089,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
     
     
-     void agregaralsurtidasalhistorialdeventascancelar(String ubicacion, String cantidad) 
+     void agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 
         String numeroventa =  lbnumeroventa.getText();
@@ -5095,7 +5095,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + "";
 
           
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -5131,7 +5131,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + "";
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
         //sumapuntos(); 
         
@@ -5166,7 +5166,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + "";
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -5202,7 +5202,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + "";
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -5239,7 +5239,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + "";
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -5310,7 +5310,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + "";
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -5348,7 +5348,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + "";
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             //sumapuntos(); 
             
@@ -5476,7 +5476,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                          
             
            
-            agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
             //sumapuntos();
             
@@ -5553,7 +5553,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + "";  
 
      
-       agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
+       agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
        estacompletalaorden(); 
        //sumapuntos(); 
        
@@ -5615,7 +5615,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + "";  
             
       
-       agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;
+       agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
        estacompletalaorden(); 
       // sumapuntos();
             
@@ -5679,7 +5679,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + "";  
 
      
-       agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;   
+       agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);   
        estacompletalaorden(); 
        //sumapuntos();   
         
@@ -5741,7 +5741,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + "";  
 
      
-       agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad) ;   
+       agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);   
        estacompletalaorden();
        //sumapuntos();       
             
@@ -5803,7 +5803,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + "";  
             
          
-            agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
            // sumapuntos();
             
@@ -5864,7 +5864,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + "";  
 
        
-            agregaralsurtidasalhistorialdeventascancelar((String) descripcion, (String) cantidad);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
             estacompletalaorden();
           //  sumapuntos();
             

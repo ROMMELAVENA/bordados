@@ -3945,7 +3945,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             sumapuntos();  
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
             
         }
@@ -4280,7 +4280,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if (traspaso > 0) {
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se inserto correctamente en la otra sucursal");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">La orden se inserto correctamente en la otra sucursal");
             
             String numero = lbnumerodelaotrasucursal.getText();
             try {
@@ -4378,7 +4378,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
             
             
@@ -4454,7 +4454,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             sumapuntos(); 
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
             
         }
@@ -4522,7 +4522,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             estacompletalaorden();
             sumapuntos();   
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
         }
        

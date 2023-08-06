@@ -2657,7 +2657,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0' where numero = '"+numeroordendebordadolocalorecibida+"'");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+fecha+"=null where numero = '"+numeroordendebordadolocalorecibida+"'");
                     pst.executeUpdate();
                     pst.close();
 
@@ -5746,7 +5746,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
        
                 
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
     
         }
         
@@ -5863,7 +5863,7 @@ JOptionPane.showMessageDialog(null, mensaje);
        
        
        
-       JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+       JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
         
         
             
@@ -5975,7 +5975,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             sumapuntos();
             
             
-           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
            
             
 
@@ -6071,7 +6071,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
         }
          else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
@@ -6153,7 +6153,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
            
             
@@ -6328,7 +6328,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
         
        
@@ -6415,7 +6415,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
         }
         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
@@ -6495,7 +6495,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             sumapuntos();  
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
             
         }
@@ -7008,7 +7008,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
             }
             
@@ -7094,7 +7094,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
             
             
@@ -7188,7 +7188,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             sumapuntos();
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
             
             
@@ -7274,7 +7274,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 sumapuntos();
                 
                 
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
 
             
             

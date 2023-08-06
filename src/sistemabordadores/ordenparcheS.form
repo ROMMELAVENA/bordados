@@ -276,10 +276,8 @@
                   <Component id="jLabel8" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbparchepuntadas" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbcantidad1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="btncancelar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="btntermine" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="btntermine" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="btncancelar" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbcodigo" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbcolor" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">

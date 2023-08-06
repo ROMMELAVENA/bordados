@@ -2110,7 +2110,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+fecha+"='' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+fecha+"=null where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -4165,7 +4165,7 @@ public static String dia() {
             
             
             
-             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
         }
         
@@ -4209,7 +4209,7 @@ public static String dia() {
             
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
             
             
@@ -4248,7 +4248,7 @@ public static String dia() {
             estacompletalaorden();
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
              
             
         }
@@ -4292,7 +4292,7 @@ public static String dia() {
             estacompletalaorden();
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
         
         
         }
@@ -4328,7 +4328,7 @@ public static String dia() {
             estacompletalaorden();
             
             
-           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
              
             
         }
@@ -4372,7 +4372,7 @@ public static String dia() {
             
         
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
         
         }
         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
@@ -4406,7 +4406,7 @@ public static String dia() {
             estacompletalaorden();
             
             
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
             
             
             

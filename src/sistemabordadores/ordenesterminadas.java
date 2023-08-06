@@ -143,6 +143,11 @@ public class ordenesterminadas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
         }
         
+        
+        
+        
+        
+        
         //// historial_orden_pantalon
         
         
@@ -181,6 +186,52 @@ public class ordenesterminadas extends javax.swing.JFrame {
         }
         
         
+        
+        
+        
+        
+        
+        /// historial ordenes corbata
+        
+         String[] datos6 = new String[12];
+        
+        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_corbata where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' order by fecha desc ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlcorbata);
+            while (rs.next()) {
+                
+                
+                datos6[0] = rs.getString("numero");
+                datos6[1] = rs.getString("cliente");
+                datos6[2] = "Corbata";
+                datos6[3] = rs.getString("tipo");
+                datos6[4] = rs.getString("lugar");
+                datos6[5] = rs.getString("numero_venta");
+                datos6[6] = rs.getString("fecha");
+                datos6[7] = "";
+                datos6[8] = "";
+                datos6[9] = "";
+                datos6[10] = "Local";
+                datos6[11] = rs.getString("identificador_prenda");
+
+                modelo.addRow(datos6);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+          
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+        }
+        
+        
+        
+        
+        
         //// historial_orden_parches
         
         String[] datos4 = new String[12];
@@ -217,40 +268,9 @@ public class ordenesterminadas extends javax.swing.JFrame {
         }
       
         
-        /// historial ordenes corbata
         
-         String[] datos6 = new String[12];
         
-        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_corbata where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' order by fecha desc ";
-
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sqlcorbata);
-            while (rs.next()) {
-                datos6[0] = rs.getString("numero");
-                datos6[1] = rs.getString("cliente");
-                datos6[2] = "Corbata";
-                datos6[3] = rs.getString("tipo");
-                datos6[4] = rs.getString("lugar");
-                datos6[5] = rs.getString("numero_venta");
-                datos6[6] = rs.getString("fecha");
-                datos6[7] = "";
-                datos6[8] = "";
-                datos6[9] = "";
-                datos6[10] = "Local";
-                datos6[11] = rs.getString("identificador_prenda");
-
-                modelo.addRow(datos6);
-
-            }
-
-            
-
-        } catch (SQLException ex)
-        {
-          
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
-        }
+        
         
         
         /// historial orden portanombres
@@ -1200,9 +1220,6 @@ public class ordenesterminadas extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(3).setMinWidth(0);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(3).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(4).setMinWidth(0);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(4).setMaxWidth(0);
             tabla.getColumnModel().getColumn(5).setMinWidth(0);
             tabla.getColumnModel().getColumn(5).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(5).setMaxWidth(0);
@@ -1464,26 +1481,46 @@ sorter.sort();
                         if (ordencorbataS.ventanaordencorbataanteriores == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de corbata ya está abierta");
 
-                    } else {
+                    } 
+                        
+                        else
+                        
+                        {
+                            
                         ordencorbataS ventana = new ordencorbataS();
                         ventana.setVisible(true);
 
                         ordencorbataS.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         ordencorbataS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordencamisaS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordencorbataS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
                         
                          sucursal = tabla.getValueAt(fila, 7).toString();
                         if (sucursal==null || sucursal.equals(""))
                         {
                             sucursal = tiendalocal;
                         }
-                        ordencamisaS.lbsucursal.setText(sucursal);
+                        ordencorbataS.lbsucursal.setText(sucursal);
                         
                         
-                        ordencamisaS.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordencorbataS.tipotabla=(tabla.getValueAt(fila, 10).toString());
                         
                          tabla.clearSelection();
                          this.setState(this.ICONIFIED);
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
                         
                     }
                         

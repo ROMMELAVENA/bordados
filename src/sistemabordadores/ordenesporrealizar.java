@@ -1643,7 +1643,12 @@ sorter.sort();
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
 
-        if (evt.getClickCount() == 2) {
+        
+        
+        
+        if (evt.getClickCount() == 2)
+        
+        {
 
             int fila = tabla.getSelectedRow();
 

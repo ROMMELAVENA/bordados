@@ -608,8 +608,11 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 lbdiaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
+               
+                
                 identificador = rs.getString("identificador_prenda");
                 lbidentificador.setText(identificador);
+                
                 lugar = rs.getString("lugar");
 
                 String observacion = rs.getString("observacion");

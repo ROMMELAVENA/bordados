@@ -815,7 +815,7 @@ public class principal extends javax.swing.JFrame {
         }
 
 ////////////////////// GORRAS
-        String sqlgorras = "Select codigo,fecha,cliente,cantidad,prenda,puntadas_lado_izquierdo,puntadas_lado_derecho,puntadas_frente,puntadas_atras,aplicacion_frente from historial_ordenes_gorra where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlgorras = "Select codigo,fecha,cliente,cantidad,prenda,lado_izquierdo_puntadas,lado_derecho_puntadas,frente_puntadas,atras_puntadas,aplicacion_frente from historial_ordenes_gorra where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -824,10 +824,10 @@ public class principal extends javax.swing.JFrame {
             while (rs.next()) {
 
                 cantidadbordados = rs.getString("cantidad");
-                ladoizquierdogorra = rs.getString("puntadas_lado_izquierdo");
-                ladoderechogorra = rs.getString("puntadas_lado_derecho");
-                frentegorra = rs.getString("puntadas_frente");
-                atrasgorra = rs.getString("puntadas_atras");
+                ladoizquierdogorra = rs.getString("lado_izquierdo_puntadas");
+                ladoderechogorra = rs.getString("lado_derecho_puntadas");
+                frentegorra = rs.getString("frente_puntadas");
+                atrasgorra = rs.getString("atras_puntadas");
 
                 aplicacionfrente = rs.getString("aplicacion_frente");
 
@@ -970,7 +970,7 @@ public class principal extends javax.swing.JFrame {
         }
 
         ///////// GORRA recibidas
-        String sqlgorrasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,puntadas_lado_izquierdo,puntadas_lado_derecho,puntadas_frente,puntadas_atras,aplicacion_frente from historial_ordenes_gorra_recibidas where estatus_orden = 'generada' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlgorrasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,lado_izquierdo_puntadas,lado_derecho_puntadas,frente_puntadas,atras_puntadas,aplicacion_frente from historial_ordenes_gorra_recibidas where estatus_orden = 'generada' and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -979,10 +979,10 @@ public class principal extends javax.swing.JFrame {
             while (rs.next()) {
 
                 cantidadbordadosrecibidos = rs.getString("cantidad");
-                ladoizquierdogorrarecibidas = rs.getString("puntadas_lado_izquierdo");
-                ladoderechogorrarecibidas = rs.getString("puntadas_lado_derecho");
-                frentegorrarecibidas = rs.getString("puntadas_frente");
-                atrasgorrarecibidas = rs.getString("puntadas_atras");
+                ladoizquierdogorrarecibidas = rs.getString("lado_izquierdo_puntadas");
+                ladoderechogorrarecibidas = rs.getString("lado_derecho_puntadas");
+                frentegorrarecibidas = rs.getString("frente_puntadas");
+                atrasgorrarecibidas = rs.getString("atras_puntadas");
 
                 aplicacionfrenterecibidas = rs.getString("aplicacion_frente");
 

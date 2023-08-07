@@ -237,7 +237,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
    
-     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,parche_nombre,cantidad,cantidad_parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,numero_orden FROM historial_ordenes_parche WHERE numero = '"+numeroordendebordadolocalorecibida+"' ";
+     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,parche_nombre,cantidad,parche_cantidad,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,numero_orden FROM historial_ordenes_parche WHERE numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -309,7 +309,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 cantidad = rs.getString("cantidad");
                 lbcantidad.setText(cantidad);
                 
-                cantidadparche = rs.getString("cantidad_parche");
+                cantidadparche = rs.getString("parche_cantidad");
                 
                 
                 
@@ -634,7 +634,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select parche,cantidad_parche from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select parche,parche_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -645,7 +645,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                  
                 
                 String parche = rs.getString("parche");
-                String cantidadubicacion1 = rs.getString("cantidad_parche");
+                String cantidadubicacion1 = rs.getString("parche_cantidad");
                
                 
                 
@@ -1006,7 +1006,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         sucursal = lbsucursal.getText();
 
-        String sql = "Select numero,numero_orden_o_pedido_solicitada,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,cantidad,parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,identificador_prenda,cantidad_parche,parche_fecha FROM historial_ordenes_parche_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and tienda = '" + sucursal + "'";
+        String sql = "Select numero,numero_orden_o_pedido_solicitada,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,cantidad,parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,identificador_prenda,parche_cantidad,parche_fecha FROM historial_ordenes_parche_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and tienda = '" + sucursal + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -1092,7 +1092,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 lugar = rs.getString("lugar");
                 
-                cantidadparche = rs.getString("cantidad_parche");
+                cantidadparche = rs.getString("parche_cantidad");
                 lbcantidad1.setText(cantidadparche);
                 
                 
@@ -3760,7 +3760,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
            
         
-                   String ubicacion = "cantidad_parche";
+                   String ubicacion = "parche_cantidad";
                     String fecha = "parche_fecha";
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
         
@@ -3813,7 +3813,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btntermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermineActionPerformed
 
    
-        ubicacion  = "cantidad_parche";
+        ubicacion  = "parche_cantidad";
        fechaubicacion = "parche_fecha";
      
       

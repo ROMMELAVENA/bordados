@@ -242,7 +242,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente_nombre,frente,cantidad_frente,estatus_orden from historial_ordenes_corbata where numero = '" + numeroordendebordadolocalorecibida + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente_nombre,frente,frente_cantidad,estatus_orden from historial_ordenes_corbata where numero = '" + numeroordendebordadolocalorecibida + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -805,7 +805,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set cantidad_frente='" + cantidad + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_corbata set frente_cantidad='" + cantidad + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1084,7 +1084,7 @@ JOptionPane.showMessageDialog(null, mensaje);
        
        
         
-         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_nombre,cantidad_frente,identificador_prenda,numero_orden_o_pedido_solicitada from historial_ordenes_corbata_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
+         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente,frente_nombre,frente_cantidad,identificador_prenda,numero_orden_o_pedido_solicitada from historial_ordenes_corbata_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
      
         try {
             Statement st = cn.createStatement();
@@ -1131,7 +1131,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 cantidad = rs.getString("cantidad"); 
                 
-                String frentecantidad = rs.getString("cantidad_frente");
+                String frentecantidad = rs.getString("frente_cantidad");
                 if(frentecantidad.equals("0"))
                 {
                    btntermine.setEnabled(true);
@@ -1672,7 +1672,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         Object cantidadfrente = "";
 
         
-            String sql = "Select cantidad,cantidad_frente from historial_ordenes_corbata where numero = '"+numeroordendebordadolocalorecibida+"' ";
+            String sql = "Select cantidad,frente_cantidad from historial_ordenes_corbata where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -1681,7 +1681,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             while (rs.next()) {
 
                 cantidad = rs.getString("cantidad"); 
-                cantidadfrente = rs.getString("cantidad_frente");
+                cantidadfrente = rs.getString("frente_cantidad");
 
             }
             rs.close();
@@ -1736,7 +1736,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select frente,cantidad_frente from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select frente,frente_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -1747,7 +1747,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                  
                 
                 String corbata = rs.getString("frente");
-                String cantidadubicacion1 = rs.getString("cantidad_frente");
+                String cantidadubicacion1 = rs.getString("frente_cantidad");
                
                 
                 
@@ -2511,7 +2511,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if(lugar.equals("Esta sucursal"))
         {
       
-            String ubicacion = "cantidad_frente";
+            String ubicacion = "frente_cantidad";
             fechaubicacion = "frente_fecha";
         
            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion); 
@@ -2708,7 +2708,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
             
         
-                    String ubicacion = "cantidad_frente";
+                    String ubicacion = "frente_cantidad";
                     String fecha = "frente_fecha";
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
                     

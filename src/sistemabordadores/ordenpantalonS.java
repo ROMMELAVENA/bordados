@@ -292,7 +292,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,numero_orden from historial_ordenes_pantalon where numero = '" + numeroordendebordadolocalorecibida + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,lado_izquierdo_frente_cantidad,lado_derecho_frente_cantidad,lado_izquierdo_atras_cantidad,lado_derecho_atras_cantidad,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,numero_orden from historial_ordenes_pantalon where numero = '" + numeroordendebordadolocalorecibida + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -466,10 +466,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                   
                 
-                String cantidadladoizquierdofrente = rs.getString("cantidad_lado_izquierdo_frente");
-                String cantidadladoderechofrente = rs.getString("cantidad_lado_derecho_frente");
-                 String cantidadladoizquierdoatras = rs.getString("cantidad_lado_izquierdo_atras");
-                String cantidadladoderechoatras = rs.getString("cantidad_lado_derecho_atras");
+                String cantidadladoizquierdofrente = rs.getString("lado_izquierdo_frente_cantidad");
+                String cantidadladoderechofrente = rs.getString("lado_derecho_frente_cantidad");
+                 String cantidadladoizquierdoatras = rs.getString("lado_izquierdo_atras_cantidad");
+                String cantidadladoderechoatras = rs.getString("lado_derecho_atras_cantidad");
                 
                 
                 
@@ -1509,7 +1509,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String activadoladoderechofrente = "";
         String activadoladoderechoatras = "";
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_orden_o_pedido_solicitada,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,cantidad_lado_izquierdo_frente,cantidad_lado_derecho_frente,cantidad_lado_izquierdo_atras,cantidad_lado_derecho_atras,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,estatus_orden from historial_ordenes_pantalon_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_orden_o_pedido_solicitada,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,lado_izquierdo_frente_cantidad,lado_derecho_frente_cantidad,lado_izquierdo_atras_cantidad,lado_derecho_atras_cantidad,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,estatus_orden from historial_ordenes_pantalon_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -1712,7 +1712,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                   
                 
-                String cantidadladoizquierdofrente = rs.getString("cantidad_lado_izquierdo_frente");
+                String cantidadladoizquierdofrente = rs.getString("lado_izquierdo_frente_cantidad");
                 if(cantidadladoizquierdofrente.equals("0") && activadoladoizquierdofrente.equals("si"))
                 {
                     btnladoizquierdofrentetetermine.setEnabled(true);
@@ -1727,7 +1727,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }    
                 
                 
-                String cantidadladoderechofrente = rs.getString("cantidad_lado_derecho_frente");
+                String cantidadladoderechofrente = rs.getString("lado_derecho_frente_cantidad");
              
                 if(cantidadladoderechofrente.equals("0")&& activadoladoderechofrente.equals("si"))
                 {
@@ -1747,7 +1747,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                String cantidadladoizquierdoatras = rs.getString("cantidad_lado_izquierdo_atras");
+                String cantidadladoizquierdoatras = rs.getString("lado_izquierdo_atras_cantidad");
                 if(cantidadladoizquierdoatras.equals("0") && activadoladoizquierdoatras.equals("si"))
                 {
                     btnladoizquierdoatrastetermine.setEnabled(true);
@@ -1766,7 +1766,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                String cantidadladoderechoatras = rs.getString("cantidad_lado_derecho_atras");
+                String cantidadladoderechoatras = rs.getString("lado_derecho_atras_cantidad");
                 if(cantidadladoderechoatras.equals("0") && activadoladoderechoatras.equals("si"))
                 {
                     btnladoderechoatrastetermine.setEnabled(true);
@@ -2666,10 +2666,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select cantidad,cantidad_lado_izquierdo_frente,lado_izquierdo_frente,"
-                  + "cantidad_lado_derecho_frente,lado_derecho_frente,"
-                  + "cantidad_lado_izquierdo_atras,lado_izquierdo_atras,"
-                  + "cantidad_lado_derecho_atras,lado_derecho_atras from historial_ordenes_pantalon where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select cantidad,lado_izquierdo_frente_cantidad,lado_izquierdo_frente,"
+                  + "lado_derecho_frente_cantidad,lado_derecho_frente,"
+                  + "lado_izquierdo_atras_cantidad,lado_izquierdo_atras,"
+                  + "lado_derecho_atras_cantidad,lado_derecho_atras from historial_ordenes_pantalon where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -2678,16 +2678,16 @@ JOptionPane.showMessageDialog(null, mensaje);
             while (rs.next()) {
 
                 cantidad = rs.getString("cantidad");   
-                String cantidadladoizquierdofrente = rs.getString("cantidad_lado_izquierdo_frente");
+                String cantidadladoizquierdofrente = rs.getString("lado_izquierdo_frente_cantidad");
                 String ladoizquierdofrente = rs.getString("lado_izquierdo_frente");
                 
-                String cantidadladoderechofrente = rs.getString("cantidad_lado_derecho_frente");
+                String cantidadladoderechofrente = rs.getString("lado_derecho_frente_cantidad");
                 String ladoderechofrente = rs.getString("lado_derecho_frente");
                 
-                String cantidadladoizquierdoatras = rs.getString("cantidad_lado_izquierdo_atras");
+                String cantidadladoizquierdoatras = rs.getString("lado_izquierdo_atras_cantidad");
                 String ladoizquierdoatras = rs.getString("lado_izquierdo_atras");
                
-                String cantidadladoderechoatras = rs.getString("cantidad_lado_derecho_atras");
+                String cantidadladoderechoatras = rs.getString("lado_derecho_atras_cantidad");
                 String ladoderechoatras = rs.getString("lado_derecho_atras");
 
 
@@ -4114,7 +4114,7 @@ public static String dia() {
       
             
             
-            String ubicacion = "cantidad_lado_izquierdo_frente";
+            String ubicacion = "lado_izquierdo_frente_cantidad";
             fechaubicacion = "lado_izquierdo_frente_fecha";
           
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
@@ -4153,7 +4153,7 @@ public static String dia() {
             
      
             
-            String ubicacion = "cantidad_lado_izquierdo_frente";
+            String ubicacion = "lado_izquierdo_frente_cantidad";
           
             cantidadaplicacion = "0";
            
@@ -4194,7 +4194,7 @@ public static String dia() {
             
 
             
-            String ubicacion = "cantidad_lado_izquierdo_atras";
+            String ubicacion = "lado_izquierdo_atras_cantidad";
             fechaubicacion = "lado_izquierdo_atras_fecha";
           
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
@@ -4237,7 +4237,7 @@ public static String dia() {
             
     
             
-            String ubicacion = "cantidad_lado_izquierdo_atras";
+            String ubicacion = "lado_izquierdo_atras_cantidad";
            
             cantidadaplicacion = "0";
           
@@ -4278,7 +4278,7 @@ public static String dia() {
         {
 
             
-            String ubicacion = "cantidad_lado_derecho_atras";
+            String ubicacion = "lado_derecho_atras_cantidad";
             fechaubicacion = "lado_derecho_atras_fecha";
             
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
@@ -4317,7 +4317,7 @@ public static String dia() {
             
       
             
-            String ubicacion = "cantidad_lado_derecho_atras";
+            String ubicacion = "lado_derecho_atras_cantidad";
           
             cantidadaplicacion = "0";
           
@@ -4357,7 +4357,7 @@ public static String dia() {
              
           
     
-            String ubicacion = "cantidad_lado_derecho_frente";
+            String ubicacion = "lado_derecho_frente_cantidad";
             fechaubicacion = "lado_derecho_frente_fecha";
             
             insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
@@ -4395,7 +4395,7 @@ public static String dia() {
         {
             
         
-            String ubicacion = "cantidad_lado_derecho_frente";
+            String ubicacion = "lado_derecho_frente_cantidad";
           
             cantidadaplicacion = "0";
           
@@ -4639,7 +4639,7 @@ public static String dia() {
        
     
             
-                     String ubicacion = "cantidad_lado_derecho_frente";
+                     String ubicacion = "lado_derecho_frente_cantidad";
                      String fecha = "lado_derecho_frente_fecha";
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
                     
@@ -4687,7 +4687,7 @@ public static String dia() {
         {
             
        
-                     String ubicacion = "cantidad_lado_derecho_atras";
+                     String ubicacion = "lado_derecho_atras_cantidad";
                      String fecha = "lado_derecho_atras_fecha";
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
                     
@@ -4748,7 +4748,7 @@ public static String dia() {
         
     
             
-                     String ubicacion = "cantidad_lado_izquierdo_frente";
+                     String ubicacion = "lado_izquierdo_frente_cantidad";
                      String fecha = "lado_izquierdo_frente_fecha";
                      eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
                     
@@ -4793,7 +4793,7 @@ public static String dia() {
       
     
             
-                    String ubicacion = "cantidad_lado_izquierdo_atras";
+                    String ubicacion = "lado_izquierdo_atras_cantidad";
                     String fecha = "lado_izquierdo_atras_fecha";
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
                     

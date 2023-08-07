@@ -1270,7 +1270,7 @@ public class principal extends javax.swing.JFrame {
         /////////////////////////////
         ////////////////////////////
         /////////////////////////// PANTALON
-        String sqlpantalon = "Select codigo,fecha,cliente,cantidad,prenda,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas from historial_ordenes_pantalon where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlpantalon = "Select codigo,fecha,cliente,cantidad,prenda,lado_izquierdo_frente_puntadas,lado_derecho_frente_nombre,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas from historial_ordenes_pantalon where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -1280,7 +1280,7 @@ public class principal extends javax.swing.JFrame {
 
                 cantidadbordados = rs.getString("cantidad");
                 ladoizquierdofrente = rs.getString("lado_izquierdo_frente_puntadas");
-                ladoderechofrente = rs.getString("lado_derecho_frente_puntadas");
+                ladoderechofrente = rs.getString("lado_derecho_frente_nombre");
                 ladoizquierdoatras = rs.getString("lado_izquierdo_atras_puntadas");
                 ladoderechoatras = rs.getString("lado_derecho_atras_puntadas");
 
@@ -1386,7 +1386,7 @@ public class principal extends javax.swing.JFrame {
         }
 
         ///////// PANTALON recibidas
-        String sqlpantalonrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas from historial_ordenes_pantalon_recibidas where estatus_orden = 'generada' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlpantalonrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,lado_izquierdo_frente_puntadas,lado_derecho_frente_nombre,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas from historial_ordenes_pantalon_recibidas where estatus_orden = 'generada' and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -1396,7 +1396,7 @@ public class principal extends javax.swing.JFrame {
 
                 cantidadbordados = rs.getString("cantidad");
                 ladoizquierdofrenterecibidas = rs.getString("lado_izquierdo_frente_puntadas");
-                ladoderechofrenterecibidas = rs.getString("lado_derecho_frente_puntadas");
+                ladoderechofrenterecibidas = rs.getString("lado_derecho_frente_nombre");
                 ladoizquierdoatrasrecibidas = rs.getString("lado_izquierdo_atras_puntadas");
                 ladoderechoatrasrecibidas = rs.getString("lado_derecho_atras_puntadas");
 

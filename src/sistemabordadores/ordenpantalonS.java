@@ -292,7 +292,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,lado_izquierdo_frente_cantidad,lado_derecho_frente_cantidad,lado_izquierdo_atras_cantidad,lado_derecho_atras_cantidad,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,numero_orden from historial_ordenes_pantalon where numero = '" + numeroordendebordadolocalorecibida + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente_nombre,lado_derecho_frente_nombre_nombre,lado_izquierdo_atras_nombre,lado_derecho_atras_nombre,lado_izquierdo_frente_nombre_cantidad,lado_derecho_frente_cantidad,lado_izquierdo_atras_nombre_cantidad,lado_derecho_atras_cantidad,lado_izquierdo_frente_puntadas,lado_derecho_frente_nombre,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,numero_orden from historial_ordenes_pantalon where numero = '" + numeroordendebordadolocalorecibida + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -394,7 +394,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
 
                      lbladoderechofrentenombre.setText(ladoderechofrentenombre);
-                    lbladoderechofrentepuntadas.setText(rs.getString("lado_derecho_frente_puntadas"));
+                    lbladoderechofrentepuntadas.setText(rs.getString("lado_derecho_frente_nombre"));
                   
                     btnladoderechofrenteponchado.setEnabled(true);
                     
@@ -1509,7 +1509,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String activadoladoderechofrente = "";
         String activadoladoderechoatras = "";
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_orden_o_pedido_solicitada,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente,lado_derecho_frente,lado_izquierdo_atras,lado_derecho_atras,lado_izquierdo_frente_cantidad,lado_derecho_frente_cantidad,lado_izquierdo_atras_cantidad,lado_derecho_atras_cantidad,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,estatus_orden from historial_ordenes_pantalon_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_orden_o_pedido_solicitada,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente_nombre,lado_derecho_frente_nombre_nombre,lado_izquierdo_atras_nombre,lado_derecho_atras_nombre,lado_izquierdo_frente_nombre_cantidad,lado_derecho_frente_cantidad,lado_izquierdo_atras_nombre_cantidad,lado_derecho_atras_cantidad,lado_izquierdo_frente_puntadas,lado_derecho_frente_nombre,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,estatus_orden from historial_ordenes_pantalon_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -1589,7 +1589,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
 
  
-                    lbladoderechofrentepuntadas.setText(rs.getString("lado_derecho_frente_puntadas"));
+                    lbladoderechofrentepuntadas.setText(rs.getString("lado_derecho_frente_nombre"));
                     
                     
                     btnladoderechofrentetetermine.setEnabled(true);
@@ -2666,10 +2666,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select cantidad,lado_izquierdo_frente_cantidad,lado_izquierdo_frente,"
-                  + "lado_derecho_frente_cantidad,lado_derecho_frente,"
-                  + "lado_izquierdo_atras_cantidad,lado_izquierdo_atras,"
-                  + "lado_derecho_atras_cantidad,lado_derecho_atras from historial_ordenes_pantalon where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select cantidad,lado_izquierdo_frente_nombre_cantidad,lado_izquierdo_frente_nombre,"
+                  + "lado_derecho_frente_cantidad,lado_derecho_frente_nombre_nombre,"
+                  + "lado_izquierdo_atras_cantidad,lado_izquierdo_atras_nombre,"
+                  + "lado_derecho_atras_cantidad,lado_derecho_atras_nombre from historial_ordenes_pantalon where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();

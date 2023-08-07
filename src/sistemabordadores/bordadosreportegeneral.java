@@ -2289,7 +2289,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select fecha,cliente,cantidad,prenda,frente,frente_puntadas,frente_cantidad,lado_izquierdo,lado_izquierdo_puntadas,lado_izquierdo_cantidad,lado_derecho,lado_derecho_puntadas,lado_derecho_cantidad,atras,atras_puntadas,atras_cantidad,aplicacion_frente,numero_venta from historial_ordenes_gorra where (estatus_orden = 'generada' OR estatus_orden = 'realizada' ) and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select fecha,cliente,cantidad,prenda,frente_nombre,frente_puntadas,frente_cantidad,lado_izquierdo_nombre,lado_izquierdo_puntadas,lado_izquierdo_cantidad,lado_derecho_nombre,lado_derecho_puntadas,lado_derecho_cantidad,atras_nombre,atras_puntadas,atras_cantidad,aplicacion_frente,numero_venta from historial_ordenes_gorra where (estatus_orden = 'generada' OR estatus_orden = 'realizada' ) and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         int ultimafila = 0;
 
@@ -2500,7 +2500,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select fecha,cliente,cantidad,prenda,frente,frente_puntadas,lado_izquierdo,lado_izquierdo_puntadas,lado_derecho,lado_derecho_puntadas,atras,atras_puntadas,aplicacion_frente from historial_ordenes_gorra_recibidas where (estatus_orden = 'generada' OR estatus_orden = 'realizada' ) and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select fecha,cliente,cantidad,prenda,frente_nombre,frente_puntadas,lado_izquierdo_nombre,lado_izquierdo_puntadas,lado_derecho_nombre,lado_derecho_puntadas,atras_nombre,atras_puntadas,aplicacion_frente from historial_ordenes_gorra_recibidas where (estatus_orden = 'generada' OR estatus_orden = 'realizada' ) and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         int ultimafila = 0;
 

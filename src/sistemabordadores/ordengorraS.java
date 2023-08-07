@@ -294,7 +294,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String botonactivado4 = "";
 
         String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,cantidad,cantidad_bordados,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,"
-                + "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,frente_cantidad,lado_derecho_cantidad,lado_izquierdo_cantidad,atras_cantidad,identificador_prenda,estatus_orden,numero_orden,tienda,frente_puntadas,atras_puntadas,lado_izquierdo_puntadas,lado_derecho_puntadas from historial_ordenes_gorra where numero = '" + numeroordendebordadolocalorecibida + "'";
+                + "lado_izquierdo_nombre,lado_derecho_nombre,frente_nombre,atras_nombre,aplicacion_frente,aplicacion_frente_color,lugar,frente_cantidad,lado_derecho_cantidad,lado_izquierdo_cantidad,atras_cantidad,identificador_prenda,estatus_orden,numero_orden,tienda,frente_puntadas,atras_puntadas,lado_izquierdo_puntadas,lado_derecho_puntadas from historial_ordenes_gorra where numero = '" + numeroordendebordadolocalorecibida + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -322,16 +322,16 @@ JOptionPane.showMessageDialog(null, mensaje);
                 lbfechaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
                 
-                frentenombre = rs.getString("frente");
+                frentenombre = rs.getString("frente_nombre");
                
                 
-                atrasnombre = rs.getString("atras");
+                atrasnombre = rs.getString("atras_nombre");
                 lbatrasnombre.setText(atrasnombre);
                 
-                ladoizquierdonombre = rs.getString("lado_izquierdo");
+                ladoizquierdonombre = rs.getString("lado_izquierdo_nombre");
                 lbladoizquierdonombre.setText(ladoizquierdonombre);
                
-                ladoderechonombre = rs.getString("lado_derecho");
+                ladoderechonombre = rs.getString("lado_derecho_nombre");
                 lbladoderechonombre.setText(ladoderechonombre);
               
                 
@@ -961,7 +961,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         prenda = "Gorra";
 
         String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,numero_orden_o_pedido_solicitada,\n" +
-                     "lado_izquierdo,lado_derecho,frente,atras,aplicacion_frente,aplicacion_frente_color,lugar,tienda,numero_orden_gorra_solicitada,identificador_prenda,estatus_orden from historial_ordenes_gorra_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
+                     "lado_izquierdo_nombre,lado_derecho_nombre,frente_nombre,atras_nombre,aplicacion_frente,aplicacion_frente_color,lugar,tienda,numero_orden_gorra_solicitada,identificador_prenda,estatus_orden from historial_ordenes_gorra_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -982,10 +982,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
                 lbnumerodelaotrasucursal.setText(rs.getString("numero_orden_o_pedido_solicitada"));
                 
-                ladoizquierdonombre = rs.getString("lado_izquierdo");
-                ladoderechonombre = rs.getString("lado_derecho");
-                frentenombre = rs.getString("frente");
-                atrasnombre = rs.getString("atras");
+                ladoizquierdonombre = rs.getString("lado_izquierdo_nombre");
+                ladoderechonombre = rs.getString("lado_derecho_nombre");
+                frentenombre = rs.getString("frente_nombre");
+                atrasnombre = rs.getString("atras_nombre");
                 sucursal= rs.getString("tienda");
                 numerosucursal= rs.getString("numero_orden_gorra_solicitada");
                 

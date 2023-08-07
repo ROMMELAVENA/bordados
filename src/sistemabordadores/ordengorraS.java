@@ -409,7 +409,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                String ladoizquierdo =  rs.getString("lado_izquierdo");
+                String ladoizquierdo =  rs.getString("lado_izquierdo_puntadas");
                
                 if(ladoizquierdo ==null||ladoizquierdo.equals("") || ladoizquierdo.equals("ninguno"))
                 {
@@ -430,7 +430,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                
-                 String ladoderecho =  rs.getString("lado_derecho");
+                 String ladoderecho =  rs.getString("lado_derecho_puntadas");
                 if(ladoderecho ==null || ladoderecho.equals("") || ladoderecho.equals("ninguno"))
                 {
                    btnladoderechoponchado.setEnabled(false); 
@@ -1007,7 +1007,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }     
                 
                 
-                String ladoizquierdo =  rs.getString("lado_izquierdo");
+                String ladoizquierdo =  rs.getString("lado_izquierdo_puntadas");
                 if(ladoizquierdo ==null||ladoizquierdo.equals("")||ladoizquierdo.equals("ninguno"))
                 {
                     btnladoizquierdotermine.setVisible(false);
@@ -1023,7 +1023,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                 String ladoderecho =  rs.getString("lado_derecho");
+                 String ladoderecho =  rs.getString("lado_derecho_puntadas");
                 if(ladoderecho ==null||ladoderecho.equals("")||ladoderecho.equals("ninguno"))
                 {
                     btnladoderechotermine.setVisible(false);
@@ -2323,7 +2323,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select lado_izquierdo,lado_izquierdo_cantidad,lado_derecho,lado_derecho_cantidad,frente,frente_cantidad,atras,atras_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select lado_izquierdo,lado_izquierdo_cantidad,lado_derecho_puntadas,lado_derecho_cantidad,frente,frente_cantidad,atras,atras_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -2333,10 +2333,10 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 cantidad = rs.getString("cantidad");   
                 String cantidadladoizquierdo = rs.getString("lado_izquierdo_cantidad");
-                String ladoizquierdo = rs.getString("lado_izquierdo");
+                String ladoizquierdo = rs.getString("lado_izquierdo_puntadas");
                 
                 String cantidadladoderecho = rs.getString("lado_derecho_cantidad");
-                String ladoderecho = rs.getString("lado_derecho");
+                String ladoderecho = rs.getString("lado_derecho_puntadas");
                 
                 String cantidadfrente = rs.getString("frente_cantidad");
                 String frente = rs.getString("frente");

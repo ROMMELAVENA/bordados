@@ -575,7 +575,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 + "   pecho_izquierdo_puntadas,pecho_derecho_puntadas,manga_izquierda_puntadas,manga_derecha_puntadas,espalda_puntadas,otra_ubicacion_puntadas,otra_ubicacion2_puntadas,"
                 + "   pecho_izquierdo_cantidad,pecho_derecho_cantidad,manga_izquierda_cantidad,manga_derecha_cantidad,espalda_cantidad,"
                 + "   pecho_izquierdo_nombre,pecho_derecho_nombre,manga_izquierda_nombre,manga_derecha_nombre,espalda_nombre,"
-                + "   otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_cantidad,otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_cantidad,"
+                + "   otra_ubicacion_puntadas,otra_ubicacion_nombre,otra_ubicacion_cantidad,otra_ubicacion2_puntadas,otra_ubicacion2_nombre,otra_ubicacion2_cantidad,"
                 + "   aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,"
                 + "   aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,"
                 + "   lugar,estatus_orden,identificador_prenda,tienda,tienda from historial_ordenes_camisa where numero = '" + numeroordendebordadolocalorecibida + "' ";
@@ -640,7 +640,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                   pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                   lbpechoizquierdonombre.setText(pechoizquierdonombre);
               
-                  String pechoizquierdo = rs.getString("pecho_izquierdo");
+                  String pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
                   
                 if (pechoizquierdo == null || pechoizquierdo.equals("") || pechoizquierdo.equals("ninguno")) {
 
@@ -673,7 +673,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                  pechoderechonombre = rs.getString("pecho_derecho_nombre");
                  lbpechoderechonombre.setText(pechoderechonombre);
                 
-                String pechoderecho = rs.getString("pecho_derecho");
+                String pechoderecho = rs.getString("pecho_derecho_puntadas");
                 
               
                 if (pechoderecho == null || pechoderecho.equals("")  || pechoderecho.equals("ninguno")) {
@@ -705,7 +705,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                   mangaizquierdanombre = rs.getString("manga_izquierda_nombre");
                   lbmangaizquierdanombre.setText(mangaizquierdanombre);
                   
-                  String mangaizquierda = rs.getString("manga_izquierda");
+                  String mangaizquierda = rs.getString("manga_izquierda_puntadas");
                   
              
                 if (mangaizquierda == null || mangaizquierda.equals("") || mangaizquierda.equals("ninguno")) {
@@ -734,7 +734,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 mangaderechanombre = rs.getString("manga_derecha_nombre");
                 lbmangaderechanombre.setText(mangaderechanombre);
                 
-                String mangaderecha = rs.getString("manga_derecha");
+                String mangaderecha = rs.getString("manga_derecha_puntadas");
                
                
                 if (mangaderecha == null || mangaderecha.equals("")   || mangaderecha.equals("ninguno")) 
@@ -762,7 +762,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 espaldanombre = rs.getString("espalda_nombre");
                 lbespaldanombre.setText(espaldanombre);
                 
-                String espalda = rs.getString("espalda");
+                String espalda = rs.getString("espalda_puntadas");
                 
                
                 if (espalda == null || espalda.equals("")  || espalda.equals("ninguno")) {
@@ -790,7 +790,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 otraubicacionnombre = rs.getString("otra_ubicacion_nombre");
                 lbotraubicacionnombre.setText(otraubicacionnombre);
                 
-                String otraubicacion = rs.getString("otra_ubicacion");
+                String otraubicacion = rs.getString("otra_ubicacion_puntadas");
                
              
                 if (otraubicacion == null || otraubicacion.equals("")  || otraubicacion.equals("ninguno")) {
@@ -817,7 +817,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 otraubicacion2nombre = rs.getString("otra_ubicacion2_nombre");
                 lbotraubicacion2nombre.setText(otraubicacion2nombre);
                 
-                String otraubicacion2 = rs.getString("otra_ubicacion2");
+                String otraubicacion2 = rs.getString("otra_ubicacion2_puntadas");
                
               
                 if (otraubicacion2 == null || otraubicacion2.equals("")   || otraubicacion2.equals("ninguno")) {
@@ -1381,7 +1381,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 + "   pecho_izquierdo_puntadas,pecho_derecho_puntadas,manga_izquierda_puntadas,manga_derecha_puntadas,espalda_puntadas,otra_ubicacion_puntadas,otra_ubicacion2_puntadas,"
                 + "pecho_izquierdo_cantidad,pecho_derecho_cantidad,manga_izquierda_cantidad,manga_derecha_cantidad,espalda_cantidad,\n"
                 + "pecho_izquierdo_nombre,pecho_derecho_nombre,manga_izquierda_nombre,manga_derecha_nombre,espalda_nombre,\n"
-                + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion2,otra_ubicacion2_nombre,\n"
+                + "otra_ubicacion_puntadas,otra_ubicacion_nombre,otra_ubicacion2_puntadas,otra_ubicacion2_nombre,\n"
                 + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,\n"
                 + "aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,\n"
                 + "lugar,estatus_orden,numero_orden_o_pedido_solicitada,tienda,numero_orden_camisa_solicitada,identificador_prenda\n"
@@ -1417,9 +1417,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
-                Object pechoizquierdo = rs.getString("pecho_izquierdo");
+                Object pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
           
-                lbpechoizquierdo.setText(rs.getString("pecho_izquierdo"));
+                lbpechoizquierdo.setText(rs.getString("pecho_izquierdo_puntadas"));
                 if (pechoizquierdo == null || pechoizquierdo.equals("") || pechoizquierdo.equals("ninguno")) {
 
                     btnpechoizquierdotermine.setVisible(false);
@@ -1441,9 +1441,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 pechoderechonombre = rs.getString("pecho_derecho_nombre");
-                Object pechoderecho = rs.getString("pecho_derecho");
+                Object pechoderecho = rs.getString("pecho_derecho_puntadas");
             
-                lbpechoderecho.setText(rs.getString("pecho_derecho"));
+                lbpechoderecho.setText(rs.getString("pecho_derecho_puntadas"));
                 if (pechoderecho == null || pechoderecho.equals("") || pechoderecho.equals("ninguno")) {
 
                     btnpechoderechotermine.setVisible(false);
@@ -1466,9 +1466,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                  
-                String mangaizquierda = rs.getString("manga_izquierda");
+                String mangaizquierda = rs.getString("manga_izquierda_puntadas");
       
-                lbmangaizquierda.setText(rs.getString("manga_izquierda"));
+                lbmangaizquierda.setText(rs.getString("manga_izquierda_puntadas"));
                 
                 if (mangaizquierda == null || mangaizquierda.equals("") || mangaizquierda.equals("ninguno")) {
 
@@ -1493,9 +1493,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 mangaderechanombre = rs.getString("manga_derecha_nombre");
-                Object mangaderecha = rs.getString("manga_derecha");
+                Object mangaderecha = rs.getString("manga_derecha_puntadas");
          
-                lbmangaderecha.setText(rs.getString("manga_derecha"));
+                lbmangaderecha.setText(rs.getString("manga_derecha_puntadas"));
                 if (mangaderecha == null || mangaderecha.equals("") || mangaderecha.equals("ninguno"))
                 
                 {
@@ -1526,9 +1526,9 @@ JOptionPane.showMessageDialog(null, mensaje);
 
 
                 espaldanombre = rs.getString("espalda_nombre");
-                Object espalda = rs.getString("espalda");
+                Object espalda = rs.getString("espalda_puntadas");
           
-                lbespalda.setText(rs.getString("espalda"));
+                lbespalda.setText(rs.getString("espalda_puntadas"));
                 if (espalda == null || espalda.equals("")) {
 
                     btnespaldatetermine.setVisible(false);
@@ -1551,9 +1551,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 otraubicacionnombre = rs.getString("otra_ubicacion_nombre");
-                Object otraubicacion = rs.getString("otra_ubicacion");
+                String otraubicacion = rs.getString("otra_ubicacion_puntadas");
          
-                lbotraubicacion.setText(rs.getString("otra_ubicacion"));
+                lbotraubicacion.setText(otraubicacion);
                 if (otraubicacion == null || otraubicacion.equals("") || otraubicacion.equals("ninguno")) {
 
                     btnotraubicaciontetermine.setVisible(false);
@@ -1574,10 +1574,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 otraubicacion2nombre = rs.getString("otra_ubicacion2_nombre");
-                Object otraubicacion2 = rs.getString("otra_ubicacion2");
+                String otraubicacion2 = rs.getString("otra_ubicacion2_puntadas");
                 
                
-                lbotraubicacion2.setText(rs.getString("otra_ubicacion2"));
+                lbotraubicacion2.setText(otraubicacion2);
                 if (otraubicacion2 == null || otraubicacion2.equals("") || otraubicacion2.equals("ninguno")) 
                 {
 
@@ -3351,13 +3351,13 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         String cantidad = "0";
         
-         String sql = "Select cantidad,pecho_izquierdo_cantidad,pecho_izquierdo,"
-                  + "pecho_derecho_cantidad,pecho_derecho,"
-                  + "manga_izquierda_cantidad,manga_izquierda,"
-                  + "manga_derecha_cantidad,manga_derecha,"
-                  + "espalda_cantidad,espalda,"
-                  + "otra_ubicacion_cantidad,otra_ubicacion,"
-                  + "otra_ubicacion2_cantidad,otra_ubicacion2,"
+         String sql = "Select cantidad,pecho_izquierdo_cantidad,pecho_izquierdo_puntadas,"
+                  + "pecho_derecho_cantidad,pecho_derecho_puntadas,"
+                  + "manga_izquierda_cantidad,manga_izquierda_puntadas,"
+                  + "manga_derecha_cantidad,manga_derecha_puntadas,"
+                  + "espalda_cantidad,espalda_puntadas,"
+                  + "otra_ubicacion_cantidad,otra_ubicacion_puntadas,"
+                  + "otra_ubicacion2_cantidad,otra_ubicacion2_puntadas,"
                   + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2 from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
@@ -3368,19 +3368,19 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                        cantidad = rs.getString("cantidad");   
                 String cantidadpechoizquierdo = rs.getString("pecho_izquierdo_cantidad");
-                String pechoizquierdo = rs.getString("pecho_izquierdo");
+                String pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
                 String cantidadpechoderecho = rs.getString("pecho_derecho_cantidad");
-                String pechoderecho = rs.getString("pecho_derecho");
+                String pechoderecho = rs.getString("pecho_derecho_puntadas");
                 String cantidadmangaizquierda = rs.getString("manga_izquierda_cantidad");
-                String mangaizquierda = rs.getString("manga_izquierda");
+                String mangaizquierda = rs.getString("manga_izquierda_puntadas");
                 String cantidadmangaderecha = rs.getString("manga_derecha_cantidad");
-                String mangaderecha = rs.getString("manga_derecha");
+                String mangaderecha = rs.getString("manga_derecha_puntadas");
                 String cantidadespalda = rs.getString("espalda_cantidad");
-                String espalda = rs.getString("espalda");
+                String espalda = rs.getString("espalda_puntadas");
                 String cantidadotraubicacion = rs.getString("otra_ubicacion_cantidad");
-                String otraubicacion = rs.getString("otra_ubicacion");
+                String otraubicacion = rs.getString("otra_ubicacion_puntadas");
                 String cantidadotraubicacion2 = rs.getString("otra_ubicacion2_cantidad");
-                String otraubicacion2 = rs.getString("otra_ubicacion2");
+                String otraubicacion2 = rs.getString("otra_ubicacion2_puntadas");
                 String aplicacionpechoizquierdo= rs.getString("aplicacion_pecho_izquierdo");
                 String aplicacionpechoderecho= rs.getString("aplicacion_pecho_derecho");
                 String aplicacionmangaizquierda = rs.getString("aplicacion_manga_izquierda");
@@ -3697,12 +3697,12 @@ JOptionPane.showMessageDialog(null, mensaje);
         int tienecantidad = 0;
         botonesactivados = 0;
         
-         String sql = "Select cantidad,pecho_izquierdo_cantidad,pecho_izquierdo,"
-                  + "pecho_derecho_cantidad,pecho_derecho,"
-                  + "manga_izquierda_cantidad,manga_izquierda,"
-                  + "manga_derecha_cantidad,manga_derecha,"
-                  + "espalda_cantidad,espalda,"
-                  + "otra_ubicacion_cantidad,otra_ubicacion,"
+         String sql = "Select cantidad,pecho_izquierdo_cantidad,pecho_izquierdo_puntadas,"
+                  + "pecho_derecho_cantidad,pecho_derecho_puntadas,"
+                  + "manga_izquierda_cantidad,manga_izquierda_puntadas,"
+                  + "manga_derecha_cantidad,manga_derecha_puntadas,"
+                  + "espalda_cantidad,espalda_puntadas,"
+                  + "otra_ubicacion_cantidad,otra_ubicacion_puntadas,"
                   + "otra_ubicacion2_cantidad,otra_ubicacion2 from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
@@ -3713,15 +3713,15 @@ JOptionPane.showMessageDialog(null, mensaje);
 
               
                 String cantidadpechoizquierdo = rs.getString("pecho_izquierdo_cantidad");
-                String pechoizquierdo = rs.getString("pecho_izquierdo");
+                String pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
                 String cantidadpechoderecho = rs.getString("pecho_derecho_cantidad");
-                String pechoderecho = rs.getString("pecho_derecho");
+                String pechoderecho = rs.getString("pecho_derecho_puntadas");
                 String cantidadmangaizquierda = rs.getString("manga_izquierda_cantidad");
-                String mangaizquierda = rs.getString("manga_izquierda");
+                String mangaizquierda = rs.getString("manga_izquierda_puntadas");
                 String cantidadmangaderecha = rs.getString("manga_derecha_cantidad");
-                String mangaderecha = rs.getString("manga_derecha");
+                String mangaderecha = rs.getString("manga_derecha_puntadas");
                 String cantidadespalda = rs.getString("espalda_cantidad");
-                String espalda = rs.getString("espalda");
+                String espalda = rs.getString("espalda_puntadas");
                 String cantidadotraubicacion = rs.getString("otra_ubicacion_cantidad");
                 String otraubicacion = rs.getString("otra_ubicacion");
                 String cantidadotraubicacion2 = rs.getString("otra_ubicacion2_cantidad");
@@ -4765,7 +4765,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbmangaderechanombre1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbespaldanombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbespaldanombre1.setText("Espalda");
+        lbespaldanombre1.setText("espalda_puntadas");
         lbespaldanombre1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbotraubicacionnombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

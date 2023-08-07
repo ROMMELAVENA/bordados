@@ -262,7 +262,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
                 datos[0] = rs.getString("numero_consecutivo");
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("espalda_nombre");
-                datos[3] = "Espalda";
+                datos[3] = "espalda_puntadas";
                 datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
 
@@ -563,7 +563,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         
         
         ///pantalon
-         ///pantalon_lado_izquierdo_frente
+         ///pantalon_lado_izquierdo_frente_puntadas
         
         
          String sql12= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,pantalon_lado_izquierdo_frente_nombre\n"
@@ -610,7 +610,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
              System.out.println(ex);
         }
         
-         ///pantalon_lado_derecho_frente
+         ///pantalon_lado_derecho_frente_puntadas
         
         
          String sql13= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,pantalon_lado_derecho_frente_nombre\n"
@@ -658,7 +658,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         }
         
         
-        ///pantalon_lado_izquierdo_atras
+        ///pantalon_lado_izquierdo_atras_puntadas
         
         
          String sql14= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,pantalon_lado_izquierdo_atras_nombre\n"
@@ -706,7 +706,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         }
         
         
-         ///pantalon_lado_derecho_atras
+         ///pantalon_lado_derecho_atras_puntadas
         
         
          String sql15= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,pantalon_lado_derecho_atras_nombre\n"

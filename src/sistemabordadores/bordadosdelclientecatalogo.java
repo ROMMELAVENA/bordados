@@ -1844,11 +1844,11 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         modelo.addColumn("Agregar");//1
         modelo.addColumn("boton2");//2
         modelo.addColumn("Ver");//3
-        modelo.addColumn("pecho_izquierdo");//4
-        modelo.addColumn("pecho_derecho");//5
-        modelo.addColumn("manga_derecha");//6
-        modelo.addColumn("manga_izquierda");//7
-        modelo.addColumn("espalda");//8
+        modelo.addColumn("pecho_izquierdo_puntadas");//4
+        modelo.addColumn("pecho_derecho_puntadas");//5
+        modelo.addColumn("manga_derecha_puntadas");//6
+        modelo.addColumn("manga_izquierda_puntadas");//7
+        modelo.addColumn("espalda_puntadas");//8
         modelo.addColumn("otra_ubicacion");//9
         modelo.addColumn("otra_ubicacion2");//10
         modelo.addColumn("numero_consecutivo");//11
@@ -1990,10 +1990,10 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         modelo.addColumn("Agregar");//1
         modelo.addColumn("boton2");//2
         modelo.addColumn("Ver");//3
-        modelo.addColumn("pantalon_lado_izquierdo_frente");//4
-        modelo.addColumn("pantalon_lado_derecho_frente");//5
-        modelo.addColumn("pantalon_lado_izquierdo_atras");//6
-        modelo.addColumn("pantalon_lado_derecho_atras");//7
+        modelo.addColumn("pantalon_lado_izquierdo_frente_puntadas");//4
+        modelo.addColumn("pantalon_lado_derecho_frente_puntadas");//5
+        modelo.addColumn("pantalon_lado_izquierdo_atras_puntadas");//6
+        modelo.addColumn("pantalon_lado_derecho_atras_puntadas");//7
         modelo.addColumn("");//8
         modelo.addColumn("");//9
         modelo.addColumn("");//10
@@ -2844,11 +2844,11 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         modelo.addColumn("Agregar");//2
         modelo.addColumn("boton2");//3
         modelo.addColumn("Ver");//4
-        modelo.addColumn("pecho_izquierdo");//5
-        modelo.addColumn("pecho_derecho");//6
-        modelo.addColumn("manga_derecha");//7
-        modelo.addColumn("manga_izquierda");//8
-        modelo.addColumn("espalda");//9
+        modelo.addColumn("pecho_izquierdo_puntadas");//5
+        modelo.addColumn("pecho_derecho_puntadas");//6
+        modelo.addColumn("manga_derecha_puntadas");//7
+        modelo.addColumn("manga_izquierda_puntadas");//8
+        modelo.addColumn("espalda_puntadas");//9
         modelo.addColumn("otra_ubicacion");//10
         modelo.addColumn("lado_izquierdo_frente_nombre");//11
         modelo.addColumn("lado_izquierdo_atras_nombre");//12
@@ -3168,11 +3168,11 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         modelo.addColumn("Agregar");//2
         modelo.addColumn("boton2");//3
         modelo.addColumn("Ver");//4
-        modelo.addColumn("pecho_izquierdo");//5
-        modelo.addColumn("pecho_derecho");//6
-        modelo.addColumn("manga_derecha");//7
-        modelo.addColumn("manga_izquierda");//8
-        modelo.addColumn("espalda");//9
+        modelo.addColumn("pecho_izquierdo_puntadas");//5
+        modelo.addColumn("pecho_derecho_puntadas");//6
+        modelo.addColumn("manga_derecha_puntadas");//7
+        modelo.addColumn("manga_izquierda_puntadas");//8
+        modelo.addColumn("espalda_puntadas");//9
         modelo.addColumn("otra_ubicacion");//10
         modelo.addColumn("lado_izquierdo_frente_nombre");//11
         modelo.addColumn("lado_izquierdo_atras_nombre");//12

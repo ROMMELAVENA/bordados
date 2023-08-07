@@ -3184,13 +3184,13 @@ JOptionPane.showMessageDialog(null, mensaje);
     void sumapuntos()
     {
    
-         String sql = "Select cantidad,pecho_izquierdo_cantidad,pecho_izquierdo,"
-                  + "pecho_derecho_cantidad,pecho_derecho,"
-                  + "manga_izquierda_cantidad,manga_izquierda,"
-                  + "manga_derecha_cantidad,manga_derecha,"
-                  + "espalda_cantidad,espalda,"
-                  + "otra_ubicacion_cantidad,otra_ubicacion,"
-                  + "otra_ubicacion2_cantidad,otra_ubicacion2,"
+         String sql = "Select cantidad,pecho_izquierdo_cantidad,pecho_izquierdo_puntadas,"
+                  + "pecho_derecho_cantidad,pecho_derecho_puntadas,"
+                  + "manga_izquierda_cantidad,manga_izquierda_puntadas,"
+                  + "manga_derecha_cantidad,manga_derecha_puntadas,"
+                  + "espalda_cantidad,espalda_puntadas,"
+                  + "otra_ubicacion_cantidad,otra_ubicacion_puntadas,"
+                  + "otra_ubicacion2_cantidad,otra_ubicacion2_puntadas,"
                   + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2 from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
@@ -3201,19 +3201,19 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 cantidad = rs.getString("cantidad");   
                 String cantidadpechoizquierdo = rs.getString("pecho_izquierdo_cantidad");
-                String pechoizquierdo = rs.getString("pecho_izquierdo");
+                String pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
                 String cantidadpechoderecho = rs.getString("pecho_derecho_cantidad");
-                String pechoderecho = rs.getString("pecho_derecho");
+                String pechoderecho = rs.getString("pecho_derecho_puntadas");
                 String cantidadmangaizquierda = rs.getString("manga_izquierda_cantidad");
-                String mangaizquierda = rs.getString("manga_izquierda");
+                String mangaizquierda = rs.getString("manga_izquierda_puntadas");
                 String cantidadmangaderecha = rs.getString("manga_derecha_cantidad");
-                String mangaderecha = rs.getString("manga_derecha");
+                String mangaderecha = rs.getString("manga_derecha_puntadas");
                 String cantidadespalda = rs.getString("espalda_cantidad");
-                String espalda = rs.getString("espalda");
+                String espalda = rs.getString("espalda_puntadas");
                 String cantidadotraubicacion = rs.getString("otra_ubicacion_cantidad");
-                String otraubicacion = rs.getString("otra_ubicacion");
+                String otraubicacion = rs.getString("otra_ubicacion_puntadas");
                 String cantidadotraubicacion2 = rs.getString("otra_ubicacion2_cantidad");
-                String otraubicacion2 = rs.getString("otra_ubicacion2");
+                String otraubicacion2 = rs.getString("otra_ubicacion2_puntadas");
                 String aplicacionpechoizquierdo= rs.getString("aplicacion_pecho_izquierdo");
                 String aplicacionpechoderecho= rs.getString("aplicacion_pecho_derecho");
                 String aplicacionmangaizquierda = rs.getString("aplicacion_manga_izquierda");

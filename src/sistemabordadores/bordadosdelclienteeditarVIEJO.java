@@ -1503,7 +1503,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
             
 
-                sql = "SELECT identificador_prenda,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
+                sql = "SELECT identificador_prenda,pecho_izquierdo_puntadas,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
                         + "pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
                         + "manga_derecha,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,"
                         + "manga_izquierda,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,"
@@ -1523,27 +1523,27 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
                    
                         identificadordeprenda = rs.getString("identificador_prenda");
-                        pechoizquierdo = rs.getString("pecho_izquierdo");
+                        pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
                         pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                         pechoizquierdoaplicacion = rs.getString("pecho_izquierdo_aplicacion");
                         pechoizquierdoaplicacioncolor = rs.getString("pecho_izquierdo_aplicacion_color");
 
-                        pechoderecho = rs.getString("pecho_derecho");
+                        pechoderecho = rs.getString("pecho_derecho_puntadas");
                         pechoderechonombre = rs.getString("pecho_derecho_nombre");
                         pechoderechoaplicacion = rs.getString("pecho_derecho_aplicacion");
                         pechoderechoaplicacioncolor = rs.getString("pecho_derecho_aplicacion_color");
 
-                        mangaizquierda = rs.getString("manga_izquierda");
+                        mangaizquierda = rs.getString("manga_izquierda_puntadas");
                         mangaizquierdanombre = rs.getString("manga_izquierda_nombre");
                         mangaizquierdaaplicacion = rs.getString("manga_izquierda_aplicacion");
                         mangaizquierdaaplicacioncolor = rs.getString("manga_izquierda_aplicacion_color");
 
-                        mangaderecha = rs.getString("manga_derecha");
+                        mangaderecha = rs.getString("manga_derecha_puntadas");
                         mangaderechanombre = rs.getString("manga_derecha_nombre");
                         mangaderechaaplicacion = rs.getString("manga_derecha_aplicacion");
                         mangaderechaaplicacioncolor = rs.getString("manga_derecha_aplicacion_color");
 
-                        espalda = rs.getString("espalda");
+                        espalda = rs.getString("espalda_puntadas");
                         espaldanombre = rs.getString("espalda_nombre");
                         espaldaaplicacion = rs.getString("espalda_aplicacion");
                         espaldaaplicacioncolor = rs.getString("espalda_aplicacion_color");
@@ -1667,7 +1667,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         {
 
 
-                sql = "SELECT identificador_prenda,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
+                sql = "SELECT identificador_prenda,pecho_izquierdo_puntadas,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
                         + "pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
                         + "manga_derecha,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,"
                         + "manga_izquierda,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,"
@@ -1686,17 +1686,17 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
                    
                         identificadordeprenda = rs.getString("identificador_prenda");
-                        pechoizquierdo = rs.getString("pecho_izquierdo");
+                        pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
                         pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                         pechoizquierdoaplicacion = rs.getString("pecho_izquierdo_aplicacion");
                         pechoizquierdoaplicacioncolor = rs.getString("pecho_izquierdo_aplicacion_color");
 
-                        pechoderecho = rs.getString("pecho_derecho");
+                        pechoderecho = rs.getString("pecho_derecho_puntadas");
                         pechoderechonombre = rs.getString("pecho_derecho_nombre");
                         pechoderechoaplicacion = rs.getString("pecho_derecho_aplicacion");
                         pechoderechoaplicacioncolor = rs.getString("pecho_derecho_aplicacion_color");
 
-                        espalda = rs.getString("espalda");
+                        espalda = rs.getString("espalda_puntadas");
                         espaldanombre = rs.getString("espalda_nombre");
                         espaldaaplicacion = rs.getString("espalda_aplicacion");
                         espaldaaplicacioncolor = rs.getString("espalda_aplicacion_color");
@@ -1742,7 +1742,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             cbaplicacioncantidad3.setSelectedItem(otraubicacionaplicacion);
             cbaplicacioncolor3.setSelectedItem(otraubicacionaplicacioncolor);
             
-            lbetiqueta4.setText("Espalda");
+            lbetiqueta4.setText("espalda_puntadas");
             cbpuntadas4.setSelectedItem(espalda);
             txt4.setText(espaldanombre);
             cbaplicacioncantidad4.setSelectedItem(espaldaaplicacion);
@@ -1814,7 +1814,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         {
 
 
-                sql = "SELECT identificador_prenda,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
+                sql = "SELECT identificador_prenda,pecho_izquierdo_puntadas,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
                         + "pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
                         + "centro,centro_nombre,centro_aplicacion,centro_aplicacion_color,"
                          + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
@@ -1831,12 +1831,12 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
                    
                         identificadordeprenda = rs.getString("identificador_prenda");
-                        pechoizquierdo = rs.getString("pecho_izquierdo");
+                        pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
                         pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                         pechoizquierdoaplicacion = rs.getString("pecho_izquierdo_aplicacion");
                         pechoizquierdoaplicacioncolor = rs.getString("pecho_izquierdo_aplicacion_color");
 
-                        pechoderecho = rs.getString("pecho_derecho");
+                        pechoderecho = rs.getString("pecho_derecho_puntadas");
                         pechoderechonombre = rs.getString("pecho_derecho_nombre");
                         pechoderechoaplicacion = rs.getString("pecho_derecho_aplicacion");
                         pechoderechoaplicacioncolor = rs.getString("pecho_derecho_aplicacion_color");
@@ -1979,10 +1979,10 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                         frentegorraaplicacion = rs.getString("frente_aplicacion");
                         frentegorraaplicacioncolor = rs.getString("frente_aplicacion_color");
 
-                        ladoizquierdogorra = rs.getString("lado_izquierdo");
+                        ladoizquierdogorra = rs.getString("lado_izquierdo_puntadas");
                         ladoizquierdogorranombre = rs.getString("lado_izquierdo_nombre");
 
-                        ladoderechogorra = rs.getString("lado_derecho");
+                        ladoderechogorra = rs.getString("lado_derecho_puntadas");
                         ladoderechogorranombre = rs.getString("lado_derecho_nombre");
 
                         atrasgorra = rs.getString("atras");
@@ -2197,10 +2197,10 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
            
             
 
-                sql = "SELECT identificador_prenda,pantalon_lado_izquierdo_frente,pantalon_lado_izquierdo_frente_nombre,pantalon_lado_izquierdo_frente_aplicacion,pantalon_lado_izquierdo_frente_aplicacion_color"
-                           + ",pantalon_lado_derecho_frente,pantalon_lado_derecho_frente_nombre,pantalon_lado_derecho_frente_aplicacion,pantalon_lado_derecho_frente_aplicacion_color,"
-                           + "pantalon_lado_izquierdo_atras,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_izquierdo_atras_aplicacion,pantalon_lado_izquierdo_atras_aplicacion_color,"
-                           + "pantalon_lado_derecho_atras,pantalon_lado_derecho_atras_nombre,pantalon_lado_derecho_atras_aplicacion,pantalon_lado_derecho_atras_aplicacion_color,"
+                sql = "SELECT identificador_prenda,pantalon_lado_izquierdo_frente_puntadas,pantalon_lado_izquierdo_frente_nombre,pantalon_lado_izquierdo_frente_aplicacion,pantalon_lado_izquierdo_frente_aplicacion_color"
+                           + ",pantalon_lado_derecho_frente_puntadas,pantalon_lado_derecho_frente_nombre,pantalon_lado_derecho_frente_aplicacion,pantalon_lado_derecho_frente_aplicacion_color,"
+                           + "pantalon_lado_izquierdo_atras_puntadas,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_izquierdo_atras_aplicacion,pantalon_lado_izquierdo_atras_aplicacion_color,"
+                           + "pantalon_lado_derecho_atras_puntadas,pantalon_lado_derecho_atras_nombre,pantalon_lado_derecho_atras_aplicacion,pantalon_lado_derecho_atras_aplicacion_color,"
                        + "color1,color2,color3,color4,color5,hilo1,hilo2,hilo3,hilo4,hilo5"
                         + "  FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
@@ -2214,23 +2214,23 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
                         identificadordeprenda = rs.getString("identificador_prenda");
                         lbidentificadordeprendaanterior.setText(identificadordeprenda);
-                        ladoizquierdofrentepantalon = rs.getString("pantalon_lado_izquierdo_frente");
+                        ladoizquierdofrentepantalon = rs.getString("pantalon_lado_izquierdo_frente_puntadas");
                         ladoizquierdofrentepantalonnombre = rs.getString("pantalon_lado_izquierdo_frente_nombre");
                         ladoizquierdofrentepantalonaplicacion = rs.getString("pantalon_lado_izquierdo_frente_aplicacion");
                         ladoizquierdofrentepantalonaplicacioncolor = rs.getString("pantalon_lado_izquierdo_frente_aplicacion_color");
                         
                         
-                        ladoderechofrentepantalon = rs.getString("pantalon_lado_derecho_frente");
+                        ladoderechofrentepantalon = rs.getString("pantalon_lado_derecho_frente_puntadas");
                         ladoderechofrentepantalonnombre = rs.getString("pantalon_lado_derecho_frente_nombre");
                         ladoderechofrentepantalonaplicacion = rs.getString("pantalon_lado_derecho_frente_aplicacion");
                         ladoderechofrentepantalonaplicacioncolor = rs.getString("pantalon_lado_derecho_frente_aplicacion_color");
 
-                        ladoizquierdoatraspantalon = rs.getString("pantalon_lado_izquierdo_atras");
+                        ladoizquierdoatraspantalon = rs.getString("pantalon_lado_izquierdo_atras_puntadas");
                         ladoizquierdoatraspantalonnombre = rs.getString("pantalon_lado_izquierdo_atras_nombre");
                         ladoizquierdoatraspantalonaplicacion = rs.getString("pantalon_lado_izquierdo_atras_aplicacion");
                         ladoizquierdoatraspantalonaplicacioncolor = rs.getString("pantalon_lado_izquierdo_atras_aplicacion_color");
                         
-                        ladoderechoatraspantalon = rs.getString("pantalon_lado_derecho_atras");
+                        ladoderechoatraspantalon = rs.getString("pantalon_lado_derecho_atras_puntadas");
                         ladoderechoatraspantalonnombre = rs.getString("pantalon_lado_derecho_atras_nombre");
                         ladoderechoatraspantalonaplicacion = rs.getString("pantalon_lado_derecho_atras_aplicacion");
                         ladoderechoatraspantalonaplicacioncolor = rs.getString("pantalon_lado_derecho_atras_aplicacion_color");
@@ -2423,7 +2423,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
             
 
-                sql = "SELECT identificador_prenda,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
+                sql = "SELECT identificador_prenda,pecho_izquierdo_puntadas,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
                         + "pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
                         + "manga_derecha,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,"
                         + "manga_izquierda,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,"
@@ -2443,27 +2443,27 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
                    
                         identificadordeprenda = rs.getString("identificador_prenda");
-                        pechoizquierdo = rs.getString("pecho_izquierdo");
+                        pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
                         pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre");
                         pechoizquierdoaplicacion = rs.getString("pecho_izquierdo_aplicacion");
                         pechoizquierdoaplicacioncolor = rs.getString("pecho_izquierdo_aplicacion_color");
 
-                        pechoderecho = rs.getString("pecho_derecho");
+                        pechoderecho = rs.getString("pecho_derecho_puntadas");
                         pechoderechonombre = rs.getString("pecho_derecho_nombre");
                         pechoderechoaplicacion = rs.getString("pecho_derecho_aplicacion");
                         pechoderechoaplicacioncolor = rs.getString("pecho_derecho_aplicacion_color");
 
-                        mangaizquierda = rs.getString("manga_izquierda");
+                        mangaizquierda = rs.getString("manga_izquierda_puntadas");
                         mangaizquierdanombre = rs.getString("manga_izquierda_nombre");
                         mangaizquierdaaplicacion = rs.getString("manga_izquierda_aplicacion");
                         mangaizquierdaaplicacioncolor = rs.getString("manga_izquierda_aplicacion_color");
 
-                        mangaderecha = rs.getString("manga_derecha");
+                        mangaderecha = rs.getString("manga_derecha_puntadas");
                         mangaderechanombre = rs.getString("manga_derecha_nombre");
                         mangaderechaaplicacion = rs.getString("manga_derecha_aplicacion");
                         mangaderechaaplicacioncolor = rs.getString("manga_derecha_aplicacion_color");
 
-                        espalda = rs.getString("espalda");
+                        espalda = rs.getString("espalda_puntadas");
                         espaldanombre = rs.getString("espalda_nombre");
                         espaldaaplicacion = rs.getString("espalda_aplicacion");
                         espaldaaplicacioncolor = rs.getString("espalda_aplicacion_color");
@@ -2911,7 +2911,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                     
                     actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
-                else if(articulo.contains("ESPALDA"))
+                else if(articulo.contains("espalda_puntadas"))
                 {
                     
                     nombrearticuloactualizar = articulo;
@@ -2995,7 +2995,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                     
                     actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
-                else if(articulo.contains("ESPALDA"))
+                else if(articulo.contains("espalda_puntadas"))
                 {
                     
                     nombrearticuloactualizar = articulo;
@@ -3217,7 +3217,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                     
                     actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificadordeprenda,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
-                else if(articulo.contains("ESPALDA"))
+                else if(articulo.contains("espalda_puntadas"))
                 {
                     
                     nombrearticuloactualizar = articulo;
@@ -4006,7 +4006,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         lbetiqueta3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbetiqueta5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbetiqueta5.setText("Espalda");
+        lbetiqueta5.setText("espalda_puntadas");
         lbetiqueta5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbetiqueta6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -5976,7 +5976,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             
             insertarnumero();
 
-            String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,manga_derecha,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,manga_izquierda,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,espalda,espalda_nombre,espalda_aplicacion,espalda_aplicacion_color,espalda_puntadas_aro,espalda_aro,otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,numero_consecutivo,color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,pecho_izquierdo_puntadas,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,pecho_derecho_puntadas,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,manga_derecha_puntadas,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,manga_izquierda_puntadas,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,espalda_puntadas,espalda_nombre,espalda_aplicacion,espalda_aplicacion_color,espalda_puntadas_aro,espalda_aro,otra_ubicacion_puntadas,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,otra_ubicacion2_puntadas,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,numero_consecutivo,color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -6198,7 +6198,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         else
         {
             insertarnumero();
-             String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,frente,frente_nombre,lado_izquierdo,lado_izquierdo_nombre,lado_derecho,lado_derecho_nombre ,atras,atras_nombre,frente_aplicacion ,frente_aplicacion_color,numero_consecutivo,color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+             String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,frente,frente_nombre,lado_izquierdo_puntadas,lado_izquierdo_nombre,lado_derecho_puntadas,lado_derecho_nombre ,atras,atras_nombre,frente_aplicacion ,frente_aplicacion_color,numero_consecutivo,color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -6330,10 +6330,10 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             
             
             try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pantalon_lado_izquierdo_frente='" + ladoizquierdofrentepantalon + "',pantalon_lado_izquierdo_frente_nombre='" + ladoizquierdofrentepantalonnombre + "',pantalon_lado_izquierdo_frente_aplicacion='" + ladoizquierdofrentepantalonaplicacion + "',pantalon_lado_izquierdo_frente_aplicacion_color='" + ladoizquierdofrentepantalonaplicacioncolor + "',"
-                                                                                   + "pantalon_lado_derecho_frente ='" + ladoderechofrentepantalon + "' ,pantalon_lado_derecho_frente_nombre ='" + ladoderechofrentepantalonnombre + "',pantalon_lado_derecho_frente_aplicacion ='" + ladoderechofrentepantalonaplicacion + "',pantalon_lado_derecho_frente_aplicacion_color ='" + ladoderechofrentepantalonaplicacioncolor + "',"
-                                                                                   + "pantalon_lado_izquierdo_atras='" + ladoizquierdoatraspantalon + "',pantalon_lado_izquierdo_atras_nombre='" + ladoizquierdoatraspantalonnombre + "',pantalon_lado_izquierdo_atras_aplicacion='" + ladoizquierdoatraspantalonaplicacion + "',pantalon_lado_izquierdo_atras_aplicacion_color='" + ladoizquierdoatraspantalonaplicacioncolor + "',"
-                                                                                   + "pantalon_lado_derecho_atras ='" + ladoderechoatraspantalon + "' ,pantalon_lado_derecho_atras_nombre ='" + ladoderechoatraspantalonnombre + "',pantalon_lado_derecho_atras_aplicacion ='" + ladoderechoatraspantalonaplicacion + "',pantalon_lado_derecho_atras_aplicacion_color ='" + ladoderechoatraspantalonaplicacioncolor + "'   WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pantalon_lado_izquierdo_frente_puntadas='" + ladoizquierdofrentepantalon + "',pantalon_lado_izquierdo_frente_nombre='" + ladoizquierdofrentepantalonnombre + "',pantalon_lado_izquierdo_frente_aplicacion='" + ladoizquierdofrentepantalonaplicacion + "',pantalon_lado_izquierdo_frente_aplicacion_color='" + ladoizquierdofrentepantalonaplicacioncolor + "',"
+                                                                                   + "pantalon_lado_derecho_frente_puntadas ='" + ladoderechofrentepantalon + "' ,pantalon_lado_derecho_frente_nombre ='" + ladoderechofrentepantalonnombre + "',pantalon_lado_derecho_frente_aplicacion ='" + ladoderechofrentepantalonaplicacion + "',pantalon_lado_derecho_frente_aplicacion_color ='" + ladoderechofrentepantalonaplicacioncolor + "',"
+                                                                                   + "pantalon_lado_izquierdo_atras_puntadas='" + ladoizquierdoatraspantalon + "',pantalon_lado_izquierdo_atras_nombre='" + ladoizquierdoatraspantalonnombre + "',pantalon_lado_izquierdo_atras_aplicacion='" + ladoizquierdoatraspantalonaplicacion + "',pantalon_lado_izquierdo_atras_aplicacion_color='" + ladoizquierdoatraspantalonaplicacioncolor + "',"
+                                                                                   + "pantalon_lado_derecho_atras_puntadas ='" + ladoderechoatraspantalon + "' ,pantalon_lado_derecho_atras_nombre ='" + ladoderechoatraspantalonnombre + "',pantalon_lado_derecho_atras_aplicacion ='" + ladoderechoatraspantalonaplicacion + "',pantalon_lado_derecho_atras_aplicacion_color ='" + ladoderechoatraspantalonaplicacioncolor + "'   WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -6392,7 +6392,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         {
             insertarnumero();
 
-            String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,pantalon_lado_izquierdo_frente,pantalon_lado_izquierdo_frente_nombre,pantalon_lado_derecho_frente,pantalon_lado_derecho_frente_nombre,pantalon_lado_izquierdo_atras,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_derecho_atras,pantalon_lado_derecho_atras_nombre,numero_consecutivo,color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,pantalon_lado_izquierdo_frente_puntadas,pantalon_lado_izquierdo_frente_nombre,pantalon_lado_derecho_frente_puntadas,pantalon_lado_derecho_frente_nombre,pantalon_lado_izquierdo_atras_puntadas,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_derecho_atras_puntadas,pantalon_lado_derecho_atras_nombre,numero_consecutivo,color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -6807,7 +6807,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         else
         {
             insertarnumero();
-            String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,pecho_izquierdo,pecho_izquierdo_nombre,pecho_derecho,pecho_derecho_nombre,espalda,espalda_nombre,otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion2,otra_ubicacion2_nombre,"
+            String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,pecho_izquierdo_puntadas,pecho_izquierdo_nombre,pecho_derecho_puntadas,pecho_derecho_nombre,espalda_puntadas,espalda_nombre,otra_ubicacion_puntadas,otra_ubicacion_nombre,otra_ubicacion2_puntadas,otra_ubicacion2_nombre,"
                                                                 + "pecho_izquierdo_aplicacion,pecho_derecho_aplicacion,espalda_aplicacion,otra_ubicacion_aplicacion,otra_ubicacion2_aplicacion,"
                                                                 + "pecho_izquierdo_aplicacion_color,pecho_derecho_aplicacion_color,espalda_aplicacion_color,otra_ubicacion_aplicacion_color,otra_ubicacion2_aplicacion_color,numero_consecutivo,"
                                                                 + "color1,color2,color3,color4,color5,hilo1,hilo2,hilo3,hilo4,hilo5) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -6999,7 +6999,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
             
             
             
-             String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,pecho_izquierdo,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,centro,centro_nombre,centro_aplicacion,centro_aplicacion_color,numero_consecutivo,color1,color2,color3,hilo1,hilo2,hilo3) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+             String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,pecho_izquierdo_puntadas,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,pecho_derecho_puntadas,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,centro,centro_nombre,centro_aplicacion,centro_aplicacion_color,numero_consecutivo,color1,color2,color3,hilo1,hilo2,hilo3) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -9937,7 +9937,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
                    
                    pechoizquierdonombre = rs.getString("espalda_nombre"); 
-                   pechoizquierdo = rs.getString("espalda"); 
+                   pechoizquierdo = rs.getString("espalda_puntadas"); 
                    encontrado = "si";
                 
                    
@@ -10064,7 +10064,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
           
             String encontrado = "no";
             
-            String sql = "SELECT distinct pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
+            String sql = "SELECT distinct pecho_izquierdo_nombre,pecho_izquierdo_puntadas,pecho_derecho_nombre,pecho_derecho FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
                        + "and pecho_izquierdo_nombre = '"+puntadas+"' or pecho_derecho_nombre = '"+puntadas+"' ";
                       
@@ -10084,10 +10084,10 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
                    
                    pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre"); 
-                   pechoizquierdo = rs.getString("pecho_izquierdo"); 
+                   pechoizquierdo = rs.getString("pecho_izquierdo_puntadas"); 
                    
                    pechoderechonombre = rs.getString("pecho_derecho_nombre"); 
-                   pechoderecho = rs.getString("pecho_derecho"); 
+                   pechoderecho = rs.getString("pecho_derecho_puntadas"); 
                     
                    encontrado = "si";
                    
@@ -10246,7 +10246,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
            }
            else
            {
-                sql = "SELECT distinct pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
+                sql = "SELECT distinct pecho_izquierdo_nombre,pecho_izquierdo_puntadas,pecho_derecho_nombre,pecho_derecho FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
                        + "and pecho_izquierdo_nombre = '"+puntadas+"' or pecho_derecho_nombre = '"+puntadas+"' ";
                
@@ -10280,10 +10280,10 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
                 else   
                 {    
                    pechoizquierdonombre = rs.getString("pecho_izquierdo_nombre"); 
-                   pechoizquierdo = rs.getString("pecho_izquierdo"); 
+                   pechoizquierdo = rs.getString("pecho_izquierdo_puntadas"); 
                    
                    pechoderechonombre = rs.getString("pecho_derecho_nombre"); 
-                   pechoderecho = rs.getString("pecho_derecho"); 
+                   pechoderecho = rs.getString("pecho_derecho_puntadas"); 
                     
                    
                    if (pechoizquierdonombre.startsWith(puntadas))
@@ -10441,7 +10441,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
                    
                    pechoizquierdonombre = rs.getString("espalda_nombre"); 
-                   pechoizquierdo = rs.getString("espalda"); 
+                   pechoizquierdo = rs.getString("espalda_puntadas"); 
                    encontrado = "si";
                 
                    
@@ -10565,7 +10565,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
           
             String encontrado = "no";
             
-            String sql = "SELECT distinct manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
+            String sql = "SELECT distinct manga_izquierda_nombre,manga_izquierda_puntadas,manga_derecha_nombre,manga_derecha FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
                        + "and manga_izquierda_nombre = '"+puntadas+"' or manga_derecha_nombre = '"+puntadas+"' ";
                       
@@ -10585,10 +10585,10 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
                    
                    pechoizquierdonombre = rs.getString("manga_izquierda_nombre"); 
-                   pechoizquierdo = rs.getString("manga_izquierda"); 
+                   pechoizquierdo = rs.getString("manga_izquierda_puntadas"); 
                    
                    pechoderechonombre = rs.getString("manga_derecha_nombre"); 
-                   pechoderecho = rs.getString("manga_derecha"); 
+                   pechoderecho = rs.getString("manga_derecha_puntadas"); 
                     
                    
                    if (pechoizquierdonombre.startsWith(puntadas))
@@ -10709,7 +10709,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
           
             String encontrado = "no";
             
-            String sql = "SELECT distinct manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
+            String sql = "SELECT distinct manga_izquierda_nombre,manga_izquierda_puntadas,manga_derecha_nombre,manga_derecha FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
                        + "and manga_izquierda_nombre = '"+puntadas+"' or manga_derecha_nombre = '"+puntadas+"' ";
                       
@@ -10729,10 +10729,10 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
                    
                    pechoizquierdonombre = rs.getString("manga_izquierda_nombre"); 
-                   pechoizquierdo = rs.getString("manga_izquierda"); 
+                   pechoizquierdo = rs.getString("manga_izquierda_puntadas"); 
                    
                    pechoderechonombre = rs.getString("manga_derecha_nombre"); 
-                   pechoderecho = rs.getString("manga_derecha"); 
+                   pechoderecho = rs.getString("manga_derecha_puntadas"); 
                    
                    encontrado = "si";
                    
@@ -10893,7 +10893,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
 
                    
                    pechoizquierdonombre = rs.getString("espalda_nombre"); 
-                   pechoizquierdo = rs.getString("espalda"); 
+                   pechoizquierdo = rs.getString("espalda_puntadas"); 
                    encontrado = "si";
                 
                    

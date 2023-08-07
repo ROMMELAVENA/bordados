@@ -479,7 +479,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
          try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+fecha+"='null' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+fecha+"=null where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1316,6 +1316,8 @@ JOptionPane.showMessageDialog(null, mensaje);
      void agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 
+          
+        numerodeventa =  lbnumerodeventa.getText();
         
         Object cantidadstring ="";
         String nuevacantidadstring = "";
@@ -2720,6 +2722,42 @@ JOptionPane.showMessageDialog(null, mensaje);
                     sumapuntos();
                     
                     
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE CANCELO CORRECTAMENTE");
+                    
+                    
+                    
+                    
+                  if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         {
+             ordenesporrealizar.btnactualizar.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btnactualizar.doClick();
+         }
+        
+        
+                datos();
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                         lbautorizacion.setText("no");
                 
                      }
@@ -2787,24 +2825,17 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
                 datos();
+                
+                
+                
+                
     }//GEN-LAST:event_btntermineMouseReleased
 
     private void btncancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelarMouseReleased
              
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
-         {
-             ordenesporrealizar.btnactualizar.doClick();
-         }
-         
-       
+           
                 
-                       if(ordenesterminadas.ventanaordenesterminadas==true)
-         {
-             ordenesterminadas.btnactualizar.doClick();
-         }
-        
-        
-                datos();
+                
     }//GEN-LAST:event_btncancelarMouseReleased
 
     private void btndatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndatosActionPerformed

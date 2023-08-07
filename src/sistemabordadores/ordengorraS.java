@@ -5000,6 +5000,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
                 datos();
+                
+                
     }//GEN-LAST:event_btnfrentetermineMouseReleased
 
     private void btnatrastermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnatrastermineMouseReleased

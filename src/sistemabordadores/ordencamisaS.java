@@ -572,10 +572,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         
 
         String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,numero_orden,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
-                + "   pecho_izquierdo,pecho_derecho,manga_izquierda,manga_derecha,espalda,otra_ubicacion,otra_ubicacion2,"
-                + "   cantidad_pecho_izquierdo,cantidad_pecho_derecho,cantidad_manga_izquierda,cantidad_manga_derecha,cantidad_espalda,"
+                + "   pecho_izquierdo_puntadas,pecho_derecho_puntadas,manga_izquierda_puntadas,manga_derecha_puntadas,espalda_puntadas,otra_ubicacion_puntadas,otra_ubicacion2_puntadas,"
+                + "   pecho_izquierdo_cantidad,pecho_derecho_cantidad,manga_izquierda_cantidad,manga_derecha_cantidad,espalda_cantidad,"
                 + "   pecho_izquierdo_nombre,pecho_derecho_nombre,manga_izquierda_nombre,manga_derecha_nombre,espalda_nombre,"
-                + "   otra_ubicacion,otra_ubicacion_nombre,cantidad_otra_ubicacion,otra_ubicacion2,otra_ubicacion2_nombre,cantidad_otra_ubicacion2,"
+                + "   otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion_cantidad,otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_cantidad,"
                 + "   aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,"
                 + "   aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,"
                 + "   lugar,estatus_orden,identificador_prenda,tienda,tienda from historial_ordenes_camisa where numero = '" + numeroordendebordadolocalorecibida + "' ";
@@ -911,13 +911,13 @@ JOptionPane.showMessageDialog(null, mensaje);
                 ///////////////////////////////////////////////////              
                 
                 
-                cantidadpechoizquierdo =rs.getString("cantidad_pecho_izquierdo");
-                cantidadpechoderecho =rs.getString("cantidad_pecho_derecho");         
-                cantidadmangaizquierda =rs.getString("cantidad_manga_izquierda"); 
-                cantidadmangaderecha =rs.getString("cantidad_manga_derecha");
-                cantidadespalda =rs.getString("cantidad_espalda");
-                cantidadotraubicacion =rs.getString("cantidad_otra_ubicacion");
-                cantidadotraubicacion2 =rs.getString("cantidad_otra_ubicacion2");
+                cantidadpechoizquierdo =rs.getString("pecho_izquierdo_cantidad");
+                cantidadpechoderecho =rs.getString("pecho_derecho_cantidad");         
+                cantidadmangaizquierda =rs.getString("manga_izquierda_cantidad"); 
+                cantidadmangaderecha =rs.getString("manga_derecha_cantidad");
+                cantidadespalda =rs.getString("espalda_cantidad");
+                cantidadotraubicacion =rs.getString("otra_ubicacion_cantidad");
+                cantidadotraubicacion2 =rs.getString("otra_ubicacion2_cantidad");
                 
                 
                 
@@ -1378,8 +1378,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         numeroordendebordadolocalorecibida = lborden.getText();
         
         String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,fecha_entrega,hora_entrega,observacion,\n"
-                + "pecho_izquierdo,pecho_derecho,manga_izquierda,manga_derecha,espalda,otra_ubicacion,otra_ubicacion2,\n"
-                + "cantidad_pecho_izquierdo,cantidad_pecho_derecho,cantidad_manga_izquierda,cantidad_manga_derecha,cantidad_espalda,\n"
+                + "   pecho_izquierdo_puntadas,pecho_derecho_puntadas,manga_izquierda_puntadas,manga_derecha_puntadas,espalda_puntadas,otra_ubicacion_puntadas,otra_ubicacion2_puntadas,"
+                + "pecho_izquierdo_cantidad,pecho_derecho_cantidad,manga_izquierda_cantidad,manga_derecha_cantidad,espalda_cantidad,\n"
                 + "pecho_izquierdo_nombre,pecho_derecho_nombre,manga_izquierda_nombre,manga_derecha_nombre,espalda_nombre,\n"
                 + "otra_ubicacion,otra_ubicacion_nombre,otra_ubicacion2,otra_ubicacion2_nombre,\n"
                 + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,\n"
@@ -1641,11 +1641,11 @@ JOptionPane.showMessageDialog(null, mensaje);
                
                 lugar = rs.getString("lugar");
 
-                String cantidadpechoizquiedo = rs.getString("cantidad_pecho_izquierdo");
-                String cantidadpechoderecho = rs.getString("cantidad_pecho_derecho");
-                String cantidadmangaizquierda = rs.getString("cantidad_manga_izquierda");
-                String cantidadmangaderecha = rs.getString("cantidad_manga_derecha");
-                String cantidadespalda = rs.getString("cantidad_espalda");
+                String cantidadpechoizquiedo = rs.getString("pecho_izquierdo_cantidad");
+                String cantidadpechoderecho = rs.getString("pecho_derecho_cantidad");
+                String cantidadmangaizquierda = rs.getString("manga_izquierda_cantidad");
+                String cantidadmangaderecha = rs.getString("manga_derecha_cantidad");
+                String cantidadespalda = rs.getString("espalda_cantidad");
 
               
 
@@ -3351,13 +3351,13 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         String cantidad = "0";
         
-         String sql = "Select cantidad,cantidad_pecho_izquierdo,pecho_izquierdo,"
-                  + "cantidad_pecho_derecho,pecho_derecho,"
-                  + "cantidad_manga_izquierda,manga_izquierda,"
-                  + "cantidad_manga_derecha,manga_derecha,"
-                  + "cantidad_espalda,espalda,"
-                  + "cantidad_otra_ubicacion,otra_ubicacion,"
-                  + "cantidad_otra_ubicacion2,otra_ubicacion2,"
+         String sql = "Select cantidad,pecho_izquierdo_cantidad,pecho_izquierdo,"
+                  + "pecho_derecho_cantidad,pecho_derecho,"
+                  + "manga_izquierda_cantidad,manga_izquierda,"
+                  + "manga_derecha_cantidad,manga_derecha,"
+                  + "espalda_cantidad,espalda,"
+                  + "otra_ubicacion_cantidad,otra_ubicacion,"
+                  + "otra_ubicacion2_cantidad,otra_ubicacion2,"
                   + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2 from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
@@ -3367,19 +3367,19 @@ JOptionPane.showMessageDialog(null, mensaje);
             while (rs.next()) {
 
                        cantidad = rs.getString("cantidad");   
-                String cantidadpechoizquierdo = rs.getString("cantidad_pecho_izquierdo");
+                String cantidadpechoizquierdo = rs.getString("pecho_izquierdo_cantidad");
                 String pechoizquierdo = rs.getString("pecho_izquierdo");
-                String cantidadpechoderecho = rs.getString("cantidad_pecho_derecho");
+                String cantidadpechoderecho = rs.getString("pecho_derecho_cantidad");
                 String pechoderecho = rs.getString("pecho_derecho");
-                String cantidadmangaizquierda = rs.getString("cantidad_manga_izquierda");
+                String cantidadmangaizquierda = rs.getString("manga_izquierda_cantidad");
                 String mangaizquierda = rs.getString("manga_izquierda");
-                String cantidadmangaderecha = rs.getString("cantidad_manga_derecha");
+                String cantidadmangaderecha = rs.getString("manga_derecha_cantidad");
                 String mangaderecha = rs.getString("manga_derecha");
-                String cantidadespalda = rs.getString("cantidad_espalda");
+                String cantidadespalda = rs.getString("espalda_cantidad");
                 String espalda = rs.getString("espalda");
-                String cantidadotraubicacion = rs.getString("cantidad_otra_ubicacion");
+                String cantidadotraubicacion = rs.getString("otra_ubicacion_cantidad");
                 String otraubicacion = rs.getString("otra_ubicacion");
-                String cantidadotraubicacion2 = rs.getString("cantidad_otra_ubicacion2");
+                String cantidadotraubicacion2 = rs.getString("otra_ubicacion2_cantidad");
                 String otraubicacion2 = rs.getString("otra_ubicacion2");
                 String aplicacionpechoizquierdo= rs.getString("aplicacion_pecho_izquierdo");
                 String aplicacionpechoderecho= rs.getString("aplicacion_pecho_derecho");
@@ -3697,13 +3697,13 @@ JOptionPane.showMessageDialog(null, mensaje);
         int tienecantidad = 0;
         botonesactivados = 0;
         
-         String sql = "Select cantidad,cantidad_pecho_izquierdo,pecho_izquierdo,"
-                  + "cantidad_pecho_derecho,pecho_derecho,"
-                  + "cantidad_manga_izquierda,manga_izquierda,"
-                  + "cantidad_manga_derecha,manga_derecha,"
-                  + "cantidad_espalda,espalda,"
-                  + "cantidad_otra_ubicacion,otra_ubicacion,"
-                  + "cantidad_otra_ubicacion2,otra_ubicacion2 from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select cantidad,pecho_izquierdo_cantidad,pecho_izquierdo,"
+                  + "pecho_derecho_cantidad,pecho_derecho,"
+                  + "manga_izquierda_cantidad,manga_izquierda,"
+                  + "manga_derecha_cantidad,manga_derecha,"
+                  + "espalda_cantidad,espalda,"
+                  + "otra_ubicacion_cantidad,otra_ubicacion,"
+                  + "otra_ubicacion2_cantidad,otra_ubicacion2 from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -3712,19 +3712,19 @@ JOptionPane.showMessageDialog(null, mensaje);
             while (rs.next()) {
 
               
-                String cantidadpechoizquierdo = rs.getString("cantidad_pecho_izquierdo");
+                String cantidadpechoizquierdo = rs.getString("pecho_izquierdo_cantidad");
                 String pechoizquierdo = rs.getString("pecho_izquierdo");
-                String cantidadpechoderecho = rs.getString("cantidad_pecho_derecho");
+                String cantidadpechoderecho = rs.getString("pecho_derecho_cantidad");
                 String pechoderecho = rs.getString("pecho_derecho");
-                String cantidadmangaizquierda = rs.getString("cantidad_manga_izquierda");
+                String cantidadmangaizquierda = rs.getString("manga_izquierda_cantidad");
                 String mangaizquierda = rs.getString("manga_izquierda");
-                String cantidadmangaderecha = rs.getString("cantidad_manga_derecha");
+                String cantidadmangaderecha = rs.getString("manga_derecha_cantidad");
                 String mangaderecha = rs.getString("manga_derecha");
-                String cantidadespalda = rs.getString("cantidad_espalda");
+                String cantidadespalda = rs.getString("espalda_cantidad");
                 String espalda = rs.getString("espalda");
-                String cantidadotraubicacion = rs.getString("cantidad_otra_ubicacion");
+                String cantidadotraubicacion = rs.getString("otra_ubicacion_cantidad");
                 String otraubicacion = rs.getString("otra_ubicacion");
-                String cantidadotraubicacion2 = rs.getString("cantidad_otra_ubicacion2");
+                String cantidadotraubicacion2 = rs.getString("otra_ubicacion2_cantidad");
                 String otraubicacion2 = rs.getString("otra_ubicacion2");
 
                 
@@ -5583,7 +5583,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         
           
-          ubicacion = "cantidad_manga_izquierda";
+          ubicacion = "manga_izquierda_cantidad";
           fechaubicacion  = "manga_izquierda_fecha";
           
         
@@ -5762,7 +5762,7 @@ JOptionPane.showMessageDialog(null, mensaje);
        
       
       fechaubicacion  = "pecho_izquierdo_fecha";
-      ubicacion = "cantidad_pecho_izquierdo";
+      ubicacion = "pecho_izquierdo_cantidad";
       
        
         
@@ -5994,7 +5994,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
           
           fechaubicacion  = "espalda_fecha";
-           ubicacion = "cantidad_espalda";
+           ubicacion = "espalda_cantidad";
                   
          
         if(cantidad.equals("0"))
@@ -6166,7 +6166,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      
         
         fechaubicacion  = "pecho_derecho_fecha";
-        ubicacion = "cantidad_pecho_derecho";
+        ubicacion = "pecho_derecho_cantidad";
         
                                         
          if(cantidad.equals("0"))
@@ -6343,7 +6343,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
          
           fechaubicacion  = "manga_derecha_fecha";
-          ubicacion = "cantidad_manga_derecha";
+          ubicacion = "manga_derecha_cantidad";
                  
                         
                                         
@@ -6943,7 +6943,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
             else
             {
-            ubicacion = "cantidad_otra_ubicacion";
+            ubicacion = "otra_ubicacion_cantidad";
             nombrebordado = otraubicacionnombre;
             cantidadaplicacion = aplicacionotraubicacion;
           
@@ -7034,7 +7034,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
      
             
-            ubicacion = "cantidad_otra_ubicacion";
+            ubicacion = "otra_ubicacion_cantidad";
             nombrebordado = otraubicacionnombre;
             cantidadaplicacion = aplicacionotraubicacion;
             nombredelatabla = "historial_ordenes_camisa_recibidas";
@@ -7126,7 +7126,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
      
-            ubicacion = "cantidad_otra_ubicacion2";
+            ubicacion = "otra_ubicacion2_cantidad";
             nombrebordado = otraubicacion2nombre;
             cantidadaplicacion = aplicacionotraubicacion2;
            
@@ -7215,7 +7215,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
    
 
-                ubicacion = "cantidad_otra_ubicacion2";
+                ubicacion = "otra_ubicacion2_cantidad";
                 nombrebordado = otraubicacion2nombre;
                 cantidadaplicacion = aplicacionotraubicacion2;
               
@@ -7598,7 +7598,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
     
             
-           ubicacion = "cantidad_pecho_izquierdo";
+           ubicacion = "pecho_izquierdo_cantidad";
            String fechaubicacion = "pecho_izquierdo_fecha";
            
            eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion);         
@@ -7703,7 +7703,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
             
 
-                    ubicacion = "cantidad_pecho_derecho";
+                    ubicacion = "pecho_derecho_cantidad";
                     String fechaubicacion = "pecho_derecho_fecha";
                     eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
                     
@@ -7805,7 +7805,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
             
         
-            ubicacion = "cantidad_manga_izquierda";
+            ubicacion = "manga_izquierda_cantidad";
             String fechaubicacion = "manga_izquierda_fecha";
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion);
             
@@ -7900,7 +7900,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
                
 
-            ubicacion = "cantidad_manga_derecha";
+            ubicacion = "manga_derecha_cantidad";
             String fechaubicacion = "manga_derecha_fecha";
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
             
@@ -8007,7 +8007,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
             
         
-            ubicacion = "cantidad_espalda";
+            ubicacion = "espalda_cantidad";
             String fechaubicacion = "espalda_fecha";
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
             
@@ -8113,7 +8113,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
             
         
-            ubicacion = "cantidad_otra_ubicacion";
+            ubicacion = "otra_ubicacion_cantidad";
             String fechaubicacion = "otra_ubicacion_fecha";
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
             
@@ -8214,7 +8214,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
                  
                        
-            ubicacion = "cantidad_otra_ubicacion2";
+            ubicacion = "otra_ubicacion2_cantidad";
             String fechaubicacion = "otra_ubicacion2_fecha";
             eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion);            
         

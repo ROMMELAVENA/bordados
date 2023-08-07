@@ -288,7 +288,7 @@ public class principal extends javax.swing.JFrame {
 
         ////////////CAMISAS
         
-        String sql = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho,manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha,espalda_nombre,espalda,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion,otra_ubicacion2 from historial_ordenes_camisa where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sql = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo_puntadas,pecho_derecho_nombre,pecho_derecho_puntadas,manga_izquierda_nombre,manga_izquierda_puntadas,manga_derecha_nombre,manga_derecha_puntadas,espalda_nombre,espalda_puntadas,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion_puntadas,otra_ubicacion2_puntadas from historial_ordenes_camisa where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -297,13 +297,13 @@ public class principal extends javax.swing.JFrame {
             while (rs.next()) {
 
                 cantidadbordados = rs.getString("cantidad");
-                pechoizquierdo = rs.getString("pecho_izquierdo");
-                pechoderecho = rs.getString("pecho_derecho");
-                mangaizquierda = rs.getString("manga_izquierda");
-                mangaderecha = rs.getString("manga_derecha");
-                espalda = rs.getString("espalda");
-                otraubicacion = rs.getString("otra_ubicacion");
-                otraubicacion2 = rs.getString("otra_ubicacion2");
+                pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
+                pechoderecho = rs.getString("pecho_derecho_puntadas");
+                mangaizquierda = rs.getString("manga_izquierda_puntadas");
+                mangaderecha = rs.getString("manga_derecha_puntadas");
+                espalda = rs.getString("espalda_puntadas");
+                otraubicacion = rs.getString("otra_ubicacion_puntadas");
+                otraubicacion2 = rs.getString("otra_ubicacion2_puntadas");
                 aplicacionpechoizquierdo = rs.getString("aplicacion_pecho_izquierdo");
                 aplicacionpechoderecho = rs.getString("aplicacion_pecho_derecho");
                 aplicacionmangaizquierda = rs.getString("aplicacion_manga_izquierda");
@@ -562,7 +562,7 @@ public class principal extends javax.swing.JFrame {
         }
 
         ///////// CAMISAS RECIBIDAS
-        String sqlcamisasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo,pecho_derecho_nombre,pecho_derecho,manga_izquierda_nombre,manga_izquierda,manga_derecha_nombre,manga_derecha,espalda_nombre,espalda,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion from historial_ordenes_camisa_recibidas where estatus_orden = 'generada'  and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlcamisasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo_puntadas,pecho_derecho_nombre,pecho_derecho_puntadas,manga_izquierda_nombre,manga_izquierda_puntadas,manga_derecha_nombre,manga_derecha_puntadas,espalda_nombre,espalda_puntadas,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion_puntadas from historial_ordenes_camisa_recibidas where estatus_orden = 'generada'  and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -571,12 +571,12 @@ public class principal extends javax.swing.JFrame {
             while (rs.next()) {
 
                 cantidadbordadosrecibidos = rs.getString("cantidad");
-                pechoizquierdorecibidos = rs.getString("pecho_izquierdo");
-                pechoderechorecibidos = rs.getString("pecho_derecho");
-                mangaizquierdarecibidos = rs.getString("manga_izquierda");
-                mangaderecharecibidos = rs.getString("manga_derecha");
-                espaldarecibidos = rs.getString("espalda");
-                otraubicacionrecibidos = rs.getString("otra_ubicacion");
+                pechoizquierdorecibidos = rs.getString("pecho_izquierdo_puntadas");
+                pechoderechorecibidos = rs.getString("pecho_derecho_puntadas");
+                mangaizquierdarecibidos = rs.getString("manga_izquierda_puntadas");
+                mangaderecharecibidos = rs.getString("manga_derecha_puntadas");
+                espaldarecibidos = rs.getString("espalda_puntadas");
+                otraubicacionrecibidos = rs.getString("otra_ubicacion_puntadas");
                 aplicacionpechoizquierdorecibidos = rs.getString("aplicacion_pecho_izquierdo");
                 aplicacionpechoderechorecibidos = rs.getString("aplicacion_pecho_derecho");
                 aplicacionmangaizquierdarecibidos = rs.getString("aplicacion_manga_izquierda");

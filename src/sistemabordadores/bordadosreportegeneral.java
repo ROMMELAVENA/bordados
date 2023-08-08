@@ -3018,7 +3018,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select fecha,cliente,cantidad,parche,articulo,puntadas,aplicacion,numero_venta,parche_cantidad from historial_ordenes_parche where (estatus_orden = 'generada' OR estatus_orden = 'realizada' ) and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select fecha,cliente,cantidad,parche_puntadas,articulo,puntadas,aplicacion,numero_venta,parche_cantidad from historial_ordenes_parche where (estatus_orden = 'generada' OR estatus_orden = 'realizada' ) and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         int ultimafila = 0;
 
@@ -3035,7 +3035,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String cantidad = rs.getString("cantidad");
                 String prenda = "Parche";
 
-                String parche = rs.getString("parche");
+                String parche = rs.getString("parche_puntadas");
                 String puntadas = rs.getString("puntadas");
                 String aplicacion = rs.getString("aplicacion");
 
@@ -3531,7 +3531,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         int ultimafila = 0;
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select fecha,cliente,frente_cantidad,articulo,frente,frente_puntadas,numero_venta from historial_ordenes_corbata where (estatus_orden = 'generada' or estatus_orden = 'realizada') and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select fecha,cliente,frente_cantidad,articulo,frente_puntadas,frente_puntadas,numero_venta from historial_ordenes_corbata where (estatus_orden = 'generada' or estatus_orden = 'realizada') and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
         ultimafila = tabla.getRowCount();
 
         try {
@@ -5288,7 +5288,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         Double importedelparche = 0.00;
         Double sumatotaldelosbordadosparche = 0.00;
 
-        String sqlparches = "Select codigo,fecha,cliente,cantidad,parche,puntadas from historial_ordenes_parche where (estatus_orden = 'realizada parcialmente' or estatus_orden = 'realizada totalmente') and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlparches = "Select codigo,fecha,cliente,cantidad,parche_puntadas,puntadas from historial_ordenes_parche where (estatus_orden = 'realizada parcialmente' or estatus_orden = 'realizada totalmente') and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();

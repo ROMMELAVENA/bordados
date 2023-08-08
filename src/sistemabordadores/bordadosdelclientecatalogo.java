@@ -2055,7 +2055,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         modelo.addColumn("Agregar");//1
         modelo.addColumn("boton2");//2
         modelo.addColumn("Ver");//3
-        modelo.addColumn("corbata_frente");//4
+        modelo.addColumn("corbata_frente_puntadas");//4
         modelo.addColumn("");//5
         modelo.addColumn("");//6
         modelo.addColumn("");//7

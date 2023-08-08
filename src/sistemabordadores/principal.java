@@ -1513,7 +1513,7 @@ public class principal extends javax.swing.JFrame {
         Double importedelparche = 0.00;
         Double sumatotaldelosbordadosparche = 0.00;
 
-        String sqlparches = "Select codigo,fecha,cliente,cantidad,parche,puntadas from historial_ordenes_parche where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlparches = "Select codigo,fecha,cliente,cantidad,parche_puntadas,puntadas from historial_ordenes_parche where estatus_orden = 'generada' and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();

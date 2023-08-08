@@ -237,7 +237,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
    
-     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,parche_nombre,cantidad,parche_cantidad,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,numero_orden FROM historial_ordenes_parche WHERE numero = '"+numeroordendebordadolocalorecibida+"' ";
+     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche_puntadas,parche_nombre,cantidad,parche_cantidad,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,numero_orden FROM historial_ordenes_parche WHERE numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -269,7 +269,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                parche = rs.getString("parche");
+                parche = rs.getString("parche_puntadas");
                 lbparchepuntadas.setText(parche);
                 parchenombre = rs.getString("parche_nombre");
                
@@ -644,7 +644,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                  
                 
-                String parche = rs.getString("parche");
+                String parche = rs.getString("parche_puntadas");
                 String cantidadubicacion1 = rs.getString("parche_cantidad");
                
                 
@@ -1006,7 +1006,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         sucursal = lbsucursal.getText();
 
-        String sql = "Select numero,numero_orden_o_pedido_solicitada,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche,cantidad,parche,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,identificador_prenda,parche_cantidad,parche_fecha FROM historial_ordenes_parche_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and tienda = '" + sucursal + "'";
+        String sql = "Select numero,numero_orden_o_pedido_solicitada,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche_puntadas,cantidad,parche_puntadas,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,identificador_prenda,parche_cantidad,parche_fecha FROM historial_ordenes_parche_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and tienda = '" + sucursal + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -1029,7 +1029,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                parche = rs.getString("parche");
+                parche = rs.getString("parche_puntadas");
                 lbparchepuntadas.setText(parche);
                 
                 nombre = rs.getString("articulo");
@@ -2656,7 +2656,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             ResultSet rs = prst.executeQuery();
             if (rs.next()) {
 
-                puntadaobject = rs.getString("parche");
+                puntadaobject = rs.getString("parche_puntadas");
                 
 
             }
@@ -2714,7 +2714,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             ResultSet rs = prst.executeQuery();
             if (rs.next()) {
 
-                puntadaobject = rs.getString("parche");
+                puntadaobject = rs.getString("parche_puntadas");
                 
 
             }

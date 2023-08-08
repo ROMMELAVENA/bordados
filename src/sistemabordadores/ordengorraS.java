@@ -2323,7 +2323,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select lado_izquierdo,lado_izquierdo_cantidad,lado_derecho_puntadas,lado_derecho_cantidad,frente,frente_cantidad,atras_puntadas,atras_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select lado_izquierdo,lado_izquierdo_cantidad,lado_derecho_puntadas,lado_derecho_cantidad,frente_puntadas,frente_cantidad,atras_puntadas,atras_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();

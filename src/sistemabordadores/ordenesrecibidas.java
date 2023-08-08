@@ -470,7 +470,7 @@ public class ordenesrecibidas extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Camisa \\ Chamarra \\ Camisola ");
 
-        btnfrente.setText("frente");
+        btnfrente.setText("frente_puntadas");
         btnfrente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnfrenteActionPerformed(evt);

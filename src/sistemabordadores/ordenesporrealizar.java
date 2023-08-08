@@ -1560,7 +1560,7 @@ sorter.sort();
             }
         });
 
-        btnfrente.setText("frente");
+        btnfrente.setText("frente_puntadas");
         btnfrente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnfrenteActionPerformed(evt);

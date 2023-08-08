@@ -279,7 +279,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 }
 
-                lbfrentepuntadas.setText(rs.getString("frente"));
+                lbfrentepuntadas.setText(rs.getString("frente_puntadas"));
                 
                 
                 frentenombre= rs.getString("frente_nombre");
@@ -1119,7 +1119,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 }
 
-                lbfrentepuntadas.setText(rs.getString("frente"));
+                lbfrentepuntadas.setText(rs.getString("frente_puntadas"));
                 
                 
                 frentenombre= rs.getString("frente_nombre");
@@ -1746,7 +1746,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                  
                 
-                String corbata = rs.getString("frente");
+                String corbata = rs.getString("frente_puntadas");
                 String cantidadubicacion1 = rs.getString("frente_cantidad");
                
                 
@@ -2084,7 +2084,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Frente");
+        jLabel7.setText("frente_puntadas");
         jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnfrenteponchado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

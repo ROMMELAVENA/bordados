@@ -991,7 +991,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                                
                 
-                String frente =  rs.getString("frente");
+                String frente =  rs.getString("frente_puntadas");
                 if(frente ==null||frente.equals(""))
                 {
                     btnfrentetermine.setVisible(false);
@@ -2339,7 +2339,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 String ladoderecho = rs.getString("lado_derecho_puntadas");
                 
                 String cantidadfrente = rs.getString("frente_cantidad");
-                String frente = rs.getString("frente");
+                String frente = rs.getString("frente_puntadas");
                 
                 String cantidadatras = rs.getString("atras_cantidad");
                 String atras = rs.getString("atras");
@@ -3308,7 +3308,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbfrentenombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbfrentenombre1.setText("Frente");
+        lbfrentenombre1.setText("frente_puntadas");
         lbfrentenombre1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnatrascancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N

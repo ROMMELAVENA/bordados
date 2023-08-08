@@ -3723,9 +3723,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                 String cantidadespalda = rs.getString("espalda_cantidad");
                 String espalda = rs.getString("espalda_puntadas");
                 String cantidadotraubicacion = rs.getString("otra_ubicacion_cantidad");
-                String otraubicacion = rs.getString("otra_ubicacion");
+                String otraubicacion = rs.getString("otra_ubicacion_puntadas");
                 String cantidadotraubicacion2 = rs.getString("otra_ubicacion2_cantidad");
-                String otraubicacion2 = rs.getString("otra_ubicacion2");
+                String otraubicacion2 = rs.getString("otra_ubicacion2_puntadas");
 
                 
                 if(pechoizquierdo==null || pechoizquierdo.equals("")||pechoizquierdo.equals(" ")||pechoizquierdo.equals("ninguno") )

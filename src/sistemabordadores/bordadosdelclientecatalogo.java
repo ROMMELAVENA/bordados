@@ -1849,8 +1849,8 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         modelo.addColumn("manga_derecha_puntadas");//6
         modelo.addColumn("manga_izquierda_puntadas");//7
         modelo.addColumn("espalda_puntadas");//8
-        modelo.addColumn("otra_ubicacion");//9
-        modelo.addColumn("otra_ubicacion2");//10
+        modelo.addColumn("otra_ubicacion_puntadas");//9
+        modelo.addColumn("otra_ubicacion2_puntadas");//10
         modelo.addColumn("numero_consecutivo");//11
         
         
@@ -2849,7 +2849,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         modelo.addColumn("manga_derecha_puntadas");//7
         modelo.addColumn("manga_izquierda_puntadas");//8
         modelo.addColumn("espalda_puntadas");//9
-        modelo.addColumn("otra_ubicacion");//10
+        modelo.addColumn("otra_ubicacion_puntadas");//10
         modelo.addColumn("lado_izquierdo_frente_nombre");//11
         modelo.addColumn("lado_izquierdo_atras_nombre");//12
         modelo.addColumn("lado_derecho_atras_nombre");//13
@@ -3173,7 +3173,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         modelo.addColumn("manga_derecha_puntadas");//7
         modelo.addColumn("manga_izquierda_puntadas");//8
         modelo.addColumn("espalda_puntadas");//9
-        modelo.addColumn("otra_ubicacion");//10
+        modelo.addColumn("otra_ubicacion_puntadas");//10
         modelo.addColumn("lado_izquierdo_frente_nombre");//11
         modelo.addColumn("lado_izquierdo_atras_nombre");//12
         modelo.addColumn("lado_derecho_atras_nombre");//13

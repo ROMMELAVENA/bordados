@@ -592,7 +592,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             /// otra ubicacion
             double costopuntadaotraubicacion = 0.0;
-            Object otraubicacionobject = rs.getString("otra_ubicacion");
+            Object otraubicacionobject = rs.getString("otra_ubicacion_puntadas");
 
             String sql6 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + otraubicacionobject + "'";
 
@@ -618,7 +618,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             /// otra ubicacion2
             double costopuntadaotraubicacion2 = 0.0;
-            Object otraubicacion2object = datos[23] = rs.getString("otra_ubicacion2");
+            Object otraubicacion2object = datos[23] = rs.getString("otra_ubicacion2_puntadas");
 
             String sql7 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + otraubicacion2object + "'";
 
@@ -1423,7 +1423,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             /// otra ubicacion
             double costopuntadaotraubicacion = 0.0;
-            Object otraubicacionobject = rs.getString("otra_ubicacion");
+            Object otraubicacionobject = rs.getString("otra_ubicacion_puntadas");
 
             String sql6 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + otraubicacionobject + "'";
 
@@ -1450,7 +1450,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             /// otra ubicacion2
             double costopuntadaotraubicacion2 = 0.0;
-            Object otraubicacion2object = datos[23] = rs.getString("otra_ubicacion2");
+            Object otraubicacion2object = datos[23] = rs.getString("otra_ubicacion2_puntadas");
 
             String sql7 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + otraubicacion2object + "'";
 
@@ -2305,7 +2305,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String cliente = rs.getString("cliente");
                 String cantidad = rs.getString("cantidad");
                 String prenda = rs.getString("prenda");
-                String frente = rs.getString("frente");
+                String frente = rs.getString("frente_puntadas");
                 String puntadasfrente = rs.getString("frente_puntadas");
                 cantidadfrente = rs.getString("frente_cantidad");
                 String ladoizquierdo = rs.getString("lado_izquierdo_puntadas");
@@ -2516,7 +2516,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String cliente = rs.getString("cliente");
                 String cantidad = rs.getString("cantidad");
                 String prenda = rs.getString("prenda");
-                String frente = rs.getString("frente");
+                String frente = rs.getString("frente_puntadas");
                 String puntadasfrente = rs.getString("frente_puntadas");
                 String ladoizquierdo = rs.getString("lado_izquierdo_puntadas");
                 String puntadasladoizquierdo = rs.getString("lado_izquierdo_puntadas");
@@ -2713,8 +2713,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select fecha,cliente,cantidad,prenda,lado_izquierdo_frente_nombre_cantidad,lado_izquierdo_frente_nombre,lado_izquierdo_frente_puntadas,"
-                + "lado_derecho_frente_cantidad,lado_derecho_frente_nombre_nombre,lado_derecho_frente_nombre,"
+        String sql = "Select fecha,cliente,cantidad,prenda,lado_izquierdo_frente_nombre,lado_izquierdo_frente_nombre,lado_izquierdo_frente_puntadas,"
+                + "lado_derecho_frente_cantidad,lado_derecho_frente_nombre,lado_derecho_frente_nombre,"
                 + "lado_izquierdo_atras_cantidad,lado_izquierdo_atras_nombre,lado_izquierdo_atras_puntadas,"
                 + "lado_derecho_atras_cantidad,lado_derecho_atras_nombre,lado_derecho_atras_puntadas,numero_venta from historial_ordenes_pantalon where (estatus_orden = 'generada' OR estatus_orden = 'realizada' ) and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
 
@@ -2736,20 +2736,20 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
   
     
                 
-                String ladoizquierdofrente = rs.getString("lado_izquierdo_frente");
+                String ladoizquierdofrente = rs.getString("lado_izquierdo_frente_puntadas");
                 String puntadasladoizquierdofrente = rs.getString("lado_izquierdo_frente_puntadas");
                 cantidadladoizquierdofrente= rs.getString("lado_izquierdo_frente_cantidad");
                 
                 
-                String ladoizquierdoatras = rs.getString("lado_izquierdo_atras");
+                String ladoizquierdoatras = rs.getString("lado_izquierdo_atras_puntadas");
                 String puntadasladoizquierdoatras = rs.getString("lado_izquierdo_atras_puntadas");
                 cantidadladoizquierdoatras= rs.getString("lado_izquierdo_atras_cantidad");
 
-                String ladoderechofrente = rs.getString("lado_derecho_frente");
+                String ladoderechofrente = rs.getString("lado_derecho_frente_puntadas");
                 String puntadasladoderechofrente = rs.getString("lado_derecho_frente_nombre");
                 cantidadladoderechofrente= rs.getString("lado_derecho_frente_cantidad");
                 
-                String ladoderechoatras = rs.getString("lado_derecho_atras");
+                String ladoderechoatras = rs.getString("lado_derecho_atras_puntadas");
                 String puntadasladoderechoatras = rs.getString("lado_derecho_atras_puntadas");
                 cantidadladoderechoatras= rs.getString("lado_derecho_atras_cantidad");
                 
@@ -2928,7 +2928,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select fecha,cliente,cantidad,prenda,lado_izquierdo_frente_nombre,lado_izquierdo_frente_puntadas,lado_derecho_frente_nombre_nombre,lado_derecho_frente_nombre,lado_izquierdo_atras_nombre,lado_izquierdo_atras_puntadas,lado_derecho_atras_nombre,lado_derecho_atras_puntadas from historial_ordenes_pantalon_recibidas where (estatus_orden = 'generada' OR estatus_orden = 'realizada' )  and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select fecha,cliente,cantidad,prenda,lado_izquierdo_frente_nombre,lado_izquierdo_frente_puntadas,lado_derecho_frente_nombre,lado_derecho_frente_nombre,lado_izquierdo_atras_nombre,lado_izquierdo_atras_puntadas,lado_derecho_atras_nombre,lado_derecho_atras_puntadas from historial_ordenes_pantalon_recibidas where (estatus_orden = 'generada' OR estatus_orden = 'realizada' )  and fecha = '" + fechabusqueda + "'  order by codigo ";
 
         int ultimafila = 0;
 
@@ -2945,14 +2945,14 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String cantidad = rs.getString("cantidad");
                 String prenda = rs.getString("prenda");
 
-                String ladoizquierdofrente = rs.getString("lado_izquierdo_frente");
+                String ladoizquierdofrente = rs.getString("lado_izquierdo_frente_puntadas");
                 String puntadasladoizquierdofrente = rs.getString("lado_izquierdo_frente_puntadas");
-                String ladoizquierdoatras = rs.getString("lado_izquierdo_atras");
+                String ladoizquierdoatras = rs.getString("lado_izquierdo_atras_puntadas");
                 String puntadasladoizquierdoatras = rs.getString("lado_izquierdo_atras_puntadas");
 
-                String ladoderechofrente = rs.getString("lado_derecho_frente");
+                String ladoderechofrente = rs.getString("lado_derecho_frente_puntadas");
                 String puntadasladoderechofrente = rs.getString("lado_derecho_frente_nombre");
-                String ladoderechoatras = rs.getString("lado_derecho_atras");
+                String ladoderechoatras = rs.getString("lado_derecho_atras_puntadas");
                 String puntadasladoderechoatras = rs.getString("lado_derecho_atras_puntadas");
 
                 modelo.addRow(new Object[]{});
@@ -3545,7 +3545,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String cantidad = rs.getString("frente_cantidad");
                 String prenda = rs.getString("articulo");
 
-                String frente = rs.getString("frente");
+                String frente = rs.getString("frente_puntadas");
                 String puntadasfrente = rs.getString("frente_puntadas");
                 String numeroventa = rs.getString("numero_venta");
 
@@ -4096,9 +4096,9 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 cantidadmangaderecha = rs.getString("manga_derecha_cantidad");
                 espalda = rs.getString("espalda_puntadas");
                 cantidadespalda = rs.getString("espalda_cantidad");
-                otraubicacion = rs.getString("otra_ubicacion");
+                otraubicacion = rs.getString("otra_ubicacion_puntadas");
                 cantidadotraubicacion = rs.getString("otra_ubicacion_cantidad");
-                otraubicacion2 = rs.getString("otra_ubicacion2");
+                otraubicacion2 = rs.getString("otra_ubicacion2_puntadas");
                 cantidadotraubicacion2 = rs.getString("otra_ubicacion2_cantidad");
 
                 aplicacionpechoizquierdo = rs.getString("aplicacion_pecho_izquierdo");
@@ -4371,7 +4371,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 mangaizquierdarecibidos = rs.getString("manga_izquierda_puntadas");
                 mangaderecharecibidos = rs.getString("manga_derecha_puntadas");
                 espaldarecibidos = rs.getString("espalda_puntadas");
-                otraubicacionrecibidos = rs.getString("otra_ubicacion");
+                otraubicacionrecibidos = rs.getString("otra_ubicacion_puntadas");
                 aplicacionpechoizquierdorecibidos = rs.getString("aplicacion_pecho_izquierdo");
                 aplicacionpechoderechorecibidos = rs.getString("aplicacion_pecho_derecho");
                 aplicacionmangaizquierdarecibidos = rs.getString("aplicacion_manga_izquierda");
@@ -6677,7 +6677,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             },
             new String [] {
-                "fecha", "cliente", "cantidad", "prenda", "pecho izquierdo", "puntadas", "puntos", "pecho derecho", "puntadas", "puntos", "manga izquierda", "puntadas", "puntos", "manga derecha", "puntadas", "puntos", "espalda_puntadas", "puntadas", "puntos", "otra ubicacion", "puntadas", "puntos", "ptra ubicacion2", "puntadas", "puntos", "frente", "puntadas", "puntos", "lado izquerdo", "puntadas", "puntos", "lado derecho", "puntadas", "puntos", "atras", "puntadas", "puntos", "puntos bordados", "lado izquierdo frente", "puntadas", "puntos", "lado derecho frente", "puntadas", "puntos", "lado izquierdo atras", "puntadas", "puntos", "lado derecho atras", "puntadas", "puntos", "Parche", "Puntadas", "Puntos", "aplic pecho izq", "aplic pecho der", "aplic manga izq", "aplic manga der", "aplic frente", "aplic chicas", "Puntos aplic chicas", "aplic espalda", "puntos aplic espalda", "Suma", "venta"
+                "fecha", "cliente", "cantidad", "prenda", "pecho izquierdo", "puntadas", "puntos", "pecho derecho", "puntadas", "puntos", "manga izquierda", "puntadas", "puntos", "manga derecha", "puntadas", "puntos", "espalda_puntadas", "puntadas", "puntos", "otra ubicacion", "puntadas", "puntos", "ptra ubicacion2", "puntadas", "puntos", "frente_puntadas", "puntadas", "puntos", "lado izquerdo", "puntadas", "puntos", "lado derecho", "puntadas", "puntos", "atras", "puntadas", "puntos", "puntos bordados", "lado izquierdo frente", "puntadas", "puntos", "lado derecho frente", "puntadas", "puntos", "lado izquierdo atras", "puntadas", "puntos", "lado derecho atras", "puntadas", "puntos", "Parche", "Puntadas", "Puntos", "aplic pecho izq", "aplic pecho der", "aplic manga izq", "aplic manga der", "aplic frente", "aplic chicas", "Puntos aplic chicas", "aplic espalda", "puntos aplic espalda", "Suma", "venta"
             }
         ) {
             boolean[] canEdit = new boolean [] {

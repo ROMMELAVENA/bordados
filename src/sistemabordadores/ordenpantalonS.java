@@ -118,7 +118,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
         ventanaordenpantalonanteriores = true;
         
         btnterminetodo.setEnabled(false);
-        btndatos.setEnabled(false);
+      //  btndatos.setEnabled(false);
         
         btnladoderechofrentecancelar.setEnabled(false);
         btnladoderechoatrascancelar.setEnabled(false);        
@@ -292,7 +292,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente_nombre,lado_derecho_frente_nombre_nombre,lado_izquierdo_atras_nombre,lado_derecho_atras_nombre,lado_izquierdo_frente_nombre_cantidad,lado_derecho_frente_cantidad,lado_izquierdo_atras_nombre_cantidad,lado_derecho_atras_cantidad,lado_izquierdo_frente_puntadas,lado_derecho_frente_nombre,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,numero_orden from historial_ordenes_pantalon where numero = '" + numeroordendebordadolocalorecibida + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,estatus_orden,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente_nombre,lado_derecho_frente_nombre,lado_izquierdo_atras_nombre,lado_derecho_atras_nombre,lado_izquierdo_frente_cantidad,lado_derecho_frente_cantidad,lado_izquierdo_atras_cantidad,lado_derecho_atras_cantidad,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,numero_orden from historial_ordenes_pantalon where numero = '" + numeroordendebordadolocalorecibida + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -342,10 +342,10 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 
                 
-                ladoizquierdofrentenombre = rs.getString("lado_izquierdo_frente");
-                ladoderechofrentenombre = rs.getString("lado_derecho_frente");
-                ladoizquierdoatrasnombre = rs.getString("lado_izquierdo_atras");
-                ladoderechoatrasnombre = rs.getString("lado_derecho_atras");
+                ladoizquierdofrentenombre = rs.getString("lado_izquierdo_frente_puntadas");
+                ladoderechofrentenombre = rs.getString("lado_derecho_frente_puntadas");
+                ladoizquierdoatrasnombre = rs.getString("lado_izquierdo_atras_puntadas");
+                ladoderechoatrasnombre = rs.getString("lado_derecho_atras_puntadas");
                 identificador = rs.getString("identificador_prenda");
                 lbidentificador.setText(identificador);
                 lugar = rs.getString("lugar");
@@ -1509,7 +1509,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String activadoladoderechofrente = "";
         String activadoladoderechoatras = "";
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_orden_o_pedido_solicitada,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente_nombre,lado_derecho_frente_nombre_nombre,lado_izquierdo_atras_nombre,lado_derecho_atras_nombre,lado_izquierdo_frente_nombre_cantidad,lado_derecho_frente_cantidad,lado_izquierdo_atras_nombre_cantidad,lado_derecho_atras_cantidad,lado_izquierdo_frente_puntadas,lado_derecho_frente_nombre,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,estatus_orden from historial_ordenes_pantalon_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_orden_o_pedido_solicitada,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente_nombre,lado_derecho_frente_nombre,lado_izquierdo_atras_nombre,lado_derecho_atras_nombre,lado_izquierdo_frente_nombre,lado_derecho_frente_cantidad,lado_izquierdo_atras_nombre,lado_derecho_atras_cantidad,lado_izquierdo_frente_puntadas,lado_derecho_frente_nombre,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,estatus_orden from historial_ordenes_pantalon_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -1526,13 +1526,13 @@ JOptionPane.showMessageDialog(null, mensaje);
                 lbnumerodelaotrasucursal.setText(numerosucursal);
                 sucursal=rs.getString("tienda");
                 
-                ladoizquierdofrentenombre = rs.getString("lado_izquierdo_frente");
-                ladoderechofrentenombre = rs.getString("lado_derecho_frente");
-                ladoizquierdoatrasnombre = rs.getString("lado_izquierdo_atras");
-                ladoderechoatrasnombre = rs.getString("lado_derecho_atras");
+                ladoizquierdofrentenombre = rs.getString("lado_izquierdo_frente_puntadas");
+                ladoderechofrentenombre = rs.getString("lado_derecho_frente_puntadas");
+                ladoizquierdoatrasnombre = rs.getString("lado_izquierdo_atras_puntadas");
+                ladoderechoatrasnombre = rs.getString("lado_derecho_atras_puntadas");
                         
-          //      lbladoizquierdofrente.setText(rs.getString("lado_izquierdo_frente"));
-                String ladoizquierdofrente = rs.getString("lado_izquierdo_frente");
+          //      lbladoizquierdofrente.setText(rs.getString("lado_izquierdo_frente_puntadas"));
+                String ladoizquierdofrente = rs.getString("lado_izquierdo_frente_puntadas");
              
                 
                 
@@ -1578,7 +1578,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 /// LADO DERECHO FRENTE
            
-                String ladoderechofrente = rs.getString("lado_derecho_frente");
+                String ladoderechofrente = rs.getString("lado_derecho_frente_puntadas");
 
                 if (ladoderechofrente == null || ladoderechofrente.equals("")) 
                 {
@@ -1606,7 +1606,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 // LADO IZQUIERDO ATRAS
                 
-                String ladoizquierdoatras = rs.getString("lado_izquierdo_atras");
+                String ladoizquierdoatras = rs.getString("lado_izquierdo_atras_puntadas");
              
                 if (ladoizquierdoatras == null || ladoizquierdoatras.equals("")) 
                 {
@@ -1626,8 +1626,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                 }
 
-           //     lbladoderechoatras.setText(rs.getString("lado_derecho_atras"));
-                String ladoderechoatras = rs.getString("lado_derecho_atras");
+           //     lbladoderechoatras.setText(rs.getString("lado_derecho_atras_puntadas"));
+                String ladoderechoatras = rs.getString("lado_derecho_atras_puntadas");
              
                 if (ladoderechoatras == null || ladoderechoatras.equals("")) 
                 
@@ -2666,8 +2666,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select cantidad,lado_izquierdo_frente_nombre_cantidad,lado_izquierdo_frente_nombre,"
-                  + "lado_derecho_frente_cantidad,lado_derecho_frente_nombre_nombre,"
+         String sql = "Select cantidad,lado_izquierdo_frente_nombre,lado_izquierdo_frente_nombre,"
+                  + "lado_derecho_frente_cantidad,lado_derecho_frente_nombre,"
                   + "lado_izquierdo_atras_cantidad,lado_izquierdo_atras_nombre,"
                   + "lado_derecho_atras_cantidad,lado_derecho_atras_nombre from historial_ordenes_pantalon where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
@@ -2679,16 +2679,16 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 cantidad = rs.getString("cantidad");   
                 String cantidadladoizquierdofrente = rs.getString("lado_izquierdo_frente_cantidad");
-                String ladoizquierdofrente = rs.getString("lado_izquierdo_frente");
+                String ladoizquierdofrente = rs.getString("lado_izquierdo_frente_puntadas");
                 
                 String cantidadladoderechofrente = rs.getString("lado_derecho_frente_cantidad");
-                String ladoderechofrente = rs.getString("lado_derecho_frente");
+                String ladoderechofrente = rs.getString("lado_derecho_frente_puntadas");
                 
                 String cantidadladoizquierdoatras = rs.getString("lado_izquierdo_atras_cantidad");
-                String ladoizquierdoatras = rs.getString("lado_izquierdo_atras");
+                String ladoizquierdoatras = rs.getString("lado_izquierdo_atras_puntadas");
                
                 String cantidadladoderechoatras = rs.getString("lado_derecho_atras_cantidad");
-                String ladoderechoatras = rs.getString("lado_derecho_atras");
+                String ladoderechoatras = rs.getString("lado_derecho_atras_puntadas");
 
 
                 
@@ -3421,9 +3421,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(btnladoderechoatrasponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(btndatos)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(btnreplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(btnladoizquierdoatrasponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(btnladoderechofrenteponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -3471,7 +3469,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                                         .addComponent(btnfotomontajesinpuntadas))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btndatos))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(212, 212, 212)
@@ -3582,7 +3583,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3639,9 +3642,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbcodigoladoderechoatras, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbcolormangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnladoderechoatrasponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btndatos))))
+                            .addComponent(btnladoderechoatrasponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()

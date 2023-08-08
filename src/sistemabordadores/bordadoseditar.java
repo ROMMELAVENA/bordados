@@ -1552,12 +1552,12 @@ public class bordadoseditar extends javax.swing.JFrame {
                         espaldaaro = rs.getString("espalda_aro");
                         
                       
-                        otraubicacion = rs.getString("otra_ubicacion");
+                        otraubicacion = rs.getString("otra_ubicacion_puntadas");
                         otraubicacionnombre = rs.getString("otra_ubicacion_nombre");
                         otraubicacionaplicacion = rs.getString("otra_ubicacion_aplicacion");
                         otraubicacionaplicacioncolor = rs.getString("otra_ubicacion_aplicacion_color");
                     
-                        otraubicacion2 = rs.getString("otra_ubicacion2");
+                        otraubicacion2 = rs.getString("otra_ubicacion2_puntadas");
                         otraubicacion2nombre = rs.getString("otra_ubicacion2_nombre");
                         otraubicacion2aplicacion = rs.getString("otra_ubicacion2_aplicacion");
                         otraubicacion2aplicacioncolor = rs.getString("otra_ubicacion2_aplicacion_color");
@@ -1701,12 +1701,12 @@ public class bordadoseditar extends javax.swing.JFrame {
                         espaldaaplicacion = rs.getString("espalda_aplicacion");
                         espaldaaplicacioncolor = rs.getString("espalda_aplicacion_color");
 
-                        otraubicacion = rs.getString("otra_ubicacion");
+                        otraubicacion = rs.getString("otra_ubicacion_puntadas");
                         otraubicacionnombre = rs.getString("otra_ubicacion_nombre");
                         otraubicacionaplicacion = rs.getString("otra_ubicacion_aplicacion");
                         otraubicacionaplicacioncolor = rs.getString("otra_ubicacion_aplicacion_color");
                     
-                        otraubicacion2 = rs.getString("otra_ubicacion2");
+                        otraubicacion2 = rs.getString("otra_ubicacion2_puntadas");
                         otraubicacion2nombre = rs.getString("otra_ubicacion2_nombre");
                         otraubicacion2aplicacion = rs.getString("otra_ubicacion2_aplicacion");
                         otraubicacion2aplicacioncolor = rs.getString("otra_ubicacion2_aplicacion_color");
@@ -1736,7 +1736,7 @@ public class bordadoseditar extends javax.swing.JFrame {
             cbaplicacioncantidad2.setSelectedItem(pechoderechoaplicacion);
             cbaplicacioncolor2.setSelectedItem(pechoderechoaplicacioncolor);
 
-            lbetiqueta3.setText("otra_ubicacion");
+            lbetiqueta3.setText("otra_ubicacion_puntadas");
             cbpuntadas3.setSelectedItem(otraubicacion);
             txt3.setText(otraubicacionnombre);
             cbaplicacioncantidad3.setSelectedItem(otraubicacionaplicacion);
@@ -1749,7 +1749,7 @@ public class bordadoseditar extends javax.swing.JFrame {
             cbaplicacioncolor4.setSelectedItem(espaldaaplicacioncolor);
             
             
-            lbetiqueta5.setText("otra_ubicacion2");
+            lbetiqueta5.setText("otra_ubicacion2_puntadas");
             cbpuntadas5.setSelectedItem(otraubicacion2);
             txt5.setText(otraubicacion2nombre);
             cbaplicacioncantidad5.setSelectedItem(otraubicacion2aplicacion);
@@ -1904,13 +1904,13 @@ public class bordadoseditar extends javax.swing.JFrame {
             cbaplicacioncantidad3.setSelectedItem(centroaplicacion);
             cbaplicacioncolor3.setSelectedItem(centroaplicacioncolor);
            
-            lbetiqueta4.setText("otra_ubicacion");
+            lbetiqueta4.setText("otra_ubicacion_puntadas");
             cbpuntadas4.setSelectedItem(otraubicacion);
             txt4.setText(otraubicacionnombre);
             cbaplicacioncantidad4.setSelectedItem(otraubicacionaplicacion);
             cbaplicacioncolor4.setSelectedItem(otraubicacionaplicacioncolor);
 
-            lbetiqueta5.setText("otra_ubicacion2");
+            lbetiqueta5.setText("otra_ubicacion2_puntadas");
             cbpuntadas5.setSelectedItem(otraubicacion2);
             txt5.setText(otraubicacion2nombre);
             cbaplicacioncantidad5.setSelectedItem(otraubicacion2aplicacion);
@@ -1974,7 +1974,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                         
                         identificador = rs.getString("identificador_prenda");
                         lbidentificadoranterior.setText(identificador);
-                        frentegorra = rs.getString("frente");
+                        frentegorra = rs.getString("frente_puntadas");
                         frentegorranombre = rs.getString("frente_nombre");
                         frentegorraaplicacion = rs.getString("frente_aplicacion");
                         frentegorraaplicacioncolor = rs.getString("frente_aplicacion_color");
@@ -2472,12 +2472,12 @@ public class bordadoseditar extends javax.swing.JFrame {
                         espaldaaro = rs.getString("espalda_aro");
                         
                       
-                        otraubicacion = rs.getString("otra_ubicacion");
+                        otraubicacion = rs.getString("otra_ubicacion_puntadas");
                         otraubicacionnombre = rs.getString("otra_ubicacion_nombre");
                         otraubicacionaplicacion = rs.getString("otra_ubicacion_aplicacion");
                         otraubicacionaplicacioncolor = rs.getString("otra_ubicacion_aplicacion_color");
                     
-                        otraubicacion2 = rs.getString("otra_ubicacion2");
+                        otraubicacion2 = rs.getString("otra_ubicacion2_puntadas");
                         otraubicacion2nombre = rs.getString("otra_ubicacion2_nombre");
                         otraubicacion2aplicacion = rs.getString("otra_ubicacion2_aplicacion");
                         otraubicacion2aplicacioncolor = rs.getString("otra_ubicacion2_aplicacion_color");
@@ -3060,7 +3060,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                 articulo = rs.getString("articulo");
                 numerocotizacion = rs.getString("numero_cotizacion");
                 
-                if(articulo.contains("FRENTE"))
+                if(articulo.contains("frente_puntadas"))
                 {
                     
                     nombrearticuloactualizar = articulo;
@@ -3280,7 +3280,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                 articulo = rs.getString("articulo");
                 numerocotizacion = rs.getString("numero_cotizacion");
                 
-                if(articulo.contains("FRENTE"))
+                if(articulo.contains("frente_puntadas"))
                 {
                     
                     nombrearticuloactualizar = articulo;
@@ -10276,7 +10276,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                 if(prenda.equals("GORRA"))
                 {
                    frentenombre = rs.getString("frente_nombre"); 
-                   frente = rs.getString("frente"); 
+                   frente = rs.getString("frente_puntadas"); 
                    
                    puntadas =  frente; 
                    bordado = frentenombre;

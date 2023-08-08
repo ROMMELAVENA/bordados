@@ -3697,7 +3697,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         int tienecantidad = 0;
         botonesactivados = 0;
         
-         String sql = "Select cantidad,pecho_izquierdo_cantidad,pecho_izquierdo_puntadas,"
+         String sql = "Select pecho_izquierdo_cantidad,pecho_izquierdo_puntadas,"
                   + "pecho_derecho_cantidad,pecho_derecho_puntadas,"
                   + "manga_izquierda_cantidad,manga_izquierda_puntadas,"
                   + "manga_derecha_cantidad,manga_derecha_puntadas,"

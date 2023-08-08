@@ -1731,6 +1731,15 @@ JOptionPane.showMessageDialog(null, mensaje);
         
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     void estacompletalaorden()
     {
          int tienecantidad = 0;
@@ -1753,7 +1762,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-               if(corbata==null || corbata.equals("")||corbata.equals(" ") )
+               if(corbata==null || corbata.equals("")||corbata.equals(" ") || corbata.equals("ninguno"))
                 {
                     
                     
@@ -1761,54 +1770,41 @@ JOptionPane.showMessageDialog(null, mensaje);
                 else
                 {
                    botonesactivados = botonesactivados + 1; 
-                }
-                 
+                   
+                   
                 
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                if(cantidadubicacion1==null || cantidadubicacion1.equals("")||cantidadubicacion1.equals(" ") )
+                if(cantidadubicacion1==null || cantidadubicacion1.equals("")||cantidadubicacion1.equals(" "))
                 {
                     
-                    cantidadubicacion1= "0";
+                //       lbcantidad1.setText("0");
+                //    lbcantidad1.setForeground(Color.red.darker());
+                    
+                         cantidadubicacion1= "0";
+                    
+                }
+                
+                else
+                    
+                    
+                {
+                     tienecantidad = tienecantidad + 1; 
+                   
+                   
+               //    lbcantidad1.setText(cantidad);
+                //   lbcantidad1.setForeground(Color.GREEN.darker());
+                    
                 }
             
-                    
-                    
-                         if(cantidadubicacion1==null || cantidadubicacion1.equals("0") || cantidadubicacion1.equals(""))
-                {
-                    lbcantidad1.setText("0");
-                    lbcantidad1.setForeground(Color.red.darker());
-                    
                 }
-                else
-                {
-                   tienecantidad = tienecantidad + 1; 
-                   
-                   
-                   lbcantidad1.setText(cantidad);
-                   lbcantidad1.setForeground(Color.GREEN.darker());
-                   
-                } 
                     
-                
-                
-                
-                
-                
                 
                 
                     if(tienecantidad == botonesactivados)
            {
                
              nuevoestatusorden = "realizada totalmente";
+              lbestatus.setForeground(Color.green.darker());
                
            }
          
@@ -1817,7 +1813,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            {
                
                nuevoestatusorden = "generada";
-            
+            lbestatus.setForeground(Color.red.darker());
            }   
                 
                 

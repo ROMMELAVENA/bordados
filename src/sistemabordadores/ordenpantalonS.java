@@ -2662,11 +2662,11 @@ JOptionPane.showMessageDialog(null, mensaje);
       void estacompletalaorden()
     {
         
-        String cantidad = "0";
+       
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select cantidad,lado_izquierdo_frente_nombre,lado_izquierdo_frente_nombre,"
+         String sql = "Select lado_izquierdo_frente_nombre,lado_izquierdo_frente_nombre,"
                   + "lado_derecho_frente_cantidad,lado_derecho_frente_nombre,"
                   + "lado_izquierdo_atras_cantidad,lado_izquierdo_atras_nombre,"
                   + "lado_derecho_atras_cantidad,lado_derecho_atras_nombre from historial_ordenes_pantalon where numero = '"+numeroordendebordadolocalorecibida+"' ";
@@ -2677,7 +2677,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             while (rs.next()) {
 
-                cantidad = rs.getString("cantidad");   
+               
                 String cantidadladoizquierdofrente = rs.getString("lado_izquierdo_frente_cantidad");
                 String ladoizquierdofrente = rs.getString("lado_izquierdo_frente_puntadas");
                 

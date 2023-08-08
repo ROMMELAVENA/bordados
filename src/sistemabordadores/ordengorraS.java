@@ -2333,7 +2333,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             while (rs.next()) {
 
-                cantidad = rs.getString("cantidad");   
+              
                 String cantidadladoizquierdo = rs.getString("lado_izquierdo_cantidad");
                 String ladoizquierdo = rs.getString("lado_izquierdo_puntadas");
                 
@@ -2349,7 +2349,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                if(frente==null || frente.equals("")||frente.equals(" ") )
+                if(frente==null || frente.equals("")||frente.equals(" ")  || frente.equals("ninguno") )
                 {
                     
                     
@@ -2365,7 +2365,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                if(atras==null || atras.equals("")||atras.equals(" ") )
+                if(atras==null || atras.equals("")||atras.equals(" ") ||atras.equals("ninguno"))
                 {
                     
                     
@@ -2379,7 +2379,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                if(ladoizquierdo==null || ladoizquierdo.equals("")||ladoizquierdo.equals(" ") )
+                if(ladoizquierdo==null || ladoizquierdo.equals("")||ladoizquierdo.equals(" ")  || ladoizquierdo.equals("ninguno"))
                 {
                     
                     
@@ -2394,7 +2394,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                if(ladoderecho==null || ladoderecho.equals("")||ladoderecho.equals(" ") )
+                if(ladoderecho==null || ladoderecho.equals("")||ladoderecho.equals(" ")  || ladoderecho.equals("ninguno") )
                 {
                     
                     

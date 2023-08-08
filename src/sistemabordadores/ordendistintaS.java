@@ -3524,11 +3524,11 @@ JOptionPane.showMessageDialog(null, mensaje);
     void estacompletalaorden()
     {
         
-        String cantidad = "0";
+       
         int tienecantidad = 0;
         botonesactivados = 0;
         
-         String sql = "Select cantidad,distinta1_cantidad,distinta1,distinta2_cantidad,distinta2,"
+         String sql = "Select distinta1_cantidad,distinta1,distinta2_cantidad,distinta2,"
                   + "distinta3_cantidad,distinta3,distinta4_cantidad,distinta4,distinta4_cantidad,distinta4,"
                   + "distinta5_cantidad,distinta5,distinta6_cantidad,distinta6,distinta7_cantidad,distinta7 from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
@@ -3538,7 +3538,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             while (rs.next()) {
 
-                cantidad = rs.getString("cantidad");   
+              
                 String distinta1cantidad = rs.getString("distinta1_cantidad");
                 String distinta1 = rs.getString("distinta1");
                 String distinta2cantidad = rs.getString("distinta2_cantidad");

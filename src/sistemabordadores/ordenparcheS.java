@@ -659,44 +659,29 @@ JOptionPane.showMessageDialog(null, mensaje);
                 else
                 {
                    botonesactivados = botonesactivados + 1; 
-                }
-                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                if(cantidadubicacion1==null || cantidadubicacion1.equals("")||cantidadubicacion1.equals(" ") )
+                   
+                   
+                   
+                     if(cantidadubicacion1==null || cantidadubicacion1.equals("")||cantidadubicacion1.equals(" ") )
                 {
                     
                     cantidadubicacion1= "0";
                 }
             
-                    
-                    
-                         if(cantidadubicacion1==null || cantidadubicacion1.equals("0") || cantidadubicacion1.equals(""))
+                    else
                 {
-                    lbcantidad1.setText("0");
-                    lbcantidad1.setForeground(Color.red.darker());
-                    
-                }
-                else
-                {
-                   tienecantidad = tienecantidad + 1; 
-                   
-                   
-                   lbcantidad1.setText(cantidad);
-                   lbcantidad1.setForeground(Color.GREEN.darker());
-                   
-                } 
                     
                 
+                    
+                
+                   tienecantidad = tienecantidad + 1; 
+                   
+              
+                                   
+                }
+                
+                }
+                 
                 
                 
                 
@@ -707,6 +692,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            {
                
              nuevoestatusorden = "realizada totalmente";
+             lbestatus.setForeground(Color.green.darker());
                
            }
          
@@ -715,6 +701,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            {
                
                nuevoestatusorden = "generada";
+               lbestatus.setForeground(Color.red.darker());
             
            }   
                 

@@ -878,7 +878,8 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                     try {
                         img = ImageIO.read(new ByteArrayInputStream(data));
-                    } catch (IOException ex) 
+                    }
+                    catch (IOException ex) 
                     {
                        
                       JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
@@ -922,7 +923,8 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             } //end while
             rs.close();
-        } catch (SQLException ex) 
+        } 
+        catch (SQLException ex) 
         {
            
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
@@ -1891,7 +1893,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String estatusentrega ="";
        
         
-        String SQL2 = "select articulo,surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacion + "'  and prenda = '"+prenda+"' ";
+        String SQL2 = "select articulo,surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"' ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -2323,7 +2325,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select lado_izquierdo,lado_izquierdo_cantidad,lado_derecho_puntadas,lado_derecho_cantidad,frente_puntadas,frente_cantidad,atras_puntadas,atras_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select lado_izquierdo_puntadas,lado_izquierdo_cantidad,lado_derecho_puntadas,lado_derecho_cantidad,frente_puntadas,frente_cantidad,atras_puntadas,atras_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -3048,17 +3050,17 @@ JOptionPane.showMessageDialog(null, mensaje);
         setTitle("Orden gorra");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -3282,7 +3284,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         jScrollPane6.setViewportView(lbobservaciones);
 
         lbatrasnombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbatrasnombre1.setText("atras_puntadas");
+        lbatrasnombre1.setText("Atras");
         lbatrasnombre1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbladoizquierdonombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -3334,7 +3336,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbprenda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbfrentenombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbfrentenombre1.setText("frente_puntadas");
+        lbfrentenombre1.setText("Frente");
         lbfrentenombre1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnatrascancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -3810,7 +3812,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(9, 9, 9)
-                        .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();

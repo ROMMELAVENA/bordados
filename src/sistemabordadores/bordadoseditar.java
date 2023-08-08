@@ -1504,12 +1504,12 @@ public class bordadoseditar extends javax.swing.JFrame {
             
 
                 sql = "SELECT identificador_prenda,pecho_izquierdo_puntadas,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
-                        + "pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
-                        + "manga_derecha,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,"
-                        + "manga_izquierda,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,"
-                        + "espalda,espalda_nombre,espalda_aplicacion,espalda_aplicacion_color,espalda_puntadas_aro,espalda_aro,"
+                        + "pecho_derecho_puntadas,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
+                        + "manga_derecha_puntadas,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,"
+                        + "manga_izquierda_puntadas,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,"
+                        + "espalda_puntadas,espalda_nombre,espalda_aplicacion,espalda_aplicacion_color,espalda_puntadas_aro,espalda_aro,"
                         + "otra_ubicacion_puntadas,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
-                        + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
+                        + "otra_ubicacion2_puntadas,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7 "
                         + " FROM bordados_puntadas where identificador_prenda = '"+identificador+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' "; 
             
@@ -1668,12 +1668,12 @@ public class bordadoseditar extends javax.swing.JFrame {
 
 
                 sql = "SELECT identificador_prenda,pecho_izquierdo_puntadas,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
-                        + "pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
-                        + "manga_derecha,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,"
-                        + "manga_izquierda,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,"
-                        + "espalda,espalda_nombre,espalda_aplicacion,espalda_aplicacion_color,"
+                        + "pecho_derecho_puntadas,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
+                        + "manga_derecha_puntadas,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,"
+                        + "manga_izquierda_puntadas,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,"
+                        + "espalda_puntadas,espalda_nombre,espalda_aplicacion,espalda_aplicacion_color,"
                         + "otra_ubicacion_puntadas,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
-                        + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
+                        + "otra_ubicacion2_puntadas,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,hilo1,hilo2,hilo3 "
                         + "FROM bordados_puntadas where identificador_prenda = '"+identificador+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
@@ -1815,10 +1815,10 @@ public class bordadoseditar extends javax.swing.JFrame {
 
 
                 sql = "SELECT identificador_prenda,pecho_izquierdo_puntadas,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
-                        + "pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
+                        + "pecho_derecho_puntadas,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
                         + "centro,centro_nombre,centro_aplicacion,centro_aplicacion_color,"
                          + "otra_ubicacion_puntadas,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
-                        + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
+                        + "otra_ubicacion2_puntadas,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,hilo1,hilo2,hilo3 "
                         + "FROM bordados_puntadas where identificador_prenda = '"+identificador+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
@@ -2424,12 +2424,12 @@ public class bordadoseditar extends javax.swing.JFrame {
             
 
                 sql = "SELECT identificador_prenda,pecho_izquierdo_puntadas,pecho_izquierdo_nombre,pecho_izquierdo_aplicacion,pecho_izquierdo_aplicacion_color,"
-                        + "pecho_derecho,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
-                        + "manga_derecha,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,"
-                        + "manga_izquierda,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,"
-                        + "espalda,espalda_nombre,espalda_aplicacion,espalda_aplicacion_color,espalda_puntadas_aro,espalda_aro,"
+                        + "pecho_derecho_puntadas,pecho_derecho_nombre,pecho_derecho_aplicacion,pecho_derecho_aplicacion_color,"
+                        + "manga_derecha_puntadas,manga_derecha_nombre,manga_derecha_aplicacion,manga_derecha_aplicacion_color,"
+                        + "manga_izquierda_puntadas,manga_izquierda_nombre,manga_izquierda_aplicacion,manga_izquierda_aplicacion_color,"
+                        + "espalda_puntadas,espalda_nombre,espalda_aplicacion,espalda_aplicacion_color,espalda_puntadas_aro,espalda_aro,"
                         + "otra_ubicacion_puntadas,otra_ubicacion_nombre,otra_ubicacion_aplicacion,otra_ubicacion_aplicacion_color,"
-                        + "otra_ubicacion2,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
+                        + "otra_ubicacion2_puntadas,otra_ubicacion2_nombre,otra_ubicacion2_aplicacion,otra_ubicacion2_aplicacion_color,"
                         + "color1,color2,color3,color4,color5,color6,color7,hilo1,hilo2,hilo3,hilo4,hilo5,hilo6,hilo7 "
                         + " FROM bordados_puntadas where identificador_prenda = '"+identificador+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' "; 
             
@@ -2907,7 +2907,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     
                     actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
-                else if(articulo.contains("espalda_puntadas"))
+                else if(articulo.contains("ESPALDA"))
                 {
                     
                     nombrearticuloactualizar = articulo;
@@ -2991,7 +2991,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     
                     actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
-                else if(articulo.contains("espalda_puntadas"))
+                else if(articulo.contains("ESPALDA"))
                 {
                     
                     nombrearticuloactualizar = articulo;
@@ -3213,7 +3213,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     
                     actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
-                else if(articulo.contains("espalda_puntadas"))
+                else if(articulo.contains("ESPALDA"))
                 {
                     
                     nombrearticuloactualizar = articulo;
@@ -5854,21 +5854,21 @@ public class bordadoseditar extends javax.swing.JFrame {
          try {
                     PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET "
                                                                + "identificador_prenda = '" + nombrebordado+ "',"
-                                                               + "pecho_izquierdo = '" + pechoizquierdo+ "',"
+                                                               + "pecho_izquierdo_puntadas= '" + pechoizquierdo+ "',"
                                                                + "pecho_izquierdo_nombre='" + pechoizquierdonombre + "',"
-                                                               + "pecho_derecho='" + pechoderecho + "',"
+                                                               + "pecho_derecho_puntadas='" + pechoderecho + "',"
                                                                + "pecho_derecho_nombre='" + pechoderechonombre + "',"
-                                                               + "manga_derecha='" + mangaderecha + "' ,"
+                                                               + "manga_derecha_puntadas='" + mangaderecha + "' ,"
                                                                + "manga_derecha_nombre='" + mangaderechanombre + "' ,"
-                                                               + "manga_izquierda='" + mangaizquierda + "' ,"
+                                                               + "manga_izquierda_puntadas='" + mangaizquierda + "' ,"
                                                                + "manga_izquierda_nombre='" + mangaizquierdanombre + "',"
-                                                               + "espalda ='" + espalda + "' ,"
+                                                               + "espalda_puntadas='" + espalda + "' ,"
                                                                + "espalda_nombre ='" + espaldanombre + "',"
                                                                + "espalda_puntadas_aro ='" +espaldapuntadasaro+ "',"   
                                                                + "espalda_aro ='"+espaldaaro+"',"           
-                                                               + "otra_ubicacion ='" + otraubicacion + "' ,"
+                                                               + "otra_ubicacion_puntadas='" + otraubicacion + "' ,"
                                                                + "otra_ubicacion_nombre ='" + otraubicacionnombre + "',"
-                                                               + "otra_ubicacion2 ='" + otraubicacion2 + "' ,"
+                                                               + "otra_ubicacion2_puntadas='" + otraubicacion2 + "' ,"
                                                                + "otra_ubicacion2_nombre ='" + otraubicacionnombre2 + "'  WHERE codigo='"+codigodelcliente+"' and tipo = '"+prenda+"' and numero_consecutivo = '"+lbconsecutivo.getText()+"'   ");
                     pst.executeUpdate();
                     pst.close();
@@ -6738,7 +6738,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         if(actualizarbordado.equals("si"))
         {
              try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pecho_izquierdo = '" + pechoizquierdochaleco + "',pecho_izquierdo_nombre='" + pechoizquierdochaleconombre + "',pecho_derecho='" + pechoderechochaleco + "',pecho_derecho_nombre='" + pechoderechochaleconombre + "',espalda ='" + espaldachaleco + "' ,espalda_nombre ='" + espaldachaleconombre + "' ,otra_ubicacion ='" + otraubicacionchaleco + "', otra_ubicacion_nombre ='" + otraubicacionchaleconombre + "', otra_ubicacion2 ='" + otraubicacion2chaleco + "',otra_ubicacion2_nombre ='" + otraubicacion2chaleconombre + "'   WHERE codigo='" + codigodelcliente + "'  and identificador_prenda = '"+nombrebordado+"'  ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pecho_izquierdo_puntadas = '" + pechoizquierdochaleco + "',pecho_izquierdo_nombre='" + pechoizquierdochaleconombre + "',pecho_derecho_puntadas='" + pechoderechochaleco + "',pecho_derecho_nombre='" + pechoderechochaleconombre + "',espalda ='" + espaldachaleco + "' ,espalda_nombre ='" + espaldachaleconombre + "' ,otra_ubicacion_puntadas ='" + otraubicacionchaleco + "', otra_ubicacion_nombre ='" + otraubicacionchaleconombre + "', otra_ubicacion2_puntadas ='" + otraubicacion2chaleco + "',otra_ubicacion2_nombre ='" + otraubicacion2chaleconombre + "'   WHERE codigo='" + codigodelcliente + "'  and identificador_prenda = '"+nombrebordado+"'  ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -6941,7 +6941,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         
             
              try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pecho_izquierdo = '" + pechoizquierdomandil + "',pecho_izquierdo_nombre='" + pechoizquierdomandilnombre + "',pecho_derecho='" + pechoderechomandil + "',pecho_derecho_nombre='" + pechoderechomandilnombre + "',centro ='" + centromandil + "' ,centro_nombre ='" + centromandilnombre + "'  WHERE codigo='" + codigodelcliente + "'");
+            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pecho_izquierdo_puntadas = '" + pechoizquierdomandil + "',pecho_izquierdo_nombre='" + pechoizquierdomandilnombre + "',pecho_derecho_puntadas='" + pechoderechomandil + "',pecho_derecho_nombre='" + pechoderechomandilnombre + "',centro ='" + centromandil + "' ,centro_nombre ='" + centromandilnombre + "'  WHERE codigo='" + codigodelcliente + "'");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -10056,7 +10056,7 @@ public class bordadoseditar extends javax.swing.JFrame {
           
             String encontrado = "no";
             
-            String sql = "SELECT distinct pecho_izquierdo_nombre,pecho_izquierdo_puntadas,pecho_derecho_nombre,pecho_derecho FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
+            String sql = "SELECT distinct pecho_izquierdo_nombre,pecho_izquierdo_puntadas,pecho_derecho_nombre,pecho_derecho_puntadas FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
                        + "and pecho_izquierdo_nombre = '"+puntadas+"' or pecho_derecho_nombre = '"+puntadas+"' ";
                       
@@ -10238,7 +10238,7 @@ public class bordadoseditar extends javax.swing.JFrame {
            }
            else
            {
-                sql = "SELECT distinct pecho_izquierdo_nombre,pecho_izquierdo_puntadas,pecho_derecho_nombre,pecho_derecho FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
+                sql = "SELECT distinct pecho_izquierdo_nombre,pecho_izquierdo_puntadas,pecho_derecho_nombre,pecho_derecho_puntadas FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
                        + "and pecho_izquierdo_nombre = '"+puntadas+"' or pecho_derecho_nombre = '"+puntadas+"' ";
                
@@ -10557,7 +10557,7 @@ public class bordadoseditar extends javax.swing.JFrame {
           
             String encontrado = "no";
             
-            String sql = "SELECT distinct manga_izquierda_nombre,manga_izquierda_puntadas,manga_derecha_nombre,manga_derecha FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
+            String sql = "SELECT distinct manga_izquierda_nombre,manga_izquierda_puntadas,manga_derecha_nombre,manga_derecha_puntadas FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
                        + "and manga_izquierda_nombre = '"+puntadas+"' or manga_derecha_nombre = '"+puntadas+"' ";
                       
@@ -10701,7 +10701,7 @@ public class bordadoseditar extends javax.swing.JFrame {
           
             String encontrado = "no";
             
-            String sql = "SELECT distinct manga_izquierda_nombre,manga_izquierda_puntadas,manga_derecha_nombre,manga_derecha FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
+            String sql = "SELECT distinct manga_izquierda_nombre,manga_izquierda_puntadas,manga_derecha_nombre,manga_derecha_puntadas FROM bordados_puntadas where codigo = '"+codigodelcliente+"' "
                        + "and (tipo = 'CAMISA' or tipo = 'PLAYERA' or tipo = 'CHAMARRA DESMONTABLE' or tipo = 'CHAMARRA ROMPEVIENTO' or tipo = 'CAMISOLA' or tipo = 'FILIPINA' or tipo = 'SACO' or tipo = 'CHALECO' or tipo = 'MANDIL')"
                        + "and manga_izquierda_nombre = '"+puntadas+"' or manga_derecha_nombre = '"+puntadas+"' ";
                       

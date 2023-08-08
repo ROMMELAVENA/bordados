@@ -3703,7 +3703,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                   + "manga_derecha_cantidad,manga_derecha_puntadas,"
                   + "espalda_cantidad,espalda_puntadas,"
                   + "otra_ubicacion_cantidad,otra_ubicacion_puntadas,"
-                  + "otra_ubicacion2_cantidad,otra_ubicacion2 from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
+                  + "otra_ubicacion2_cantidad,otra_ubicacion2_puntadas from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -3742,8 +3742,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                      if(cantidadpechoizquierdo.equals("0") )
                 {
-                    lbcantidad1.setText("0");
-                    lbcantidad1.setForeground(Color.red.darker());
+              //      lbcantidad1.setText("0");
+              //      lbcantidad1.setForeground(Color.red.darker());
                     
                 }
                 else
@@ -3751,8 +3751,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                    tienecantidad = tienecantidad + 1; 
                    
                    
-                   lbcantidad1.setText(cantidad);
-                   lbcantidad1.setForeground(Color.GREEN.darker());
+                //   lbcantidad1.setText(cantidad);
+                //   lbcantidad1.setForeground(Color.GREEN.darker());
                    
                 } 
                     
@@ -3787,8 +3787,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                    tienecantidad = tienecantidad + 1; 
                    
                      
-                    lbcantidad2.setText(cantidad);
-                     lbcantidad2.setForeground(Color.GREEN.darker());
+               //     lbcantidad2.setText(cantidad);
+                //     lbcantidad2.setForeground(Color.GREEN.darker());
                 }
                      
                      
@@ -3819,8 +3819,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                     
                     
-                      lbcantidad3.setText("0");
-                    lbcantidad3.setForeground(Color.red.darker());
+                //      lbcantidad3.setText("0");
+                //    lbcantidad3.setForeground(Color.red.darker());
                     
                 }
                 else
@@ -3828,8 +3828,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                    tienecantidad = tienecantidad + 1;
                    
                     
-                   lbcantidad3.setText(cantidad);
-                    lbcantidad3.setForeground(Color.GREEN.darker());
+                 //  lbcantidad3.setText(cantidad);
+                //    lbcantidad3.setForeground(Color.GREEN.darker());
                 }
                         
                         
@@ -3860,16 +3860,16 @@ JOptionPane.showMessageDialog(null, mensaje);
                      if(cantidadmangaderecha.equals("0") )
                 {
                     
-                    lbcantidad4.setText("0");
-                    lbcantidad4.setForeground(Color.red.darker());
+                  //  lbcantidad4.setText("0");
+                 //   lbcantidad4.setForeground(Color.red.darker());
                 }
                 else
                 {
                    tienecantidad = tienecantidad + 1;
                    
                     
-                   lbcantidad4.setText(cantidad);
-                    lbcantidad4.setForeground(Color.GREEN.darker());
+              //     lbcantidad4.setText(cantidad);
+              //      lbcantidad4.setForeground(Color.GREEN.darker());
                     
                 }
                     
@@ -3896,8 +3896,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                       if(cantidadespalda.equals("0") )
                 {
-                      lbcantidad5.setText("0");
-                    lbcantidad5.setForeground(Color.red.darker());
+             //         lbcantidad5.setText("0");
+            //        lbcantidad5.setForeground(Color.red.darker());
                     
                 }
                 else
@@ -3905,8 +3905,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                    tienecantidad = tienecantidad + 1;
                    
                    
-                   lbcantidad5.setText(cantidad);
-                    lbcantidad5.setForeground(Color.GREEN.darker());
+               //    lbcantidad5.setText(cantidad);
+               //     lbcantidad5.setForeground(Color.GREEN.darker());
                     
                     
                 }
@@ -3939,16 +3939,16 @@ JOptionPane.showMessageDialog(null, mensaje);
                 if(cantidadotraubicacion.equals("0") )
                 {
                     
-                     lbcantidad6.setText("0");
-                    lbcantidad6.setForeground(Color.red.darker());
+                //     lbcantidad6.setText("0");
+               //     lbcantidad6.setForeground(Color.red.darker());
                     
                 }
                 else
                 {
                    tienecantidad = tienecantidad + 1; 
                      
-                   lbcantidad6.setText(cantidad);
-                    lbcantidad6.setForeground(Color.GREEN.darker());
+              //     lbcantidad6.setText(cantidad);
+             //       lbcantidad6.setForeground(Color.GREEN.darker());
                    
                 }
             
@@ -3982,16 +3982,16 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     
                     
-                    lbcantidad7.setText("0");
-                    lbcantidad7.setForeground(Color.red.darker());
+              //      lbcantidad7.setText("0");
+               //     lbcantidad7.setForeground(Color.red.darker());
                 }
                 else
                 {
                    tienecantidad = tienecantidad + 1; 
                    
                     
-                   lbcantidad7.setText(cantidad);
-                    lbcantidad7.setForeground(Color.GREEN.darker());
+              //     lbcantidad7.setText(cantidad);
+              //      lbcantidad7.setForeground(Color.GREEN.darker());
                     
                 }
            
@@ -4038,6 +4038,9 @@ JOptionPane.showMessageDialog(null, mensaje);
            {
                
              nuevoestatusorden = "realizada totalmente";
+             
+           lbestatus.setForeground(Color.green.darker());
+           
                
            }
          
@@ -4046,6 +4049,8 @@ JOptionPane.showMessageDialog(null, mensaje);
            {
                
                nuevoestatusorden = "realizada parcialmente";
+               
+               lbestatus.setForeground(Color.orange.darker());
             
            }   
                
@@ -7666,6 +7671,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         
          
            lbautorizacion.setText("no");
+           
+           datos();
                 
                      }
             
@@ -7686,6 +7693,13 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         }
         }    
+        
+        
+        
+        
+        
+        
+        
         
         
     }//GEN-LAST:event_btnpechoizquierdocancelarActionPerformed
@@ -7767,6 +7781,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
            lbautorizacion.setText("no");
+           
+            datos();
                 
                      }
             
@@ -7863,6 +7879,8 @@ JOptionPane.showMessageDialog(null, mensaje);
        sumapuntos(); 
        
            lbautorizacion.setText("no");
+           
+            datos();
                 
                      }
             
@@ -7971,6 +7989,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
                lbautorizacion.setText("no");
+               
+                datos();
                 
                      }
             
@@ -8075,6 +8095,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
           lbautorizacion.setText("no");
+          
+           datos();
                 
                      }
             
@@ -8177,6 +8199,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             
         
                    lbautorizacion.setText("no");
+                   
+                    datos();
                 
                      }
             
@@ -8280,6 +8304,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             
         
            lbautorizacion.setText("no");
+           
+            datos();
                 
                      }
             
@@ -8321,6 +8347,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
                 datos();
+                
+                
+                
+                
+                
     }//GEN-LAST:event_btnpechoizquierdotermineMouseReleased
 
     private void btnpechoderechotermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpechoderechotermineMouseReleased
@@ -8339,6 +8370,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
                 datos();
+                
+                
+                
     }//GEN-LAST:event_btnpechoderechotermineMouseReleased
 
     private void btnmangaizquierdatermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmangaizquierdatermineMouseReleased
@@ -8357,6 +8391,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
                 datos();
+                
+                
+                
     }//GEN-LAST:event_btnmangaizquierdatermineMouseReleased
 
     private void btnmangaderechatetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmangaderechatetermineMouseReleased
@@ -8375,6 +8412,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
                 datos();
+                
+                
     }//GEN-LAST:event_btnmangaderechatetermineMouseReleased
 
     private void btnespaldatetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnespaldatetermineMouseReleased
@@ -8393,6 +8432,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
                 datos();
+                
+                
     }//GEN-LAST:event_btnespaldatetermineMouseReleased
 
     private void btnotraubicaciontetermineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnotraubicaciontetermineMousePressed
@@ -8415,6 +8456,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
                 datos();
+                
+                
     }//GEN-LAST:event_btnotraubicaciontetermineMouseReleased
 
     private void btnotraubicacion2tetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnotraubicacion2tetermineMouseReleased
@@ -8433,6 +8476,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
                 datos();
+                
+                
+                
     }//GEN-LAST:event_btnotraubicacion2tetermineMouseReleased
 
     private void btnpechoizquierdocancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpechoizquierdocancelarMouseReleased
@@ -8450,7 +8496,10 @@ JOptionPane.showMessageDialog(null, mensaje);
          }
         
         
-                datos();
+               
+                
+                
+                
     }//GEN-LAST:event_btnpechoizquierdocancelarMouseReleased
 
     private void btnpechoderechocancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpechoderechocancelarMouseReleased
@@ -8468,7 +8517,10 @@ JOptionPane.showMessageDialog(null, mensaje);
          }
         
         
-                datos();
+            
+                
+                
+                
     }//GEN-LAST:event_btnpechoderechocancelarMouseReleased
 
     private void btnmangaizquierdacancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmangaizquierdacancelarMouseReleased
@@ -8486,7 +8538,10 @@ JOptionPane.showMessageDialog(null, mensaje);
          }
         
         
-                datos();
+               
+                
+                
+                
     }//GEN-LAST:event_btnmangaizquierdacancelarMouseReleased
 
     private void btnmangaderechacancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmangaderechacancelarMouseReleased
@@ -8504,7 +8559,9 @@ JOptionPane.showMessageDialog(null, mensaje);
          }
         
         
-                datos();
+               
+                
+                
     }//GEN-LAST:event_btnmangaderechacancelarMouseReleased
 
     private void btnespaldacancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnespaldacancelarMouseReleased
@@ -8522,7 +8579,9 @@ JOptionPane.showMessageDialog(null, mensaje);
          }
         
         
-                datos();
+             
+                
+                
     }//GEN-LAST:event_btnespaldacancelarMouseReleased
 
     private void btnotraubicacioncancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnotraubicacioncancelarMouseReleased
@@ -8540,7 +8599,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          }
         
         
-                datos();
+               
     }//GEN-LAST:event_btnotraubicacioncancelarMouseReleased
 
     private void btnotraubicacion2cancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnotraubicacion2cancelarMouseReleased
@@ -8558,7 +8617,10 @@ JOptionPane.showMessageDialog(null, mensaje);
          }
         
         
-                datos();
+               
+                
+                
+                
     }//GEN-LAST:event_btnotraubicacion2cancelarMouseReleased
 
 

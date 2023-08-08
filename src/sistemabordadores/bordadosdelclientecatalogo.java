@@ -1922,10 +1922,10 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         modelo.addColumn("Agregar");//1
         modelo.addColumn("boton2");//2
         modelo.addColumn("Ver");//3
-        modelo.addColumn("gorra_frente");//4
-        modelo.addColumn("gorra_lado_izquierdo");//5
-        modelo.addColumn("gorra_lado_derecho");//6
-        modelo.addColumn("gorra_atras");//7
+        modelo.addColumn(" frente_puntadas,");//4
+        modelo.addColumn("lado_izquierdo_puntadas");//5
+        modelo.addColumn("lado_derecho_puntadas");//6
+        modelo.addColumn("atras_puntadas");//7
         modelo.addColumn("numero_consecutivo");//8
         
         

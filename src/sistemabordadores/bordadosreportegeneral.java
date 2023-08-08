@@ -4357,7 +4357,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         }
 
         ///////// CAMISAS RECIBIDAS
-        String sqlcamisasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo_puntadas,pecho_derecho_nombre,pecho_derecho_puntadas,manga_izquierda_nombre,manga_izquierda_puntadas,manga_derecha_nombre,manga_derecha_puntadas,espalda_nombre,espalda_puntadas,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion from historial_ordenes_camisa_recibidas where (estatus_orden = 'realizada parcialmente' or estatus_orden = 'realizada totalmente') and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlcamisasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo_puntadas,pecho_derecho_nombre,pecho_derecho_puntadas,manga_izquierda_nombre,manga_izquierda_puntadas,manga_derecha_nombre,manga_derecha_puntadas,espalda_nombre,espalda_puntadas,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion_puntadas from historial_ordenes_camisa_recibidas where (estatus_orden = 'realizada parcialmente' or estatus_orden = 'realizada totalmente') and fecha = '" + fechabusqueda + "' order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -6677,7 +6677,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             },
             new String [] {
-                "fecha", "cliente", "cantidad", "prenda", "pecho izquierdo", "puntadas", "puntos", "pecho derecho", "puntadas", "puntos", "manga izquierda", "puntadas", "puntos", "manga derecha", "puntadas", "puntos", "espalda_puntadas", "puntadas", "puntos", "otra ubicacion", "puntadas", "puntos", "ptra ubicacion2", "puntadas", "puntos", "frente_puntadas", "puntadas", "puntos", "lado izquerdo", "puntadas", "puntos", "lado derecho", "puntadas", "puntos", "atras_puntadas", "puntadas", "puntos", "puntos bordados", "lado izquierdo frente", "puntadas", "puntos", "lado derecho frente", "puntadas", "puntos", "lado izquierdo atras", "puntadas", "puntos", "lado derecho atras", "puntadas", "puntos", "Parche", "Puntadas", "Puntos", "aplic pecho izq", "aplic pecho der", "aplic manga izq", "aplic manga der", "aplic frente", "aplic chicas", "Puntos aplic chicas", "aplic espalda", "puntos aplic espalda", "Suma", "venta"
+                "fecha", "cliente", "cantidad", "prenda", "pecho izquierdo", "puntadas", "puntos", "pecho derecho", "puntadas", "puntos", "manga izquierda", "puntadas", "puntos", "manga derecha", "puntadas", "puntos", "espalda", "puntadas", "puntos", "otra ubicacion", "puntadas", "puntos", "ptra ubicacion2", "puntadas", "puntos", "frente", "puntadas", "puntos", "lado izquerdo", "puntadas", "puntos", "lado derecho", "puntadas", "puntos", "atras", "puntadas", "puntos", "puntos bordados", "lado izquierdo frente", "puntadas", "puntos", "lado derecho frente", "puntadas", "puntos", "lado izquierdo atras", "puntadas", "puntos", "lado derecho atras", "puntadas", "puntos", "Parche", "Puntadas", "Puntos", "aplic pecho izq", "aplic pecho der", "aplic manga izq", "aplic manga der", "aplic frente", "aplic chicas", "Puntos aplic chicas", "aplic espalda", "puntos aplic espalda", "Suma", "venta"
             }
         ) {
             boolean[] canEdit = new boolean [] {

@@ -136,7 +136,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         }
         
         
-         /// manga_derecha
+         /// manga_derecha_puntadas
   
         String sql3 = "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,manga_derecha_nombre\n"
                 + "FROM bordados_puntadas\n"

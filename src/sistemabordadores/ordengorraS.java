@@ -4763,6 +4763,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                        lbautorizacion.setText("no");
                        btnatrascancelar.setEnabled(false);
+                       
+                        datos();
                 
                      }
             
@@ -4819,6 +4821,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                        lbautorizacion.setText("no");
                         btnladoizquierdocancelar.setEnabled(false);
+                        
+                         datos();
                 
                      }
             
@@ -4873,7 +4877,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     
                        lbautorizacion.setText("no");
-                 //      btnfrentecancelar.setEnabled(false);
+                      btnfrentecancelar.setEnabled(false);
+                 
+                  datos();
                        
                        
                 
@@ -4930,6 +4936,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             
                lbautorizacion.setText("no");
                btnladoderechocancelar.setEnabled(false);
+               
+                datos();
                 
                      }
             
@@ -5073,7 +5081,11 @@ JOptionPane.showMessageDialog(null, mensaje);
          }
         
         
-                datos();
+               
+                
+                
+                
+                
     }//GEN-LAST:event_btnfrentecancelarMouseReleased
 
     private void btnatrascancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnatrascancelarMouseReleased
@@ -5091,7 +5103,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          }
         
         
-                datos();
+              
     }//GEN-LAST:event_btnatrascancelarMouseReleased
 
     private void btnladoizquierdocancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdocancelarMouseReleased
@@ -5109,7 +5121,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          }
         
         
-                datos();
+             
     }//GEN-LAST:event_btnladoizquierdocancelarMouseReleased
 
     private void btnladoderechocancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechocancelarMouseReleased
@@ -5127,7 +5139,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          }
         
         
-                datos();
+               
                 
                 
     }//GEN-LAST:event_btnladoderechocancelarMouseReleased

@@ -634,7 +634,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select parche,parche_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select parche_puntadas,parche_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -3776,6 +3776,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     
                 lbautorizacion.setText("no");
+                
+                
+                 datos();
                 
                      }
             

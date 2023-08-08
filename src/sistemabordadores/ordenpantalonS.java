@@ -4656,6 +4656,8 @@ public static String dia() {
                      
                      
                          lbautorizacion.setText("no");
+                         
+                          datos();
                 
                      }
             
@@ -4704,6 +4706,9 @@ public static String dia() {
                      
                          lbautorizacion.setText("no");
                 
+                          datos();
+                          
+                          
                      }
             
        else
@@ -4763,6 +4768,8 @@ public static String dia() {
                      
                      
                          lbautorizacion.setText("no");
+                         
+                          datos();
                 
                      }
             
@@ -4810,6 +4817,8 @@ public static String dia() {
                      
                      
                          lbautorizacion.setText("no");
+                         
+                          datos();
                 
                      }
             
@@ -4950,7 +4959,7 @@ public static String dia() {
          }
         
         
-                datos();
+             
     }//GEN-LAST:event_btnladoizquierdofrentecancelarMouseReleased
 
     private void btnladoderechofrentecancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechofrentecancelarMouseReleased
@@ -4968,7 +4977,7 @@ public static String dia() {
          }
         
         
-                datos();
+             
     }//GEN-LAST:event_btnladoderechofrentecancelarMouseReleased
 
     private void btnladoizquierdoatrascancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdoatrascancelarMouseReleased
@@ -4986,7 +4995,7 @@ public static String dia() {
          }
         
         
-                datos();
+               
     }//GEN-LAST:event_btnladoizquierdoatrascancelarMouseReleased
 
     private void btnladoderechoatrascancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechoatrascancelarMouseReleased
@@ -5004,7 +5013,7 @@ public static String dia() {
          }
         
         
-                datos();
+                
     }//GEN-LAST:event_btnladoderechoatrascancelarMouseReleased
 
     ResultSet rs;

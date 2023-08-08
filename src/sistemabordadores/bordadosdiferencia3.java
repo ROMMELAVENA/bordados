@@ -563,27 +563,27 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         
         
         ///pantalon
-         ///pantalon_lado_izquierdo_frente_puntadas
+         ///lado_izquierdo_frente_puntadas
         
         
-         String sql12= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,pantalon_lado_izquierdo_frente_nombre\n"
+         String sql12= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,lado_izquierdo_frente_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
-                + "pantalon_lado_izquierdo_frente_nombre LIKE '%VERDE%'\n"
-                + "OR pantalon_lado_izquierdo_frente_nombre LIKE '%DORADO%'\n"
-                + "OR pantalon_lado_izquierdo_frente_nombre LIKE '%ROJO%'\n"
-                + "OR pantalon_lado_izquierdo_frente_nombre LIKE '%AMARILLO%'\n"
-                + "OR pantalon_lado_izquierdo_frente_nombre LIKE '%ANARANJADO%'\n"
-                + "OR pantalon_lado_izquierdo_frente_nombre LIKE '%BLANCO%'\n"
-                + "OR pantalon_lado_izquierdo_frente_nombre LIKE '%NEGRO%'\n"
-                + "OR pantalon_lado_izquierdo_frente_nombre LIKE '%MARINO%'\n"
-                + "OR pantalon_lado_izquierdo_frente_nombre LIKE '%AZUL%'\n"
-                + "OR pantalon_lado_izquierdo_frente_nombre LIKE '%GRIS%'\n"
-                + "OR pantalon_lado_izquierdo_frente_nombre LIKE '%VINO%'\n"
-                + "OR pantalon_lado_izquierdo_frente_nombre LIKE '%ROSA%'\n"
-                + "OR pantalon_lado_izquierdo_frente_nombre LIKE '%MORADO%'\n"
-                + "OR pantalon_lado_izquierdo_frente_nombre LIKE '%CREMA%'\n"
-                + "OR pantalon_lado_izquierdo_frente_nombre LIKE '%KAKI%'\n"
+                + "lado_izquierdo_frente_nombre LIKE '%VERDE%'\n"
+                + "OR lado_izquierdo_frente_nombre LIKE '%DORADO%'\n"
+                + "OR lado_izquierdo_frente_nombre LIKE '%ROJO%'\n"
+                + "OR lado_izquierdo_frente_nombre LIKE '%AMARILLO%'\n"
+                + "OR lado_izquierdo_frente_nombre LIKE '%ANARANJADO%'\n"
+                + "OR lado_izquierdo_frente_nombre LIKE '%BLANCO%'\n"
+                + "OR lado_izquierdo_frente_nombre LIKE '%NEGRO%'\n"
+                + "OR lado_izquierdo_frente_nombre LIKE '%MARINO%'\n"
+                + "OR lado_izquierdo_frente_nombre LIKE '%AZUL%'\n"
+                + "OR lado_izquierdo_frente_nombre LIKE '%GRIS%'\n"
+                + "OR lado_izquierdo_frente_nombre LIKE '%VINO%'\n"
+                + "OR lado_izquierdo_frente_nombre LIKE '%ROSA%'\n"
+                + "OR lado_izquierdo_frente_nombre LIKE '%MORADO%'\n"
+                + "OR lado_izquierdo_frente_nombre LIKE '%CREMA%'\n"
+                + "OR lado_izquierdo_frente_nombre LIKE '%KAKI%'\n"
                 + "ORDER BY NOMBRE ";
             
         
@@ -595,7 +595,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
             {
                 datos[0] = rs.getString("numero_consecutivo");
                 datos[1] = rs.getString("nombre");
-                datos[2] = rs.getString("pantalon_lado_izquierdo_frente_nombre");
+                datos[2] = rs.getString("lado_izquierdo_frente_nombre");
                 datos[3] = "Pantalon lado izquierdo frente";
                 datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
@@ -610,27 +610,27 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
              System.out.println(ex);
         }
         
-         ///pantalon_lado_derecho_frente_puntadas
+         ///lado_derecho_frente_puntadas
         
         
-         String sql13= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,pantalon_lado_derecho_frente_nombre\n"
+         String sql13= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,lado_derecho_frente_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
-                + "pantalon_lado_derecho_frente_nombre LIKE '%VERDE%'\n"
-                + "OR pantalon_lado_derecho_frente_nombre LIKE '%DORADO%'\n"
-                + "OR pantalon_lado_derecho_frente_nombre LIKE '%ROJO%'\n"
-                + "OR pantalon_lado_derecho_frente_nombre LIKE '%AMARILLO%'\n"
-                + "OR pantalon_lado_derecho_frente_nombre LIKE '%ANARANJADO%'\n"
-                + "OR pantalon_lado_derecho_frente_nombre LIKE '%BLANCO%'\n"
-                + "OR pantalon_lado_derecho_frente_nombre LIKE '%NEGRO%'\n"
-                + "OR pantalon_lado_derecho_frente_nombre LIKE '%MARINO%'\n"
-                + "OR pantalon_lado_derecho_frente_nombre LIKE '%AZUL%'\n"
-                + "OR pantalon_lado_derecho_frente_nombre LIKE '%GRIS%'\n"
-                + "OR pantalon_lado_derecho_frente_nombre LIKE '%VINO%'\n"
-                + "OR pantalon_lado_derecho_frente_nombre LIKE '%ROSA%'\n"
-                + "OR pantalon_lado_derecho_frente_nombre LIKE '%MORADO%'\n"
-                + "OR pantalon_lado_derecho_frente_nombre LIKE '%CREMA%'\n"
-                + "OR pantalon_lado_derecho_frente_nombre LIKE '%KAKI%'\n"
+                + "lado_derecho_frente_nombre LIKE '%VERDE%'\n"
+                + "OR lado_derecho_frente_nombre LIKE '%DORADO%'\n"
+                + "OR lado_derecho_frente_nombre LIKE '%ROJO%'\n"
+                + "OR lado_derecho_frente_nombre LIKE '%AMARILLO%'\n"
+                + "OR lado_derecho_frente_nombre LIKE '%ANARANJADO%'\n"
+                + "OR lado_derecho_frente_nombre LIKE '%BLANCO%'\n"
+                + "OR lado_derecho_frente_nombre LIKE '%NEGRO%'\n"
+                + "OR lado_derecho_frente_nombre LIKE '%MARINO%'\n"
+                + "OR lado_derecho_frente_nombre LIKE '%AZUL%'\n"
+                + "OR lado_derecho_frente_nombre LIKE '%GRIS%'\n"
+                + "OR lado_derecho_frente_nombre LIKE '%VINO%'\n"
+                + "OR lado_derecho_frente_nombre LIKE '%ROSA%'\n"
+                + "OR lado_derecho_frente_nombre LIKE '%MORADO%'\n"
+                + "OR lado_derecho_frente_nombre LIKE '%CREMA%'\n"
+                + "OR lado_derecho_frente_nombre LIKE '%KAKI%'\n"
                 + "ORDER BY NOMBRE ";
             
         
@@ -642,7 +642,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
             {
                 datos[0] = rs.getString("numero_consecutivo");
                 datos[1] = rs.getString("nombre");
-                datos[2] = rs.getString("pantalon_lado_derecho_frente_nombre");
+                datos[2] = rs.getString("lado_derecho_frente_nombre");
                 datos[3] = "Pantalon lado derecho frente";
                 datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
@@ -658,27 +658,27 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         }
         
         
-        ///pantalon_lado_izquierdo_atras_puntadas
+        ///lado_izquierdo_atras_puntadas
         
         
-         String sql14= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,pantalon_lado_izquierdo_atras_nombre\n"
+         String sql14= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,lado_izquierdo_atras_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
-                + "pantalon_lado_izquierdo_atras_nombre LIKE '%VERDE%'\n"
-                + "OR pantalon_lado_izquierdo_atras_nombre LIKE '%DORADO%'\n"
-                + "OR pantalon_lado_izquierdo_atras_nombre LIKE '%ROJO%'\n"
-                + "OR pantalon_lado_izquierdo_atras_nombre LIKE '%AMARILLO%'\n"
-                + "OR pantalon_lado_izquierdo_atras_nombre LIKE '%ANARANJADO%'\n"
-                + "OR pantalon_lado_izquierdo_atras_nombre LIKE '%BLANCO%'\n"
-                + "OR pantalon_lado_izquierdo_atras_nombre LIKE '%NEGRO%'\n"
-                + "OR pantalon_lado_izquierdo_atras_nombre LIKE '%MARINO%'\n"
-                + "OR pantalon_lado_izquierdo_atras_nombre LIKE '%AZUL%'\n"
-                + "OR pantalon_lado_izquierdo_atras_nombre LIKE '%GRIS%'\n"
-                + "OR pantalon_lado_izquierdo_atras_nombre LIKE '%VINO%'\n"
-                + "OR pantalon_lado_izquierdo_atras_nombre LIKE '%ROSA%'\n"
-                + "OR pantalon_lado_izquierdo_atras_nombre LIKE '%MORADO%'\n"
-                + "OR pantalon_lado_izquierdo_atras_nombre LIKE '%CREMA%'\n"
-                + "OR pantalon_lado_izquierdo_atras_nombre LIKE '%KAKI%'\n"
+                + "lado_izquierdo_atras_nombre LIKE '%VERDE%'\n"
+                + "OR lado_izquierdo_atras_nombre LIKE '%DORADO%'\n"
+                + "OR lado_izquierdo_atras_nombre LIKE '%ROJO%'\n"
+                + "OR lado_izquierdo_atras_nombre LIKE '%AMARILLO%'\n"
+                + "OR lado_izquierdo_atras_nombre LIKE '%ANARANJADO%'\n"
+                + "OR lado_izquierdo_atras_nombre LIKE '%BLANCO%'\n"
+                + "OR lado_izquierdo_atras_nombre LIKE '%NEGRO%'\n"
+                + "OR lado_izquierdo_atras_nombre LIKE '%MARINO%'\n"
+                + "OR lado_izquierdo_atras_nombre LIKE '%AZUL%'\n"
+                + "OR lado_izquierdo_atras_nombre LIKE '%GRIS%'\n"
+                + "OR lado_izquierdo_atras_nombre LIKE '%VINO%'\n"
+                + "OR lado_izquierdo_atras_nombre LIKE '%ROSA%'\n"
+                + "OR lado_izquierdo_atras_nombre LIKE '%MORADO%'\n"
+                + "OR lado_izquierdo_atras_nombre LIKE '%CREMA%'\n"
+                + "OR lado_izquierdo_atras_nombre LIKE '%KAKI%'\n"
                 + "ORDER BY NOMBRE ";
             
         
@@ -690,7 +690,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
             {
                 datos[0] = rs.getString("numero_consecutivo");
                 datos[1] = rs.getString("nombre");
-                datos[2] = rs.getString("pantalon_lado_izquierdo_atras_nombre");
+                datos[2] = rs.getString("lado_izquierdo_atras_nombre");
                 datos[3] = "Pantalon lado izquierdo atras";
                 datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");
@@ -706,27 +706,27 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
         }
         
         
-         ///pantalon_lado_derecho_atras_puntadas
+         ///lado_derecho_atras_puntadas
         
         
-         String sql15= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,pantalon_lado_derecho_atras_nombre\n"
+         String sql15= "SELECT codigo,numero_consecutivo,nombre,identificador_prenda,tipo,lado_derecho_atras_nombre\n"
                 + "FROM bordados_puntadas\n"
                 + "WHERE \n"
-                + "pantalon_lado_derecho_atras_nombre LIKE '%VERDE%'\n"
-                + "OR pantalon_lado_derecho_atras_nombre LIKE '%DORADO%'\n"
-                + "OR pantalon_lado_derecho_atras_nombre LIKE '%ROJO%'\n"
-                + "OR pantalon_lado_derecho_atras_nombre LIKE '%AMARILLO%'\n"
-                + "OR pantalon_lado_derecho_atras_nombre LIKE '%ANARANJADO%'\n"
-                + "OR pantalon_lado_derecho_atras_nombre LIKE '%BLANCO%'\n"
-                + "OR pantalon_lado_derecho_atras_nombre LIKE '%NEGRO%'\n"
-                + "OR pantalon_lado_derecho_atras_nombre LIKE '%MARINO%'\n"
-                + "OR pantalon_lado_derecho_atras_nombre LIKE '%AZUL%'\n"
-                + "OR pantalon_lado_derecho_atras_nombre LIKE '%GRIS%'\n"
-                + "OR pantalon_lado_derecho_atras_nombre LIKE '%VINO%'\n"
-                + "OR pantalon_lado_derecho_atras_nombre LIKE '%ROSA%'\n"
-                + "OR pantalon_lado_derecho_atras_nombre LIKE '%MORADO%'\n"
-                + "OR pantalon_lado_derecho_atras_nombre LIKE '%CREMA%'\n"
-                + "OR pantalon_lado_derecho_atras_nombre LIKE '%KAKI%'\n"
+                + "lado_derecho_atras_nombre LIKE '%VERDE%'\n"
+                + "OR lado_derecho_atras_nombre LIKE '%DORADO%'\n"
+                + "OR lado_derecho_atras_nombre LIKE '%ROJO%'\n"
+                + "OR lado_derecho_atras_nombre LIKE '%AMARILLO%'\n"
+                + "OR lado_derecho_atras_nombre LIKE '%ANARANJADO%'\n"
+                + "OR lado_derecho_atras_nombre LIKE '%BLANCO%'\n"
+                + "OR lado_derecho_atras_nombre LIKE '%NEGRO%'\n"
+                + "OR lado_derecho_atras_nombre LIKE '%MARINO%'\n"
+                + "OR lado_derecho_atras_nombre LIKE '%AZUL%'\n"
+                + "OR lado_derecho_atras_nombre LIKE '%GRIS%'\n"
+                + "OR lado_derecho_atras_nombre LIKE '%VINO%'\n"
+                + "OR lado_derecho_atras_nombre LIKE '%ROSA%'\n"
+                + "OR lado_derecho_atras_nombre LIKE '%MORADO%'\n"
+                + "OR lado_derecho_atras_nombre LIKE '%CREMA%'\n"
+                + "OR lado_derecho_atras_nombre LIKE '%KAKI%'\n"
                 + "ORDER BY NOMBRE ";
             
         
@@ -738,7 +738,7 @@ public class bordadosdiferencia3 extends javax.swing.JFrame {
             {
                 datos[0] = rs.getString("numero_consecutivo");
                 datos[1] = rs.getString("nombre");
-                datos[2] = rs.getString("pantalon_lado_derecho_atras_nombre");
+                datos[2] = rs.getString("lado_derecho_atras_nombre");
                 datos[3] = "Pantalon lado derecho atras";
                 datos[4] = rs.getString("identificador_prenda");
                 datos[5] = rs.getString("tipo");

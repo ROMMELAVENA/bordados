@@ -238,7 +238,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
 
         String  sql = "SELECT tipo,identificador_prenda,pecho_izquierdo_nombre,pecho_derecho_nombre,manga_derecha_nombre,manga_izquierda_nombre,espalda_nombre,otra_ubicacion_nombre,otra_ubicacion2_nombre,"
                 + "frente_nombre,lado_izquierdo_nombre,lado_derecho_nombre,atras_nombre,"
-                + "pantalon_lado_izquierdo_frente_nombre,pantalon_lado_derecho_frente_nombre,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_derecho_atras_nombre,"
+                + "lado_izquierdo_frente_nombre,lado_derecho_frente_nombre,lado_izquierdo_atras_nombre,lado_derecho_atras_nombre,"
                 + "corbata_frente_nombre,parche_nombre, parche_aplicacion, parche_aplicacion_color,"
                 + "distinta1_nombre,distinta2_nombre,distinta3_nombre,distinta4_nombre,distinta5_nombre,distinta6_nombre,distinta6_nombre,distinta7_nombre,"
                 + "numero_consecutivo FROM bordados_puntadas where codigo = '" + codigocliente + "' order by tipo ";    
@@ -353,10 +353,10 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
                 if(tipo.equals("PANTALON"))
                 {
                 
-                bordado1 = rs.getString("pantalon_lado_izquierdo_frente_nombre");
-                bordado2 = rs.getString("pantalon_lado_derecho_frente_nombre");
-                bordado3 = rs.getString("pantalon_lado_izquierdo_atras_nombre");
-                bordado4 = rs.getString("pantalon_lado_derecho_atras_nombre");
+                bordado1 = rs.getString("lado_izquierdo_frente_nombre");
+                bordado2 = rs.getString("lado_derecho_frente_nombre");
+                bordado3 = rs.getString("lado_izquierdo_atras_nombre");
+                bordado4 = rs.getString("lado_derecho_atras_nombre");
                 
                 
                 if (bordado1.equals("ninguno") && bordado2.equals("ninguno") && bordado3.equals("ninguno") && bordado4.equals("ninguno")  ) 
@@ -975,7 +975,7 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
      
               
            
-            sql = "SELECT identificador_prenda,pantalon_lado_izquierdo_frente_nombre,pantalon_lado_derecho_frente_nombre,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_derecho_atras_nombre,numero_consecutivo FROM bordados_puntadas where codigo = '" + codigocliente + "' and tipo = 'PANTALON'";
+            sql = "SELECT identificador_prenda,lado_izquierdo_frente_nombre,lado_derecho_frente_nombre,lado_izquierdo_atras_nombre,lado_derecho_atras_nombre,numero_consecutivo FROM bordados_puntadas where codigo = '" + codigocliente + "' and tipo = 'PANTALON'";
            
           
         try {
@@ -1990,10 +1990,10 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
         modelo.addColumn("Agregar");//1
         modelo.addColumn("boton2");//2
         modelo.addColumn("Ver");//3
-        modelo.addColumn("pantalon_lado_izquierdo_frente_puntadas");//4
-        modelo.addColumn("pantalon_lado_derecho_frente_puntadas");//5
-        modelo.addColumn("pantalon_lado_izquierdo_atras_puntadas");//6
-        modelo.addColumn("pantalon_lado_derecho_atras_puntadas");//7
+        modelo.addColumn("lado_izquierdo_frente_puntadas");//4
+        modelo.addColumn("lado_derecho_frente_puntadas");//5
+        modelo.addColumn("lado_izquierdo_atras_puntadas");//6
+        modelo.addColumn("lado_derecho_atras_puntadas");//7
         modelo.addColumn("");//8
         modelo.addColumn("");//9
         modelo.addColumn("");//10
@@ -2999,6 +2999,8 @@ public class bordadosdelclientecatalogo extends javax.swing.JFrame {
                         bordadoseditar ventana = new bordadoseditar();
                         ventana.setVisible(true);
                         ventana.setLocationRelativeTo(null);
+                        
+                        
                         bordadoseditar.lbcliente.setText(nombrecliente.toString());
                         bordadoseditar.lbnombrecomercial.setText(nombrecomercial.toString());
                         bordadoseditar.lbcodigocliente.setText(lbcodigocliente.getText());

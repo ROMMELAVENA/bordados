@@ -2314,7 +2314,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String ladoderecho = rs.getString("lado_derecho_puntadas");
                 String puntadasladoderecho = rs.getString("lado_derecho_puntadas");
                 cantidadladoderecho = rs.getString("lado_derecho_cantidad");
-                String atras = rs.getString("atras");
+                String atras = rs.getString("atras_puntadas");
                 String puntadasatras = rs.getString("atras_puntadas");
                 cantidadatras = rs.getString("atras_cantidad");
                 String aplicacionfrente = rs.getString("aplicacion_frente");
@@ -2522,7 +2522,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 String puntadasladoizquierdo = rs.getString("lado_izquierdo_puntadas");
                 String ladoderecho = rs.getString("lado_derecho_puntadas");
                 String puntadasladoderecho = rs.getString("lado_derecho_puntadas");
-                String atras = rs.getString("atras");
+                String atras = rs.getString("atras_puntadas");
                 String puntadasatras = rs.getString("atras_puntadas");
                 String aplicacionfrente = rs.getString("aplicacion_frente");
 
@@ -6677,7 +6677,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             },
             new String [] {
-                "fecha", "cliente", "cantidad", "prenda", "pecho izquierdo", "puntadas", "puntos", "pecho derecho", "puntadas", "puntos", "manga izquierda", "puntadas", "puntos", "manga derecha", "puntadas", "puntos", "espalda_puntadas", "puntadas", "puntos", "otra ubicacion", "puntadas", "puntos", "ptra ubicacion2", "puntadas", "puntos", "frente_puntadas", "puntadas", "puntos", "lado izquerdo", "puntadas", "puntos", "lado derecho", "puntadas", "puntos", "atras", "puntadas", "puntos", "puntos bordados", "lado izquierdo frente", "puntadas", "puntos", "lado derecho frente", "puntadas", "puntos", "lado izquierdo atras", "puntadas", "puntos", "lado derecho atras", "puntadas", "puntos", "Parche", "Puntadas", "Puntos", "aplic pecho izq", "aplic pecho der", "aplic manga izq", "aplic manga der", "aplic frente", "aplic chicas", "Puntos aplic chicas", "aplic espalda", "puntos aplic espalda", "Suma", "venta"
+                "fecha", "cliente", "cantidad", "prenda", "pecho izquierdo", "puntadas", "puntos", "pecho derecho", "puntadas", "puntos", "manga izquierda", "puntadas", "puntos", "manga derecha", "puntadas", "puntos", "espalda_puntadas", "puntadas", "puntos", "otra ubicacion", "puntadas", "puntos", "ptra ubicacion2", "puntadas", "puntos", "frente_puntadas", "puntadas", "puntos", "lado izquerdo", "puntadas", "puntos", "lado derecho", "puntadas", "puntos", "atras_puntadas", "puntadas", "puntos", "puntos bordados", "lado izquierdo frente", "puntadas", "puntos", "lado derecho frente", "puntadas", "puntos", "lado izquierdo atras", "puntadas", "puntos", "lado derecho atras", "puntadas", "puntos", "Parche", "Puntadas", "Puntos", "aplic pecho izq", "aplic pecho der", "aplic manga izq", "aplic manga der", "aplic frente", "aplic chicas", "Puntos aplic chicas", "aplic espalda", "puntos aplic espalda", "Suma", "venta"
             }
         ) {
             boolean[] canEdit = new boolean [] {

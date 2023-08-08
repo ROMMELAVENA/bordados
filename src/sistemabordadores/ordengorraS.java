@@ -385,7 +385,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                     
                 
-                String atras =  rs.getString("atras");
+                String atras =  rs.getString("atras_puntadas");
                 if(atras ==null||atras.equals("") || atras.equals("ninguno"))
                 {
                     btnatrasponchado.setEnabled(false);  
@@ -1037,7 +1037,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }    
                 
                 
-                String atras =  rs.getString("atras");
+                String atras =  rs.getString("atras_puntadas");
                 if(atras ==null||atras.equals(""))
                 {
                     btnatrastermine.setVisible(false);
@@ -2323,7 +2323,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select lado_izquierdo,lado_izquierdo_cantidad,lado_derecho_puntadas,lado_derecho_cantidad,frente,frente_cantidad,atras,atras_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select lado_izquierdo,lado_izquierdo_cantidad,lado_derecho_puntadas,lado_derecho_cantidad,frente,frente_cantidad,atras_puntadas,atras_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -2342,7 +2342,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 String frente = rs.getString("frente_puntadas");
                 
                 String cantidadatras = rs.getString("atras_cantidad");
-                String atras = rs.getString("atras");
+                String atras = rs.getString("atras_puntadas");
                 
                 
                 
@@ -3256,7 +3256,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         jScrollPane6.setViewportView(lbobservaciones);
 
         lbatrasnombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbatrasnombre1.setText("Atras");
+        lbatrasnombre1.setText("atras_puntadas");
         lbatrasnombre1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbladoizquierdonombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

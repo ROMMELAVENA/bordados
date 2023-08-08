@@ -389,7 +389,7 @@ public class bordadoseditar extends javax.swing.JFrame {
 
         btndatos.setVisible(false);
         lbcodigocliente.setVisible(false);
-        btnimportarfotomontaje.setVisible(false);
+       
         lbidentificadoranterior.setVisible(false);
 
        
@@ -938,7 +938,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                 // SE AGREGAN LOS LOGOS QUE YA TIENE EL CLIENTE
                 // LADO DERECHO E IZQUEIRDO
                 
-                sql = "SELECT distinct pantalon_lado_izquierdo_frente_nombre,pantalon_lado_derecho_frente_nombre,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_derecho_atras_nombre FROM bordados_puntadas where codigo = '" + codigodelcliente + "' and (tipo = 'PANTALON')";
+                sql = "SELECT distinct lado_izquierdo_frente_nombre,lado_derecho_frente_nombre,lado_izquierdo_atras_nombre,lado_derecho_atras_nombre FROM bordados_puntadas where codigo = '" + codigodelcliente + "' and (tipo = 'PANTALON')";
 
                 try {
 
@@ -946,10 +946,10 @@ public class bordadoseditar extends javax.swing.JFrame {
                     ResultSet rs2 = st2.executeQuery(sql);
                     while (rs2.next()) {
 
-                        String ladoizquierdofrente = rs2.getString("pantalon_lado_izquierdo_frente_nombre");
-                        String ladoderechofrente = rs2.getString("pantalon_lado_derecho_frente_nombre");
-                        String ladoizquierdoatras = rs2.getString("pantalon_lado_izquierdo_atras_nombre");
-                        String ladoderechoatras = rs2.getString("pantalon_lado_derecho_atras_nombre");
+                        String ladoizquierdofrente = rs2.getString("lado_izquierdo_frente_nombre");
+                        String ladoderechofrente = rs2.getString("lado_derecho_frente_nombre");
+                        String ladoizquierdoatras = rs2.getString("lado_izquierdo_atras_nombre");
+                        String ladoderechoatras = rs2.getString("lado_derecho_atras_nombre");
                         
 
                         if (ladoizquierdofrente.equals("") || ladoizquierdofrente.equals("SEGURIDAD") || ladoizquierdofrente.equals("SEGURIDAD ") || ladoizquierdofrente.equals("SEGURIDAD PRIVADA") || ladoizquierdofrente.equals("SEGURIDAD PRIVADA ") || ladoizquierdofrente.equals("VIGILANCIA") || ladoizquierdofrente.equals("ninguno")) {
@@ -1985,7 +1985,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                         ladoderechogorra = rs.getString("lado_derecho_puntadas");
                         ladoderechogorranombre = rs.getString("lado_derecho_nombre");
 
-                        atrasgorra = rs.getString("atras");
+                        atrasgorra = rs.getString("atras_puntadas");
                         atrasgorranombre = rs.getString("atras_nombre");
 
                          
@@ -2197,10 +2197,10 @@ public class bordadoseditar extends javax.swing.JFrame {
            
             
 
-                sql = "SELECT identificador_prenda,pantalon_lado_izquierdo_frente_puntadas,pantalon_lado_izquierdo_frente_nombre,pantalon_lado_izquierdo_frente_aplicacion,pantalon_lado_izquierdo_frente_aplicacion_color"
-                           + ",pantalon_lado_derecho_frente_puntadas,pantalon_lado_derecho_frente_nombre,pantalon_lado_derecho_frente_aplicacion,pantalon_lado_derecho_frente_aplicacion_color,"
-                           + "pantalon_lado_izquierdo_atras_puntadas,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_izquierdo_atras_aplicacion,pantalon_lado_izquierdo_atras_aplicacion_color,"
-                           + "pantalon_lado_derecho_atras_puntadas,pantalon_lado_derecho_atras_nombre,pantalon_lado_derecho_atras_aplicacion,pantalon_lado_derecho_atras_aplicacion_color,"
+                sql = "SELECT identificador_prenda,lado_izquierdo_frente_puntadas,lado_izquierdo_frente_nombre,lado_izquierdo_frente_aplicacion,lado_izquierdo_frente_aplicacion_color"
+                           + ",lado_derecho_frente_puntadas,lado_derecho_frente_nombre,lado_derecho_frente_aplicacion,lado_derecho_frente_aplicacion_color,"
+                           + "lado_izquierdo_atras_puntadas,lado_izquierdo_atras_nombre,lado_izquierdo_atras_aplicacion,lado_izquierdo_atras_aplicacion_color,"
+                           + "lado_derecho_atras_puntadas,lado_derecho_atras_nombre,lado_derecho_atras_aplicacion,lado_derecho_atras_aplicacion_color,"
                        + "color1,color2,color3,color4,color5,hilo1,hilo2,hilo3,hilo4,hilo5"
                         + "  FROM bordados_puntadas where identificador_prenda = '"+identificador+"'  and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
@@ -2214,26 +2214,26 @@ public class bordadoseditar extends javax.swing.JFrame {
 
                         identificador = rs.getString("identificador_prenda");
                         lbidentificadoranterior.setText(identificador);
-                        ladoizquierdofrentepantalon = rs.getString("pantalon_lado_izquierdo_frente_puntadas");
-                        ladoizquierdofrentepantalonnombre = rs.getString("pantalon_lado_izquierdo_frente_nombre");
-                        ladoizquierdofrentepantalonaplicacion = rs.getString("pantalon_lado_izquierdo_frente_aplicacion");
-                        ladoizquierdofrentepantalonaplicacioncolor = rs.getString("pantalon_lado_izquierdo_frente_aplicacion_color");
+                        ladoizquierdofrentepantalon = rs.getString("lado_izquierdo_frente_puntadas");
+                        ladoizquierdofrentepantalonnombre = rs.getString("lado_izquierdo_frente_nombre");
+                        ladoizquierdofrentepantalonaplicacion = rs.getString("lado_izquierdo_frente_aplicacion");
+                        ladoizquierdofrentepantalonaplicacioncolor = rs.getString("lado_izquierdo_frente_aplicacion_color");
                         
                         
-                        ladoderechofrentepantalon = rs.getString("pantalon_lado_derecho_frente_puntadas");
-                        ladoderechofrentepantalonnombre = rs.getString("pantalon_lado_derecho_frente_nombre");
-                        ladoderechofrentepantalonaplicacion = rs.getString("pantalon_lado_derecho_frente_aplicacion");
-                        ladoderechofrentepantalonaplicacioncolor = rs.getString("pantalon_lado_derecho_frente_aplicacion_color");
+                        ladoderechofrentepantalon = rs.getString("lado_derecho_frente_puntadas");
+                        ladoderechofrentepantalonnombre = rs.getString("lado_derecho_frente_nombre");
+                        ladoderechofrentepantalonaplicacion = rs.getString("lado_derecho_frente_aplicacion");
+                        ladoderechofrentepantalonaplicacioncolor = rs.getString("lado_derecho_frente_aplicacion_color");
 
-                        ladoizquierdoatraspantalon = rs.getString("pantalon_lado_izquierdo_atras_puntadas");
-                        ladoizquierdoatraspantalonnombre = rs.getString("pantalon_lado_izquierdo_atras_nombre");
-                        ladoizquierdoatraspantalonaplicacion = rs.getString("pantalon_lado_izquierdo_atras_aplicacion");
-                        ladoizquierdoatraspantalonaplicacioncolor = rs.getString("pantalon_lado_izquierdo_atras_aplicacion_color");
+                        ladoizquierdoatraspantalon = rs.getString("lado_izquierdo_atras_puntadas");
+                        ladoizquierdoatraspantalonnombre = rs.getString("lado_izquierdo_atras_nombre");
+                        ladoizquierdoatraspantalonaplicacion = rs.getString("lado_izquierdo_atras_aplicacion");
+                        ladoizquierdoatraspantalonaplicacioncolor = rs.getString("lado_izquierdo_atras_aplicacion_color");
                         
-                        ladoderechoatraspantalon = rs.getString("pantalon_lado_derecho_atras_puntadas");
-                        ladoderechoatraspantalonnombre = rs.getString("pantalon_lado_derecho_atras_nombre");
-                        ladoderechoatraspantalonaplicacion = rs.getString("pantalon_lado_derecho_atras_aplicacion");
-                        ladoderechoatraspantalonaplicacioncolor = rs.getString("pantalon_lado_derecho_atras_aplicacion_color");
+                        ladoderechoatraspantalon = rs.getString("lado_derecho_atras_puntadas");
+                        ladoderechoatraspantalonnombre = rs.getString("lado_derecho_atras_nombre");
+                        ladoderechoatraspantalonaplicacion = rs.getString("lado_derecho_atras_aplicacion");
+                        ladoderechoatraspantalonaplicacioncolor = rs.getString("lado_derecho_atras_aplicacion_color");
   
                         
                          cbcolor1.setSelectedItem(rs.getString("color1"));
@@ -2761,11 +2761,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     }
 
                     imagen.setImagen(img);
-                    if(img == null)
-                    {
-                        btnimportarfotomontaje.doClick();
-                    }
-                    else
+                  
                     {
                     
                     if(prenda.equals("PARCHE")) 
@@ -3068,7 +3064,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                     
                     actualizarlaubicacion((String) ubicacion,(String) numeroventa,(String) identificador,(String) nombrearticuloactualizar,(String)numerocotizacion);
                 }
-                else if(articulo.contains("ATRAS"))
+                else if(articulo.contains("atras_puntadas"))
                 {
                     
                     nombrearticuloactualizar = articulo;
@@ -3916,7 +3912,6 @@ public class bordadoseditar extends javax.swing.JFrame {
         txtidentificador = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtcodigocatalogobordados = new javax.swing.JLabel();
-        btnimportarfotomontaje = new javax.swing.JButton();
         lbidentificadoranterior = new javax.swing.JLabel();
         lbconsecutivo = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -4007,7 +4002,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         lbetiqueta3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbetiqueta5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbetiqueta5.setText("espalda_puntadas");
+        lbetiqueta5.setText("Espalda");
         lbetiqueta5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbetiqueta6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -4520,14 +4515,6 @@ public class bordadoseditar extends javax.swing.JFrame {
         txtcodigocatalogobordados.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtcodigocatalogobordados.setText("00000000");
         txtcodigocatalogobordados.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        btnimportarfotomontaje.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        btnimportarfotomontaje.setText("importar foto");
-        btnimportarfotomontaje.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnimportarfotomontajeActionPerformed(evt);
-            }
-        });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("Bordacliente");
@@ -5050,9 +5037,7 @@ public class bordadoseditar extends javax.swing.JFrame {
                         .addComponent(cbaroespalda, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lbpuntadas5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(170, 170, 170)
-                        .addComponent(btnimportarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(322, 322, 322)
                         .addComponent(btnautorizarpuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btneliminartodo)
@@ -5267,7 +5252,6 @@ public class bordadoseditar extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btneliminartodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnimportarfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnautorizarpuntadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(14, 14, 14)))
                 .addComponent(lbfotomontaje, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -6206,7 +6190,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         else
         {
             insertarnumero();
-             String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,frente,frente_nombre,lado_izquierdo_puntadas,lado_izquierdo_nombre,lado_derecho_puntadas,lado_derecho_nombre ,atras,atras_nombre,frente_aplicacion ,frente_aplicacion_color,numero_consecutivo,color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+             String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,frente,frente_nombre,lado_izquierdo_puntadas,lado_izquierdo_nombre,lado_derecho_puntadas,lado_derecho_nombre ,atras_puntadas,atras_nombre,frente_aplicacion ,frente_aplicacion_color,numero_consecutivo,color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -6338,10 +6322,10 @@ public class bordadoseditar extends javax.swing.JFrame {
             
             
             try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pantalon_lado_izquierdo_frente_puntadas='" + ladoizquierdofrentepantalon + "',pantalon_lado_izquierdo_frente_nombre='" + ladoizquierdofrentepantalonnombre + "',pantalon_lado_izquierdo_frente_aplicacion='" + ladoizquierdofrentepantalonaplicacion + "',pantalon_lado_izquierdo_frente_aplicacion_color='" + ladoizquierdofrentepantalonaplicacioncolor + "',"
-                                                                                   + "pantalon_lado_derecho_frente_puntadas ='" + ladoderechofrentepantalon + "' ,pantalon_lado_derecho_frente_nombre ='" + ladoderechofrentepantalonnombre + "',pantalon_lado_derecho_frente_aplicacion ='" + ladoderechofrentepantalonaplicacion + "',pantalon_lado_derecho_frente_aplicacion_color ='" + ladoderechofrentepantalonaplicacioncolor + "',"
-                                                                                   + "pantalon_lado_izquierdo_atras_puntadas='" + ladoizquierdoatraspantalon + "',pantalon_lado_izquierdo_atras_nombre='" + ladoizquierdoatraspantalonnombre + "',pantalon_lado_izquierdo_atras_aplicacion='" + ladoizquierdoatraspantalonaplicacion + "',pantalon_lado_izquierdo_atras_aplicacion_color='" + ladoizquierdoatraspantalonaplicacioncolor + "',"
-                                                                                   + "pantalon_lado_derecho_atras_puntadas ='" + ladoderechoatraspantalon + "' ,pantalon_lado_derecho_atras_nombre ='" + ladoderechoatraspantalonnombre + "',pantalon_lado_derecho_atras_aplicacion ='" + ladoderechoatraspantalonaplicacion + "',pantalon_lado_derecho_atras_aplicacion_color ='" + ladoderechoatraspantalonaplicacioncolor + "'   WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"'  ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET lado_izquierdo_frente_puntadas='" + ladoizquierdofrentepantalon + "',lado_izquierdo_frente_nombre='" + ladoizquierdofrentepantalonnombre + "',lado_izquierdo_frente_aplicacion='" + ladoizquierdofrentepantalonaplicacion + "',lado_izquierdo_frente_aplicacion_color='" + ladoizquierdofrentepantalonaplicacioncolor + "',"
+                                                                                   + "lado_derecho_frente_puntadas ='" + ladoderechofrentepantalon + "' ,lado_derecho_frente_nombre ='" + ladoderechofrentepantalonnombre + "',lado_derecho_frente_aplicacion ='" + ladoderechofrentepantalonaplicacion + "',lado_derecho_frente_aplicacion_color ='" + ladoderechofrentepantalonaplicacioncolor + "',"
+                                                                                   + "lado_izquierdo_atras_puntadas='" + ladoizquierdoatraspantalon + "',lado_izquierdo_atras_nombre='" + ladoizquierdoatraspantalonnombre + "',lado_izquierdo_atras_aplicacion='" + ladoizquierdoatraspantalonaplicacion + "',lado_izquierdo_atras_aplicacion_color='" + ladoizquierdoatraspantalonaplicacioncolor + "',"
+                                                                                   + "lado_derecho_atras_puntadas ='" + ladoderechoatraspantalon + "' ,lado_derecho_atras_nombre ='" + ladoderechoatraspantalonnombre + "',lado_derecho_atras_aplicacion ='" + ladoderechoatraspantalonaplicacion + "',lado_derecho_atras_aplicacion_color ='" + ladoderechoatraspantalonaplicacioncolor + "'   WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"'  ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -6350,10 +6334,10 @@ public class bordadoseditar extends javax.swing.JFrame {
             
             
              try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET pantalon_lado_izquierdo_frente_aplicacion = '" + ladoizquierdofrentepantalonaplicacion + "',pantalon_lado_izquierdo_frente_aplicacion_color = '" + ladoizquierdofrentepantalonaplicacioncolor + "',"
-                    + "pantalon_lado_derecho_frente_aplicacion = '" + ladoderechofrentepantalonaplicacion + "',pantalon_lado_derecho_frente_aplicacion_color = '" + ladoizquierdofrentepantalonaplicacioncolor + "',"
-                    + "pantalon_lado_izquierdo_atras_aplicacion = '" + ladoizquierdoatraspantalonaplicacion + "',pantalon_lado_izquierdo_atras_aplicacion_color = '" + ladoizquierdoatraspantalonaplicacioncolor + "',"
-                    + "pantalon_lado_derecho_atras_aplicacion = '" + ladoderechoatraspantalonaplicacion + "',pantalon_lado_derecho_atras_aplicacion_color = '" + ladoderechoatraspantalonaplicacioncolor + "'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"'   ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET lado_izquierdo_frente_aplicacion = '" + ladoizquierdofrentepantalonaplicacion + "',lado_izquierdo_frente_aplicacion_color = '" + ladoizquierdofrentepantalonaplicacioncolor + "',"
+                    + "lado_derecho_frente_aplicacion = '" + ladoderechofrentepantalonaplicacion + "',lado_derecho_frente_aplicacion_color = '" + ladoizquierdofrentepantalonaplicacioncolor + "',"
+                    + "lado_izquierdo_atras_aplicacion = '" + ladoizquierdoatraspantalonaplicacion + "',lado_izquierdo_atras_aplicacion_color = '" + ladoizquierdoatraspantalonaplicacioncolor + "',"
+                    + "lado_derecho_atras_aplicacion = '" + ladoderechoatraspantalonaplicacion + "',lado_derecho_atras_aplicacion_color = '" + ladoderechoatraspantalonaplicacioncolor + "'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"'   ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {
@@ -6400,7 +6384,7 @@ public class bordadoseditar extends javax.swing.JFrame {
         {
             insertarnumero();
 
-            String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,pantalon_lado_izquierdo_frente_puntadas,pantalon_lado_izquierdo_frente_nombre,pantalon_lado_derecho_frente_puntadas,pantalon_lado_derecho_frente_nombre,pantalon_lado_izquierdo_atras_puntadas,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_derecho_atras_puntadas,pantalon_lado_derecho_atras_nombre,numero_consecutivo,color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String InsertarSQL = "INSERT INTO bordados_puntadas(codigo,nombre,identificador_prenda,tipo,lado_izquierdo_frente_puntadas,lado_izquierdo_frente_nombre,lado_derecho_frente_puntadas,lado_derecho_frente_nombre,lado_izquierdo_atras_puntadas,lado_izquierdo_atras_nombre,lado_derecho_atras_puntadas,lado_derecho_atras_nombre,numero_consecutivo,color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             try {
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -11072,956 +11056,6 @@ public class bordadoseditar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbaroespaldaPopupMenuWillBecomeInvisible
 
-    private void btnimportarfotomontajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnimportarfotomontajeActionPerformed
-
-        String pechoizquierdo = txt1.getText();
-        String pechoderecho = txt2.getText();
-        String mangaderecha = txt4.getText();
-        String mangaizquierda = txt3.getText();
-        String espalda = txt5.getText();
-        String otraubicacion = txt6.getText();
-        String otraubicacion2 = txt7.getText();
-
-        String tipo = lbprenda.getText();
-        String codigocliente = lbcodigocliente.getText();
-        String sql = "";
-        String existe = "no";
-        String nombredelarchivo = "";
-        String rutadelarchivo = "";
-        String fotomontaje = "";
-        String fotomontajeextension = "";
-
-        String pechoizquierdocamisanombre = "";
-        String pechoderechocamisanombre = "";
-        String mangaizquierdacamisanombre = "";
-        String mangaderechacamisanombre = "";
-        String espaldacamisanombre = "";
-        String otraubicacioncamisanombre = "";
-        String otraubicacion2camisanombre = "";
-
-        String pechoizquierdoplayeranombre = "";
-        String pechoderechoplayeranombre = "";
-        String mangaizquierdaplayeranombre = "";
-        String mangaderechaplayeranombre = "";
-        String espaldaplayeranombre = "";
-        String otraubicacionplayeranombre = "";
-        String otraubicacion2playeranombre = "";
-
-        ///////////////
-
-        if(tipo.equals("CAMISA"))
-        {
-
-            for(int i = 0; i < 5 ; i++)
-            {
-
-                if(i == 0)
-                {
-                    sql = "SELECT camisa_pecho_izquierdo_nombre,camisa_pecho_derecho_nombre,camisa_manga_derecha_nombre,camisa_manga_izquierda_nombre,camisa_espalda_nombre,camisa_otra_ubicacion2_nombre,camisa_otra_ubicacion_nombre FROM puntadas_camisa where codigo = '" + codigocliente + "' ";
-                }
-                else  if (i == 1)
-                {
-
-                    sql = "SELECT camisa2_pecho_izquierdo_nombre,camisa2_pecho_derecho_nombre,camisa2_manga_derecha_nombre,camisa2_manga_izquierda_nombre,camisa2_espalda_nombre,camisa2_otra_ubicacion_nombre FROM puntadas_camisa where codigo = '" + codigocliente + "' ";
-
-                }
-                else if (i == 2)
-                {
-
-                    sql = "SELECT camisa3_pecho_izquierdo_nombre,camisa3_pecho_derecho_nombre,camisa3_manga_derecha_nombre,camisa3_manga_izquierda_nombre,camisa3_espalda_nombre  FROM puntadas_camisa where codigo = '" + codigocliente + "' ";
-
-                }
-                else if (i == 3)
-                {
-                    sql = "SELECT camisa4_pecho_izquierdo_nombre,camisa4_pecho_derecho_nombre,camisa4_manga_derecha_nombre,camisa4_manga_izquierda_nombre,camisa4_otra_ubicacion_nombre,camisa4_otra_ubicacion2_nombre,camisa4_espalda_nombre  FROM puntadas_camisa where codigo = '" + codigocliente + "' ";
-
-                }
-                else if (i == 4) {
-                    sql = "SELECT camisa5_pecho_izquierdo_nombre,camisa5_pecho_derecho_nombre,camisa5_manga_derecha_nombre,camisa5_manga_izquierda_nombre,camisa5_otra_ubicacion_nombre,camisa5_otra_ubicacion2_nombre,camisa5_espalda  FROM puntadas_camisa where codigo = '" +codigocliente+ "' ";
-
-                }
-
-                try {
-
-                    Statement st = cn.createStatement();
-                    ResultSet rs = st.executeQuery(sql);
-                    while (rs.next()) {
-
-                        if (i == 0)
-                        {
-
-                            pechoizquierdocamisanombre = rs.getString("camisa_pecho_izquierdo_nombre");
-                            pechoderechocamisanombre = rs.getString("camisa_pecho_derecho_nombre");
-                            mangaizquierdacamisanombre = rs.getString("camisa_manga_izquierda_nombre");
-                            mangaderechacamisanombre = rs.getString("camisa_manga_derecha_nombre");
-                            espaldacamisanombre = rs.getString("camisa_espalda_nombre");
-                            otraubicacioncamisanombre = rs.getString("camisa_otra_ubicacion_nombre");
-                            otraubicacion2camisanombre = rs.getString("camisa_otra_ubicacion2_nombre");
-
-                            if(pechoizquierdocamisanombre.contains(pechoizquierdo) && pechoderechocamisanombre.contains(pechoderecho) && mangaizquierdacamisanombre.contains(mangaizquierda) && mangaderechacamisanombre.contains(mangaderecha) && espaldacamisanombre.contains(espalda) && otraubicacioncamisanombre.contains(otraubicacion) && otraubicacion2camisanombre.contains(otraubicacion2) )
-                            {
-                                fotomontaje = "camisa1";
-                                fotomontajeextension = "camisa1extension";
-                                break;
-
-                            }
-
-                        }
-                        else if (i == 1)
-                        {
-
-                            pechoizquierdocamisanombre = rs.getString("camisa2_pecho_izquierdo_nombre");
-                            pechoderechocamisanombre = rs.getString("camisa2_pecho_derecho_nombre");
-                            mangaizquierdacamisanombre = rs.getString("camisa2_manga_izquierda_nombre");
-                            mangaderechacamisanombre = rs.getString("camisa2_manga_derecha_nombre");
-                            espaldacamisanombre = rs.getString("camisa2_espalda_nombre");
-                            otraubicacioncamisanombre = rs.getString("camisa2_otra_ubicacion_nombre");
-
-                            if(pechoizquierdocamisanombre.contains(pechoizquierdo) && pechoderechocamisanombre.contains(pechoderecho) && mangaizquierdacamisanombre.contains(mangaizquierda) && mangaderechacamisanombre.contains(mangaderecha) && espaldacamisanombre.contains(espalda) && otraubicacioncamisanombre.contains(otraubicacion)  )
-                            {
-                                fotomontaje = "camisa2";
-                                fotomontajeextension = "camisa2extension";
-                                break;
-
-                            }
-
-                        }
-                        else if (i == 2)
-                        {
-
-                            pechoizquierdocamisanombre = rs.getString("camisa3_pecho_izquierdo_nombre");
-                            pechoderechocamisanombre = rs.getString("camisa3_pecho_derecho_nombre");
-                            mangaizquierdacamisanombre = rs.getString("camisa3_manga_izquierda_nombre");
-                            mangaderechacamisanombre = rs.getString("camisa3_manga_derecha_nombre");
-                            espaldacamisanombre = rs.getString("camisa3_espalda_nombre");
-
-                            if(pechoizquierdocamisanombre.contains(pechoizquierdo) && pechoderechocamisanombre.contains(pechoderecho) && mangaizquierdacamisanombre.contains(mangaizquierda) && mangaderechacamisanombre.contains(mangaderecha) && espaldacamisanombre.contains(espalda) && otraubicacioncamisanombre.contains(otraubicacion) && otraubicacion2camisanombre.contains(otraubicacion2) )
-                            {
-                                fotomontaje = "camisa3";
-                                fotomontajeextension = "camisa3extension";
-                                break;
-
-                            }
-
-                        }
-                        else if (i == 3)
-
-                        {
-
-                            pechoizquierdocamisanombre = rs.getString("camisa4_pecho_izquierdo_nombre");
-                            pechoderechocamisanombre = rs.getString("camisa4_pecho_derecho_nombre");
-                            mangaizquierdacamisanombre = rs.getString("camisa4_manga_izquierda_nombre");
-                            mangaderechacamisanombre = rs.getString("camisa4_manga_derecha_nombre");
-                            espaldacamisanombre = rs.getString("camisa4_espalda_nombre");
-                            otraubicacioncamisanombre = rs.getString("camisa4_otra_ubicacion_nombre");
-                            otraubicacion2camisanombre = rs.getString("camisa4_otra_ubicacion2_nombre");
-
-                            if(pechoizquierdocamisanombre.contains(pechoizquierdo) && pechoderechocamisanombre.contains(pechoderecho) && mangaizquierdacamisanombre.contains(mangaizquierda) && mangaderechacamisanombre.contains(mangaderecha) && espaldacamisanombre.contains(espalda) && otraubicacioncamisanombre.contains(otraubicacion) && otraubicacion2camisanombre.contains(otraubicacion2) )
-                            {
-                                fotomontaje = "camisa4";
-                                fotomontajeextension = "camisa4extension";
-                                break;
-
-                            }
-
-                        }
-                        else if (i == 4) {
-
-                            pechoizquierdocamisanombre = rs.getString("camisa5_pecho_izquierdo_nombre");
-                            pechoderechocamisanombre = rs.getString("camisa5_pecho_derecho_nombre");
-                            mangaizquierdacamisanombre = rs.getString("camisa5_manga_izquierda_nombre");
-                            mangaderechacamisanombre = rs.getString("camisa5_manga_derecha_nombre");
-                            espaldacamisanombre = rs.getString("camisa5_espalda_nombre");
-                            otraubicacioncamisanombre = rs.getString("camisa5_otra_ubicacion_nombre");
-                            otraubicacion2camisanombre = rs.getString("camisa5_otra_ubicacion2_nombre");
-
-                            if(pechoizquierdocamisanombre.contains(pechoizquierdo) && pechoderechocamisanombre.contains(pechoderecho) && mangaizquierdacamisanombre.contains(mangaizquierda) && mangaderechacamisanombre.contains(mangaderecha) && espaldacamisanombre.contains(espalda) && otraubicacioncamisanombre.contains(otraubicacion) && otraubicacion2camisanombre.contains(otraubicacion2) )
-                            {
-                                fotomontaje = "camisa5";
-                                fotomontajeextension = "camisa5extension";
-                                break;
-
-                            }
-
-                        }
-
-                    }
-
-                    st.close();
-                } catch (SQLException ex) {
-                    System.out.println(ex);
-                }
-
-            }
-        }
-
-        ////
-        else if(tipo.equals("PLAYERA"))
-        {
-
-            for(int i = 0; i < 5 ; i++)
-            {
-
-                if (i == 0)
-                {
-
-                    sql = "SELECT playera_pecho_izquierdo_nombre,playera_pecho_derecho_nombre,playera_manga_derecha_nombre,playera_manga_izquierda_nombre,playera_espalda_nombre FROM puntadas_playera where codigo = '" + codigocliente + "' ";
-                }
-                else  if (i == 1)
-                {
-
-                    sql = "SELECT playera2_pecho_izquierdo_nombre,playera2_pecho_derecho_nombre,playera2_manga_derecha_nombre,playera2_manga_izquierda_nombre,playera2_espalda_nombre  FROM puntadas_playera where codigo = '" + codigocliente + "' ";
-
-                } else if (i == 2) {
-
-                    sql = "SELECT playera3_pecho_izquierdo_nombre,playera3_pecho_derecho_nombre,playera3_manga_derecha_nombre,playera3_manga_izquierda_nombre,playera3_espalda_nombre  FROM puntadas_playera where codigo = '" + codigocliente + "' ";
-
-                }
-                else if (i == 3) {
-
-                    sql = "SELECT playera4_pecho_izquierdo_nombre,playera4_pecho_derecho_nombre,playera4_manga_derecha_nombre,playera4_manga_izquierda_nombre,playera4_otra_ubicacion_nombre,playera4_otra_ubicacion2_nombre,playera4_espalda_nombre FROM puntadas_playera where codigo = '" + codigocliente + "' ";
-
-                }
-                else if (i == 4) {
-
-                    sql = "SELECT playera5_pecho_izquierdo_nombre,playera5_pecho_derecho_nombre,playera5_manga_derecha_nombre,playera5_manga_izquierda_nombre,playera5_espalda_nombre,playera5_otra_ubicacion_nombre,playera5_otra_ubicacion2_nombre  FROM puntadas_playera where codigo = '" + codigocliente+ "' ";
-
-                }
-
-                try {
-
-                    Statement st = cn.createStatement();
-                    ResultSet rs = st.executeQuery(sql);
-                    while (rs.next()) {
-
-                        if (i == 0)
-                        {
-
-                            pechoizquierdoplayeranombre = rs.getString("playera_pecho_izquierdo_nombre");
-                            pechoderechoplayeranombre = rs.getString("playera_pecho_derecho_nombre");
-                            mangaizquierdaplayeranombre = rs.getString("playera_manga_izquierda_nombre");
-                            mangaderechaplayeranombre = rs.getString("playera_manga_derecha_nombre");
-                            espaldaplayeranombre = rs.getString("playera_espalda_nombre");
-
-                            if(pechoizquierdoplayeranombre.contains(pechoizquierdo) && pechoderechoplayeranombre.contains(pechoderecho) && mangaizquierdaplayeranombre.contains(mangaizquierda) && mangaderechaplayeranombre.contains(mangaderecha) && espaldaplayeranombre.contains(espalda) )
-                            {
-                                fotomontaje = "playera";
-                                fotomontajeextension = "playeraextension";
-                                break;
-
-                            }
-
-                        }
-                        else if (i == 1)
-                        {
-
-                            pechoizquierdoplayeranombre = rs.getString("playera2_pecho_izquierdo_nombre");
-                            pechoderechoplayeranombre = rs.getString("playera2_pecho_derecho_nombre");
-                            mangaizquierdaplayeranombre = rs.getString("playera2_manga_izquierda_nombre");
-                            mangaderechaplayeranombre = rs.getString("playera2_manga_derecha_nombre");
-                            espaldaplayeranombre = rs.getString("playera2_espalda_nombre");
-
-                            if(pechoizquierdoplayeranombre.contains(pechoizquierdo) && pechoderechoplayeranombre.contains(pechoderecho) && mangaizquierdaplayeranombre.contains(mangaizquierda) && mangaderechaplayeranombre.contains(mangaderecha) && espaldaplayeranombre.contains(espalda)  )
-                            {
-                                fotomontaje = "playera2";
-                                fotomontajeextension = "playera2extension";
-                                break;
-
-                            }
-
-                        }
-                        else if (i == 2)
-                        {
-
-                            pechoizquierdoplayeranombre = rs.getString("playera3_pecho_izquierdo_nombre");
-                            pechoderechoplayeranombre = rs.getString("playera3_pecho_derecho_nombre");
-                            mangaizquierdaplayeranombre = rs.getString("playera3_manga_izquierda_nombre");
-                            mangaderechaplayeranombre = rs.getString("playera3_manga_derecha_nombre");
-                            espaldaplayeranombre = rs.getString("playera3_espalda_nombre");
-
-                            if(pechoizquierdoplayeranombre.contains(pechoizquierdo) && pechoderechoplayeranombre.contains(pechoderecho) && mangaizquierdaplayeranombre.contains(mangaizquierda) && mangaderechaplayeranombre.contains(mangaderecha) && espaldaplayeranombre.contains(espalda) && otraubicacionplayeranombre.contains(otraubicacion) && otraubicacion2playeranombre.contains(otraubicacion2) )
-                            {
-                                fotomontaje = "playera3";
-                                fotomontajeextension = "playera3extension";
-                                break;
-
-                            }
-
-                        }
-                        else if (i == 3)
-
-                        {
-
-                            pechoizquierdoplayeranombre = rs.getString("playera4_pecho_izquierdo_nombre");
-                            pechoderechoplayeranombre = rs.getString("playera4_pecho_derecho_nombre");
-                            mangaizquierdaplayeranombre = rs.getString("playera4_manga_izquierda_nombre");
-                            mangaderechaplayeranombre = rs.getString("playera4_manga_derecha_nombre");
-                            espaldaplayeranombre = rs.getString("playera4_espalda_nombre");
-                            otraubicacionplayeranombre = rs.getString("playera4_otra_ubicacion_nombre");
-                            otraubicacion2playeranombre = rs.getString("playera4_otra_ubicacion2_nombre");
-
-                            if(pechoizquierdoplayeranombre.contains(pechoizquierdo) && pechoderechoplayeranombre.contains(pechoderecho) && mangaizquierdaplayeranombre.contains(mangaizquierda) && mangaderechaplayeranombre.contains(mangaderecha) && espaldaplayeranombre.contains(espalda) && otraubicacionplayeranombre.contains(otraubicacion) && otraubicacion2playeranombre.contains(otraubicacion2) )
-                            {
-                                fotomontaje = "playera4";
-                                fotomontajeextension = "playera4extension";
-                                break;
-                            }
-
-                        }
-                        else if (i == 4) {
-
-                            pechoizquierdoplayeranombre = rs.getString("playera5_pecho_izquierdo_nombre");
-                            pechoderechoplayeranombre = rs.getString("playera5_pecho_derecho_nombre");
-                            mangaizquierdaplayeranombre = rs.getString("playera5_manga_izquierda_nombre");
-                            mangaderechaplayeranombre = rs.getString("playera5_manga_derecha_nombre");
-                            espaldaplayeranombre = rs.getString("playera5_espalda_nombre");
-                            otraubicacionplayeranombre = rs.getString("playera5_otra_ubicacion_nombre");
-                            otraubicacion2playeranombre = rs.getString("playera5_otra_ubicacion2_nombre");
-
-                            if(pechoizquierdoplayeranombre.contains(pechoizquierdo) && pechoderechoplayeranombre.contains(pechoderecho) && mangaizquierdaplayeranombre.contains(mangaizquierda) && mangaderechaplayeranombre.contains(mangaderecha) && espaldaplayeranombre.contains(espalda) && otraubicacionplayeranombre.contains(otraubicacion) && otraubicacion2playeranombre.contains(otraubicacion2) )
-                            {
-                                fotomontaje = "playera5";
-                                fotomontajeextension = "playera5extension";
-                                break;
-
-                            }
-
-                        }
-
-                    }
-
-                    st.close();
-                } catch (SQLException ex) {
-                    System.out.println(ex);
-                }
-
-            }
-        }
-
-        /// chamarra desmontable
-
-        else if(tipo.equals("CHAMARRA DESMONTABLE"))
-        {
-
-            for(int i =0 ; i < 3; i++)
-            {
-
-                if (i == 0)
-                {
-
-                    sql = "SELECT chamarra_pecho_izquierdo_nombre,chamarra_pecho_derecho_nombre,chamarra_manga_derecha_nombre,chamarra_manga_izquierda_nombre,chamarra_espalda_nombre  FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-                }
-
-                else if (i == 1)
-
-                {
-
-                    sql = "SELECT chamarra2_pecho_izquierdo_nombre,chamarra2_pecho_derecho_nombre,chamarra2_manga_derecha_nombre,chamarra2_manga_izquierda_nombre,chamarra2_espalda_nombre  FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-
-                }
-
-                else if (i == 2) {
-
-                    sql = "SELECT chamarra3_pecho_izquierdo_nombre,chamarra3_pecho_derecho_nombre,chamarra3_manga_derecha_nombre,chamarra3_manga_izquierda_nombre,chamarra3_espalda_nombre FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-
-                }
-
-                try {
-
-                    Statement st = cn.createStatement();
-                    ResultSet rs = st.executeQuery(sql);
-                    while (rs.next()) {
-
-                        if (i == 0)
-                        {
-
-                            pechoizquierdochamarranombre = rs.getString("chamarra_pecho_izquierdo_nombre");
-                            pechoderechochamarranombre = rs.getString("chamarra_pecho_derecho_nombre");
-                            mangaizquierdachamarranombre = rs.getString("chamarra_manga_izquierda_nombre");
-                            mangaderechachamarranombre = rs.getString("chamarra_manga_derecha_nombre");
-                            espaldachamarranombre = rs.getString("chamarra_espalda_nombre");
-
-                            if(pechoizquierdochamarranombre.contains(pechoizquierdo) && pechoderechochamarranombre.contains(pechoderecho) && mangaizquierdachamarranombre.contains(mangaizquierda) && mangaderechachamarranombre.contains(mangaderecha) && espaldachamarranombre.contains(espalda) )
-                            {
-                                fotomontaje = "chamarra";
-                                fotomontajeextension = "chamarraextension";
-                                break;
-
-                            }
-
-                        } else if (i == 1) {
-
-                            pechoizquierdochamarranombre = rs.getString("chamarra2_pecho_izquierdo_nombre");
-                            pechoderechochamarranombre = rs.getString("chamarra2_pecho_derecho_nombre");
-                            mangaizquierdachamarranombre = rs.getString("chamarra2_manga_izquierda_nombre");
-                            mangaderechachamarranombre = rs.getString("chamarra2_manga_derecha_nombre");
-                            espaldachamarranombre = rs.getString("chamarra2_espalda_nombre");
-
-                            if(pechoizquierdochamarranombre.contains(pechoizquierdo) && pechoderechochamarranombre.contains(pechoderecho) && mangaizquierdachamarranombre.contains(mangaizquierda) && mangaderechachamarranombre.contains(mangaderecha) && espaldachamarranombre.contains(espalda) )
-                            {
-                                fotomontaje = "chamarra2";
-                                fotomontajeextension = "chamarra2extension";
-                                break;
-
-                            }
-
-                        }
-
-                        else if (i == 2) {
-
-                            pechoizquierdochamarranombre = rs.getString("chamarra3_pecho_izquierdo_nombre");
-                            pechoderechochamarranombre = rs.getString("chamarra3_pecho_derecho_nombre");
-                            mangaizquierdachamarranombre = rs.getString("chamarra3_manga_izquierda_nombre");
-                            mangaderechachamarranombre = rs.getString("chamarra3_manga_derecha_nombre");
-                            espaldachamarranombre = rs.getString("chamarra3_espalda_nombre");
-
-                            if(pechoizquierdochamarranombre.contains(pechoizquierdo) && pechoderechochamarranombre.contains(pechoderecho) && mangaizquierdachamarranombre.contains(mangaizquierda) && mangaderechachamarranombre.contains(mangaderecha) && espaldachamarranombre.contains(espalda) )
-                            {
-                                fotomontaje = "chamarra3";
-                                fotomontajeextension = "chamarra3extension";
-                                break;
-
-                            }
-
-                        }
-
-                    }/// while
-
-                    st.close();
-                } catch (SQLException ex) {
-                    System.out.println(ex);
-                }
-
-            }
-
-        }
-
-        /// chamarra rompevientos
-
-        else if(tipo.equals("CHAMARRA ROMPEVIENTOS"))
-        {
-            for(int i =0 ; i < 2; i++)
-            {
-
-                if (i == 0)
-                {
-
-                    sql = "SELECT chamarra_rompevientos_pecho_izquierdo_nombre,chamarra_rompevientos_pecho_derecho_nombre,chamarra_rompevientos_manga_derecha_nombre,chamarra_rompevientos_manga_izquierda_nombre,chamarra_rompevientos_espalda_nombre FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-
-                }
-
-                else if (i == 1)
-
-                {
-
-                    sql = "SELECT chamarra_rompevientos2_pecho_izquierdo_nombre,chamarra_rompevientos2_pecho_derecho_nombre,chamarra_rompevientos2_manga_derecha_nombre,chamarra_rompevientos2_manga_izquierda_nombre,chamarra_rompevientos2_espalda_nombre FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-
-                }
-
-                try {
-
-                    Statement st = cn.createStatement();
-                    ResultSet rs = st.executeQuery(sql);
-                    while (rs.next()) {
-
-                        if (i == 0)
-                        {
-
-                            pechoizquierdochamarrarompevientosnombre = rs.getString("chamarra_rompevientos_pecho_izquierdo_nombre");
-                            pechoderechochamarrarompevientosnombre = rs.getString("chamarra_rompevientos_pecho_derecho_nombre");
-                            mangaizquierdachamarrarompevientosnombre = rs.getString("chamarra_rompevientos_manga_izquierda_nombre");
-                            mangaderechachamarrarompevientosnombre = rs.getString("chamarra_rompevientos_manga_derecha_nombre");
-                            espaldachamarrarompevientosnombre = rs.getString("chamarra_rompevientos_espalda_nombre");
-
-                            if(pechoizquierdochamarrarompevientosnombre.contains(pechoizquierdo) && pechoderechochamarrarompevientosnombre.contains(pechoderecho) && mangaizquierdachamarrarompevientosnombre.contains(mangaizquierda) && mangaderechachamarrarompevientosnombre.contains(mangaderecha) &&  espaldachamarrarompevientosnombre.contains(espalda)  )
-                            {
-                                fotomontaje = "chamarra_rompevientos";
-                                fotomontajeextension = "chamarrarompevientosextension";
-                                break;
-                            }
-
-                        } else if (i == 1) {
-
-                            pechoizquierdochamarrarompevientosnombre = rs.getString("chamarra_rompevientos2_pecho_izquierdo_nombre");
-                            pechoderechochamarrarompevientosnombre = rs.getString("chamarra_rompevientos2_pecho_derecho_nombre");
-                            mangaizquierdachamarrarompevientosnombre = rs.getString("chamarra_rompevientos2_manga_izquierda_nombre");
-                            mangaderechachamarrarompevientosnombre = rs.getString("chamarra_rompevientos2_manga_derecha_nombre");
-                            espaldachamarrarompevientosnombre = rs.getString("chamarra_rompevientos2_espalda_nombre");
-
-                            if(pechoizquierdochamarrarompevientosnombre.contains(pechoizquierdo) && pechoderechochamarrarompevientosnombre.contains(pechoderecho) && mangaizquierdachamarrarompevientosnombre.contains(mangaizquierda) && mangaderechachamarrarompevientosnombre.contains(mangaderecha) &&  espaldachamarrarompevientosnombre.contains(espalda)  )
-                            {
-                                fotomontaje = "chamarra_rompevientos2";
-                                fotomontajeextension = "chamarrarompevientos2extension";
-                                break;
-                            }
-
-                        }
-
-                    }/// while
-
-                    st.close();
-                } catch (SQLException ex) {
-                    System.out.println(ex);
-                }
-
-            }
-
-        }
-        else if(tipo.equals("GORRA"))
-        {
-            for(int i =0 ; i < 3; i++)
-            {
-
-                frentegorranombre = "";
-                ladoizquierdogorranombre = "";
-                ladoderechogorranombre = "";
-                atrasgorranombre = "";
-
-                if (i == 0)
-                {
-
-                    sql = "SELECT gorra_frente_nombre,gorra_lado_izquierdo_nombre,gorra_lado_derecho_nombre,gorra_atras_nombre  FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-
-                }
-
-                else if (i == 1)
-
-                {
-
-                    sql = "SELECT gorra2_frente_nombre,gorra2_lado_izquierdo_nombre,gorra2_lado_derecho_nombre,gorra2_atras_nombre FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-
-                }
-                else if (i == 2)
-
-                {
-
-                    sql = "SELECT gorra3_frente_nombre,gorra3_lado_izquierdo_nombre,gorra3_lado_derecho_nombre,gorra3_atras_nombre FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-
-                }
-
-                try {
-
-                    Statement st = cn.createStatement();
-                    ResultSet rs = st.executeQuery(sql);
-                    while (rs.next()) {
-
-                        if (i == 0)
-                        {
-
-                            frentegorranombre = rs.getString("gorra_frente_nombre");
-                            ladoizquierdogorranombre = rs.getString("gorra_lado_izquierdo_nombre");
-                            ladoderechogorranombre = rs.getString("gorra_lado_derecho_nombre");
-                            atrasgorranombre = rs.getString("gorra_atras_nombre");
-
-                            if(frentegorranombre.contains(pechoizquierdo) && ladoizquierdogorranombre.contains(pechoderecho) && ladoderechogorranombre.contains(mangaderecha) && atrasgorranombre.contains(mangaizquierda)  )
-                            {
-                                fotomontaje = "gorra";
-                                fotomontajeextension = "gorraextension";
-                                break;
-
-                            }
-
-                        } else if (i == 1) {
-
-                            frentegorranombre = rs.getString("gorra2_frente_nombre");
-                            ladoizquierdogorranombre = rs.getString("gorra2_lado_izquierdo_nombre");
-                            ladoderechogorranombre = rs.getString("gorra2_lado_derecho_nombre");
-                            atrasgorranombre = rs.getString("gorra2_atras_nombre");
-
-                            if(frentegorranombre.contains(pechoizquierdo) && ladoizquierdogorranombre.contains(pechoderecho) && ladoderechogorranombre.contains(mangaderecha) && atrasgorranombre.contains(mangaizquierda)  )
-                            {
-                                fotomontaje = "gorra2";
-                                fotomontajeextension = "gorra2extension";
-                                break;
-
-                            }
-
-                        }
-                        else if (i == 2)
-                        {
-
-                            frentegorranombre = rs.getString("gorra3_frente_nombre");
-                            ladoizquierdogorranombre = rs.getString("gorra3_lado_izquierdo_nombre");
-                            ladoderechogorranombre = rs.getString("gorra3_lado_derecho_nombre");
-                            atrasgorranombre = rs.getString("gorra3_atras_nombre");
-
-                            if(frentegorranombre.contains(pechoizquierdo) && ladoizquierdogorranombre.contains(pechoderecho) && ladoderechogorranombre.contains(mangaderecha) && atrasgorranombre.contains(mangaizquierda)  )
-                            {
-                                fotomontaje = "gorra3";
-                                fotomontajeextension = "gorra3extension";
-                                break;
-
-                            }
-
-                        }
-
-                    }/// while
-
-                    st.close();
-                } catch (SQLException ex) {
-                    System.out.println(ex);
-                }
-
-            }
-
-        }
-        else if(tipo.contains("CHALECO"))
-        {
-            for(int i =0 ; i < 3; i++)
-            {
-
-                if (i == 0)
-                {
-
-                    sql = "SELECT chaleco_pecho_izquierdo_nombre,chaleco_pecho_derecho_nombre,chaleco_espalda_nombre  FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-                }
-
-                else if (i == 1)
-
-                {
-
-                    sql = "SELECT chaleco2_pecho_izquierdo_nombre,chaleco2_pecho_derecho_nombre,chaleco2_espalda_nombre  FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-                }
-
-                try {
-
-                    Statement st = cn.createStatement();
-                    ResultSet rs = st.executeQuery(sql);
-                    while (rs.next()) {
-
-                        if (i == 0)
-                        {
-
-                            pechoizquierdochaleconombre = rs.getString("chaleco_pecho_izquierdo_nombre");
-                            pechoderechochaleconombre = rs.getString("chaleco_pecho_derecho_nombre");
-                            espaldachaleconombre = rs.getString("chaleco_espalda_nombre");
-
-                            if(pechoizquierdochaleconombre.contains(pechoizquierdo) && pechoderechochaleconombre.contains(pechoderecho) && espaldachaleconombre.contains(mangaderecha)   )
-                            {
-                                fotomontaje = "chaleco";
-                                fotomontajeextension = "chalecoextension";
-                                break;
-                            }
-
-                        } else if (i == 1) {
-
-                            pechoizquierdochaleconombre = rs.getString("chaleco2_pecho_izquierdo_nombre");
-                            pechoderechochaleconombre = rs.getString("chaleco2_pecho_derecho_nombre");
-                            espaldachaleconombre = rs.getString("chaleco2_espalda_nombre");
-
-                            if(pechoizquierdochaleconombre.contains(pechoizquierdo) && pechoderechochaleconombre.contains(pechoderecho) && espaldachaleconombre.contains(mangaderecha)   )
-                            {
-                                fotomontaje = "chaleco2";
-                                fotomontajeextension = "chaleco2extension";
-                                break;
-
-                            }
-
-                        }
-
-                    }/// while
-
-                    st.close();
-                } catch (SQLException ex) {
-                    System.out.println(ex);
-                }
-
-            }
-        }
-        else if(tipo.contains("SACO"))
-        {
-
-            sql = "SELECT saco_pecho_izquierdo_nombre,saco_pecho_derecho_nombre,saco_manga_derecha_nombre,saco_manga_izquierda_nombre,saco_espalda_nombre FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-
-            try {
-
-                Statement st = cn.createStatement();
-                ResultSet rs = st.executeQuery(sql);
-                while (rs.next()) {
-
-                    pechoizquierdosaconombre = rs.getString("saco_pecho_izquierdo_nombre");
-                    pechoderechosaconombre = rs.getString("saco_pecho_derecho_nombre");
-                    mangaizquierdasaconombre = rs.getString("saco_manga_izquierda_nombre");
-                    mangaderechasaconombre = rs.getString("saco_manga_derecha_nombre");
-                    espaldasaconombre = rs.getString("saco_espalda_nombre");
-
-                    if(pechoizquierdosaconombre.contains(pechoizquierdo) && pechoderechosaconombre.contains(pechoderecho) && mangaizquierdasaconombre.contains(mangaizquierda) && mangaderechasaconombre.contains(mangaderecha) &&  espaldasaconombre.contains(espalda)  )
-                    {
-                        fotomontaje = "saco";
-                        fotomontajeextension = "sacoextension";
-                        break;
-
-                    }
-
-                }
-
-                st.close();
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-        }
-        else if(tipo.equals("FILIPINA"))
-        {
-
-            sql = "SELECT filipina_pecho_izquierdo_nombre,filipina_pecho_derecho_nombre,filipina_manga_derecha_nombre,filipina_manga_izquierda_nombre,filipina_espalda_nombre  FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-
-            try {
-
-                Statement st = cn.createStatement();
-                ResultSet rs = st.executeQuery(sql);
-                while (rs.next()) {
-
-                    pechoizquierdofilipinanombre = rs.getString("filipina_pecho_izquierdo_nombre");
-                    pechoderechofilipinanombre = rs.getString("filipina_pecho_derecho_nombre");
-                    mangaderechafilipinanombre = rs.getString("filipina_manga_derecha_nombre");
-                    mangaizquierdafilipinanombre = rs.getString("filipina_manga_izquierda_nombre");
-                    espaldafilipinanombre = rs.getString("filipina_espalda_nombre");
-
-                    if(pechoizquierdofilipinanombre.contains(pechoizquierdo) && pechoderechofilipinanombre.contains(pechoderecho) && mangaderechafilipinanombre.contains(mangaderecha) && mangaizquierdafilipinanombre.contains(mangaizquierda) &&  espaldafilipinanombre.contains(espalda)  )
-                    {
-                        fotomontaje = "filipina";
-                        fotomontajeextension = "filipinaextension";
-                        break;
-
-                    }
-
-                }/// while
-
-                st.close();
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-        }
-        else if(tipo.equals("CORBATA"))
-        {
-
-            for(int i =0 ; i < 2; i++)
-            {
-
-                if (i == 0)
-                {
-
-                    sql = "SELECT corbata_frente,corbata_frente_nombre  FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-
-                }
-
-                else if (i == 1)
-
-                {
-
-                    sql = "SELECT corbata2_frente,corbata2_frente_nombre  FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-
-                }
-
-                try {
-
-                    Statement st = cn.createStatement();
-                    ResultSet rs = st.executeQuery(sql);
-                    while (rs.next()) {
-
-                        if (i == 0)
-                        {
-
-                            frentecorbatanombre = rs.getString("corbata_frente_nombre");
-
-                            if(frentecorbatanombre.equals(pechoizquierdo)   )
-                            {
-                                fotomontaje = "corbata";
-                                fotomontajeextension = "corbataextension";
-                                break;
-
-                            }
-
-                        } else if (i == 1) {
-
-                            frentecorbatanombre = rs.getString("corbata2_frente_nombre");
-
-                            if(frentecorbatanombre.contains(pechoizquierdo)   )
-                            {
-                                fotomontaje = "corbata";
-                                fotomontajeextension = "corbata2extension";
-                                break;
-
-                            }
-
-                        }
-
-                    }/// while
-
-                    st.close();
-                } catch (SQLException ex) {
-                    System.out.println(ex);
-                }
-
-            }
-
-        }
-        else if(tipo.equals("CAMISOLA"))
-        {
-            sql = "SELECT camisola_pecho_izquierdo_nombre,camisola_pecho_derecho_nombre,camisola_manga_derecha_nombre,camisola_manga_izquierda_nombre,camisola_espalda_nombre  FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-
-            try {
-
-                Statement st = cn.createStatement();
-                ResultSet rs = st.executeQuery(sql);
-                while (rs.next()) {
-
-                    pechoizquierdocamisolanombre = rs.getString("camisola_pecho_izquierdo_nombre");
-                    pechoderechocamisolanombre = rs.getString("camisola_pecho_derecho_nombre");
-                    mangaizquierdacamisolanombre = rs.getString("camisola_manga_izquierda_nombre");
-                    mangaderechacamisolanombre = rs.getString("camisola_manga_derecha_nombre");
-                    espaldacamisolanombre = rs.getString("camisola_espalda_nombre");
-
-                    if(pechoizquierdocamisolanombre.contains(pechoizquierdo) && pechoderechocamisolanombre.contains(pechoderecho) && mangaizquierdacamisolanombre.contains(mangaizquierda) && mangaderechacamisolanombre.contains(mangaderecha) &&  espaldacamisolanombre.contains(espalda)  )
-                    {
-                        fotomontaje = "camisola";
-                        fotomontajeextension = "camisolaextension";
-                        break;
-
-                    }
-
-                }
-
-                st.close();
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-        }
-        else if(tipo.equals("PANTALON"))
-        {
-            sql = "SELECT pantalon_lado_izquierdo_frente_nombre,pantalon_lado_derecho_frente_nombre,pantalon_lado_izquierdo_atras_nombre,pantalon_lado_derecho_atras_nombre  FROM puntadas_prendas where codigo = '" + codigocliente + "' ";
-
-            try {
-
-                Statement st = cn.createStatement();
-                ResultSet rs = st.executeQuery(sql);
-                while (rs.next()) {
-
-                    ladoizquierdofrentepantalonnombre = rs.getString("pantalon_lado_izquierdo_frente_nombre");
-                    ladoderechofrentepantalonnombre = rs.getString("pantalon_lado_derecho_frente_nombre");
-                    ladoizquierdoatraspantalonnombre = rs.getString("pantalon_lado_izquierdo_atras_nombre");
-                    ladoderechoatraspantalonnombre = rs.getString("pantalon_lado_derecho_atras_nombre");
-
-                    if(ladoizquierdofrentepantalonnombre.contains(pechoizquierdo) && ladoderechofrentepantalonnombre.contains(pechoderecho) && ladoizquierdoatraspantalonnombre.contains(mangaizquierda) && ladoderechoatraspantalonnombre.contains(mangaderecha)   )
-                    {
-                        fotomontaje = "pantalon";
-                        fotomontajeextension = "pantalonextension";
-                        break;
-                    }
-
-                }
-
-                st.close();
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
-
-        }
-
-        /////
-        String SQL = "SELECT "+fotomontaje+","+fotomontajeextension+" FROM catalogo_clientes where codigo = '"+codigocliente+"' ";
-
-        try {
-            Statement st1 = cn.createStatement();
-            ResultSet rs1 = st1.executeQuery(SQL);
-            if (rs1.next())
-            {
-                existe = "";
-
-                Object fotomontajeobject = rs1.getString(1);
-                if (fotomontajeobject == null||fotomontajeobject.equals("")||fotomontajeobject.equals(" "))
-                {
-                    existe = "no";
-                } else
-
-                {
-                    nombredelarchivo = rs1.getString(2);
-
-                    if(nombredelarchivo ==null || nombredelarchivo.equals(""))
-                    {
-
-                    }
-
-                    else
-
-                    {
-                        if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
-                        {
-                            rutadelarchivo = "C:\\archivospdf\\fotomontaje."+nombredelarchivo+" ";
-                        }
-                        else
-                        {
-                            rutadelarchivo = "C:\\archivospdf\\"+nombredelarchivo+" ";
-                        }
-                        existe = "si";
-                        File file = new File(rutadelarchivo);
-                        FileOutputStream output = new FileOutputStream(file);
-                        Blob archivo = rs1.getBlob(1);
-                        InputStream inStream = archivo.getBinaryStream();
-                        int length = -1;
-                        int size = (int) archivo.length();
-                        byte[] buffer = new byte[size];
-                        while ((length = inStream.read(buffer)) != -1) {
-                            output.write(buffer, 0, length);
-                            // output.flush();
-                        }
-                        // inStream.close();
-                        output.close();
-
-                    }
-                }
-            }
-            rs1.close();
-
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex);
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
-
-        ////// inserta el fotomontake
-
-        if(existe.equals("si"))
-        {
-
-            PreparedStatement myStmt = null;
-            FileInputStream input = null;
-            identificador = txtidentificador.getText();
-
-            try {
-
-                String sql3 = "UPDATE bordados_puntadas set imagen=? where codigo='"+codigocliente+"' and identificador_prenda = '"+identificador+"' and tipo = '"+tipo+"'  and numero_consecutivo = '"+lbconsecutivo.getText()+"' ";
-
-                myStmt = cn.prepareStatement(sql3);
-                File theFile = new File(rutadelarchivo);
-                input = new FileInputStream(theFile);
-                myStmt.setBinaryStream(1, input);
-                myStmt.executeUpdate();
-                myStmt.close();
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-
-            try {
-                PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET extension_imagen='"+nombredelarchivo+"' where codigo='"+codigocliente+"' and identificador_prenda = '"+identificador+"' and tipo = '"+tipo+"'  and numero_consecutivo = '"+lbconsecutivo.getText()+"' ");
-                pst.executeUpdate();
-                System.out.println(pst);
-                pst.close();
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-
-            cargarelfotomontaje();
-
-        }
-
-    }//GEN-LAST:event_btnimportarfotomontajeActionPerformed
-
     private void btnautorizarpuntadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnautorizarpuntadasActionPerformed
 
         try {
@@ -12057,7 +11091,6 @@ public class bordadoseditar extends javax.swing.JFrame {
     private javax.swing.JButton btneliminarfotomontaje;
     private javax.swing.JButton btneliminartodo;
     public static javax.swing.JButton btnguardar;
-    private javax.swing.JButton btnimportarfotomontaje;
     private javax.swing.JButton btnsalir;
     private javax.swing.JButton btnverfotomontaje;
     private javax.swing.JComboBox<String> cbaplicacioncantidad1;

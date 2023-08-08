@@ -261,9 +261,7 @@
                       <Component id="cbaroespalda" min="-2" pref="62" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="lbpuntadas5" min="-2" pref="77" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
-                      <Component id="btnimportarfotomontaje" min="-2" pref="145" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="322" max="-2" attributes="0"/>
                       <Component id="btnautorizarpuntadas" min="-2" pref="323" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="btneliminartodo" min="-2" max="-2" attributes="0"/>
@@ -534,7 +532,6 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btneliminartodo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="btnguardar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btnimportarfotomontaje" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="btnautorizarpuntadas" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
@@ -1338,17 +1335,6 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnimportarfotomontaje">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="13" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="importar foto"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnimportarfotomontajeActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbidentificadoranterior">
     </Component>

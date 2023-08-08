@@ -1955,9 +1955,9 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         {
             
                 sql = "SELECT identificador_prenda,frente_puntadas,frente_nombre,frente_aplicacion,frente_aplicacion_color,"
-                        + "lado_izquierdo,lado_izquierdo_nombre,"
-                        + "lado_derecho,lado_derecho_nombre,"
-                        + "atras,atras_nombre,"
+                        + "lado_izquierdo_puntadas,lado_izquierdo_nombre,"
+                        + "lado_derecho_puntadas,lado_derecho_nombre,"
+                        + "atras_puntadas,atras_nombre,"
                         + "color1,color2,color3,color4,hilo1,hilo2,hilo3,hilo4 "
                         + " FROM bordados_puntadas where identificador_prenda = '"+identificadordeprenda+"' and numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"' and codigo = '"+codigodelcliente+"' AND tipo = '"+lbtipostring+"' ";
 
@@ -6143,7 +6143,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         {
         
          try {
-            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET frente = '" + frentegorra + "',frente_nombre='" + frentegorranombre + "',lado_izquierdo='" + ladoizquierdogorra + "',lado_izquierdo_nombre='" + ladoizquierdogorranombre + "',lado_derecho ='" + ladoderechogorra + "' ,lado_derecho_nombre ='" + ladoderechogorranombre + "',atras ='" + atrasgorra + "' ,atras_nombre ='" + atrasgorranombre + "'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'   ");
+            PreparedStatement pst = cn.prepareStatement("UPDATE bordados_puntadas SET frente_puntadas = " + frentegorra + "',frente_nombre='" + frentegorranombre + "',lado_izquierdo_puntadas='" + ladoizquierdogorra + "',lado_izquierdo_nombre='" + ladoizquierdogorranombre + "',lado_derecho_puntadas='" + ladoderechogorra + "' ,lado_derecho_nombre ='" + ladoderechogorranombre + "',atras_puntadas = " + atrasgorra + "' ,atras_nombre ='" + atrasgorranombre + "'  WHERE codigo='"+codigodelcliente+"' and  tipo = '"+prenda+"' AND numero_consecutivo = '"+txtcodigocatalogobordados.getText()+"'   ");
             pst.executeUpdate();
             pst.close();
         } catch (Exception e) {

@@ -3704,6 +3704,75 @@ JOptionPane.showMessageDialog(null, mensaje);
            
             
            
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           if(tienecantidad == botonesactivados)
+           {
+               
+             nuevoestatusorden = "realizada totalmente";
+             
+           lbestatus.setForeground(Color.green.darker());
+           
+               
+           }
+         
+           else
+       
+           {
+               
+               
+                 if(tienecantidad > 0)
+           {
+               
+                nuevoestatusorden = "realizada parcialmente";
+               
+               lbestatus.setForeground(Color.orange.darker());
+               
+               
+           }
+                 
+                 else
+                     
+                 {
+                   
+               
+               
+               nuevoestatusorden = "generada";
+               
+               lbestatus.setForeground(Color.red.darker());
+               
+               
+                 }
+            
+           }   
+               
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
            if(tienecantidad == botonesactivados)
            {
                try {

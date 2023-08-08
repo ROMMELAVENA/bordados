@@ -2453,10 +2453,14 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                   if(tienecantidad == botonesactivados)
+           
+           if(tienecantidad == botonesactivados)
            {
                
              nuevoestatusorden = "realizada totalmente";
+             
+           lbestatus.setForeground(Color.green.darker());
+           
                
            }
          
@@ -2464,10 +2468,32 @@ JOptionPane.showMessageDialog(null, mensaje);
        
            {
                
-               nuevoestatusorden = "realizada parcialmente";
+               
+                 if(tienecantidad > 0)
+           {
+               
+                nuevoestatusorden = "realizada parcialmente";
+               
+               lbestatus.setForeground(Color.orange.darker());
+               
+               
+           }
+                 
+                 else
+                     
+                 {
+                   
+               
+               
+               nuevoestatusorden = "generada";
+               
+               lbestatus.setForeground(Color.red.darker());
+               
+               
+                 }
             
            }   
-                
+               
                 
            
                try {

@@ -1689,13 +1689,13 @@ sorter.sort();
                             
                             
                         
-                        ordencamisaS orden = new ordencamisaS();
-                        orden.setVisible(true);
+                        ordencamisaS ventana = new ordencamisaS();
+                        ventana.setVisible(true);
 
                         ordencamisaS.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         
                         
-                        
+                      //  ordencamisaS.lborden.setText(tabla.getValueAt(fila, 0).toString());
                         ordencamisaS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                         ordencamisaS.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
                         ordencamisaS.lbtipo.setText(tabla.getValueAt(fila, 3).toString());

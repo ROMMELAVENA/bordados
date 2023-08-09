@@ -342,10 +342,10 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 
                 
-                ladoizquierdofrentenombre = rs.getString("lado_izquierdo_frente_puntadas");
-                ladoderechofrentenombre = rs.getString("lado_derecho_frente_puntadas");
-                ladoizquierdoatrasnombre = rs.getString("lado_izquierdo_atras_puntadas");
-                ladoderechoatrasnombre = rs.getString("lado_derecho_atras_puntadas");
+                ladoizquierdofrentenombre = rs.getString("lado_izquierdo_frente_nombre");
+                ladoderechofrentenombre = rs.getString("lado_derecho_frente_nombre");
+                ladoizquierdoatrasnombre = rs.getString("lado_izquierdo_atras_nombre");
+                ladoderechoatrasnombre = rs.getString("lado_derecho_atras_nombre");
                 identificador = rs.getString("identificador_prenda");
                 lbidentificador.setText(identificador);
                 lugar = rs.getString("lugar");

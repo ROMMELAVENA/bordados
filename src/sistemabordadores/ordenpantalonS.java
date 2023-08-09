@@ -2669,10 +2669,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select lado_izquierdo_frente_nombre,lado_izquierdo_frente_nombre,"
-                  + "lado_derecho_frente_cantidad,lado_derecho_frente_nombre,"
-                  + "lado_izquierdo_atras_cantidad,lado_izquierdo_atras_nombre,"
-                  + "lado_derecho_atras_cantidad,lado_derecho_atras_nombre from historial_ordenes_pantalon where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select lado_izquierdo_frente_cantidad,lado_izquierdo_frente_puntadas,"
+                  + "lado_derecho_frente_cantidad,lado_derecho_frente_puntadas,"
+                  + "lado_izquierdo_atras_cantidad,lado_izquierdo_atras_puntadas,"
+                  + "lado_derecho_atras_cantidad,lado_derecho_atras_puntadas from historial_ordenes_pantalon where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();

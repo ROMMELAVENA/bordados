@@ -356,7 +356,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                         
                 
               
-                if (ladoizquierdofrentenombre == null || ladoizquierdofrentenombre.equals("")) 
+                if (ladoizquierdofrentenombre == null || ladoizquierdofrentenombre.equals("") || ladoizquierdofrentenombre.equals("ninguno")) 
                 {
                     
                  
@@ -385,7 +385,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 /// lado derecho frente
                 
                
-                if (ladoderechofrentenombre == null || ladoderechofrentenombre.equals("")) 
+                if (ladoderechofrentenombre == null || ladoderechofrentenombre.equals("")  || ladoderechofrentenombre.equals("ninguno")) 
                 {
                    
                     btnladoderechofrenteponchado.setEnabled(false);
@@ -408,7 +408,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
             
-                if (ladoizquierdoatrasnombre == null || ladoizquierdoatrasnombre.equals(""))
+                if (ladoizquierdoatrasnombre == null || ladoizquierdoatrasnombre.equals("") || ladoizquierdoatrasnombre.equals("ninguno"))
                 {
                    
                     btnladoizquierdoatrasponchado.setEnabled(false);
@@ -429,7 +429,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
 
                
-                if (ladoderechoatrasnombre == null || ladoderechoatrasnombre.equals("")) 
+                if (ladoderechoatrasnombre == null || ladoderechoatrasnombre.equals("") || ladoderechoatrasnombre.equals("ninguno")) 
                 {
                    
                      btnladoderechoatrasponchado.setEnabled(false);
@@ -529,6 +529,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                  
                  
                  
+                 
+                 
+                 
                 if(cantidadladoderechofrente.equals("si"))
                 {
                     
@@ -586,7 +589,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                         
                     {
                     btnladoizquierdoatrastetermine.setEnabled(true);
-                   btnladoizquierdofrentecancelar.setEnabled(false);
+                   btnladoizquierdoatrascancelar.setEnabled(false);
                      
                       lbcantidad3.setText("0");
                     lbcantidad3.setForeground(Color.red.darker());
@@ -600,7 +603,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     else
                         
                     {
-                            btnladoizquierdofrentecancelar.setEnabled(true);
+                            btnladoizquierdoatrascancelar.setEnabled(true);
                              btnladoizquierdoatrastetermine.setEnabled(false);
                   lbcantidad3.setText(cantidad);
                    lbcantidad3.setForeground(Color.GREEN.darker());
@@ -627,7 +630,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                         
                     {
                     btnladoderechoatrastetermine.setEnabled(true);
-                    btnladoizquierdoatrascancelar.setEnabled(false);
+                    btnladoderechoatrascancelar.setEnabled(false);
                      
                       lbcantidad4.setText("0");
                     lbcantidad4.setForeground(Color.red.darker());
@@ -643,7 +646,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     {
                         
                            
-                 btnladoizquierdoatrascancelar.setEnabled(true);
+                 btnladoderechoatrascancelar.setEnabled(true);
                   btnladoderechoatrastetermine.setEnabled(false);
                   
                   

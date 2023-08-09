@@ -4700,7 +4700,7 @@ public static String dia() {
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("pantaloncancelar");
+            autorizacion.lbinterfaz.setText("pantaloncancelar2");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -4750,7 +4750,7 @@ public static String dia() {
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("pantaloncancelar");
+            autorizacion.lbinterfaz.setText("pantaloncancelar4");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -4812,7 +4812,7 @@ public static String dia() {
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("pantaloncancelar");
+            autorizacion.lbinterfaz.setText("pantaloncancelar1");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -4861,7 +4861,7 @@ public static String dia() {
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("pantaloncancelar");
+            autorizacion.lbinterfaz.setText("pantaloncancelar3");
             autorizacion.lbnivel.setText("2");
 
         }

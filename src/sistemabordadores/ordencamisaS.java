@@ -2843,6 +2843,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
+        
+        
           if(surtidaactualstring ==null || surtidaactualstring.equals("")||surtidaactualstring.equals(" "))
       {
           surtidaactualstring ="0";
@@ -4472,7 +4474,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbcliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbnumerodeventa.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lbnumerodeventa.setForeground(new java.awt.Color(0, 0, 153));
         lbnumerodeventa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnreplicarponchados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -4790,7 +4791,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbmangaderechanombre1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbespaldanombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbespaldanombre1.setText("espalda_puntadas");
+        lbespaldanombre1.setText("Espalda");
         lbespaldanombre1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbotraubicacionnombre1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -4957,7 +4958,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbsucursal.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lbsucursal.setForeground(new java.awt.Color(153, 0, 0));
+        lbsucursal.setForeground(new java.awt.Color(0, 0, 153));
         lbsucursal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbsucursal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 

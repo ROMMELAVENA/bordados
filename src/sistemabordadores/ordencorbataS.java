@@ -31,6 +31,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static sistemabordadores.ordencamisaS.lborden;
+import static sistemabordadores.ordencamisaS.lbordenopedidorecibido;
 import static sistemabordadores.ordengorraS.lbcliente;
 
 public class ordencorbataS extends javax.swing.JFrame {
@@ -53,7 +54,7 @@ public class ordencorbataS extends javax.swing.JFrame {
       String numerosucursal = "";
      String numerodeventa = "";
     String tiendaconectada = "si";
-  
+    String tiendeordenopedido = "";
     public static String tipotabla = "";
      String numeroordendebordadolocalorecibida = "";
     String nuevoestatusorden = "";
@@ -1084,7 +1085,7 @@ JOptionPane.showMessageDialog(null, mensaje);
        
        
         
-         String sql = "Select fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente_puntadas,frente_nombre,frente_cantidad,identificador_prenda,numero_orden_o_pedido_solicitada from historial_ordenes_corbata_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
+         String sql = "Select orden_o_pedido,fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente_puntadas,frente_nombre,frente_cantidad,identificador_prenda,numero_orden_o_pedido_solicitada from historial_ordenes_corbata_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
      
         try {
             Statement st = cn.createStatement();
@@ -1092,6 +1093,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             if (rs.next()) {
                 
                 
+                tiendeordenopedido = rs.getString("orden_o_pedido");
+                lbordenopedidorecibido.setText(tiendeordenopedido);
                 
                 cliente = rs.getString("cliente");
                 lbcliente.setText(cliente);
@@ -1906,6 +1909,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbnumeroordenopedidosolicitado = new javax.swing.JLabel();
         lbprenda5 = new javax.swing.JLabel();
         btndatos = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        lbordenopedidorecibido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden corbata");
@@ -2177,6 +2182,13 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
         });
 
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel29.setText("Tiene orden o pedido recibido?");
+        jLabel29.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbordenopedidorecibido.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbordenopedidorecibido.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2258,26 +2270,26 @@ JOptionPane.showMessageDialog(null, mensaje);
                                                 .addGap(26, 26, 26)
                                                 .addComponent(lbidentificador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabel6)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(58, 58, 58))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabel12)
-                                                        .addGap(28, 28, 28)
-                                                        .addComponent(lbfechaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jLabel12)
+                                                .addGap(28, 28, 28)
+                                                .addComponent(lbfechaentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(7, 7, 7)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabel14)
-                                                        .addGap(12, 12, 12)
-                                                        .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(lbhoraelaboracion, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(7, 7, 7)
-                                                        .addComponent(lbfechaelaboracion, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jLabel14)
+                                                .addGap(12, 12, 12)
+                                                .addComponent(lbhoraentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addContainerGap())
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel6)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbhoraelaboracion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lbfechaelaboracion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(lbordenopedidorecibido, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addContainerGap())))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -2376,7 +2388,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lbhoraelaboracion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbfechaelaboracion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbfechaelaboracion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbordenopedidorecibido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
@@ -2877,6 +2891,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
@@ -2903,6 +2918,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbnumeroordenopedidosolicitado;
     public static javax.swing.JTextArea lbobservaciones;
     public static javax.swing.JLabel lborden;
+    public static javax.swing.JLabel lbordenopedidorecibido;
     private javax.swing.JLabel lbprenda;
     private javax.swing.JLabel lbprenda1;
     private javax.swing.JLabel lbprenda2;

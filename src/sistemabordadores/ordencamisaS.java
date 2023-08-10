@@ -188,6 +188,7 @@ public class ordencamisaS extends javax.swing.JFrame {
     String cantidadespalda = "";
     String cantidadotraubicacion = "";
     String cantidadotraubicacion2 = "";
+    String numeroordenopedidorecibido = "";
     
     
     ArrayList<String> listabotones = new ArrayList<String>();
@@ -586,6 +587,12 @@ JOptionPane.showMessageDialog(null, mensaje);
                 + "   aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,"
                 + "   lugar,estatus_orden,identificador_prenda,tienda,tienda from historial_ordenes_camisa where numero = '" + numeroordendebordadolocalorecibida + "' ";
 
+        
+        
+        
+        
+        
+        
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -1383,7 +1390,27 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         numeroordendebordadolocalorecibida = lborden.getText();
         
-        String sql = "Select orden_o_pedido,fecha,hora,cliente,nombre_comercial,borda_cliente,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,fecha_entrega,hora_entrega,observacion,\n"
+        
+        
+        
+       
+           String sql = "Select orden_o_pedido,numero_orden_o_pedido_solicitada,numero_orden_camisa_solicitada,numero_orden_o_pedido_recibida,fecha,hora,cliente,nombre_comercial,borda_cliente,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
+                + "   pecho_izquierdo_puntadas,pecho_derecho_puntadas,manga_izquierda_puntadas,manga_derecha_puntadas,espalda_puntadas,otra_ubicacion_puntadas,otra_ubicacion2_puntadas,"
+                + "   pecho_izquierdo_cantidad,pecho_derecho_cantidad,manga_izquierda_cantidad,manga_derecha_cantidad,espalda_cantidad,"
+                + "   pecho_izquierdo_nombre,pecho_derecho_nombre,manga_izquierda_nombre,manga_derecha_nombre,espalda_nombre,"
+                + "   otra_ubicacion_puntadas,otra_ubicacion_nombre,otra_ubicacion_cantidad,otra_ubicacion2_puntadas,otra_ubicacion2_nombre,otra_ubicacion2_cantidad,"
+                + "   aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,"
+                + "   aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,"
+                + "   lugar,estatus_orden,identificador_prenda,tienda,tienda from historial_ordenes_camisa_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' ";
+
+        
+        
+        
+        
+        /*
+        
+        
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,fecha_entrega,hora_entrega,observacion,\n"
                 + "   pecho_izquierdo_puntadas,pecho_derecho_puntadas,manga_izquierda_puntadas,manga_derecha_puntadas,espalda_puntadas,otra_ubicacion_puntadas,otra_ubicacion2_puntadas,"
                 + "pecho_izquierdo_cantidad,pecho_derecho_cantidad,manga_izquierda_cantidad,manga_derecha_cantidad,espalda_cantidad,\n"
                 + "pecho_izquierdo_nombre,pecho_derecho_nombre,manga_izquierda_nombre,manga_derecha_nombre,espalda_nombre,\n"
@@ -1393,14 +1420,29 @@ JOptionPane.showMessageDialog(null, mensaje);
                 + "lugar,estatus_orden,numero_orden_o_pedido_solicitada,tienda,numero_orden_camisa_solicitada,identificador_prenda\n"
                 + "from historial_ordenes_camisa_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
 
+        
+        */        
+        
+        
+        
+        
+        
+        
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             if (rs.next()) {
 
                
-                tiendeordenopedido = rs.getString("prenda");
+                tiendeordenopedido = rs.getString("orden_o_pedido");
                 lbordenopedidorecibido.setText(tiendeordenopedido);
+                
+                lbnumerodelaotrasucursal.setText(rs.getString("numero_orden_o_pedido_solicitada"));
+                numerosucursal = rs.getString("numero_orden_camisa_solicitada");
+                
+                numeroordenopedidorecibido = rs.getString("numero_orden_o_pedido_recibida");
+                lbnumeroordenopedidorecibido.setText(numeroordenopedidorecibido);
+                
                 
                 cliente = rs.getString("cliente");
                 lbcliente.setText(cliente);
@@ -1410,8 +1452,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = rs.getString("prenda");
                 lbfecha.setText(rs.getString("fecha"));
-                lbnumerodelaotrasucursal.setText(rs.getString("numero_orden_o_pedido_solicitada"));
-                numerosucursal = rs.getString("numero_orden_camisa_solicitada");
+                
                 
                 sucursal = rs.getString("tienda");
                 lbsucursal.setText(sucursal);
@@ -1438,7 +1479,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
                 else
                 {
-                    botonhabilitado4 = "si";
+                    botonhabilitado1 = "si";
                     lbpechoizquierdonombre.setText(pechoizquierdonombre);
                 } 
                 
@@ -1463,7 +1504,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
                 else
                 {
-                    botonhabilitado3 = "si";
+                    botonhabilitado2 = "si";
                     lbpechoderechonombre.setText(pechoderechonombre);
                 } 
                 
@@ -1491,7 +1532,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                     
                    lbmangaizquierdanombre.setText(mangaizquierdanombre);
-                    botonhabilitado2 = "si";
+                    botonhabilitado3 = "si";
                 } 
 
                 
@@ -1520,7 +1561,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 else
                 {
                     lbmangaderechanombre.setText(mangaderechanombre);
-                    botonhabilitado1 = "si";
+                    botonhabilitado4 = "si";
                 }   
 
                 
@@ -1656,131 +1697,394 @@ JOptionPane.showMessageDialog(null, mensaje);
                
                 lugar = rs.getString("lugar");
 
-                String cantidadpechoizquiedo = rs.getString("pecho_izquierdo_cantidad");
-                String cantidadpechoderecho = rs.getString("pecho_derecho_cantidad");
-                String cantidadmangaizquierda = rs.getString("manga_izquierda_cantidad");
-                String cantidadmangaderecha = rs.getString("manga_derecha_cantidad");
-                String cantidadespalda = rs.getString("espalda_cantidad");
-
               
 
                     btnreplicarponchados.setEnabled(false);
                   
                     
                     
+                    ////////////////////
+                    //////////////////
+                    /////CANTIDAD
                     
                     
+                 cantidadpechoizquierdo =rs.getString("pecho_izquierdo_cantidad");
+                cantidadpechoderecho =rs.getString("pecho_derecho_cantidad");         
+                cantidadmangaizquierda =rs.getString("manga_izquierda_cantidad"); 
+                cantidadmangaderecha =rs.getString("manga_derecha_cantidad");
+                cantidadespalda =rs.getString("espalda_cantidad");
+                cantidadotraubicacion =rs.getString("otra_ubicacion_cantidad");
+                cantidadotraubicacion2 =rs.getString("otra_ubicacion2_cantidad");
+                
+                
+                
+                
+                
+                 btnterminetodo.setEnabled(false);
+                
+                
+                
+                
                     
-                    if(cantidadpechoizquiedo.equals("0") && botonhabilitado4.equals("si") )
-                {
-                   btnpechoizquierdotermine.setEnabled(true);
-                   btnpechoizquierdoponchado.setEnabled(true);
+                    btnreplicarponchados.setEnabled(false);
                   
-                   if(botonhabilitado4.equals("si"))
+                    
+                
+                //// pecho izquierdo    
+                    
+                if( botonhabilitado1.equals("si") )
+                {
+                  
+                   
+                   
+                   
+       
+                   if(cantidadpechoizquierdo.equals("0"))
                    {
+                       
+                       
                    listabotones.add("btnpechoizquierdo");
-                   btnterminetodo.setEnabled(true);
+                   
+                    btnpechoizquierdotermine.setEnabled(true);
+                    btnpechoizquierdocancelar.setEnabled(false);
+                     
+                   
+                     lbcantidad1.setText("0");
+                    lbcantidad1.setForeground(Color.red.darker());
+                    
+                       
+                   
+                   
                    }
+                   
+                   else
+                   {
+                       
+                        btnpechoizquierdocancelar.setEnabled(true);
+                   btnpechoizquierdotermine.setEnabled(false);  
+                   
+                     lbcantidad1.setText(cantidad);
+                   lbcantidad1.setForeground(Color.GREEN.darker());
+                      
+                       
+                   }
+                  
+                }
+                else
+                {
+                    
+                 btnpechoizquierdotermine.setEnabled(false);
+               
+                  
+                
+                } 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+               
+                //// pecho derecho
+                
+                if(  botonhabilitado2.equals("si") )
+                {
+                   btnpechoderechotermine.setEnabled(true);
+                   
+                   
+                    btnterminetodo.setEnabled(true);
+            
+                   
+                   
+                   if(cantidadpechoderecho.equals("0"))
+                   {
+                   listabotones.add("btnpechoderecho");
+                   
+                   
+                    btnpechoderechotermine.setEnabled(true);
+                    btnpechoderechocancelar.setEnabled(false);   
+                   
+                     lbcantidad2.setText("0");
+                    lbcantidad2.setForeground(Color.red.darker());
+                    
+                   
+                   }
+                   
+                   else
+                   {                       
+                       
+                         btnpechoderechocancelar.setEnabled(true);
+                       btnpechoderechotermine.setEnabled(false);    
+                       
+                         lbcantidad2.setText(cantidad);
+                   lbcantidad2.setForeground(Color.GREEN.darker());
+                   }
+                  
+                }
+                else
+                {
+                    
+                   btnpechoderechotermine.setEnabled(false);
+                          
+                } 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                if(  botonhabilitado3.equals("si") )
+                {
+                   
+            
+                   if(cantidadmangaizquierda.equals("0"))
+                   {
+                       
+                        listabotones.add("btnmangaizquierda");
+                        
+                        
+                       btnmangaizquierdatermine.setEnabled(true);
+                        btnmangaizquierdacancelar.setEnabled(false);
+                       
+                      
+                       
+                        
+                   
+                    lbcantidad3.setText("0");
+                    lbcantidad3.setForeground(Color.red.darker());
+                       
+                   }
+                       else
+                       {
+                               
+                           
+                            btnmangaizquierdacancelar.setEnabled(true);
+                       btnmangaizquierdatermine.setEnabled(false);  
+                       
+                        lbcantidad3.setText(cantidad);
+                   lbcantidad3.setForeground(Color.GREEN.darker());
+                               
+                               }
+                       
+                  
+                }
+                else
+                {
+                    
+                     btnmangaizquierdatermine.setEnabled(false);
+                     
+                       
+                   
+                  
+                } 
+                
+                
+                
+                    
+                if(  botonhabilitado4.equals("si") )
+                {
+                  
+         
+                    if(cantidadmangaderecha.equals("0"))
+                   {
+                       
+                       
+                   listabotones.add("btnmangaderecha");
+                   
+                    btnmangaderechatetermine.setEnabled(true);
+                      btnmangaderechacancelar.setEnabled(false);
+                    
+                 
+                   
+                    lbcantidad4.setText("0");
+                    lbcantidad4.setForeground(Color.red.darker());
+                    
+                          
+                             
+                   }
+                    
+                    else
+                    {
+                        
+                         btnmangaderechacancelar.setEnabled(true);
+                 btnmangaderechatetermine.setEnabled(false);  
+                 
+                 
+                  lbcantidad4.setText(cantidad);
+                   lbcantidad4.setForeground(Color.GREEN.darker());
+                        
+                    }
+                   
+                   
                    
                 }
                 else
                 {
-                    btnpechoizquierdotermine.setEnabled(false);
-                    btnpechoizquierdoponchado.setEnabled(false);
+                      btnmangaderechatetermine.setEnabled(false);
                    
+                 
+                } 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                if(  botonhabilitado5.equals("si") )
+                {
+                 
+            
+                   if(cantidadespalda.equals("0"))
+                   {
+                   listabotones.add("btnespalda");
+                   
+                   
+                     btnespaldatetermine.setEnabled(true);
+                      btnespaldacancelar.setEnabled(false);
+                    
+                     
+                   
+                   lbcantidad5.setText("0");
+                    lbcantidad5.setForeground(Color.red.darker());
+                   
+                          
+                   }
+                   
+                   else
+                   {
+                         btnespaldacancelar.setEnabled(true);
+                   btnespaldatetermine.setEnabled(false); 
+                   
+                   
+                    lbcantidad5.setText(cantidad);
+                   lbcantidad5.setForeground(Color.GREEN.darker());
+                       
+                   }
+                  
+                   
+                }
+                else
+                {
+                    
+                   btnespaldatetermine.setEnabled(false);
+                    
+                    
+                    
+                    
+                } 
+                
+                
+                
+                
+                
+                
+                
+                
+                if(  botonhabilitado6.equals("si") )
+                {
+                  
+              
+                   if(cantidadotraubicacion.equals("0") )
+                   {
+                   listabotones.add("btnotraubicacion");
+                   
+                    btnotraubicaciontetermine.setEnabled(true);
+                      btnotraubicacioncancelar.setEnabled(false);
+                   
+                   
+                   
+                   lbcantidad6.setText("0");
+                    lbcantidad6.setForeground(Color.red.darker());
+                       
+                           
+                   }
+                   
+                   else
+                   {
+                       
+                        btnotraubicacioncancelar.setEnabled(true);
+                   btnotraubicaciontetermine.setEnabled(false);   
+                   
+                   
+                     lbcantidad6.setText(cantidad);
+                   lbcantidad6.setForeground(Color.GREEN.darker());
+                       
+                   }
+                   
+                   
+                }
+                else
+                {
+                    
+                    btnotraubicaciontetermine.setEnabled(false);
+                
+                  
+                } 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                if(  botonhabilitado7.equals("si") )
+                {
+                   
+           
+                   if(cantidadotraubicacion2.equals("0"))
+                   {
+                       listabotones.add("btnotraubicacion2");
+                       
+                      btnotraubicacion2tetermine.setEnabled(true);
+                       btnotraubicacion2cancelar.setEnabled(false);
+                    
+                      
+                         lbcantidad7.setText("0");
+                    lbcantidad7.setForeground(Color.red.darker());
+                       
+                            
+                               
+                   }
+                   
+                   else
+                   {
+                         btnotraubicacion2cancelar.setEnabled(true);
+                 btnotraubicacion2tetermine.setEnabled(false); 
+                 
+                 
+                  lbcantidad7.setText(cantidad);
+                   lbcantidad7.setForeground(Color.GREEN.darker());
+                       
+                   }
+                  
+                   
+                }
+                else
+                {
+                    
+                   btnotraubicacion2tetermine.setEnabled(false);
+                     
+                  
                 } 
                 
                
-                
-                if(cantidadpechoderecho.equals("0")  && botonhabilitado3.equals("si") )
-                {
-                    
-                   btnpechoderechotermine.setEnabled(true);
-                   btnpechoderechoponchado.setEnabled(true);
-                           
-                           
-                   if(botonhabilitado3.equals("si"))
-                   {
-                   listabotones.add("btnpechoderecho");
-                   btnterminetodo.setEnabled(true);
-                   
-                   
-                   }
-                  
-                }
-                else
-                {
-                    btnpechoderechotermine.setEnabled(false);
-                    btnpechoderechoponchado.setEnabled(false);
-                   
-                } 
-                
-                
-                if(cantidadmangaizquierda.equals("0")  && botonhabilitado2.equals("si") )
-                {
-                    
-                   btnmangaizquierdatermine.setEnabled(true);
-                   btnmangaizquierdaponchado.setEnabled(true);
-                   
-                   
-                   if(botonhabilitado2.equals("si"))
-                   {
-                   listabotones.add("btnmangaizquierda");
-                   btnterminetodo.setEnabled(true);
-                   }
-                  
-                }
-                else
-                {
-                    btnmangaizquierdatermine.setEnabled(false);
-                    btnmangaizquierdaponchado.setEnabled(false);
-                   
-                } 
-                    
-                if(cantidadmangaderecha.equals("0")  && botonhabilitado1.equals("si") )
-                {
-                   btnmangaderechatetermine.setEnabled(true);
-                   btnmangaderechaponchado.setEnabled(true);
-                           
-                           
-                    if(botonhabilitado1.equals("si"))
-                   {
-                   listabotones.add("btnmangaderecha");
-                   btnterminetodo.setEnabled(true);
-                   }
-                   
-                   
-                   
-                }
-                else
-                {
-                    btnmangaderechatetermine.setEnabled(false);
-                    btnmangaderechaponchado.setEnabled(false);
-                    
-                } 
-                
-                
-                if(cantidadespalda.equals("0")  && botonhabilitado5.equals("si") )
-                {
-                   btnespaldatetermine.setEnabled(true);
-                   btnespaldaponchado.setEnabled(true);
-                           
-                   if(botonhabilitado5.equals("si"))
-                   {
-                   listabotones.add("btnespalda");
-                   btnterminetodo.setEnabled(true);
-                   }
-                 
-                   
-                }
-                else
-                {
-                    btnespaldatetermine.setEnabled(false);
-                    btnespaldaponchado.setEnabled(false);
-                    
-                } 
-                
-                
+               
                 
                 btnotraubicacionponchado.setEnabled(false);
                 btnotraubicacion2ponchado.setEnabled(false);
@@ -2650,25 +2954,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
         
         
-        String ubicacionsinguiones = ubicacion;
-        ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
-        
-        
-        if(terminetodo.equals("si"))
-        {
-            
-        }
-        else
-        {    
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">"+ubicacionsinguiones+" cancelada correctamente ");
-        }
-        
-        try {
-            datostiendalocal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
     }
     
     
@@ -2677,36 +2962,25 @@ JOptionPane.showMessageDialog(null, mensaje);
     void insertarlacantidadylafechaenlaubicacion(String ubicacion, String fechaubicacion)
     {
         try {
+            
+            
+            
+           
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa set "+ubicacion+"='" + cantidad + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set "+ubicacion+"='" + cantidad + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
                 } catch (Exception ex) {
                     
                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
+                     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al actualizar al actualizar las cantidades en el historial de ordenes de camisa");
                 }
         
         
-        String ubicacionsinguiones = ubicacion;
-        ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
         
         
-        if(terminetodo.equals("si"))
-        {
-            
-        }
-        else
-        {    
-     //   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
-        }
-        
-        try {
-            datostiendalocal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+      
     }
     
     
@@ -2739,7 +3013,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                    
                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-                     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al actualizar al actualizar las cantidades en el historial de ordenes de camisa recibidas ");
+                     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al actualizar al actualizar las cantidades en el historial de ordenes de camisa");
                     
                 }
         
@@ -3276,7 +3550,409 @@ JOptionPane.showMessageDialog(null, mensaje);
          
           
           
+           // PEDIDO
+          
+          
+          
+            if (tiendeordenopedido.equals("pedido"))
+            {
+            
+            
+                
+                
+        String surtidaactualstring ="";
+        int surtidaactualint =  0;
+        String nuevasurtidastring = "";
+        String estatusentrega ="";
+       
+        
+        String SQL2 = "select articulo,surtidas from historial_pedidos_sucursal_recibidos where numero = '" + numeroordenopedidorecibido + "' and articulo = '" + ubicacion + "'";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL2);
+
+        if (rs.next()) 
+        {
+            
+       
+
+        surtidaactualstring = rs.getString("surtidas");
+        surtidaactualint = Integer.parseInt(surtidaactualstring);
+      
+
+        }
+        
+        else
+        {
+     
+        String observacion = "\n no se pudo surtir debido a que NO SE ENCONTRÓ EN LA VENTA; QUIZAS SE CAMBIO LA DESCRIPCION DEL BORDADO";
+        
+        String[] lineas = observacion.split("\n");
+        
+        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el artículo "+ubicacion+"" + lineas[0] + "</span><br>";
+        if (lineas.length > 1) {
+         mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
+           }
+
+           JOptionPane.showMessageDialog(null, mensaje);
+             
+             
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+        
+        
+        
+        
+          if(surtidaactualstring ==null || surtidaactualstring.equals("")||surtidaactualstring.equals(" "))
+      {
+          surtidaactualstring ="0";
+      } 
+          
+       
+        int surtidasint =  Integer.parseInt(cantidad);
+        int surtidasnuevasint = surtidaactualint + surtidasint;
+       
+        nuevasurtidastring =  String.valueOf(surtidasnuevasint);
+            
+        
+        
+       
+        
+        
+        
+        // AQUI LO VAS A MODIFICAR ROMMEL, QUE ENTRE CUANDO SEA ORDEN DE ENVIO, NO CUANDO ESTE SURTIDA Y ENTREGADA TOTALMENTE
+      
+            
+            
+            
+         if(sucursal.equals(tiendalocal) && !numeroordendeenviosolicitada.equals("0"))    
+         
+                 {
+                     
+          
+             
+                     
+            
+            try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET surtidas = '" + nuevasurtidastring + "', WHERE numero ='" + numeroordenopedidorecibido + "' and articulo = '" + ubicacion + "'");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+            
+            
+                     
+            
+            
+            // TIENE APLICACION
+            
+            
+            
+            
+            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
+            {
+                
+                
+                
+                
+            }
+            
+            else
+            {
+                
+                int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+                cantidadaplicacionint = cantidadaplicacionint * surtidasnuevasint;
+                
+                String totalaplicaciones = String.valueOf(cantidadaplicacionint);
+                
+            
+          
+            
+            
+              try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtida = '" + totalaplicaciones + "' WHERE numero_sucursal ='" + numeroordendeenviosolicitada + "' and articulo = '" + ubicacionaplicacion + "'   and prenda = '"+prenda+"'    ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+
+            }
+              
+
+      
+        ////Actualiza el estatus
+
+      String vendidastring = "";    
+      String surtidastring = "";  
+      String entregadastring = "";  
+      String ordenstring = "";
+      String cambiadastring = "";
+      String virtualstring = "";
+       
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas, Sum(orden) as orden, Sum(cantidad_virtual) as cantidad_virtual, Sum(cambiada) as cambiada from historial_ventas where numero = '"+numerodeventa+"'  ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL3);
+
+        if (rs.next()) 
+        {
+
+        vendidastring = rs.getString("cantidad");
+        surtidastring = rs.getString("surtida");
+        entregadastring = rs.getString("entregadas");
+        ordenstring = rs.getString("orden");
+        cambiadastring = rs.getString("cambiada");
+        virtualstring = rs.getString("cantidad_virtual");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+        System.out.println (ex);
+        }
+      
+        
+        
+        
+        
+        
+      
+     ////Actualiza el estatus
+      
+     
+      
+      int vendida = Integer.parseInt(vendidastring);
+      int surtida = Integer.parseInt(surtidastring);
+      int entregada = Integer.parseInt(entregadastring);
+      int orden = Integer.parseInt(ordenstring);
+      int cambiada = Integer.parseInt(cambiadastring);
+      int virtual = Integer.parseInt(virtualstring);
+      
+        
+        if(vendida == (surtida + orden + cambiada + virtual + entregada) && entregada == 0 )
+        {
+          estatusentrega ="surtida totalmente no entregada";  
+        }
+        
+        else
+          if(vendida == (surtida + orden + cambiada + virtual + entregada) && entregada > 0 )
+        {
+          estatusentrega ="surtida totalmente entregada parcialmente";  
+        }
+          
+          
+           else
+          if(vendida > (surtida + orden + cambiada + virtual + entregada) && entregada > 0 )
+        {
+          estatusentrega ="surtida totalmente entregada parcialmente";  
+        }
+     
+        
+        else
+        {
+          estatusentrega ="surtida parcialmente no entregada";   
+        }    
+        
+        
+        
+        
+          try {
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numerodeventa + "'       ");
+              pst.executeUpdate();
+              pst.close();
+          } catch (Exception e) {
+
+              System.out.println(e);
+          }
+      
+      
+            
+            
+            
+        }
+        else
+        {
+        
+     
+        
+      
+            
+            
+            try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevasurtidastring + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"'   ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+            
+            
+            
+            
+            
+            
+              
+            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
+            {
+                
+                
+                
+                
+            }
+            
+            else
+            {
+                
+                int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+                cantidadaplicacionint = cantidadaplicacionint * surtidasnuevasint;
+                
+               String totalaplicaciones = String.valueOf(cantidadaplicacionint);
+                
+            
+            
+            
+             try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + totalaplicaciones + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacionaplicacion + "'  and identificador_prenda = '"+identificador+"'   ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+             
+             
+             
+            
+            }
+            
+            
+            
+
+        ////Actualiza el estatus
+
+      String cantidadsurtida = "";  
+      String cantidadvendida = "";  
+      String cantidadentregada = "";  
+       
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(entregadas) as entregadas from historial_ventas where numero = '"+numerodeventa+"'  ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL3);
+
+        if (rs.next()) 
+        {
+
+        cantidadvendida = rs.getString("cantidad");
+        cantidadsurtida = rs.getString("surtida");
+        cantidadentregada = rs.getString("entregadas");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+        System.out.println (ex);
+        }
+      
+        
+      
+      /////
+      
+      double cantidadvendidadouble = Double.parseDouble(cantidadvendida);
+      double cantidadsurtidadouble = Double.parseDouble(cantidadsurtida);
+      double cantidadentregadadouble = Double.parseDouble(cantidadentregada);
+      
+        
+        if(cantidadvendidadouble == cantidadsurtidadouble && cantidadentregadadouble == 0 )
+        {
+          estatusentrega ="surtida totalmente no entregada";  
+        }
+        else  if(cantidadvendidadouble == (cantidadsurtidadouble + cantidadentregadadouble )  &&  cantidadentregadadouble <  cantidadvendidadouble  )
+        {
+          estatusentrega ="surtida totalmente entregada parcialmente";  
+        }
+        
+        else
+        {
+          estatusentrega ="surtida parcialmente no entregada";   
+        }    
+        
+          try {
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numerodeventa + "'       ");
+              pst.executeUpdate();
+              pst.close();
+          } catch (Exception e) {
+
+              System.out.println(e);
+          }
+      
+
+        }
+      
+         
+            }
+            
+            
            // ORDEN DE ENVIO
+           // ORDEN DE ENVIO
+           // ORDEN DE ENVIO
+            // ORDEN DE ENVIO
+            
+            else
+                
+                
+            {
+                
+                
+                
+            }
+         
+         
+      
+      }
+    
+     
+     
+    
+    
+    
+    
+    
+    
+   
+     
+     
+     
+    void agregarsurtidasalhistorialdepedidosoenviosyactualizarestatuscancelar(String ubicacion, String cantidad, String ubicacionaplicacion) 
+      {
+          
+          
+          
+          
+         
+          
+          
+           // PEDIDO
           
           
           
@@ -3654,24 +4330,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
          
          
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
       
       }
-    
-     
-     
      
      
      
@@ -4752,6 +5412,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbnumeroordenopedidosolicitado = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         lbordenopedidorecibido = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        lbnumeroordenopedidorecibido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden camisa");
@@ -5372,6 +6034,13 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbordenopedidorecibido.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbordenopedidorecibido.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel27.setText("Número");
+        jLabel27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbnumeroordenopedidorecibido.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbnumeroordenopedidorecibido.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -5459,23 +6128,27 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addGap(6, 6, 6)
                         .addComponent(lbnumerodeventa, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbordenopedidorecibido, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel26)
                         .addGap(12, 12, 12)
                         .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(lbautorizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(lbautorizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbordenopedidorecibido, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbnumeroordenopedidorecibido, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5684,8 +6357,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(btndatos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(7, 7, 7)
+                                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbnumeroordenopedidorecibido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5700,14 +6375,14 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addComponent(lbpechoizquierdonombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnpechoizquierdotermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnpechoizquierdocancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbhilo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbcolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnpechoizquierdoponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnpechoizquierdotermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbpechoderechonombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -6106,34 +6781,12 @@ JOptionPane.showMessageDialog(null, mensaje);
         
             
             
-            
-            
-            
-            
-            
-            //ESTA SUCURSAL
-            
-        if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
-        {
-            
-      
-            
-           sucursal = tiendalocal;
+             sucursal = tiendalocal;
            nombrebordado =pechoizquierdonombre;
            cantidadaplicacion = aplicacionpechoizquierdo;
-       
-           nombredelatabla = "historial_ordenes_camisa";
            
            
-           
-           
-           insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);  
-           
-           
-           
-           
-           
-           if (prenda.toUpperCase().equals("CAMISA")) {
+             if (prenda.toUpperCase().equals("CAMISA")) {
 
                 descripcion = "BORDADO CAMISA PECHO IZQUIERDO " + nombrebordado + "";
                 aplicacioninsertar = "APLICACION CAMISA PECHO IZQUIERDO";
@@ -6183,27 +6836,35 @@ JOptionPane.showMessageDialog(null, mensaje);
                 aplicacioninsertar = "APLICACION CHALECO PECHO IZQUIERDO";
 
             }
-
-     
+            
+            
+            
+            
+            //ESTA SUCURSAL
+            
+        if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
+        {
+            
+      
+            
+          
+       
+           nombredelatabla = "historial_ordenes_camisa";
+           
+           
+           
+           
+     //      insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);  
+           
+           
   
        agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
     
-       estacompletalaorden(); 
-    
-       sumapuntos();   
        
        
-       
-       JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
-        
         
             
         }
-        
-        
-        
-        
-        
         
         
         
@@ -6246,94 +6907,38 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
             
    
-            nombrebordado = pechoizquierdonombre;
-            cantidadaplicacion = aplicacionpechoizquierdo;
             
              nombredelatabla = "historial_ordenes_camisa_recibidas";
            
        
-           
-            
-            
-            
-           
+                
         
-            insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
+        //    insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
          
-            if (prenda.toUpperCase().equals("CAMISA")) {
-
-                descripcion = "BORDADO CAMISA PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISA PECHO IZQUIERDO";
-
-            } //// playera
-            else if (prenda.toUpperCase().equals("PLAYERA")) {
-
-                descripcion = "BORDADO PLAYERA PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION PLAYERA PECHO IZQUIERDO";
-
-            } //// chamarra desmontable
-            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
-
-                descripcion = "BORDADO CHAMARRA DESMONTABLE PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE PECHO IZQUIERDO";
-
-            } /// chamarra rompevientos
-            else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
-
-                descripcion = "BORDADO CHAMARRA ROMPEVIENTOS PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS PECHO IZQUIERDO";
-
-            } ///camisola
-            else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
-
-                descripcion = "BORDADO CAMISOLA PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISOLA PECHO IZQUIERDO";
-
-            } else if (prenda.toUpperCase().equals("FILIPINA")) {
-
-                descripcion = "BORDADO FILIPINA PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION FILIPINA PECHO IZQUIERDO";
-
-            } ///SACO
-            else if (prenda.toUpperCase().equals("SACO")) {
-
-                descripcion = "BORDADO SACO PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION SACO PECHO IZQUIERDO";
-
-            }
-            else if (prenda.toUpperCase().equals("CHALECO")) {
-
-                descripcion = "BORDADO CHALECO PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHALECO PECHO IZQUIERDO";
-
-            }
-            
-            
-            
-            
-            
-                if (tiendeordenopedido.equals("pedido"))
-            {
-            }
-            
-            
-            
+          
             
             agregarsurtidasalhistorialdepedidosoenviosyactualizarestatus((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
             
+          
+         
             
-            
-
-        
-            estacompletalaorden();
-            sumapuntos();
-            
-            
-           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+           
            
             
 
         }
+        
+        
+        insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);  
+        
+        estacompletalaorden(); 
+    
+        sumapuntos();   
+        
+        
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+       
+        
         
     
         }
@@ -7944,27 +8549,23 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
+        
+        
             String autorizado = lbautorizacion.getText();
         if (autorizado.equals("si"))     
         {
-            
-            
         
-    
+        
             
-           ubicacion = "pecho_izquierdo_cantidad";
+            
+            ubicacion = "pecho_izquierdo_cantidad";
            String fechaubicacion = "pecho_izquierdo_fecha";
-           
-           eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion);         
-                  
-           
-           nombrebordado =pechoizquierdonombre;
-          
-         
-           nombredelatabla = "historial_ordenes_camisa";
-           
-           
-           
+            
+              nombrebordado =pechoizquierdonombre;
+              
+              
+              
+             
           if (prenda.toUpperCase().equals("CAMISA")) {
 
                 descripcion = "BORDADO CAMISA PECHO IZQUIERDO " + nombrebordado + "";
@@ -8011,17 +8612,82 @@ JOptionPane.showMessageDialog(null, mensaje);
                 descripcion = "BORDADO CHALECO PECHO IZQUIERDO " + nombrebordado + "";
                 aplicacioninsertar = "APLICACION CHALECO PECHO IZQUIERDO";
 
-            }
-
+            } 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+            
+            if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
+        {
+            
+           nombredelatabla = "historial_ordenes_camisa";
+           
+           
+         
      
-       agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;   
-       estacompletalaorden(); 
-       sumapuntos();   
+             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;   
+             
         
          
-           lbautorizacion.setText("no");
            
-           datos();
+           
+            }
+           
+           
+           
+          else
+          
+          
+          {
+                  
+                  
+              
+              
+              
+              
+           nombredelatabla = "historial_ordenes_camisa_recibidas";
+           
+                   
+                
+
+         agregarsurtidasalhistorialdepedidosoenviosyactualizarestatuscancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
+         
+              
+              
+              
+              
+              
+              
+                  
+          }
+           
+           
+           
+         
+           eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
+           
+           
+           
+           estacompletalaorden(); 
+             sumapuntos();   
+           
+           
+           
+           
+           
+            datos();
+           
+           
+           
+           
+            lbautorizacion.setText("no");
                 
                      }
             
@@ -8041,7 +8707,26 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion.lbnivel.setText("2");
 
         }
+            
+            
+            
+            
+            
+            
+            
         }    
+        
+        
+            
+        
+        
+   
+        
+        
+        
+        
+        
+        
         
         
         
@@ -9114,6 +9799,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -9162,6 +9848,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumerodelaotrasucursal;
     public static javax.swing.JLabel lbnumerodeventa;
+    public static javax.swing.JLabel lbnumeroordenopedidorecibido;
     public static javax.swing.JLabel lbnumeroordenopedidosolicitado;
     public static javax.swing.JTextArea lbobservaciones;
     public static javax.swing.JLabel lborden;

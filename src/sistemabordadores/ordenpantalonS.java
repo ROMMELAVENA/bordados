@@ -2666,7 +2666,7 @@ JOptionPane.showMessageDialog(null, mensaje);
      }  
      
     
-      void estacompletalaorden()
+      void actualizarestatusentregaordendebordado()
     {
         
        
@@ -4176,7 +4176,7 @@ public static String dia() {
            
           
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             
         
              
@@ -4212,7 +4212,7 @@ public static String dia() {
             
             insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
             
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             
             
             
@@ -4256,7 +4256,7 @@ public static String dia() {
           
          
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             
             
             
@@ -4296,7 +4296,7 @@ public static String dia() {
             
             insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
             
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             
             
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
@@ -4340,7 +4340,7 @@ public static String dia() {
             
        
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             
             
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
@@ -4376,7 +4376,7 @@ public static String dia() {
             
             insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
             
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             
             
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
@@ -4419,7 +4419,7 @@ public static String dia() {
            
           
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             
         
             
@@ -4454,7 +4454,7 @@ public static String dia() {
             
             insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
             
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             
             
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
@@ -4701,7 +4701,7 @@ public static String dia() {
                     
                     
                      agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-                     estacompletalaorden();
+                     actualizarestatusentregaordendebordado();
                      
                      
                      
@@ -4751,7 +4751,7 @@ public static String dia() {
                     
                    
                      agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-                     estacompletalaorden();
+                     actualizarestatusentregaordendebordado();
                  
                      
                          lbautorizacion.setText("no");
@@ -4814,7 +4814,7 @@ public static String dia() {
                    
                     
                      agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-                     estacompletalaorden();
+                     actualizarestatusentregaordendebordado();
                      
                      
                          lbautorizacion.setText("no");
@@ -4862,7 +4862,7 @@ public static String dia() {
                    
                     
                      agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-                     estacompletalaorden();
+                     actualizarestatusentregaordendebordado();
                      
                      
                      

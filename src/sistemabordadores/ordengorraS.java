@@ -2322,7 +2322,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
     }
      
-    void estacompletalaorden()
+    void actualizarestatusentregaordendebordado()
     {
         
      
@@ -3948,7 +3948,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             sumapuntos();   
            
             
@@ -3989,7 +3989,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombredelatabla = "historial_ordenes_gorra_recibidas";
            
           
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             sumapuntos();  
             
             
@@ -4382,7 +4382,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombredelatabla = "historial_ordenes_gorra";
              
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             sumapuntos();    
         
            
@@ -4396,7 +4396,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
             File archivoelegido = adjuntar.getSelectedFile();
-         //estacompletalaorden   rutafrente = archivoelegido.toString();
+         //actualizarestatusentregaordendebordado   rutafrente = archivoelegido.toString();
 
             
             btnfrentetermine.setEnabled(false);
@@ -4419,7 +4419,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombredelatabla = "historial_ordenes_gorra_recibidas";
             String cantidad = lbcantidad.getText();
              
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             sumapuntos();  
                 
             
@@ -4461,7 +4461,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidad = lbcantidad.getText();
             
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             sumapuntos();   
             
             
@@ -4498,7 +4498,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "";
             String cantidad = lbcantidad.getText();
             
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             sumapuntos(); 
             
             
@@ -4529,7 +4529,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidad = lbcantidad.getText();
              
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             sumapuntos();    
             
 
@@ -4567,7 +4567,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombredelatabla = "historial_ordenes_gorra_recibidas";
             String cantidad = lbcantidad.getText();
              
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             sumapuntos();   
             
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
@@ -4805,7 +4805,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     String cantidad = lbcantidad.getText();
                   
                     agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) cantidad );
-                    estacompletalaorden();
+                    actualizarestatusentregaordendebordado();
                     sumapuntos();
                     
                     
@@ -4862,7 +4862,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                    
                     agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-                    estacompletalaorden();
+                    actualizarestatusentregaordendebordado();
                     sumapuntos();
 
                
@@ -4920,7 +4920,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                    
                  
                     agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-                    estacompletalaorden();
+                    actualizarestatusentregaordendebordado();
                     sumapuntos();
                     
                     
@@ -4977,7 +4977,7 @@ JOptionPane.showMessageDialog(null, mensaje);
           
         
             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             sumapuntos();   
                     
                

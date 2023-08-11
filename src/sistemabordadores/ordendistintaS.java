@@ -3521,7 +3521,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }
     
     
-    void estacompletalaorden()
+    void actualizarestatusentregaordendebordado()
     {
         
        
@@ -5280,7 +5280,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
           
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             //sumapuntos(); 
             
             
@@ -5316,7 +5316,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
         //sumapuntos(); 
         
         
@@ -5351,7 +5351,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             //sumapuntos(); 
             
             
@@ -5387,7 +5387,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             //sumapuntos(); 
             
             
@@ -5424,7 +5424,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             //sumapuntos(); 
             
             
@@ -5495,7 +5495,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             //sumapuntos(); 
             
             
@@ -5533,7 +5533,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             //sumapuntos(); 
             
         } 
@@ -5661,7 +5661,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
            
             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             //sumapuntos();
             
 
@@ -5738,7 +5738,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
      
        agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-       estacompletalaorden(); 
+       actualizarestatusentregaordendebordado(); 
        //sumapuntos(); 
        
         }
@@ -5800,7 +5800,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
       
        agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-       estacompletalaorden(); 
+       actualizarestatusentregaordendebordado(); 
       // sumapuntos();
             
         }
@@ -5864,7 +5864,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
      
        agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);   
-       estacompletalaorden(); 
+       actualizarestatusentregaordendebordado(); 
        //sumapuntos();   
         
              
@@ -5926,7 +5926,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
      
        agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);   
-       estacompletalaorden();
+       actualizarestatusentregaordendebordado();
        //sumapuntos();       
             
         }
@@ -5988,7 +5988,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
          
             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
            // sumapuntos();
             
         }
@@ -6049,7 +6049,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
        
             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
           //  sumapuntos();
             
         }

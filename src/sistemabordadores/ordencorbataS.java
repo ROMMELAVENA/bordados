@@ -1743,7 +1743,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-    void estacompletalaorden()
+    void actualizarestatusentregaordendebordado()
     {
          int tienecantidad = 0;
         int botonesactivados = 0;
@@ -2533,7 +2533,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             aplicacioninsertar = "";
        
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            estacompletalaorden();
+            actualizarestatusentregaordendebordado();
             sumapuntos();
             
              if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
@@ -2729,7 +2729,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     
                     agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-                    estacompletalaorden();
+                    actualizarestatusentregaordendebordado();
                     sumapuntos();
                     
                     

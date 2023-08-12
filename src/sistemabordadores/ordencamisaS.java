@@ -1499,6 +1499,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 if (pechoizquierdo == null || pechoizquierdo.equals("") || pechoizquierdo.equals("ninguno")) {
 
                     btnpechoizquierdotermine.setVisible(false);
+                    btnmangaizquierdaponchado.setEnabled(false);
                     
 
                 }
@@ -1506,6 +1507,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                     botonhabilitado1 = "si";
                     lbpechoizquierdonombre.setText(pechoizquierdonombre);
+                    btnmangaizquierdaponchado.setEnabled(true);
                 } 
                 
                 
@@ -1549,7 +1551,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 if (mangaizquierda == null || mangaizquierda.equals("") || mangaizquierda.equals("ninguno")) {
 
-                    btnmangaizquierdatermine.setVisible(false); 
+                    btnmangaizquierdatermine.setEnabled(false); 
                 
 
                 }
@@ -1578,7 +1580,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 {
 
-                    btnmangaderechatetermine.setVisible(false);
+                    btnmangaderechatetermine.enable(false);
                      
 
 
@@ -2109,10 +2111,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                 } 
                 
                
-               
-                
-                btnotraubicacionponchado.setEnabled(false);
-                btnotraubicacion2ponchado.setEnabled(false);
                 
                 
                String estatus = rs.getString("estatus_orden");
@@ -2403,7 +2401,7 @@ JOptionPane.showMessageDialog(null, mensaje);
           
             Connection con = null;
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://" + iplocal + "/tiendas", "root", "sistemas");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
              
               try {   
                 

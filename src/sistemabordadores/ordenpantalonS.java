@@ -1959,7 +1959,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            
            Connection con = null;
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://" + iplocal + "/tiendas", "root", "sistemas");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
 
             try {
 

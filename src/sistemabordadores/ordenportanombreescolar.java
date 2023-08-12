@@ -1300,7 +1300,7 @@ public class ordenportanombreescolar extends javax.swing.JFrame {
       }
       
         
-        if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        if(ordenesporrealizar.ventanaordenesporrealizar==true)
         {
             ordenesporrealizar.btnactualizar.doClick();
         }

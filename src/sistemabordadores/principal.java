@@ -1945,7 +1945,7 @@ public class principal extends javax.swing.JFrame {
         btnsalir = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        btnordenesbordadosucursalporrealizar1 = new javax.swing.JButton();
+        btnreplicarponchados = new javax.swing.JButton();
         btnordenesbordadosucursalrealizadas1 = new javax.swing.JButton();
         lbtiendalocal = new javax.swing.JLabel();
         lbiplocal = new javax.swing.JLabel();
@@ -2050,11 +2050,11 @@ public class principal extends javax.swing.JFrame {
         jLabel9.setText("Reportes");
         jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnordenesbordadosucursalporrealizar1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnordenesbordadosucursalporrealizar1.setText("Replicar Ponchados");
-        btnordenesbordadosucursalporrealizar1.addActionListener(new java.awt.event.ActionListener() {
+        btnreplicarponchados.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnreplicarponchados.setText("Replicar Ponchados");
+        btnreplicarponchados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnordenesbordadosucursalporrealizar1ActionPerformed(evt);
+                btnreplicarponchadosActionPerformed(evt);
             }
         });
 
@@ -2144,7 +2144,7 @@ public class principal extends javax.swing.JFrame {
                                 .addGap(40, 40, 40)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnordenesbordadosucursalporrealizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(20, 20, 20)
                                         .addComponent(btnordenesbordadosucursalrealizadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
@@ -2195,7 +2195,7 @@ public class principal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
-                                .addComponent(btnordenesbordadosucursalporrealizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btnordenesbordadosucursalrealizadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2224,7 +2224,7 @@ public class principal extends javax.swing.JFrame {
  
         
         
-        if(ordenesporrealizar.ventanaordenesbordadogenerada == true)
+        if(ordenesporrealizar.ventanaordenesporrealizar == true)
     {
      
         
@@ -2236,8 +2236,15 @@ public class principal extends javax.swing.JFrame {
     {    
     ordenesporrealizar  ventana = new ordenesporrealizar();
     ordenesporrealizar.localuotrasucursal = "Local";
+    
+    
     ventana.setVisible(true);
     ventana.setLocationRelativeTo(null);
+    
+    
+    
+    
+    
     }
     }//GEN-LAST:event_btnordenesbordadosucursalporrealizarActionPerformed
 
@@ -2531,11 +2538,11 @@ public class principal extends javax.swing.JFrame {
           
     }//GEN-LAST:event_formWindowClosing
 
-    private void btnordenesbordadosucursalporrealizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnordenesbordadosucursalporrealizar1ActionPerformed
+    private void btnreplicarponchadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreplicarponchadosActionPerformed
    
         
         
-        if(ordenesporrealizar.ventanaordenesbordadogenerada == true)
+        if(ordenesporrealizar.ventanaordenesporrealizar == true)
     {
      
         
@@ -2549,9 +2556,21 @@ public class principal extends javax.swing.JFrame {
     ordenesporrealizar.localuotrasucursal = "Otra Sucursal";
     ventana.setVisible(true);
     ventana.setLocationRelativeTo(null);
+   
     ventana.setTitle("Ordenes bordado otra sucursal replicar ponchados");
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     }
-    }//GEN-LAST:event_btnordenesbordadosucursalporrealizar1ActionPerformed
+    }//GEN-LAST:event_btnreplicarponchadosActionPerformed
 
     private void btnordenesbordadosucursalrealizadas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnordenesbordadosucursalrealizadas1ActionPerformed
      
@@ -2636,9 +2655,9 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton btnclienteshanbordadoultimos6meses;
     private javax.swing.JButton btninformacionrapida;
     private javax.swing.JButton btnordenesbordadosucursalporrealizar;
-    private javax.swing.JButton btnordenesbordadosucursalporrealizar1;
     private javax.swing.JButton btnordenesbordadosucursalrealizadas;
     private javax.swing.JButton btnordenesbordadosucursalrealizadas1;
+    private javax.swing.JButton btnreplicarponchados;
     private javax.swing.JButton btnsalir;
     private javax.swing.JButton btnvertabla;
     private javax.swing.JButton jButton3;

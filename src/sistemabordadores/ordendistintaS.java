@@ -5185,7 +5185,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
 
         ventanaordencamisaanteriores = false;
-         if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         if(ordenesporrealizar.ventanaordenesporrealizar==true)
         {
             ordenesporrealizar.btnactualizar.doClick();
         }
@@ -5588,7 +5588,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          btnterminetodo.setEnabled(false);
          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se actualizo");
          
-         if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -6111,7 +6111,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta1termineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndistinta1termineMouseReleased
              
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -6129,7 +6129,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta2termineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndistinta2termineMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -6147,7 +6147,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta3termineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndistinta3termineMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -6165,7 +6165,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta4termineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndistinta4termineMouseReleased
              
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -6183,7 +6183,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta5termineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndistinta5termineMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -6201,7 +6201,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta6termineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndistinta6termineMouseReleased
              
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -6219,7 +6219,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta7termineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndistinta7termineMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -6237,7 +6237,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta1cancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndistinta1cancelarMouseReleased
              
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -6255,7 +6255,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta2cancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndistinta2cancelarMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -6273,7 +6273,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta3cancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndistinta3cancelarMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -6291,7 +6291,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta4cancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndistinta4cancelarMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -6309,7 +6309,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta5cancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndistinta5cancelarMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -6327,7 +6327,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta6cancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndistinta6cancelarMouseReleased
              
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -6345,7 +6345,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btndistinta7cancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndistinta7cancelarMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }

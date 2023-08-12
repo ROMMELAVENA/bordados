@@ -23,18 +23,23 @@ import net.coderazzi.filters.gui.TableFilterHeader;
 
 public class ordenesporrealizar extends javax.swing.JFrame {
 
-    public static boolean ventanaordenesbordadogenerada = false;
+    public static boolean ventanaordenesporrealizar = false;
     String fechainicial = "";
     String fechafinal = "";
     String nombrecliente = "";
+   
     String tiendalocal = principal.tiendalocal;
     String fotomontajeautorizado = "";
+    
     public static String localuotrasucursal ="";
+   
     String sucursal = "";
 
     public ordenesporrealizar() {
         initComponents();
-        ventanaordenesbordadogenerada = true;
+        ventanaordenesporrealizar = true;
+       
+        
         lbinterface.setVisible(false);
         lbtienda.setVisible(false);
         btnactualizar.setVisible(false);
@@ -48,6 +53,28 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
 
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   
     void datos() {
         
@@ -57,7 +84,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         limpiartabla();
 
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-       
+        String donde = "";
         
         
         
@@ -69,8 +96,26 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         String[] datos = new String[15];
         
         
+        
+        
+        
+       if (localuotrasucursal.equals("Otra Sucursal"))
+       {
+           donde = "Otra sucursal";
+       }
+       
+       else
+           
+       {
+           donde  = "Esta sucursal";
+       }
+        
+        
+        
+        
+        
         String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad "
-                         + "FROM historial_ordenes_camisa where lugar = 'Esta sucursal' "
+                         + "FROM historial_ordenes_camisa where lugar = '"+donde+"' "
                          + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc  ";
 
         try {
@@ -117,7 +162,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos2 = new String[15];
         
-        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad  FROM historial_ordenes_gorra where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc";
+        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad  FROM historial_ordenes_gorra where lugar = '"+donde+"'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
@@ -161,7 +206,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos3 = new String[15];
         
-         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad  FROM historial_ordenes_pantalon where lugar = 'Esta sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc";
+         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad  FROM historial_ordenes_pantalon where lugar = '"+donde+"' and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
@@ -204,7 +249,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
          String[] datos5 = new String[15];
         
-        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad  FROM historial_ordenes_corbata where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc ";
+        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad  FROM historial_ordenes_corbata where lugar = '"+donde+"'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc ";
 
         try {
             Statement st = cn.createStatement();
@@ -250,7 +295,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         String[] datos4 = new String[15];
         
-        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda,observaciongeneral,cantidad  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc";
+        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda,observaciongeneral,cantidad  FROM historial_ordenes_parche where lugar = '"+donde+"'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
@@ -294,7 +339,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         String sqldistinta = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda,observacion,cantidad  "
-                         + "FROM historial_ordenes_distinta where lugar = 'Esta sucursal' "
+                         + "FROM historial_ordenes_distinta where lugar = '"+donde+"' "
                          + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc  ";
 
         try {
@@ -339,7 +384,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
          
          
         String[] datos9 = new String[15];
-        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,observaciones  FROM historial_ordenes_ponchados where lugar = 'Esta sucursal'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc";
+        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,observaciones  FROM historial_ordenes_ponchados where lugar = '"+donde+"'  and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
@@ -438,6 +483,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             {
                 String numeroventa = rs.getString("numero_venta");
                 nombredelcliente((String) numeroventa);
+                
+                
                 datos8[0] = rs.getString("numero");
                 datos8[1] = nombrecliente;
                 datos8[2] = "Porta nombre multiple";
@@ -814,11 +861,11 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     
     
     
+    /*
     
     
     
-    
-     void datos2() {
+     void datosponchadosporreplicar() {
         
         
         
@@ -1076,18 +1123,10 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         
-
-       /* 
-        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tabla.getModel());
-        tabla.setRowSorter(sorter);
-        List<RowSorter.SortKey> sortKeys = new ArrayList<>(100);
-        sortKeys.add(new RowSorter.SortKey(6, SortOrder.DESCENDING));
-        sorter.setSortKeys(sortKeys);
-        
-       */
-        
-        
     }
+    
+    
+    */
     
     
     
@@ -1319,80 +1358,12 @@ public class ordenesporrealizar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+e+"");
         }
 }
-  
+  /*
     
      void datoscombos()
      {
          
          
-         /*
-         
-         
-         Object mescombo = cbmes.getSelectedItem();
-        Object año = cbaño.getSelectedItem();
-        
-          if(mescombo.equals("Enero"))
-               {
-                   fechainicial = ""+año+"-01-01";
-                   fechafinal = ""+año+"-01-31";      
-               }
-               else if(mescombo.equals("Febrero"))
-               {
-                   fechainicial = ""+año+"-02-01";
-                   fechafinal = ""+año+"-02-29";       
-               }
-               else if(mescombo.equals("Marzo"))
-               {
-                   fechainicial = ""+año+"-03-01";  
-                   fechafinal = ""+año+"-03-31";       
-               }
-               else if(mescombo.equals("Abril"))
-               {
-                   fechainicial = ""+año+"-04-01";
-                   fechafinal = ""+año+"-04-30";     
-               }
-               else if(mescombo.equals("Mayo"))
-               {
-                   fechainicial = ""+año+"-05-01";  
-                   fechafinal = ""+año+"-05-31";         
-               }
-               else if(mescombo.equals("Junio"))
-               {
-                   fechainicial = ""+año+"-06-01";  
-                   fechafinal = ""+año+"-06-30";         
-               }
-               else if(mescombo.equals("Julio"))
-               {
-                   fechainicial = ""+año+"-07-01"; 
-                   fechafinal = ""+año+"-07-31";        
-               }
-               else if(mescombo.equals("Agosto"))
-               {
-                   fechainicial = ""+año+"-08-01";
-                   fechafinal = ""+año+"-08-31" ;       
-               }
-               else if(mescombo.equals("Septiembre"))
-               {
-                   fechainicial = ""+año+"-09-01"; 
-                   fechafinal = ""+año+"-09-30";       
-               }
-               else if(mescombo.equals("Octubre"))
-               {
-                   fechainicial = ""+año+"-10-01"; 
-                   fechafinal = ""+año+"-10-31";      
-               }
-               else if(mescombo.equals("Noviembre"))
-               {
-                   fechainicial = ""+año+"-11-01"; 
-                   fechafinal = ""+año+"-11-30";        
-               }
-               else if(mescombo.equals("Diciembre"))
-               {
-                   fechainicial = ""+año+"-12-01"; 
-                   fechafinal = ""+año+"-12-31";        
-               }
-          
-          */
           
              if(localuotrasucursal.equals("Local"))
         {
@@ -1418,7 +1389,7 @@ sorter.sort();
         }  
          
      }
-             
+             */
     
      void autorizaciondelfotomontaje(String numerofolio,String nombre_tabla)
      {
@@ -1560,7 +1531,7 @@ sorter.sort();
             }
         });
 
-        btnfrente.setText("frente_puntadas");
+        btnfrente.setText("frente");
         btnfrente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnfrenteActionPerformed(evt);
@@ -1584,17 +1555,17 @@ sorter.sort();
                         .addGap(210, 210, 210)
                         .addComponent(lbtienda, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 1121, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addGap(7, 7, 7)
                 .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1609,14 +1580,13 @@ sorter.sort();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-        ventanaordenesbordadogenerada = false;
+        ventanaordenesporrealizar = false;
         this.dispose();
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
      
-        
-      //  fechas();
+      
         
         if(localuotrasucursal.equals("Local"))
         {
@@ -1637,12 +1607,34 @@ sorter.sort();
         }
         else
         {
-           datos2(); 
+         //  datosponchadosporreplicar(); 
+           
+           datos();
         }  
+        
+        
+        
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
 
+        
+       String donde = ""; 
+        
+       if (localuotrasucursal.equals("Otra Sucursal"))
+       {
+           donde = "Otra sucursal";
+       }
+       
+       else
+           
+       {
+           donde  = "Esta sucursal";
+       }
+        
+        
+                
         
         
         
@@ -1652,16 +1644,25 @@ sorter.sort();
 
             int fila = tabla.getSelectedRow();
 
-            if (fila >= 0) 
-            {
 
-                Object tipo = tabla.getValueAt(fila, 3).toString();
-                Object tablanombre = tabla.getValueAt(fila, 10).toString();
+             
+                
 
-               
+                Object numerodeordendebordado = tabla.getValueAt(fila, 0);
+                Object prenda = tabla.getValueAt(fila, 2);
+                Object tipo = tabla.getValueAt(fila, 3);
+                Object lugar = tabla.getValueAt(fila, 4);
+                Object numerodeventa = tabla.getValueAt(fila, 5);
+                sucursal = tabla.getValueAt(fila, 7).toString();
+                Object tablanombre = tabla.getValueAt(fila, 10);
+                        
+              
                 
-                
-                
+              if (donde.equals("Otra sucursal"))
+                  
+              {
+                  lugar = "Esta sucursal";
+              }
                 
                 
                 
@@ -1678,9 +1679,11 @@ sorter.sort();
                     else 
                     {
                         
-                        Object numerodefolio = tabla.getValueAt(fila, 0);
                         Object nombre_tabla = "historial_ordenes_camisa";
-                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        
+                        
+                        
+                        autorizaciondelfotomontaje((String)numerodeordendebordado,(String) nombre_tabla);
                         
                         
                         if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida"))
@@ -1692,16 +1695,13 @@ sorter.sort();
                         ordencamisaS ventana = new ordencamisaS();
                         ventana.setVisible(true);
 
-                        ordencamisaS.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordencamisaS.lborden.setText(numerodeordendebordado.toString());
+                        ordencamisaS.lbprenda.setText(prenda.toString());
+                        ordencamisaS.lbtipo.setText(tipo.toString());
+                        ordencamisaS.enquesucursalsebordara=(lugar.toString());
+                        ordencamisaS.lbnumerodeventa.setText(numerodeventa.toString());
                         
                         
-                      //  ordencamisaS.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordencamisaS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordencamisaS.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
-                        ordencamisaS.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
-                        ordencamisaS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        
-                           sucursal = tabla.getValueAt(fila, 7).toString();
                         if (sucursal==null || sucursal.equals(""))
                         {
                             sucursal = tiendalocal;
@@ -1709,7 +1709,7 @@ sorter.sort();
                         ordencamisaS.lbsucursal.setText(sucursal);
                         
                         
-                        ordencamisaS.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordencamisaS.tipotabla=(tablanombre.toString());
                         tabla.clearSelection();
                         
                         
@@ -1743,9 +1743,9 @@ sorter.sort();
                     else 
                     {
                         
-                        Object numerodefolio = tabla.getValueAt(fila, 0);
+                        
                         Object nombre_tabla = "historial_ordenes_gorra";
-                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        autorizaciondelfotomontaje((String)numerodeordendebordado,(String) nombre_tabla);
                         
                         
                         if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida"))
@@ -1754,12 +1754,12 @@ sorter.sort();
                         ordengorraS orden = new ordengorraS();
                         orden.setVisible(true);
 
-                        ordengorraS.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordengorraS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordengorraS.lborden.setText(numerodeordendebordado.toString());
+                        ordengorraS.lbnumerodeventa.setText(numerodeventa.toString());
                       
-                        ordengorraS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordengorraS.enquesucursalsebordara=(lugar.toString());
                         
-                           sucursal = tabla.getValueAt(fila, 7).toString();
+                         
                         if (sucursal==null || sucursal.equals(""))
                         {
                             sucursal = tiendalocal;
@@ -1768,7 +1768,7 @@ sorter.sort();
                         
                         
                         
-                        ordengorraS.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordengorraS.tipotabla=(tablanombre.toString());
                         tabla.clearSelection();
                         
                          
@@ -1800,9 +1800,9 @@ sorter.sort();
                     {
                         
                         
-                        Object numerodefolio = tabla.getValueAt(fila, 0);
+                      
                         Object nombre_tabla = "historial_ordenes_pantalon";
-                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        autorizaciondelfotomontaje((String)numerodeordendebordado,(String) nombre_tabla);
                         
                         
                         if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida"))
@@ -1810,13 +1810,11 @@ sorter.sort();
                              ordenpantalonS orden = new ordenpantalonS();
                             orden.setVisible(true);
 
-                            ordenpantalonS.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                            ordenpantalonS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
+                            ordenpantalonS.lborden.setText(numerodeordendebordado.toString());
+                            ordenpantalonS.lbnumerodeventa.setText(numerodeventa.toString());
                          
-                            ordenpantalonS.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                            ordenpantalonS.enquesucursalsebordara = (lugar.toString());
                             
-                            
-                               sucursal = tabla.getValueAt(fila, 7).toString();
                         if (sucursal==null || sucursal.equals(""))
                         {
                             sucursal = tiendalocal;
@@ -1825,7 +1823,7 @@ sorter.sort();
                         
                         
                         
-                            ordenpantalonS.tipotabla = (tabla.getValueAt(fila, 10).toString());
+                            ordenpantalonS.tipotabla = (tablanombre.toString());
                             tabla.clearSelection();
                            
                             
@@ -1861,9 +1859,9 @@ sorter.sort();
                         else 
                         {
                         
-                        Object numerodefolio = tabla.getValueAt(fila, 0);
+                       
                         Object nombre_tabla = "historial_ordenes_corbata";
-                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        autorizaciondelfotomontaje((String)numerodeordendebordado,(String) nombre_tabla);
                         
                         
                         if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
@@ -1872,11 +1870,11 @@ sorter.sort();
                         ordencorbataS orden = new ordencorbataS();
                         orden.setVisible(true);
 
-                        ordencorbataS.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordencorbataS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordencorbataS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordencorbataS.lborden.setText(numerodeordendebordado.toString());
+                        ordencorbataS.lbnumerodeventa.setText(numerodeventa.toString());
+                        ordencorbataS.enquesucursalsebordara=(lugar.toString());
                         
-                           sucursal = tabla.getValueAt(fila, 7).toString();
+                        
                         if (sucursal==null || sucursal.equals(""))
                         {
                             sucursal = tiendalocal;
@@ -1885,7 +1883,7 @@ sorter.sort();
                         
                         
                         
-                        ordencorbataS.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordencorbataS.tipotabla=(tablanombre.toString());
                         
                          tabla.clearSelection();
                          
@@ -1919,9 +1917,9 @@ sorter.sort();
                     
                     {
                         
-                   Object numerodefolio = tabla.getValueAt(fila, 0);
+                 
                         Object nombre_tabla = "historial_ordenes_parche";
-                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        autorizaciondelfotomontaje((String)numerodeordendebordado,(String) nombre_tabla);
                         
                         
                         if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida"))      
@@ -1932,18 +1930,17 @@ sorter.sort();
                         ordenparcheS orden = new ordenparcheS();
                         orden.setVisible(true);
 
-                        ordenparcheS.lborden.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenparcheS.lborden.setText(numerodeordendebordado.toString());
                          tabla.clearSelection();
                        
                          
-                         Object lugar = (tabla.getValueAt(fila, 4).toString());
                          
-                        ordenparcheS.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordenparcheS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordenparcheS.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
-                        ordenparcheS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
+                        ordenparcheS.lborden.setText(numerodeordendebordado.toString());
+                        ordenparcheS.lbnumerodeventa.setText(numerodeventa.toString());
+                        ordenparcheS.lbtipo.setText(tipo.toString());
+                        ordenparcheS.enquesucursalsebordara=(lugar.toString());
                         
-                           sucursal = tabla.getValueAt(fila, 7).toString();
+                         
                         if (sucursal==null || sucursal.equals(""))
                         {
                             sucursal = tiendalocal;
@@ -1952,8 +1949,8 @@ sorter.sort();
                         
                         
                         
-                        ordenparcheS.tipotabla=(tabla.getValueAt(fila, 10).toString());
-                        ordenparcheS.lbsucursal.setText(tabla.getValueAt(fila, 7).toString());
+                        ordenparcheS.tipotabla=(tablanombre.toString());
+                        ordenparcheS.lbsucursal.setText(sucursal);
                         
                         tabla.clearSelection();    
                          
@@ -1993,15 +1990,17 @@ sorter.sort();
                         fotomontajeautorizado ="si";
                         
                          if (fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal")||tablanombre.equals("Recibida")) {
-                            ordenponchadoS orden = new ordenponchadoS();
+                          
+                             
+                             ordenponchadoS orden = new ordenponchadoS();
                             orden.setVisible(true);
 
-                            ordenponchadoS.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
-                            ordenponchadoS.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
-                            ordenponchadoS.enquesucursalsebordara = (tabla.getValueAt(fila, 4).toString());
+                            ordenponchadoS.lbfolio.setText(numerodeordendebordado.toString());
+                            ordenponchadoS.lbnumeroventa.setText(numerodeventa.toString());
+                            ordenponchadoS.enquesucursalsebordara = (lugar.toString());
                             
                             
-                               sucursal = tabla.getValueAt(fila, 7).toString();
+                              
                         if (sucursal==null || sucursal.equals(""))
                         {
                             sucursal = tiendalocal;
@@ -2009,7 +2008,7 @@ sorter.sort();
                         ordenponchadoS.lbsucursal.setText(sucursal);
                         
                         
-                            ordenponchadoS.tipotabla = (tabla.getValueAt(fila, 10).toString());
+                            ordenponchadoS.tipotabla = (tablanombre.toString());
                             tabla.clearSelection();
                            
                          }
@@ -2042,9 +2041,9 @@ sorter.sort();
                    } else 
                    
                    {
-                       Object numerodefolio = tabla.getValueAt(fila, 0);
+                      
                         Object nombre_tabla = "historial_ordenes_portanombres";
-                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        autorizaciondelfotomontaje((String)numerodeordendebordado,(String) nombre_tabla);
                         
                         
                         if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
@@ -2052,7 +2051,8 @@ sorter.sort();
                        
                             ordenportanombreescolar orden = new ordenportanombreescolar();
                             orden.setVisible(true);
-                            ordenportanombreescolar.lbnumero.setText(tabla.getValueAt(fila, 0).toString());
+                            
+                            ordenportanombreescolar.lbnumero.setText(numerodeordendebordado.toString());
                             tabla.clearSelection();
                            
                         }
@@ -2085,9 +2085,9 @@ sorter.sort();
                     } 
                     else 
                     {
-                         Object numerodefolio = tabla.getValueAt(fila, 0);
+                      
                         Object nombre_tabla = "historial_ordenes_portanombres_multiple";
-                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        autorizaciondelfotomontaje((String)numerodeordendebordado,(String) nombre_tabla);
                         
                         
                         if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
@@ -2095,7 +2095,8 @@ sorter.sort();
                         
                             ordenportanombremultiple orden = new ordenportanombremultiple();
                             orden.setVisible(true);
-                            ordenportanombremultiple.lbnumerohistorialordenesbordados.setText(tabla.getValueAt(fila, 0).toString());
+                            
+                            ordenportanombremultiple.lbnumerohistorialordenesbordados.setText(numerodeordendebordado.toString());
                             tabla.clearSelection();
                            
                         }    
@@ -2119,11 +2120,11 @@ sorter.sort();
                     } 
                     else 
                     {
-                        Object numerodefolio = tabla.getValueAt(fila, 0);
+                       
 
                         ordeninternagorra orden = new ordeninternagorra();
                         orden.setVisible(true);
-                        ordeninternagorra.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordeninternagorra.lbfolio.setText(numerodeordendebordado.toString());
                         tabla.clearSelection();
 
                              
@@ -2150,9 +2151,9 @@ sorter.sort();
                     else 
                     {
                         
-                        Object numerodefolio = tabla.getValueAt(fila, 0);
+                        
                         Object nombre_tabla = "historial_ordenes_distinta";
-                        autorizaciondelfotomontaje((String)numerodefolio,(String) nombre_tabla);
+                        autorizaciondelfotomontaje((String)numerodeordendebordado,(String) nombre_tabla);
                         
                         
                         if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
@@ -2161,12 +2162,12 @@ sorter.sort();
                         ordendistintaS orden = new ordendistintaS();
                         orden.setVisible(true);
 
-                        ordendistintaS.lborden.setText(tabla.getValueAt(fila, 0).toString());
-                        ordendistintaS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
-                        ordendistintaS.lbprenda.setText(tabla.getValueAt(fila, 2).toString());
-                        ordendistintaS.lbtipo.setText(tabla.getValueAt(fila, 3).toString());
-                        ordendistintaS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
-                        ordendistintaS.tipotabla=(tabla.getValueAt(fila, 10).toString());
+                        ordendistintaS.lborden.setText(numerodeordendebordado.toString());
+                        ordendistintaS.lbnumerodeventa.setText(numerodeventa.toString());
+                        ordendistintaS.lbprenda.setText(prenda.toString());
+                        ordendistintaS.lbtipo.setText(tipo.toString());
+                        ordendistintaS.enquesucursalsebordara=(lugar.toString());
+                        ordendistintaS.tipotabla=(tablanombre.toString());
                         tabla.clearSelection();
                         
                         
@@ -2183,7 +2184,7 @@ sorter.sort();
                 
                 } 
 
-            } /// 
+          
 
         } 
 
@@ -2193,7 +2194,11 @@ sorter.sort();
     }//GEN-LAST:event_tablaMouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        ventanaordenesbordadogenerada = false;
+        
+        ventanaordenesporrealizar = false;
+        this.dispose();
+        
+        
     }//GEN-LAST:event_formWindowClosing
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
@@ -2220,8 +2225,16 @@ sorter.sort();
         }
         else
         {
-           datos2(); 
+     //      datosponchadosporreplicar(); 
+           
+           datos(); 
+           
+           
         }    
+       
+       
+       
+       
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void btnfrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteActionPerformed

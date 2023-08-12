@@ -4566,7 +4566,7 @@ public static String dia() {
         btnterminetodo.setEnabled(false);
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se actualizo");
         
-         if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         if(ordenesporrealizar.ventanaordenesporrealizar==true)
         {
             ordenesporrealizar.btnactualizar.doClick();
         }
@@ -4924,7 +4924,7 @@ public static String dia() {
 
     private void btnladoizquierdofrentetetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdofrentetetermineMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -4942,7 +4942,7 @@ public static String dia() {
 
     private void btnladoderechofrentetetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechofrentetetermineMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -4960,7 +4960,7 @@ public static String dia() {
 
     private void btnladoizquierdoatrastetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdoatrastetermineMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -4978,7 +4978,7 @@ public static String dia() {
 
     private void btnladoderechoatrastetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechoatrastetermineMouseReleased
              
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -4996,7 +4996,7 @@ public static String dia() {
 
     private void btnladoizquierdofrentecancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdofrentecancelarMouseReleased
         // TODO add your handling code here:       
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -5014,7 +5014,7 @@ public static String dia() {
 
     private void btnladoderechofrentecancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechofrentecancelarMouseReleased
                
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -5032,7 +5032,7 @@ public static String dia() {
 
     private void btnladoizquierdoatrascancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdoatrascancelarMouseReleased
              
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -5050,7 +5050,7 @@ public static String dia() {
 
     private void btnladoderechoatrascancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechoatrascancelarMouseReleased
              
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }

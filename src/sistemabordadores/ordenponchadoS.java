@@ -1164,7 +1164,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     sumapuntos();
     datosOrdenesLocales();
     
-    if (ordenesporrealizar.ventanaordenesbordadogenerada == true)
+    if (ordenesporrealizar.ventanaordenesporrealizar == true)
     {
        ordenesporrealizar.btnactualizar.doClick();
     }
@@ -1196,7 +1196,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     sumapuntos();
     datosOrdenesLocales();
     
-    if (ordenesporrealizar.ventanaordenesbordadogenerada == true)
+    if (ordenesporrealizar.ventanaordenesporrealizar == true)
     {
        ordenesporrealizar.btnactualizar.doClick();
     }

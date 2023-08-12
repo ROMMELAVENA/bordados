@@ -2536,7 +2536,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             actualizarestatusentregaordendebordado();
             sumapuntos();
             
-             if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+             if(ordenesporrealizar.ventanaordenesporrealizar==true)
         {
             ordenesporrealizar.btnactualizar.doClick();
         }
@@ -2738,7 +2738,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     
                     
-                  if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                  if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -2810,7 +2810,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
       
 
-        if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        if(ordenesporrealizar.ventanaordenesporrealizar==true)
         {
             ordenesporrealizar.btnactualizar.doClick();
         }
@@ -2822,7 +2822,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btntermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntermineMouseReleased
                
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }

@@ -3906,7 +3906,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         ventanaordengorra = false;
         this.dispose();
         
-        if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        if(ordenesporrealizar.ventanaordenesporrealizar==true)
         {
             ordenesporrealizar.btnactualizar.doClick();
         }
@@ -4665,7 +4665,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         btnterminetodo.setEnabled(false);
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">La orden se actualizó correctamente");
         
-        if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+        if(ordenesporrealizar.ventanaordenesporrealizar==true)
         {
             ordenesporrealizar.btnactualizar.doClick();
         }
@@ -5042,7 +5042,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnfrentetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfrentetermineMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -5062,7 +5062,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnatrastermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnatrastermineMouseReleased
              
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -5080,7 +5080,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnladoizquierdotermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdotermineMouseReleased
              
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -5098,7 +5098,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnladoderechotermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechotermineMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -5116,7 +5116,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnfrentecancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfrentecancelarMouseReleased
             
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -5138,7 +5138,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnatrascancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnatrascancelarMouseReleased
             
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -5156,7 +5156,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnladoizquierdocancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdocancelarMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -5174,7 +5174,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnladoderechocancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechocancelarMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }

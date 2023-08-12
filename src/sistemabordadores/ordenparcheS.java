@@ -3606,7 +3606,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          btnterminetodo.setEnabled(false);
          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se actualizo");
          
-         if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+         if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }
@@ -3938,7 +3938,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
                
-                if(ordenesporrealizar.ventanaordenesbordadogenerada==true)
+                if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
              ordenesporrealizar.btnactualizar.doClick();
          }

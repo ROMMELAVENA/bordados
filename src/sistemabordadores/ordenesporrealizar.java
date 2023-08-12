@@ -1698,7 +1698,8 @@ sorter.sort();
                         ordencamisaS.lborden.setText(numerodeordendebordado.toString());
                         ordencamisaS.lbprenda.setText(prenda.toString());
                         ordencamisaS.lbtipo.setText(tipo.toString());
-                        ordencamisaS.enquesucursalsebordara=(lugar.toString());
+                        ordencamisaS.enquesucursalsebordara =(lugar.toString());
+                        ordencamisaS.esponchado = "si";
                         ordencamisaS.lbnumerodeventa.setText(numerodeventa.toString());
                         
                         

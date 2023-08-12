@@ -7787,6 +7787,18 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
             }
 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             ///ponchado2
             Object ponchado2 = rutapechoizquierdo;
             if (ponchado2 == null || ponchado2.equals("") || ponchado2.equals(" ")) {
@@ -7829,6 +7841,24 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             }
 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             ///ponchado3
             Object ponchado3 = rutaespalda;
             if (ponchado3 == null || ponchado3.equals("") || ponchado3.equals(" ")) {
@@ -7867,6 +7897,25 @@ JOptionPane.showMessageDialog(null, mensaje);
                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
                 }
             }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
 
             //ponchado 4
             Object ponchado4 = rutamangaderecha;
@@ -7908,6 +7957,19 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
             }
 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             //ponchado5
             Object ponchado5 = rutapechoderecho;
 
@@ -7948,6 +8010,23 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
             }
 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
            /// imagen jlabel
             Object imagen = rutaimagen;
 
@@ -7993,6 +8072,17 @@ JOptionPane.showMessageDialog(null, mensaje);
             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
             return;
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
         if (traspaso > 0) {
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">La orden se inserto correctamente en la otra sucursal");
@@ -8024,6 +8114,23 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
 
    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     }//GEN-LAST:event_btnreplicarponchadosActionPerformed
 
@@ -9457,7 +9564,152 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btnespaldaponchado1ActionPerformed
 
     private void btnpechoizquierdoponchado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoizquierdoponchado1ActionPerformed
-        // TODO add your handling code here:
+      
+        
+     
+        String tipo = lbtipo.getText();
+        String numerosucursal = lbnumerodelaotrasucursal.getText();
+        String prenda = lbprenda.getText();
+
+        String path = "";
+       
+        String stringIP = "";
+       
+        String stringBDlocal = "";
+
+        String nombrearchivo1 = "";
+        String nombrearchivo2 = "";
+        String nombrearchivo3 = "";
+        String nombrearchivo4 = "";
+        String nombrearchivo5 = "";
+        String nombrearchivo6 = "";
+        
+        
+   
+
+        File file = new File("C:\\sistema\\configuracion.txt");
+        try {
+            Scanner sc = new Scanner(file);
+            while (sc.hasNext()) {
+                String line = sc.nextLine();
+                String str[] = line.split(":");
+                stringBDlocal = str[1];
+                
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+        if (sucursal.equals("cdmxcentro")) {
+            path = "C:\\sistema\\cdmxcentro.txt";
+        } else if (sucursal.equals("cdmxsur")) {
+            path = "C:\\sistema\\cdmxsur.txt";
+        } else if (sucursal.equals("guadalajara")) {
+            path = "C:\\sistema\\guadalajara.txt";
+        } else if (sucursal.equals("monterrey")) {
+            path = "C:\\sistema\\monterrey.txt";
+        } else {
+            if (sucursal.equals("tijuana")) {
+                path = "C:\\sistema\\tijuana.txt";
+            }
+        }
+
+        File file1 = new File(path);
+        try {
+            Scanner sc = new Scanner(file1);
+            while (sc.hasNext()) {
+                String line = sc.nextLine();
+                String str[] = line.split(":");
+                stringIP = str[0];
+             
+            }
+        } catch (IOException e) {
+            
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
+        }
+
+        Connection conn = null;
+
+        ipsucursal = stringIP;
+      
+
+        FileInputStream input = null;
+        FileInputStream input2 = null;
+        FileInputStream input3 = null;
+        FileInputStream input4 = null;
+        FileInputStream input5 = null;
+        FileInputStream input6 = null;
+
+        String extensionponchado1 = "", extensionponchado2 = "", extensionponchado3 = "", extensionponchado4 = "", extensionponchado5 = "";
+
+        //ponchado1
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
+
+            //primerponchado   
+            Object ponchado1 = rutamangaizquierda;
+          
+            
+            if (ponchado1 == null || ponchado1.equals("")) 
+            {
+
+            } 
+            
+            else
+            
+            {
+                try {
+                    String filePath = rutamangaizquierda;
+                    File archivo = new File(filePath);
+                    nombrearchivo1 = archivo.getName();
+                    input = new FileInputStream(new File(filePath));
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                try {
+
+                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set manga_izquierda_ponchado=? where numero_orden_o_pedido_solicitada='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ";
+                    PreparedStatement modificar = conn.prepareStatement(sql2);
+                    modificar.setBinaryStream(1, input);
+                    traspaso = modificar.executeUpdate();
+
+                } catch (Exception e) {
+                   
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
+                }
+
+                try {
+
+                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set manga_izquierda_ponchado_nombre='" + nombrearchivo1 + "' where numero_orden_o_pedido_solicitada='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and prenda = '" + prenda + "'  ");
+                    pst.executeUpdate();
+                    pst.close();
+
+                } catch (Exception ex) {
+                    
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+                }
+            }
+        
+            
+            
+        } catch (Exception e) 
+        {
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+e+"");
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Revisa tu hamachi");
+            
+            return;
+        }
+
+            
+            
+            
+            
+            
+            
+            
+        
     }//GEN-LAST:event_btnpechoizquierdoponchado1ActionPerformed
 
     private void btnpechoderechoponchado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoderechoponchado1ActionPerformed
@@ -9473,7 +9725,28 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btnmangaderechaponchado1ActionPerformed
 
     private void btncargarponchado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarponchado1ActionPerformed
-        // TODO add your handling code here:
+      
+        
+        
+        JFileChooser adjuntar = new JFileChooser();
+      
+
+        int respuesta = adjuntar.showOpenDialog(this);
+   
+        
+        
+        if (respuesta == JFileChooser.APPROVE_OPTION) {
+            File archivoelegido = adjuntar.getSelectedFile();
+            String fl = archivoelegido.toString();
+
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Ponchado agregado correctamente");
+          
+           btnpechoizquierdoponchado1.setEnabled(true);
+        
+        }
+    
+    
     }//GEN-LAST:event_btncargarponchado1ActionPerformed
 
     private void btncargarponchado3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarponchado3ActionPerformed
@@ -9543,53 +9816,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
+     
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ordencamisaS().setVisible(true);

@@ -1498,8 +1498,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 if (pechoizquierdo == null || pechoizquierdo.equals("") || pechoizquierdo.equals("ninguno")) {
 
-                    btnpechoizquierdotermine.setVisible(false);
-                    btnmangaizquierdaponchado.setEnabled(false);
+                   
+                    btnpechoizquierdoponchado.setEnabled(false);
                     
 
                 }
@@ -1507,7 +1507,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                     botonhabilitado1 = "si";
                     lbpechoizquierdonombre.setText(pechoizquierdonombre);
-                    btnmangaizquierdaponchado.setEnabled(true);
+                    btnpechoizquierdoponchado.setEnabled(true);
                 } 
                 
                 
@@ -1525,7 +1525,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 if (pechoderecho == null || pechoderecho.equals("") || pechoderecho.equals("ninguno")) {
 
-                    btnpechoderechotermine.setVisible(false);
+                   
+                    btnpechoderechoponchado.setEnabled(false);
                      
 
                 }
@@ -1533,6 +1534,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                     botonhabilitado2 = "si";
                     lbpechoderechonombre.setText(pechoderechonombre);
+                    btnpechoderechoponchado.setEnabled(true);
                 } 
                 
                 
@@ -1551,15 +1553,18 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 if (mangaizquierda == null || mangaizquierda.equals("") || mangaizquierda.equals("ninguno")) {
 
-                    btnmangaizquierdatermine.setEnabled(false); 
+                  
+                    btnmangaizquierdaponchado.setEnabled(false);
                 
 
                 }
                 else
                 {
                     
-                   lbmangaizquierdanombre.setText(mangaizquierdanombre);
+                  
                     botonhabilitado3 = "si";
+                     lbmangaizquierdanombre.setText(mangaizquierdanombre);
+                    btnmangaizquierdaponchado.setEnabled(true);
                 } 
 
                 
@@ -1580,14 +1585,15 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 {
 
-                    btnmangaderechatetermine.enable(false);
-                     
+                    btnmangaderechaponchado.setEnabled(false);
+               
 
 
                 }
                 else
                 {
                     lbmangaderechanombre.setText(mangaderechanombre);
+                    btnmangaderechaponchado.setEnabled(true);
                     botonhabilitado4 = "si";
                 }   
 
@@ -1610,9 +1616,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                 String espalda = rs.getString("espalda_puntadas");
                 lbespalda.setText(espalda);
              
-                if (espalda == null || espalda.equals("")) {
+                if (espalda == null || espalda.equals("") || espalda.equals("ninguno")) {
 
-                    btnespaldatetermine.setVisible(false);
+                  
+                    btnespaldaponchado.setEnabled(false);
                  
 
                 }
@@ -1620,6 +1627,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                     botonhabilitado5 = "si";
                     lbespaldanombre.setText(espaldanombre);
+                    btnespaldaponchado.setEnabled(true);
                 } 
 
                 
@@ -1639,7 +1647,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 if (otraubicacion == null || otraubicacion.equals("") || otraubicacion.equals("ninguno")) {
 
-                    btnotraubicaciontetermine.setEnabled(false);
+                  
+                   btnotraubicacionponchado.setEnabled(false);
                     
 
                 }
@@ -1647,6 +1656,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                     botonhabilitado6 = "si";
                     lbotraubicacionnombre.setText(otraubicacionnombre);
+                    btnotraubicacionponchado.setEnabled(true);
                             
                 } 
 
@@ -1664,13 +1674,15 @@ JOptionPane.showMessageDialog(null, mensaje);
                 if (otraubicacion2 == null || otraubicacion2.equals("") || otraubicacion2.equals("ninguno")) 
                 {
 
-                    btnotraubicacion2tetermine.setEnabled(false);
+                   
+                    btnotraubicacion2ponchado.setEnabled(false);
                    
                 }
                 else
                 {
                     botonhabilitado7 = "si";
                     lbotraubicacion2nombre.setText(otraubicacion2nombre);
+                    btnotraubicacion2ponchado.setEnabled(true);
                     
                     
                 } 

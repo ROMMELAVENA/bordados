@@ -4588,7 +4588,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         int respuesta = adjuntar.showOpenDialog(this);
         if (respuesta == JFileChooser.APPROVE_OPTION) {
             File archivoelegido = adjuntar.getSelectedFile();
-         //actualizarestatusentregaordendebordado   rutafrente = archivoelegido.toString();
+      //   actualizarestatusentregaordendebordado   rutafrente = archivoelegido.toString();
 
             
             btnfrentetermine.setEnabled(false);

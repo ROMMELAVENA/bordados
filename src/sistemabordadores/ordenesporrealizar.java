@@ -1621,6 +1621,7 @@ sorter.sort();
 
         
        String donde = ""; 
+       String esponchado = "";
         
        if (localuotrasucursal.equals("Otra Sucursal"))
        {
@@ -1662,6 +1663,9 @@ sorter.sort();
                   
               {
                   lugar = "Esta sucursal";
+                  esponchado = "si";
+                 
+                  
               }
                 
                 
@@ -1699,8 +1703,8 @@ sorter.sort();
                         ordencamisaS.lbprenda.setText(prenda.toString());
                         ordencamisaS.lbtipo.setText(tipo.toString());
                         ordencamisaS.enquesucursalsebordara =(lugar.toString());
-                        ordencamisaS.esponchado = "si";
                         ordencamisaS.lbnumerodeventa.setText(numerodeventa.toString());
+                        ordencamisaS.esponchado = esponchado;
                         
                         
                         if (sucursal==null || sucursal.equals(""))
@@ -1757,8 +1761,8 @@ sorter.sort();
 
                         ordengorraS.lborden.setText(numerodeordendebordado.toString());
                         ordengorraS.lbnumerodeventa.setText(numerodeventa.toString());
-                      
                         ordengorraS.enquesucursalsebordara=(lugar.toString());
+                        ordengorraS.esponchado = esponchado;
                         
                          
                         if (sucursal==null || sucursal.equals(""))
@@ -1766,10 +1770,7 @@ sorter.sort();
                             sucursal = tiendalocal;
                         }
                         ordengorraS.lbsucursal.setText(sucursal);
-                        
-                        
-                        
-                        ordengorraS.tipotabla=(tablanombre.toString());
+                         ordengorraS.tipotabla=(tablanombre.toString());
                         tabla.clearSelection();
                         
                          
@@ -1813,8 +1814,8 @@ sorter.sort();
 
                             ordenpantalonS.lborden.setText(numerodeordendebordado.toString());
                             ordenpantalonS.lbnumerodeventa.setText(numerodeventa.toString());
-                         
                             ordenpantalonS.enquesucursalsebordara = (lugar.toString());
+                            ordenpantalonS.esponchado = esponchado;
                             
                         if (sucursal==null || sucursal.equals(""))
                         {
@@ -1874,6 +1875,7 @@ sorter.sort();
                         ordencorbataS.lborden.setText(numerodeordendebordado.toString());
                         ordencorbataS.lbnumerodeventa.setText(numerodeventa.toString());
                         ordencorbataS.enquesucursalsebordara=(lugar.toString());
+                        ordencorbataS.esponchado = esponchado;
                         
                         
                         if (sucursal==null || sucursal.equals(""))
@@ -1907,7 +1909,10 @@ sorter.sort();
                 
                      // PARCHE
                 
-                else if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
+                else
+                    
+                    
+                    if (tipo.equals("Orden parche")||tipo.equals("Parche")) 
                 {
                     if (ordenparcheS.ventanaordenparche == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de parche ya está abierta");
@@ -1940,6 +1945,7 @@ sorter.sort();
                         ordenparcheS.lbnumerodeventa.setText(numerodeventa.toString());
                         ordenparcheS.lbtipo.setText(tipo.toString());
                         ordenparcheS.enquesucursalsebordara=(lugar.toString());
+                        ordenparcheS.esponchado = esponchado;
                         
                          
                         if (sucursal==null || sucursal.equals(""))
@@ -1969,15 +1975,69 @@ sorter.sort();
                 }
                 
                 
+                    
+                     else 
+                       
+                    
+                    // ORDEN DISTINTA
+                        
+                        
+                     if (tipo.equals("Distinta"))    
+                        
+                     {   
+                    
+                    if (ordendistintaS.ventanaordencamisaanteriores == true) 
+                    {
+                        
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de distinta ya está abierta");
+
+                    }
+                    else 
+                    {
+                        
+                        
+                        Object nombre_tabla = "historial_ordenes_distinta";
+                        autorizaciondelfotomontaje((String)numerodeordendebordado,(String) nombre_tabla);
+                        
+                        
+                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
+                        {
+                        
+                        ordendistintaS orden = new ordendistintaS();
+                        orden.setVisible(true);
+
+                        ordendistintaS.lborden.setText(numerodeordendebordado.toString());
+                        ordendistintaS.lbnumerodeventa.setText(numerodeventa.toString());
+                        ordendistintaS.lbprenda.setText(prenda.toString());
+                        ordendistintaS.lbtipo.setText(tipo.toString());
+                        ordendistintaS.enquesucursalsebordara=(lugar.toString());
+                        ordendistintaS.tipotabla=(tablanombre.toString());
+                        ordendistintaS.esponchado = esponchado;
+                        
+                        
+                        tabla.clearSelection();
+                        
+                        
+                        }
+                        else
+                        {
+                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje, preguntele al Encargado si ya lo autorizó");   
+                        }    
+                        
+                        
+                       
+                    }
                 
                 
                 
+                     }
                 
+                else
                 
                 
                 // PONCHADO
                 
-                else if (tipo.equals("Orden ponchado")) 
+               if (tipo.equals("Orden ponchado")) 
                 {
                     if (ordenponchadoS.ventanaordenponchado == true) 
                     {
@@ -2135,56 +2195,7 @@ sorter.sort();
                                            
                 }
                 
-                
-                else
-                {
-                   
-                    
-                    
-                    // ORDEN DISTINTA
-                    
-                    if (ordendistintaS.ventanaordencamisaanteriores == true) 
-                    {
-                        
-                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de distinta ya está abierta");
-
-                    }
-                    else 
-                    {
-                        
-                        
-                        Object nombre_tabla = "historial_ordenes_distinta";
-                        autorizaciondelfotomontaje((String)numerodeordendebordado,(String) nombre_tabla);
-                        
-                        
-                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
-                        {
-                        
-                        ordendistintaS orden = new ordendistintaS();
-                        orden.setVisible(true);
-
-                        ordendistintaS.lborden.setText(numerodeordendebordado.toString());
-                        ordendistintaS.lbnumerodeventa.setText(numerodeventa.toString());
-                        ordendistintaS.lbprenda.setText(prenda.toString());
-                        ordendistintaS.lbtipo.setText(tipo.toString());
-                        ordendistintaS.enquesucursalsebordara=(lugar.toString());
-                        ordendistintaS.tipotabla=(tablanombre.toString());
-                        tabla.clearSelection();
-                        
-                        
-                        }
-                        else
-                        {
-                          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">El cliente aun no autoriza el fotomontaje, preguntele al Encargado si ya lo autorizó");   
-                        }    
-                        
-                        
-                       
-                    }
-                        
-                
-                } 
-
+              
           
 
         } 

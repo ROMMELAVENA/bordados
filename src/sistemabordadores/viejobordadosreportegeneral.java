@@ -48,7 +48,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 
 
-public class bordadosreportegeneral extends javax.swing.JFrame {
+public class viejobordadosreportegeneral extends javax.swing.JFrame {
 
     public static boolean ventanareportedebordadosgeneral = false;
 
@@ -94,7 +94,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     
     PreparedStatement pst;
 
-    public bordadosreportegeneral() {
+    public viejobordadosreportegeneral() {
 
         initComponents();
         ventanareportedebordadosgeneral = true;
@@ -111,191 +111,191 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     void anchocolumnas() {
 
-        tabla.getColumnModel().getColumn(0).setMinWidth(0);
-        tabla.getColumnModel().getColumn(1).setMinWidth(0);
-        tabla.getColumnModel().getColumn(2).setMinWidth(0);
-        tabla.getColumnModel().getColumn(3).setMinWidth(0);
-        tabla.getColumnModel().getColumn(4).setMinWidth(0);
-        tabla.getColumnModel().getColumn(5).setMinWidth(0);
-        tabla.getColumnModel().getColumn(6).setMinWidth(0);
-        tabla.getColumnModel().getColumn(7).setMinWidth(0);
-        tabla.getColumnModel().getColumn(8).setMinWidth(0);
-        tabla.getColumnModel().getColumn(9).setMinWidth(0);
-        tabla.getColumnModel().getColumn(10).setMinWidth(0);
-        tabla.getColumnModel().getColumn(11).setMinWidth(0);
-        tabla.getColumnModel().getColumn(12).setMinWidth(0);
-        tabla.getColumnModel().getColumn(13).setMinWidth(0);
-        tabla.getColumnModel().getColumn(14).setMinWidth(0);
-        tabla.getColumnModel().getColumn(15).setMinWidth(0);
-        tabla.getColumnModel().getColumn(16).setMinWidth(0);
-        tabla.getColumnModel().getColumn(17).setMinWidth(0);
-        tabla.getColumnModel().getColumn(18).setMinWidth(0);
-        tabla.getColumnModel().getColumn(19).setMinWidth(0);
-        tabla.getColumnModel().getColumn(20).setMinWidth(0);
-        tabla.getColumnModel().getColumn(21).setMinWidth(0);
-        tabla.getColumnModel().getColumn(22).setMinWidth(0);
-        tabla.getColumnModel().getColumn(23).setMinWidth(0);
-        tabla.getColumnModel().getColumn(24).setMinWidth(0);
-        tabla.getColumnModel().getColumn(25).setMinWidth(0);
-        tabla.getColumnModel().getColumn(26).setMinWidth(0);
-        tabla.getColumnModel().getColumn(27).setMinWidth(0);
-        tabla.getColumnModel().getColumn(28).setMinWidth(0);
-        tabla.getColumnModel().getColumn(29).setMinWidth(0);
-        tabla.getColumnModel().getColumn(30).setMinWidth(0);
-        tabla.getColumnModel().getColumn(31).setMinWidth(0);
-        tabla.getColumnModel().getColumn(32).setMinWidth(0);
-        tabla.getColumnModel().getColumn(33).setMinWidth(0);
-        tabla.getColumnModel().getColumn(34).setMinWidth(0);
-        tabla.getColumnModel().getColumn(35).setMinWidth(0);
-        tabla.getColumnModel().getColumn(36).setMinWidth(0);
-        tabla.getColumnModel().getColumn(37).setMinWidth(0);
-        tabla.getColumnModel().getColumn(38).setMinWidth(0);
-        tabla.getColumnModel().getColumn(39).setMinWidth(0);
-        tabla.getColumnModel().getColumn(40).setMinWidth(0);
-        tabla.getColumnModel().getColumn(41).setMinWidth(0);
-        tabla.getColumnModel().getColumn(42).setMinWidth(0);
-        tabla.getColumnModel().getColumn(43).setMinWidth(0);
-        tabla.getColumnModel().getColumn(44).setMinWidth(0);
-        tabla.getColumnModel().getColumn(45).setMinWidth(0);
-        tabla.getColumnModel().getColumn(46).setMinWidth(0);
-        tabla.getColumnModel().getColumn(47).setMinWidth(0);
-        tabla.getColumnModel().getColumn(48).setMinWidth(0);
-        tabla.getColumnModel().getColumn(49).setMinWidth(0);
-        tabla.getColumnModel().getColumn(50).setMinWidth(0);
-        tabla.getColumnModel().getColumn(51).setMinWidth(0);
-        tabla.getColumnModel().getColumn(52).setMinWidth(0);
-        tabla.getColumnModel().getColumn(53).setMinWidth(0);
-        tabla.getColumnModel().getColumn(54).setMinWidth(0);
-        tabla.getColumnModel().getColumn(55).setMinWidth(0);
-        tabla.getColumnModel().getColumn(56).setMinWidth(0);
-        tabla.getColumnModel().getColumn(57).setMinWidth(0);
-        tabla.getColumnModel().getColumn(58).setMinWidth(0);
-        tabla.getColumnModel().getColumn(59).setMinWidth(0);
-        tabla.getColumnModel().getColumn(60).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(0).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(1).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(2).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(3).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(4).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(5).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(6).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(7).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(8).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(9).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(10).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(11).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(12).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(13).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(14).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(15).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(16).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(17).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(18).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(19).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(20).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(21).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(22).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(23).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(24).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(25).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(26).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(27).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(28).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(29).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(30).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(31).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(32).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(33).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(34).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(35).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(36).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(37).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(38).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(39).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(40).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(41).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(42).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(43).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(44).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(45).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(46).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(47).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(48).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(49).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(50).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(51).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(52).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(53).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(54).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(55).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(56).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(57).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(58).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(59).setMinWidth(0);
+        tabladerecha.getColumnModel().getColumn(60).setMinWidth(0);
 
-        tabla.getColumnModel().getColumn(0).setMaxWidth(50);
-        tabla.getColumnModel().getColumn(1).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(2).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(3).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(4).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(6).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(7).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(9).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(10).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(11).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(12).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(13).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(14).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(15).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(16).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(17).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(18).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(19).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(20).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(21).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(22).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(23).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(24).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(25).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(26).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(27).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(28).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(29).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(30).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(31).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(32).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(33).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(34).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(35).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(36).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(37).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(38).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(39).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(40).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(41).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(42).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(43).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(44).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(45).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(46).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(47).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(48).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(49).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(50).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(51).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(52).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(53).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(54).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(55).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(56).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(57).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(58).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(59).setMaxWidth(800);
-        tabla.getColumnModel().getColumn(60).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(0).setMaxWidth(50);
+        tabladerecha.getColumnModel().getColumn(1).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(2).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(3).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(4).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(5).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(6).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(7).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(8).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(9).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(10).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(11).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(12).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(13).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(14).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(15).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(16).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(17).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(18).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(19).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(20).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(21).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(22).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(23).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(24).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(25).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(26).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(27).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(28).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(29).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(30).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(31).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(32).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(33).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(34).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(35).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(36).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(37).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(38).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(39).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(40).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(41).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(42).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(43).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(44).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(45).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(46).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(47).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(48).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(49).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(50).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(51).setMaxWidth(0);
+        tabladerecha.getColumnModel().getColumn(52).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(53).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(54).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(55).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(56).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(57).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(58).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(59).setMaxWidth(800);
+        tabladerecha.getColumnModel().getColumn(60).setMaxWidth(800);
 
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(350);
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(3).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(4).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(7).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(8).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(9).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(10).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(11).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(12).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(13).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(14).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(15).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(16).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(17).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(18).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(19).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(20).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(21).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(22).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(23).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(24).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(25).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(26).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(27).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(28).setPreferredWidth(200);
-        tabla.getColumnModel().getColumn(29).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(30).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(31).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(32).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(33).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(34).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(35).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(36).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(37).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(38).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(39).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(40).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(41).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(42).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(43).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(44).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(45).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(46).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(47).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(48).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(49).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(50).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(51).setPreferredWidth(0);
-        tabla.getColumnModel().getColumn(52).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(53).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(54).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(55).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(56).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(57).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(58).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(59).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(60).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(0).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(1).setPreferredWidth(350);
+        tabladerecha.getColumnModel().getColumn(2).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(3).setPreferredWidth(200);
+        tabladerecha.getColumnModel().getColumn(4).setPreferredWidth(200);
+        tabladerecha.getColumnModel().getColumn(5).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(6).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(7).setPreferredWidth(200);
+        tabladerecha.getColumnModel().getColumn(8).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(9).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(10).setPreferredWidth(200);
+        tabladerecha.getColumnModel().getColumn(11).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(12).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(13).setPreferredWidth(200);
+        tabladerecha.getColumnModel().getColumn(14).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(15).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(16).setPreferredWidth(200);
+        tabladerecha.getColumnModel().getColumn(17).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(18).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(19).setPreferredWidth(200);
+        tabladerecha.getColumnModel().getColumn(20).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(21).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(22).setPreferredWidth(200);
+        tabladerecha.getColumnModel().getColumn(23).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(24).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(25).setPreferredWidth(200);
+        tabladerecha.getColumnModel().getColumn(26).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(27).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(28).setPreferredWidth(200);
+        tabladerecha.getColumnModel().getColumn(29).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(30).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(31).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(32).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(33).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(34).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(35).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(36).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(37).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(38).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(39).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(40).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(41).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(42).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(43).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(44).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(45).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(46).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(47).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(48).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(49).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(50).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(51).setPreferredWidth(0);
+        tabladerecha.getColumnModel().getColumn(52).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(53).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(54).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(55).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(56).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(57).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(58).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(59).setPreferredWidth(80);
+        tabladerecha.getColumnModel().getColumn(60).setPreferredWidth(80);
 
     }
 
@@ -379,7 +379,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         String costostring = "0";
         
         
-        DefaultTableModel modelo2 = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo2 = (DefaultTableModel) tabladerecha.getModel();
         String[] datos = new String[65];
         Calendar cal = new GregorianCalendar();
 
@@ -407,6 +407,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         int año = Integer.parseInt(añostring);
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
+        
+        //CAMISA LOCAL
 
         String sql = "Select codigo,fecha,cliente,cantidad,prenda,numero_venta,"
                   + "pecho_izquierdo_cantidad,pecho_izquierdo_nombre,pecho_izquierdo_puntadas,"
@@ -416,7 +418,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                   + "espalda_cantidad,espalda_nombre,espalda_puntadas,"
                   + "otra_ubicacion_cantidad,otra_ubicacion_puntadas,otra_ubicacion_nombre,"
                   + "otra_ubicacion2_cantidad,otra_ubicacion2_puntadas,otra_ubicacion2_nombre,"
-                  + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2 from historial_ordenes_camisa where (estatus_orden = 'generada' or estatus_orden = 'realizada') and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
+                  + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,"
+                  + "aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2"
+                  + " from historial_ordenes_camisa"
+                  + " where (estatus_orden = 'generada' or estatus_orden = 'realizada') and lugar = 'Esta sucursal'"
+                  + "and (pecho_izquierdo_fecha = '" + fechabusqueda + "' or pecho_derecho_fecha = '" + fechabusqueda + "' or manga_izquierda_fecha = '" + fechabusqueda + "'  or manga_derecha_fecha = '" + fechabusqueda + "'  or espalda_fecha = '" + fechabusqueda + "'  or otra_ubicacion_fecha = '" + fechabusqueda + "'  or otra_ubicacion2_fecha = '" + fechabusqueda + "')"
+                  + "  order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -688,10 +695,10 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String costostring = "0";
 
-        for (int i = 0; i < tabla.getRowCount(); i++) {
+        for (int i = 0; i < tabladerecha.getRowCount(); i++) {
             
-             Object cantidadobject = tabla.getValueAt(i, 2);
-            Object cliente = tabla.getValueAt(i, 1);
+             Object cantidadobject = tabladerecha.getValueAt(i, 2);
+            Object cliente = tabladerecha.getValueAt(i, 1);
             
             int cantidadpechoizquierdoint = Integer.parseInt(cantidadpechoizquierdo);
             int cantidadpechoderechoint = Integer.parseInt(cantidadpechoderecho);
@@ -706,7 +713,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             //PECHO IZQUIERDO
             double costopuntadapechoizquierdo = 0.0;
-            Object pechoizquierdoobject = tabla.getValueAt(i, 5);
+            Object pechoizquierdoobject = tabladerecha.getValueAt(i, 5);
             String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + pechoizquierdoobject + "'";
 
             try {
@@ -725,12 +732,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             }
 
             String costopuntadapechoizquierdostring = String.format("%.02f ", costopuntadapechoizquierdo);
-            tabla.setValueAt(costopuntadapechoizquierdostring, i, 6);
+            tabladerecha.setValueAt(costopuntadapechoizquierdostring, i, 6);
             importepechoizquierdo = cantidadpechoizquierdoint * costopuntadapechoizquierdo;
 
             //PECHO DERECHO
             double costopuntadapechoderecho = 0.0;
-            Object pechoderechoobject = tabla.getValueAt(i, 8);
+            Object pechoderechoobject = tabladerecha.getValueAt(i, 8);
             String sql2 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + pechoderechoobject + "'";
 
             try {
@@ -748,12 +755,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             }
 
             String costopuntadapechoderechostring = String.format("%.02f ", costopuntadapechoderecho);
-            tabla.setValueAt(costopuntadapechoderechostring, i, 9);
+            tabladerecha.setValueAt(costopuntadapechoderechostring, i, 9);
             importepechoderecho = cantidadpechoderechoint * costopuntadapechoderecho;
 
 //MANGA IZQUIERDA
             double costopuntadamangaizquierda = 0.0;
-            Object mangaizquierdaobject = tabla.getValueAt(i, 11);
+            Object mangaizquierdaobject = tabladerecha.getValueAt(i, 11);
             String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + mangaizquierdaobject + "'";
 
             try {
@@ -771,12 +778,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             }
 
             String costopuntadamangaizquierdastring = String.format("%.02f ", costopuntadamangaizquierda);
-            tabla.setValueAt(costopuntadamangaizquierdastring, i, 12);
+            tabladerecha.setValueAt(costopuntadamangaizquierdastring, i, 12);
             importemangaizquierda = cantidadmangaizquierdaint * costopuntadamangaizquierda;
 
 //MANGA DERECHA
             double costopuntadamangaderecha = 0.0;
-            Object mangaderechaobject = tabla.getValueAt(i, 14);
+            Object mangaderechaobject = tabladerecha.getValueAt(i, 14);
             String sql4 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + mangaderechaobject + "'";
 
             try {
@@ -794,12 +801,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             }
 
             String costopuntadamangaderechastring = String.format("%.02f ", costopuntadamangaderecha);
-            tabla.setValueAt(costopuntadamangaderechastring, i, 15);
+            tabladerecha.setValueAt(costopuntadamangaderechastring, i, 15);
             importemangaderecha = cantidadmangaderechaint * costopuntadamangaderecha;
 
             // ESPALDA
             double costopuntadaespalda = 0.0;
-            Object espaldaobject = tabla.getValueAt(i, 17);
+            Object espaldaobject = tabladerecha.getValueAt(i, 17);
             String sql5 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + espaldaobject + "'";
 
             try {
@@ -817,12 +824,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             }
 
             String costopuntadaespaldastring = String.format("%.02f ", costopuntadaespalda);
-            tabla.setValueAt(costopuntadaespaldastring, i, 18);
+            tabladerecha.setValueAt(costopuntadaespaldastring, i, 18);
             importeespalda = cantidadespaldaint * costopuntadaespalda;
 
             /// otra ubicacion
             double costopuntadaotraubicacion = 0.0;
-            Object otraubicacionobject = tabla.getValueAt(i, 20);
+            Object otraubicacionobject = tabladerecha.getValueAt(i, 20);
 
             String sql6 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + otraubicacionobject + "'";
 
@@ -842,13 +849,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             }
 
             String costopuntadaotraubicacionstring = String.format("%.02f ", costopuntadaotraubicacion);
-            tabla.setValueAt(costopuntadaotraubicacionstring, i, 21);
+            tabladerecha.setValueAt(costopuntadaotraubicacionstring, i, 21);
 
             importeotraubicacion = cantidadotraubicacionint * costopuntadaotraubicacion;
 
             /// otra ubicacion2
             double costopuntadaotraubicacion2 = 0.0;
-            Object otraubicacion2object = tabla.getValueAt(i, 23);
+            Object otraubicacion2object = tabladerecha.getValueAt(i, 23);
 
             String sql7 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + otraubicacion2object + "'";
 
@@ -868,7 +875,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             }
 
             String costopuntadaotraubicacion2string = String.format("%.02f ", costopuntadaotraubicacion2);
-            tabla.setValueAt(costopuntadaotraubicacion2string, i, 24);
+            tabladerecha.setValueAt(costopuntadaotraubicacion2string, i, 24);
 
             importeotraubicacion2 = cantidadotraubicacionint * costopuntadaotraubicacion2;
 
@@ -878,7 +885,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 {
                     int a = 0;
                 }
-            tabla.setValueAt(sumabordadosstring, i, 62);
+            tabladerecha.setValueAt(sumabordadosstring, i, 62);
 
           
 
@@ -890,7 +897,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     {
 
         
-        DefaultTableModel modelo2 = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo2 = (DefaultTableModel) tabladerecha.getModel();
         String[] datos = new String[65];
         Calendar cal = new GregorianCalendar();
         
@@ -1222,7 +1229,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String costostring = "0";
         
-        DefaultTableModel modelo2 = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo2 = (DefaultTableModel) tabladerecha.getModel();
         String[] datos = new String[65];
 
         Calendar cal = new GregorianCalendar();
@@ -1253,7 +1260,16 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
-        String sql = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo_puntadas,pecho_derecho_nombre,pecho_derecho_puntadas,manga_izquierda_nombre,manga_izquierda_puntadas,manga_derecha_nombre,manga_derecha_puntadas,espalda_nombre,espalda_puntadas,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion_nombre,otra_ubicacion_puntadas,otra_ubicacion2_nombre,otra_ubicacion2_puntadas from historial_ordenes_camisa_recibidas where (estatus_orden = 'realizada totalmente' OR estatus_orden = 'realizada parcialmente') and fecha = '" + fechabusqueda + "'  order by codigo ";
+        String sql = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo_puntadas,pecho_derecho_nombre,"
+                + "pecho_derecho_puntadas,manga_izquierda_nombre,manga_izquierda_puntadas,manga_derecha_nombre,manga_derecha_puntadas,"
+                + "espalda_nombre,espalda_puntadas,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,"
+                + "aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion_nombre,otra_ubicacion_puntadas,otra_ubicacion2_nombre,otra_ubicacion2_puntadas"
+                + " from historial_ordenes_camisa_recibidas"
+                + " where (estatus_orden = 'realizada totalmente' OR estatus_orden = 'realizada parcialmente')"
+                + "and (pecho_izquierdo_fecha = '" + fechabusqueda + "' or pecho_derecho_fecha = '" + fechabusqueda + "' or manga_izquierda_fecha = '" + fechabusqueda + "'  or manga_derecha_fecha = '" + fechabusqueda + "'  or espalda_fecha = '" + fechabusqueda + "'  or otra_ubicacion_fecha = '" + fechabusqueda + "'  or otra_ubicacion2_fecha = '" + fechabusqueda + "')"
+                + "  order by codigo ";
+        
+      
 
         try {
             Statement st = cn.createStatement();
@@ -1514,17 +1530,17 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
       int cantidadladoizquierdoatrasint=Integer.parseInt(cantidadladoizquierdoatras);
       int cantidadladoderechoatrasint=Integer.parseInt(cantidadladoderechoatras);
 
-        for (int i = 0; i < tabla.getRowCount(); i++) {
+        for (int i = 0; i < tabladerecha.getRowCount(); i++) {
 
-            Object cantidadobject = tabla.getValueAt(i, 2);
-            Object prenda = tabla.getValueAt(i, 3);
+            Object cantidadobject = tabladerecha.getValueAt(i, 2);
+            Object prenda = tabladerecha.getValueAt(i, 3);
             //int cantidad = Integer.parseInt(cantidadobject.toString());
 
             if (prenda.equals("Pantalon")) {
 
 //lado IZQUIERDO
                 double costopuntadaladoizquierdofrente = 0.0;
-                Object ladoizquierdoobject = tabla.getValueAt(i, 39);
+                Object ladoizquierdoobject = tabladerecha.getValueAt(i, 39);
                 String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + ladoizquierdoobject + "'";
 
                 try {
@@ -1542,13 +1558,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaladoizquierdostring = String.format("%.02f ", costopuntadaladoizquierdofrente);
-                tabla.setValueAt(costopuntadaladoizquierdostring, i, 40);
+                tabladerecha.setValueAt(costopuntadaladoizquierdostring, i, 40);
 
                 importeladoizquierdofrente = cantidadladoizquierdofrenteint * costopuntadaladoizquierdofrente;
 
                 //LADO DERECHO
                 double costopuntadaladoderechofrente = 0.0;
-                Object ladoderechoobject = tabla.getValueAt(i, 42);
+                Object ladoderechoobject = tabladerecha.getValueAt(i, 42);
 
                 String sql2 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + ladoderechoobject + "'";
 
@@ -1567,14 +1583,14 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaladoderechostring = String.format("%.02f ", costopuntadaladoderechofrente);
-                tabla.setValueAt(costopuntadaladoderechostring, i, 43);
+                tabladerecha.setValueAt(costopuntadaladoderechostring, i, 43);
 
                 importeladoderechofrente = cantidadladoderechofrenteint * costopuntadaladoderechofrente;
 
 // ldo izquierdo atras
                 double costopuntadaladoizquierdoatras = 0.0;
 
-                Object ladoizquierdoatrasobject = tabla.getValueAt(i, 45);
+                Object ladoizquierdoatrasobject = tabladerecha.getValueAt(i, 45);
 
                 String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + ladoizquierdoatrasobject + "'";
 
@@ -1594,14 +1610,14 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadamangaizquierdastring = String.format("%.02f ", costopuntadaladoizquierdoatras);
-                tabla.setValueAt(costopuntadamangaizquierdastring, i, 46);
+                tabladerecha.setValueAt(costopuntadamangaizquierdastring, i, 46);
 
                 importeladoizquierdoatras = cantidadladoizquierdoatrasint * costopuntadaladoizquierdoatras;
 
                 // lado derecho ATRAS
                 double costopuntadaladoderechoatras = 0.0;
 
-                Object ladoderechoatrasobject = tabla.getValueAt(i, 48);
+                Object ladoderechoatrasobject = tabladerecha.getValueAt(i, 48);
 
                 String sql5 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + ladoderechoatrasobject + "'";
 
@@ -1620,7 +1636,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaespaldastring = String.format("%.02f ", costopuntadaladoderechoatras);
-                tabla.setValueAt(costopuntadaespaldastring, i, 49);
+                tabladerecha.setValueAt(costopuntadaespaldastring, i, 49);
 
                 importeladoderechoatras = cantidadladoderechoatrasint * costopuntadaladoderechoatras;
 
@@ -1630,7 +1646,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 {
                     int a = 0;
                 }
-                tabla.setValueAt(sumabordadosstring, i, 62);
+                tabladerecha.setValueAt(sumabordadosstring, i, 62);
 
             }
 
@@ -1641,7 +1657,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     void datosponchados(int i) {
 
-        DefaultTableModel modelo2 = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo2 = (DefaultTableModel) tabladerecha.getModel();
         String[] datos = new String[65];
         Calendar cal = new GregorianCalendar();
 
@@ -1768,7 +1784,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     
      void datosponchadosmodificados(int i) {
 
-        DefaultTableModel modelo2 = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo2 = (DefaultTableModel) tabladerecha.getModel();
         String[] datos = new String[65];
         Calendar cal = new GregorianCalendar();
 
@@ -1896,10 +1912,10 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double importedelponchado = 0.0;
         String costostring = "0";
 
-        for (int i = 0; i < tabla.getRowCount(); i++) {
+        for (int i = 0; i < tabladerecha.getRowCount(); i++) {
 
-            Object cantidadobject = tabla.getValueAt(i, 2);
-            Object articulo = tabla.getValueAt(i, 3);
+            Object cantidadobject = tabladerecha.getValueAt(i, 2);
+            Object articulo = tabladerecha.getValueAt(i, 3);
             //int cantidad = Integer.parseInt(cantidadobject.toString());
             String articulobuscar = "";
             int cantidadponchadoint  =Integer.parseInt(cantidadponchado);
@@ -1919,7 +1935,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                         articulobuscar = "PONCHADO EXTRA DIFICIL";
                     }
 
-                tabla.setValueAt(articulobuscar, i, 5);
+                tabladerecha.setValueAt(articulobuscar, i, 5);
 
                 double costodelponchado = 0.0;
 
@@ -1940,7 +1956,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaponchadostring = String.format("%.02f ", costodelponchado);
-                tabla.setValueAt(costopuntadaponchadostring, i, 6);
+                tabladerecha.setValueAt(costopuntadaponchadostring, i, 6);
 
                 double importeponchado = cantidadponchadoint * costodelponchado;
 
@@ -1950,7 +1966,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 {
                     int a = 0;
                 }
-                tabla.setValueAt(sumabordadosstring, i, 62);
+                tabladerecha.setValueAt(sumabordadosstring, i, 62);
 
             }
 
@@ -1973,17 +1989,17 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         int cantidadatrasint = Integer.parseInt(cantidadatras);
         
         
-        for (int i = 0; i < tabla.getRowCount(); i++) {
+        for (int i = 0; i < tabladerecha.getRowCount(); i++) {
 
-            Object cantidadobject = tabla.getValueAt(i, 2);
-            Object prenda = tabla.getValueAt(i, 3);
+            Object cantidadobject = tabladerecha.getValueAt(i, 2);
+            Object prenda = tabladerecha.getValueAt(i, 3);
             int cantidad = Integer.parseInt(cantidadobject.toString());
 
             if (prenda.equals("Gorra") ) {
                 //lado IZQUIERDO
 
                 double costopuntadaladoizquierdo = 0.0;
-                Object ladoizquierdoobject = tabla.getValueAt(i, 29);
+                Object ladoizquierdoobject = tabladerecha.getValueAt(i, 29);
                 String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + ladoizquierdoobject + "'";
 
                 try {
@@ -2001,13 +2017,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaladoizquierdostring = String.format("%.02f ", costopuntadaladoizquierdo);
-                tabla.setValueAt(costopuntadaladoizquierdostring, i, 30);
+                tabladerecha.setValueAt(costopuntadaladoizquierdostring, i, 30);
 
                 importeladoizquierdo = cantidadladoizquierdoint * costopuntadaladoizquierdo;
 
                 //LADO DERECHO
                 double costopuntadaladoderecho = 0.0;
-                Object ladoderechoobject = tabla.getValueAt(i, 32);
+                Object ladoderechoobject = tabladerecha.getValueAt(i, 32);
 
                 String sql2 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + ladoderechoobject + "'";
 
@@ -2026,14 +2042,14 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaladoderechostring = String.format("%.02f ", costopuntadaladoderecho);
-                tabla.setValueAt(costopuntadaladoderechostring, i, 33);
+                tabladerecha.setValueAt(costopuntadaladoderechostring, i, 33);
 
                 importeladoderecho = cantidadladoderechoint * costopuntadaladoderecho;
 
 // FRENTE
                 double costopuntadafrente = 0.0;
 
-                Object frenteobject = tabla.getValueAt(i, 26);
+                Object frenteobject = tabladerecha.getValueAt(i, 26);
 
                 String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + frenteobject + "'";
 
@@ -2052,14 +2068,14 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadafrentestring = String.format("%.02f ", costopuntadafrente);
-                tabla.setValueAt(costopuntadafrentestring, i, 27);
+                tabladerecha.setValueAt(costopuntadafrentestring, i, 27);
 
                 importefrente = cantidadfrenteint * costopuntadafrente;
 
                 // ATRAS
                 double costopuntadaatras = 0.0;
 
-                Object atrasobject = tabla.getValueAt(i, 35);
+                Object atrasobject = tabladerecha.getValueAt(i, 35);
 
                 String sql5 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + atrasobject + "'";
 
@@ -2078,7 +2094,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaespaldastring = String.format("%.02f ", costopuntadaatras);
-                tabla.setValueAt(costopuntadaespaldastring, i, 36);
+                tabladerecha.setValueAt(costopuntadaespaldastring, i, 36);
 
                 importeatras = cantidadatrasint * costopuntadaatras;
 
@@ -2088,7 +2104,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 {
                     int a = 0;
                 }
-                tabla.setValueAt(sumabordadosstring, i, 62);
+                tabladerecha.setValueAt(sumabordadosstring, i, 62);
 
             }
 
@@ -2101,17 +2117,17 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double importefrente = 0.0;
         String costostring = "0";
 
-        for (int i = 0; i < tabla.getRowCount(); i++) {
+        for (int i = 0; i < tabladerecha.getRowCount(); i++) {
 
-            Object cantidadobject = tabla.getValueAt(i, 2);
-            Object cliente = tabla.getValueAt(i, 1);
+            Object cantidadobject = tabladerecha.getValueAt(i, 2);
+            Object cliente = tabladerecha.getValueAt(i, 1);
             int cantidad = Integer.parseInt(cantidadobject.toString());
 
             if (cliente.equals("porta nombre multiple") || cliente.equals("porta nombre")) {
 
                 // FRENTE
                 double costopuntadafrente = 0.0;
-                Object frenteobject = tabla.getValueAt(i, 26);
+                Object frenteobject = tabladerecha.getValueAt(i, 26);
 
                 String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + frenteobject + "'";
 
@@ -2130,7 +2146,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadafrentestring = String.format("%.02f ", costopuntadafrente);
-                tabla.setValueAt(costopuntadafrentestring, i, 27);
+                tabladerecha.setValueAt(costopuntadafrentestring, i, 27);
                 importefrente = cantidad * costopuntadafrente;
 
                 double sumabordados = importefrente;
@@ -2139,7 +2155,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 {
                     int a = 0;
                 }
-                tabla.setValueAt(sumabordadosstring, i, 62);
+                tabladerecha.setValueAt(sumabordadosstring, i, 62);
 
             }
 
@@ -2156,10 +2172,10 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         String costostring = "0";
 
-        for (int i = 0; i < tabla.getRowCount(); i++) {
+        for (int i = 0; i < tabladerecha.getRowCount(); i++) {
 
-            Object cantidadobject = tabla.getValueAt(i, 2);
-            Object prenda = tabla.getValueAt(i, 3);
+            Object cantidadobject = tabladerecha.getValueAt(i, 2);
+            Object prenda = tabladerecha.getValueAt(i, 3);
             int cantidad = Integer.parseInt(cantidadobject.toString());
 
             if (prenda.equals("Corbata")) {
@@ -2167,7 +2183,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 // FRENTE
                 double costopuntadafrente = 0.0;
 
-                Object frenteobject = tabla.getValueAt(i, 26);
+                Object frenteobject = tabladerecha.getValueAt(i, 26);
 
                 String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + frenteobject + "'";
 
@@ -2186,7 +2202,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadamangaizquierdastring = String.format("%.02f ", costopuntadafrente);
-                tabla.setValueAt(costopuntadamangaizquierdastring, i, 27);
+                tabladerecha.setValueAt(costopuntadamangaizquierdastring, i, 27);
 
                 importefrente = cantidad * costopuntadafrente;
                 double sumabordados = importefrente;
@@ -2195,7 +2211,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 {
                     int a = 0;
                 }
-                tabla.setValueAt(sumabordadosstring, i, 62);
+                tabladerecha.setValueAt(sumabordadosstring, i, 62);
 
             }
 
@@ -2210,17 +2226,17 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         String costostring = "0";
         String costodelapuntada = "";
 
-        for (int i = 0; i < tabla.getRowCount(); i++) {
+        for (int i = 0; i < tabladerecha.getRowCount(); i++) {
 
-            Object cantidadobject = tabla.getValueAt(i, 2);
-            Object prenda = tabla.getValueAt(i, 3);
+            Object cantidadobject = tabladerecha.getValueAt(i, 2);
+            Object prenda = tabladerecha.getValueAt(i, 3);
             //int cantidad = Integer.parseInt(cantidadobject.toString());
             int cantidadparcheint = Integer.parseInt(cantidadparche);
 
             if (prenda.equals("Parche")) {
 
                 double costopuntada = 0.0;
-                Object puntadaobject = tabla.getValueAt(i, 51);
+                Object puntadaobject = tabladerecha.getValueAt(i, 51);
                 String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + puntadaobject + "'";
 
                 try {
@@ -2239,12 +2255,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 double sumabordados = costopuntada * cantidadparcheint;
                 String sumabordadosstring = String.format("%.02f ", sumabordados);
-                tabla.setValueAt(costostring, i, 52);
+                tabladerecha.setValueAt(costostring, i, 52);
                 if(sumabordadosstring.equals("3.30"))
                 {
                     int a = 0;
                 }
-                tabla.setValueAt(sumabordadosstring, i, 62);
+                tabladerecha.setValueAt(sumabordadosstring, i, 62);
 
             }
 
@@ -2266,7 +2282,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
       
         
 
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabladerecha.getModel();
 
         Calendar cal = new GregorianCalendar();
 
@@ -2293,7 +2309,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         int ultimafila = 0;
 
-        ultimafila = tabla.getRowCount();
+        ultimafila = tabladerecha.getRowCount();
 
         try {
             Statement st = cn.createStatement();
@@ -2322,20 +2338,20 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 modelo.addRow(new Object[]{});
 
-                tabla.setValueAt(fecha, ultimafila, 0);
-                tabla.setValueAt(cliente, ultimafila, 1);
-                tabla.setValueAt(cantidad, ultimafila, 2);
-                tabla.setValueAt(prenda, ultimafila, 3);
-                tabla.setValueAt(frente, ultimafila, 25);
-                tabla.setValueAt(puntadasfrente, ultimafila, 26);
-                tabla.setValueAt(ladoizquierdo, ultimafila, 28);
-                tabla.setValueAt(puntadasladoizquierdo, ultimafila, 29);
-                tabla.setValueAt(ladoderecho, ultimafila, 31);
-                tabla.setValueAt(puntadasladoderecho, ultimafila, 32);
-                tabla.setValueAt(atras, ultimafila, 34);
-                tabla.setValueAt(puntadasatras, ultimafila, 35);
-                tabla.setValueAt(aplicacionfrente, ultimafila, 57);
-                tabla.setValueAt(numeroventa, ultimafila, 63);
+                tabladerecha.setValueAt(fecha, ultimafila, 0);
+                tabladerecha.setValueAt(cliente, ultimafila, 1);
+                tabladerecha.setValueAt(cantidad, ultimafila, 2);
+                tabladerecha.setValueAt(prenda, ultimafila, 3);
+                tabladerecha.setValueAt(frente, ultimafila, 25);
+                tabladerecha.setValueAt(puntadasfrente, ultimafila, 26);
+                tabladerecha.setValueAt(ladoizquierdo, ultimafila, 28);
+                tabladerecha.setValueAt(puntadasladoizquierdo, ultimafila, 29);
+                tabladerecha.setValueAt(ladoderecho, ultimafila, 31);
+                tabladerecha.setValueAt(puntadasladoderecho, ultimafila, 32);
+                tabladerecha.setValueAt(atras, ultimafila, 34);
+                tabladerecha.setValueAt(puntadasatras, ultimafila, 35);
+                tabladerecha.setValueAt(aplicacionfrente, ultimafila, 57);
+                tabladerecha.setValueAt(numeroventa, ultimafila, 63);
                 
                 
      
@@ -2367,7 +2383,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaladoizquierdostring = String.format("%.02f ", costopuntadaladoizquierdo);
-                tabla.setValueAt(costopuntadaladoizquierdostring, ultimafila, 30);
+                tabladerecha.setValueAt(costopuntadaladoizquierdostring, ultimafila, 30);
 
                 importeladoizquierdo = cantidadladoizquierdoint * costopuntadaladoizquierdo;
 
@@ -2392,7 +2408,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaladoderechostring = String.format("%.02f ", costopuntadaladoderecho);
-                tabla.setValueAt(costopuntadaladoderechostring, ultimafila, 33);
+                tabladerecha.setValueAt(costopuntadaladoderechostring, ultimafila, 33);
 
                 importeladoderecho = cantidadladoderechoint * costopuntadaladoderecho;
 
@@ -2418,7 +2434,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadafrentestring = String.format("%.02f ", costopuntadafrente);
-                tabla.setValueAt(costopuntadafrentestring, ultimafila, 27);
+                tabladerecha.setValueAt(costopuntadafrentestring, ultimafila, 27);
                 importefrente = cantidadfrenteint * costopuntadafrente;
 
                 // ATRAS
@@ -2443,7 +2459,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaespaldastring = String.format("%.02f ", costopuntadaatras);
-                tabla.setValueAt(costopuntadaespaldastring, ultimafila, 36);
+                tabladerecha.setValueAt(costopuntadaespaldastring, ultimafila, 36);
 
                 importeatras = cantidadatrasint * costopuntadaatras;
 
@@ -2453,7 +2469,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 {
                     int a = 0;
                 }
-                tabla.setValueAt(sumabordadosstring, ultimafila, 62);
+                tabladerecha.setValueAt(sumabordadosstring, ultimafila, 62);
 
                         
                         
@@ -2471,7 +2487,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     void datostablahistorialordenesgorrarecibidas(int i) {
 
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabladerecha.getModel();
 
         Calendar cal = new GregorianCalendar();
 
@@ -2504,7 +2520,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         int ultimafila = 0;
 
-        ultimafila = tabla.getRowCount();
+        ultimafila = tabladerecha.getRowCount();
 
         try {
             Statement st = cn.createStatement();
@@ -2528,19 +2544,19 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 modelo.addRow(new Object[]{});
 
-                tabla.setValueAt(fecha, ultimafila, 0);
-                tabla.setValueAt(cliente, ultimafila, 1);
-                tabla.setValueAt(cantidad, ultimafila, 2);
-                tabla.setValueAt(prenda, ultimafila, 3);
-                tabla.setValueAt(frente, ultimafila, 25);
-                tabla.setValueAt(puntadasfrente, ultimafila, 26);
-                tabla.setValueAt(ladoizquierdo, ultimafila, 28);
-                tabla.setValueAt(puntadasladoizquierdo, ultimafila, 29);
-                tabla.setValueAt(ladoderecho, ultimafila, 31);
-                tabla.setValueAt(puntadasladoderecho, ultimafila, 32);
-                tabla.setValueAt(atras, ultimafila, 34);
-                tabla.setValueAt(puntadasatras, ultimafila, 35);
-                tabla.setValueAt(aplicacionfrente, ultimafila, 57);
+                tabladerecha.setValueAt(fecha, ultimafila, 0);
+                tabladerecha.setValueAt(cliente, ultimafila, 1);
+                tabladerecha.setValueAt(cantidad, ultimafila, 2);
+                tabladerecha.setValueAt(prenda, ultimafila, 3);
+                tabladerecha.setValueAt(frente, ultimafila, 25);
+                tabladerecha.setValueAt(puntadasfrente, ultimafila, 26);
+                tabladerecha.setValueAt(ladoizquierdo, ultimafila, 28);
+                tabladerecha.setValueAt(puntadasladoizquierdo, ultimafila, 29);
+                tabladerecha.setValueAt(ladoderecho, ultimafila, 31);
+                tabladerecha.setValueAt(puntadasladoderecho, ultimafila, 32);
+                tabladerecha.setValueAt(atras, ultimafila, 34);
+                tabladerecha.setValueAt(puntadasatras, ultimafila, 35);
+                tabladerecha.setValueAt(aplicacionfrente, ultimafila, 57);
                 
                 ///
                 ///Calculo v
@@ -2577,7 +2593,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaladoizquierdostring = String.format("%.02f ", costopuntadaladoizquierdo);
-                tabla.setValueAt(costopuntadaladoizquierdostring, ultimafila, 30);
+                tabladerecha.setValueAt(costopuntadaladoizquierdostring, ultimafila, 30);
 
                 importeladoizquierdo = cantidadladoizquierdoint * costopuntadaladoizquierdo;
 
@@ -2602,7 +2618,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaladoderechostring = String.format("%.02f ", costopuntadaladoderecho);
-                tabla.setValueAt(costopuntadaladoderechostring, ultimafila, 33);
+                tabladerecha.setValueAt(costopuntadaladoderechostring, ultimafila, 33);
 
                 importeladoderecho = cantidadladoderechoint * costopuntadaladoderecho;
 
@@ -2628,7 +2644,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadafrentestring = String.format("%.02f ", costopuntadafrente);
-                tabla.setValueAt(costopuntadafrentestring, ultimafila, 27);
+                tabladerecha.setValueAt(costopuntadafrentestring, ultimafila, 27);
                 importefrente = cantidadfrenteint * costopuntadafrente;
 
                 // ATRAS
@@ -2653,7 +2669,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaespaldastring = String.format("%.02f ", costopuntadaatras);
-                tabla.setValueAt(costopuntadaespaldastring, ultimafila, 36);
+                tabladerecha.setValueAt(costopuntadaespaldastring, ultimafila, 36);
 
                 importeatras = cantidadatrasint * costopuntadaatras;
 
@@ -2663,7 +2679,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 {
                     int a = 0;
                 }
-                tabla.setValueAt(sumabordadosstring, ultimafila, 62);
+                tabladerecha.setValueAt(sumabordadosstring, ultimafila, 62);
 
                         
                         
@@ -2684,7 +2700,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     void datostablahistorialordenespantalon(int i) {
 
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabladerecha.getModel();
 
         Calendar cal = new GregorianCalendar();
 
@@ -2720,7 +2736,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         int ultimafila = 0;
 
-        ultimafila = tabla.getRowCount();
+        ultimafila = tabladerecha.getRowCount();
 
         try {
             Statement st = cn.createStatement();
@@ -2757,22 +2773,22 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 modelo.addRow(new Object[]{});
 
-                tabla.setValueAt(fecha, ultimafila, 0);
-                tabla.setValueAt(cliente, ultimafila, 1);
-                tabla.setValueAt(cantidad, ultimafila, 2);
-                tabla.setValueAt(prenda, ultimafila, 3);
+                tabladerecha.setValueAt(fecha, ultimafila, 0);
+                tabladerecha.setValueAt(cliente, ultimafila, 1);
+                tabladerecha.setValueAt(cantidad, ultimafila, 2);
+                tabladerecha.setValueAt(prenda, ultimafila, 3);
 
-                tabla.setValueAt(ladoizquierdofrente, ultimafila, 38);
-                tabla.setValueAt(puntadasladoizquierdofrente, ultimafila, 39);
-                tabla.setValueAt(ladoderechofrente, ultimafila, 41);
-                tabla.setValueAt(puntadasladoderechofrente, ultimafila, 42);
+                tabladerecha.setValueAt(ladoizquierdofrente, ultimafila, 38);
+                tabladerecha.setValueAt(puntadasladoizquierdofrente, ultimafila, 39);
+                tabladerecha.setValueAt(ladoderechofrente, ultimafila, 41);
+                tabladerecha.setValueAt(puntadasladoderechofrente, ultimafila, 42);
 
-                tabla.setValueAt(ladoizquierdoatras, ultimafila, 44);
-                tabla.setValueAt(puntadasladoizquierdoatras, ultimafila, 45);
-                tabla.setValueAt(ladoderechoatras, ultimafila, 47);
-                tabla.setValueAt(puntadasladoderechoatras, ultimafila, 48);
+                tabladerecha.setValueAt(ladoizquierdoatras, ultimafila, 44);
+                tabladerecha.setValueAt(puntadasladoizquierdoatras, ultimafila, 45);
+                tabladerecha.setValueAt(ladoderechoatras, ultimafila, 47);
+                tabladerecha.setValueAt(puntadasladoderechoatras, ultimafila, 48);
 
-                tabla.setValueAt(numeroventa, ultimafila, 63);
+                tabladerecha.setValueAt(numeroventa, ultimafila, 63);
                 
                 double importeladoizquierdofrente = 0.0;
                 double importeladoizquierdoatras = 0.0;
@@ -2806,7 +2822,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaladoizquierdostring = String.format("%.02f ", costopuntadaladoizquierdofrente);
-                tabla.setValueAt(costopuntadaladoizquierdostring, ultimafila, 40);
+                tabladerecha.setValueAt(costopuntadaladoizquierdostring, ultimafila, 40);
                 importeladoizquierdofrente = cantidadladoizquierdofrenteint * costopuntadaladoizquierdofrente;
 
                 //LADO DERECHO
@@ -2828,7 +2844,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaladoderechostring = String.format("%.02f ", costopuntadaladoderechofrente);
-                tabla.setValueAt(costopuntadaladoderechostring, ultimafila, 43);
+                tabladerecha.setValueAt(costopuntadaladoderechostring, ultimafila, 43);
                 importeladoderechofrente = cantidadladoderechofrenteint * costopuntadaladoderechofrente;
 
 // ldo izquierdo atras
@@ -2851,7 +2867,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadamangaizquierdastring = String.format("%.02f ", costopuntadaladoizquierdoatras);
-                tabla.setValueAt(costopuntadamangaizquierdastring, ultimafila, 46);
+                tabladerecha.setValueAt(costopuntadamangaizquierdastring, ultimafila, 46);
                 importeladoizquierdoatras = cantidadladoizquierdoatrasint * costopuntadaladoizquierdoatras;
 
                 // lado derecho ATRAS
@@ -2873,7 +2889,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadaespaldastring = String.format("%.02f ", costopuntadaladoderechoatras);
-                tabla.setValueAt(costopuntadaespaldastring, ultimafila, 49);
+                tabladerecha.setValueAt(costopuntadaespaldastring, ultimafila, 49);
                 importeladoderechoatras = cantidadladoderechoatrasint * costopuntadaladoderechoatras;
 
                 double sumabordados = importeladoizquierdoatras + importeladoizquierdofrente + importeladoderechoatras + importeladoderechofrente;
@@ -2882,7 +2898,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 {
                     int a = 0;
                 }
-                tabla.setValueAt(sumabordadosstring, ultimafila, 62);
+                tabladerecha.setValueAt(sumabordadosstring, ultimafila, 62);
 
                 ultimafila = ultimafila + 1;
 
@@ -2899,7 +2915,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     void datostablahistorialordenespantalonrecibidos(int i) {
 
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabladerecha.getModel();
 
         Calendar cal = new GregorianCalendar();
 
@@ -2932,7 +2948,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         int ultimafila = 0;
 
-        ultimafila = tabla.getRowCount();
+        ultimafila = tabladerecha.getRowCount();
 
         try {
             Statement st = cn.createStatement();
@@ -2957,20 +2973,20 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 modelo.addRow(new Object[]{});
 
-                tabla.setValueAt(fecha, ultimafila, 0);
-                tabla.setValueAt(cliente, ultimafila, 1);
-                tabla.setValueAt(cantidad, ultimafila, 2);
-                tabla.setValueAt(prenda, ultimafila, 3);
+                tabladerecha.setValueAt(fecha, ultimafila, 0);
+                tabladerecha.setValueAt(cliente, ultimafila, 1);
+                tabladerecha.setValueAt(cantidad, ultimafila, 2);
+                tabladerecha.setValueAt(prenda, ultimafila, 3);
 
-                tabla.setValueAt(ladoizquierdofrente, ultimafila, 35);
-                tabla.setValueAt(puntadasladoizquierdofrente, ultimafila, 39);
-                tabla.setValueAt(ladoderechofrente, ultimafila, 41);
-                tabla.setValueAt(puntadasladoderechofrente, ultimafila, 42);
+                tabladerecha.setValueAt(ladoizquierdofrente, ultimafila, 35);
+                tabladerecha.setValueAt(puntadasladoizquierdofrente, ultimafila, 39);
+                tabladerecha.setValueAt(ladoderechofrente, ultimafila, 41);
+                tabladerecha.setValueAt(puntadasladoderechofrente, ultimafila, 42);
 
-                tabla.setValueAt(ladoizquierdoatras, ultimafila, 44);
-                tabla.setValueAt(puntadasladoizquierdoatras, ultimafila, 45);
-                tabla.setValueAt(ladoderechoatras, ultimafila, 47);
-                tabla.setValueAt(puntadasladoderechoatras, ultimafila, 48);
+                tabladerecha.setValueAt(ladoizquierdoatras, ultimafila, 44);
+                tabladerecha.setValueAt(puntadasladoizquierdoatras, ultimafila, 45);
+                tabladerecha.setValueAt(ladoderechoatras, ultimafila, 47);
+                tabladerecha.setValueAt(puntadasladoderechoatras, ultimafila, 48);
 
                 ultimafila = ultimafila + 1;
 
@@ -2989,7 +3005,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     //////////////////////
     void datostablahistorialparches(int i) {
 
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabladerecha.getModel();
 
         Calendar cal = new GregorianCalendar();
 
@@ -3022,7 +3038,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         int ultimafila = 0;
 
-        ultimafila = tabla.getRowCount();
+        ultimafila = tabladerecha.getRowCount();
 
         try {
             Statement st = cn.createStatement();
@@ -3044,13 +3060,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 modelo.addRow(new Object[]{});
 
-                tabla.setValueAt(fecha, ultimafila, 0);
-                tabla.setValueAt(cliente, ultimafila, 1);
-                tabla.setValueAt(cantidad, ultimafila, 2);
-                tabla.setValueAt(prenda, ultimafila, 3);
-                tabla.setValueAt(parche, ultimafila, 50);
-                tabla.setValueAt(puntadas, ultimafila, 51);
-                tabla.setValueAt(numeroventa, ultimafila, 63);
+                tabladerecha.setValueAt(fecha, ultimafila, 0);
+                tabladerecha.setValueAt(cliente, ultimafila, 1);
+                tabladerecha.setValueAt(cantidad, ultimafila, 2);
+                tabladerecha.setValueAt(prenda, ultimafila, 3);
+                tabladerecha.setValueAt(parche, ultimafila, 50);
+                tabladerecha.setValueAt(puntadas, ultimafila, 51);
+                tabladerecha.setValueAt(numeroventa, ultimafila, 63);
                 
                 ///Costos
                 
@@ -3079,12 +3095,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 double sumabordados = costopuntada * cantidadparcheint;
                 String sumabordadosstring = String.format("%.02f ", sumabordados);
-                tabla.setValueAt(costostring, ultimafila, 52);
+                tabladerecha.setValueAt(costostring, ultimafila, 52);
                 if(sumabordadosstring.equals("3.30"))
                 {
                     int a = 0;
                 }
-                tabla.setValueAt(sumabordadosstring,ultimafila, 62);
+                tabladerecha.setValueAt(sumabordadosstring,ultimafila, 62);
 
                 ///
                 
@@ -3106,7 +3122,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     //////////////////////
     void datostablaordeninternagorra(int i) {
 
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabladerecha.getModel();
 
         Calendar cal = new GregorianCalendar();
 
@@ -3138,7 +3154,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         int ultimafila = 0;
 
-        ultimafila = tabla.getRowCount();
+        ultimafila = tabladerecha.getRowCount();
 
         try {
             Statement st = cn.createStatement();
@@ -3170,12 +3186,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 modelo.addRow(new Object[]{});
 
-                tabla.setValueAt(fecha, ultimafila, 0);
-                tabla.setValueAt(cliente, ultimafila, 1);
-                tabla.setValueAt(cantidad, ultimafila, 2);
-                tabla.setValueAt(prenda, ultimafila, 3);
-                tabla.setValueAt(frente, ultimafila, 25);
-                tabla.setValueAt(puntadasfrente, ultimafila, 26);
+                tabladerecha.setValueAt(fecha, ultimafila, 0);
+                tabladerecha.setValueAt(cliente, ultimafila, 1);
+                tabladerecha.setValueAt(cantidad, ultimafila, 2);
+                tabladerecha.setValueAt(prenda, ultimafila, 3);
+                tabladerecha.setValueAt(frente, ultimafila, 25);
+                tabladerecha.setValueAt(puntadasfrente, ultimafila, 26);
                 
 
                 double importefrente = 0.0;
@@ -3200,7 +3216,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadafrentestring = String.format("%.02f ", costopuntadafrente);
-                tabla.setValueAt(costopuntadafrentestring, ultimafila, 27);
+                tabladerecha.setValueAt(costopuntadafrentestring, ultimafila, 27);
 
                 importefrente = cantidadfrenteint * costopuntadafrente;
 
@@ -3208,7 +3224,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 double sumabordados =   importefrente ;
                 String sumabordadosstring = String.format("%.02f ", sumabordados);
-                tabla.setValueAt(sumabordadosstring, ultimafila, 62);
+                tabladerecha.setValueAt(sumabordadosstring, ultimafila, 62);
 
                 ultimafila = ultimafila + 1;
 
@@ -3223,7 +3239,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     void datostablaordeninternaparche(int i) {
 
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabladerecha.getModel();
 
         Calendar cal = new GregorianCalendar();
 
@@ -3256,7 +3272,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         int ultimafila = 0;
 
-        ultimafila = tabla.getRowCount();
+        ultimafila = tabladerecha.getRowCount();
 
         try {
             Statement st = cn.createStatement();
@@ -3291,12 +3307,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 modelo.addRow(new Object[]{});
 
-                tabla.setValueAt(fecha, ultimafila, 0);
-                tabla.setValueAt(cliente, ultimafila, 1);
-                tabla.setValueAt(cantidad, ultimafila, 2);
-                tabla.setValueAt(prenda, ultimafila, 3);
-                tabla.setValueAt(frente, ultimafila, 50);
-                tabla.setValueAt(puntadasfrente, ultimafila, 51);
+                tabladerecha.setValueAt(fecha, ultimafila, 0);
+                tabladerecha.setValueAt(cliente, ultimafila, 1);
+                tabladerecha.setValueAt(cantidad, ultimafila, 2);
+                tabladerecha.setValueAt(prenda, ultimafila, 3);
+                tabladerecha.setValueAt(frente, ultimafila, 50);
+                tabladerecha.setValueAt(puntadasfrente, ultimafila, 51);
 
                 /////Costos
                 
@@ -3325,12 +3341,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 double sumabordados = costopuntada * cantidadparcheint;
                 String sumabordadosstring = String.format("%.02f ", sumabordados);
-                tabla.setValueAt(costostring, ultimafila, 52);
+                tabladerecha.setValueAt(costostring, ultimafila, 52);
                 if(sumabordadosstring.equals("3.30"))
                 {
                     int a = 0;
                 }
-                tabla.setValueAt(sumabordadosstring,ultimafila, 62);
+                tabladerecha.setValueAt(sumabordadosstring,ultimafila, 62);
 
                 /////
                 
@@ -3349,7 +3365,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     void datostablaportanombre(int i) {
 
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabladerecha.getModel();
         Calendar cal = new GregorianCalendar();
 
         int dia = i;
@@ -3381,7 +3397,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         int ultimafila = 0;
 
-        ultimafila = tabla.getRowCount();
+        ultimafila = tabladerecha.getRowCount();
 
         try {
             Statement st = cn.createStatement();
@@ -3399,13 +3415,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 modelo.addRow(new Object[]{});
 
-                tabla.setValueAt(fecha, ultimafila, 0);
-                tabla.setValueAt(cliente, ultimafila, 1);
-                tabla.setValueAt(cantidad, ultimafila, 2);
-                tabla.setValueAt(prenda, ultimafila, 3);
-                tabla.setValueAt(frente, ultimafila, 25);
-                tabla.setValueAt(puntadasfrente, ultimafila, 26);
-                tabla.setValueAt(numeroventa, ultimafila, 63);
+                tabladerecha.setValueAt(fecha, ultimafila, 0);
+                tabladerecha.setValueAt(cliente, ultimafila, 1);
+                tabladerecha.setValueAt(cantidad, ultimafila, 2);
+                tabladerecha.setValueAt(prenda, ultimafila, 3);
+                tabladerecha.setValueAt(frente, ultimafila, 25);
+                tabladerecha.setValueAt(puntadasfrente, ultimafila, 26);
+                tabladerecha.setValueAt(numeroventa, ultimafila, 63);
                 
                 ///
                 
@@ -3427,7 +3443,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     void datostablaportanombremultiple(int i) {
 
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabladerecha.getModel();
 
         Calendar cal = new GregorianCalendar();
 
@@ -3460,7 +3476,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         int ultimafila = 0;
 
-        ultimafila = tabla.getRowCount();
+        ultimafila = tabladerecha.getRowCount();
 
         try {
             Statement st = cn.createStatement();
@@ -3478,13 +3494,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 modelo.addRow(new Object[]{});
 
-                tabla.setValueAt(fecha, ultimafila, 0);
-                tabla.setValueAt(cliente, ultimafila, 1);
-                tabla.setValueAt(cantidad, ultimafila, 2);
-                tabla.setValueAt(prenda, ultimafila, 3);
-                tabla.setValueAt(frente, ultimafila, 25);
-                tabla.setValueAt(puntadasfrente, ultimafila, 26);
-                tabla.setValueAt(numeroventa, ultimafila, 63);
+                tabladerecha.setValueAt(fecha, ultimafila, 0);
+                tabladerecha.setValueAt(cliente, ultimafila, 1);
+                tabladerecha.setValueAt(cantidad, ultimafila, 2);
+                tabladerecha.setValueAt(prenda, ultimafila, 3);
+                tabladerecha.setValueAt(frente, ultimafila, 25);
+                tabladerecha.setValueAt(puntadasfrente, ultimafila, 26);
+                tabladerecha.setValueAt(numeroventa, ultimafila, 63);
 
                 ultimafila = ultimafila + 1;
 
@@ -3500,9 +3516,17 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     }
 
     ///// historiales corbata
+    
+    
+    
+    
+    
+    
+    
+    
     void datostablahistorialordenescorbata(int i) {
 
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabladerecha.getModel();
 
         Calendar cal = new GregorianCalendar();
 
@@ -3532,7 +3556,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         String fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
         String sql = "Select fecha,cliente,frente_cantidad,articulo,frente_puntadas,frente_puntadas,numero_venta from historial_ordenes_corbata where (estatus_orden = 'generada' or estatus_orden = 'realizada') and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "'  order by codigo ";
-        ultimafila = tabla.getRowCount();
+        ultimafila = tabladerecha.getRowCount();
 
         try {
             Statement st = cn.createStatement();
@@ -3551,13 +3575,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 modelo.addRow(new Object[]{});
 
-                tabla.setValueAt(fecha, ultimafila, 0);
-                tabla.setValueAt(cliente, ultimafila, 1);
-                tabla.setValueAt(cantidad, ultimafila, 2);
-                tabla.setValueAt(prenda, ultimafila, 3);
-                tabla.setValueAt(frente, ultimafila, 25);
-                tabla.setValueAt(puntadasfrente, ultimafila, 26);
-                tabla.setValueAt(numeroventa, ultimafila, 63);
+                tabladerecha.setValueAt(fecha, ultimafila, 0);
+                tabladerecha.setValueAt(cliente, ultimafila, 1);
+                tabladerecha.setValueAt(cantidad, ultimafila, 2);
+                tabladerecha.setValueAt(prenda, ultimafila, 3);
+                tabladerecha.setValueAt(frente, ultimafila, 25);
+                tabladerecha.setValueAt(puntadasfrente, ultimafila, 26);
+                tabladerecha.setValueAt(numeroventa, ultimafila, 63);
                 
                 ////Costos
                 double importeladoizquierdo = 0.0;
@@ -3588,7 +3612,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costopuntadamangaizquierdastring = String.format("%.02f ", costopuntadafrente);
-                tabla.setValueAt(costopuntadamangaizquierdastring, ultimafila, 27);
+                tabladerecha.setValueAt(costopuntadamangaizquierdastring, ultimafila, 27);
 
                 importefrente = cantidadint * costopuntadafrente;
                 double sumabordados = importefrente;
@@ -3597,7 +3621,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 {
                     int a = 0;
                 }
-                tabla.setValueAt(sumabordadosstring, ultimafila, 62);
+                tabladerecha.setValueAt(sumabordadosstring, ultimafila, 62);
 
                 ///
                 
@@ -3749,8 +3773,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     void limpiartabla() {
 
         try {
-            DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-            int totalrenglones = tabla.getRowCount();
+            DefaultTableModel modelo = (DefaultTableModel) tabladerecha.getModel();
+            int totalrenglones = tabladerecha.getRowCount();
 
             for (int i = 0; totalrenglones > i; i++) {
                 modelo.removeRow(0);
@@ -3765,8 +3789,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     void limpiartablafechas() {
 
         try {
-            DefaultTableModel modelo = (DefaultTableModel) tablafecha.getModel();
-            int totalrenglones = tablafecha.getRowCount();
+            DefaultTableModel modelo = (DefaultTableModel) tablaizquierda.getModel();
+            int totalrenglones = tablaizquierda.getRowCount();
 
             for (int i = 0; totalrenglones > i; i++) {
                 modelo.removeRow(0);
@@ -3777,11 +3801,20 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         }
 
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     void datostablaizquierda() 
     {
 
-        DefaultTableModel modelotabla = (DefaultTableModel) tablafecha.getModel();
+        DefaultTableModel modelotabla = (DefaultTableModel) tablaizquierda.getModel();
         String[] datos = new String[3];
 
         for (int i = 1; i <= diafinal; i++) {
@@ -3856,7 +3889,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             
             
             
-            calculodelassumasdelosbordados((int) i);
+            calculodelassumasdelosbordadostablaizquierda((int) i);
 
         }
 
@@ -3868,9 +3901,9 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         
         double sumadouble = 0.0;
 
-        for (int i = 0; i < tablafecha.getRowCount(); i++) {
+        for (int i = 0; i < tablaizquierda.getRowCount(); i++) {
 
-            String importepordiastring = tablafecha.getValueAt(i, 1).toString();
+            String importepordiastring = tablaizquierda.getValueAt(i, 1).toString();
             double importepordiadouble = Double.parseDouble(importepordiastring);
 
             sumadouble = sumadouble + importepordiadouble;
@@ -3884,7 +3917,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         
         
          bordadosreportegeneralColorear ventana = new bordadosreportegeneralColorear(5);
-        tablafecha.setDefaultRenderer(Object.class, ventana);
+        tablaizquierda.setDefaultRenderer(Object.class, ventana);
         
       
         
@@ -3900,7 +3933,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         
         
     //////
-    void calculodelassumasdelosbordados(int i) {
+    void calculodelassumasdelosbordadostablaizquierda(int i) {
 
          
         int mes = 0;
@@ -4067,7 +4100,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         
         
         
-        ////////////CAMISAS
+        ////////////CAMISA LOCAL
         
         String sql = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_cantidad,pecho_izquierdo_nombre,pecho_izquierdo_puntadas,"
                 + "pecho_derecho_cantidad,pecho_derecho_nombre,pecho_derecho_puntadas,"
@@ -4075,7 +4108,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 + "manga_derecha_cantidad,manga_derecha_nombre,manga_derecha_puntadas,"
                 + "espalda_cantidad,espalda_nombre,espalda_puntadas,"
                 + "aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,"
-                + "otra_ubicacion_puntadas,otra_ubicacion_cantidad,otra_ubicacion2_puntadas,otra_ubicacion2_cantidad from historial_ordenes_camisa where (estatus_orden = 'realizada parcialmente' or estatus_orden = 'realizada totalmente') and lugar = 'Esta sucursal' and fecha = '" + fechabusqueda + "' order by codigo ";
+                + "otra_ubicacion_puntadas,otra_ubicacion_cantidad,otra_ubicacion2_puntadas,otra_ubicacion2_cantidad from historial_ordenes_camisa where (estatus_orden = 'realizada parcialmente' or estatus_orden = 'realizada totalmente') and lugar = 'Esta sucursal' and (pecho_izquierdo_fecha = '" + fechabusqueda + "' or pecho_derecho_fecha = '" + fechabusqueda + "' or manga_izquierda_fecha = '" + fechabusqueda + "'  or manga_derecha_fecha = '" + fechabusqueda + "'  or espalda_fecha = '" + fechabusqueda + "'  or otra_ubicacion_fecha = '" + fechabusqueda + "'  or otra_ubicacion2_fecha = '" + fechabusqueda + "') order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -4357,7 +4390,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         }
 
         ///////// CAMISAS RECIBIDAS
-        String sqlcamisasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo_puntadas,pecho_derecho_nombre,pecho_derecho_puntadas,manga_izquierda_nombre,manga_izquierda_puntadas,manga_derecha_nombre,manga_derecha_puntadas,espalda_nombre,espalda_puntadas,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion_puntadas from historial_ordenes_camisa_recibidas where (estatus_orden = 'realizada parcialmente' or estatus_orden = 'realizada totalmente') and fecha = '" + fechabusqueda + "' order by codigo ";
+        String sqlcamisasrecibidas = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_nombre,pecho_izquierdo_puntadas,pecho_derecho_nombre,pecho_derecho_puntadas,manga_izquierda_nombre,manga_izquierda_puntadas,manga_derecha_nombre,manga_derecha_puntadas,espalda_nombre,espalda_puntadas,aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,otra_ubicacion_puntadas from historial_ordenes_camisa_recibidas where (estatus_orden = 'realizada parcialmente' or estatus_orden = 'realizada totalmente') and (pecho_izquierdo_fecha = '" + fechabusqueda + "' or pecho_derecho_fecha = '" + fechabusqueda + "' or manga_izquierda_fecha = '" + fechabusqueda + "'  or manga_derecha_fecha = '" + fechabusqueda + "'  or espalda_fecha = '" + fechabusqueda + "'  or otra_ubicacion_fecha = '" + fechabusqueda + "'  or otra_ubicacion2_fecha = '" + fechabusqueda + "') order by codigo ";
 
         try {
             Statement st = cn.createStatement();
@@ -6123,7 +6156,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double sumatotaldelosbordadosdouble = sumatotaldelosbordados + sumatotaldelosbordadosrecibidos + sumatotaldelosbordadosgorra + sumatotaldelosbordadosgorrarecibidas + sumatotaldelosbordadospantalon + sumatotaldelosbordadospantalonrecibidas + sumatotaldelosbordadosparche + sumatotaldelosbordadosparcherecibidos + sumatotaldelosbordadoscorbata + sumatotaldelosbordadosgorrainterna + sumatotaldelosbordadosparcheinterna + sumatotaldelosbordadosportanombre + sumatotaldelosbordadosportanombremultiple + sumatotaldelosponchados + sumatotaldelosponchadosmodificados + sumatotaldelosfotomontajes + sumatotaldelosbordadosdistinta;
         String sumabordadosstring = String.format("%.02f ", sumatotaldelosbordadosdouble);
 
-        tablafecha.setValueAt(sumabordadosstring, i - 1, 1);
+        tablaizquierda.setValueAt(sumabordadosstring, i - 1, 1);
 
     }
 
@@ -6135,42 +6168,42 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double costopuntadasaplicacioneschicas = 0.00;
         double totalpuntosaplicacioneschicas = 0.00;
 
-        for (int i = 0; i < tabla.getRowCount(); i++) 
+        for (int i = 0; i < tabladerecha.getRowCount(); i++) 
         {
 
-            Object cantidadaplicacion = tabla.getValueAt(i, 2);
+            Object cantidadaplicacion = tabladerecha.getValueAt(i, 2);
             if (cantidadaplicacion == null || cantidadaplicacion.equals("") || cantidadaplicacion.equals(" ")) {
                 cantidadaplicacion = "0";
             }
 
             int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion.toString());
 
-            Object aplicacionpechoizquierdo = tabla.getValueAt(i, 53);
+            Object aplicacionpechoizquierdo = tabladerecha.getValueAt(i, 53);
             if (aplicacionpechoizquierdo == null || aplicacionpechoizquierdo.equals("") || aplicacionpechoizquierdo.equals(" ")) {
                 aplicacionpechoizquierdo = "0";
             }
             int aplicacionpechoizquierdoint = Integer.parseInt(aplicacionpechoizquierdo.toString());
 
-            Object aplicacionpechoderecho = tabla.getValueAt(i, 54);
+            Object aplicacionpechoderecho = tabladerecha.getValueAt(i, 54);
             if (aplicacionpechoderecho == null || aplicacionpechoderecho.equals("") || aplicacionpechoderecho.equals(" ")) {
                 aplicacionpechoderecho = "0";
             }
 
             int aplicacionpechoderechoint = Integer.parseInt(aplicacionpechoderecho.toString());
 
-            Object aplicacionmangaizquierda = tabla.getValueAt(i, 55);
+            Object aplicacionmangaizquierda = tabladerecha.getValueAt(i, 55);
             if (aplicacionmangaizquierda == null || aplicacionmangaizquierda.equals("") || aplicacionmangaizquierda.equals(" ")) {
                 aplicacionmangaizquierda = "0";
             }
             int aplicacionmangaizquierdaint = Integer.parseInt(aplicacionmangaizquierda.toString());
 
-            Object aplicacionmangaderecha = tabla.getValueAt(i, 56);
+            Object aplicacionmangaderecha = tabladerecha.getValueAt(i, 56);
             if (aplicacionmangaderecha == null || aplicacionmangaderecha.equals("") || aplicacionmangaderecha.equals(" ")) {
                 aplicacionmangaderecha = "0";
             }
             int aplicacionmangaderechaint = Integer.parseInt(aplicacionmangaderecha.toString());
 
-            Object aplicacionfrente = tabla.getValueAt(i, 57);
+            Object aplicacionfrente = tabladerecha.getValueAt(i, 57);
             if (aplicacionfrente == null || aplicacionfrente.equals("") || aplicacionfrente.equals(" ")) {
                 aplicacionfrente = "0";
             }
@@ -6196,7 +6229,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             totalpuntosaplicacioneschicas = costopuntadasaplicacioneschicas * (sumadelasaplicaciones * cantidadaplicacionint);
 
-            tabla.setValueAt(String.format("%.02f ", totalpuntosaplicacioneschicas), i, 59);
+            tabladerecha.setValueAt(String.format("%.02f ", totalpuntosaplicacioneschicas), i, 59);
 
        
 
@@ -6209,7 +6242,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             
             
             
-            Object aplicacionespalda = tabla.getValueAt(i, 60);
+            Object aplicacionespalda = tabladerecha.getValueAt(i, 60);
             if (aplicacionespalda == null || aplicacionespalda.equals("") || aplicacionespalda.equals(" ")) {
                 aplicacionespalda = "0";
             }
@@ -6242,24 +6275,24 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                     }
          
 
-            tabla.setValueAt(totalpuntosaplicacionesgrandesstring, i, 61);
+            tabladerecha.setValueAt(totalpuntosaplicacionesgrandesstring, i, 61);
 
         }
 
         /// suma con los puntos
-        for (int i = 0; i < tabla.getRowCount(); i++) 
+        for (int i = 0; i < tabladerecha.getRowCount(); i++) 
         {
-            Object puntosaplicacioneschicas = tabla.getValueAt(i, 59);
+            Object puntosaplicacioneschicas = tabladerecha.getValueAt(i, 59);
             if (puntosaplicacioneschicas == null || puntosaplicacioneschicas.equals("") || puntosaplicacioneschicas.equals(" ")) {
                 puntosaplicacioneschicas = "0";
             }
 
-            Object puntosaplicacionesgrandes = tabla.getValueAt(i, 61);
+            Object puntosaplicacionesgrandes = tabladerecha.getValueAt(i, 61);
             if (puntosaplicacionesgrandes == null || puntosaplicacionesgrandes.equals("") || puntosaplicacionesgrandes.equals(" ")) {
                 puntosaplicacionesgrandes = "0";
             }
 
-            Object puntostotales = tabla.getValueAt(i, 62);
+            Object puntostotales = tabladerecha.getValueAt(i, 62);
             if (puntostotales == null || puntostotales.equals("") || puntostotales.equals(" ")) {
                 puntostotales = "0";
             }
@@ -6270,7 +6303,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             double sumatotaldepuntos = puntostotalesdouble + puntosaplicacioneschicasdouble + puntosaplicacionesgrandesdouble  ;
 
-            tabla.setValueAt(String.format("%.02f ", sumatotaldepuntos), i, 62);
+            tabladerecha.setValueAt(String.format("%.02f ", sumatotaldepuntos), i, 62);
 
         }
 
@@ -6279,14 +6312,14 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     void suma()
     {
          
-        int filas = tabla.getRowCount();
+        int filas = tabladerecha.getRowCount();
         double sumatotal = 0;
 
         for (int j = 0; j < filas; j++) 
         {
 
        
-            Object cantidadobject = tabla.getValueAt(j, 62);
+            Object cantidadobject = tabladerecha.getValueAt(j, 62);
             if(cantidadobject == null || cantidadobject.equals("") || cantidadobject.equals(" "))
             {
                 cantidadobject = "0";
@@ -6364,7 +6397,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     
      void datosfotomontajes(int i) {
 
-        DefaultTableModel modelo2 = (DefaultTableModel) tabla.getModel();
+        DefaultTableModel modelo2 = (DefaultTableModel) tabladerecha.getModel();
         String[] datos = new String[65];
         Calendar cal = new GregorianCalendar();
 
@@ -6445,11 +6478,11 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double importedelfotomontaje = 0.0;
         String costostring = "0";
 
-        for (int i = 0; i < tabla.getRowCount(); i++) 
+        for (int i = 0; i < tabladerecha.getRowCount(); i++) 
         {
 
-            Object cantidadobject = tabla.getValueAt(i, 2);
-            Object articulo = tabla.getValueAt(i, 3);
+            Object cantidadobject = tabladerecha.getValueAt(i, 2);
+            Object articulo = tabladerecha.getValueAt(i, 3);
             int cantidad = Integer.parseInt(cantidadobject.toString());
             String articulobuscar = "";
 
@@ -6459,7 +6492,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 
                 articulobuscar = articulo.toString();
 
-                tabla.setValueAt(articulobuscar, i, 5);
+                tabladerecha.setValueAt(articulobuscar, i, 5);
 
                 double costodelfotomontaje = 0.0;
 
@@ -6480,13 +6513,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 }
 
                 String costofotomontajestring = String.format("%.02f ", costodelfotomontaje);
-                tabla.setValueAt(costofotomontajestring, i, 6);
+                tabladerecha.setValueAt(costofotomontajestring, i, 6);
 
                 double importefotomontaje = cantidad * costodelfotomontaje;
 
                 double sumabordados = importefotomontaje;
                 String sumafotomontajesstring = String.format("%.02f ", sumabordados);
-                tabla.setValueAt(sumafotomontajesstring, i, 62);
+                tabladerecha.setValueAt(sumafotomontajesstring, i, 62);
 
             }
 
@@ -6511,9 +6544,9 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         lbaño = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablafecha = new javax.swing.JTable();
+        tablaizquierda = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable()
+        tabladerecha = new javax.swing.JTable()
         {
 
             public boolean isCellEditable(int rowIndex, int colIndex) {
@@ -6638,8 +6671,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         lbaño.setText("0000");
         lbaño.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        tablafecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        tablafecha.setModel(new javax.swing.table.DefaultTableModel(
+        tablaizquierda.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tablaizquierda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -6655,24 +6688,24 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tablafecha.setRowHeight(28);
-        tablafecha.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablaizquierda.setRowHeight(28);
+        tablaizquierda.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablafechaMouseClicked(evt);
+                tablaizquierdaMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tablafecha);
-        if (tablafecha.getColumnModel().getColumnCount() > 0) {
-            tablafecha.getColumnModel().getColumn(0).setMinWidth(50);
-            tablafecha.getColumnModel().getColumn(0).setPreferredWidth(80);
-            tablafecha.getColumnModel().getColumn(0).setMaxWidth(120);
-            tablafecha.getColumnModel().getColumn(2).setMinWidth(0);
-            tablafecha.getColumnModel().getColumn(2).setPreferredWidth(0);
-            tablafecha.getColumnModel().getColumn(2).setMaxWidth(0);
+        jScrollPane2.setViewportView(tablaizquierda);
+        if (tablaizquierda.getColumnModel().getColumnCount() > 0) {
+            tablaizquierda.getColumnModel().getColumn(0).setMinWidth(50);
+            tablaizquierda.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tablaizquierda.getColumnModel().getColumn(0).setMaxWidth(120);
+            tablaizquierda.getColumnModel().getColumn(2).setMinWidth(0);
+            tablaizquierda.getColumnModel().getColumn(2).setPreferredWidth(0);
+            tablaizquierda.getColumnModel().getColumn(2).setMaxWidth(0);
         }
 
-        tabla.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
+        tabladerecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tabladerecha.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -6688,14 +6721,14 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tabla.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tabla.setRowHeight(22);
-        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabladerecha.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tabladerecha.setRowHeight(22);
+        tabladerecha.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaMouseClicked(evt);
+                tabladerechaMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(tabla);
+        jScrollPane3.setViewportView(tabladerecha);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Suma");
@@ -6844,7 +6877,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnsiguienteActionPerformed
 
-    private void tablafechaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablafechaMouseClicked
+    private void tablaizquierdaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaizquierdaMouseClicked
 
         
         
@@ -6854,12 +6887,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         if (evt.getClickCount() == 1) 
         {
 
-            int fila = tablafecha.getSelectedRow();
+            int fila = tablaizquierda.getSelectedRow();
 
             if (fila >= 0) 
             {
 
-                Object fechabusqueda = tablafecha.getValueAt(fila, 0);
+                Object fechabusqueda = tablaizquierda.getValueAt(fila, 0);
                 lbdia.setText(fechabusqueda.toString());
                 int fechabusquedaint = Integer.parseInt(fechabusqueda.toString());
 
@@ -6891,7 +6924,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         
 
-    }//GEN-LAST:event_tablafechaMouseClicked
+    }//GEN-LAST:event_tablaizquierdaMouseClicked
 
     private void txtdialogoubicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdialogoubicActionPerformed
 
@@ -6918,12 +6951,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btndialogoaceptarActionPerformed
 
-    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+    private void tabladerechaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabladerechaMouseClicked
 
         if (evt.getClickCount() == 2) 
         {
-            int fila = tabla.getSelectedRow();
-            Object numeroventa = tabla.getValueAt(fila, 63);
+            int fila = tabladerecha.getSelectedRow();
+            Object numeroventa = tabladerecha.getValueAt(fila, 63);
 
             if (numeroventa == null || numeroventa.equals(""))
             {
@@ -6933,7 +6966,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_tablaMouseClicked
+    }//GEN-LAST:event_tabladerechaMouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
@@ -6952,7 +6985,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new bordadosreportegeneral().setVisible(true);
+                new viejobordadosreportegeneral().setVisible(true);
             }
         });
     }
@@ -6977,8 +7010,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     public static javax.swing.JLabel lbmes;
     private javax.swing.JLabel lbsuma;
     private javax.swing.JLabel lbsumapuntos;
-    private javax.swing.JTable tabla;
-    private javax.swing.JTable tablafecha;
+    private javax.swing.JTable tabladerecha;
+    private javax.swing.JTable tablaizquierda;
     private javax.swing.JTextField txtdialogoubic;
     // End of variables declaration//GEN-END:variables
 coneccionlocal cc = new coneccionlocal();

@@ -4009,6 +4009,285 @@ public class bordadosreportegeneralnuevo extends javax.swing.JFrame {
     
     
     
+    
+    
+    void datosportanombre(int fechabusquedaint) 
+    {
+
+        
+        
+       
+        Calendar cal = new GregorianCalendar();
+
+        int dia = fechabusquedaint;
+        int mesint = 0;
+        
+        
+        if(messtring.equals("Diciembre"))
+        {
+          mesint =12;    
+        }
+        else
+        {    
+        mesint = (cal.get(Calendar.MONTH) + 1);
+        }
+        
+        
+        if (mesint > mesfinal) 
+        {
+            
+            mesint = mesfinal;
+        }
+        
+        String añostring = lbaño.getText();
+        int año = Integer.parseInt(añostring);
+
+        String fechabusqueda = (+año + "-" + mesint + "-" + dia);
+        
+        
+        String tabla = "";
+        
+        
+        String ubicacion = "";
+        String ubicacionnombre = "";
+        String ubicacioncantidad = "";
+        String ubicacionpuntadas = "";
+       
+        String lugar = "";
+        String ubicacionfecha = "";
+            
+        
+         DefaultTableModel modelo = (DefaultTableModel) tabladerecha.getModel();
+        String[] datos = new String[18];
+        
+        
+        
+        
+          
+                 tabla = "historial_ordenes_portanombres";
+                 lugar = "Esta sucursal";
+          
+            
+       
+         
+          ubicacion = "Porta nombre";
+          ubicacioncantidad = "cantidad";
+          ubicacionfecha = "fecha";
+         
+      
+        
+        
+         
+           
+
+        String sql = "Select numero,tipo,"+ubicacioncantidad+" from "+tabla+" where (estatus_orden = 'realizada parcialmente' or estatus_orden = 'realizada totalmente') and "+ubicacionfecha+" = '"+fechabusqueda+"'";
+                 
+        
+        
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                datos[0] = rs.getString(1);
+                datos[1] = "";
+                datos[2] = rs.getString(3);
+                datos[3] = "0";
+                datos[4] = ubicacion;
+                datos[5] = "Porta nombre";
+                datos[6] = rs.getString(6);
+                datos[7] = "BORDADO DE 12,500 A 15,000 PUNTADAS";
+                datos[8] = "0"; // Preio por puntadas
+                datos[9] = "0"; // PUNTOS BORDADOS
+                datos[10] = "0";// APLICACIONES
+                datos[11] = "0"; // Precio por puntadas
+                datos[12] = "0"; // PUNTOS APLICACIONES
+                datos[13] = "0"; // SUMA PUNTOS
+                datos[14] = tabla; //TABLA
+                datos[15] = tiendalocal;
+              
+                modelo.addRow(datos);
+                
+            }
+
+            rs.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+
+    
+    
+    
+    }
+    
+    
+    
+    
+    void datostablaportanombre(int i) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tablaVIEJA.getModel();
+        Calendar cal = new GregorianCalendar();
+
+        int dia = i;
+        int mesint = 0;
+        
+        
+        if(messtring.equals("Diciembre"))
+        {
+          mesint =12;    
+        }
+        else
+        {    
+        mesint = (cal.get(Calendar.MONTH) + 1);
+        }
+        
+        
+        if (mesint > mesfinal) 
+        {
+            
+            mesint = mesfinal;
+        }
+        
+        String añostring = lbaño.getText();
+        int año = Integer.parseInt(añostring);
+
+        String fechabusqueda = (+año + "-" + mesint + "-" + dia);
+
+        String sql = "Select fecha,cantidad,prenda,numero_venta from historial_ordenes_portanombres where fecha = '" + fechabusqueda + "' and estatus_orden not in ('cancelada')  order by numero ";
+
+        int ultimafila = 0;
+
+        ultimafila = tablaVIEJA.getRowCount();
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                String fecha = rs.getString("fecha");
+                String cliente = "porta nombre";
+                String cantidad = rs.getString("cantidad");
+                String prenda = rs.getString("prenda");
+                String frente = "PORTA NOMBRE";
+                String puntadasfrente = "BORDADO DE 7,500 A 10,000 PUNTADAS";
+                String numeroventa = rs.getString("numero_venta");
+
+                modelo.addRow(new Object[]{});
+
+                tablaVIEJA.setValueAt(fecha, ultimafila, 0);
+                tablaVIEJA.setValueAt(cliente, ultimafila, 1);
+                tablaVIEJA.setValueAt(cantidad, ultimafila, 2);
+                tablaVIEJA.setValueAt(prenda, ultimafila, 3);
+                tablaVIEJA.setValueAt(frente, ultimafila, 25);
+                tablaVIEJA.setValueAt(puntadasfrente, ultimafila, 26);
+                tablaVIEJA.setValueAt(numeroventa, ultimafila, 63);
+                
+                ///
+                
+
+                ///
+                
+                ultimafila = ultimafila + 1;
+
+            }
+
+            rs.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        calcularcostosdebordadosportanombre();
+
+    }
+
+    void datostablaportanombremultiple(int i) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tablaVIEJA.getModel();
+
+        Calendar cal = new GregorianCalendar();
+
+        int dia = i;
+        int mesint = 0;
+        
+        
+        if(messtring.equals("Diciembre"))
+        {
+          mesint =12;    
+        }
+        else
+        {    
+        mesint = (cal.get(Calendar.MONTH) + 1);
+        }
+        
+        
+        if (mesint > mesfinal) 
+        {
+            
+            mesint = mesfinal;
+        }
+        
+        String añostring = lbaño.getText();
+        int año = Integer.parseInt(añostring);
+
+        String fechabusqueda = (+año + "-" + mesint + "-" + dia);
+
+        String sql = "Select fecha,cantidad_total,prenda,numero_venta from historial_ordenes_portanombres_multiple where estatus_orden not in ('cancelada') and fecha = '" + fechabusqueda + "'  order by numero ";
+
+        int ultimafila = 0;
+
+        ultimafila = tablaVIEJA.getRowCount();
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                String fecha = rs.getString("fecha");
+                String cliente = "porta nombre multiple";
+                String cantidad = rs.getString("cantidad_total");
+                String prenda = rs.getString("prenda");
+                String frente = "PORTA NOMBRE MULTIPLE";
+                String puntadasfrente = "BORDADO DE 7,500 A 10,000 PUNTADAS";
+                String numeroventa = rs.getString("numero_venta");;
+
+                modelo.addRow(new Object[]{});
+
+                tablaVIEJA.setValueAt(fecha, ultimafila, 0);
+                tablaVIEJA.setValueAt(cliente, ultimafila, 1);
+                tablaVIEJA.setValueAt(cantidad, ultimafila, 2);
+                tablaVIEJA.setValueAt(prenda, ultimafila, 3);
+                tablaVIEJA.setValueAt(frente, ultimafila, 25);
+                tablaVIEJA.setValueAt(puntadasfrente, ultimafila, 26);
+                tablaVIEJA.setValueAt(numeroventa, ultimafila, 63);
+
+                ultimafila = ultimafila + 1;
+
+            }
+
+            rs.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        calcularcostosdebordadosportanombre();
+
+    }
+
+    
+    
+    
+ 
+    
+    
+    
+    
+    
+    
     void puntos(){
         
         
@@ -4437,270 +4716,6 @@ public class bordadosreportegeneralnuevo extends javax.swing.JFrame {
         }
 
     }
-
-    void calcularcostosdebordadoscorbata() {
-
-        double importeladoizquierdo = 0.0;
-        double importeladoderecho = 0.0;
-        double importefrente = 0.0;
-        double importeatras = 0.0;
-
-        String costostring = "0";
-
-        for (int i = 0; i < tablaVIEJA.getRowCount(); i++) {
-
-            Object cantidadobject = tablaVIEJA.getValueAt(i, 2);
-            Object prenda = tablaVIEJA.getValueAt(i, 3);
-            int cantidad = Integer.parseInt(cantidadobject.toString());
-
-            if (prenda.equals("Corbata")) {
-
-                // FRENTE
-                double costopuntadafrente = 0.0;
-
-                Object frenteobject = tablaVIEJA.getValueAt(i, 26);
-
-                String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + frenteobject + "'";
-
-                try {
-                    PreparedStatement prst = cn.prepareStatement(sql3);
-                    ResultSet rs = prst.executeQuery();
-                    if (rs.next()) {
-
-                        costostring = rs.getString("costo");
-                        costopuntadafrente = Double.parseDouble(costostring);
-
-                    }
-                } catch (Exception exx) {
-                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
-
-                }
-
-                String costopuntadamangaizquierdastring = String.format("%.02f ", costopuntadafrente);
-                tablaVIEJA.setValueAt(costopuntadamangaizquierdastring, i, 27);
-
-                importefrente = cantidad * costopuntadafrente;
-                double sumabordados = importefrente;
-                String sumabordadosstring = String.format("%.02f ", sumabordados);
-                if(sumabordadosstring.equals("3.30"))
-                {
-                    int a = 0;
-                }
-                tablaVIEJA.setValueAt(sumabordadosstring, i, 62);
-
-            }
-
-        }
-
-    }
-
-    void calcularcostosdebordadosparches() {
-
-        double importebordado = 0.0;
-
-        String costostring = "0";
-        String costodelapuntada = "";
-
-        for (int i = 0; i < tablaVIEJA.getRowCount(); i++) {
-
-            Object cantidadobject = tablaVIEJA.getValueAt(i, 2);
-            Object prenda = tablaVIEJA.getValueAt(i, 3);
-            //int cantidad = Integer.parseInt(cantidadobject.toString());
-            int cantidadparcheint = Integer.parseInt(cantidadparche);
-
-            if (prenda.equals("Parche")) {
-
-                double costopuntada = 0.0;
-                Object puntadaobject = tablaVIEJA.getValueAt(i, 51);
-                String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + puntadaobject + "'";
-
-                try {
-                    PreparedStatement prst = cn.prepareStatement(sql1);
-                    ResultSet rs = prst.executeQuery();
-                    if (rs.next()) {
-
-                        costostring = rs.getString("costo");
-                        costopuntada = Double.parseDouble(costostring);
-
-                    }
-                } catch (Exception exx) {
-                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
-
-                }
-
-                double sumabordados = costopuntada * cantidadparcheint;
-                String sumabordadosstring = String.format("%.02f ", sumabordados);
-                tablaVIEJA.setValueAt(costostring, i, 52);
-                if(sumabordadosstring.equals("3.30"))
-                {
-                    int a = 0;
-                }
-                tablaVIEJA.setValueAt(sumabordadosstring, i, 62);
-
-            }
-
-        }
-
-    }
-
-    //// BORDADOS DE GORRA      
-    
-    
-    
-    
-    
-    void datostablaportanombre(int i) {
-
-        DefaultTableModel modelo = (DefaultTableModel) tablaVIEJA.getModel();
-        Calendar cal = new GregorianCalendar();
-
-        int dia = i;
-        int mesint = 0;
-        
-        
-        if(messtring.equals("Diciembre"))
-        {
-          mesint =12;    
-        }
-        else
-        {    
-        mesint = (cal.get(Calendar.MONTH) + 1);
-        }
-        
-        
-        if (mesint > mesfinal) 
-        {
-            
-            mesint = mesfinal;
-        }
-        
-        String añostring = lbaño.getText();
-        int año = Integer.parseInt(añostring);
-
-        String fechabusqueda = (+año + "-" + mesint + "-" + dia);
-
-        String sql = "Select fecha,cantidad,prenda,numero_venta from historial_ordenes_portanombres where fecha = '" + fechabusqueda + "' and estatus_orden not in ('cancelada')  order by numero ";
-
-        int ultimafila = 0;
-
-        ultimafila = tablaVIEJA.getRowCount();
-
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-
-            while (rs.next()) {
-
-                String fecha = rs.getString("fecha");
-                String cliente = "porta nombre";
-                String cantidad = rs.getString("cantidad");
-                String prenda = rs.getString("prenda");
-                String frente = "PORTA NOMBRE";
-                String puntadasfrente = "BORDADO DE 7,500 A 10,000 PUNTADAS";
-                String numeroventa = rs.getString("numero_venta");
-
-                modelo.addRow(new Object[]{});
-
-                tablaVIEJA.setValueAt(fecha, ultimafila, 0);
-                tablaVIEJA.setValueAt(cliente, ultimafila, 1);
-                tablaVIEJA.setValueAt(cantidad, ultimafila, 2);
-                tablaVIEJA.setValueAt(prenda, ultimafila, 3);
-                tablaVIEJA.setValueAt(frente, ultimafila, 25);
-                tablaVIEJA.setValueAt(puntadasfrente, ultimafila, 26);
-                tablaVIEJA.setValueAt(numeroventa, ultimafila, 63);
-                
-                ///
-                
-
-                ///
-                
-                ultimafila = ultimafila + 1;
-
-            }
-
-            rs.close();
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
-
-        calcularcostosdebordadosportanombre();
-
-    }
-
-    void datostablaportanombremultiple(int i) {
-
-        DefaultTableModel modelo = (DefaultTableModel) tablaVIEJA.getModel();
-
-        Calendar cal = new GregorianCalendar();
-
-        int dia = i;
-        int mesint = 0;
-        
-        
-        if(messtring.equals("Diciembre"))
-        {
-          mesint =12;    
-        }
-        else
-        {    
-        mesint = (cal.get(Calendar.MONTH) + 1);
-        }
-        
-        
-        if (mesint > mesfinal) 
-        {
-            
-            mesint = mesfinal;
-        }
-        
-        String añostring = lbaño.getText();
-        int año = Integer.parseInt(añostring);
-
-        String fechabusqueda = (+año + "-" + mesint + "-" + dia);
-
-        String sql = "Select fecha,cantidad_total,prenda,numero_venta from historial_ordenes_portanombres_multiple where estatus_orden not in ('cancelada') and fecha = '" + fechabusqueda + "'  order by numero ";
-
-        int ultimafila = 0;
-
-        ultimafila = tablaVIEJA.getRowCount();
-
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-
-            while (rs.next()) {
-
-                String fecha = rs.getString("fecha");
-                String cliente = "porta nombre multiple";
-                String cantidad = rs.getString("cantidad_total");
-                String prenda = rs.getString("prenda");
-                String frente = "PORTA NOMBRE MULTIPLE";
-                String puntadasfrente = "BORDADO DE 7,500 A 10,000 PUNTADAS";
-                String numeroventa = rs.getString("numero_venta");;
-
-                modelo.addRow(new Object[]{});
-
-                tablaVIEJA.setValueAt(fecha, ultimafila, 0);
-                tablaVIEJA.setValueAt(cliente, ultimafila, 1);
-                tablaVIEJA.setValueAt(cantidad, ultimafila, 2);
-                tablaVIEJA.setValueAt(prenda, ultimafila, 3);
-                tablaVIEJA.setValueAt(frente, ultimafila, 25);
-                tablaVIEJA.setValueAt(puntadasfrente, ultimafila, 26);
-                tablaVIEJA.setValueAt(numeroventa, ultimafila, 63);
-
-                ultimafila = ultimafila + 1;
-
-            }
-
-            rs.close();
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
-
-        calcularcostosdebordadosportanombre();
-
-    }
-
     
     
     
@@ -5651,6 +5666,7 @@ public class bordadosreportegeneralnuevo extends javax.swing.JFrame {
                 datoscorbata((int) fechabusquedaint);
                 datosparche((int) fechabusquedaint);
                 datosdistinta((int) fechabusquedaint);
+                datosportanombre((int) fechabusquedaint);
                
             
                 
@@ -5717,23 +5733,6 @@ public class bordadosreportegeneralnuevo extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btndialogoaceptarActionPerformed
-
-    private void tablaVIEJAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVIEJAMouseClicked
-
-        if (evt.getClickCount() == 2) 
-        {
-            int fila = tablaVIEJA.getSelectedRow();
-            Object numeroventa = tablaVIEJA.getValueAt(fila, 63);
-
-            if (numeroventa == null || numeroventa.equals(""))
-            {
-                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">No tiene numero de venta");
-            } 
-
-        }
-
-
-    }//GEN-LAST:event_tablaVIEJAMouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
@@ -5839,6 +5838,22 @@ public class bordadosreportegeneralnuevo extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_tabladerechaMouseClicked
+
+    private void tablaVIEJAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVIEJAMouseClicked
+
+        if (evt.getClickCount() == 2)
+        {
+            int fila = tablaVIEJA.getSelectedRow();
+            Object numeroventa = tablaVIEJA.getValueAt(fila, 63);
+
+            if (numeroventa == null || numeroventa.equals(""))
+            {
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">No tiene numero de venta");
+            }
+
+        }
+
+    }//GEN-LAST:event_tablaVIEJAMouseClicked
 
     ResultSet rs;
 

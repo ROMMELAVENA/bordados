@@ -99,7 +99,7 @@ public class ordenpantalonS extends javax.swing.JFrame {
     String identificador = "";
     String consecutivo = "";
     String tieneunaobservacion = ""; 
-    
+    String rutadelip = "";
     String tienenumerodesucursal = "";
     String numerosucursalordenpantalon = "";
     String tiendalocal = "";
@@ -745,6 +745,104 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     }
     
+    
+    
+    
+    
+ void conectadaasucursal()
+ {
+     
+     
+     
+     sucursal = lbsucursal.getText();
+     
+     
+     
+     
+       if (sucursal.equals("cdmxcentro")) {
+            rutadelip = "C:\\sistema\\cdmxcentro.txt";
+        } else if (sucursal.equals("cdmxsur")) {
+            rutadelip = "C:\\sistema\\cdmxsur.txt";
+        } else if (sucursal.equals("guadalajara")) {
+            rutadelip = "C:\\sistema\\guadalajara.txt";
+        } else if (sucursal.equals("monterrey")) {
+            rutadelip = "C:\\sistema\\monterrey.txt";
+        } else {
+            if (sucursal.equals("tijuana")) {
+                rutadelip = "C:\\sistema\\tijuana.txt";
+            }
+        }
+
+        File file1 = new File(rutadelip);
+        try {
+            Scanner sc = new Scanner(file1);
+            while (sc.hasNext()) {
+                String line = sc.nextLine();
+                String str[] = line.split(":");
+                ipsucursal = str[0];
+              
+              
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+     
+     
+       
+        InetAddress ping;
+
+            
+        
+        try {
+                
+               
+                ping = InetAddress.getByName(ipsucursal);
+            
+                if (ping.isReachable(5000)) 
+                {
+                  
+                  tiendaconectada = "si";
+                  
+                    try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                  
+
+                }
+                
+                else 
+                
+                {
+                    
+                    tiendaconectada = "no";
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+                    
+
+                }
+            } catch (IOException ex) {
+                System.out.println(ex);
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+               
+                
+            }
+
+         
+        
+        
+     
+ }
+ 
+    
+    
+ 
+ 
+ 
     
     
     
@@ -1813,8 +1911,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-                tiendaconectada();   
-             
             
                 
               if (tiendaconectada.equals("si"))
@@ -1945,138 +2041,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         
 
     }
-     
-     
-     
-     
-     
-     
-     
-     void tiendaconectada()
- {
-     
-     
-     
-     try {
-         
-           
-           Connection con = null;
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
-
-            try {
-
-                String sql = "SELECT ip FROM catalogo_tiendas where tienda = 'cdmxcentro'";
-
-                Statement st = con.prepareStatement(sql);
-                ResultSet rs = st.executeQuery(sql);
-
-                if (rs.next()) {
-
-                    ipsucursal = rs.getString("ip");
-
-                } 
-
-                st.close();
-            } catch (SQLException ex) {
-               
-                
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al buscar tiendas");
-                
-                
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-
-       
-        InetAddress ping;
-
-        if (sucursal == null || sucursal.equals("Seleccione Tienda")) 
-        {
-            
-              JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
-            
-            
-        }
-        else 
-        {
-
-            try {
-                
-                
-
-                ping = InetAddress.getByName(ipsucursal);
-            
-                if (ping.isReachable(5000)) 
-                {
-                  
-                  tiendaconectada = "si";
-                  
-                  
-                    try {
-                        Class.forName("com.mysql.jdbc.Driver");
-                        cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
-                    } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                   
-
-                }
-                
-                else 
-                
-                {
-                    
-                    tiendaconectada = "no";
-                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
-                    
-
-                }
-            } catch (IOException ex) {
-                System.out.println(ex);
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
-               
-                
-            }
-
-        }         
-        
-        
-        
-        
-           if (tiendaconectada.equals("si"))
-          
-                
-            {       
-            
-               try { 
-                     
-                     
-                     
-            cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
-        } catch (SQLException ex) {
-            Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-            
-            
-            }
-        
-        
-        
-        
-        
-
-     
- }
- 
-    
      
      
      
@@ -4334,6 +4298,10 @@ public static String dia() {
 
         
         datos();
+        
+        conectadaasucursal();
+        
+        
         
     }//GEN-LAST:event_formWindowOpened
 

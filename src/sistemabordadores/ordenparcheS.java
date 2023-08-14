@@ -25,6 +25,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -69,11 +70,11 @@ public static boolean ventanaordenparche = false;
         String codigocliente = "";
         String tiendeordenopedido = "";
        String lugar = "";
-       String numeroordendebordadolocalorecibida = "";
+       String rutadelip = "";
        String identificador = "";
        String consecutivo = "";
        String tieneunaobservacion = "";
-       String numerosucursalordencamisa = "";
+      
        String tienenumerodesucursal = "";
        String sucursal = "";
        String numeroordendeenviosolicitada = "";
@@ -117,6 +118,9 @@ public static boolean ventanaordenparche = false;
         lbhora.setVisible(false);
         btnterminetodo.setEnabled(false);
         lbautorizacion.setVisible(false);
+        
+        btnquitarponchado1.setEnabled(false);
+        btnreplicar1.setEnabled(false);
         
 
     }
@@ -240,11 +244,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         numeroordendebordadosolicitadoorecibidasisehabredesderecibidas = lborden.getText();
         
         
-        lbsucursal.setText(tiendalocal);
-        
-        
    
-     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche_puntadas,parche_nombre,cantidad,parche_cantidad,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,numero_orden FROM historial_ordenes_parche WHERE numero = '"+numeroordendebordadolocalorecibida+"' ";
+     String sql = "SELECT numero,numero_venta,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche_puntadas,parche_nombre,cantidad,parche_cantidad,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,numero_orden FROM historial_ordenes_parche WHERE numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -641,7 +642,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select parche_puntadas,parche_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select parche_puntadas,parche_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"' ";
 
         try {
             Statement st = cn.createStatement();
@@ -717,7 +718,7 @@ JOptionPane.showMessageDialog(null, mensaje);
              
                try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='"+nuevoestatusorden+"' where numero='" +numeroordendebordadolocalorecibida+ "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set estatus_orden='"+nuevoestatusorden+"' where numero='" +numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+ "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -755,7 +756,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set "+ubicacion+" = '"+cantidad+"',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set "+ubicacion+" = '"+cantidad+"',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -960,7 +961,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche_recibidas set "+ubicacion+"='" + cantidad + "',parche_fecha='"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"'");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche_recibidas set "+ubicacion+"='" + cantidad + "',parche_fecha='"+dia()+"' where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1000,7 +1001,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         sucursal = lbsucursal.getText();
 
-        String sql = "Select orden_o_pedido,numero,numero_orden_o_pedido_solicitada,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche_puntadas,cantidad,parche_puntadas,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,identificador_prenda,parche_cantidad,parche_fecha FROM historial_ordenes_parche_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and tienda = '" + sucursal + "'";
+        String sql = "Select orden_o_pedido,numero,numero_orden_o_pedido_solicitada,fecha,hora,cliente,nombre_comercial,borda_cliente,tipo,estatus_entrega,articulo,parche_puntadas,cantidad,parche_puntadas,observacion,aplicacion,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observaciongeneral,lugar,identificador_prenda,estatus_orden,identificador_prenda,parche_cantidad,parche_fecha FROM historial_ordenes_parche_recibidas where numero = '" + numeroordendebordadosolicitadoorecibidasisehabredesderecibidas + "' and tienda = '" + sucursal + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -1121,9 +1122,6 @@ JOptionPane.showMessageDialog(null, mensaje);
          cliente = lbcliente.getText();
         
         
-        
-        
-            tiendaconectada();   
              
             
                 
@@ -1254,7 +1252,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            
             try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+fecha+" = null where numero = '"+numeroordendebordadolocalorecibida+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+fecha+" = null where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1309,139 +1307,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-    
-    
-     
-     void tiendaconectada()
- {
-     
-    
-     
-     try {
-            Connection con = null;
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
-
-            try {
-              
-                
-                
-                
-                String sql = "SELECT ip FROM catalogo_tiendas where tienda = '" + sucursal + "'";
-
-                Statement st = con.prepareStatement(sql);
-                ResultSet rs = st.executeQuery(sql);
-
-                if (rs.next()) {
-
-                    ipsucursal = rs.getString("ip");
-              
-
-                } else {
-
-                }
-
-                st.close();
-            } catch (SQLException ex) {
-                
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al buscar tiendas");
-                
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-       
-        InetAddress ping;
-
-        if (sucursal == null || sucursal.equals("Seleccione Tienda")) 
-        {
-            
-              JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
-            
-            
-        }
-        else 
-        {
-
-            try {
-                
-                
-
-                ping = InetAddress.getByName(ipsucursal);
-            
-                if (ping.isReachable(5000)) 
-                {
-                  
-                  tiendaconectada = "si";
-                  
-                  
-                    try {
-                        Class.forName("com.mysql.jdbc.Driver");
-                        cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
-                    } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                   
-
-                }
-                
-                else 
-                
-                {
-                    
-                    tiendaconectada = "no";
-                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
-                    
-
-                }
-            } catch (IOException ex) {
-                System.out.println(ex);
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
-               
-                
-            }
-            
-            
-            
-              if (tiendaconectada.equals("si"))
-          
-                
-            {       
-            
-               try { 
-                     
-                     
-                     
-            cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
-        } catch (SQLException ex) {
-            Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-            
-            
-            }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-        }         
-
-     
- }
- 
-    
-     
     
     
     
@@ -1667,6 +1532,104 @@ JOptionPane.showMessageDialog(null, mensaje);
           
           
     }
+    
+    
+    
+    
+    
+    
+    
+    
+ void conectadaasucursal()
+ {
+     
+     
+     
+     sucursal = lbsucursal.getText();
+     
+     
+     
+     
+       if (sucursal.equals("cdmxcentro")) {
+            rutadelip = "C:\\sistema\\cdmxcentro.txt";
+        } else if (sucursal.equals("cdmxsur")) {
+            rutadelip = "C:\\sistema\\cdmxsur.txt";
+        } else if (sucursal.equals("guadalajara")) {
+            rutadelip = "C:\\sistema\\guadalajara.txt";
+        } else if (sucursal.equals("monterrey")) {
+            rutadelip = "C:\\sistema\\monterrey.txt";
+        } else {
+            if (sucursal.equals("tijuana")) {
+                rutadelip = "C:\\sistema\\tijuana.txt";
+            }
+        }
+
+        File file1 = new File(rutadelip);
+        try {
+            Scanner sc = new Scanner(file1);
+            if (sc.hasNext()) {
+                String line = sc.nextLine();
+                String str[] = line.split(":");
+                ipsucursal = str[0];
+              
+              
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+     
+     
+       
+        InetAddress ping;
+
+            
+        
+        try {
+                
+               
+                ping = InetAddress.getByName(ipsucursal);
+            
+                if (ping.isReachable(5000)) 
+                {
+                  
+                  tiendaconectada = "si";
+                  
+                    try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                  
+
+                }
+                
+                else 
+                
+                {
+                    
+                    tiendaconectada = "no";
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+                    
+
+                }
+            } catch (IOException ex) {
+                System.out.println(ex);
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+               
+                
+            }
+
+         
+        
+        
+     
+ }
+ 
+    
     
     
     
@@ -2592,7 +2555,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
 
          try (
-                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_camisa_recibidas where numero = '" + numeroordendebordadosolicitadoorecibidasisehabredesderecibidas + "' ")) {
+                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_parche_recibidas where numero = '" + numeroordendebordadosolicitadoorecibidasisehabredesderecibidas + "' ")) {
              ResultSet rs = ps.executeQuery();
 
              if (rs.next()) {
@@ -2692,7 +2655,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-        if (lugar.equals("Otra sucursal"))
+        if (lugar.equals("Otra sucursal") && esponchado.equals(""))
         {
          
             
@@ -2704,7 +2667,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         double costopuntada = 0.0;
         Object puntadaobject = "";
         
-        String sql = "SELECT parche from historial_ordenes_parche_recibidas where numero = '"+numeroordendebordadolocalorecibida+"' ";
+        String sql = "SELECT parche from historial_ordenes_parche_recibidas where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"' ";
 
         try {
             PreparedStatement prst = cn.prepareStatement(sql);
@@ -2752,6 +2715,16 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         else
         {
+            
+            
+            
+            
+        if (esponchado.equals(""))      
+            
+            
+        {
+            
+            
             
                
               String costostring = "0";
@@ -2804,7 +2777,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
              
              
-             
+        }
              
              
              
@@ -3693,6 +3666,9 @@ JOptionPane.showMessageDialog(null, mensaje);
        
         datos();
         
+        conectadaasucursal();
+        
+        
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -4162,7 +4138,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 try {
 
-                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set "+ubicacionponchado+" =? where numero_orden_parche_solicitada='" +numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+ "' and prenda = '" + prenda + "' and identificador_prenda = '"+identificador+"' ";
+                    String sql2 = "UPDATE historial_ordenes_parche_recibidas set "+ubicacionponchado+" =? where numero_orden_parche_solicitada='" +numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+ "' and prenda = '" + prenda + "' and identificador_prenda = '"+identificador+"' ";
                     PreparedStatement pst = cnsucursal.prepareStatement(sql2);
                     pst.setBinaryStream(1, input);
                     pst.executeUpdate();
@@ -4178,9 +4154,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                  try {
                 
-                PreparedStatement pst = cnsucursal.prepareStatement("UPDATE historial_ordenes_parche_recibidas set "+ubicacionponchadonombre+" ='"+nombrearchivo+"' where numero_orden_camisa_solicitada='" +numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+ "' and prenda = '" + prenda + "' and identificador_prenda = '"+identificador+"'");
+                PreparedStatement pst = cnsucursal.prepareStatement("UPDATE historial_ordenes_parche_recibidas set "+ubicacionponchadonombre+" ='"+nombrearchivo+"' where numero_orden_parche_solicitada='" +numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+ "' and prenda = '" + prenda + "' and identificador_prenda = '"+identificador+"'");
                    pst.executeUpdate();
-                    System.out.println(pst);
+                   
                    pst.close();
 
                 } catch (Exception ex) {

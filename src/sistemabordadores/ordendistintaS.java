@@ -62,7 +62,7 @@ public class ordendistintaS extends javax.swing.JFrame {
     int nuevosbordadosutilizadosint = 0;
     
     String identificador = "";
-
+    String rutadelip = "";
     String primero = "";
     String ultimo = "";
     String iplocal = principal.lbiplocal.getText();
@@ -707,7 +707,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                 
                 
-                    cbsucursal.setEnabled(false);
+                    lbsucursal.setEnabled(false);
                     
                     
                     
@@ -1138,7 +1138,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 else
                 {
                     
-                    cbsucursal.setEnabled(true);
+                    lbsucursal.setEnabled(true);
                     
                 }
                 
@@ -1752,7 +1752,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     sucursal = rs.getString("sucursal");
                     
                     
-                    cbsucursal.addItem(sucursal);
+                    lbsucursal.setText(sucursal);
                     lbnumero.setText(numerosolicitoarticulos);
                 }
             } catch (Exception exx) {
@@ -1791,7 +1791,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
                 
                 
-                cbsucursal.addItem(tiendaordenenvio);
+                lbsucursal.setText(tiendaordenenvio);
                 lbnumero.setText(numeroordenenvio);
 
             }
@@ -1811,7 +1811,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                         numerosolicitoarticulos = rs.getString("numero");
                         sucursal = rs.getString("sucursal");
 
-                        cbsucursal.addItem(sucursal);
+                        lbsucursal.setText(sucursal);
                         lbnumero.setText(numerosolicitoarticulos);
                     }
                     else
@@ -1827,7 +1827,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
 
             } else {
-                cbsucursal.addItem(tiendaordenenvio);
+                lbsucursal.setText(tiendaordenenvio);
                 lbnumero.setText(numeroordenenvio);
             }
 
@@ -1835,6 +1835,109 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
 
     }
+    
+    
+    
+    
+    
+    
+ void conectadaasucursal()
+ {
+     
+     
+     
+     sucursal = lbsucursal.getText();
+     
+     
+     
+     
+       if (sucursal.equals("cdmxcentro")) {
+            rutadelip = "C:\\sistema\\cdmxcentro.txt";
+        } else if (sucursal.equals("cdmxsur")) {
+            rutadelip = "C:\\sistema\\cdmxsur.txt";
+        } else if (sucursal.equals("guadalajara")) {
+            rutadelip = "C:\\sistema\\guadalajara.txt";
+        } else if (sucursal.equals("monterrey")) {
+            rutadelip = "C:\\sistema\\monterrey.txt";
+        } else {
+            if (sucursal.equals("tijuana")) {
+                rutadelip = "C:\\sistema\\tijuana.txt";
+            }
+        }
+
+        File file1 = new File(rutadelip);
+        try {
+            Scanner sc = new Scanner(file1);
+            while (sc.hasNext()) {
+                String line = sc.nextLine();
+                String str[] = line.split(":");
+                ipsucursal = str[0];
+              
+              
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+     
+     
+       
+        InetAddress ping;
+
+            
+        
+        try {
+                
+               
+                ping = InetAddress.getByName(ipsucursal);
+            
+                if (ping.isReachable(5000)) 
+                {
+                  
+                  tiendaconectada = "si";
+                  
+                    try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                  
+
+                }
+                
+                else 
+                
+                {
+                    
+                    tiendaconectada = "no";
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+                    
+
+                }
+            } catch (IOException ex) {
+                System.out.println(ex);
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+               
+                
+            }
+
+         
+        
+        
+     
+ }
+ 
+    
+    
+ 
+ 
+ 
+ 
+ 
+ 
     
     
     void eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion(String ubicacion, String fecha)
@@ -2574,7 +2677,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 if(lugar.equals("Esta sucursal"))
                 {
                 
-                    cbsucursal.setEnabled(false);
+                    lbsucursal.setEnabled(false);
                 
                 
                 if(distinta1nombre==null||distinta1nombre.equals("")||distinta1nombre.equals(" "))
@@ -2804,7 +2907,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 else
                 {
                     
-                    cbsucursal.setEnabled(true);
+                    lbsucursal.setEnabled(true);
                     
                 }
                 
@@ -2923,9 +3026,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-                tiendaconectada();   
-             
-            
                 
               if (tiendaconectada.equals("si"))
 
@@ -3048,133 +3148,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         
 
     }
-     
-     
-     
-    
-     
-     
-     
-     
-     
-     void tiendaconectada()
- {
-     
-     
-     
-     try {
-            
-            Connection con = null;
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
-
-            try {
-              
-                
-                
-                
-                String sql = "SELECT ip FROM catalogo_tiendas where tienda = '" + sucursal + "'";
-
-                Statement st = con.prepareStatement(sql);
-                ResultSet rs = st.executeQuery(sql);
-
-                if (rs.next()) {
-
-                    ipsucursal = rs.getString("ip");
-              
-
-                } else {
-
-                }
-
-                st.close();
-            } catch (SQLException ex) {
-               
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al buscar tiendas");
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-       
-        InetAddress ping;
-
-        if (sucursal == null || sucursal.equals("Seleccione Tienda")) 
-        {
-            
-              JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
-            
-            
-        }
-        else 
-        {
-
-            try {
-                
-                
-
-                ping = InetAddress.getByName(ipsucursal);
-            
-                if (ping.isReachable(5000)) 
-                {
-                  
-                  tiendaconectada = "si";
-                  
-                  
-                  
-                    try {
-                        Class.forName("com.mysql.jdbc.Driver");
-                        cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
-                    } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                  
-                  
-                   
-
-                }
-                
-                else 
-                
-                {
-                    
-                    tiendaconectada = "no";
-                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
-                    
-
-                }
-            } catch (IOException ex) {
-                System.out.println(ex);
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
-               
-                
-            }
-
-        }         
-
-     
- }
- 
-    
-     
-    
-    
-    
-    
-    
-    
-    
-    
-     
-     
-     
-     
-     
-     
      
      
      
@@ -3989,7 +3962,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbnumero = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         btneliminar = new javax.swing.JButton();
-        cbsucursal = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         btnverfotomontaje = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
@@ -4107,21 +4079,22 @@ JOptionPane.showMessageDialog(null, mensaje);
         btncargarponchado2 = new javax.swing.JButton();
         btncargarponchado7 = new javax.swing.JButton();
         btncargarponchado6 = new javax.swing.JButton();
+        lbsucursal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden distinta");
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -4191,10 +4164,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                 btneliminarActionPerformed(evt);
             }
         });
-
-        cbsucursal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cbsucursal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cdmxsur", "cdmxcentro", "guadalajara", "monterrey", "tijuana" }));
-        cbsucursal.setSelectedIndex(-1);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setText("Numero orden de bordado solicitado");
@@ -4864,6 +4833,14 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
         });
 
+        lbsucursal.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lbsucursal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbsucursal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbsucursalMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -4911,16 +4888,16 @@ JOptionPane.showMessageDialog(null, mensaje);
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel22)
                         .addGap(18, 18, 18)
-                        .addComponent(cbsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
+                        .addComponent(lbsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
                         .addComponent(jLabel14)
                         .addGap(12, 12, 12)
                         .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)
-                        .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19)
+                        .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(82, 82, 82)
                         .addComponent(jLabel15)
                         .addGap(11, 11, 11)
                         .addComponent(lbcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -5215,12 +5192,16 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbnumeroordenopedidosolicitado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -5525,6 +5506,9 @@ JOptionPane.showMessageDialog(null, mensaje);
    
         
         datos();
+        
+        
+         conectadaasucursal();
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -6739,6 +6723,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         // TODO add your handling code here:
     }//GEN-LAST:event_btncargarponchado6ActionPerformed
 
+    private void lbsucursalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbsucursalMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbsucursalMouseClicked
+
 
 
     public static void main(String args[]) {
@@ -6941,7 +6929,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JButton btnsalir;
     private javax.swing.JButton btnterminetodo;
     private javax.swing.JButton btnverfotomontaje;
-    private javax.swing.JComboBox<String> cbsucursal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -7023,6 +7010,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JTextArea lbobservaciones;
     public static javax.swing.JLabel lborden;
     public static javax.swing.JLabel lbprenda;
+    public static javax.swing.JLabel lbsucursal;
     public javax.swing.JLabel lbsumapuntos;
     public javax.swing.JLabel lbsumapuntos1;
     public javax.swing.JLabel lbsumapuntos2;

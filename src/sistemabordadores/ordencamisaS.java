@@ -2173,10 +2173,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
  
-                conectadaasucursal();   
              
-            
-                
               if (tiendaconectada.equals("si"))
 
                       {

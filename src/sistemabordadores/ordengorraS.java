@@ -75,7 +75,7 @@ public class ordengorraS extends javax.swing.JFrame {
     String nuevoestatusorden = "";
     String nombrebordado = "";
     int traspaso = 0;
-
+    String rutadelip = "";
     String numerosucursal = "";
     String numerosucursalordenbordado = "";
     String sucursal = "";
@@ -1127,9 +1127,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-        
-            tiendaconectada();   
-             
             
                 
               if (tiendaconectada.equals("si"))
@@ -1266,452 +1263,10 @@ JOptionPane.showMessageDialog(null, mensaje);
      
      
      
-     
- void tiendaconectada()
- {
-     
-     
-     
-     try {
-            Connection con = null;
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
-
-            try {
-              
-                
-                
-                
-                String sql = "SELECT ip FROM catalogo_tiendas where tienda = '" + sucursal + "'";
-
-                Statement st = con.prepareStatement(sql);
-                ResultSet rs = st.executeQuery(sql);
-
-                if (rs.next()) {
-
-                    ipsucursal = rs.getString("ip");
-              
-
-                } else {
-
-                }
-
-                st.close();
-            } catch (SQLException ex) {
-               
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al buscar tiendas");
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-       
-        InetAddress ping;
-
-        if (sucursal == null || sucursal.equals("Seleccione Tienda")) 
-        {
-            
-              JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
-            
-            
-        }
-        else 
-        {
-
-            try {
-                
-                
-
-                ping = InetAddress.getByName(ipsucursal);
-            
-                if (ping.isReachable(5000)) 
-                {
-                  
-                  tiendaconectada = "si";
-                  
-                  
-                    try {
-                        Class.forName("com.mysql.jdbc.Driver");
-                        cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
-                    } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                   
-
-                }
-                
-                else 
-                
-                {
-                    
-                    tiendaconectada = "no";
-                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
-                    
-
-                }
-            } catch (IOException ex) {
-                System.out.println(ex);
-                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
-               
-                
-            }
-
-        }      
-        
-        
-     
-     
-     
-     /*
-     
- void cargarfotomontajeotrasucursal() throws FileNotFoundException, IOException  
-    {
-        
-       ;
-        
-         cliente = "";
-        String numeroordensucursal = "";
-        String numerodeventa = "";
-        String numerodeorden ="";
-        
-      
-        BufferedImage img = null;
-        btnverfotomontaje.setEnabled(false);
-        
-        
-         if (sucursalqueenvia.equals(tiendalocal))
-            
-        {
-            
-      
-        numerodeorden = lborden.getText();
-        
-        String sql1 = "Select numero_orden_o_pedido_solicitada from historial_ordenes_gorra_recibidas where numero = '" + numerodeorden + "' and numero_sucursal = '"+numerosucursal+"' ";
-
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql1);
-            if (rs.next())
-            {
-
-                numeroordensucursal = rs.getString("numero_orden_o_pedido_solicitada");
-                
-                
-                String sql2 = "Select numero_venta from historial_ordenes_envio_solicitadas where numero = '" + numeroordensucursal + "' ";
-
-        try {
-            Statement st2 = cn.createStatement();
-            ResultSet rs2 = st2.executeQuery(sql2);
-            if (rs2.next())
-            {
-
-                numerodeventa = rs2.getString("numero_venta");
-                lbnumerodeventa.setText(numerodeventa);
-                
-
-            }
-
-        } catch (SQLException ex) 
-        {
-             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-        }   
-               
-                
-
-            }
-
-        } catch (SQLException ex) 
-        {
-             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-        }
-        
-        
-      
- 
-                
-             
-                
-        
-      
-
-        String sql7 = "Select cliente,prenda,tienda,identificador_prenda from historial_ordenes_gorra where numero = '" + numerosucursal + "' ";
-
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql7);
-            if (rs.next()) {
-
-                cliente = rs.getString("cliente");
-                sucursal = rs.getString("tienda");
-                identificador = rs.getString("identificador_prenda");
-                
-
-            }
-
-        } catch (SQLException ex) 
-        {
-             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-        }
-
-            codigocliente();
-            cliente();
-            
-
-        
-       
-
-       String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'GORRA'   ";  ///
-
-        try {
-
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) 
-            {
-                
-                Blob blob = rs.getBlob("imagen");
-                if (blob == null) 
-                {
-
-                    ordencamisaimagencontorno p = new ordencamisaimagencontorno();
-                    jPanel1.add(p);
-                    jPanel1.repaint();
-                    lblImagen.setVisible(false);
-                    btnverfotomontaje.setEnabled(false);
-                    tienefotomontaje = "no";
-              
-                    
-                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje o marcarle a Rommel para que les corrija elpara poder iniciar el bordado y registrar puntos");
-                    
-                } 
-                
-                else 
-                
-                {
-                    byte[] data = blob.getBytes(1, (int) blob.length());
-
-                    try {
-                        img = ImageIO.read(new ByteArrayInputStream(data));
-                    } catch (IOException ex) 
-                    {
-                 
-                      JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-
-                    }
-
-                    if(img==null)
-                    {
-                       tienefotomontaje = "no"; 
-                    }
-                    else
-                    {
-                    
-                    Imagen imagen = new Imagen();
-                    imagen.setImagen(img);
-                    lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
-                    lblImagen.setVisible(true);
-                    btnverfotomontaje.setEnabled(true);
-                    tienefotomontaje = "si";
-                    btnverfotomontaje.setEnabled(true);
-                  
-
-                    Blob archivo = rs.getBlob("imagen");
-                    String nombredelarchivo = rs.getString("extension_imagen");
-                     if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
-                    {
-                    rutaimagen = "C:\\archivospdf\\FOTOMONTAJE."+nombredelarchivo+" ";
-                    }
-                    else
-                    {
-                   nombredelarchivo = nombredelarchivo.replace(" ","");
-                    rutaimagen = "C:\\archivospdf\\"+nombredelarchivo+" ";
-                    }   
-                    
-                    File file = new File(rutaimagen);
-                    FileOutputStream output = new FileOutputStream(file);
-                    InputStream inStream = archivo.getBinaryStream();
-                    int length = -1;
-                    int size = (int) archivo.length();
-                    byte[] buffer = new byte[size];
-                    while ((length = inStream.read(buffer)) != -1) {
-                        output.write(buffer, 0, length);
-                   
-                    }
-                   
-                    output.close();
-                    
-                    }
- 
-                }
-
-            } //end while
-            rs.close();
-        } catch (SQLException ex) 
-        {
-          
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-        }
-        
-        
-        
-        if(tienefotomontaje.equals("si"))
-        {
-          
-            
-        
-            
-            
-        
-        }
-        else
-        {
-             btnatras.setEnabled(false);
-            btnladoizquierdo.setEnabled(false);
-            btnladoderecho.setEnabled(false);
-            btnfrente.setEnabled(false);
-            
-            ordengorraimagen p = new ordengorraimagen();
-            jPanel1.add(p);
-            jPanel1.repaint();
-            lblImagen.setVisible(false);
-            btnverfotomontaje.setEnabled(false);
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
-            
-            
-           
-        }  
-
-        
-            
-            
-            
-            
-            
-        }
-        else
-
-        
-        {
-
-       String sql = "Select imagen_nombre,imagen from historial_ordenes_gorra_recibidas where numero = '"+numero+"'  and prenda = 'Gorra'    ";  ///
-
-        try {
-
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) 
-            {
-                Imagen imagen = new Imagen();
-                Blob blob = rs.getBlob("imagen");
-                if (blob == null) 
-                {
-
-                    tienefotomontaje = "no";
-                   // btncargarfotomontaje.setEnabled(true);
-
-                    
-                } 
-                
-                else 
-                
-                {
-                    byte[] data = blob.getBytes(1, (int) blob.length());
-
-                    try {
-                        img = ImageIO.read(new ByteArrayInputStream(data));
-                    } catch (IOException ex) 
-                    {
-                      JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+""); 
-                      
-
-                    }
-
-                    imagen.setImagen(img);
-                    lblImagen.setIcon(new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT)));
-                    lblImagen.setVisible(true);
-                    btnverfotomontaje.setEnabled(true);
-                    tienefotomontaje = "si";
-                    btnverfotomontaje.setEnabled(true);
-                    //btncargarfotomontaje.setEnabled(false);
-
-                    Blob archivo = rs.getBlob("imagen");
-                    String nombredelarchivo = rs.getString("imagen_nombre");
-                     if(nombredelarchivo.equals("jpg")||nombredelarchivo.equals("png")||nombredelarchivo.equals("jpeg")||nombredelarchivo.equals("JPEG")||nombredelarchivo.equals("PNG")||nombredelarchivo.equals("JPG"))
-                    {
-                    rutaimagen = "C:\\archivospdf\\FOTOMONTAJE."+nombredelarchivo+" ";
-                    }
-                    else
-                    {
-                   nombredelarchivo = nombredelarchivo.replace(" ","");
-                    rutaimagen = "C:\\archivospdf\\"+nombredelarchivo+" ";
-                    } 
-                    File file = new File(rutaimagen);
-                    FileOutputStream output = new FileOutputStream(file);
-                    InputStream inStream = archivo.getBinaryStream();
-                    int length = -1;
-                    int size = (int) archivo.length();
-                    byte[] buffer = new byte[size];
-                    while ((length = inStream.read(buffer)) != -1) {
-                        output.write(buffer, 0, length);
-                   
-                    }
-                   
-                    output.close();
- 
-                }
-
-            } //end while
-            rs.close();
-        } catch (SQLException ex) 
-        {
-            
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
-            
-        }
-        
-        
-        
-        if(tienefotomontaje.equals("si"))
-        {
-          
-
-           
-            
-        
-        }
-        else
-        {
-            btnatras.setEnabled(false);
-            btnladoizquierdo.setEnabled(false);
-            btnladoderecho.setEnabled(false);
-            btnfrente.setEnabled(false);
-            
-            ordengorraimagen p = new ordengorraimagen();
-            jPanel1.add(p);
-            jPanel1.repaint();
-            lblImagen.setVisible(false);
-            btnverfotomontaje.setEnabled(false);
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
-            
-            
-        }  
-
-        
-        }
-        
-        
-    }    
     
- 
- */
- 
- }
- 
- 
+    
+        
+        
     void hilosycolor()
     {
        
@@ -1762,6 +1317,97 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
+        
+    
+ void conectadaasucursal()
+ {
+     
+     
+     
+     sucursal = lbsucursal.getText();
+     
+     
+     
+     
+       if (sucursal.equals("cdmxcentro")) {
+            rutadelip = "C:\\sistema\\cdmxcentro.txt";
+        } else if (sucursal.equals("cdmxsur")) {
+            rutadelip = "C:\\sistema\\cdmxsur.txt";
+        } else if (sucursal.equals("guadalajara")) {
+            rutadelip = "C:\\sistema\\guadalajara.txt";
+        } else if (sucursal.equals("monterrey")) {
+            rutadelip = "C:\\sistema\\monterrey.txt";
+        } else {
+            if (sucursal.equals("tijuana")) {
+                rutadelip = "C:\\sistema\\tijuana.txt";
+            }
+        }
+
+        File file1 = new File(rutadelip);
+        try {
+            Scanner sc = new Scanner(file1);
+            while (sc.hasNext()) {
+                String line = sc.nextLine();
+                String str[] = line.split(":");
+                ipsucursal = str[0];
+              
+              
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+     
+     
+       
+        InetAddress ping;
+
+            
+        
+        try {
+                
+               
+                ping = InetAddress.getByName(ipsucursal);
+            
+                if (ping.isReachable(5000)) 
+                {
+                  
+                  tiendaconectada = "si";
+                  
+                    try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ordencorbataS.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                  
+
+                }
+                
+                else 
+                
+                {
+                    
+                    tiendaconectada = "no";
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+                    
+
+                }
+            } catch (IOException ex) {
+                System.out.println(ex);
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con tienda");
+               
+                
+            }
+
+         
+        
+        
+     
+ }
+ 
     
     
     
@@ -4104,7 +3750,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         datos();
         
-        
+        conectadaasucursal();
 
         
     }//GEN-LAST:event_formWindowOpened

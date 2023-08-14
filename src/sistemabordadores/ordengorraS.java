@@ -68,7 +68,7 @@ public class ordengorraS extends javax.swing.JFrame {
     String numeroordendeenviosolicitada = "";
     String prenda ="";
     String cantidadaplicacion = "";
-   
+    String aplicacionfrente = "";
     String primero = "";
     String ultimo = "";
     String ipsucursal = "";
@@ -450,14 +450,12 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
             
                
-                String aplicacionfrente = rs.getString("aplicacion_frente");
+                aplicacionfrente = rs.getString("aplicacion_frente");
 
                 if (aplicacionfrente.equals("ninguno")) {
                     aplicacionfrente = "";
                 }
 
-                
-                
                 
                 String aplicacionfrentecolor = rs.getString("aplicacion_frente_color");
 
@@ -1972,14 +1970,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                             } catch (Exception ex) {
                             System.out.println (ex);
                             }
-            
-            
-            
-            
-            
-            
-            
-            
             
             
             
@@ -4555,6 +4545,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         
                  ubicacion = "frente_cantidad";
                 fechaubicacion = "frente_fecha";
+                
+                cantidadaplicacion = aplicacionfrente;
         
         
         

@@ -2667,7 +2667,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         double costopuntada = 0.0;
         Object puntadaobject = "";
         
-        String sql = "SELECT parche from historial_ordenes_parche_recibidas where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"' ";
+        String sql = "SELECT parche_puntadas from historial_ordenes_parche_recibidas where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"' ";
 
         try {
             PreparedStatement prst = cn.prepareStatement(sql);

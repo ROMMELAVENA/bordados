@@ -123,7 +123,7 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel1" min="-2" pref="54" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lbsuma" min="-2" pref="92" max="-2" attributes="0"/>
+                              <Component id="lbsumatablaizquierda" min="-2" pref="92" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -136,6 +136,12 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane3" min="-2" pref="1632" max="-2" attributes="0"/>
                                   <Component id="jScrollPane4" alignment="0" min="-2" pref="1676" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="1439" max="-2" attributes="0"/>
+                                      <Component id="jLabel3" min="-2" pref="94" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lbsumatrabladerecha" min="-2" pref="94" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -188,17 +194,22 @@
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="jScrollPane2" min="-2" pref="895" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="jScrollPane4" min="-2" pref="304" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lbsumatrabladerecha" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="304" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbsuma" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbsumatablaizquierda" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lbsumapuntos" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
@@ -431,22 +442,22 @@
             <Property name="autoResizeMode" type="int" value="0"/>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="70" minWidth="50" prefWidth="60" resizable="true">
+                <Column maxWidth="80" minWidth="50" prefWidth="70" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="290" minWidth="120" prefWidth="250" resizable="true">
+                <Column maxWidth="400" minWidth="120" prefWidth="350" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="150" minWidth="80" prefWidth="120" resizable="true">
+                <Column maxWidth="180" minWidth="80" prefWidth="140" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="350" minWidth="100" prefWidth="320" resizable="true">
+                <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -456,32 +467,32 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="140" minWidth="100" prefWidth="120" resizable="true">
+                <Column maxWidth="250" minWidth="100" prefWidth="200" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="60" minWidth="40" prefWidth="50" resizable="true">
+                <Column maxWidth="70" minWidth="40" prefWidth="60" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="210" minWidth="80" prefWidth="190" resizable="true">
+                <Column maxWidth="270" minWidth="80" prefWidth="230" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="70" minWidth="50" prefWidth="60" resizable="true">
+                <Column maxWidth="80" minWidth="50" prefWidth="70" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="70" minWidth="50" prefWidth="60" resizable="true">
+                <Column maxWidth="80" minWidth="50" prefWidth="70" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="70" minWidth="50" prefWidth="60" resizable="true">
+                <Column maxWidth="80" minWidth="50" prefWidth="70" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -780,7 +791,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbsuma">
+    <Component class="javax.swing.JLabel" name="lbsumatablaizquierda">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -862,40 +873,44 @@
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="12" rowCount="0">
+              <Table columnCount="16" rowCount="0">
                 <Column editable="false" title="No. orden" type="java.lang.Object"/>
-                <Column editable="false" title="Cliente" type="java.lang.Object"/>
+                <Column editable="false" title="Bordacliente" type="java.lang.Object"/>
                 <Column editable="false" title="Prenda" type="java.lang.Object"/>
                 <Column editable="false" title="Identificador" type="java.lang.Object"/>
                 <Column editable="false" title="Ubicacion" type="java.lang.Object"/>
                 <Column editable="false" title="Nombre bordado" type="java.lang.Object"/>
                 <Column editable="false" title="Cant" type="java.lang.Object"/>
                 <Column editable="false" title="Puntadas" type="java.lang.Object"/>
+                <Column editable="false" title="Costo punt" type="java.lang.Object"/>
                 <Column editable="false" title="Puntos" type="java.lang.Object"/>
                 <Column editable="false" title="Aplicac" type="java.lang.Object"/>
+                <Column editable="false" title="Costo aplic" type="java.lang.Object"/>
                 <Column editable="false" title="Puntos ap" type="java.lang.Object"/>
                 <Column editable="false" title="Suma" type="java.lang.Object"/>
+                <Column editable="false" title="Tabla" type="java.lang.Object"/>
+                <Column editable="false" title="sucursal" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="autoscrolls" type="boolean" value="false"/>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="70" minWidth="50" prefWidth="60" resizable="true">
+                <Column maxWidth="80" minWidth="50" prefWidth="70" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="290" minWidth="120" prefWidth="250" resizable="true">
+                <Column maxWidth="400" minWidth="120" prefWidth="350" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="150" minWidth="80" prefWidth="120" resizable="true">
+                <Column maxWidth="180" minWidth="80" prefWidth="140" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="350" minWidth="100" prefWidth="320" resizable="true">
+                <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -905,37 +920,47 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="140" minWidth="100" prefWidth="120" resizable="true">
+                <Column maxWidth="250" minWidth="100" prefWidth="200" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="60" minWidth="40" prefWidth="50" resizable="true">
+                <Column maxWidth="70" minWidth="40" prefWidth="60" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="210" minWidth="80" prefWidth="190" resizable="true">
+                <Column maxWidth="270" minWidth="80" prefWidth="230" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="70" minWidth="50" prefWidth="60" resizable="true">
+                <Column maxWidth="80" minWidth="50" prefWidth="70" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="70" minWidth="50" prefWidth="60" resizable="true">
+                <Column maxWidth="80" minWidth="50" prefWidth="70" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="70" minWidth="50" prefWidth="60" resizable="true">
+                <Column maxWidth="80" minWidth="50" prefWidth="70" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="70" minWidth="50" prefWidth="60" resizable="true">
+                <Column maxWidth="80" minWidth="50" prefWidth="70" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="100" minWidth="20" prefWidth="80" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="100" minWidth="20" prefWidth="80" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -959,5 +984,30 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Suma"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbsumatrabladerecha">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

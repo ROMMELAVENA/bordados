@@ -8370,7 +8370,9 @@ JOptionPane.showMessageDialog(null, mensaje);
            ubicacion = "pecho_izquierdo_cantidad"; 
             
            nombrebordado =pechoizquierdonombre;
-           cantidadaplicacion = aplicacionpechoizquierdo;   
+           cantidadaplicacion = aplicacionpechoizquierdo;  
+           
+           ubicacionprenda = "PECHO IZQUIERDO";
         
         
         
@@ -8472,6 +8474,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         nombrebordado = pechoderechonombre;
         cantidadaplicacion = aplicacionpechoderecho;
         
+        ubicacionprenda = "PECHO DERECHO";
+        
         
             String autorizado = lbautorizacion.getText();
         if (autorizado.equals("si"))     
@@ -8560,6 +8564,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         ubicacion = "manga_izquierda_cantidad";
         nombrebordado = mangaizquierdanombre;
             cantidadaplicacion = aplicacionmangaizquierda;
+            
+             ubicacionprenda = "MANGA IZQUIERDA";
         
         
           String autorizado = lbautorizacion.getText();
@@ -8646,6 +8652,8 @@ JOptionPane.showMessageDialog(null, mensaje);
              fechaubicacion = "manga_derecha_fecha";
         nombrebordado = mangaderechanombre;
             cantidadaplicacion = aplicacionmangaderecha;
+            
+            ubicacionprenda = "MANGA DERECHA";    
         
         
         
@@ -8736,6 +8744,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         nombrebordado =espaldanombre;
         cantidadaplicacion = aplicacionespalda;
         
+         ubicacionprenda = "ESPALDA";
+        
         String autorizado = lbautorizacion.getText();
         if (autorizado.equals("si"))     
         {
@@ -8822,6 +8832,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             fechaubicacion = "otra_ubicacion_fecha";
         nombrebordado = otraubicacionnombre;
             cantidadaplicacion = aplicacionotraubicacion;
+            
+            ubicacionprenda = "OTRA UBICACION";
         
         
                   String autorizado = lbautorizacion.getText();
@@ -8910,6 +8922,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             nombrebordado = otraubicacion2nombre;
             cantidadaplicacion = aplicacionotraubicacion2;
             
+            ubicacionprenda = "OTRA UBICACION2";
             
         
             String autorizado = lbautorizacion.getText();

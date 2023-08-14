@@ -105,7 +105,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         initComponents();
         ventanareportedebordadosgeneral = true;
-        anchocolumnas();
+    
         topes();
         seleccionarfechas();
         anterior = "no";
@@ -116,21 +116,6 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     }
 
-    void anchocolumnas() {
-
-        tablaVIEJA.getColumnModel().getColumn(0).setMinWidth(0);
-        tablaVIEJA.getColumnModel().getColumn(1).setMinWidth(0);
-        tablaVIEJA.getColumnModel().getColumn(2).setMinWidth(0);
-        tablaVIEJA.getColumnModel().getColumn(3).setMinWidth(0);
-        tablaVIEJA.getColumnModel().getColumn(4).setMinWidth(0);
-        tablaVIEJA.getColumnModel().getColumn(5).setMinWidth(0);
-        tablaVIEJA.getColumnModel().getColumn(6).setMinWidth(0);
-        
-       
-     
-
-     
-    }
 
     public static int numerodediasmes(int mes) {
 
@@ -4421,7 +4406,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     
     
     
-    
+    /*
     
      void datosponchadosmodificados(int i) {
 
@@ -4553,135 +4538,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
      
      
      
+     */
      
-     
-     
-     
-     
-    void calcularcostoponchados() {
-
-        double importedelponchado = 0.0;
-        String costostring = "0";
-
-        for (int i = 0; i < tablaVIEJA.getRowCount(); i++) {
-
-            Object cantidadobject = tablaVIEJA.getValueAt(i, 2);
-            Object articulo = tablaVIEJA.getValueAt(i, 3);
-            //int cantidad = Integer.parseInt(cantidadobject.toString());
-            String articulobuscar = "";
-            int cantidadponchadoint  =Integer.parseInt(cantidadponchado);
-            
-
-            if (articulo.toString().startsWith("PONCHADO")||articulo.toString().startsWith("MODIFICACION DE PONCHADO")) {
-
-                if (articulo.toString().startsWith("PONCHADO FACIL")||articulo.toString().contains("MODIFICACION DE PONCHADO FACIL")) 
-                {
-                    articulobuscar = "PONCHADO FACIL";
-                } else if (articulo.toString().startsWith("PONCHADO MEDIO")||articulo.toString().contains("MODIFICACION DE PONCHADO MEDIO")) {
-                    articulobuscar = "PONCHADO MEDIO";
-                } else if (articulo.toString().startsWith("PONCHADO DIFICIL")||articulo.toString().contains("MODIFICACION DE PONCHADO DIFICIL")) {
-                    articulobuscar = "PONCHADO DIFICIL";
-                }
-                else if (articulo.toString().startsWith("PONCHADO EXTRA DIFICIL")||articulo.toString().contains("MODIFICACION DE PONCHADO EXTRA DIFICIL")) {
-                        articulobuscar = "PONCHADO EXTRA DIFICIL";
-                    }
-
-                tablaVIEJA.setValueAt(articulobuscar, i, 5);
-
-                double costodelponchado = 0.0;
-
-                String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + articulobuscar + "'";
-
-                try {
-                    PreparedStatement prst = cn.prepareStatement(sql1);
-                    ResultSet rs = prst.executeQuery();
-                    if (rs.next()) {
-
-                        costostring = rs.getString("costo");
-                        costodelponchado = Double.parseDouble(costostring);
-
-                    }
-                } catch (Exception exx) {
-                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
-
-                }
-
-                String costopuntadaponchadostring = String.format("%.02f ", costodelponchado);
-                tablaVIEJA.setValueAt(costopuntadaponchadostring, i, 6);
-
-                double importeponchado = cantidadponchadoint * costodelponchado;
-
-                double sumabordados = importeponchado;
-                String sumabordadosstring = String.format("%.02f ", sumabordados);
-                if(sumabordadosstring.equals("3.30"))
-                {
-                    int a = 0;
-                }
-                tablaVIEJA.setValueAt(sumabordadosstring, i, 62);
-
-            }
-
-        }
-
-    }
-
-    
-    
-    
-    
-    
-    
-
-    void calcularcostosdebordadosportanombre() {
-
-        double importefrente = 0.0;
-        String costostring = "0";
-
-        for (int i = 0; i < tablaVIEJA.getRowCount(); i++) {
-
-            Object cantidadobject = tablaVIEJA.getValueAt(i, 2);
-            Object cliente = tablaVIEJA.getValueAt(i, 1);
-            int cantidad = Integer.parseInt(cantidadobject.toString());
-
-            if (cliente.equals("porta nombre multiple") || cliente.equals("porta nombre")) {
-
-                // FRENTE
-                double costopuntadafrente = 0.0;
-                Object frenteobject = tablaVIEJA.getValueAt(i, 26);
-
-                String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + frenteobject + "'";
-
-                try {
-                    PreparedStatement prst = cn.prepareStatement(sql3);
-                    ResultSet rs = prst.executeQuery();
-                    if (rs.next()) {
-
-                        costostring = rs.getString("costo");
-                        costopuntadafrente = Double.parseDouble(costostring);
-
-                    }
-                } catch (Exception exx) {
-                     JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
-
-                }
-
-                String costopuntadafrentestring = String.format("%.02f ", costopuntadafrente);
-                tablaVIEJA.setValueAt(costopuntadafrentestring, i, 27);
-                importefrente = cantidad * costopuntadafrente;
-
-                double sumabordados = importefrente;
-                String sumabordadosstring = String.format("%.02f ", sumabordados);
-                if(sumabordadosstring.equals("3.30"))
-                {
-                    int a = 0;
-                }
-                tablaVIEJA.setValueAt(sumabordadosstring, i, 62);
-
-            }
-
-        }
-
-    }
     
     
     
@@ -5014,7 +4872,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         
         
 
-        calcularcostofotomontajes();
+    //    calcularcostofotomontajes();
 
     }
     
@@ -5038,7 +4896,10 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
      
     ////////////////////////////
     //////////////////
-    //////////        
+    //////////       
+     
+     
+     /*
     void calcularcostofotomontajes() {
 
         double importedelfotomontaje = 0.0;
@@ -5095,7 +4956,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     
     
-    
+    */
     
     
     
@@ -5132,16 +4993,6 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         lbaño = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaizquierda = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tablaVIEJA = new javax.swing.JTable()
-        {
-
-            public boolean isCellEditable(int rowIndex, int colIndex) {
-                return false;
-            }
-        }
-
-        ;
         jLabel1 = new javax.swing.JLabel();
         lbsumatablaizquierda = new javax.swing.JLabel();
         lbsumapuntos = new javax.swing.JLabel();
@@ -5301,67 +5152,6 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             tablaizquierda.getColumnModel().getColumn(2).setMaxWidth(0);
         }
 
-        tablaVIEJA.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        tablaVIEJA.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "fecha", "cliente", "cantidad", "prenda", "pecho izquierdo", "puntadas", "puntos", "pecho derecho", "puntadas", "puntos", "manga izquierda", "puntadas", "puntos", "manga derecha", "puntadas", "puntos", "espalda", "puntadas", "puntos", "otra ubicacion", "puntadas", "puntos", "ptra ubicacion2", "puntadas", "puntos", "frente", "puntadas", "puntos", "lado izquerdo", "puntadas", "puntos", "lado derecho", "puntadas", "puntos", "atras", "puntadas", "puntos", "puntos bordados", "lado izquierdo frente", "puntadas", "puntos", "lado derecho frente", "puntadas", "puntos", "lado izquierdo atras", "puntadas", "puntos", "lado derecho atras", "puntadas", "puntos", "Parche", "Puntadas", "Puntos", "aplic pecho izq", "aplic pecho der", "aplic manga izq", "aplic manga der", "aplic frente", "aplic chicas", "Puntos aplic chicas", "aplic espalda", "puntos aplic espalda", "Suma", "venta"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tablaVIEJA.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tablaVIEJA.setRowHeight(22);
-        tablaVIEJA.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaVIEJAMouseClicked(evt);
-            }
-        });
-        jScrollPane3.setViewportView(tablaVIEJA);
-        if (tablaVIEJA.getColumnModel().getColumnCount() > 0) {
-            tablaVIEJA.getColumnModel().getColumn(0).setMinWidth(50);
-            tablaVIEJA.getColumnModel().getColumn(0).setPreferredWidth(70);
-            tablaVIEJA.getColumnModel().getColumn(0).setMaxWidth(80);
-            tablaVIEJA.getColumnModel().getColumn(1).setMinWidth(120);
-            tablaVIEJA.getColumnModel().getColumn(1).setPreferredWidth(350);
-            tablaVIEJA.getColumnModel().getColumn(1).setMaxWidth(400);
-            tablaVIEJA.getColumnModel().getColumn(2).setMinWidth(80);
-            tablaVIEJA.getColumnModel().getColumn(2).setPreferredWidth(140);
-            tablaVIEJA.getColumnModel().getColumn(2).setMaxWidth(180);
-            tablaVIEJA.getColumnModel().getColumn(3).setMinWidth(0);
-            tablaVIEJA.getColumnModel().getColumn(3).setPreferredWidth(0);
-            tablaVIEJA.getColumnModel().getColumn(3).setMaxWidth(0);
-            tablaVIEJA.getColumnModel().getColumn(4).setMinWidth(80);
-            tablaVIEJA.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tablaVIEJA.getColumnModel().getColumn(4).setMaxWidth(120);
-            tablaVIEJA.getColumnModel().getColumn(5).setMinWidth(100);
-            tablaVIEJA.getColumnModel().getColumn(5).setPreferredWidth(200);
-            tablaVIEJA.getColumnModel().getColumn(5).setMaxWidth(250);
-            tablaVIEJA.getColumnModel().getColumn(6).setMinWidth(40);
-            tablaVIEJA.getColumnModel().getColumn(6).setPreferredWidth(60);
-            tablaVIEJA.getColumnModel().getColumn(6).setMaxWidth(70);
-            tablaVIEJA.getColumnModel().getColumn(7).setMinWidth(80);
-            tablaVIEJA.getColumnModel().getColumn(7).setPreferredWidth(230);
-            tablaVIEJA.getColumnModel().getColumn(7).setMaxWidth(270);
-            tablaVIEJA.getColumnModel().getColumn(8).setMinWidth(50);
-            tablaVIEJA.getColumnModel().getColumn(8).setPreferredWidth(70);
-            tablaVIEJA.getColumnModel().getColumn(8).setMaxWidth(80);
-            tablaVIEJA.getColumnModel().getColumn(9).setMinWidth(50);
-            tablaVIEJA.getColumnModel().getColumn(9).setPreferredWidth(70);
-            tablaVIEJA.getColumnModel().getColumn(9).setMaxWidth(80);
-            tablaVIEJA.getColumnModel().getColumn(10).setMinWidth(50);
-            tablaVIEJA.getColumnModel().getColumn(10).setPreferredWidth(70);
-            tablaVIEJA.getColumnModel().getColumn(10).setMaxWidth(80);
-        }
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Suma");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -5491,7 +5281,6 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1632, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1676, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(1439, 1439, 1439)
@@ -5539,16 +5328,14 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                         .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 895, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbsumatrabladerecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbsumatrabladerecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbsumatablaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -5643,7 +5430,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 
                 
                
-                datosponchadosmodificados((int) fechabusquedaint);
+            //   datosponchadosmodificados((int) fechabusquedaint);
                 
                 
                 
@@ -5803,22 +5590,6 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         
     }//GEN-LAST:event_tabladerechaMouseClicked
 
-    private void tablaVIEJAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVIEJAMouseClicked
-
-        if (evt.getClickCount() == 2)
-        {
-            int fila = tablaVIEJA.getSelectedRow();
-            Object numeroventa = tablaVIEJA.getValueAt(fila, 63);
-
-            if (numeroventa == null || numeroventa.equals(""))
-            {
-                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">No tiene numero de venta");
-            }
-
-        }
-
-    }//GEN-LAST:event_tablaVIEJAMouseClicked
-
     ResultSet rs;
 
     public static void main(String args[]) {
@@ -5845,7 +5616,6 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JLabel lbaño;
     public static javax.swing.JLabel lbdia;
@@ -5853,7 +5623,6 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     private javax.swing.JLabel lbsumapuntos;
     private javax.swing.JLabel lbsumatablaizquierda;
     private javax.swing.JLabel lbsumatrabladerecha;
-    private javax.swing.JTable tablaVIEJA;
     private javax.swing.JTable tabladerecha;
     private javax.swing.JTable tablaizquierda;
     private javax.swing.JTextField txtdialogoubic;

@@ -2650,14 +2650,14 @@ public class principal extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        
         
-         if (bordadosreportegeneralnuevo.ventanareportedebordadosgeneral== true) {
+         if (bordadosreportegeneral.ventanareportedebordadosgeneral== true) {
 
             JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La ventana de reporte ya esta abierta");
         }
         else
         {
 
-            bordadosreportegeneralnuevo  ventana = new bordadosreportegeneralnuevo();
+            bordadosreportegeneral  ventana = new bordadosreportegeneral();
             ventana.setVisible(true);
 
         }

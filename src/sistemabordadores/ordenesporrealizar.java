@@ -2095,7 +2095,7 @@ sorter.sort();
                 {
                    
                         
-                   if (ordenportanombreescolar.ventanaordenportanombreanterior == true) 
+                   if (ordenportanombreescolarS.ventanaordenportanombreanterior == true) 
                    {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de porta nombre ya está abierta");
 
@@ -2110,10 +2110,10 @@ sorter.sort();
                         if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
                         {
                        
-                            ordenportanombreescolar orden = new ordenportanombreescolar();
+                            ordenportanombreescolarS orden = new ordenportanombreescolarS();
                             orden.setVisible(true);
                             
-                            ordenportanombreescolar.lbnumero.setText(numerodeordendebordado.toString());
+                            ordenportanombreescolarS.lbnumero.setText(numerodeordendebordado.toString());
                             tabla.clearSelection();
                            
                         }
@@ -2139,7 +2139,7 @@ sorter.sort();
                 {
                    
                         
-                    if (ordenportanombremultiple.ventanaordenportanombremultipleanterior == true) 
+                    if (ordenportanombremultipleS.ventanaordenportanombremultipleanterior == true) 
                     {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de porta nombre multiple ya está abierta");
 
@@ -2154,10 +2154,10 @@ sorter.sort();
                         if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
                         {
                         
-                            ordenportanombremultiple orden = new ordenportanombremultiple();
+                            ordenportanombremultipleS orden = new ordenportanombremultipleS();
                             orden.setVisible(true);
                             
-                            ordenportanombremultiple.lbnumerohistorialordenesbordados.setText(numerodeordendebordado.toString());
+                            ordenportanombremultipleS.lbnumerohistorialordenesbordados.setText(numerodeordendebordado.toString());
                             tabla.clearSelection();
                            
                         }    

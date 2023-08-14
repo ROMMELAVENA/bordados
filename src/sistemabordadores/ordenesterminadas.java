@@ -1614,14 +1614,14 @@ sorter.sort();
                 {
                    
                         
-                        if (ordenportanombreescolar.ventanaordenportanombreanterior == true) {
+                        if (ordenportanombreescolarS.ventanaordenportanombreanterior == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de porta nombre ya está abierta");
 
                     } else {
-                            ordenportanombreescolar ventana = new ordenportanombreescolar();
+                            ordenportanombreescolarS ventana = new ordenportanombreescolarS();
                             ventana.setVisible(true);
                             
-                            ordenportanombreescolar.lbnumero.setText(tabla.getValueAt(fila, 0).toString());
+                            ordenportanombreescolarS.lbnumero.setText(tabla.getValueAt(fila, 0).toString());
                             tabla.clearSelection();
                             this.setState(this.ICONIFIED);
                         
@@ -1637,14 +1637,14 @@ sorter.sort();
                 {
                    
                         
-                        if (ordenportanombremultiple.ventanaordenportanombremultipleanterior == true) {
+                        if (ordenportanombremultipleS.ventanaordenportanombremultipleanterior == true) {
                         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de porta nombre multiple ya está abierta");
 
                     } else {
-                            ordenportanombremultiple ventana = new ordenportanombremultiple();
+                            ordenportanombremultipleS ventana = new ordenportanombremultipleS();
                             ventana.setVisible(true);
                             
-                            ordenportanombremultiple.lbnumerohistorialordenesbordados.setText(tabla.getValueAt(fila, 0).toString());
+                            ordenportanombremultipleS.lbnumerohistorialordenesbordados.setText(tabla.getValueAt(fila, 0).toString());
                             tabla.clearSelection();
                             this.setState(this.ICONIFIED);
                         

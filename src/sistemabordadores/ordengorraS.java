@@ -73,7 +73,7 @@ public class ordengorraS extends javax.swing.JFrame {
     String ultimo = "";
     String ipsucursal = "";
     String nuevoestatusorden = "";
-   
+    String nombrebordado = "";
     int traspaso = 0;
 
     String numerosucursal = "";
@@ -4545,9 +4545,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         
                  ubicacion = "frente_cantidad";
                 fechaubicacion = "frente_fecha";
-                
+                nombrebordado =frentenombre;
                 cantidadaplicacion = aplicacionfrente;
-        
+                
+                
+              
         
         
                  if(lugar.equals("Esta sucursal") && tipotabla.equals("Local") )
@@ -4555,8 +4557,12 @@ JOptionPane.showMessageDialog(null, mensaje);
       
                 
               
+              agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);       
+                    
+                    
+                    
          
-            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
+            
          
             
             cantidadaplicacion = "0";
@@ -4565,7 +4571,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             String cantidad = lbcantidad.getText();
             nombredelatabla = "historial_ordenes_gorra";
              
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
+           
+            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
             actualizarestatusentregaordendebordado();
             sumapuntos();    
         
@@ -5086,7 +5093,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
             
             
-        
+        cantidadaplicacion = aplicacionfrente;
     
             
                     String ubicacion = "frente_cantidad";

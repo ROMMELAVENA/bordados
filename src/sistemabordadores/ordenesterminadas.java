@@ -72,11 +72,28 @@ public class ordenesterminadas extends javax.swing.JFrame {
         String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  "
                          + "FROM historial_ordenes_camisa where lugar = 'Esta sucursal' "
                          + "and estatus_orden = 'realizada totalmente'  order by fecha desc  ";
+        
+        
+        
+        
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sqlcamisa);
             while (rs.next()) {
+                
+                
+                
+               
+                
+               String num = rs.getString("numero"); 
+                
+                 if (num.equals("00002273"))
+                 {
+                     int aquivoy = 0;
+                 }
+                
+                
                 datos[0] = rs.getString("numero");
                 datos[1] = rs.getString("cliente");
                 datos[2] = rs.getString("prenda");

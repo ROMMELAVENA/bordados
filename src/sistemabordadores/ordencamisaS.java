@@ -87,7 +87,7 @@ public class ordencamisaS extends javax.swing.JFrame {
     String cantidadaplicacion = "";
     String nuevosbordadosutilizadosstring = "";
     int nuevosbordadosutilizadosint = 0;
-
+    String ubicacionprenda = "";
     String primero = "";
     String ultimo = "";
     String nombrebordado = "";
@@ -2317,18 +2317,18 @@ JOptionPane.showMessageDialog(null, mensaje);
     void determinaciondeladescripciondelbordado(){
         
         
-        
+        descripcion = "BORDADO CAMISA " + ubicacionprenda + " " + nombrebordado + "";
         
              if (prenda.toUpperCase().equals("CAMISA")) {
 
-                descripcion = "BORDADO CAMISA PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISA PECHO IZQUIERDO";
+                descripcion = "BORDADO CAMISA " +ubicacionprenda+" " + nombrebordado+ "";
+                aplicacioninsertar = "APLICACION CAMISA " + ubicacionprenda + "";
 
             } //// playera
             else if (prenda.toUpperCase().equals("PLAYERA")) {
 
-                descripcion = "BORDADO PLAYERA PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION PLAYERA PECHO IZQUIERDO";
+                descripcion = "BORDADO PLAYERA " + ubicacionprenda + " " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION PLAYERA " + ubicacionprenda + "";
 
             } //// chamarra desmontable
          
@@ -2336,37 +2336,37 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
 
-                descripcion = "BORDADO CHAMARRA DESMONTABLE PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE PECHO IZQUIERDO";
+                descripcion = "BORDADO CHAMARRA DESMONTABLE " + ubicacionprenda + " " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE " + ubicacionprenda + "";
 
             } /// chamarra rompevientos
             else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
 
-                descripcion = "BORDADO CHAMARRA ROMPEVIENTOS PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS PECHO IZQUIERDO";
+                descripcion = "BORDADO CHAMARRA ROMPEVIENTOS " + ubicacionprenda + " " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS " + ubicacionprenda + "";
 
             } ///camisola
             else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
 
-                descripcion = "BORDADO CAMISOLA PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISOLA PECHO IZQUIERDO";
+                descripcion = "BORDADO CAMISOLA " + ubicacionprenda + " " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CAMISOLA " + ubicacionprenda + "";
 
             } else if (prenda.toUpperCase().equals("FILIPINA")) {
 
-                descripcion = "BORDADO FILIPINA PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION FILIPINA PECHO IZQUIERDO";
+                descripcion = "BORDADO FILIPINA " + ubicacionprenda + " " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION FILIPINA " + ubicacionprenda + "";
 
             } ///SACO
             else if (prenda.toUpperCase().equals("SACO")) {
 
-                descripcion = "BORDADO SACO PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION SACO PECHO IZQUIERDO";
+                descripcion = "BORDADO SACO " + ubicacionprenda + " " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION SACO " + ubicacionprenda + "";
 
             }
             else if (prenda.toUpperCase().equals("CHALECO")) {
 
-                descripcion = "BORDADO CHALECO PECHO IZQUIERDO " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHALECO PECHO IZQUIERDO";
+                descripcion = "BORDADO CHALECO " + ubicacionprenda + " " + nombrebordado + "";
+                aplicacioninsertar = "APLICACION CHALECO " + ubicacionprenda + "";
 
             }
             
@@ -7413,7 +7413,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            nombrebordado = mangaizquierdanombre;
             cantidadaplicacion = aplicacionmangaizquierda;
         
-                
+                ubicacionprenda = "MANGA IZQUIERDA";
                                                 
                                                 
                                                 
@@ -7502,6 +7502,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            fechaubicacion  = "pecho_izquierdo_fecha";
            ubicacion = "pecho_izquierdo_cantidad"; 
             
+           ubicacionprenda = "PECHO IZQUIERDO";
            nombrebordado =pechoizquierdonombre;
            cantidadaplicacion = aplicacionpechoizquierdo;
         
@@ -7586,6 +7587,8 @@ JOptionPane.showMessageDialog(null, mensaje);
            
             nombrebordado = espaldanombre;
             cantidadaplicacion = aplicacionespalda;
+            
+            ubicacionprenda = "ESPALDA";
                   
          
         if(cantidad.equals("0"))
@@ -7661,6 +7664,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         ubicacion = "pecho_derecho_cantidad";
         nombrebordado = pechoderechonombre;
         cantidadaplicacion = aplicacionpechoderecho;
+        ubicacionprenda = "PECHO DERECHO";
         
         
         
@@ -7737,7 +7741,7 @@ JOptionPane.showMessageDialog(null, mensaje);
           nombrebordado = mangaderechanombre;
           cantidadaplicacion = aplicacionmangaderecha;       
                         
-                                        
+          ubicacionprenda = "MANGA DERECHA";                              
                                         
         if(cantidad.equals("0"))
         {
@@ -7907,7 +7911,7 @@ JOptionPane.showMessageDialog(null, mensaje);
           nombrebordado = otraubicacionnombre;
           cantidadaplicacion = aplicacionotraubicacion;
                
-         
+         ubicacionprenda = "OTRA UBICACION";
                                         
                                         
         if(cantidad.equals("0"))
@@ -7982,7 +7986,9 @@ JOptionPane.showMessageDialog(null, mensaje);
          fechaubicacion  = "otra_ubicacion2_fecha";
             ubicacion = "otra_ubicacion2_cantidad";
             nombrebordado = otraubicacion2nombre;
-            cantidadaplicacion = aplicacionotraubicacion2;                         
+            cantidadaplicacion = aplicacionotraubicacion2; 
+            
+            ubicacionprenda = "OTRA UBICACION2";
                                         
          
                                                 

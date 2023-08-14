@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.InetAddress;
 import java.sql.Blob;
 import java.sql.Connection;
@@ -81,6 +82,12 @@ public static boolean ventanaordenparche = false;
        String tiendaconectada = "";
        String esenvioopedido = "";
        String numeroenvioopedidorecibido = "";
+       String ubicacionponchado = "";
+       String ubicacionponchadonombre = "";
+       String numeroordendebordadosolicitadoorecibidasisehabredesderecibidas = "";
+    
+       
+       String ruta1= "";
         
         String numerosucursal = "";
         public static String tipotabla ="";
@@ -230,7 +237,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         limpiar();
    
      
-        numeroordendebordadolocalorecibida = lborden.getText();
+        numeroordendebordadosolicitadoorecibidasisehabredesderecibidas = lborden.getText();
         
         
         lbsucursal.setText(tiendalocal);
@@ -986,10 +993,10 @@ JOptionPane.showMessageDialog(null, mensaje);
       void datosotrasucursal() throws IOException 
      {
 
-        btnreplicarponchados.setEnabled(true);
+        btnreplicar1.setEnabled(true);
         btnterminetodo.setEnabled(true);
 
-        numeroordendebordadolocalorecibida = lborden.getText();
+        numeroordendebordadosolicitadoorecibidasisehabredesderecibidas = lborden.getText();
         
         sucursal = lbsucursal.getText();
 
@@ -2578,6 +2585,66 @@ JOptionPane.showMessageDialog(null, mensaje);
      
      
      
+     void descargarponchado(String ubicacion,String ubicacionnombre)
+     {
+         
+         JFileChooser fs = new JFileChooser();
+        
+
+         try (
+                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_camisa_recibidas where numero = '" + numeroordendebordadosolicitadoorecibidasisehabredesderecibidas + "' ")) {
+             ResultSet rs = ps.executeQuery();
+
+             if (rs.next()) {
+
+                 fs.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
+            
+                 
+                 
+                 
+                 String nombre = rs.getString("" + ubicacionnombre + "");
+                 
+                 if (nombre==null)
+                 {
+                 
+               JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">No se encontró el ponchado, favor de marcarle a la sucursal para que se lo replique o llame a sistemas");
+                 
+                 }
+                 else
+                 {
+                     
+                 
+                 
+                 fs.setSelectedFile(new File(nombre));
+                 int tampak = fs.showSaveDialog(null);
+
+                 if (tampak == JFileChooser.APPROVE_OPTION) 
+                 {
+                     File file = fs.getSelectedFile();
+                     try (InputStream stream = rs.getBinaryStream("" + ubicacion + "");
+                             OutputStream output = new FileOutputStream(file)) 
+                     {
+                         byte[] buffer = new byte[4096];
+                         while (stream.read(buffer) > 0) 
+                         {
+                             output.write(buffer);
+                         }
+                     }
+                 }
+                 
+                 }
+
+             }
+             rs.close();
+         } catch (FileNotFoundException fnfe) {
+             System.out.println(fnfe);
+         } catch (IOException ioe) {
+             System.out.println(ioe);
+         } catch (SQLException sqle) {
+             System.out.println(sqle);
+         }
+     }
+     
      
      
      
@@ -2953,7 +3020,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel9 = new javax.swing.JLabel();
         lbnumerodeventa = new javax.swing.JLabel();
         lbtipo = new javax.swing.JLabel();
-        btnreplicarponchados = new javax.swing.JButton();
+        btnreplicar1 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         lbsucursal = new javax.swing.JLabel();
         lbprenda1 = new javax.swing.JLabel();
@@ -2976,6 +3043,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel11 = new javax.swing.JLabel();
         lbsumapuntos1 = new javax.swing.JLabel();
         btncargarponchado1 = new javax.swing.JButton();
+        btnquitarponchado1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden de parche");
@@ -3171,8 +3239,13 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbtipo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbtipo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnreplicarponchados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnreplicarponchados.setText("Replicar ponchados");
+        btnreplicar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnreplicar1.setText("Replicar");
+        btnreplicar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnreplicar1ActionPerformed(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setText("Sucursal");
@@ -3277,6 +3350,14 @@ JOptionPane.showMessageDialog(null, mensaje);
         btncargarponchado1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncargarponchado1ActionPerformed(evt);
+            }
+        });
+
+        btnquitarponchado1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnquitarponchado1.setText("-");
+        btnquitarponchado1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnquitarponchado1ActionPerformed(evt);
             }
         });
 
@@ -3415,7 +3496,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btncargarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnquitarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(btnreplicar1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnparcheponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -3455,8 +3538,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addComponent(lbcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbcolor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbparchenombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbsumapuntos1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(5, 5, 5))
+                            .addComponent(lbsumapuntos1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -3517,9 +3599,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnparcheponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnreplicarponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btncargarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btnreplicar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btncargarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnquitarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3848,7 +3931,14 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btncancelarActionPerformed
 
     private void btnparcheponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnparcheponchadoActionPerformed
-        // TODO add your handling code here:
+      
+        ubicacion ="parche_ponchado";
+                String ubicacionnombre ="parche_ponchado_nombre";
+                        
+                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
+                
+                
+                
     }//GEN-LAST:event_btnparcheponchadoActionPerformed
 
     private void btntermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermineActionPerformed
@@ -3987,8 +4077,129 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btntermineMouseReleased
 
     private void btncargarponchado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarponchado1ActionPerformed
-        // TODO add your handling code here:
+       
+        
+        
+        
+        JFileChooser adjuntar = new JFileChooser();
+      
+
+        int respuesta = adjuntar.showOpenDialog(this);
+   
+        if (respuesta == JFileChooser.APPROVE_OPTION) {
+            File archivoelegido = adjuntar.getSelectedFile();
+            ruta1 = archivoelegido.toString();
+          
+            
+             btnreplicar1.setEnabled(true);
+           btnquitarponchado1.setEnabled(true);
+          
+         //  btnreplicartodoslosponchados.setEnabled(true);
+           
+            btncargarponchado1.setEnabled(false);
+        
+            
+            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Ponchado agregado correctamente");
+          
+          
+           
+        
+        }
+        
+        
+        
+        
     }//GEN-LAST:event_btncargarponchado1ActionPerformed
+
+    private void btnquitarponchado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquitarponchado1ActionPerformed
+       
+        
+         btncargarponchado1.setEnabled(true);
+        btnreplicar1.setEnabled(false);
+        
+        btnquitarponchado1.setEnabled(false);
+        
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Ponchado eliminado");
+            
+        
+        
+        
+    }//GEN-LAST:event_btnquitarponchado1ActionPerformed
+
+    private void btnreplicar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreplicar1ActionPerformed
+       
+        
+        
+         ubicacionponchado= "parche_ponchado";
+        ubicacionponchadonombre = "parche_ponchado_nombre";
+                
+        
+          String nombrearchivo ="";
+        
+        FileInputStream input = null;
+
+
+            
+            if (ruta1 == null || ruta1.equals("")) 
+            {
+
+            } 
+            
+            else
+            
+            {
+                try {
+                    
+                  
+                     File archivo = new File(ruta1);
+                     nombrearchivo =archivo.getName();
+                     
+                    input = new FileInputStream(new File(ruta1));
+                    
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                try {
+
+                    String sql2 = "UPDATE historial_ordenes_camisa_recibidas set "+ubicacionponchado+" =? where numero_orden_parche_solicitada='" +numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+ "' and prenda = '" + prenda + "' and identificador_prenda = '"+identificador+"' ";
+                    PreparedStatement pst = cnsucursal.prepareStatement(sql2);
+                    pst.setBinaryStream(1, input);
+                    pst.executeUpdate();
+                    pst.close();
+                 
+
+                } catch (Exception e) {
+                   
+                   JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">Error al REPLICAR EL PONCHADO");
+                }
+                
+                
+                
+                 try {
+                
+                PreparedStatement pst = cnsucursal.prepareStatement("UPDATE historial_ordenes_parche_recibidas set "+ubicacionponchadonombre+" ='"+nombrearchivo+"' where numero_orden_camisa_solicitada='" +numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+ "' and prenda = '" + prenda + "' and identificador_prenda = '"+identificador+"'");
+                   pst.executeUpdate();
+                    System.out.println(pst);
+                   pst.close();
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                 
+                 
+                 
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:green; font-size:20px;\">Ponchado en "+ubicacionponchadonombre+" replicado correctamente ");
+                
+             
+
+            }
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnreplicar1ActionPerformed
 
     
     ResultSet rs;
@@ -4010,7 +4221,8 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JButton btneditarbordado;
     private javax.swing.JButton btnfotomontajesinpuntadas;
     private javax.swing.JButton btnparcheponchado;
-    private javax.swing.JButton btnreplicarponchados;
+    private javax.swing.JButton btnquitarponchado1;
+    private javax.swing.JButton btnreplicar1;
     public static javax.swing.JButton btnsalir;
     private javax.swing.JButton btntermine;
     private javax.swing.JButton btnterminetodo;

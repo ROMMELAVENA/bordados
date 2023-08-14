@@ -181,6 +181,21 @@ else
          
          
          
+        
+            
+                
+              if (tiendaconectada.equals("si"))
+
+                      {
+      
+                     cargarfotomontajesucursal();     
+                 
+                 
+                      }
+        
+        
+        
+         
          
          sumapuntos();
     }
@@ -1123,14 +1138,21 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
              
-            
-                
-              if (tiendaconectada.equals("si"))
-
-                      {
+        
+        
+ }
+     
+     
       
-                          
-                        
+      
+      
+      void cargarfotomontajesucursal(){
+          
+          
+          
+          
+          
+                 
                 
                  try {
          
@@ -1232,16 +1254,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
                  
-                 
-                      }
-        
-        
-        
-        
-        
- }
-     
-     
+          
+          
+          
+          
+      }
      
      
      
@@ -3664,9 +3681,13 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        
+        
+          conectadaasucursal();
+          
+          
         datos();
         
-        conectadaasucursal();
+      
         
         
         

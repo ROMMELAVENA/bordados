@@ -2496,12 +2496,13 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-      
+
+        
+          conectadaasucursal();
+          
+          
         
         datos();
-        
-  
-        conectadaasucursal();
         
         
         

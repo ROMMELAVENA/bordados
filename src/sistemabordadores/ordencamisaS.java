@@ -543,8 +543,42 @@ public class ordencamisaS extends javax.swing.JFrame {
             Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
         }
          
+         
+         
+         
+         
+            
+                
+              if (tiendaconectada.equals("si"))
+
+                      {
+      
+                     cargarfotomontajesucursal();     
+                 
+                 
+                      }
+        
+        
+        
+         
+         
+         
+         
+         
+         
        
     }   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
       datoscolorido();  
       sumapuntos();
       
@@ -2173,12 +2207,21 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
  
-             
-              if (tiendaconectada.equals("si"))
-
-                      {
-      
-                          
+              
+              
+        
+     
+        
+    }
+    
+    
+    
+    
+    
+    
+    void cargarfotomontajesucursal(){
+        
+        
                         
                 
                  try {
@@ -2280,30 +2323,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                             }
         
         
-                 
-                 
-                      }
-              
-              
-              
-             
-        
-        
-              
-              
-              
-              
-        
-     
         
     }
-    
-    
-    
-    
-    
-    
-    
     
     
     

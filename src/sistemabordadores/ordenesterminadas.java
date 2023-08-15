@@ -8,10 +8,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.RowSorter;
 import javax.swing.SortOrder;
@@ -21,6 +26,8 @@ import javax.swing.table.TableRowSorter;
 import net.coderazzi.filters.gui.AutoChoices;
 import net.coderazzi.filters.gui.TableFilterHeader;
 import static sistemabordadores.ordenesterminadas.btnactualizar;
+import javax.swing.JTextField;
+
 
 public class ordenesterminadas extends javax.swing.JFrame {
 
@@ -31,6 +38,8 @@ public class ordenesterminadas extends javax.swing.JFrame {
     String tiendalocal = principal.tiendalocal;
     String sucursal = "";
     public static String localuotrasucursal ="";
+    String primerafecha = "";
+    
 
     public ordenesterminadas() {
         initComponents();
@@ -43,6 +52,78 @@ public class ordenesterminadas extends javax.swing.JFrame {
         lbtienda.setVisible(false);
         btnactualizar.setVisible(false);
         btnfrente.setVisible(false);
+        
+        
+        
+        
+        
+        
+        
+             Calendar cal = new GregorianCalendar();
+        
+    
+         int diaactual = (cal.get(Calendar.DAY_OF_MONTH));
+         int mesactual = (cal.get(Calendar.MONTH)+1);
+         int año =  cal.get(Calendar.YEAR);
+        
+        String fechaactual = (+diaactual+ "/" + mesactual + "/" + año);
+        
+         try {
+                 SimpleDateFormat sdfSource = new SimpleDateFormat("d/MM/yyyy");
+
+                java.util.Date date = sdfSource.parse(fechaactual);
+
+               SimpleDateFormat sdfDestination = new SimpleDateFormat("yyyy/MM/dd");
+
+                fechaactual = sdfDestination.format(date);
+
+            } catch (Exception pe) {
+                
+            }
+       
+         
+         int diainicial = diaactual - 30;  //PONER LOS DIAS QUE QUIERE QUE SE MUESTREN
+         int mesinicial = mesactual;
+         if (diainicial<0) {diainicial = diainicial + 30; mesinicial = mesactual-1; }
+                 
+                  
+            String fechaini = (diainicial + "/" + mesinicial + "/" + año);
+          
+            try {
+                 SimpleDateFormat sdfSource = new SimpleDateFormat("d/MM/yyyy");
+
+                java.util.Date date2 = sdfSource.parse(fechaini);
+
+               SimpleDateFormat sdfDestination = new SimpleDateFormat("yyyy/MM/dd");
+
+                fechaini = sdfDestination.format(date2);
+
+            } catch (Exception pe) {
+                
+            }
+
+       
+           
+     java.util.Date fecha1;
+     java.util.Date fecha2;
+    
+     
+        try {
+            fecha1 = new SimpleDateFormat("yyyy/MM/dd").parse(fechaini);
+            fecha2 = new SimpleDateFormat("yyyy/MM/dd").parse(fechaactual);
+            
+            lbfechainicial.setDate(fecha1);
+            lbfechafinal.setDate(fecha2);
+            
+        } catch (ParseException ex) {
+            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
+        
+        
+        
+
+        
         
        
         
@@ -59,6 +140,42 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         
         limpiartabla();
+        primerafecha = "no";
+        
+        
+        
+        
+            Object t = ((JTextField) lbfechainicial.getDateEditor().getUiComponent()).getText();
+        if (t == null || t.equals("")) {
+            JOptionPane.showMessageDialog(null, "Selecciona una fecha inicial");
+        } else {
+            String diainicial = Integer.toString(lbfechainicial.getCalendar().get(Calendar.DAY_OF_MONTH));
+            String mesinicial = Integer.toString(lbfechainicial.getCalendar().get(Calendar.MONTH) + 01);
+            String añoinicial = Integer.toString(lbfechainicial.getCalendar().get(Calendar.YEAR));
+
+           fechainicial = (añoinicial + "/" + mesinicial + "/" + diainicial);
+            
+          
+          
+        }
+
+        Object f = ((JTextField) lbfechafinal.getDateEditor().getUiComponent()).getText();
+        if (f == null || f.equals("")) {
+            JOptionPane.showMessageDialog(null, "Selecciona una fecha final");
+        } else {
+             String dia = Integer.toString(lbfechafinal.getCalendar().get(Calendar.DAY_OF_MONTH));
+            String mes = Integer.toString(lbfechafinal.getCalendar().get(Calendar.MONTH) + 01);
+            String year = Integer.toString(lbfechafinal.getCalendar().get(Calendar.YEAR));
+
+            fechafinal = (year + "/" + mes + "/" + dia);
+           
+
+        }
+    
+    
+         
+         
+         
 
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
        
@@ -71,7 +188,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  "
                          + "FROM historial_ordenes_camisa where lugar = 'Esta sucursal' "
-                         + "and estatus_orden = 'realizada totalmente'  order by fecha desc  ";
+                         + "and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc  ";
         
         
         
@@ -130,7 +247,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos2 = new String[12];
         
-        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_gorra where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' order by fecha desc";
+        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_gorra where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
@@ -170,7 +287,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos3 = new String[12];
         
-         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_pantalon where lugar = 'Esta sucursal' and estatus_orden = 'realizada totalmente' order by fecha desc";
+         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_pantalon where lugar = 'Esta sucursal' and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
@@ -212,7 +329,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
          String[] datos6 = new String[12];
         
-        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_corbata where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' order by fecha desc ";
+        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_corbata where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc ";
 
         try {
             Statement st = cn.createStatement();
@@ -253,7 +370,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos4 = new String[12];
         
-        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' order by fecha desc";
+        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
@@ -294,7 +411,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos7 = new String[12];
         
-        String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres where  estatus_orden = 'realizada totalmente' order by fecha desc ";
+        String sqlportanombre= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres where  estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc ";
 
         try {
             Statement st = cn.createStatement();
@@ -332,7 +449,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos8 = new String[12];
 
-         String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres_multiple where estatus_orden = 'realizada totalmente'  order by fecha desc ";
+         String sqlportanombremultiple= "SELECT Distinct numero,tipo,numero_venta,fecha  FROM historial_ordenes_portanombres_multiple where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc ";
 
         try {
             Statement st = cn.createStatement();
@@ -376,7 +493,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
          
          String[] datos5 = new String[12];
         
-        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' order by fecha desc";
+        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
@@ -445,7 +562,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
          //// historial ordenes internas
         
-        String sql5 = "Select numero,tipo,fecha,cantidad,prenda,descripcion,hora from historial_ordenes_bordados_interno where estatus_entrega = 'entregada'  order by fecha desc ";
+        String sql5 = "Select numero,tipo,fecha,cantidad,prenda,descripcion,hora from historial_ordenes_bordados_interno where estatus_entrega = 'entregada' and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by fecha desc ";
 
         try {
             Statement st5 = cn.createStatement();
@@ -507,7 +624,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos9 = new String[12];
 
-        String sql3 = "SELECT numero,numero_orden_camisa_solicitada,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus_orden = 'realizada totalmente' order by fecha desc "; //and tienda not in('"+tiendalocal+"')
+        String sql3 = "SELECT numero,numero_orden_camisa_solicitada,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc "; //and tienda not in('"+tiendalocal+"')
 
         try {
             Statement st = cn.createStatement();
@@ -543,7 +660,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos10 = new String[12];
 
-        String sql4 = "SELECT numero,numero_orden_gorra_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_gorra_recibidas  where estatus_orden = 'realizada totalmente'  order by fecha desc  ";
+        String sql4 = "SELECT numero,numero_orden_gorra_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_gorra_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
@@ -578,7 +695,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos11 = new String[12];
 
-        String sql15 = "SELECT numero,numero_orden_pantalon_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_pantalon_recibidas  where estatus_orden = 'realizada totalmente' order by fecha desc  ";
+        String sql15 = "SELECT numero,numero_orden_pantalon_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_pantalon_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
@@ -615,7 +732,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos16 = new String[12];
 
-        String sql16 = "SELECT numero,numero_orden_corbata_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_corbata_recibidas  where estatus_orden = 'realizada totalmente'   order by fecha desc  ";
+        String sql16 = "SELECT numero,numero_orden_corbata_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_corbata_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
@@ -650,7 +767,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos17 = new String[12];
 
-        String sql17 = "SELECT numero,numero_orden_parche_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_parche_recibidas  where estatus_orden = 'realizada totalmente'  order by fecha desc  ";
+        String sql17 = "SELECT numero,numero_orden_parche_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_parche_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
@@ -1178,6 +1295,8 @@ public class ordenesterminadas extends javax.swing.JFrame {
         lbtienda = new javax.swing.JLabel();
         btnactualizar = new javax.swing.JButton();
         btnfrente = new javax.swing.JButton();
+        lbfechainicial = new com.toedter.calendar.JDateChooser();
+        lbfechafinal = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ordenes terminadas");
@@ -1276,10 +1395,24 @@ public class ordenesterminadas extends javax.swing.JFrame {
             }
         });
 
-        btnfrente.setText("frente_puntadas");
+        btnfrente.setText("frente");
         btnfrente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnfrenteActionPerformed(evt);
+            }
+        });
+
+        lbfechainicial.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbfechainicial.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                lbfechainicialPropertyChange(evt);
+            }
+        });
+
+        lbfechafinal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbfechafinal.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                lbfechafinalPropertyChange(evt);
             }
         });
 
@@ -1294,7 +1427,10 @@ public class ordenesterminadas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(1658, 1658, 1658)
+                                .addComponent(lbfechainicial, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbfechafinal, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1384, 1384, 1384)
                                 .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1310,9 +1446,12 @@ public class ordenesterminadas extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbfechafinal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbfechainicial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 876, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1763,6 +1902,28 @@ sorter.sort();
             btnactualizar.doClick();
         }
     }//GEN-LAST:event_formKeyPressed
+
+    private void lbfechainicialPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_lbfechainicialPropertyChange
+
+        if (primerafecha.equals("no"))
+        {
+
+            datos();
+
+        }
+
+    }//GEN-LAST:event_lbfechainicialPropertyChange
+
+    private void lbfechafinalPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_lbfechafinalPropertyChange
+
+        if (primerafecha.equals("no"))
+        {
+
+            datos();
+
+        }
+
+    }//GEN-LAST:event_lbfechafinalPropertyChange
 
     /**
      * @param args the command line arguments
@@ -2827,6 +2988,8 @@ sorter.sort();
     public static javax.swing.JButton btnfrente;
     private javax.swing.JButton btnsalir;
     private javax.swing.JScrollPane jScrollPane1;
+    private com.toedter.calendar.JDateChooser lbfechafinal;
+    private com.toedter.calendar.JDateChooser lbfechainicial;
     public static javax.swing.JLabel lbinterface;
     public static javax.swing.JLabel lbtienda;
     private javax.swing.JTable tabla;

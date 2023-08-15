@@ -51,6 +51,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import net.coderazzi.filters.gui.AutoChoices;
+import net.coderazzi.filters.gui.TableFilterHeader;
 
 
 public class bordadosreportegeneral extends javax.swing.JFrame {
@@ -105,6 +107,9 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         initComponents();
         ventanareportedebordadosgeneral = true;
+        
+        
+        TableFilterHeader filterHeader = new TableFilterHeader(tabladerecha, AutoChoices.ENABLED);
     
         topes();
         seleccionarfechas();
@@ -5190,7 +5195,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             },
             new String [] {
-                "No. orden", "Bordacliente", "Prenda", "Identificador", "Ubicacion", "Nombre bordado", "Cant", "Puntadas", "Costo punt", "Puntos", "Aplicac", "Costo aplic", "Puntos ap", "Suma", "Tabla", "sucursal"
+                "Orden", "Bordacliente", "Prenda", "Identificador", "Ubicacion", "Nombre bordado", "Cant", "Puntadas", "Costo punt", "Puntos", "Aplicac", "Costo aplic", "Puntos ap", "Suma", "Tabla", "sucursal"
             }
         ) {
             boolean[] canEdit = new boolean [] {

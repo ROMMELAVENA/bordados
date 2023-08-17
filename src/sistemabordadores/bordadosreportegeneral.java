@@ -99,7 +99,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     
     String tiendalocal = principal.tiendalocal;
     
-    
+    String fechabusqueda = "";
     
     PreparedStatement pst;
 
@@ -453,7 +453,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         String labelaño = lbaño.getText();
         año = Integer.parseInt(labelaño);
 
-        String fechabusqueda = (+año + "-" + mesfinal + "-" + dia);
+        fechabusqueda = (+año + "-" + mesfinal + "-" + dia);
 
         double sumatotaldelosbordados = 0.00;
         double sumatotaldelosbordadosrecibidos = 0.00;
@@ -472,11 +472,23 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         double sumatotaldelosponchados = 0.00;
 
         
+          if (fechabusqueda.equals("2023-08-7")||  fechabusqueda.equals("2023-08-7"))
+                {
+                 int a = 0;   
+                }
+                
+                
+                 if (fechabusqueda.equals("2023-8-8"))
+                {
+                 int a = 0;   
+                }
+                
+        
         
         
         ////////////CAMISA
         
-        String sql = "Select codigo,fecha,cliente,cantidad,prenda,pecho_izquierdo_cantidad,pecho_izquierdo_nombre,pecho_izquierdo_puntadas,"
+        String sql = "Select codigo,numero,fecha,cliente,pecho_izquierdo_fecha,cantidad,prenda,pecho_izquierdo_cantidad,pecho_izquierdo_nombre,pecho_izquierdo_puntadas,"
                 + "pecho_derecho_cantidad,pecho_derecho_nombre,pecho_derecho_puntadas,"
                 + "manga_izquierda_cantidad,manga_izquierda_nombre,manga_izquierda_puntadas,"
                 + "manga_derecha_cantidad,manga_derecha_nombre,manga_derecha_puntadas,"
@@ -490,9 +502,25 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             while (rs.next()) {
 
+                String numero =  rs.getString("numero");
+                String cliente =   rs.getString("cliente");  
+                String fechapecho = rs.getString("pecho_izquierdo_fecha"); 
+                
+                if (fechabusqueda==null || fechabusqueda.equals(""))
+                        {
+                            
+                        }
+                
+                else
+                    
+                {
                 
               
-                cantidadbordados = rs.getString("cantidad");
+                
+                        
+                }
+              
+           //     cantidadbordados = rs.getString("cantidad");
                 pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
                 cantidadpechoizquierdo = rs.getString("pecho_izquierdo_cantidad");
                 pechoderecho = rs.getString("pecho_derecho_puntadas");
@@ -519,7 +547,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                     cantidadbordados = "0";
                 }
 
-            int cantidad =  Integer.parseInt(cantidadbordados);   
+          //  int cantidad =  Integer.parseInt(cantidadbordados);   
             int cantidadpechoizquierdoint = Integer.parseInt(cantidadpechoizquierdo);
             int cantidadpechoderechoint = Integer.parseInt(cantidadpechoderecho);
             int cantidadmangaizquierdaint = Integer.parseInt(cantidadmangaizquierda);
@@ -678,25 +706,25 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 importeotraubicacion2 = cantidadotraubicacion2int * costopuntadaotraubicacion2;
 
-                if (aplicacionpechoizquierdo == null || aplicacionpechoizquierdo.equals("") || aplicacionpechoizquierdo.equals(" ")) {
+                if (aplicacionpechoizquierdo == null || aplicacionpechoizquierdo.equals("") || aplicacionpechoizquierdo.equals(" ") || aplicacionpechoizquierdo.equals("0")) {
                     aplicacionpechoizquierdo = "0";
                 }
 
                 double aplicacionpechoizquierdodouble = Double.parseDouble(aplicacionpechoizquierdo);
 
-                if (aplicacionpechoderecho == null || aplicacionpechoderecho.equals("") || aplicacionpechoderecho.equals(" ")) {
+                if (aplicacionpechoderecho == null || aplicacionpechoderecho.equals("") || aplicacionpechoderecho.equals(" ")  || aplicacionpechoderecho.equals("0")) {
                     aplicacionpechoderecho = "0";
                 }
 
                 double aplicacionpechoderechodouble = Double.parseDouble(aplicacionpechoderecho);
 
-                if (aplicacionmangaizquierda == null || aplicacionmangaizquierda.equals("") || aplicacionmangaizquierda.equals(" ")) {
+                if (aplicacionmangaizquierda == null || aplicacionmangaizquierda.equals("") || aplicacionmangaizquierda.equals(" ") || aplicacionmangaizquierda.equals("0")) {
                     aplicacionmangaizquierda = "0";
                 }
 
                 double aplicacionmangaizquierdadouble = Double.parseDouble(aplicacionmangaizquierda);
 
-                if (aplicacionmangaderecha == null || aplicacionmangaderecha.equals("") || aplicacionmangaderecha.equals(" ")) {
+                if (aplicacionmangaderecha == null || aplicacionmangaderecha.equals("") || aplicacionmangaderecha.equals(" ") || aplicacionmangaderecha.equals("0")) {
                     aplicacionmangaderecha = "0";
                 }
 
@@ -724,9 +752,9 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
 
-                sumadelasaplicioneschicasdouble = (sumadelasaplicioneschicasdouble * cantidad) * costopuntadaaplicacionchica;
+              //  sumadelasaplicioneschicasdouble = (sumadelasaplicioneschicasdouble * cantidad) * costopuntadaaplicacionchica;
 
-                if (aplicacionespalda == null || aplicacionespalda.equals("") || aplicacionespalda.equals(" ")) {
+                if (aplicacionespalda == null || aplicacionespalda.equals("") || aplicacionespalda.equals(" ") || aplicacionespalda.equals("0")) {
                     aplicacionespalda = "0";
                 }
 
@@ -751,8 +779,14 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 }
 
-                double sumadelasaplicionesgrandesdouble = (aplicacionespaldadouble * cantidad) * costopuntadaaplicaciongrande;
+                double sumadelasaplicionesgrandesdouble = 0;
+              //  double sumadelasaplicionesgrandesdouble = (aplicacionespaldadouble * cantidad) * costopuntadaaplicaciongrande;
 
+                
+                numero =  numero;
+                cliente =   cliente;  
+                
+                
                 double sumabordados = importepechoizquierdo + importepechoderecho + importemangaizquierda + importemangaderecha + importeespalda + importeotraubicacion + importeotraubicacion2 + sumadelasaplicionesgrandesdouble + sumadelasaplicioneschicasdouble;
                 sumatotaldelosbordados = sumatotaldelosbordados + sumabordados;
 
@@ -934,25 +968,25 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 ////
                 //APLICACIONES
-                if (aplicacionpechoizquierdorecibidos == null || aplicacionpechoizquierdorecibidos.equals("") || aplicacionpechoizquierdorecibidos.equals(" ")) {
+                if (aplicacionpechoizquierdorecibidos == null || aplicacionpechoizquierdorecibidos.equals("") || aplicacionpechoizquierdorecibidos.equals(" ") || aplicacionpechoizquierdorecibidos.equals("0")) {
                     aplicacionpechoizquierdorecibidos = "0";
                 }
 
                 double aplicacionpechoizquierdodouble = Double.parseDouble(aplicacionpechoizquierdorecibidos);
 
-                if (aplicacionpechoderechorecibidos == null || aplicacionpechoderechorecibidos.equals("") || aplicacionpechoderechorecibidos.equals(" ")) {
+                if (aplicacionpechoderechorecibidos == null || aplicacionpechoderechorecibidos.equals("") || aplicacionpechoderechorecibidos.equals(" ") || aplicacionpechoderechorecibidos.equals("0")) {
                     aplicacionpechoderechorecibidos = "0";
                 }
 
                 double aplicacionpechoderechodouble = Double.parseDouble(aplicacionpechoderechorecibidos);
 
-                if (aplicacionmangaizquierdarecibidos == null || aplicacionmangaizquierdarecibidos.equals("") || aplicacionmangaizquierdarecibidos.equals(" ")) {
+                if (aplicacionmangaizquierdarecibidos == null || aplicacionmangaizquierdarecibidos.equals("") || aplicacionmangaizquierdarecibidos.equals(" ") || aplicacionmangaizquierdarecibidos.equals("0")) {
                     aplicacionmangaizquierdarecibidos = "0";
                 }
 
                 double aplicacionmangaizquierdadouble = Double.parseDouble(aplicacionmangaizquierdarecibidos);
 
-                if (aplicacionmangaderecharecibidos == null || aplicacionmangaderecharecibidos.equals("") || aplicacionmangaderecharecibidos.equals(" ")) {
+                if (aplicacionmangaderecharecibidos == null || aplicacionmangaderecharecibidos.equals("") || aplicacionmangaderecharecibidos.equals(" ") || aplicacionmangaderecharecibidos.equals("0")) {
                     aplicacionmangaderecharecibidos = "0";
                 }
 
@@ -981,7 +1015,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 sumadelasaplicioneschicasdouble = (sumadelasaplicioneschicasdouble *cantidad )* costopuntadaaplicacionchica;
 
-                if (aplicacionespalda == null || aplicacionespalda.equals("") || aplicacionespalda.equals(" ")) {
+                if (aplicacionespalda == null || aplicacionespalda.equals("") || aplicacionespalda.equals(" ") || aplicacionespalda.equals("0")) {
                     aplicacionespalda = "0";
                 }
 
@@ -1143,7 +1177,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 importeatrasgorra = cantidad * costopuntadaatras;
                 
-                if (aplicacionfrente == null || aplicacionfrente.equals("") || aplicacionfrente.equals(" ")) {
+                if (aplicacionfrente == null || aplicacionfrente.equals("") || aplicacionfrente.equals(" ") || aplicacionfrente.equals("0")) {
                     aplicacionfrente = "0";
                 }
 
@@ -1302,7 +1336,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 importeatrasgorrarecibidas = cantidad * costopuntadaatrasrecibidas;
                 
                 ///
-                if (aplicacionfrenterecibidas == null || aplicacionfrenterecibidas.equals("") || aplicacionfrenterecibidas.equals(" ")) {
+                if (aplicacionfrenterecibidas == null || aplicacionfrenterecibidas.equals("") || aplicacionfrenterecibidas.equals(" ") || aplicacionfrenterecibidas.equals("0")) {
                     aplicacionfrenterecibidas = "0";
                 }  
                 double costopuntadaaplicaciongrande = 0.0;
@@ -2277,7 +2311,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 importedistinta7 = cantidaddistinta7int * costopuntadadistinta7;
 
-                if (aplicaciondistinta1 == null || aplicaciondistinta1.equals("") || aplicaciondistinta1.equals(" ")) {
+                if (aplicaciondistinta1 == null || aplicaciondistinta1.equals("") || aplicaciondistinta1.equals(" ") || aplicaciondistinta1.equals("0")) {
                     aplicaciondistinta1 = "0";
                 }
 
@@ -2285,7 +2319,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 
                 /// distinta 2
-                if (aplicaciondistinta2 == null || aplicaciondistinta2.equals("") || aplicaciondistinta2.equals(" ")) {
+                if (aplicaciondistinta2 == null || aplicaciondistinta2.equals("") || aplicaciondistinta2.equals(" ") || aplicaciondistinta2.equals("0")) {
                     aplicaciondistinta2 = "0";
                 }
 
@@ -2293,31 +2327,31 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 
                 /// distinta3
-                if (aplicaciondistinta3 == null || aplicaciondistinta3.equals("") || aplicaciondistinta3.equals(" ")) {
+                if (aplicaciondistinta3 == null || aplicaciondistinta3.equals("") || aplicaciondistinta3.equals(" ") || aplicaciondistinta3.equals("0")) {
                     aplicaciondistinta3 = "0";
                 }
 
                 double aplicaciondistinta3double = Double.parseDouble(aplicaciondistinta3);
 
-                if (aplicaciondistinta4 == null || aplicaciondistinta4.equals("") || aplicaciondistinta4.equals(" ")) {
+                if (aplicaciondistinta4 == null || aplicaciondistinta4.equals("") || aplicaciondistinta4.equals(" ") || aplicaciondistinta4.equals("0")) {
                     aplicaciondistinta4 = "0";
                 }
 
                 double aplicaciondistinta4double = Double.parseDouble(aplicaciondistinta4);
 
-                 if (aplicaciondistinta5 == null || aplicaciondistinta5.equals("") || aplicaciondistinta5.equals(" ")) {
+                 if (aplicaciondistinta5 == null || aplicaciondistinta5.equals("") || aplicaciondistinta5.equals(" ") || aplicaciondistinta5.equals("0")) {
                     aplicaciondistinta5 = "0";
                 }
 
                 double aplicaciondistinta5double = Double.parseDouble(aplicaciondistinta5);
                 
-                if (aplicaciondistinta6 == null || aplicaciondistinta6.equals("") || aplicaciondistinta6.equals(" ")) {
+                if (aplicaciondistinta6 == null || aplicaciondistinta6.equals("") || aplicaciondistinta6.equals(" ") || aplicaciondistinta6.equals("0")) {
                     aplicaciondistinta6 = "0";
                 }
 
                 double aplicaciondistinta6double = Double.parseDouble(aplicaciondistinta6);
                 
-                if (aplicaciondistinta7 == null || aplicaciondistinta7.equals("") || aplicaciondistinta7.equals(" ")) {
+                if (aplicaciondistinta7 == null || aplicaciondistinta7.equals("") || aplicaciondistinta7.equals(" ") || aplicaciondistinta7.equals("0")) {
                     aplicaciondistinta7 = "0";
                 }
 
@@ -2792,7 +2826,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         String añostring = lbaño.getText();
         int año = Integer.parseInt(añostring);
 
-        String fechabusqueda = (+año + "-" + mesint + "-" + dia);
+        fechabusqueda = (+año + "-" + mesint + "-" + dia);
         
         
         String tabla = "";
@@ -2823,7 +2857,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         {
             
             
-            if (i<7)
+            if (i<8)
             {
                  tabla = "historial_ordenes_camisa";
                  lugar = "Esta sucursal";
@@ -3050,7 +3084,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         String añostring = lbaño.getText();
         int año = Integer.parseInt(añostring);
 
-        String fechabusqueda = (+año + "-" + mesint + "-" + dia);
+        fechabusqueda = (+año + "-" + mesint + "-" + dia);
         
         
         String tabla = "";
@@ -3290,7 +3324,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         String añostring = lbaño.getText();
         int año = Integer.parseInt(añostring);
 
-        String fechabusqueda = (+año + "-" + mesint + "-" + dia);
+        fechabusqueda = (+año + "-" + mesint + "-" + dia);
         
         
         String tabla = "";
@@ -3492,7 +3526,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         String añostring = lbaño.getText();
         int año = Integer.parseInt(añostring);
 
-        String fechabusqueda = (+año + "-" + mesint + "-" + dia);
+        fechabusqueda = (+año + "-" + mesint + "-" + dia);
         
         
         String tabla = "";
@@ -3638,7 +3672,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         String añostring = lbaño.getText();
         int año = Integer.parseInt(añostring);
 
-        String fechabusqueda = (+año + "-" + mesint + "-" + dia);
+        fechabusqueda = (+año + "-" + mesint + "-" + dia);
         
         
         String tabla = "";
@@ -4147,7 +4181,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         String añostring = lbaño.getText();
         int año = Integer.parseInt(añostring);
 
-        String fechabusqueda = (+año + "-" + mesint + "-" + dia);
+        fechabusqueda = (+año + "-" + mesint + "-" + dia);
         
         
         String tabla = "";
@@ -4395,7 +4429,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         
         
             sumatotalesstring = String.format("%.02f ", sumatotalesdouble);
-            lbsumatrabladerecha.setText(sumatotalesstring);
+            lbsumatrabladerechobordados.setText(sumatotalesstring);
         
     }
     
@@ -4442,7 +4476,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         String añostring = lbaño.getText();
         int año = Integer.parseInt(añostring);
 
-        String fechabusqueda = (+año + "-" + mesint + "-" + dia);
+        fechabusqueda = (+año + "-" + mesint + "-" + dia);
 
         String sql = "Select numero,fecha,nombre_cliente,articulo,cantidad,numero  from HISTORIAL_VENTAS where estatus_pago not like ('%cancelada%') and fecha = '" + fechabusqueda + "' AND ARTICULO LIKE '%MODIFICACION DE PONCHADO%'   order by numero ";
 
@@ -4834,7 +4868,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         
         String añostring = lbaño.getText();
         int año = Integer.parseInt(añostring);
-        String fechabusqueda = (+año + "-" + mesint + "-" + dia);
+        fechabusqueda = (+año + "-" + mesint + "-" + dia);
         
         
 
@@ -5015,10 +5049,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         ;
         jLabel3 = new javax.swing.JLabel();
-        lbsumatrabladerecha = new javax.swing.JLabel();
+        lbsumatrabladerechobordados = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        lbfotomontajes = new javax.swing.JLabel();
+        lbsumatrabladerecha2 = new javax.swing.JLabel();
+        lbsuma = new javax.swing.JLabel();
 
         txtdialogoubic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -5261,12 +5298,12 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         }
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("Suma");
+        jLabel3.setText("Bordados");
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbsumatrabladerecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbsumatrabladerecha.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbsumatrabladerecha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbsumatrabladerechobordados.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbsumatrabladerechobordados.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbsumatrabladerechobordados.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Fotomontajes");
@@ -5279,6 +5316,18 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Suma");
         jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbfotomontajes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbfotomontajes.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbfotomontajes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbsumatrabladerecha2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbsumatrabladerecha2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbsumatrabladerecha2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lbsuma.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbsuma.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbsuma.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -5305,14 +5354,24 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(lbsumatrabladerecha, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lbsumatrabladerechobordados, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(99, 99, 99)
-                                        .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(99, 99, 99)
+                                                .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(44, 44, 44)
+                                                .addComponent(lbsuma, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbfotomontajes, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbsumatrabladerecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabel2)
@@ -5356,23 +5415,34 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 895, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 24, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 895, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 17, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(lbsuma, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbsumatablaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(5, 5, 5))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbsumatrabladerecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbsumatrabladerechobordados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbfotomontajes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbsumatrabladerecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26))))
@@ -5429,7 +5499,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         
         
-        
+        String sumaladoizquierdo = "";
+               double sumaladoizquierdodouble = 0;
         
         
         if (evt.getClickCount() == 1) 
@@ -5437,14 +5508,61 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             int fila = tablaizquierda.getSelectedRow();
 
-            if (fila >= 0) 
-            {
+         
 
-                Object fechabusqueda = tablaizquierda.getValueAt(fila, 0);
-                lbdia.setText(fechabusqueda.toString());
-                int fechabusquedaint = Integer.parseInt(fechabusqueda.toString());
+                Object diabusqueda = tablaizquierda.getValueAt(fila, 0);
+                lbdia.setText(diabusqueda.toString());
+                int fechabusquedaint = Integer.parseInt(diabusqueda.toString());
 
                 limpiartabla();
+                
+                
+                
+                
+          /*      
+                
+                 Calendar cal = new GregorianCalendar();
+
+        int dia = i;
+        
+        String messtring = lbmes.getText();
+        
+        if(messtring.equals("Diciembre"))
+        {
+          mes =12;  
+        }
+        else
+        {    
+        mes = (cal.get(Calendar.MONTH) + 1);
+        }
+        
+        if (mes > mesfinal) 
+        {
+            mes = mesfinal;
+        } 
+
+        String labelaño = lbaño.getText();
+        año = Integer.parseInt(labelaño);
+
+        fechabusqueda = (+año + "-" + mesfinal + "-" + dia);
+                
+                
+             */   
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+               
+                
+                
                 
                 
                 
@@ -5469,6 +5587,151 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 
                 
                 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+             /////
+        
+        String cantidadfotomontajes = "";
+        String nombrefotomontaje = "";
+        double importefotomontajes = 0;
+        double sumatotaldelosfotomontajes = 0;
+        double costofotomontajesdouble = 0.0;
+        String costostring = "0";
+        
+        int cantidadfotomontajesint = 0;
+  
+        
+        cantidadfotomontajesint = 0;
+        costofotomontajesdouble = 0.0;
+        
+        String sqlfotomontajes = "SELECT fotomontaje \n" +
+                                 "FROM historial_fotomontajes \n" +
+                                  "WHERE fecha = '" + fechabusqueda + "' ";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sqlfotomontajes);
+
+            while (rs.next())
+            {
+
+                cantidadfotomontajes = rs.getString("fotomontaje");
+                
+                if (cantidadfotomontajes == null || cantidadfotomontajes.equals(""))
+                {
+                    cantidadfotomontajes = "0";
+                }
+
+                cantidadfotomontajesint = Integer.parseInt(cantidadfotomontajes);
+
+               
+
+                String sqlponchadoscosto = "SELECT costo from catalogo_costos_bordado where puntadas = 'FOTOMONTAJE'";
+
+                try {
+                    PreparedStatement prst = cn.prepareStatement(sqlponchadoscosto);
+                    ResultSet rs3 = prst.executeQuery();
+                    if (rs3.next()) 
+                    {
+
+                        costostring = rs3.getString("costo");
+                        costofotomontajesdouble = Double.parseDouble(costostring);
+
+                    }
+                } catch (Exception exx) {
+                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
+
+                }
+                
+                
+
+             
+            }
+
+            rs.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+       
+       
+            
+               importefotomontajes = cantidadfotomontajesint * costofotomontajesdouble;
+
+              
+                sumatotaldelosfotomontajes = sumatotaldelosfotomontajes + importefotomontajes;
+                
+                String fotomontajesstring = String.format("%.02f ", sumatotaldelosfotomontajes);
+                
+                lbfotomontajes.setText(fotomontajesstring);
+                
+                
+                String sumaladoderechobordadosstring = lbsumatrabladerechobordados.getText();
+        
+        if (sumaladoderechobordadosstring.equals(""))
+        {
+            sumaladoderechobordadosstring = "0";
+        }
+        
+        double sumaladodechobordadosdouble = Double.parseDouble(sumaladoderechobordadosstring);
+        
+        
+        double sumaladoderechotodos = sumaladodechobordadosdouble + importefotomontajes;
+         String ladoderechotodosstring = String.format("%.02f ", sumaladoderechotodos);
+       lbsuma.setText(ladoderechotodosstring);
+         
+                
+                sumaladoizquierdo = tablaizquierda.getValueAt(fila, 1).toString();
+               sumaladoizquierdodouble = Double.parseDouble(sumaladoizquierdo);
+               
+               
+               
+               
+              
+                
+                
+        double diferencia = sumaladoderechotodos - sumaladoizquierdodouble;
+        
+        if (diferencia>2 || diferencia < -2)
+        {
+          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:15px;\">Hay diferencia entre la cantidad del lado izquierdo y la suma de la tabla derecha; por favor llame a sistemas");
+        }
+               
+               
+               
+                
+                
+                
+
+            
+            
+            
+            
+            
+            
                 
                 
                  
@@ -5483,11 +5746,10 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         sorter.setSortKeys(sortKeys);
         
         
-               
-                
-
-            }
         
+        
+        
+          
         }
 
         
@@ -5552,8 +5814,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         
         
                 // CAMISA
-                
-                if (tabla.equals("historial_ordenes_camisa") || tabla.equals("historial_ordenes_camisa_recibida")) 
+                                                                              
+                if (tabla.equals("historial_ordenes_camisa") || tabla.equals("historial_ordenes_camisa_recibidas")) 
                 {
                     
                     Object tipo = "Camisa";
@@ -5616,6 +5878,94 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 
              
                 
+                
+                
+                
+                
+                
+        
+                // GORRA
+                                                                              
+                if (tabla.equals("historial_ordenes_camisa") || tabla.equals("historial_ordenes_camisa_recibidas")) 
+                {
+                    
+                    Object tipo = "Camisa";
+                    
+                    
+                    
+                    if (ordencamisaS.ventanaordencamisa == true) 
+                    {
+                        
+                        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden de camisa ya está abierta");
+
+                    }
+                    else 
+                    {
+                        
+                      if (tabla.equals("historial_ordenes_camisa") ) 
+                { 
+                         lugar = "Esta sucursal";   
+                }     
+                      else
+                      {
+                          
+                          lugar = "Otra sucursal";   
+                      }
+                      
+                      
+                      
+                      
+                        
+                        ordencamisaS ventana = new ordencamisaS();
+                        ventana.setVisible(true);
+
+                        ordencamisaS.lborden.setText(numero.toString());
+                        ordencamisaS.lbprenda.setText(prenda.toString());
+                        ordencamisaS.lbtipo.setText(tipo.toString());
+                        ordencamisaS.enquesucursalsebordara =(lugar.toString());
+                       
+                        
+                        
+                        if (sucursal==null || sucursal.equals(""))
+                        {
+                            sucursal = tiendalocal;
+                        }
+                        ordencamisaS.lbsucursal.setText(sucursal.toString());
+                        
+                        
+                        ordencamisaS.tipotabla=(tabla.toString());
+                    
+                        
+                      
+                        
+                        
+                       
+                    }
+
+                
+                }
+               
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
         
         
         }
@@ -5656,10 +6006,13 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JLabel lbaño;
     public static javax.swing.JLabel lbdia;
+    private javax.swing.JLabel lbfotomontajes;
     public static javax.swing.JLabel lbmes;
+    private javax.swing.JLabel lbsuma;
     private javax.swing.JLabel lbsumapuntos;
     private javax.swing.JLabel lbsumatablaizquierda;
-    private javax.swing.JLabel lbsumatrabladerecha;
+    private javax.swing.JLabel lbsumatrabladerecha2;
+    private javax.swing.JLabel lbsumatrabladerechobordados;
     private javax.swing.JTable tabladerecha;
     private javax.swing.JTable tablaizquierda;
     private javax.swing.JTextField txtdialogoubic;

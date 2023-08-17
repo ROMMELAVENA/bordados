@@ -213,7 +213,11 @@ if((enquesucursalsebordara.equals("Esta sucursal") ||   enquesucursalsebordara.e
         sumapuntos();
         
     }
-else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
+
+
+else 
+    
+    if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
     {
         nombredelatabla = "historial_ordenes_gorra_recibidas";
         
@@ -259,16 +263,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-        
         }
         
-        
-        
-         
-        
-        
-        
-        
+       sumapuntos();
         
         
     }

@@ -1423,33 +1423,34 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 String cantidad = rs.getString("cantidad");   
                 
-                String cantidadfrente = rs.getString("lado_izquierdo_frente_cantidad");
+                String cantidad1string = rs.getString("lado_izquierdo_frente_cantidad");
                 String frente = rs.getString("lado_izquierdo_frente_puntadas");
            ;
                 
-                String cantidadatras = rs.getString("lado_derecho_frente_cantidad");
+                String cantidad2string = rs.getString("lado_derecho_frente_cantidad");
                 String atras = rs.getString("lado_derecho_frente_puntadas");
                 
-                String cantidadladoizquierdo = rs.getString("lado_izquierdo_atras_cantidad");
+                String cantidad3string = rs.getString("lado_izquierdo_atras_cantidad");
                 String ladoizquierdo = rs.getString("lado_izquierdo_atras_puntadas");
                
-                String cantidadladoderecho = rs.getString("lado_derecho_atras_cantidad");
+                String cantidad4string = rs.getString("lado_derecho_atras_cantidad");
                 String ladoderecho = rs.getString("lado_derecho_atras_puntadas");
                 
                 
 
-                
-            int cantidadladoizquierdoint = Integer.parseInt(cantidadladoizquierdo);
-            int cantidadladoderechoint = Integer.parseInt(cantidadladoderecho);
-            int cantidadatrasint = Integer.parseInt(cantidadatras);
-            int cantidadfrenteint = Integer.parseInt(cantidadfrente);
+             int cantidad1int = Integer.parseInt(cantidad1string);
+             int cantidad2int = Integer.parseInt(cantidad2string);
+            int cantidad3int = Integer.parseInt(cantidad3string);
+            int cantidad4int = Integer.parseInt(cantidad4string);
+            
+            
             
  
             String costostring = "0.00";
-            double importeladoizquierdo = 0.00;
-            double importeladoderecho = 0.00;
-            double importeatras = 0.00;
-            double importefrente= 0.00;
+            double importe1 = 0.00;
+            double importe2 = 0.00;
+            double importe3 = 0.00;
+            double importe4= 0.00;
             
             double costopuntadaladoizquierdo = 0.0;
             double costopuntadaladoderecho = 0.0;
@@ -1460,7 +1461,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                //LADO IZQUIERDO FRENTE
             
             
-            String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" +ladoizquierdo+ "'";
+            String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" +frente+ "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql1);
@@ -1480,8 +1481,8 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             
             
-            importeladoizquierdo = cantidadladoizquierdoint * costopuntadaladoizquierdo;
-            lbsumapuntos1.setText(String.format("%.02f ", importeladoizquierdo));
+            importe1 = cantidad1int * costopuntadaladoizquierdo;
+            lbsumapuntos1.setText(String.format("%.02f ", importe1));
        
             
 
@@ -1489,7 +1490,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             //LADO DERECHO FRENTE
             
-            String sql2 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + ladoderecho + "'";
+            String sql2 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + atras + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql2);
@@ -1507,14 +1508,14 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
           
-            importeladoderecho = cantidadladoderechoint * costopuntadaladoderecho;
-            lbsumapuntos2.setText(String.format("%.02f ", importeladoderecho));
+            importe2 = cantidad2int * costopuntadaladoderecho;
+            lbsumapuntos2.setText(String.format("%.02f ", importe2));
 
             
              //LADO IZQUIERDO ATRAS
             
  
-            String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + atras+ "'";
+            String sql3 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + ladoizquierdo+ "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql3);
@@ -1532,8 +1533,8 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
 
           
-            importeatras = cantidadatrasint * costopuntadaatras;
-            lbsumapuntos3.setText(String.format("%.02f ", importeatras));
+            importe3 = cantidad3int * costopuntadaatras;
+            lbsumapuntos3.setText(String.format("%.02f ", importe3));
             
             
             
@@ -1541,7 +1542,7 @@ JOptionPane.showMessageDialog(null, mensaje);
               
                 // LADO DERECHO ATRAS
             
-            String sql4 = "SELECT costo from catalogo_costos_bordado where puntadas = '"+frente+"'";
+            String sql4 = "SELECT costo from catalogo_costos_bordado where puntadas = '"+ladoderecho+"'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql4);
@@ -1558,15 +1559,15 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             }
 
-            importefrente = cantidadfrenteint * costopuntadafrente;
-            lbsumapuntos4.setText(String.format("%.02f ", importefrente));
+            importe4 = cantidad4int * costopuntadafrente;
+            lbsumapuntos4.setText(String.format("%.02f ", importe4));
           
            
            
            
             
 
-            double sumabordados = importeladoizquierdo + importeladoderecho + importeatras + importefrente ;
+            double sumabordados = importe1 + importe2 + importe3 + importe4 ;
             String sumabordadosstring = String.format("%.02f ", sumabordados);
             lbsumapuntos.setText(sumabordadosstring);
 
@@ -3283,8 +3284,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel1.setText("Total de puntos");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbsumapuntos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbsumapuntos.setText("0.00");
+        lbsumapuntos.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbsumapuntos.setForeground(new java.awt.Color(0, 0, 153));
         lbsumapuntos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbcolormangaderecha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

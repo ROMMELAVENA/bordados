@@ -7297,7 +7297,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         String nombre = txtidentificadordeprenda.getText().trim();
         
         
-        int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea Eliminar esta Imagen permanentemente?", null, JOptionPane.YES_NO_OPTION);
+        int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:#4169E1; font-size:20px;\">Desea Eliminar esta Imagen permanentemente?", null, JOptionPane.YES_NO_OPTION);
         if (result == JOptionPane.YES_OPTION) 
         {
 
@@ -7364,7 +7364,7 @@ public class bordadosdelclienteeditarVIEJO extends javax.swing.JFrame {
         String conceptoprenda = txtidentificadordeprenda.getText().trim();
         String tipo = lbprenda.getText();
           
-        int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea Eliminar este bordado?", null, JOptionPane.YES_NO_OPTION);
+        int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:#4169E1; font-size:20px;\">Desea Eliminar este bordado?", null, JOptionPane.YES_NO_OPTION);
         if (result == JOptionPane.YES_OPTION) 
         {
 

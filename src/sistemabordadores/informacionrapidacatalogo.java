@@ -414,7 +414,7 @@ ventanainformacionrapidacatalogo=false;
 
         
         
-        int resp=JOptionPane.showConfirmDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">Estas Seguro De Querer Eliminar La informacion  r�pida ?");
+        int resp=JOptionPane.showConfirmDialog(null,"<HTML><b style=\"Color:#4169E1; font-size:20px;\">Estas Seguro De Querer Eliminar La informacion  r�pida ?");
       if (JOptionPane.OK_OPTION == resp){
      
           
@@ -450,7 +450,7 @@ int condition = JComponent.WHEN_FOCUSED;
          
          
          
-         int resp=JOptionPane.showConfirmDialog(null,"<HTML><b style=\"Color:red; font-size:20px;\">Estas Seguro De Querer Eliminar La informacion  r�pida?");
+         int resp=JOptionPane.showConfirmDialog(null,"<HTML><b style=\"Color:#4169E1; font-size:20px;\">Estas Seguro De Querer Eliminar La informacion  r�pida?");
       if (JOptionPane.OK_OPTION == resp){
         int row = tabla.getSelectedRow();
         String codigo="";

@@ -2168,6 +2168,8 @@ JOptionPane.showMessageDialog(null, mensaje);
     {
    
         
+        
+        
          String sql = "Select cantidad,lado_izquierdo_cantidad,lado_izquierdo_puntadas,"
                   + "lado_derecho_cantidad,lado_derecho_puntadas,"
                   + "frente_cantidad,frente_puntadas,"

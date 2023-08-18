@@ -2511,7 +2511,7 @@ public class principal extends javax.swing.JFrame {
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
 
-        if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cerrar el sistema? Si Oprime Si se cerraran todas las ventanas", "Cuidado",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) 
+        if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:#4169E1; font-size:20px;\">Esta seguro que desea cerrar el sistema? Si Oprime Si se cerraran todas las ventanas", "Cuidado",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) 
         
         
         {
@@ -2528,7 +2528,7 @@ public class principal extends javax.swing.JFrame {
         
         
         
-          if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Esta seguro que desea cerrar el sistema? Si Oprime Si se cerraran todas las ventanas", "Cuidado",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) 
+          if (JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:#4169E1; font-size:20px;\">Esta seguro que desea cerrar el sistema? Si Oprime Si se cerraran todas las ventanas", "Cuidado",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) 
         
         
         {

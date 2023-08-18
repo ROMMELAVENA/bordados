@@ -2123,7 +2123,7 @@ sorter.sort();
                              ordenponchadoS orden = new ordenponchadoS();
                             orden.setVisible(true);
 
-                            ordenponchadoS.lbfolio.setText(numerodeordendebordado.toString());
+                            ordenponchadoS.lbordendebordado.setText(numerodeordendebordado.toString());
                             ordenponchadoS.lbnumeroventa.setText(numerodeventa.toString());
                             ordenponchadoS.enquesucursalsebordara = (lugar.toString());
                             

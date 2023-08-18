@@ -31,7 +31,7 @@ public static boolean ventanaordenponchado = false;
         String cantidadponchadosactualizar="";
         String nombredelponchado="";
         int renglon = 0;
-        
+        String numeroordendebordadolocalorecibida = "";
         String primero = "";
         String ultimo = "";
         String tieneunaobservacion = ""; 
@@ -81,11 +81,11 @@ public static boolean ventanaordenponchado = false;
         
         
         limpiar();
-        String numero = lbfolio.getText();
+        numeroordendebordadolocalorecibida = lbordendebordado.getText();
         renglon = 0;
        
      String sql = "SELECT numero,numero_venta,tipo,fecha,cliente,nombre_comercial,borda_cliente,estatus_orden,articulo,cantidad,fecha_entrega,hora_entrega,"
-             + "lugar,cantidad_ponchado,observaciones,estatus_orden FROM historial_ordenes_ponchados WHERE numero = '" + numero + "'";
+             + "lugar,cantidad_ponchado,observaciones,estatus_orden FROM historial_ordenes_ponchados WHERE numero = '" + numeroordendebordadolocalorecibida + "'";
      
 
         try {
@@ -93,7 +93,8 @@ public static boolean ventanaordenponchado = false;
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 
-                lbfolio.setText(rs.getString("numero"));
+                
+                
                 lbnumeroventa.setText(rs.getString("numero_venta"));
                 lbfecha.setText(rs.getString("fecha"));
                 lbcliente.setText(rs.getString("cliente"));
@@ -154,11 +155,11 @@ public static boolean ventanaordenponchado = false;
         
         
         limpiar();
-        String numero = lbfolio.getText();
+        numeroordendebordadolocalorecibida = lbordendebordado.getText();
         renglon = 0;
        
      String sql = "SELECT numero,numero_sucursal,tipo,fecha,cliente,estatus_orden,articulo,cantidad,fecha_entrega,hora_entrega,"
-             + "lugar,cantidad_ponchado,observaciones,estatus_orden FROM historial_ordenes_ponchados_recibidos WHERE numero = '" + numero + "'";
+             + "lugar,cantidad_ponchado,observaciones,estatus_orden FROM historial_ordenes_ponchados_recibidos WHERE numero = '" + numeroordendebordadolocalorecibida + "'";
      
 
         try {
@@ -166,7 +167,8 @@ public static boolean ventanaordenponchado = false;
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 
-                lbfolio.setText(rs.getString("numero"));
+                
+             
                 lbnumeroventa.setText(rs.getString("numero_sucursal"));
                 lbfecha.setText(rs.getString("fecha"));
                 lbcliente.setText(rs.getString("cliente"));
@@ -274,7 +276,7 @@ public static boolean ventanaordenponchado = false;
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set cantidad_ponchado='" +cantidadponchadosactualizar+ "',fecha='"+dia()+"' where numero = '"+lbfolio.getText()+"' and articulo = '"+nombredelponchado+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set cantidad_ponchado='" +cantidadponchadosactualizar+ "',fecha='"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"' and articulo = '"+nombredelponchado+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -285,7 +287,7 @@ public static boolean ventanaordenponchado = false;
         
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + lbfolio.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + numeroordendebordadolocalorecibida + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -310,7 +312,7 @@ public static boolean ventanaordenponchado = false;
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados_recibidos set cantidad_ponchado='" +cantidadponchadosactualizar+ "',fecha='"+dia()+"' where numero = '"+lbfolio.getText()+"' and articulo = '"+nombredelponchado+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados_recibidos set cantidad_ponchado='" +cantidadponchadosactualizar+ "',fecha='"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"' and articulo = '"+nombredelponchado+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -321,7 +323,7 @@ public static boolean ventanaordenponchado = false;
         
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados_recibidos set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + lbfolio.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados_recibidos set estatus_orden='realizada totalmente',fecha='"+dia()+"' where numero='" + numeroordendebordadolocalorecibida + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -346,7 +348,7 @@ public static boolean ventanaordenponchado = false;
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set cantidad_ponchado='0' where numero = '"+lbfolio.getText()+"' and articulo = '"+nombredelponchado+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set cantidad_ponchado='0' where numero = '"+numeroordendebordadolocalorecibida+"' and articulo = '"+nombredelponchado+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -357,7 +359,7 @@ public static boolean ventanaordenponchado = false;
         
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set estatus_orden='generada' where numero='" + lbfolio.getText() + "'   ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_ponchados set estatus_orden='generada' where numero='" + numeroordendebordadolocalorecibida + "'   ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -641,6 +643,9 @@ public static boolean ventanaordenponchado = false;
     
      void sumapuntos()
     {
+        
+        
+        
         Object cantidadponchado = "";
         Object articulo = "";
         String articulobuscar = "";
@@ -648,13 +653,14 @@ public static boolean ventanaordenponchado = false;
         String costostring = "";
         
         
-         String sql = "Select articulo,cantidad_ponchado from historial_ordenes_ponchados where numero = '"+lbfolio.getText()+"' ";
+        
+         String sql = "Select articulo,cantidad_ponchado from historial_ordenes_ponchados where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
 
-            while (rs.next()) {
+            if (rs.next()) {
 
                 cantidadponchado=rs.getString("cantidad_ponchado");
                 articulo = rs.getString("articulo");
@@ -673,25 +679,9 @@ public static boolean ventanaordenponchado = false;
             int cantidadponchadoint  =Integer.parseInt(cantidadponchado.toString());
             
 
-            if (articulo.toString().startsWith("PONCHADO")||articulo.toString().startsWith("MODIFICACION DE PONCHADO")) {
-
-                if (articulo.toString().startsWith("PONCHADO FACIL")||articulo.toString().contains("MODIFICACION DE PONCHADO FACIL")) 
-                {
-                    articulobuscar = "PONCHADO FACIL";
-                } else if (articulo.toString().startsWith("PONCHADO MEDIO")||articulo.toString().contains("MODIFICACION DE PONCHADO MEDIO")) {
-                    articulobuscar = "PONCHADO MEDIO";
-                } else if (articulo.toString().startsWith("PONCHADO DIFICIL")||articulo.toString().contains("MODIFICACION DE PONCHADO DIFICIL")) {
-                    articulobuscar = "PONCHADO DIFICIL";
-                }
-                else if (articulo.toString().startsWith("PONCHADO EXTRA DIFICIL")||articulo.toString().contains("MODIFICACION DE PONCHADO EXTRA DIFICIL")) {
-                        articulobuscar = "PONCHADO EXTRA DIFICIL";
-                    }
-
                 
 
-                
-
-                String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + articulobuscar + "'";
+                String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + articulo + "'";
 
                 try {
                     PreparedStatement prst = cn.prepareStatement(sql1);
@@ -715,7 +705,7 @@ public static boolean ventanaordenponchado = false;
                 String sumabordadosstring = String.format("%.02f ", sumabordados);
                 lbsumapuntos.setText(sumabordadosstring);
 
-            }
+           
     }
   
     @SuppressWarnings("unchecked")
@@ -724,7 +714,7 @@ public static boolean ventanaordenponchado = false;
 
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        lbfolio = new javax.swing.JLabel();
+        lbordendebordado = new javax.swing.JLabel();
         btnsalir = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         lbfecha = new javax.swing.JLabel();
@@ -774,11 +764,11 @@ public static boolean ventanaordenponchado = false;
         jLabel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel13.setText("Número de orden");
+        jLabel13.setText("Numero orden de bordado");
         jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbfolio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbfolio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbordendebordado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbordendebordado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnsalir.setText("Salir");
@@ -809,7 +799,7 @@ public static boolean ventanaordenponchado = false;
         lbhoraentrega.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel28.setText("No. de Venta");
+        jLabel28.setText("Numero de Venta");
         jLabel28.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbnumeroventa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -927,13 +917,13 @@ public static boolean ventanaordenponchado = false;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbordendebordado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbnumeroventa, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbnumeroventa, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -982,7 +972,7 @@ public static boolean ventanaordenponchado = false;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbfolio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbordendebordado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbnumeroventa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1248,12 +1238,12 @@ JOptionPane.showMessageDialog(null, mensaje);
     public static javax.swing.JLabel lbcliente;
     private javax.swing.JLabel lbfecha;
     private javax.swing.JLabel lbfechaentrega;
-    public static javax.swing.JLabel lbfolio;
     private javax.swing.JLabel lbhoraentrega;
     private javax.swing.JLabel lbnombre;
     public static javax.swing.JLabel lbnombrecomercial;
     public static javax.swing.JLabel lbnumeroventa;
     public static javax.swing.JTextArea lbobservaciones;
+    public static javax.swing.JLabel lbordendebordado;
     public static javax.swing.JLabel lbsucursal;
     public javax.swing.JLabel lbsumapuntos;
     private javax.swing.JLabel lbtipo;

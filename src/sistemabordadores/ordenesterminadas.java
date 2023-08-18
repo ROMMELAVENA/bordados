@@ -1742,7 +1742,7 @@ sorter.sort();
                         ordenponchadoS orden = new ordenponchadoS();
                         orden.setVisible(true);
 
-                        ordenponchadoS.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordenponchadoS.lbordendebordado.setText(tabla.getValueAt(fila, 0).toString());
                         ordenponchadoS.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
                         
                         ordenponchadoS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());

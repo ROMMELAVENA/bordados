@@ -1776,7 +1776,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
         identificadordeprenda = txtidentificador.getText().trim();
         
         
-        int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea Eliminar esta Imagen permanentemente?", null, JOptionPane.YES_NO_OPTION);
+        int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:#4169E1; font-size:20px;\">Desea Eliminar esta Imagen permanentemente?", null, JOptionPane.YES_NO_OPTION);
         if (result == JOptionPane.YES_OPTION) 
         {
 
@@ -1844,7 +1844,7 @@ public class bordadoseditardistinta extends javax.swing.JFrame {
         prenda = lbprenda.getText();
         String numeroconsecutivo = lbconsecutivo.getText();
         
-        int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea Eliminar este bordado?", null, JOptionPane.YES_NO_OPTION);
+        int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:#4169E1; font-size:20px;\">Desea Eliminar este bordado?", null, JOptionPane.YES_NO_OPTION);
         if (result == JOptionPane.YES_OPTION) 
         {
 

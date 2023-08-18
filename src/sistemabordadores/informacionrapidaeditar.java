@@ -671,7 +671,7 @@ public class informacionrapidaeditar extends javax.swing.JFrame {
 
     private void btneliminararchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminararchivoActionPerformed
 
-        int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Desea Eliminar esta Archivo permanentemente?", null, JOptionPane.YES_NO_OPTION);
+        int result = JOptionPane.showConfirmDialog(null, "<HTML><b style=\"Color:#4169E1; font-size:20px;\">Desea Eliminar esta Archivo permanentemente?", null, JOptionPane.YES_NO_OPTION);
         if (result == JOptionPane.YES_OPTION) 
         {
 

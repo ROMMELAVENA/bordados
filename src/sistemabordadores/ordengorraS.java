@@ -3787,7 +3787,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JFileChooser adjuntar = new JFileChooser();
+         JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -4230,7 +4230,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local") && (tienenumerodesucursal.equals("no")) )
         {
 
-        JFileChooser adjuntar = new JFileChooser();
+         JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -4310,7 +4310,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JFileChooser adjuntar = new JFileChooser();
+         JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -4377,7 +4377,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local"))
         {
         
-        JFileChooser adjuntar = new JFileChooser();
+         JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);

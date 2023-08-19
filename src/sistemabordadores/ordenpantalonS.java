@@ -5512,7 +5512,7 @@ public static String dia() {
         
         
         
-         JFileChooser adjuntar = new JFileChooser();
+          JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -5543,8 +5543,7 @@ public static String dia() {
     private void btncargarponchado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarponchado1ActionPerformed
       
         
-            
-        JFileChooser adjuntar = new JFileChooser();
+         JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -5575,7 +5574,7 @@ public static String dia() {
        
         
             
-        JFileChooser adjuntar = new JFileChooser();
+         JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -5607,7 +5606,7 @@ public static String dia() {
         
         
             
-        JFileChooser adjuntar = new JFileChooser();
+         JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);

@@ -9837,7 +9837,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
         
         
-        JFileChooser adjuntar = new JFileChooser();
+         JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -9866,7 +9866,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btncargarponchado1ActionPerformed
 
     private void btncargarponchado3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarponchado3ActionPerformed
-           JFileChooser adjuntar = new JFileChooser();
+            JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -9888,7 +9888,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btncargarponchado3ActionPerformed
 
     private void btncargarponchado2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarponchado2ActionPerformed
-           JFileChooser adjuntar = new JFileChooser();
+            JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -9912,7 +9912,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btncargarponchado2ActionPerformed
 
     private void btncargarponchado4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarponchado4ActionPerformed
-           JFileChooser adjuntar = new JFileChooser();
+            JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -9936,7 +9936,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btncargarponchado4ActionPerformed
 
     private void btncargarponchado5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarponchado5ActionPerformed
-           JFileChooser adjuntar = new JFileChooser();
+            JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -9959,7 +9959,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btncargarponchado5ActionPerformed
 
     private void btncargarponchado6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarponchado6ActionPerformed
-            JFileChooser adjuntar = new JFileChooser();
+             JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);
@@ -9983,7 +9983,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btncargarponchado6ActionPerformed
 
     private void btncargarponchado7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarponchado7ActionPerformed
-            JFileChooser adjuntar = new JFileChooser();
+             JSystemFileChooser adjuntar = new JSystemFileChooser();
       
 
         int respuesta = adjuntar.showOpenDialog(this);

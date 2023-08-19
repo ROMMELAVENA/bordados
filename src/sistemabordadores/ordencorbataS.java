@@ -400,6 +400,42 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
+    
+    
+    
+    
+    void deshabilitarbotonesporqueesponchado(){
+        
+        
+        
+       
+        btntermine.setEnabled(false);
+       
+        
+        
+        btnterminetodo.setEnabled(false);        
+                
+                
+        btncancelar.setEnabled(false);
+       
+        
+        btnponchado1.setEnabled(false);
+     
+     
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
       void codigocliente()
     {
         String sql = "SELECT codigo_cliente FROM historial_ventas WHERE numero = '" + lbnumerodeventa.getText() + "' ";
@@ -1846,7 +1882,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         btnvercolorido = new javax.swing.JButton();
         btnfotomontajesinpuntadas = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        btnfrenteponchado = new javax.swing.JButton();
+        btnponchado1 = new javax.swing.JButton();
         btncancelar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -1868,9 +1904,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel29 = new javax.swing.JLabel();
         lbordenopedidorecibido = new javax.swing.JLabel();
         btncargarponchado1 = new javax.swing.JButton();
-        btnpechoizquierdoponchado1 = new javax.swing.JButton();
+        btnreplicar1 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         lbsumapuntos1 = new javax.swing.JLabel();
+        btnquitarponchado1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden corbata");
@@ -2046,12 +2083,12 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel7.setText("Frente");
         jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnfrenteponchado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnfrenteponchado.setText("Ponchado");
-        btnfrenteponchado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnfrenteponchado.addActionListener(new java.awt.event.ActionListener() {
+        btnponchado1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnponchado1.setText("Ponchado");
+        btnponchado1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnponchado1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnfrenteponchadoActionPerformed(evt);
+                btnponchado1ActionPerformed(evt);
             }
         });
 
@@ -2154,11 +2191,11 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
         });
 
-        btnpechoizquierdoponchado1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnpechoizquierdoponchado1.setText("Replicar");
-        btnpechoizquierdoponchado1.addActionListener(new java.awt.event.ActionListener() {
+        btnreplicar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnreplicar1.setText("Replicar");
+        btnreplicar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpechoizquierdoponchado1ActionPerformed(evt);
+                btnreplicar1ActionPerformed(evt);
             }
         });
 
@@ -2170,6 +2207,14 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbsumapuntos1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lbsumapuntos1.setForeground(new java.awt.Color(0, 0, 153));
         lbsumapuntos1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        btnquitarponchado1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnquitarponchado1.setText("-");
+        btnquitarponchado1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnquitarponchado1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2295,10 +2340,12 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addComponent(lbcolor, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(1, 1, 1)
                                 .addComponent(btncargarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(btnpechoizquierdoponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnquitarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(btnreplicar1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnfrenteponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
@@ -2307,7 +2354,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2386,8 +2433,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                             .addComponent(lbautorizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btncargarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnpechoizquierdoponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btncargarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnquitarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -2398,8 +2446,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addComponent(btntermine, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                                 .addComponent(btncancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                                 .addComponent(lbcodigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                                .addComponent(lbcolor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                                .addComponent(btnfrenteponchado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(lbcolor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                            .addComponent(btnreplicar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnponchado1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbsumapuntos1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2503,6 +2552,37 @@ JOptionPane.showMessageDialog(null, mensaje);
           
         
         datos();
+        
+        
+        
+               if (esponchado.equals("si"))
+                   
+               {
+           lugar = enquesucursalsebordara;
+        
+           
+           deshabilitarbotonesporqueesponchado();
+                
+                
+                  if(lugar.equals("Esta sucursal"))
+        {
+       
+           nombredelatabla = "historial_ordenes_camisa";
+                
+        }
+                  else
+                      
+                  {
+  
+            
+           nombredelatabla = "historial_ordenes_camisa_recibidas";
+            
+            
+                    
+                  }
+                
+                
+               }  
         
         
         
@@ -2696,9 +2776,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         */
     }//GEN-LAST:event_btnfotomontajesinpuntadasActionPerformed
 
-    private void btnfrenteponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteponchadoActionPerformed
+    private void btnponchado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnponchado1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnfrenteponchadoActionPerformed
+    }//GEN-LAST:event_btnponchado1ActionPerformed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
 
@@ -2853,9 +2933,19 @@ JOptionPane.showMessageDialog(null, mensaje);
         // TODO add your handling code here:
     }//GEN-LAST:event_btncargarponchado1ActionPerformed
 
-    private void btnpechoizquierdoponchado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoizquierdoponchado1ActionPerformed
+    private void btnreplicar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreplicar1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnpechoizquierdoponchado1ActionPerformed
+    }//GEN-LAST:event_btnreplicar1ActionPerformed
+
+    private void btnquitarponchado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquitarponchado1ActionPerformed
+
+        btncargarponchado1.setEnabled(true);
+        btnreplicar1.setEnabled(false);
+
+        btnquitarponchado1.setEnabled(false);
+
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Ponchado eliminado");
+    }//GEN-LAST:event_btnquitarponchado1ActionPerformed
 
     ResultSet rs;
     ResultSet rs2;
@@ -2877,8 +2967,9 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JButton btndatos;
     private javax.swing.JButton btneditarbordado;
     private javax.swing.JButton btnfotomontajesinpuntadas;
-    private javax.swing.JButton btnfrenteponchado;
-    private javax.swing.JButton btnpechoizquierdoponchado1;
+    private javax.swing.JButton btnponchado1;
+    private javax.swing.JButton btnquitarponchado1;
+    private javax.swing.JButton btnreplicar1;
     private javax.swing.JButton btntermine;
     private javax.swing.JButton btnterminetodo;
     private javax.swing.JButton btnvercolorido;

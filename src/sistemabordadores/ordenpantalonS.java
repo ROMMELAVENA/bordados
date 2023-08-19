@@ -295,10 +295,10 @@ JOptionPane.showMessageDialog(null, mensaje);
       
       
         
-        String activadoladoizquierdofrente ="";
-        String activadoladoizquierdoatras ="";
-        String activadoladoderechofrente ="";
-        String activadoladoderechoatras ="";
+        String botonhabilitado1 ="";
+        String botonhabilitado2 ="";
+        String botonhabilitado3 ="";
+        String botonhabilitado4 ="";
 
 
         
@@ -371,8 +371,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                     
                  
-                  btnladoizquierdofrenteponchado.setEnabled(false);
-                  
+                  btnponchado1.setEnabled(false);
+                  btncargarponchado1.setEnabled(false);
                   
 
                 }
@@ -384,9 +384,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                    lbladoizquierdofrentenombre.setText(ladoizquierdofrentenombre);
                    lbladoizquierdofrentepuntadas.setText(rs.getString("lado_izquierdo_frente_puntadas"));
                     
-                    btnladoizquierdofrenteponchado.setEnabled(true);
+                    btnponchado1.setEnabled(true);
                  
-                    activadoladoizquierdofrente ="si";
+                    botonhabilitado1 ="si";
+                    btncargarponchado1.setEnabled(true);
                     
                     
                     
@@ -399,7 +400,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 if (ladoderechofrentenombre == null || ladoderechofrentenombre.equals("")  || ladoderechofrentenombre.equals("ninguno")) 
                 {
                    
-                    btnladoderechofrenteponchado.setEnabled(false);
+                    btnponchado2.setEnabled(false);
+                    btncargarponchado2.setEnabled(false);
                 } 
                 else
                 {
@@ -407,9 +409,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                      lbladoderechofrentenombre.setText(ladoderechofrentenombre);
                     lbladoderechofrentepuntadas.setText(rs.getString("lado_derecho_frente_nombre"));
                   
-                    btnladoderechofrenteponchado.setEnabled(true);
+                    btnponchado2.setEnabled(true);
                     
-                    activadoladoderechofrente ="si";
+                    botonhabilitado2 ="si";
+                    btncargarponchado3.setEnabled(true);
                    
                 }
 
@@ -422,7 +425,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 if (ladoizquierdoatrasnombre == null || ladoizquierdoatrasnombre.equals("") || ladoizquierdoatrasnombre.equals("ninguno"))
                 {
                    
-                    btnladoizquierdoatrasponchado.setEnabled(false);
+                    btnponchado3.setEnabled(false);
+                    btncargarponchado3.setEnabled(false);
                 } 
                 else 
                 {
@@ -431,9 +435,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                     lbladoizquierdoatrasnombre.setText(ladoizquierdoatrasnombre);
                     lbladoizquierdoatraspuntadas.setText(rs.getString("lado_izquierdo_atras_puntadas"));
                   
-                     btnladoizquierdoatrasponchado.setEnabled(true);
+                     btnponchado3.setEnabled(true);
                     
-                    activadoladoizquierdoatras ="si";
+                    botonhabilitado3 ="si";
+                    btncargarponchado3.setEnabled(false);
            
                    
                     
@@ -443,7 +448,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 if (ladoderechoatrasnombre == null || ladoderechoatrasnombre.equals("") || ladoderechoatrasnombre.equals("ninguno")) 
                 {
                    
-                     btnladoderechoatrasponchado.setEnabled(false);
+                     btnponchado4.setEnabled(false);
+                     btncargarponchado4.setEnabled(false);
                 }
                 else 
                 {
@@ -452,9 +458,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                    lbladoderechoatrasnombre.setText(ladoderechoatrasnombre);
                     lbladoderechoatraspuntadas.setText(rs.getString("lado_derecho_atras_puntadas"));
                     
-                     btnladoderechoatrasponchado.setEnabled(true);
+                     btnponchado4.setEnabled(true);
                  
-                    activadoladoderechoatras ="si";
+                    botonhabilitado4 ="si";
+                    btncargarponchado4.setEnabled(true);
                     
                    
                     
@@ -484,7 +491,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                 if( activadoladoizquierdofrente.equals("si"))
+                 if( botonhabilitado1.equals("si"))
                 {
                     
                     
@@ -493,7 +500,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                         
                     {
                     
-                    btnladoizquierdofrentetetermine.setEnabled(true);
+                    btnladoizquierdofrentetermine.setEnabled(true);
                     btnladoizquierdofrentecancelar.setEnabled(false);
                     
                      lbcantidad1.setText("0");
@@ -514,7 +521,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     {
                         
                            btnladoizquierdofrentecancelar.setEnabled(true);
-                           btnladoizquierdofrentetetermine.setEnabled(false);
+                           btnladoizquierdofrentetermine.setEnabled(false);
                            
                            
                         lbcantidad1.setText(cantidad);
@@ -528,7 +535,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
                 else
                 {
-                   btnladoizquierdofrentetetermine.setEnabled(false);
+                   btnladoizquierdofrentetermine.setEnabled(false);
                    
                 }    
                 
@@ -543,7 +550,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                  
                  
                  
-                if(cantidadladoderechofrente.equals("si"))
+                if(botonhabilitado2.equals("si"))
                 {
                     
                     
@@ -552,7 +559,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      if(cantidadladoderechofrente.equals("0"))
                     
                      {
-                   btnladoderechofrentetetermine.setEnabled(true);
+                   btnladoderechofrentetermine.setEnabled(true);
                    btnladoderechoatrascancelar.setEnabled(false);
                     
                      lbcantidad2.setText("0");
@@ -568,7 +575,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      {
                          
                             btnladoderechoatrascancelar.setEnabled(true);
-                            btnladoderechofrentetetermine.setEnabled(false);
+                            btnladoderechofrentetermine.setEnabled(false);
                   lbcantidad2.setText(cantidad);
                    lbcantidad2.setForeground(Color.GREEN.darker());
                          
@@ -581,7 +588,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                     
                     
-                  btnladoderechofrentetetermine.setEnabled(false);
+                  btnladoderechofrentetermine.setEnabled(false);
                 
                 
                 } 
@@ -591,7 +598,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                
-                if( activadoladoizquierdoatras.equals("si"))
+                if( botonhabilitado3.equals("si"))
                 {
                     
                     
@@ -599,7 +606,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     if(cantidadladoizquierdoatras.equals("0"))
                         
                     {
-                    btnladoizquierdoatrastetermine.setEnabled(true);
+                    btnladoizquierdoatrastermine.setEnabled(true);
                    btnladoizquierdoatrascancelar.setEnabled(false);
                      
                       lbcantidad3.setText("0");
@@ -615,7 +622,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                         
                     {
                             btnladoizquierdoatrascancelar.setEnabled(true);
-                             btnladoizquierdoatrastetermine.setEnabled(false);
+                             btnladoizquierdoatrastermine.setEnabled(false);
                   lbcantidad3.setText(cantidad);
                    lbcantidad3.setForeground(Color.GREEN.darker());
                         
@@ -625,13 +632,23 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
                 else
                 {
-                    btnladoizquierdoatrastetermine.setEnabled(false);
+                    btnladoizquierdoatrastermine.setEnabled(false);
                 
                 } 
                 
                 
                 
-                if( activadoladoderechoatras.equals("si"))
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                if( botonhabilitado4.equals("si"))
                 {
                     
                     
@@ -640,7 +657,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                         
                         
                     {
-                    btnladoderechoatrastetermine.setEnabled(true);
+                    btnladoderechoatrastermine.setEnabled(true);
                     btnladoderechoatrascancelar.setEnabled(false);
                      
                       lbcantidad4.setText("0");
@@ -658,7 +675,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                         
                            
                  btnladoderechoatrascancelar.setEnabled(true);
-                  btnladoderechoatrastetermine.setEnabled(false);
+                  btnladoderechoatrastermine.setEnabled(false);
                   
                   
                    lbcantidad4.setText(cantidad);
@@ -669,7 +686,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
                 else
                 {
-                     btnladoderechoatrastetermine.setEnabled(false);
+                     btnladoderechoatrastermine.setEnabled(false);
                 }
                 }
                 
@@ -1031,6 +1048,46 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
+     
+     
+     
+     
+    
+    void deshabilitarbotonesporqueesponchado(){
+        
+        
+        
+       
+        btnladoizquierdofrentetermine.setEnabled(false);
+        btnladoderechofrentetermine.setEnabled(false);
+        btnladoizquierdoatrastermine.setEnabled(false);
+        btnladoderechoatrastermine.setEnabled(false);
+        
+        
+        btnterminetodo.setEnabled(false);        
+                
+                
+        btnladoizquierdofrentecancelar.setEnabled(false);
+        btnladoderechofrentecancelar.setEnabled(false); 
+        btnladoizquierdoatrascancelar.setEnabled(false);
+        btnladoderechoatrascancelar.setEnabled(false);
+        
+        btnponchado1.setEnabled(false);
+        btnponchado2.setEnabled(false);
+        btnponchado3.setEnabled(false);
+        btnponchado4.setEnabled(false);
+           
+     
+        
+        
+        
+    }
+    
+     
+     
+     
+     
+     
     
     
     
@@ -1097,7 +1154,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         
         
-        lbsucursal.setText(tiendaalaqueselesolicito);
+        
 
     }
     
@@ -1643,8 +1700,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
                 else
                 {
-                  lbcolormangaderecha.setText(codigo1.toString());
-                  lbcodigoladoderechofrente.setText(hilo1.toString());
+                  lbcolor1.setText(codigo1.toString());
+                  lbcodigo1.setText(hilo1.toString());
                 }  
                 
                 if(codigo2.equals("ninguno"))
@@ -1653,8 +1710,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
                 else
                 {
-                  lbcolormangaizquierda.setText(codigo2.toString());
-                  lbcodigoladoderechoatras.setText(hilo2.toString());
+                  lbcolor2.setText(codigo2.toString());
+                  lbcodigo2.setText(hilo2.toString());
                 }  
                 
                  if(codigo3.equals("ninguno"))
@@ -1663,8 +1720,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
                 else
                 {
-                  lbcolorpechoderecho.setText(codigo3.toString());
-                  lbcodigoladoizquierdofrente.setText(hilo3.toString());
+                  lbcolor3.setText(codigo3.toString());
+                  lbcodigo3.setText(hilo3.toString());
                 }  
                 
                 if(codigo4.equals("ninguno"))
@@ -1673,8 +1730,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
                 else
                 {
-                  lbcolorpechoizquierdo.setText(codigo4.toString());
-                  lbcodigoladoizquierdoatras.setText(hilo4.toString());
+                  lbcolor4.setText(codigo4.toString());
+                  lbcodigo4.setText(hilo4.toString());
                 }    
                 
              
@@ -1800,15 +1857,15 @@ JOptionPane.showMessageDialog(null, mensaje);
             
            
             
-            btnladoderechofrentetetermine.setEnabled(false);
-            btnladoderechoatrastetermine.setEnabled(false);
-            btnladoizquierdofrentetetermine.setEnabled(false);
-            btnladoizquierdoatrastetermine.setEnabled(false);
+            btnladoderechofrentetermine.setEnabled(false);
+            btnladoderechoatrastermine.setEnabled(false);
+            btnladoizquierdofrentetermine.setEnabled(false);
+            btnladoizquierdoatrastermine.setEnabled(false);
             
-            btnladoderechofrenteponchado.setEnabled(false);
-            btnladoderechoatrasponchado.setEnabled(false);
-            btnladoizquierdofrenteponchado.setEnabled(false);
-            btnladoizquierdoatrasponchado.setEnabled(false);
+            btnponchado2.setEnabled(false);
+            btnponchado4.setEnabled(false);
+            btnponchado1.setEnabled(false);
+            btnponchado3.setEnabled(false);
             
            
             lbfotomontaje.setVisible(false);
@@ -1831,10 +1888,10 @@ JOptionPane.showMessageDialog(null, mensaje);
          prenda = "Pantalon";
        
 
-        String activadoladoizquierdofrente = "";
-        String activadoladoizquierdoatras = "";
-        String activadoladoderechofrente = "";
-        String activadoladoderechoatras = "";
+        String botonhabilitado1 = "";
+        String botonhabilitado2 = "";
+        String botonhabilitado3 = "";
+        String botonhabilitado4 = "";
 
         String sql = "Select orden_o_pedido,fecha,hora,cliente,nombre_comercial,borda_cliente,numero_orden_o_pedido_solicitada,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente_nombre,lado_derecho_frente_nombre,lado_izquierdo_atras_nombre,lado_derecho_atras_nombre,lado_izquierdo_frente_nombre,lado_derecho_frente_cantidad,lado_izquierdo_atras_nombre,lado_derecho_atras_cantidad,lado_izquierdo_frente_puntadas,lado_derecho_frente_nombre,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,estatus_orden from historial_ordenes_pantalon_recibidas where numero = '" + numeroordendebordadosolicitadoorecibidasisehabredesderecibidas + "' and prenda = '" + prenda + "'";
 
@@ -1870,14 +1927,13 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                
-                // LADO IZQUIERDO FRENTE
-                
-                if (ladoizquierdofrente == null || ladoizquierdofrente.equals("")) 
+                if (ladoizquierdofrentenombre == null || ladoizquierdofrentenombre.equals("") || ladoizquierdofrentenombre.equals("ninguno")) 
                 {
                     
-                  btnladoizquierdofrentetetermine.setEnabled(false);
-                  btnladoizquierdofrenteponchado.setEnabled(false);
+                 
+                  btnponchado1.setEnabled(false);
+                  btncargarponchado1.setEnabled(false);
+                  
 
                 }
                 
@@ -1885,103 +1941,95 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 {
 
-
-                    String b = rs.getString("lado_izquierdo_frente_puntadas");
-                    lbladoizquierdofrentepuntadas.setText(rs.getString("lado_izquierdo_frente_puntadas"));
+                   lbladoizquierdofrentenombre.setText(ladoizquierdofrentenombre);
+                   lbladoizquierdofrentepuntadas.setText(rs.getString("lado_izquierdo_frente_puntadas"));
                     
+                    btnponchado1.setEnabled(true);
+                 
+                    botonhabilitado1 ="si";
+                    btncargarponchado1.setEnabled(true);
                     
-                    btnladoizquierdofrentetetermine.setEnabled(true);
-                    btnladoizquierdofrenteponchado.setEnabled(true);
-                    
-                    
-                    activadoladoizquierdofrente ="si";
-                   
                     
                     
                 }
 
                 
+                /// lado derecho frente
                 
-                
-                
-                
-                
-                
-                /// LADO DERECHO FRENTE
-           
-                String ladoderechofrente = rs.getString("lado_derecho_frente_puntadas");
-
-                if (ladoderechofrente == null || ladoderechofrente.equals("")) 
+               
+                if (ladoderechofrentenombre == null || ladoderechofrentenombre.equals("")  || ladoderechofrentenombre.equals("ninguno")) 
                 {
-                    btnladoderechofrentetetermine.setEnabled(false);
-                    btnladoderechofrenteponchado.setEnabled(false);
+                   
+                    btnponchado2.setEnabled(false);
+                    btncargarponchado2.setEnabled(false);
                 } 
                 else
                 {
 
- 
+                     lbladoderechofrentenombre.setText(ladoderechofrentenombre);
                     lbladoderechofrentepuntadas.setText(rs.getString("lado_derecho_frente_nombre"));
+                  
+                    btnponchado2.setEnabled(true);
                     
-                    
-                    btnladoderechofrentetetermine.setEnabled(true);
-                    btnladoderechofrenteponchado.setEnabled(true);
-                    
-                    
-                    activadoladoderechofrente ="si";
-                    
+                    botonhabilitado2 ="si";
+                    btncargarponchado3.setEnabled(true);
+                   
                 }
+
                 
                 
                 
                 
                 
-                // LADO IZQUIERDO ATRAS
-                
-                String ladoizquierdoatras = rs.getString("lado_izquierdo_atras_puntadas");
-             
-                if (ladoizquierdoatras == null || ladoizquierdoatras.equals("")) 
+            
+                if (ladoizquierdoatrasnombre == null || ladoizquierdoatrasnombre.equals("") || ladoizquierdoatrasnombre.equals("ninguno"))
                 {
-                    btnladoizquierdoatrastetermine.setEnabled(false);
-                    btnladoizquierdoatrasponchado.setEnabled(false);
-                    
-                } else {
+                   
+                    btnponchado3.setEnabled(false);
+                    btncargarponchado3.setEnabled(false);
+                } 
+                else 
+                {
 
 
+                    lbladoizquierdoatrasnombre.setText(ladoizquierdoatrasnombre);
                     lbladoizquierdoatraspuntadas.setText(rs.getString("lado_izquierdo_atras_puntadas"));
-                 
+                  
+                     btnponchado3.setEnabled(true);
                     
-                    btnladoizquierdoatrastetermine.setEnabled(true);
-                    btnladoizquierdoatrasponchado.setEnabled(true);
-                    
-                    activadoladoizquierdoatras ="si";
+                    botonhabilitado3 ="si";
+                    btncargarponchado3.setEnabled(false);
+           
+                   
                     
                 }
 
-           //     lbladoderechoatras.setText(rs.getString("lado_derecho_atras_puntadas"));
-                String ladoderechoatras = rs.getString("lado_derecho_atras_puntadas");
-             
-                if (ladoderechoatras == null || ladoderechoatras.equals("")) 
-                
+               
+                if (ladoderechoatrasnombre == null || ladoderechoatrasnombre.equals("") || ladoderechoatrasnombre.equals("ninguno")) 
                 {
-                    
-                     btnladoderechoatrastetermine.setEnabled(false);
-                      btnladoderechoatrasponchado.setEnabled(false);
-                     
-                     
-                } else {
+                   
+                     btnponchado4.setEnabled(false);
+                     btncargarponchado4.setEnabled(false);
+                }
+                else 
+                {
 
 
-                    String a = rs.getString("lado_derecho_atras_puntadas");
+                   lbladoderechoatrasnombre.setText(ladoderechoatrasnombre);
                     lbladoderechoatraspuntadas.setText(rs.getString("lado_derecho_atras_puntadas"));
+                    
+                     btnponchado4.setEnabled(true);
                  
-                    btnladoderechoatrastetermine.setEnabled(true);
-                    btnladoderechoatrasponchado.setEnabled(true);
+                    botonhabilitado4 ="si";
+                    btncargarponchado4.setEnabled(true);
                     
-                    
-                    
-                    activadoladoderechoatras ="si";
+                   
                     
                 }
+                
+                
+                
+                
                 
                 
                 lugar = rs.getString("lugar");
@@ -2008,7 +2056,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 else
                 {
                    btnterminetodo.setEnabled(true); 
-                    btnterminetodo.setEnabled(true);
+                  
                    
                    
                   if(estatus.equals("realizada parcialmente"))
@@ -2042,74 +2090,231 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                     
                   
-                
-                String cantidadladoizquierdofrente = rs.getString("lado_izquierdo_frente_cantidad");
-                if(cantidadladoizquierdofrente.equals("0") && activadoladoizquierdofrente.equals("si"))
-                {
-                    btnladoizquierdofrentetetermine.setEnabled(true);
-                    btnladoizquierdofrenteponchado.setEnabled(true);
                     
-                     listabotones.add("btnladoizquierdofrente");
+                    
+                    
+              
+                String cantidadladoizquierdofrente = rs.getString("lado_izquierdo_frente_cantidad");
+                String cantidadladoderechofrente = rs.getString("lado_derecho_frente_cantidad");
+                 String cantidadladoizquierdoatras = rs.getString("lado_izquierdo_atras_cantidad");
+                String cantidadladoderechoatras = rs.getString("lado_derecho_atras_cantidad");
+                
+                
+                
+                 if( botonhabilitado1.equals("si"))
+                {
+                    
+                    
+                    
+                    if(cantidadladoizquierdofrente.equals("0") )
+                        
+                    {
+                    
+                    btnladoizquierdofrentetermine.setEnabled(true);
+                    btnladoizquierdofrentecancelar.setEnabled(false);
+                    
+                     lbcantidad1.setText("0");
+                    lbcantidad1.setForeground(Color.red.darker());
+                    
+                    
+                    
+                    
+                    
+                    listabotones.add("btnladoizquierdofrente");
+                    
+                    
+                    
+                    }
+                    
+                    else
+                        
+                    {
+                        
+                           btnladoizquierdofrentecancelar.setEnabled(true);
+                           btnladoizquierdofrentetermine.setEnabled(false);
+                           
+                           
+                        lbcantidad1.setText(cantidad);
+                   lbcantidad1.setForeground(Color.GREEN.darker());
+                        
+                    }
+                    
+                    
+                    
+                    
                 }
                 else
                 {
-                    btnladoizquierdofrentetetermine.setEnabled(false);
-                    btnladoizquierdofrenteponchado.setEnabled(false);
+                   btnladoizquierdofrentetermine.setEnabled(false);
+                   
                 }    
                 
                 
-                String cantidadladoderechofrente = rs.getString("lado_derecho_frente_cantidad");
-             
-                if(cantidadladoderechofrente.equals("0")&& activadoladoderechofrente.equals("si"))
+                
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                if(botonhabilitado2.equals("si"))
                 {
-                   btnladoderechofrentetetermine.setEnabled(true);
-                   btnladoderechofrenteponchado.setEnabled(true);
-                   
-                   
+                    
+                    
+                    
+                    
+                     if(cantidadladoderechofrente.equals("0"))
+                    
+                     {
+                   btnladoderechofrentetermine.setEnabled(true);
+                   btnladoderechoatrascancelar.setEnabled(false);
+                    
+                     lbcantidad2.setText("0");
+                    lbcantidad2.setForeground(Color.red.darker());
+                    
+                    
                    listabotones.add("btnladoderechofrente");
+                   
+                   
+                     }
+                     
+                     else
+                     {
+                         
+                            btnladoderechoatrascancelar.setEnabled(true);
+                            btnladoderechofrentetermine.setEnabled(false);
+                  lbcantidad2.setText(cantidad);
+                   lbcantidad2.setForeground(Color.GREEN.darker());
+                         
+                         
+                     }
+                     
+                     
                 }
                 else
                 {
-                   btnladoderechofrentetetermine.setEnabled(false); 
-                   btnladoderechofrenteponchado.setEnabled(false);
+                    
+                    
+                  btnladoderechofrentetermine.setEnabled(false);
+                
+                
                 } 
                 
+              
                 
                 
                 
-                
-                String cantidadladoizquierdoatras = rs.getString("lado_izquierdo_atras_cantidad");
-                if(cantidadladoizquierdoatras.equals("0") && activadoladoizquierdoatras.equals("si"))
+               
+                if( botonhabilitado3.equals("si"))
                 {
-                    btnladoizquierdoatrastetermine.setEnabled(true);
-                    btnladoizquierdoatrasponchado.setEnabled(true);
                     
                     
+                    
+                    if(cantidadladoizquierdoatras.equals("0"))
+                        
+                    {
+                    btnladoizquierdoatrastermine.setEnabled(true);
+                   btnladoizquierdoatrascancelar.setEnabled(false);
+                     
+                      lbcantidad3.setText("0");
+                    lbcantidad3.setForeground(Color.red.darker());
+                     
+                     
                     listabotones.add("btnladoizquierdoatras");
-                }
-                else
-                {
-                    btnladoizquierdoatrastetermine.setEnabled(false);
-                    btnladoizquierdoatrasponchado.setEnabled(false);
-                } 
-                
-                
-                
-                
-                
-                String cantidadladoderechoatras = rs.getString("lado_derecho_atras_cantidad");
-                if(cantidadladoderechoatras.equals("0") && activadoladoderechoatras.equals("si"))
-                {
-                    btnladoderechoatrastetermine.setEnabled(true);
-                    btnladoderechoatrasponchado.setEnabled(true);
                     
-                    listabotones.add("btnladoderechoatras");
+                    
+                    }
+                    
+                    else
+                        
+                    {
+                            btnladoizquierdoatrascancelar.setEnabled(true);
+                             btnladoizquierdoatrastermine.setEnabled(false);
+                  lbcantidad3.setText(cantidad);
+                   lbcantidad3.setForeground(Color.GREEN.darker());
+                        
+                    }
+                    
+                    
                 }
                 else
                 {
-                    btnladoderechoatrastetermine.setEnabled(false);
-                    btnladoderechoatrasponchado.setEnabled(false);
+                    btnladoizquierdoatrastermine.setEnabled(false);
+                
                 } 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                if( botonhabilitado4.equals("si"))
+                {
+                    
+                    
+                    
+                    if(cantidadladoderechoatras.equals("0"))
+                        
+                        
+                    {
+                    btnladoderechoatrastermine.setEnabled(true);
+                    btnladoderechoatrascancelar.setEnabled(false);
+                     
+                      lbcantidad4.setText("0");
+                    lbcantidad4.setForeground(Color.red.darker());
+                     
+                     
+                    listabotones.add("btnladoderechoatras");
+                    
+                    }
+                    
+                    
+                    else
+                        
+                    {
+                        
+                           
+                 btnladoderechoatrascancelar.setEnabled(true);
+                  btnladoderechoatrastermine.setEnabled(false);
+                  
+                  
+                   lbcantidad4.setText(cantidad);
+                   lbcantidad4.setForeground(Color.GREEN.darker());
+                        
+                    }
+                    
+                }
+                else
+                {
+                     btnladoderechoatrastermine.setEnabled(false);
+                }
+                
+                
+                
+                
+                
+                
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+               
                 
                 }
 
@@ -3070,26 +3275,26 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbsucursal = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         lbcantidad = new javax.swing.JLabel();
-        btnladoderechofrentetetermine = new javax.swing.JButton();
-        btnladoderechoatrastetermine = new javax.swing.JButton();
-        btnladoizquierdofrentetetermine = new javax.swing.JButton();
-        btnladoizquierdoatrastetermine = new javax.swing.JButton();
+        btnladoderechofrentetermine = new javax.swing.JButton();
+        btnladoderechoatrastermine = new javax.swing.JButton();
+        btnladoizquierdofrentetermine = new javax.swing.JButton();
+        btnladoizquierdoatrastermine = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lbsumapuntos = new javax.swing.JLabel();
-        lbcolormangaderecha = new javax.swing.JLabel();
-        lbcolormangaizquierda = new javax.swing.JLabel();
-        lbcolorpechoderecho = new javax.swing.JLabel();
-        lbcolorpechoizquierdo = new javax.swing.JLabel();
+        lbcolor2 = new javax.swing.JLabel();
+        lbcolor4 = new javax.swing.JLabel();
+        lbcolor1 = new javax.swing.JLabel();
+        lbcolor3 = new javax.swing.JLabel();
         btnverfotomontaje = new javax.swing.JButton();
         btnterminetodo = new javax.swing.JButton();
         lbbordacliente = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         lbnombrecomercial = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        lbcodigoladoderechofrente = new javax.swing.JLabel();
-        lbcodigoladoizquierdoatras = new javax.swing.JLabel();
-        lbcodigoladoizquierdofrente = new javax.swing.JLabel();
-        lbcodigoladoderechoatras = new javax.swing.JLabel();
+        lbcodigo2 = new javax.swing.JLabel();
+        lbcodigo3 = new javax.swing.JLabel();
+        lbcodigo1 = new javax.swing.JLabel();
+        lbcodigo4 = new javax.swing.JLabel();
         btneliminarbtneditarbordado = new javax.swing.JButton();
         lbidentificador = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -3113,10 +3318,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbdadoizquierdoatras1 = new javax.swing.JLabel();
         lbladoizquierdofrente1 = new javax.swing.JLabel();
         lbladoderechofrente1 = new javax.swing.JLabel();
-        btnladoderechofrenteponchado = new javax.swing.JButton();
-        btnladoderechoatrasponchado = new javax.swing.JButton();
-        btnladoizquierdofrenteponchado = new javax.swing.JButton();
-        btnladoizquierdoatrasponchado = new javax.swing.JButton();
+        btnponchado2 = new javax.swing.JButton();
+        btnponchado4 = new javax.swing.JButton();
+        btnponchado1 = new javax.swing.JButton();
+        btnponchado3 = new javax.swing.JButton();
         lbladoizquierdoatrasnombre = new javax.swing.JLabel();
         lbladoderechoatrasnombre = new javax.swing.JLabel();
         lbladoderechofrentenombre = new javax.swing.JLabel();
@@ -3237,55 +3442,55 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbcantidad.setText("0");
         lbcantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnladoderechofrentetetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnladoderechofrentetetermine.setText("Termine");
-        btnladoderechofrentetetermine.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnladoderechofrentetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnladoderechofrentetermine.setText("Termine");
+        btnladoderechofrentetermine.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btnladoderechofrentetetermineMouseReleased(evt);
+                btnladoderechofrentetermineMouseReleased(evt);
             }
         });
-        btnladoderechofrentetetermine.addActionListener(new java.awt.event.ActionListener() {
+        btnladoderechofrentetermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnladoderechofrentetetermineActionPerformed(evt);
+                btnladoderechofrentetermineActionPerformed(evt);
             }
         });
 
-        btnladoderechoatrastetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnladoderechoatrastetermine.setText("Termine");
-        btnladoderechoatrastetermine.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnladoderechoatrastermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnladoderechoatrastermine.setText("Termine");
+        btnladoderechoatrastermine.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btnladoderechoatrastetermineMouseReleased(evt);
+                btnladoderechoatrastermineMouseReleased(evt);
             }
         });
-        btnladoderechoatrastetermine.addActionListener(new java.awt.event.ActionListener() {
+        btnladoderechoatrastermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnladoderechoatrastetermineActionPerformed(evt);
+                btnladoderechoatrastermineActionPerformed(evt);
             }
         });
 
-        btnladoizquierdofrentetetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnladoizquierdofrentetetermine.setText("Termine");
-        btnladoizquierdofrentetetermine.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnladoizquierdofrentetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnladoizquierdofrentetermine.setText("Termine");
+        btnladoizquierdofrentetermine.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btnladoizquierdofrentetetermineMouseReleased(evt);
+                btnladoizquierdofrentetermineMouseReleased(evt);
             }
         });
-        btnladoizquierdofrentetetermine.addActionListener(new java.awt.event.ActionListener() {
+        btnladoizquierdofrentetermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnladoizquierdofrentetetermineActionPerformed(evt);
+                btnladoizquierdofrentetermineActionPerformed(evt);
             }
         });
 
-        btnladoizquierdoatrastetermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnladoizquierdoatrastetermine.setText("Termine");
-        btnladoizquierdoatrastetermine.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnladoizquierdoatrastermine.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnladoizquierdoatrastermine.setText("Termine");
+        btnladoizquierdoatrastermine.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btnladoizquierdoatrastetermineMouseReleased(evt);
+                btnladoizquierdoatrastermineMouseReleased(evt);
             }
         });
-        btnladoizquierdoatrastetermine.addActionListener(new java.awt.event.ActionListener() {
+        btnladoizquierdoatrastermine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnladoizquierdoatrastetermineActionPerformed(evt);
+                btnladoizquierdoatrastermineActionPerformed(evt);
             }
         });
 
@@ -3298,17 +3503,17 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbsumapuntos.setForeground(new java.awt.Color(0, 0, 153));
         lbsumapuntos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolormangaderecha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbcolormangaderecha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcolor2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcolor2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolormangaizquierda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbcolormangaizquierda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcolor4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcolor4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolorpechoderecho.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbcolorpechoderecho.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcolor1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcolor1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcolorpechoizquierdo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbcolorpechoizquierdo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcolor3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcolor3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnverfotomontaje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnverfotomontaje.setText("Ver fotomontaje");
@@ -3340,17 +3545,17 @@ JOptionPane.showMessageDialog(null, mensaje);
         jLabel17.setText("Nombre comercial");
         jLabel17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcodigoladoderechofrente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbcodigoladoderechofrente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcodigo2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcodigo2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcodigoladoizquierdoatras.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbcodigoladoizquierdoatras.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcodigo3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcodigo3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcodigoladoizquierdofrente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbcodigoladoizquierdofrente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcodigo1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcodigo1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbcodigoladoderechoatras.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbcodigoladoderechoatras.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbcodigo4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbcodigo4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btneliminarbtneditarbordado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btneliminarbtneditarbordado.setText("Editar bordado");
@@ -3487,35 +3692,35 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbladoderechofrente1.setText("Lado derecho frente");
         lbladoderechofrente1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnladoderechofrenteponchado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnladoderechofrenteponchado.setText("Ponchado");
-        btnladoderechofrenteponchado.addActionListener(new java.awt.event.ActionListener() {
+        btnponchado2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnponchado2.setText("Ponchado");
+        btnponchado2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnladoderechofrenteponchadoActionPerformed(evt);
+                btnponchado2ActionPerformed(evt);
             }
         });
 
-        btnladoderechoatrasponchado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnladoderechoatrasponchado.setText("Ponchado");
-        btnladoderechoatrasponchado.addActionListener(new java.awt.event.ActionListener() {
+        btnponchado4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnponchado4.setText("Ponchado");
+        btnponchado4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnladoderechoatrasponchadoActionPerformed(evt);
+                btnponchado4ActionPerformed(evt);
             }
         });
 
-        btnladoizquierdofrenteponchado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnladoizquierdofrenteponchado.setText("Ponchado");
-        btnladoizquierdofrenteponchado.addActionListener(new java.awt.event.ActionListener() {
+        btnponchado1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnponchado1.setText("Ponchado");
+        btnponchado1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnladoizquierdofrenteponchadoActionPerformed(evt);
+                btnponchado1ActionPerformed(evt);
             }
         });
 
-        btnladoizquierdoatrasponchado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnladoizquierdoatrasponchado.setText("Ponchado");
-        btnladoizquierdoatrasponchado.addActionListener(new java.awt.event.ActionListener() {
+        btnponchado3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnponchado3.setText("Ponchado");
+        btnponchado3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnladoizquierdoatrasponchadoActionPerformed(evt);
+                btnponchado3ActionPerformed(evt);
             }
         });
 
@@ -3772,14 +3977,14 @@ JOptionPane.showMessageDialog(null, mensaje);
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(btnladoderechoatrastetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(btnladoderechoatrastermine, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(8, 8, 8)
                                                         .addComponent(btnladoderechoatrascancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(btnladoizquierdofrentetetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(btnladoderechofrentetetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(btnladoizquierdoatrastetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addComponent(btnladoizquierdofrentetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(btnladoderechofrentetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(btnladoizquierdoatrastermine, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                             .addGroup(layout.createSequentialGroup()
                                                                 .addGap(8, 8, 8)
@@ -3793,19 +3998,19 @@ JOptionPane.showMessageDialog(null, mensaje);
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(lbcodigoladoizquierdofrente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(lbcodigoladoderechofrente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(lbcodigoladoizquierdoatras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addComponent(lbcodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(lbcodigo2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(lbcodigo3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGap(20, 20, 20)
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(lbcolorpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(lbcolormangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(lbcolorpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                            .addComponent(lbcolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(lbcolor2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(lbcolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(lbcodigoladoderechoatras, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(lbcodigo4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(20, 20, 20)
-                                                        .addComponent(lbcolormangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(lbcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addGap(2, 2, 2)
@@ -3817,7 +4022,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                 .addComponent(btnreplicartodoslosponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(2, 2, 2)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(btnquitarponchado1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3834,10 +4038,10 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(btnladoderechoatrasponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnladoizquierdoatrasponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnladoderechofrenteponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnladoizquierdofrenteponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(btnponchado4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnponchado3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnponchado2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
@@ -4034,27 +4238,33 @@ JOptionPane.showMessageDialog(null, mensaje);
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
+                        .addComponent(btncargarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btncargarponchado2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(btncargarponchado3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btncargarponchado4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btnquitarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnquitarponchado2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(47, 47, 47)
                                 .addComponent(btnquitarponchado4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btnquitarponchado3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(40, 40, 40))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnreplicar1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnreplicar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnreplicar2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(8, 8, 8)
                                 .addComponent(btnreplicar3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
-                                .addComponent(btnreplicar4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnreplicar4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
@@ -4076,30 +4286,30 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(lbcolorpechoderecho, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbcolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(10, 10, 10)
-                                            .addComponent(lbcolormangaderecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbcolor2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(10, 10, 10)
-                                            .addComponent(lbcolorpechoizquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(lbcolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(lbcodigoladoizquierdofrente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbcodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(10, 10, 10)
-                                            .addComponent(lbcodigoladoderechofrente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbcodigo2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(lbcodigoladoizquierdoatras, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(lbcodigo3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(6, 6, 6)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbcodigoladoderechoatras, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbcolormangaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(lbcodigo4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnladoizquierdofrentetetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnladoizquierdofrentetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(10, 10, 10)
-                                            .addComponent(btnladoderechofrentetetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnladoderechofrentetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(10, 10, 10)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(btnladoizquierdoatrastetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btnladoizquierdoatrastermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(btnladoizquierdoatrascancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(btnladoizquierdofrentecancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4107,7 +4317,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                             .addComponent(btnladoderechofrentecancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(7, 7, 7)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnladoderechoatrastetermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnladoderechoatrastermine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btnladoderechoatrascancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4126,44 +4336,33 @@ JOptionPane.showMessageDialog(null, mensaje);
                                     .addGap(10, 10, 10)
                                     .addComponent(lbdadoizquierdoatras1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(10, 10, 10)
-                                    .addComponent(lbladoderechoatras1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btncargarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btncargarponchado2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(btncargarponchado3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btncargarponchado4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(13, 13, 13))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbsumapuntos1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(10, 10, 10)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbsumapuntos2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(10, 10, 10)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbsumapuntos3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(10, 10, 10)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbsumapuntos4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnladoizquierdofrenteponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(btnladoderechofrenteponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(btnladoizquierdoatrasponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnladoderechoatrasponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                                    .addComponent(lbladoderechoatras1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbsumapuntos1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbsumapuntos2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbsumapuntos3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbsumapuntos4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(btnponchado2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(btnponchado3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnponchado4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4267,314 +4466,34 @@ public static String dia() {
 
          
 
-        
-        int traspaso = 0;
-    
-        prenda = "Pantalon";
-        String cliente = lbcliente.getText();
-
-        String path = "";
-        String tiendaalaquesereplicara = lbsucursal.getText();
-        String stringIP = "";
-        String stringlocal = "";
-        String stringBDlocal = "";
-
-        String nombrearchivo1 = "";
-        String nombrearchivo2 = "";
-        String nombrearchivo3 = "";
-        String nombrearchivo4 = "";
-        String nombrearchivo5 = "";
-        String nombrearchivo6 = "";
-
-        File file = new File("C:\\sistema\\configuracion.txt");
-        try {
-            Scanner sc = new Scanner(file);
-            while (sc.hasNext()) {
-                String line = sc.nextLine();
-                String str[] = line.split(":");
-                stringBDlocal = str[1];
-            }
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-
-        if (tiendaalaquesereplicara.equals("cdmxcentro")) {
-            path = "C:\\sistema\\cdmxcentro.txt";
-        } else if (tiendaalaquesereplicara.equals("cdmxsur")) {
-            path = "C:\\sistema\\cdmxsur.txt";
-        } else if (tiendaalaquesereplicara.equals("guadalajara")) {
-            path = "C:\\sistema\\guadalajara.txt";
-        } else if (tiendaalaquesereplicara.equals("monterrey")) {
-            path = "C:\\sistema\\monterrey.txt";
-        } else {
-            if (tiendaalaquesereplicara.equals("tijuana")) {
-                path = "C:\\sistema\\tijuana.txt";
-            }
-        }
-
-        File file1 = new File(path);
-        try {
-            Scanner sc = new Scanner(file1);
-            while (sc.hasNext()) {
-                String line = sc.nextLine();
-                String str[] = line.split(":");
-                stringIP = str[0];
-                stringlocal = str[1];
-            }
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-
-        Connection conn = null;
-        ipsucursal = stringIP;
-       sucursal = stringlocal;
-
-        FileInputStream input = null;
-        FileInputStream input2 = null;
-        FileInputStream input3 = null;
-        FileInputStream input4 = null;
-        FileInputStream input5 = null;
-        FileInputStream input6 = null;
-
-        String extensionponchado1 = "", extensionponchado2 = "", extensionponchado3 = "", extensionponchado4 = "", extensionponchado5 = "";
-
-        //ponchado1
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
-
-            //primerponchado   
-            Object ponchado1 = rutaladoizquierdofrente;
-            if (ponchado1 == null || ponchado1.equals("")||ponchado1.equals("lbrutaladoizquierdofrente")) {
-
-            } else {
-                
-                try {
-                    String filePath = rutaladoizquierdofrente;
-                    File archivo = new File(filePath);
-                    nombrearchivo1 = archivo.getName();
-                    input = new FileInputStream(new File(filePath));
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_pantalon_recibidas set lado_izquierdo_frente_ponchado=? where numero_orden_pantalon_solicitada='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and cliente = '" + cliente + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input);
-                    System.out.println(sql2);
-                    traspaso = modificar.executeUpdate();
-
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_pantalon_recibidas set lado_izquierdo_frente_ponchado_nombre='" + nombrearchivo1 + "' where numero_orden_pantalon_solicitada='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and cliente = '" + cliente + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-
-            ///ponchado2
-            Object ponchado2 = rutaladoderechofrente;
-            if (ponchado2 == null || ponchado2.equals("") || ponchado2.equals(" ")|| ponchado2.equals("lbrutaladoderechofrente")) {
-
-            } else {
-                try {
-                    String filePath2 = rutaladoderechofrente;
-                    File archivo2 = new File(filePath2);
-                    nombrearchivo2 = archivo2.getName();
-                    input2 = new FileInputStream(new File(filePath2));
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_pantalon_recibidas set lado_derecho_frente_ponchado=? where numero_orden_pantalon_solicitada='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and cliente = '" + cliente + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input2);
-                    traspaso = modificar.executeUpdate();
-
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_pantalon_recibidas set lado_derecho_frente_ponchado_nombre='" + nombrearchivo2 + "' where numero_orden_pantalon_solicitada='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and cliente = '" + cliente + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-
-            }
-
-            ///ponchado3
-            Object ponchado3 = rutaladoizquierdoatras;
-            if (ponchado3 == null || ponchado3.equals("") || ponchado3.equals(" ")||ponchado3.equals("lbrutaladoizquierdoatras")) {
-
-            } else {
-                try {
-                    String filePath3 = rutaladoizquierdoatras;
-                    File archivo3 = new File(filePath3);
-                    nombrearchivo3 = archivo3.getName();
-                    input3 = new FileInputStream(new File(filePath3));
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_pantalon_recibidas set lado_izquierdo_atras_ponchado=? where numero_orden_pantalon_solicitada='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and cliente = '" + cliente + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input3);
-                    traspaso = modificar.executeUpdate();
-
-                    System.out.println("\nCompleted successfully!");
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_pantalon_recibidas set lado_izquierdo_atras_ponchado_nombre='" + nombrearchivo3 + "' where numero_orden_pantalon_solicitada='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and cliente = '" + cliente + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-
-            //ponchado 4
-            Object ponchado4 = rutaladoderechoatras;
-
-            if (ponchado4 == null || ponchado4.equals("") || ponchado4.equals(" ")|| ponchado4.equals("lbrutaladoderechoatras")) {
-
-            } else {
-                try {
-                    String filePath4 = rutaladoderechoatras;
-                    File archivo4 = new File(filePath4);
-                    nombrearchivo4 = archivo4.getName();
-                    input4 = new FileInputStream(new File(filePath4));
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_pantalon_recibidas set lado_derecho_atras_ponchado=? where numero_orden_pantalon_solicitada='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and cliente = '" + cliente + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input4);
-                    System.out.println(sql2);
-                    traspaso = modificar.executeUpdate();
-
-                    System.out.println("\nCompleted successfully!");
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_pantalon_recibidas set lado_derecho_atras_ponchado_nombre='" + nombrearchivo4 + "' where numero_orden_pantalon_solicitada='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and cliente = '" + cliente + "'  ");
-                    pst.executeUpdate();
-                    System.out.println(pst);
-                    pst.close();
-
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-
-          
-
-           /// imagen jlabel
-            Object imagen = rutaimagen;
-
-            if (imagen == null || imagen.equals("") || imagen.equals(" ")||imagen.equals("lbrutaimagen") ) {
-
-            } else {
-                try {
-                    String filePath6 = rutaimagen;
-                    File archivo6 = new File(filePath6);
-                    nombrearchivo6 = archivo6.getName();
-                    input6 = new FileInputStream(new File(filePath6));
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-                try {
-
-                    String sql2 = "UPDATE historial_ordenes_pantalon_recibidas set imagen=? where numero_orden_pantalon_solicitada='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and cliente = '" + cliente + "'  ";
-                    PreparedStatement modificar = conn.prepareStatement(sql2);
-                    modificar.setBinaryStream(1, input6);
-                    System.out.println(sql2);
-                    traspaso = modificar.executeUpdate();
-
-                    System.out.println("\nCompleted successfully!");
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                try {
-
-                    PreparedStatement pst = conn.prepareStatement("UPDATE historial_ordenes_pantalon_recibidas set imagen_nombre='" + nombrearchivo6 + "' where numero_orden_pantalon_solicitada='" + numerosucursal + "' and tienda = '" + stringBDlocal + "' and cliente = '" + cliente + "'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println(e);
-            e.printStackTrace();
-            return;
-        }
-
-        if (traspaso > 0)
-        {
-            
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">La orden se inserto correctamente en la otra sucursal");
-
-          
-            try {
-
-                PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_pantalon SET estatus_orden='enviado' WHERE numero='" + numeroordendebordadosolicitadoorecibidasisehabredesderecibidas + "'");
-                pst.executeUpdate();
-                pst.close();
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-
-            ordenesporrealizar.btnactualizar.doClick();
-
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden No se inserto en la otra sucursal");
-        }   
-
        
-         this.dispose();
-         
-         
-         
+           if(btnreplicar1.isEnabled())
+                {
+                    btnreplicar1.doClick();
+                }
+                
+                
+                if(btnreplicar2.isEnabled())
+                {
+                    btnreplicar2.doClick();
+                }
+                
+                
+                if(btnreplicar3.isEnabled())
+                {
+                    btnreplicar3.doClick();
+                }
+                
+                
+                if(btnreplicar4.isEnabled())
+                {
+                    btnreplicar4.doClick();
+                }
+                
+                
+             
+              
+          
          
         
     }//GEN-LAST:event_btnreplicartodoslosponchadosActionPerformed
@@ -4589,10 +4508,40 @@ public static String dia() {
       
         
         
+               if (esponchado.equals("si"))
+                   
+               {
+           lugar = enquesucursalsebordara;
+           deshabilitarbotonesporqueesponchado();
+           
+            btnreplicartodoslosponchados.setEnabled(true);
+                
+                
+                  if(lugar.equals("Esta sucursal"))
+        {
+       
+           nombredelatabla = "historial_ordenes_camisa";
+                
+        }
+                  else
+                      
+                  {
+  
+            
+           nombredelatabla = "historial_ordenes_camisa_recibidas";
+            
+            
+                    
+                  }
+                
+                
+               }  
+        
+        
         
     }//GEN-LAST:event_formWindowOpened
 
-    private void btnladoizquierdofrentetetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdofrentetetermineActionPerformed
+    private void btnladoizquierdofrentetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdofrentetermineActionPerformed
 
          if(cantidad.equals("0"))
         {
@@ -4635,7 +4584,7 @@ public static String dia() {
             String fl = archivoelegido.toString();
 
             rutaladoizquierdofrente= fl ;
-            btnladoizquierdofrentetetermine.setEnabled(false);
+            btnladoizquierdofrentetermine.setEnabled(false);
 
         }
         
@@ -4670,9 +4619,9 @@ public static String dia() {
 
         
         }
-    }//GEN-LAST:event_btnladoizquierdofrentetetermineActionPerformed
+    }//GEN-LAST:event_btnladoizquierdofrentetermineActionPerformed
 
-    private void btnladoizquierdoatrastetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdoatrastetermineActionPerformed
+    private void btnladoizquierdoatrastermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdoatrastermineActionPerformed
 
          if(cantidad.equals("0"))
         {
@@ -4719,7 +4668,7 @@ public static String dia() {
             String fl = archivoelegido.toString();
 
             rutaladoizquierdoatras=fl;
-            btnladoizquierdoatrastetermine.setEnabled(false);
+            btnladoizquierdoatrastermine.setEnabled(false);
 
         }
         
@@ -4756,9 +4705,9 @@ public static String dia() {
         
         
         }
-    }//GEN-LAST:event_btnladoizquierdoatrastetermineActionPerformed
+    }//GEN-LAST:event_btnladoizquierdoatrastermineActionPerformed
 
-    private void btnladoderechoatrastetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechoatrastetermineActionPerformed
+    private void btnladoderechoatrastermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechoatrastermineActionPerformed
 
          if(cantidad.equals("0"))
         {
@@ -4800,7 +4749,7 @@ public static String dia() {
             String fl = archivoelegido.toString();
 
             rutaladoderechoatras= fl;
-            btnladoderechoatrastetermine.setEnabled(false);
+            btnladoderechoatrastermine.setEnabled(false);
 
         }
         
@@ -4834,9 +4783,9 @@ public static String dia() {
          
          
         }
-    }//GEN-LAST:event_btnladoderechoatrastetermineActionPerformed
+    }//GEN-LAST:event_btnladoderechoatrastermineActionPerformed
 
-    private void btnladoderechofrentetetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechofrentetetermineActionPerformed
+    private void btnladoderechofrentetermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechofrentetermineActionPerformed
 
          if(cantidad.equals("0"))
         {
@@ -4879,7 +4828,7 @@ public static String dia() {
             String fl = archivoelegido.toString();
 
             rutaladoderechofrente=fl;
-            btnladoderechofrentetetermine.setEnabled(false);
+            btnladoderechofrentetermine.setEnabled(false);
 
         }
         
@@ -4914,7 +4863,7 @@ public static String dia() {
          
          
         }
-    }//GEN-LAST:event_btnladoderechofrentetetermineActionPerformed
+    }//GEN-LAST:event_btnladoderechofrentetermineActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
       ventanaordenpantalonanteriores = false;
@@ -4955,43 +4904,43 @@ public static String dia() {
             if(boton.equals("btnladoizquierdofrente"))
             {
                 
-                if(btnladoizquierdofrentetetermine.getText().equals("Cancelar"))
+                if(btnladoizquierdofrentetermine.getText().equals("Cancelar"))
                 {
                 }
                 else
                 {
-                btnladoizquierdofrentetetermine.doClick();
+                btnladoizquierdofrentetermine.doClick();
                 }
                 
             }
             else if(boton.equals("btnladoderechofrente"))
             {
-                if(btnladoderechofrentetetermine.getText().equals("Cancelar"))
+                if(btnladoderechofrentetermine.getText().equals("Cancelar"))
                 {
                 }
                 else
                 {
-                btnladoderechofrentetetermine.doClick();
+                btnladoderechofrentetermine.doClick();
                 }
             }
             else if(boton.equals("btnladoizquierdoatras"))
             {
-                if(btnladoizquierdoatrastetermine.getText().equals("Cancelar"))
+                if(btnladoizquierdoatrastermine.getText().equals("Cancelar"))
                 {
                 }
                 else
                 {
-                btnladoizquierdoatrastetermine.doClick();
+                btnladoizquierdoatrastermine.doClick();
                 }
             }
             else if(boton.equals("btnladoderechoatras"))
             {
-                if(btnladoderechoatrastetermine.getText().equals("Cancelar"))
+                if(btnladoderechoatrastermine.getText().equals("Cancelar"))
                 {
                 }
                 else
                 {
-                btnladoderechoatrastetermine.doClick();
+                btnladoderechoatrastermine.doClick();
                 }
             }
             
@@ -5334,22 +5283,22 @@ public static String dia() {
                  
     }//GEN-LAST:event_btnladoizquierdoatrascancelarActionPerformed
 
-    private void btnladoderechofrenteponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechofrenteponchadoActionPerformed
+    private void btnponchado2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnponchado2ActionPerformed
        String ubicacion ="lado_derecho_frente_ponchado";
                 String ubicacionnombre ="lado_derecho_frente_ponchado_nombre";
                         
                 descargarponchado((String) ubicacion,(String) ubicacionnombre); 
-    }//GEN-LAST:event_btnladoderechofrenteponchadoActionPerformed
+    }//GEN-LAST:event_btnponchado2ActionPerformed
 
-    private void btnladoderechoatrasponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechoatrasponchadoActionPerformed
+    private void btnponchado4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnponchado4ActionPerformed
        String ubicacion ="lado_derecho_atras_ponchado";
                 String ubicacionnombre ="lado_derecho_atras_ponchado_nombre";
                         
                 descargarponchado((String) ubicacion,(String) ubicacionnombre); 
                 
-    }//GEN-LAST:event_btnladoderechoatrasponchadoActionPerformed
+    }//GEN-LAST:event_btnponchado4ActionPerformed
 
-    private void btnladoizquierdofrenteponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdofrenteponchadoActionPerformed
+    private void btnponchado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnponchado1ActionPerformed
 
         
         String ubicacion ="lado_izquierdo_frente_ponchado";
@@ -5357,16 +5306,16 @@ public static String dia() {
                         
                 descargarponchado((String) ubicacion,(String) ubicacionnombre); 
                 
-    }//GEN-LAST:event_btnladoizquierdofrenteponchadoActionPerformed
+    }//GEN-LAST:event_btnponchado1ActionPerformed
 
-    private void btnladoizquierdoatrasponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdoatrasponchadoActionPerformed
+    private void btnponchado3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnponchado3ActionPerformed
        String ubicacion ="lado_izquierdo_atras_ponchado";
                 String ubicacionnombre ="lado_izquierdo_atras_ponchado_nombre";
                         
                 descargarponchado((String) ubicacion,(String) ubicacionnombre); 
-    }//GEN-LAST:event_btnladoizquierdoatrasponchadoActionPerformed
+    }//GEN-LAST:event_btnponchado3ActionPerformed
 
-    private void btnladoizquierdofrentetetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdofrentetetermineMouseReleased
+    private void btnladoizquierdofrentetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdofrentetermineMouseReleased
               
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
@@ -5382,9 +5331,9 @@ public static String dia() {
         
         
                 datos();
-    }//GEN-LAST:event_btnladoizquierdofrentetetermineMouseReleased
+    }//GEN-LAST:event_btnladoizquierdofrentetermineMouseReleased
 
-    private void btnladoderechofrentetetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechofrentetetermineMouseReleased
+    private void btnladoderechofrentetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechofrentetermineMouseReleased
               
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
@@ -5400,9 +5349,9 @@ public static String dia() {
         
         
                 datos();
-    }//GEN-LAST:event_btnladoderechofrentetetermineMouseReleased
+    }//GEN-LAST:event_btnladoderechofrentetermineMouseReleased
 
-    private void btnladoizquierdoatrastetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdoatrastetermineMouseReleased
+    private void btnladoizquierdoatrastermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdoatrastermineMouseReleased
               
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
@@ -5418,9 +5367,9 @@ public static String dia() {
         
         
                 datos();
-    }//GEN-LAST:event_btnladoizquierdoatrastetermineMouseReleased
+    }//GEN-LAST:event_btnladoizquierdoatrastermineMouseReleased
 
-    private void btnladoderechoatrastetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechoatrastetermineMouseReleased
+    private void btnladoderechoatrastermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechoatrastermineMouseReleased
              
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
@@ -5436,7 +5385,7 @@ public static String dia() {
         
         
                 datos();
-    }//GEN-LAST:event_btnladoderechoatrastetermineMouseReleased
+    }//GEN-LAST:event_btnladoderechoatrastermineMouseReleased
 
     private void btnladoizquierdofrentecancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdofrentecancelarMouseReleased
         // TODO add your handling code here:       
@@ -5641,7 +5590,7 @@ public static String dia() {
         
         
         ubicacionponchado= "lado_derecho_atras_ponchado";
-        ubicacionponchadonombre = "lado_derecho_atras_nombre";
+        ubicacionponchadonombre = "lado_derecho_atras_ponchado_nombre";
                 
         
           String nombrearchivo ="";
@@ -5669,6 +5618,10 @@ public static String dia() {
                 } catch (FileNotFoundException ex) {
                     Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
+                
+                
+                
 
                 try {
 
@@ -5990,17 +5943,17 @@ public static String dia() {
     private javax.swing.JButton btneliminarbtneditarbordado;
     private javax.swing.JButton btnfotomontajesinpuntadas;
     public static javax.swing.JButton btnladoderechoatrascancelar;
-    private javax.swing.JButton btnladoderechoatrasponchado;
-    private javax.swing.JButton btnladoderechoatrastetermine;
+    private javax.swing.JButton btnladoderechoatrastermine;
     public static javax.swing.JButton btnladoderechofrentecancelar;
-    private javax.swing.JButton btnladoderechofrenteponchado;
-    private javax.swing.JButton btnladoderechofrentetetermine;
+    private javax.swing.JButton btnladoderechofrentetermine;
     public static javax.swing.JButton btnladoizquierdoatrascancelar;
-    private javax.swing.JButton btnladoizquierdoatrasponchado;
-    private javax.swing.JButton btnladoizquierdoatrastetermine;
+    private javax.swing.JButton btnladoizquierdoatrastermine;
     public static javax.swing.JButton btnladoizquierdofrentecancelar;
-    private javax.swing.JButton btnladoizquierdofrenteponchado;
-    private javax.swing.JButton btnladoizquierdofrentetetermine;
+    private javax.swing.JButton btnladoizquierdofrentetermine;
+    private javax.swing.JButton btnponchado1;
+    private javax.swing.JButton btnponchado2;
+    private javax.swing.JButton btnponchado3;
+    private javax.swing.JButton btnponchado4;
     private javax.swing.JButton btnquitarponchado1;
     private javax.swing.JButton btnquitarponchado2;
     private javax.swing.JButton btnquitarponchado3;
@@ -6046,14 +5999,14 @@ public static String dia() {
     public javax.swing.JLabel lbcantidad3;
     public javax.swing.JLabel lbcantidad4;
     public static javax.swing.JLabel lbcliente;
-    public javax.swing.JLabel lbcodigoladoderechoatras;
-    public javax.swing.JLabel lbcodigoladoderechofrente;
-    public javax.swing.JLabel lbcodigoladoizquierdoatras;
-    public javax.swing.JLabel lbcodigoladoizquierdofrente;
-    public javax.swing.JLabel lbcolormangaderecha;
-    public javax.swing.JLabel lbcolormangaizquierda;
-    public javax.swing.JLabel lbcolorpechoderecho;
-    public javax.swing.JLabel lbcolorpechoizquierdo;
+    public javax.swing.JLabel lbcodigo1;
+    public javax.swing.JLabel lbcodigo2;
+    public javax.swing.JLabel lbcodigo3;
+    public javax.swing.JLabel lbcodigo4;
+    public javax.swing.JLabel lbcolor1;
+    public javax.swing.JLabel lbcolor2;
+    public javax.swing.JLabel lbcolor3;
+    public javax.swing.JLabel lbcolor4;
     public static javax.swing.JLabel lbdadoizquierdoatras1;
     public static javax.swing.JLabel lbestatus;
     private javax.swing.JLabel lbfotomontaje;

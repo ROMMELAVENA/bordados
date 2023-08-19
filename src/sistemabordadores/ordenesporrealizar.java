@@ -1714,7 +1714,7 @@ sorter.sort();
                 Object tipo = tabla.getValueAt(fila, 3);
                 Object lugar = tabla.getValueAt(fila, 4);
                 Object numerodeventa = tabla.getValueAt(fila, 5);
-             
+                sucursal = tabla.getValueAt(fila, 7).toString();
                 Object tablanombre = tabla.getValueAt(fila, 10);
                         
               

@@ -736,18 +736,19 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                    
                     botonhabilitado1 = "no";
-                     btnponchado1.setEnabled(false);
+                    btnponchado1.setEnabled(false);
+                    btncargarponchado1.setEnabled(false);
                  
                     
                 }
                  else
                 {
                     
-                    lbpechoizquierdo.setText(pechoizquierdo);
-                     
-                     botonhabilitado1 = "si";
-                 
-                 btnponchado1.setEnabled(true);
+                    
+                   botonhabilitado1 = "si";
+                   lbpechoizquierdo.setText(pechoizquierdo);
+                   btnponchado1.setEnabled(true);
+                   btncargarponchado1.setEnabled(true);
                      
                      
                      
@@ -772,6 +773,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                     botonhabilitado2 = "no";
                     
                      btnponchado2.setEnabled(false);
+                     btncargarponchado2.setEnabled(false);
+                     
                   
 
                 }
@@ -783,6 +786,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      botonhabilitado2 = "si";
                      
                      btnponchado2.setEnabled(true);
+                     btncargarponchado2.setEnabled(true);
                      
                 }
                 
@@ -804,6 +808,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     botonhabilitado3 = "no";
                     
                     btnponchado3.setEnabled(false);
+                    btncargarponchado3.setEnabled(false);
                   
 
                 }
@@ -815,6 +820,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                       botonhabilitado3 = "si";
                       
                       btnponchado3.setEnabled(true);
+                      btncargarponchado3.setEnabled(true);
                    
                      
                 }
@@ -834,6 +840,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     botonhabilitado4 = "no";
                     
                     btnponchado4.setEnabled(false);
+                    btncargarponchado4.setEnabled(false);
                    
 
                 }
@@ -845,6 +852,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      botonhabilitado4 = "si";
                      
                       btnponchado4.setEnabled(true);
+                      btncargarponchado4.setEnabled(true);
                     
                 }
 
@@ -861,6 +869,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     botonhabilitado5 = "no";
                     
                     btnponchado5.setEnabled(false);
+                    btncargarponchado5.setEnabled(false);
                   
                    
                 }
@@ -872,6 +881,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                       botonhabilitado5 = "si";
                       
                        btnponchado5.setEnabled(true);
+                       btncargarponchado5.setEnabled(true);
                    
                 }
                 
@@ -889,6 +899,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     botonhabilitado6 = "no";
                     
                     btnponchado6.setEnabled(false);
+                    btncargarponchado6.setEnabled(false);
                   
 
                 }
@@ -900,6 +911,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                       botonhabilitado6 = "si";
                       
                        btnponchado6.setEnabled(true);
+                       btncargarponchado6.setEnabled(true);
                  
                 }
 
@@ -916,6 +928,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     botonhabilitado7 = "no";
                     
                      btnponchado7.setEnabled(false);
+                     btncargarponchado7.setEnabled(false);
                    
                     
 
@@ -928,6 +941,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      botonhabilitado7 = "si";
                      
                      btnponchado7.setEnabled(true);
+                     btncargarponchado7.setEnabled(true);
                    
                 }
 
@@ -1530,6 +1544,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                    
                     btnponchado1.setEnabled(false);
+                    btncargarponchado1.setEnabled(false);
                     
 
                 }
@@ -1538,6 +1553,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     botonhabilitado1 = "si";
                     lbpechoizquierdonombre.setText(pechoizquierdonombre);
                     btnponchado1.setEnabled(true);
+                    btncargarponchado1.setEnabled(true);
                 } 
                 
                 
@@ -1557,6 +1573,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                    
                     btnponchado2.setEnabled(false);
+                    btncargarponchado2.setEnabled(false);
                      
 
                 }
@@ -1565,6 +1582,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     botonhabilitado2 = "si";
                     lbpechoderechonombre.setText(pechoderechonombre);
                     btnponchado2.setEnabled(true);
+                    btncargarponchado2.setEnabled(true);
                 } 
                 
                 
@@ -1585,6 +1603,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                   
                     btnponchado3.setEnabled(false);
+                    btncargarponchado3.setEnabled(false);
                 
 
                 }
@@ -1595,6 +1614,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                     botonhabilitado3 = "si";
                      lbmangaizquierdanombre.setText(mangaizquierdanombre);
                     btnponchado3.setEnabled(true);
+                    btncargarponchado3.setEnabled(true);
+                    
                 } 
 
                 
@@ -1616,15 +1637,19 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
 
                     btnponchado4.setEnabled(false);
+                    btncargarponchado4.setEnabled(false);
                
 
 
                 }
                 else
                 {
+                    
+                    botonhabilitado4 = "si";
                     lbmangaderechanombre.setText(mangaderechanombre);
                     btnponchado4.setEnabled(true);
-                    botonhabilitado4 = "si";
+                    btncargarponchado4.setEnabled(true);
+                    
                 }   
 
                 
@@ -1650,6 +1675,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                   
                     btnponchado5.setEnabled(false);
+                    btncargarponchado5.setEnabled(false);
                  
 
                 }
@@ -1658,6 +1684,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     botonhabilitado5 = "si";
                     lbespaldanombre.setText(espaldanombre);
                     btnponchado5.setEnabled(true);
+                    btncargarponchado5.setEnabled(true);
                 } 
 
                 
@@ -1679,6 +1706,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                   
                    btnponchado6.setEnabled(false);
+                   btncargarponchado6.setEnabled(false);
                     
 
                 }
@@ -1687,6 +1715,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     botonhabilitado6 = "si";
                     lbotraubicacionnombre.setText(otraubicacionnombre);
                     btnponchado6.setEnabled(true);
+                    btncargarponchado6.setEnabled(true);
                             
                 } 
 
@@ -1706,6 +1735,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                    
                     btnponchado7.setEnabled(false);
+                    btncargarponchado7.setEnabled(false);
                    
                 }
                 else
@@ -1713,6 +1743,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     botonhabilitado7 = "si";
                     lbotraubicacion2nombre.setText(otraubicacion2nombre);
                     btnponchado7.setEnabled(true);
+                    btncargarponchado7.setEnabled(true);
                     
                     
                 } 
@@ -4989,8 +5020,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         btnponchado4.setEnabled(false);
         btnponchado5.setEnabled(false);
         btnponchado6.setEnabled(false);
-        btnponchado7.setEnabled(false);       
-        
+        btnponchado7.setEnabled(false);     
+     
         
         
         

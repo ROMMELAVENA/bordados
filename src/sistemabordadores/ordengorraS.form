@@ -154,11 +154,11 @@
                                   <Component id="lbladoderechopuntadas" min="-2" pref="220" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                              <Component id="btnladoderechotermine" min="-2" pref="90" max="-2" attributes="0"/>
+                              <Component id="btnladoderechoatrastermine" min="-2" pref="90" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                      <Component id="btnladoderechocancelar" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="btnladoderechoatrascancelar" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                       <Component id="lbcodigoladoderecho" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
@@ -177,9 +177,9 @@
                           <Component id="lbatraspuntadas" min="-2" pref="220" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                      <Component id="btnatrastermine" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="btnladoderechofrentetermine" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                      <Component id="btnatrascancelar" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="btnladoderechofrentecancelar" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                       <Component id="lbcodigoatras" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
@@ -198,9 +198,9 @@
                           </Group>
                       </Group>
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                      <Component id="btnladoizquierdotermine" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="btnladoizquierdoatrastermine" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                      <Component id="btnladoizquierdocancelar" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="btnladoizquierdoatrascancelar" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                       <Component id="lbcodigoladoizquierdo" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
@@ -215,9 +215,9 @@
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="lbcantidad1" min="-2" pref="70" max="-2" attributes="0"/>
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                      <Component id="btnfrentetermine" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="btnladoizquierdofrentetermine" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                      <Component id="btnfrentecancelar" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="btnladoizquierdofrentecancelar" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                       <Component id="lbcodigofrente" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
@@ -225,15 +225,16 @@
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="btnreplicarponchados" min="-2" pref="187" max="-2" attributes="0"/>
+                      <Component id="btnreplicartodoslosponchados" min="-2" pref="187" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel7" min="-2" pref="117" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lbsumapuntos" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -244,27 +245,36 @@
                           <Component id="btncargarponchado2" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
                           <Component id="btncargarponchado1" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnpechoizquierdoponchado1" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                              <Component id="btnquitarponchado1" alignment="1" min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="btnquitarponchado2" alignment="1" min="-2" pref="45" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="btnquitarponchado4" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
+                          <Component id="btnquitarponchado3" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnreplicar1" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnpechoderechoponchado1" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
-                                  <Component id="btnmangaizquierdaponchado1" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
-                                  <Component id="btnmangaderechaponchado1" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                                  <Component id="btnreplicar2" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                                  <Component id="btnreplicar3" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                                  <Component id="btnreplicar4" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnatrasponchado" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                          <Component id="btnladoizquierdoponchado" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                          <Component id="btnponchado2" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                          <Component id="btnponchado3" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                              <Component id="btnfrenteponchado" min="-2" pref="108" max="-2" attributes="0"/>
+                              <Component id="btnponchado1" min="-2" pref="108" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="btnladoderechoponchado" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                          <Component id="btnponchado4" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -290,9 +300,9 @@
                               <Component id="lbsumapuntos4" min="-2" pref="97" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -388,121 +398,136 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lbfrentenombre1" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbfrentenombre" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbcantidad1" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btnfrentetermine" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btnfrentecancelar" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbcodigofrente" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbcolorfrente" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbfrentepuntadas" min="-2" pref="30" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lbatrasnombre1" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbatrasnombre" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lbcantidad2" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbatraspuntadas" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="btnatrastermine" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="btnatrascancelar" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbcodigoatras" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbcoloratras" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lbfrentenombre1" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="lbfrentenombre" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="lbcantidad1" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnladoizquierdofrentetermine" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnladoizquierdofrentecancelar" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="lbcodigofrente" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="lbcolorfrente" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="lbfrentepuntadas" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lbatrasnombre1" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="lbatrasnombre" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lbcantidad2" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lbatraspuntadas" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnladoderechofrentetermine" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnladoderechofrentecancelar" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lbcodigoatras" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lbcoloratras" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lbladoizquierdonombre1" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="lbladoizquierdonombre" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lbladoizquierdopuntadas" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lbcantidad3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnladoizquierdoatrastermine" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnladoizquierdoatrascancelar" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lbcodigoladoizquierdo" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lbcolorladoizquierdo" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lbladoderechonombre1" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="lbladoderechonombre" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lbcantidad4" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lbladoderechopuntadas" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnladoderechoatrastermine" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnladoderechoatrascancelar" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lbcodigoladoderecho" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lbcolorladoderecho" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lbladoizquierdonombre1" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbladoizquierdonombre" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lbladoizquierdopuntadas" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbcantidad3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="btnladoizquierdotermine" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="btnladoizquierdocancelar" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbcodigoladoizquierdo" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbcolorladoizquierdo" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                          <Component id="btncargarponchado1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btnreplicar1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel11" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lbsumapuntos1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel3" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lbsumapuntos2" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel5" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lbsumapuntos3" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel8" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lbsumapuntos4" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lbladoderechonombre1" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lbladoderechonombre" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lbcantidad4" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbladoderechopuntadas" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="btnladoderechotermine" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="btnladoderechocancelar" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbcodigoladoderecho" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbcolorladoderecho" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="btnponchado1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                  <Component id="btnponchado2" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Component id="btnponchado3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Component id="btnponchado4" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btnreplicar2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btncargarponchado2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btnreplicar3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btncargarponchado3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                          <Component id="btnreplicar4" min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btncargarponchado4" min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Component id="btncargarponchado1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="btnpechoizquierdoponchado1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel11" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbsumapuntos1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel3" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbsumapuntos2" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel5" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbsumapuntos3" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel8" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="lbsumapuntos4" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="btnfrenteponchado" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                              <Component id="btnatrasponchado" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btnladoizquierdoponchado" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="btnladoderechoponchado" min="-2" pref="30" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnpechoderechoponchado1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="btncargarponchado2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnmangaizquierdaponchado1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="btncargarponchado3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                      <Component id="btnmangaderechaponchado1" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btncargarponchado4" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="btnquitarponchado1" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnquitarponchado2" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="47" pref="47" max="-2" attributes="0"/>
+                          <Component id="btnquitarponchado4" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="btnquitarponchado3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -513,7 +538,7 @@
                       <Component id="jLabel7" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="lbsumapuntos" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="btnreplicarponchados" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="btnreplicartodoslosponchados" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="43" max="32767" attributes="0"/>
           </Group>
@@ -607,7 +632,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnreplicarponchados">
+    <Component class="javax.swing.JButton" name="btnreplicartodoslosponchados">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -615,7 +640,7 @@
         <Property name="text" type="java.lang.String" value="Replicar ponchados"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnreplicarponchadosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnreplicartodoslosponchadosActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel14">
@@ -791,7 +816,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnverfotomontajeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnatrastermine">
+    <Component class="javax.swing.JButton" name="btnladoderechofrentetermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -799,11 +824,11 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnatrastermineMouseReleased"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnatrastermineActionPerformed"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoderechofrentetermineMouseReleased"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechofrentetermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnladoizquierdotermine">
+    <Component class="javax.swing.JButton" name="btnladoizquierdoatrastermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -811,11 +836,11 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoizquierdotermineMouseReleased"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdotermineActionPerformed"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoizquierdoatrastermineMouseReleased"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdoatrastermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnfrentetermine">
+    <Component class="javax.swing.JButton" name="btnladoizquierdofrentetermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -823,11 +848,11 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnfrentetermineMouseReleased"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnfrentetermineActionPerformed"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoizquierdofrentetermineMouseReleased"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdofrentetermineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnladoderechotermine">
+    <Component class="javax.swing.JButton" name="btnladoderechoatrastermine">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -835,8 +860,8 @@
         <Property name="text" type="java.lang.String" value="Termine"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoderechotermineMouseReleased"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechotermineActionPerformed"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoderechoatrastermineMouseReleased"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechoatrastermineActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -1289,7 +1314,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnatrascancelar">
+    <Component class="javax.swing.JButton" name="btnladoderechofrentecancelar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -1297,14 +1322,14 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnatrascancelarMouseReleased"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnatrascancelarActionPerformed"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoderechofrentecancelarMouseReleased"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechofrentecancelarActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnladoizquierdocancelar">
+    <Component class="javax.swing.JButton" name="btnladoizquierdoatrascancelar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -1312,14 +1337,14 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoizquierdocancelarMouseReleased"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdocancelarActionPerformed"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoizquierdoatrascancelarMouseReleased"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdoatrascancelarActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnfrentecancelar">
+    <Component class="javax.swing.JButton" name="btnladoizquierdofrentecancelar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -1327,14 +1352,14 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnfrentecancelarMouseReleased"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnfrentecancelarActionPerformed"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoizquierdofrentecancelarMouseReleased"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdofrentecancelarActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnladoderechocancelar">
+    <Component class="javax.swing.JButton" name="btnladoderechoatrascancelar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -1342,14 +1367,14 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoderechocancelarMouseReleased"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechocancelarActionPerformed"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnladoderechoatrascancelarMouseReleased"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechoatrascancelarActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnatrasponchado">
+    <Component class="javax.swing.JButton" name="btnponchado2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -1357,10 +1382,10 @@
         <Property name="text" type="java.lang.String" value="Ponchado"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnatrasponchadoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnponchado2ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnladoizquierdoponchado">
+    <Component class="javax.swing.JButton" name="btnponchado3">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -1368,10 +1393,10 @@
         <Property name="text" type="java.lang.String" value="Ponchado"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoizquierdoponchadoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnponchado3ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnfrenteponchado">
+    <Component class="javax.swing.JButton" name="btnponchado1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -1379,10 +1404,10 @@
         <Property name="text" type="java.lang.String" value="Ponchado"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnfrenteponchadoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnponchado1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnladoderechoponchado">
+    <Component class="javax.swing.JButton" name="btnponchado4">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -1390,7 +1415,7 @@
         <Property name="text" type="java.lang.String" value="Ponchado"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnladoderechoponchadoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnponchado4ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbnombrecomercial">
@@ -1689,7 +1714,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnpechoizquierdoponchado1">
+    <Component class="javax.swing.JButton" name="btnreplicar1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -1697,10 +1722,10 @@
         <Property name="text" type="java.lang.String" value="Replicar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpechoizquierdoponchado1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnreplicar1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnpechoderechoponchado1">
+    <Component class="javax.swing.JButton" name="btnreplicar2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -1708,10 +1733,10 @@
         <Property name="text" type="java.lang.String" value="Replicar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpechoderechoponchado1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnreplicar2ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnmangaizquierdaponchado1">
+    <Component class="javax.swing.JButton" name="btnreplicar3">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -1719,10 +1744,10 @@
         <Property name="text" type="java.lang.String" value="Replicar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnmangaizquierdaponchado1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnreplicar3ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnmangaderechaponchado1">
+    <Component class="javax.swing.JButton" name="btnreplicar4">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -1730,7 +1755,7 @@
         <Property name="text" type="java.lang.String" value="Replicar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnmangaderechaponchado1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnreplicar4ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btncargarponchado4">
@@ -1904,6 +1929,50 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnquitarponchado4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnquitarponchado4ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnquitarponchado3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnquitarponchado3ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnquitarponchado2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnquitarponchado2ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnquitarponchado1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnquitarponchado1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

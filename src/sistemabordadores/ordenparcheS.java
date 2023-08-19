@@ -306,7 +306,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
               
                     botonhabilitado1 = "no";
-                    btnparcheponchado.setEnabled(false);
+                    btnponchado1.setEnabled(false);
                  
                     
                 }
@@ -320,7 +320,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     lbparchepuntadas.setText(parche);
                   
                     
-                    btnparcheponchado.setEnabled(true);
+                    btnponchado1.setEnabled(true);
                      
                 }
                 
@@ -564,6 +564,39 @@ JOptionPane.showMessageDialog(null, mensaje);
 
 
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    void deshabilitarbotonesporqueesponchado(){
+        
+        
+        
+       
+        btntermine.setEnabled(false);
+       
+        
+        
+        btnterminetodo.setEnabled(false);        
+                
+                
+        btncancelar.setEnabled(false);
+       
+        
+        btnponchado1.setEnabled(false);
+     
+     
+        
+        
+        
+    }
+    
+    
+    
     
     
  
@@ -3017,7 +3050,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbprenda2 = new javax.swing.JLabel();
         lbprenda3 = new javax.swing.JLabel();
         btncancelar = new javax.swing.JButton();
-        btnparcheponchado = new javax.swing.JButton();
+        btnponchado1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         lbparchepuntadas = new javax.swing.JLabel();
         lbparchenombre = new javax.swing.JLabel();
@@ -3038,14 +3071,14 @@ JOptionPane.showMessageDialog(null, mensaje);
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden de parche");
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
-            }
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
             }
         });
 
@@ -3265,12 +3298,12 @@ JOptionPane.showMessageDialog(null, mensaje);
             }
         });
 
-        btnparcheponchado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnparcheponchado.setText("Ponchado");
-        btnparcheponchado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnparcheponchado.addActionListener(new java.awt.event.ActionListener() {
+        btnponchado1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnponchado1.setText("Ponchado");
+        btnponchado1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnponchado1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnparcheponchadoActionPerformed(evt);
+                btnponchado1ActionPerformed(evt);
             }
         });
 
@@ -3490,7 +3523,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addGap(46, 46, 46)
                                 .addComponent(btnreplicar1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnparcheponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
@@ -3588,7 +3621,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addGap(94, 94, 94)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnparcheponchado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnreplicar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btncargarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnquitarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -3688,6 +3721,35 @@ JOptionPane.showMessageDialog(null, mensaje);
         datos();
         
       
+        
+        
+               if (esponchado.equals("si"))
+                   
+               {
+           lugar = enquesucursalsebordara;
+           deshabilitarbotonesporqueesponchado();
+           
+               
+                
+                  if(lugar.equals("Esta sucursal"))
+        {
+       
+           nombredelatabla = "historial_ordenes_camisa";
+                
+        }
+                  else
+                      
+                  {
+  
+            
+           nombredelatabla = "historial_ordenes_camisa_recibidas";
+            
+            
+                    
+                  }
+                
+                
+               }  
         
         
         
@@ -3927,7 +3989,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
     }//GEN-LAST:event_btncancelarActionPerformed
 
-    private void btnparcheponchadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnparcheponchadoActionPerformed
+    private void btnponchado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnponchado1ActionPerformed
       
         ubicacion ="parche_ponchado";
                 String ubicacionnombre ="parche_ponchado_nombre";
@@ -3936,7 +3998,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-    }//GEN-LAST:event_btnparcheponchadoActionPerformed
+    }//GEN-LAST:event_btnponchado1ActionPerformed
 
     private void btntermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermineActionPerformed
 
@@ -4217,7 +4279,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     private javax.swing.JButton btndatos;
     private javax.swing.JButton btneditarbordado;
     private javax.swing.JButton btnfotomontajesinpuntadas;
-    private javax.swing.JButton btnparcheponchado;
+    private javax.swing.JButton btnponchado1;
     private javax.swing.JButton btnquitarponchado1;
     private javax.swing.JButton btnreplicar1;
     public static javax.swing.JButton btnsalir;

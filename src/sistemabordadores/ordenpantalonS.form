@@ -67,7 +67,7 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="lbcantidad2" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                                                   <Component id="lbcantidad3" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
@@ -123,23 +123,25 @@
                                                       <Component id="lbcolor4" min="-2" pref="100" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <EmptySpace pref="95" max="32767" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                                                      <Component id="btncargarponchado3" min="-2" pref="134" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="btncargarponchado2" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                                                          <Component id="btncargarponchado1" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="btncargarponchado4" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
-                                                  <Component id="btncargarponchado2" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
-                                                  <Component id="btncargarponchado1" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                                                  <Component id="btncargarponchado4" alignment="1" min="-2" pref="134" max="-2" attributes="0"/>
+                                                  <Component id="btncargarponchado3" alignment="1" min="-2" pref="134" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Group type="102" alignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               <Component id="btnreplicartodoslosponchados" min="-2" pref="186" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                                               <Component id="btnquitarponchado1" alignment="1" min="-2" pref="45" max="-2" attributes="0"/>
@@ -277,7 +279,7 @@
                                               <Component id="lborden" min="-2" pref="139" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -418,11 +420,7 @@
                       <Component id="btncargarponchado1" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btncargarponchado2" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="btncargarponchado3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btncargarponchado4" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -431,11 +429,17 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnquitarponchado2" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace min="47" pref="47" max="-2" attributes="0"/>
-                              <Component id="btnquitarponchado4" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnquitarponchado4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="btncargarponchado4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="btnquitarponchado3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnquitarponchado3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="btncargarponchado3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="38" pref="38" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="btnreplicar1" max="32767" attributes="0"/>

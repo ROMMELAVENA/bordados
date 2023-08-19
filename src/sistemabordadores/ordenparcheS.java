@@ -122,6 +122,11 @@ public static boolean ventanaordenparche = false;
         btnquitarponchado1.setEnabled(false);
         btnreplicar1.setEnabled(false);
         
+           btnreplicar1.setEnabled(false);
+       
+      
+        btnquitarponchado1.setEnabled(false);
+        
 
     }
 

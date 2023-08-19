@@ -97,6 +97,14 @@ public class ordencorbataS extends javax.swing.JFrame {
         
       btncancelar.setEnabled(false);
       lbhoraelaboracion.setVisible(false);
+      
+      
+      
+         btnreplicar1.setEnabled(false);
+       
+      
+        btnquitarponchado1.setEnabled(false);
+       
     
        
 

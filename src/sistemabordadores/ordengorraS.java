@@ -145,6 +145,20 @@ public class ordengorraS extends javax.swing.JFrame {
           btnladoizquierdoatrascancelar.setEnabled(false);
           btnladoderechoatrascancelar.setEnabled(false);
          lbautorizacion.setVisible(false);
+         
+         
+         btnreplicar1.setEnabled(false);
+        btnreplicar2.setEnabled(false);
+        btnreplicar3.setEnabled(false);
+        btnreplicar4.setEnabled(false);
+      
+        btnreplicartodoslosponchados.setEnabled(false);
+        
+        btnquitarponchado1.setEnabled(false);
+        btnquitarponchado2.setEnabled(false);
+        btnquitarponchado3.setEnabled(false);
+        btnquitarponchado4.setEnabled(false);
+      
                   
        
         

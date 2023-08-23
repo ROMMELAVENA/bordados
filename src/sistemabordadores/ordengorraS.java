@@ -94,7 +94,7 @@ public class ordengorraS extends javax.swing.JFrame {
    
     String descripcion ="";
     String aplicacioninsertar = "";
-    
+    String ubicacionprenda = "";
     String tienefotomontaje = "";
     String rutaimagen = "";
     public static String ordengorraautorizacion = "";
@@ -889,6 +889,57 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
 
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    void determinaciondeladescripciondelbordado(){
+        
+        
+        descripcion = "BORDADO GORRA " + ubicacionprenda + " " + nombrebordado + "";
+        
+          aplicacioninsertar = "APLICACION GORRA FRENTE";
+            
+            nombredelatabla = "historial_ordenes_gorra";
+            
+             
+           
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -4285,86 +4336,76 @@ JOptionPane.showMessageDialog(null, mensaje);
                 nombrebordado =frentenombre;
                 cantidadaplicacion = aplicacionfrente;
                 
-                
+                ubicacionprenda = "FRENTE";
               
-        
-        
-                 if(lugar.equals("Esta sucursal") && tipotabla.equals("Local") )
-                {
-      
                 
-              
-              agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);       
-                    
-                    
-                    
-         
-            
-         
-            
-            cantidadaplicacion = "0";
-            descripcion = "BORDADO GORRA FRENTE "+frentenombre+ "";
-            aplicacioninsertar = "APLICACION GORRA FRENTE";
-            String cantidad = lbcantidad.getText();
-            nombredelatabla = "historial_ordenes_gorra";
-             
-           
-            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
-            actualizarestatusentregaordendebordado();
-            sumapuntos();    
-        
-           
-        }
-         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Local") && (tienenumerodesucursal.equals("no")) )
+                
+                
+                    if(cantidad.equals("0"))
         {
-
-         JSystemFileChooser adjuntar = new JSystemFileChooser();
-      
-
-        int respuesta = adjuntar.showOpenDialog(this);
-        if (respuesta == JFileChooser.APPROVE_OPTION) {
-            File archivoelegido = adjuntar.getSelectedFile();
-      //   actualizarestatusentregaordendebordado   rutafrente = archivoelegido.toString();
-
-            
-            btnladoizquierdofrentetermine.setEnabled(false);
-         //   descargado = 1;
-
+           JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
+        else
         
-        }
-         else if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
-        {
-            
-            
-          
-          
-            insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);
-            
-            cantidadaplicacion = "0";
-            descripcion = "BORDADO GORRA FRENTE "+frentenombre+ "";
-            aplicacioninsertar = "APLICACION GORRA FRENTE";
-            nombredelatabla = "historial_ordenes_gorra_recibidas";
-            String cantidad = lbcantidad.getText();
-             
-            actualizarestatusentregaordendebordado();
-            sumapuntos();  
+                    {
                 
-            
-            
-            
-            
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
-            
-            
-            
-              
-            
-        }
     
+                        
+                        
+                        
+                        determinaciondeladescripciondelbordado();
+                
+                
+                
         
-        btndatos.doClick();
+                        
+                        
+              //ESTA SUCURSAL
+            
+        if(lugar.equals("Esta sucursal"))
+        {
+       
+      
+        agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);       
+             
+       
+            
+        }
         
+        
+        else 
+            
+                
+        // OTRA SUCURSAL           
+            
+            if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+        {
+          
+         //    nombredelatabla = "historial_ordenes_camisa_recibidas";
+        
+         insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) ubicacion);   
+          
+
+        }
+                      
+                        
+                        
+            
+        
+        insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);  
+        
+        actualizarestatusentregaordendebordado(); 
+    
+        sumapuntos();   
+        
+        
+        
+        
+        
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
+       
+                     
+                    }
         
         
         

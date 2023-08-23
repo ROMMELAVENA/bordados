@@ -441,7 +441,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordengorraS.lbautorizacion.setText("si"); ////////////
-               ordengorraS.btnladoizquierdofrentecancelar.doClick();
+               ordengorraS.btnfrentecancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -477,7 +477,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordengorraS.lbautorizacion.setText("si"); ////////////
-               ordengorraS.btnladoderechofrentecancelar.doClick();
+               ordengorraS.btnladoderechocancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -512,7 +512,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordengorraS.lbautorizacion.setText("si"); ////////////
-               ordengorraS.btnladoizquierdoatrascancelar.doClick();
+               ordengorraS.btnladoizquierdocancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 
@@ -547,7 +547,7 @@ public class autorizacion extends javax.swing.JFrame {
             {
 
                 ordengorraS.lbautorizacion.setText("si"); ////////////
-              ordengorraS.btnladoderechoatrascancelar.doClick();
+              ordengorraS.btnatrascancelar.doClick();
                 ventanaautorizacion = false;
                 this.dispose();
 

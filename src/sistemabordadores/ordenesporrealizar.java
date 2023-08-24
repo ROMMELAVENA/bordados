@@ -2256,7 +2256,7 @@ sorter.sort();
 
                         ordeninternagorra orden = new ordeninternagorra();
                         orden.setVisible(true);
-                        ordeninternagorra.lbfolio.setText(numerodeordendebordado.toString());
+                        ordeninternagorra.lbnumerodeorden.setText(numerodeordendebordado.toString());
                         tabla.clearSelection();
 
                              

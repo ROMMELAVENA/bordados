@@ -1824,7 +1824,7 @@ sorter.sort();
                         orden.setVisible(true);
                         
                         
-                        ordeninternagorra.lbfolio.setText(tabla.getValueAt(fila, 0).toString());
+                        ordeninternagorra.lbnumerodeorden.setText(tabla.getValueAt(fila, 0).toString());
                         tabla.clearSelection();
 
                              

@@ -1743,7 +1743,7 @@ sorter.sort();
                         orden.setVisible(true);
 
                         ordenponchadoS.lbordendebordado.setText(tabla.getValueAt(fila, 0).toString());
-                        ordenponchadoS.lbnumeroventa.setText(tabla.getValueAt(fila, 5).toString());
+                        ordenponchadoS.lbnumerodeventa.setText(tabla.getValueAt(fila, 5).toString());
                         
                         ordenponchadoS.enquesucursalsebordara=(tabla.getValueAt(fila, 4).toString());
                         

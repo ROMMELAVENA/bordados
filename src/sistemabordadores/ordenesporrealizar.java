@@ -2128,7 +2128,7 @@ sorter.sort();
                             orden.setVisible(true);
 
                             ordenponchadoS.lbordendebordado.setText(numerodeordendebordado.toString());
-                            ordenponchadoS.lbnumeroventa.setText(numerodeventa.toString());
+                            ordenponchadoS.lbnumerodeventa.setText(numerodeventa.toString());
                             ordenponchadoS.enquesucursalsebordara = (lugar.toString());
                             
                             

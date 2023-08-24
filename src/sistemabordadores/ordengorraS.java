@@ -4812,149 +4812,74 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnladoderechocancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechocancelarActionPerformed
                  
         
-                  String autorizado = lbautorizacion.getText();
+           
+        
+        
+        
+                    
+                    
+          fechaubicacion  = "lado_derecho_fecha";
+           ubicacion = "lado_derecho_cantidad"; 
+            
+           nombrebordado =ladoderechonombre;
+          // cantidadaplicacion = aplicacionfrente;  
+           
+           ubicacionprenda = "LADO DERECHO";
+        
+        
+        
+            String autorizado = lbautorizacion.getText();
         if (autorizado.equals("si"))     
         {
-            
-            
-            
-                    String ubicacion = "atras_cantidad";
-                    String fecha = "atras_fecha";
-                    eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
-                    
-                    
-                    cantidadaplicacion = "0";
-                    descripcion = "BORDADO GORRA ATRAS " + atrasnombre + "";
-                    aplicacioninsertar = "";
-                    nombredelatabla = "historial_ordenes_gorra";
-                    String cantidad = lbcantidad.getText();
-                  
-                    agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) cantidad );
-                    actualizarestatusentregaordendebordado();
-                    sumapuntos();
-                    
-                    
-                       lbautorizacion.setText("no");
-                       btnladoderechocancelar.setEnabled(false);
-                       
-                        datos();
-                
-                     }
-            
-       else
-        {
-            if (autorizacion.ventanaautorizacion == true)
-            {
-          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de autorización");
-            }
-            
-            else
-            {
-            autorizacion ventana = new autorizacion();
-            ventana.setVisible(true);
-            ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("gorracancelar2");
-            autorizacion.lbnivel.setText("2");
-
-        }
-        }    
-                    
+        
               
-    }//GEN-LAST:event_btnladoderechocancelarActionPerformed
-
-    private void btnladoizquierdocancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdocancelarActionPerformed
+           
+              
+              
+          determinaciondeladescripciondelbordado();
+              
+              
             
-        
-                   String autorizado = lbautorizacion.getText();
-        if (autorizado.equals("si"))     
+            if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
-            
-            
-        
-    
-            
-                    String ubicacion = "lado_izquierdo_cantidad";
-                    String fecha = "lado_izquierdo_fecha";
-                    eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
-                    
-                    
-                    cantidadaplicacion = "0";
-                    descripcion = "BORDADO GORRA LADO IZQUIERDO "+ladoizquierdonombre+ "";
-                    aplicacioninsertar = "";
-                    String cantidad = lbcantidad.getText();
-                    nombredelatabla = "historial_ordenes_gorra";
-                  
-                    
-                   
-                    agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-                    actualizarestatusentregaordendebordado();
-                    sumapuntos();
-
-               
-                    
-                       lbautorizacion.setText("no");
-                        btnladoizquierdocancelar.setEnabled(false);
-                        
-                         datos();
-                
-                     }
-            
-       else
-        {
-            if (autorizacion.ventanaautorizacion == true)
-            {
-          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de autorización");
+          
+           
+             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;   
+             
+           
             }
-            
-            else
-            {
-            autorizacion ventana = new autorizacion();
-            ventana.setVisible(true);
-            ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("gorracancelar3");
-            autorizacion.lbnivel.setText("2");
-
-        }
-        }    
-
-    }//GEN-LAST:event_btnladoizquierdocancelarActionPerformed
-
-    private void btnfrentecancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrentecancelarActionPerformed
-      
-        
-                 String autorizado = lbautorizacion.getText();
-        if (autorizado.equals("si"))     
-        {
-            
-            
-        cantidadaplicacion = aplicacionfrente;
-    
-            
-                    String ubicacion = "frente_cantidad";
-                    String fecha = "frente_fecha";
-                    
-                    
-                    eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
-                    
-                    
+           
+           
+           
+          else
+          
+          
+          {
+          
+           
+         // agregarsurtidasalhistorialdepedidosoenviosyactualizarestatusCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
+         
+              
                   
-                    descripcion = "BORDADO GORRA FRENTE " + frentenombre + "";
-                    aplicacioninsertar = "APLICACION GORRA FRENTE";
-                    String cantidad = lbcantidad.getText();
-                    nombredelatabla = "historial_ordenes_gorra";
-                   
-                 
-                    agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-                    actualizarestatusentregaordendebordado();
-                    sumapuntos();
-                    
-                    
-                       lbautorizacion.setText("no");
-                      btnfrentecancelar.setEnabled(false);
-                 
-                  datos();
-                       
-                       
+          }
+           
+           
+         
+           eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
+           actualizarestatusentregaordendebordado(); 
+             sumapuntos();   
+           
+           
+           
+           
+           
+            datos();
+           
+             
+                      
+                      
+                      
+                     
                 
                      }
             
@@ -4975,42 +4900,85 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         }
         }    
+        
+        
+        
+        
+        
+              
+    }//GEN-LAST:event_btnladoderechocancelarActionPerformed
 
-                
-    }//GEN-LAST:event_btnfrentecancelarActionPerformed
-
-    private void btnatrascancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrascancelarActionPerformed
-       
-         String autorizado = lbautorizacion.getText();
+    private void btnladoizquierdocancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoizquierdocancelarActionPerformed
+            
+        
+         
+        
+        
+        
+                    
+                    
+          fechaubicacion  = "lado_izquierdo_fecha";
+           ubicacion = "lado_izquierdo_cantidad"; 
+            
+           nombrebordado =ladoizquierdonombre;
+         //  cantidadaplicacion = aplicacionfrente;  
+           
+           ubicacionprenda = "LADO IZQUIERDO";
+        
+        
+        
+            String autorizado = lbautorizacion.getText();
         if (autorizado.equals("si"))     
         {
-            
-            
         
-    
+              
+           
+              
+              
+          determinaciondeladescripciondelbordado();
+              
+              
             
-            String ubicacion = "lado_derecho_cantidad";
-            String fecha = "lado_derecho_fecha";
-            eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fecha);
-            
-            
-            cantidadaplicacion = "0";
-            descripcion = "BORDADO GORRA LADO DERECHO "+ladoderechonombre+ "";
-            aplicacioninsertar = "";
-            nombredelatabla = "historial_ordenes_gorra";
-            String cantidad = lbcantidad.getText();
+            if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
+        {
           
-        
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
-            actualizarestatusentregaordendebordado();
-            sumapuntos();   
-                    
-               
-            
-               lbautorizacion.setText("no");
-               btnatrascancelar.setEnabled(false);
-               
-                datos();
+           
+             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;   
+             
+           
+            }
+           
+           
+           
+          else
+          
+          
+          {
+          
+           
+         // agregarsurtidasalhistorialdepedidosoenviosyactualizarestatusCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
+         
+              
+                  
+          }
+           
+           
+         
+           eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
+           actualizarestatusentregaordendebordado(); 
+             sumapuntos();   
+           
+           
+           
+           
+           
+            datos();
+           
+             
+                      
+                      
+                      
+                     
                 
                      }
             
@@ -5026,12 +4994,210 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("gorracancelar4");
+            autorizacion.lbinterfaz.setText("gorracancelar1");
             autorizacion.lbnivel.setText("2");
 
         }
         }    
+        
+        
+        
+        
+        
+
+    }//GEN-LAST:event_btnladoizquierdocancelarActionPerformed
+
+    private void btnfrentecancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrentecancelarActionPerformed
+      
+   
+                      
+                      
+                  ///////////////////    
+                      
+                 
+        
+                    
+                    
+          fechaubicacion  = "frente_fecha";
+           ubicacion = "frente_cantidad"; 
             
+           nombrebordado =frentenombre;
+           cantidadaplicacion = aplicacionfrente;  
+           
+           ubicacionprenda = "FRENTE";
+        
+        
+        
+            String autorizado = lbautorizacion.getText();
+        if (autorizado.equals("si"))     
+        {
+        
+              
+           
+              
+              
+          determinaciondeladescripciondelbordado();
+              
+              
+            
+            if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
+        {
+          
+           
+             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;   
+             
+           
+            }
+           
+           
+           
+          else
+          
+          
+          {
+          
+           
+         // agregarsurtidasalhistorialdepedidosoenviosyactualizarestatusCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
+         
+              
+                  
+          }
+           
+           
+         
+           eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
+           actualizarestatusentregaordendebordado(); 
+             sumapuntos();   
+           
+           
+           
+           
+           
+            datos();
+           
+             
+                      
+                      
+                      
+                     
+                
+                     }
+            
+       else
+        {
+            if (autorizacion.ventanaautorizacion == true)
+            {
+          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de autorización");
+            }
+            
+            else
+            {
+            autorizacion ventana = new autorizacion();
+            ventana.setVisible(true);
+            ventana.setLocationRelativeTo(null);
+            autorizacion.lbinterfaz.setText("gorracancelar1");
+            autorizacion.lbnivel.setText("2");
+
+        }
+        }    
+        
+        
+        
+
+                
+    }//GEN-LAST:event_btnfrentecancelarActionPerformed
+
+    private void btnatrascancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrascancelarActionPerformed
+       
+        
+        
+                    
+                    
+          fechaubicacion  = "atras_fecha";
+           ubicacion = "atras_cantidad"; 
+            
+           nombrebordado =atrasnombre;
+         // cantidadaplicacion = aplicacionfrent;  
+           
+           ubicacionprenda = "ATRAS";
+        
+        
+        
+            String autorizado = lbautorizacion.getText();
+        if (autorizado.equals("si"))     
+        {
+        
+              
+           
+              
+              
+          determinaciondeladescripciondelbordado();
+              
+              
+            
+            if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
+        {
+          
+           
+             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;   
+             
+           
+            }
+           
+           
+           
+          else
+          
+          
+          {
+          
+           
+         // agregarsurtidasalhistorialdepedidosoenviosyactualizarestatusCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
+         
+              
+                  
+          }
+           
+           
+         
+           eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) fechaubicacion); 
+           actualizarestatusentregaordendebordado(); 
+             sumapuntos();   
+           
+           
+           
+           
+           
+            datos();
+           
+             
+                      
+                      
+                      
+                     
+                
+                     }
+            
+       else
+        {
+            if (autorizacion.ventanaautorizacion == true)
+            {
+          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de autorización");
+            }
+            
+            else
+            {
+            autorizacion ventana = new autorizacion();
+            ventana.setVisible(true);
+            ventana.setLocationRelativeTo(null);
+            autorizacion.lbinterfaz.setText("gorracancelar1");
+            autorizacion.lbnivel.setText("2");
+
+        }
+        }    
+        
+        
+        
         
         
             

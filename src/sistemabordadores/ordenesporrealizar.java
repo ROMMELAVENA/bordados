@@ -33,7 +33,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     
     public static String localuotrasucursal ="";
    
-    String sucursal = "";
+    Object sucursal = "";
 
     public ordenesporrealizar() {
         initComponents();
@@ -1714,7 +1714,11 @@ sorter.sort();
                 Object tipo = tabla.getValueAt(fila, 3);
                 Object lugar = tabla.getValueAt(fila, 4);
                 Object numerodeventa = tabla.getValueAt(fila, 5);
-                sucursal = tabla.getValueAt(fila, 7).toString();
+                sucursal = tabla.getValueAt(fila, 7);
+                
+                
+                
+                
                 Object tablanombre = tabla.getValueAt(fila, 10);
                         
               
@@ -1771,7 +1775,7 @@ sorter.sort();
                         {
                             sucursal = tiendalocal;
                         }
-                        ordencamisaS.lbsucursal.setText(sucursal);
+                        ordencamisaS.lbsucursal.setText(sucursal.toString());
                         
                         
                         ordencamisaS.tipotabla=(tablanombre.toString());
@@ -1829,7 +1833,7 @@ sorter.sort();
                         {
                             sucursal = tiendalocal;
                         }
-                        ordengorraS.lbsucursal.setText(sucursal);
+                        ordengorraS.lbsucursal.setText(sucursal.toString());
                          ordengorraS.tipotabla=(tablanombre.toString());
                         tabla.clearSelection();
                         
@@ -1884,7 +1888,7 @@ sorter.sort();
                         {
                             sucursal = tiendalocal;
                         }
-                        ordenpantalonS.lbsucursal.setText(sucursal);
+                        ordenpantalonS.lbsucursal.setText(sucursal.toString());
                         
                         
                         
@@ -1947,7 +1951,7 @@ sorter.sort();
                         {
                             sucursal = tiendalocal;
                         }
-                        ordencorbataS.lbsucursal.setText(sucursal);
+                        ordencorbataS.lbsucursal.setText(sucursal.toString());
                         
                         
                         
@@ -2019,7 +2023,7 @@ sorter.sort();
                         {
                             sucursal = tiendalocal;
                         }
-                        ordenparcheS.lbsucursal.setText(sucursal);
+                        ordenparcheS.lbsucursal.setText(sucursal.toString());
                         
                         
                         
@@ -2133,7 +2137,7 @@ sorter.sort();
                         {
                             sucursal = tiendalocal;
                         }
-                        ordenponchadoS.lbsucursal.setText(sucursal);
+                        ordenponchadoS.lbsucursal.setText(sucursal.toString());
                         
                         
                             ordenponchadoS.tipotabla = (tablanombre.toString());

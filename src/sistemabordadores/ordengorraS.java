@@ -1814,7 +1814,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String ubicacionsinguiones = ubicacion;
         ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
         
-      //  JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+      //  JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
         
         
         try {
@@ -1843,7 +1843,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String ubicacionsinguiones = ubicacion;
         ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
         
-     //   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+      JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
         
         
         try {
@@ -1877,7 +1877,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String ubicacionsinguiones = ubicacion;
         ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
         
-     //   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
+     //   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
         
         
         try {
@@ -2361,17 +2361,24 @@ JOptionPane.showMessageDialog(null, mensaje);
             while (rs.next()) {
 
               
+                
+                String cantidadfrente = rs.getString("frente_cantidad");
+                String frente = rs.getString("frente_puntadas");
+                
+                
+                 String cantidadatras = rs.getString("atras_cantidad");
+                String atras = rs.getString("atras_puntadas");
+                
+                
                 String cantidadladoizquierdo = rs.getString("lado_izquierdo_cantidad");
                 String ladoizquierdo = rs.getString("lado_izquierdo_puntadas");
                 
                 String cantidadladoderecho = rs.getString("lado_derecho_cantidad");
                 String ladoderecho = rs.getString("lado_derecho_puntadas");
                 
-                String cantidadfrente = rs.getString("frente_cantidad");
-                String frente = rs.getString("frente_puntadas");
+               
                 
-                String cantidadatras = rs.getString("atras_cantidad");
-                String atras = rs.getString("atras_puntadas");
+               
                 
                 
                 
@@ -2437,6 +2444,36 @@ JOptionPane.showMessageDialog(null, mensaje);
            
                 ////////////////////////////////////////////////////////////////
                 
+                
+                
+                
+                  if(cantidadfrente.equals("0"))
+                {
+                    
+                    
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1;
+                }
+                
+                
+                
+                  
+                    if(cantidadatras.equals("0") )
+                {
+                    
+                    
+                }
+                else
+                {
+                   tienecantidad = tienecantidad + 1;
+                }
+                
+              
+                    
+                    
+                
                  if(cantidadladoizquierdo.equals("0") )
                 {
                     
@@ -2458,25 +2495,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                    tienecantidad = tienecantidad + 1; 
                 }
                 
-                if(cantidadatras.equals("0") )
-                {
-                    
-                    
-                }
-                else
-                {
-                   tienecantidad = tienecantidad + 1;
-                }
-                
-                if(cantidadfrente.equals("0"))
-                {
-                    
-                    
-                }
-                else
-                {
-                   tienecantidad = tienecantidad + 1;
-                }
+              
                 
                
                 
@@ -2548,6 +2567,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         lbestatus.setText(nuevoestatusorden);
+        
+        
+        
         
         
     }

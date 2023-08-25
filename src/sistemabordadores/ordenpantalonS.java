@@ -5703,7 +5703,7 @@ public static String dia() {
         
          if(ordenesporrealizar.ventanaordenesporrealizar==true)
         {
-            ordenesporrealizar.btnactualizar.doClick();
+            ordenesporrealizar.btndatos.doClick();
         }
 
         
@@ -6236,7 +6236,7 @@ public static String dia() {
               
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        
@@ -6254,7 +6254,7 @@ public static String dia() {
               
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        
@@ -6272,7 +6272,7 @@ public static String dia() {
               
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        
@@ -6290,7 +6290,7 @@ public static String dia() {
              
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        
@@ -6308,7 +6308,7 @@ public static String dia() {
         // TODO add your handling code here:       
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        
@@ -6326,7 +6326,7 @@ public static String dia() {
                
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        
@@ -6344,7 +6344,7 @@ public static String dia() {
              
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        
@@ -6362,7 +6362,7 @@ public static String dia() {
              
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        

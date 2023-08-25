@@ -3691,7 +3691,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         if(ordenesporrealizar.ventanaordenesporrealizar==true)
         {
-            ordenesporrealizar.btnactualizar.doClick();
+            ordenesporrealizar.btndatos.doClick();
         }
  
         
@@ -3703,7 +3703,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        

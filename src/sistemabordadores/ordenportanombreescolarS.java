@@ -1305,7 +1305,7 @@ public class ordenportanombreescolarS extends javax.swing.JFrame {
         
         if(ordenesporrealizar.ventanaordenesporrealizar==true)
         {
-            ordenesporrealizar.btnactualizar.doClick();
+            ordenesporrealizar.btndatos.doClick();
         }
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Porta nombre realizado con exito");

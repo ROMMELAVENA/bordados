@@ -4990,7 +4990,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if(ordenesporrealizar.ventanaordenesporrealizar==true)
         {
-            ordenesporrealizar.btnactualizar.doClick();
+            ordenesporrealizar.btndatos.doClick();
         }
 
     }//GEN-LAST:event_btnsalirActionPerformed
@@ -5466,7 +5466,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if(ordenesporrealizar.ventanaordenesporrealizar==true)
         {
-            ordenesporrealizar.btnactualizar.doClick();
+            ordenesporrealizar.btndatos.doClick();
         }
         
         this.dispose();
@@ -6056,7 +6056,7 @@ JOptionPane.showMessageDialog(null, mensaje);
               
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        
@@ -6076,7 +6076,7 @@ JOptionPane.showMessageDialog(null, mensaje);
              
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        
@@ -6094,7 +6094,7 @@ JOptionPane.showMessageDialog(null, mensaje);
              
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        
@@ -6112,7 +6112,7 @@ JOptionPane.showMessageDialog(null, mensaje);
               
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        
@@ -6130,7 +6130,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        
@@ -6152,7 +6152,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        
@@ -6170,7 +6170,7 @@ JOptionPane.showMessageDialog(null, mensaje);
               
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        
@@ -6188,7 +6188,7 @@ JOptionPane.showMessageDialog(null, mensaje);
               
                 if(ordenesporrealizar.ventanaordenesporrealizar==true)
          {
-             ordenesporrealizar.btnactualizar.doClick();
+             ordenesporrealizar.btndatos.doClick();
          }
          
        

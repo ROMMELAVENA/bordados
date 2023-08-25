@@ -1409,7 +1409,7 @@ public class ordenportanombremultipleS extends javax.swing.JFrame {
         
         if(ordenesporrealizar.ventanaordenesporrealizar==true)
         {
-            ordenesporrealizar.btnactualizar.doClick();
+            ordenesporrealizar.btndatos.doClick();
         }
         
         

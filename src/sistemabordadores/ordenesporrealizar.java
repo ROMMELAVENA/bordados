@@ -42,7 +42,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         lbinterface.setVisible(false);
         lbtienda.setVisible(false);
-        btnactualizar.setVisible(false);
+        btndatos.setVisible(false);
         btnfrente.setVisible(false);
         
         TableFilterHeader filterHeader = new TableFilterHeader(tabla, AutoChoices.ENABLED);
@@ -1456,7 +1456,7 @@ sorter.sort();
         btnsalir = new javax.swing.JButton();
         lbinterface = new javax.swing.JLabel();
         lbtienda = new javax.swing.JLabel();
-        btnactualizar = new javax.swing.JButton();
+        btndatos = new javax.swing.JButton();
         btnfrente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -1555,10 +1555,10 @@ sorter.sort();
 
         lbtienda.setText(" ");
 
-        btnactualizar.setText("actualizar");
-        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
+        btndatos.setText("datos");
+        btndatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnactualizarActionPerformed(evt);
+                btndatosActionPerformed(evt);
             }
         });
 
@@ -1580,12 +1580,12 @@ sorter.sort();
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnactualizar)
+                        .addComponent(btndatos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbinterface, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(210, 210, 210)
                         .addComponent(lbtienda, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 1121, Short.MAX_VALUE))
+                        .addGap(0, 1145, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1602,7 +1602,7 @@ sorter.sort();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbinterface)
                     .addComponent(btnfrente)
-                    .addComponent(btnactualizar)
+                    .addComponent(btndatos)
                     .addComponent(lbtienda))
                 .addGap(0, 0, 0))
         );
@@ -2284,8 +2284,11 @@ sorter.sort();
         
     }//GEN-LAST:event_formWindowClosing
 
-    private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
-       limpiartabla();
+    private void btndatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndatosActionPerformed
+
+        
+        
+        limpiartabla();
        if(localuotrasucursal.equals("Local"))
         {
            datos(); 
@@ -2318,7 +2321,7 @@ sorter.sort();
        
        
        
-    }//GEN-LAST:event_btnactualizarActionPerformed
+    }//GEN-LAST:event_btndatosActionPerformed
 
     private void btnfrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteActionPerformed
         this.toFront();
@@ -2327,14 +2330,14 @@ sorter.sort();
     private void tablaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaKeyPressed
          if (evt.getKeyCode() == KeyEvent.VK_F5) 
         {
-            btnactualizar.doClick();
+            btndatos.doClick();
         }
     }//GEN-LAST:event_tablaKeyPressed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
           if (evt.getKeyCode() == KeyEvent.VK_F5) 
         {
-            btnactualizar.doClick();
+            btndatos.doClick();
         }
     }//GEN-LAST:event_formKeyPressed
 
@@ -2629,7 +2632,7 @@ sorter.sort();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btnactualizar;
+    public static javax.swing.JButton btndatos;
     public static javax.swing.JButton btnfrente;
     private javax.swing.JButton btnsalir;
     private javax.swing.JScrollPane jScrollPane1;

@@ -2078,16 +2078,16 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if(sumavendidaint == sumasurtidaint && sumaenviadaint == 0 )
         {
-          estatusentrega ="surtida totalmente no entregada";  
+          estatusentrega ="surtido totalmente no enviado";  
         }
         else  if(sumavendidaint == (sumasurtidaint + sumaenviadaint )  &&  sumaenviadaint <  sumavendidaint  )
         {
-          estatusentrega ="surtida totalmente entregada parcialmente";  
+          estatusentrega ="surtido totalmente enviado parcialmente";  
         }
         
         else
         {
-          estatusentrega ="surtida parcialmente no entregada";   
+          estatusentrega ="surtido parcialmente no enviado";   
         }    
         
           try {
@@ -2246,16 +2246,16 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if(sumavendidaint == sumasurtidaint && sumaenviadaint == 0 )
         {
-          estatusentrega ="surtida totalmente no entregada";  
+          estatusentrega ="surtido totalmente no enviado";  
         }
         else  if(sumavendidaint == (sumasurtidaint + sumaenviadaint )  &&  sumaenviadaint <  sumavendidaint  )
         {
-          estatusentrega ="surtida totalmente entregada parcialmente";  
+          estatusentrega ="surtido totalmente enviado parcialmente";  
         }
         
         else
         {
-          estatusentrega ="surtida parcialmente no entregada";   
+          estatusentrega ="surtido parcialmente no enviado";   
         }    
         
           try {

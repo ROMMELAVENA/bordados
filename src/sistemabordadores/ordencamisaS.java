@@ -102,7 +102,7 @@ public class ordencamisaS extends javax.swing.JFrame {
     String sucursal = "";
     String numerosolicitoarticulos = "";
     String tiendasolicitoarticulos = "";
-
+    int cantidadint = 0;
     String numeroordenenvio = "";
     String tiendaordenenvio = "";
     String tiendalocal = principal.tiendalocal;
@@ -702,6 +702,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 lbfecha.setText(rs.getString("fecha"));
                 
                 cantidad = rs.getString("cantidad");
+                cantidadint =  Integer.parseInt(cantidad);
                 lbcantidad.setText(cantidad);
                 
                 lbdiaentrega.setText(rs.getString("fecha_entrega"));
@@ -1936,6 +1937,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
                 
                 cantidad = rs.getString("cantidad");
+                cantidadint =  Integer.parseInt(cantidad);
                 lbcantidad.setText(cantidad);
 
                 aplicacion1 = rs.getString("aplicacion_pecho_izquierdo");
@@ -3761,13 +3763,48 @@ JOptionPane.showMessageDialog(null, mensaje);
             else
             {
                 
-                int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+               
+         String cantidadaplicacionstring = "";
+         int cantidadaplicacionintanterior = 0;
                 
-                cantidadaplicacionint = cantidadaplicacionint * surtidasnuevasint;
                 
-               String totalaplicaciones = String.valueOf(cantidadaplicacionint);
+         
+         
+         
                 
-            
+                  String SQL5 = "select cantidad from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcionaplicacion + "' and identificador_prenda = '"+identificador+"'";
+      
+                  
+                  try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL5);
+
+        if (rs.next()) 
+        {
+
+        cantidadaplicacionstring = rs.getString("cantidad");
+        cantidadaplicacionintanterior = Integer.parseInt(cantidadaplicacionstring);
+     
+
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+                
+                  
+                
+              int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+               cantidadaplicacionint = cantidadaplicacionint * cantidadint;
+               
+             int nuevacantidadaplicacionint = cantidadaplicacionintanterior + cantidadaplicacionint;
+                
+               String totalaplicaciones = String.valueOf(nuevacantidadaplicacionint);
+                
+        
             
             
              try{
@@ -3903,7 +3940,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         int cantidadstringint = Integer.parseInt(cantidadstring.toString());
-        int cantidadint =  Integer.parseInt(cantidad);
+        cantidadint =  Integer.parseInt(cantidad);
 
         int nuevacantidadint = cantidadstringint - cantidadint ;
         nuevacantidadstring =  String.valueOf(nuevacantidadint);
@@ -3933,11 +3970,45 @@ JOptionPane.showMessageDialog(null, mensaje);
             {
                 
                 
+         String cantidadaplicacionstring = "";
+         int cantidadaplicacionintanterior = 0;
+                
+                
+         
+         
+         
+                
+                  String SQL5 = "select cantidad from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcionaplicacion + "' and identificador_prenda = '"+identificador+"'";
+      
+                  
+                  try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL5);
+
+        if (rs.next()) 
+        {
+
+        cantidadaplicacionstring = rs.getString("cantidad");
+        cantidadaplicacionintanterior = Integer.parseInt(cantidadaplicacionstring);
+     
+
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+                
+                  
+                
               int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
                 
-                cantidadaplicacionint = cantidadaplicacionint * nuevacantidadint;
+               cantidadaplicacionint = cantidadaplicacionint * cantidadint;
+               
+             int nuevacantidadaplicacionint = cantidadaplicacionintanterior - cantidadaplicacionint;
                 
-               String totalaplicaciones = String.valueOf(cantidadaplicacionint);
+               String totalaplicaciones = String.valueOf(nuevacantidadaplicacionint);
                 
                 
                 
@@ -4066,7 +4137,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String surtidanuevastring = "";
         String estatusentrega ="";
         int surtidanuevaint = 0;
-        int cantidadint = 0;
+       
         
         
        
@@ -4435,7 +4506,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String surtidanuevastring = "";
         String estatusentrega ="";
         int surtidanuevaint = 0;
-        int cantidadint = 0;
+       
         
         
        
@@ -4779,7 +4850,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     void sumapuntos()
     {
         
-        String cantidad = "0";
+      
         
          String sql = "Select cantidad,pecho_izquierdo_cantidad,pecho_izquierdo_puntadas,"
                   + "pecho_derecho_cantidad,pecho_derecho_puntadas,"
@@ -4796,7 +4867,8 @@ JOptionPane.showMessageDialog(null, mensaje);
 
             while (rs.next()) {
 
-                       cantidad = rs.getString("cantidad");   
+                       cantidad = rs.getString("cantidad"); 
+                       cantidadint =  Integer.parseInt(cantidad);
                 cantidadpechoizquierdo = rs.getString("pecho_izquierdo_cantidad");
                 pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
                 cantidadpechoderecho = rs.getString("pecho_derecho_cantidad");
@@ -8739,7 +8811,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("camisacancelar1");
+            autorizacion.lbinterfaz.setText("camisacancelar2");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -8834,7 +8906,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("camisacancelar1");
+            autorizacion.lbinterfaz.setText("camisacancelar3");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -8929,7 +9001,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("camisacancelar1");
+            autorizacion.lbinterfaz.setText("camisacancelar4");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -9023,7 +9095,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("camisacancelar1");
+            autorizacion.lbinterfaz.setText("camisacancelar5");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -9119,7 +9191,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("camisacancelar1");
+            autorizacion.lbinterfaz.setText("camisacancelar6");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -9214,7 +9286,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("camisacancelar1");
+            autorizacion.lbinterfaz.setText("camisacancelar7");
             autorizacion.lbnivel.setText("2");
 
         }

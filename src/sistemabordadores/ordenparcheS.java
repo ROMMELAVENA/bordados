@@ -4081,7 +4081,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          
             
           
-            insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) fechaubicacion);
+          
           
             
             cantidadaplicacion = "0";
@@ -4096,6 +4096,16 @@ JOptionPane.showMessageDialog(null, mensaje);
         
            
             
+            
+             
+              
+            
+        }
+    
+        
+        insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO((String) fechaubicacion);
+              
+              
                actualizarestatusentregaordendebordado(); 
     
                sumapuntos();   
@@ -4103,12 +4113,6 @@ JOptionPane.showMessageDialog(null, mensaje);
            
                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
         
-              
-            
-        }
-    
-        
-       
         
 
         }

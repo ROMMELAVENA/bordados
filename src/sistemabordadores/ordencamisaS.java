@@ -3515,6 +3515,18 @@ JOptionPane.showMessageDialog(null, mensaje);
       }
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
      void agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar(String ubicacion, String cantidad, String ubicacionaplicacion) 
       {
 

@@ -79,12 +79,12 @@
                               <Component id="lbsucursal" min="-2" pref="111" max="-2" attributes="0"/>
                               <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
                               <Component id="jLabel17" min="-2" pref="190" max="-2" attributes="0"/>
-                              <EmptySpace min="58" pref="58" max="-2" attributes="0"/>
-                              <Component id="lbnumerodelaotrasucursal" min="-2" pref="62" max="-2" attributes="0"/>
-                              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lbnumerodelaotrasucursal" min="-2" pref="108" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                              <Component id="lbnumeroordenopedidosolicitado" min="-2" pref="73" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="lbnumeroordenopedidosolicitado" pref="121" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel23" min="-2" pref="114" max="-2" attributes="0"/>
@@ -133,7 +133,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>

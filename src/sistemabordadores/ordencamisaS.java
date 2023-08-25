@@ -123,6 +123,21 @@ public class ordencamisaS extends javax.swing.JFrame {
     String rutadelip = "";
     
     
+    
+                String pechoizquierdo = "";
+                
+                String pechoderecho = "";
+           
+                String mangaizquierda = "";
+            
+                String mangaderecha = "";
+                
+                String espalda = "";
+               
+                String otraubicacion = "";
+             
+                String otraubicacion2 = "";
+    
     String mangaderechanombre = "ninguno";
     String mangaizquierdanombre = "ninguno";
     String pechoderechonombre = "ninguno";
@@ -131,13 +146,13 @@ public class ordencamisaS extends javax.swing.JFrame {
     String otraubicacionnombre = "ninguno";
     String otraubicacion2nombre = "ninguno";
     
-    String aplicacionmangaderecha = "0";
-    String aplicacionmangaizquierda = "0";
-    String aplicacionpechoderecho = "0";
-    String aplicacionpechoizquierdo = "0"; 
-    String aplicacionespalda = "0";
-    String aplicacionotraubicacion = "0";
-    String aplicacionotraubicacion2 = "0";
+    String aplicacion4 = "0";
+    String aplicacion3 = "0";
+    String aplicacion2 = "0";
+    String aplicacion1 = "0"; 
+    String aplicacion5 = "0";
+    String aplicacion6 = "0";
+    String aplicacion7 = "0";
     String tienefotomontaje = "no";
     
     String rutaimagen = "";
@@ -952,66 +967,66 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
 
-                aplicacionpechoizquierdo = rs.getString("aplicacion_pecho_izquierdo");
+                aplicacion1 = rs.getString("aplicacion_pecho_izquierdo");
 
-                if (aplicacionpechoizquierdo.equals("ninguno")) {
-                    aplicacionpechoizquierdo = "";
+                if (aplicacion1.equals("ninguno")) {
+                    aplicacion1 = "";
                 }
 
                 
                 
                 
-                 aplicacionpechoderecho = rs.getString("aplicacion_pecho_derecho");
+                 aplicacion2 = rs.getString("aplicacion_pecho_derecho");
 
-                if (aplicacionpechoderecho.equals("ninguno")) {
-                    aplicacionpechoderecho = "";
+                if (aplicacion2.equals("ninguno")) {
+                    aplicacion2 = "";
                 }
 
                 
                 
                 
-                 aplicacionmangaizquierda = rs.getString("aplicacion_manga_izquierda");
+                 aplicacion3 = rs.getString("aplicacion_manga_izquierda");
 
-                if (aplicacionmangaizquierda.equals("ninguno")) {
-                    aplicacionmangaizquierda = "";
+                if (aplicacion3.equals("ninguno")) {
+                    aplicacion3 = "";
                 }
 
                 
                 
                 
-                 aplicacionmangaderecha = rs.getString("aplicacion_manga_derecha");
+                 aplicacion4 = rs.getString("aplicacion_manga_derecha");
 
-                if (aplicacionmangaderecha.equals("ninguno")) {
-                    aplicacionmangaderecha = "";
+                if (aplicacion4.equals("ninguno")) {
+                    aplicacion4 = "";
                 }
 
                 
                 
                 
-                aplicacionespalda = rs.getString("aplicacion_espalda");
+                aplicacion5 = rs.getString("aplicacion_espalda");
 
-                if (aplicacionespalda.equals("ninguno")) {
-                    aplicacionespalda = "";
-                }
-
-                
-                
-                
-                
-                  aplicacionotraubicacion = rs.getString("aplicacion_otra_ubicacion");
-
-                if (aplicacionotraubicacion.equals("ninguno")) {
-                    aplicacionotraubicacion = "";
+                if (aplicacion5.equals("ninguno")) {
+                    aplicacion5 = "";
                 }
 
                 
                 
                 
                 
-                aplicacionotraubicacion2 = rs.getString("aplicacion_otra_ubicacion2");
+                  aplicacion6 = rs.getString("aplicacion_otra_ubicacion");
 
-                if (aplicacionotraubicacion2.equals("ninguno")) {
-                    aplicacionotraubicacion2 = "";
+                if (aplicacion6.equals("ninguno")) {
+                    aplicacion6 = "";
+                }
+
+                
+                
+                
+                
+                aplicacion7 = rs.getString("aplicacion_otra_ubicacion2");
+
+                if (aplicacion7.equals("ninguno")) {
+                    aplicacion7 = "";
                 }
 
 
@@ -1067,7 +1082,17 @@ JOptionPane.showMessageDialog(null, mensaje);
                      
                    
                      lbcantidad1.setText("0");
+                     
+                     
+                              if (aplicacion1.equals("ninguno") || aplicacion1.equals("0")    || aplicacion1.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
                      lbaplicacion1.setText("0");
+                     
+                    }
                     lbcantidad1.setForeground(Color.red.darker());
                     
                        
@@ -1082,7 +1107,16 @@ JOptionPane.showMessageDialog(null, mensaje);
                    btnpechoizquierdotermine.setEnabled(false);  
                    
                      lbcantidad1.setText(cantidad);
+                     
+                              if (aplicacion1.equals("ninguno") || aplicacion1.equals("0")    || aplicacion1.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
                      lbaplicacion1.setText(cantidad);
+                     
+                    }
                    lbcantidad1.setForeground(Color.GREEN.darker());
                       
                        
@@ -1127,7 +1161,17 @@ JOptionPane.showMessageDialog(null, mensaje);
                     btnpechoderechocancelar.setEnabled(false);   
                    
                      lbcantidad2.setText("0");
+                     
+                     
+                              if (aplicacion2.equals("ninguno") || aplicacion2.equals("0")    || aplicacion2.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
                       lbaplicacion2.setText("0");
+                      
+                    }
                     lbcantidad2.setForeground(Color.red.darker());
                     
                    
@@ -1140,7 +1184,18 @@ JOptionPane.showMessageDialog(null, mensaje);
                        btnpechoderechotermine.setEnabled(false);    
                        
                          lbcantidad2.setText(cantidad);
+                         
+                         
+                                  if (aplicacion2.equals("ninguno") || aplicacion2.equals("0")    || aplicacion2.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
                           lbaplicacion2.setText(cantidad);
+                          
+                          
+                    }
                    lbcantidad2.setForeground(Color.GREEN.darker());
                    }
                   
@@ -1178,7 +1233,19 @@ JOptionPane.showMessageDialog(null, mensaje);
                         
                    
                     lbcantidad3.setText("0");
+                    
+                    
+                             if (aplicacion3.equals("ninguno") || aplicacion3.equals("0")    || aplicacion3.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
                      lbaplicacion3.setText("0");
+                     
+                    }
+                             
+                             
                     lbcantidad3.setForeground(Color.red.darker());
                        
                    }
@@ -1190,6 +1257,18 @@ JOptionPane.showMessageDialog(null, mensaje);
                        btnmangaizquierdatermine.setEnabled(false);  
                        
                         lbcantidad3.setText(cantidad);
+                        
+                        
+                                 if (aplicacion3.equals("ninguno") || aplicacion3.equals("0")    || aplicacion3.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                        lbaplicacion3.setText(cantidad);
+                        
+                        
+                    }
                    lbcantidad3.setForeground(Color.GREEN.darker());
                                
                                }
@@ -1225,6 +1304,18 @@ JOptionPane.showMessageDialog(null, mensaje);
                  
                    
                     lbcantidad4.setText("0");
+                    
+                             if (aplicacion4.equals("ninguno") || aplicacion4.equals("0")    || aplicacion4.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                    lbaplicacion4.setText("0");
+                    
+                    }
+                             
+                             
                     lbcantidad4.setForeground(Color.red.darker());
                     
                           
@@ -1239,6 +1330,21 @@ JOptionPane.showMessageDialog(null, mensaje);
                  
                  
                   lbcantidad4.setText(cantidad);
+                  
+                  
+                           if (aplicacion4.equals("ninguno") || aplicacion4.equals("0")    || aplicacion4.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                  lbaplicacion4.setText(cantidad);
+                  
+                  
+                    }
+                           
+                           
+                           
                    lbcantidad4.setForeground(Color.GREEN.darker());
                         
                     }
@@ -1278,6 +1384,17 @@ JOptionPane.showMessageDialog(null, mensaje);
                      
                    
                    lbcantidad5.setText("0");
+                   
+                   
+                            if (aplicacion5.equals("ninguno") || aplicacion5.equals("0")    || aplicacion5.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                   lbaplicacion5.setText("0");
+                   
+                    }
                     lbcantidad5.setForeground(Color.red.darker());
                    
                           
@@ -1290,6 +1407,18 @@ JOptionPane.showMessageDialog(null, mensaje);
                    
                    
                     lbcantidad5.setText(cantidad);
+                    
+                    
+                             if (aplicacion5.equals("ninguno") || aplicacion5.equals("0")    || aplicacion5.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                    lbaplicacion5.setText(cantidad);
+                    
+                    
+                    }
                    lbcantidad5.setForeground(Color.GREEN.darker());
                        
                    }
@@ -1327,6 +1456,17 @@ JOptionPane.showMessageDialog(null, mensaje);
                    
                    
                    lbcantidad6.setText("0");
+                   
+                            if (aplicacion6.equals("ninguno") || aplicacion6.equals("0")    || aplicacion6.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                   lbaplicacion6.setText("0");
+                   
+                   
+                    }
                     lbcantidad6.setForeground(Color.red.darker());
                        
                            
@@ -1340,6 +1480,17 @@ JOptionPane.showMessageDialog(null, mensaje);
                    
                    
                      lbcantidad6.setText(cantidad);
+                     
+                              if (aplicacion6.equals("ninguno") || aplicacion6.equals("0")    || aplicacion6.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                     lbaplicacion6.setText(cantidad);
+                     
+                     
+                    }
                    lbcantidad6.setForeground(Color.GREEN.darker());
                        
                    }
@@ -1378,6 +1529,16 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                       
                          lbcantidad7.setText("0");
+                         
+                                  if (aplicacion7.equals("ninguno") || aplicacion7.equals("0")    || aplicacion7.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                         lbaplicacion7.setText("0");
+                         
+                    }
                     lbcantidad7.setForeground(Color.red.darker());
                        
                             
@@ -1391,6 +1552,18 @@ JOptionPane.showMessageDialog(null, mensaje);
                  
                  
                   lbcantidad7.setText(cantidad);
+                  
+                  
+                           if (aplicacion7.equals("ninguno") || aplicacion7.equals("0")    || aplicacion7.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                  lbaplicacion7.setText(cantidad);
+                  
+                  
+                    }
                    lbcantidad7.setForeground(Color.GREEN.darker());
                        
                    }
@@ -1765,46 +1938,46 @@ JOptionPane.showMessageDialog(null, mensaje);
                 cantidad = rs.getString("cantidad");
                 lbcantidad.setText(cantidad);
 
-                aplicacionpechoizquierdo = rs.getString("aplicacion_pecho_izquierdo");
+                aplicacion1 = rs.getString("aplicacion_pecho_izquierdo");
 
-                if (aplicacionpechoizquierdo.equals("ninguno")) {
-                    aplicacionpechoizquierdo = "";
+                if (aplicacion1.equals("ninguno")) {
+                    aplicacion1 = "";
                 }
 
-                aplicacionpechoderecho = rs.getString("aplicacion_pecho_derecho");
+                aplicacion2 = rs.getString("aplicacion_pecho_derecho");
 
-                if (aplicacionpechoderecho.equals("ninguno")) {
-                    aplicacionpechoderecho = "";
+                if (aplicacion2.equals("ninguno")) {
+                    aplicacion2 = "";
                 }
 
-                aplicacionmangaizquierda = rs.getString("aplicacion_manga_izquierda");
+                aplicacion3 = rs.getString("aplicacion_manga_izquierda");
 
-                if (aplicacionmangaizquierda.equals("ninguno")) {
-                    aplicacionmangaizquierda = "";
+                if (aplicacion3.equals("ninguno")) {
+                    aplicacion3 = "";
                 }
 
-                aplicacionmangaderecha = rs.getString("aplicacion_manga_derecha");
+                aplicacion4 = rs.getString("aplicacion_manga_derecha");
 
-                if (aplicacionmangaderecha.equals("ninguno")) {
-                    aplicacionmangaderecha = "";
+                if (aplicacion4.equals("ninguno")) {
+                    aplicacion4 = "";
                 }
 
-                aplicacionespalda = rs.getString("aplicacion_espalda");
+                aplicacion5 = rs.getString("aplicacion_espalda");
 
-                if (aplicacionespalda.equals("ninguno")) {
-                    aplicacionespalda = "";
+                if (aplicacion5.equals("ninguno")) {
+                    aplicacion5 = "";
                 }
 
-                aplicacionotraubicacion = rs.getString("aplicacion_otra_ubicacion");
+                aplicacion6 = rs.getString("aplicacion_otra_ubicacion");
 
-                if (aplicacionotraubicacion.equals("ninguno")) {
-                    aplicacionotraubicacion = "";
+                if (aplicacion6.equals("ninguno")) {
+                    aplicacion6 = "";
                 }
 
-                aplicacionotraubicacion2 = rs.getString("aplicacion_otra_ubicacion2");
+                aplicacion7 = rs.getString("aplicacion_otra_ubicacion2");
 
-                if (aplicacionotraubicacion2.equals("ninguno")) {
-                    aplicacionotraubicacion2 = "";
+                if (aplicacion7.equals("ninguno")) {
+                    aplicacion7 = "";
                 }
 
                
@@ -1863,6 +2036,15 @@ JOptionPane.showMessageDialog(null, mensaje);
                      
                    
                      lbcantidad1.setText("0");
+                   
+                    if (aplicacion1.equals("ninguno") || aplicacion1.equals("0")    || aplicacion1.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                     lbaplicacion1.setText("0");
+                    }
                     lbcantidad1.setForeground(Color.red.darker());
                     
                        
@@ -1877,6 +2059,15 @@ JOptionPane.showMessageDialog(null, mensaje);
                    btnpechoizquierdotermine.setEnabled(false);  
                    
                      lbcantidad1.setText(cantidad);
+                     
+                       if (aplicacion1.equals("ninguno") || aplicacion1.equals("0")    || aplicacion1.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                     lbaplicacion1.setText(cantidad);
+                    }
                    lbcantidad1.setForeground(Color.GREEN.darker());
                       
                        
@@ -1921,6 +2112,16 @@ JOptionPane.showMessageDialog(null, mensaje);
                     btnpechoderechocancelar.setEnabled(false);   
                    
                      lbcantidad2.setText("0");
+                     
+                       if (aplicacion1.equals("ninguno") || aplicacion1.equals("0")    || aplicacion2.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                     lbaplicacion2.setText("0");
+                     
+                    }
                     lbcantidad2.setForeground(Color.red.darker());
                     
                    
@@ -1933,6 +2134,15 @@ JOptionPane.showMessageDialog(null, mensaje);
                        btnpechoderechotermine.setEnabled(false);    
                        
                          lbcantidad2.setText(cantidad);
+                         
+                           if (aplicacion2.equals("ninguno") || aplicacion2.equals("0")    || aplicacion2.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                         lbaplicacion2.setText(cantidad);
+                    }
                    lbcantidad2.setForeground(Color.GREEN.darker());
                    }
                   
@@ -1970,6 +2180,16 @@ JOptionPane.showMessageDialog(null, mensaje);
                         
                    
                     lbcantidad3.setText("0");
+                    
+                             if (aplicacion3.equals("ninguno") || aplicacion3.equals("0")    || aplicacion3.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                    lbaplicacion3.setText("0");
+                    
+                    }
                     lbcantidad3.setForeground(Color.red.darker());
                        
                    }
@@ -1981,6 +2201,16 @@ JOptionPane.showMessageDialog(null, mensaje);
                        btnmangaizquierdatermine.setEnabled(false);  
                        
                         lbcantidad3.setText(cantidad);
+                        
+                                 if (aplicacion3.equals("ninguno") || aplicacion3.equals("0")    || aplicacion3.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                        lbaplicacion3.setText(cantidad);
+                        
+                    }
                    lbcantidad3.setForeground(Color.GREEN.darker());
                                
                                }
@@ -2016,6 +2246,19 @@ JOptionPane.showMessageDialog(null, mensaje);
                  
                    
                     lbcantidad4.setText("0");
+                    
+                    
+                             if (aplicacion4.equals("ninguno") || aplicacion4.equals("0")    || aplicacion4.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                    lbaplicacion4.setText("0");
+                    
+                    
+                    }
+                             
                     lbcantidad4.setForeground(Color.red.darker());
                     
                           
@@ -2030,6 +2273,17 @@ JOptionPane.showMessageDialog(null, mensaje);
                  
                  
                   lbcantidad4.setText(cantidad);
+                  
+                  
+                           if (aplicacion4.equals("ninguno") || aplicacion4.equals("0")    || aplicacion4.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                  lbaplicacion4.setText(cantidad);
+                  
+                    }
                    lbcantidad4.setForeground(Color.GREEN.darker());
                         
                     }
@@ -2069,6 +2323,20 @@ JOptionPane.showMessageDialog(null, mensaje);
                      
                    
                    lbcantidad5.setText("0");
+                   
+                   
+                            if (aplicacion5.equals("ninguno") || aplicacion5.equals("0")    || aplicacion5.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                   lbaplicacion5.setText("0");
+                   
+                    }
+                            
+                            
+                            
                     lbcantidad5.setForeground(Color.red.darker());
                    
                           
@@ -2081,6 +2349,17 @@ JOptionPane.showMessageDialog(null, mensaje);
                    
                    
                     lbcantidad5.setText(cantidad);
+                    
+                    
+                             if (aplicacion5.equals("ninguno") || aplicacion5.equals("0")    || aplicacion5.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                    lbaplicacion5.setText(cantidad);
+                    
+                    }
                    lbcantidad5.setForeground(Color.GREEN.darker());
                        
                    }
@@ -2118,6 +2397,16 @@ JOptionPane.showMessageDialog(null, mensaje);
                    
                    
                    lbcantidad6.setText("0");
+                   
+                            if (aplicacion6.equals("ninguno") || aplicacion6.equals("0")    || aplicacion6.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                   lbaplicacion6.setText("0");
+                   
+                    }
                     lbcantidad6.setForeground(Color.red.darker());
                        
                            
@@ -2131,6 +2420,18 @@ JOptionPane.showMessageDialog(null, mensaje);
                    
                    
                      lbcantidad6.setText(cantidad);
+                     
+                     
+                              if (aplicacion7.equals("ninguno") || aplicacion7.equals("0")    || aplicacion7.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                     lbaplicacion6.setText(cantidad);
+                     
+                     
+                    }
                    lbcantidad6.setForeground(Color.GREEN.darker());
                        
                    }
@@ -2169,6 +2470,17 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                       
                          lbcantidad7.setText("0");
+                         
+                                  if (aplicacion7.equals("ninguno") || aplicacion7.equals("0")    || aplicacion7.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                         lbaplicacion7.setText("0");
+                         
+                         
+                    }
                     lbcantidad7.setForeground(Color.red.darker());
                        
                             
@@ -2182,6 +2494,20 @@ JOptionPane.showMessageDialog(null, mensaje);
                  
                  
                   lbcantidad7.setText(cantidad);
+                  
+                  
+                           if (aplicacion7.equals("ninguno") || aplicacion7.equals("0")    || aplicacion7.equals(""))
+                    {
+                        
+                    }
+                    else
+                    {
+                  lbaplicacion7.setText(cantidad);
+                  
+                  
+                    }
+                           
+                           
                    lbcantidad7.setForeground(Color.GREEN.darker());
                        
                    }
@@ -4471,25 +4797,25 @@ JOptionPane.showMessageDialog(null, mensaje);
             while (rs.next()) {
 
                        cantidad = rs.getString("cantidad");   
-                String cantidadpechoizquierdo = rs.getString("pecho_izquierdo_cantidad");
-                String pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
-                String cantidadpechoderecho = rs.getString("pecho_derecho_cantidad");
-                String pechoderecho = rs.getString("pecho_derecho_puntadas");
-                String cantidadmangaizquierda = rs.getString("manga_izquierda_cantidad");
-                String mangaizquierda = rs.getString("manga_izquierda_puntadas");
-                String cantidadmangaderecha = rs.getString("manga_derecha_cantidad");
-                String mangaderecha = rs.getString("manga_derecha_puntadas");
-                String cantidadespalda = rs.getString("espalda_cantidad");
-                String espalda = rs.getString("espalda_puntadas");
-                String cantidadotraubicacion = rs.getString("otra_ubicacion_cantidad");
-                String otraubicacion = rs.getString("otra_ubicacion_puntadas");
-                String cantidadotraubicacion2 = rs.getString("otra_ubicacion2_cantidad");
-                String otraubicacion2 = rs.getString("otra_ubicacion2_puntadas");
-                String aplicacionpechoizquierdo= rs.getString("aplicacion_pecho_izquierdo");
-                String aplicacionpechoderecho= rs.getString("aplicacion_pecho_derecho");
-                String aplicacionmangaizquierda = rs.getString("aplicacion_manga_izquierda");
-                String aplicacionmangaderecha = rs.getString("aplicacion_manga_derecha");
-                String aplicacionespalda = rs.getString("aplicacion_espalda");
+                cantidadpechoizquierdo = rs.getString("pecho_izquierdo_cantidad");
+                pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
+                cantidadpechoderecho = rs.getString("pecho_derecho_cantidad");
+                pechoderecho = rs.getString("pecho_derecho_puntadas");
+                cantidadmangaizquierda = rs.getString("manga_izquierda_cantidad");
+                mangaizquierda = rs.getString("manga_izquierda_puntadas");
+                cantidadmangaderecha = rs.getString("manga_derecha_cantidad");
+                mangaderecha = rs.getString("manga_derecha_puntadas");
+                cantidadespalda = rs.getString("espalda_cantidad");
+                espalda = rs.getString("espalda_puntadas");
+                cantidadotraubicacion = rs.getString("otra_ubicacion_cantidad");
+                otraubicacion = rs.getString("otra_ubicacion_puntadas");
+                cantidadotraubicacion2 = rs.getString("otra_ubicacion2_cantidad");
+                otraubicacion2 = rs.getString("otra_ubicacion2_puntadas");
+                aplicacion1= rs.getString("aplicacion_pecho_izquierdo");
+                aplicacion2= rs.getString("aplicacion_pecho_derecho");
+                aplicacion3 = rs.getString("aplicacion_manga_izquierda");
+                aplicacion4 = rs.getString("aplicacion_manga_derecha");
+                aplicacion5 = rs.getString("aplicacion_espalda");
                 
             int cantidadpechoizquierdoint = Integer.parseInt(cantidadpechoizquierdo);
             int cantidadpechoderechoint = Integer.parseInt(cantidadpechoderecho);
@@ -4688,29 +5014,29 @@ JOptionPane.showMessageDialog(null, mensaje);
             
              
 
-            if (aplicacionpechoizquierdo == null || aplicacionpechoizquierdo.equals("") || aplicacionpechoizquierdo.equals(" ")) {
-                aplicacionpechoizquierdo = "0";
+            if (aplicacion1 == null || aplicacion1.equals("") || aplicacion1.equals(" ")) {
+                aplicacion1 = "0";
             }
-            int aplicacionpechoizquierdoint = Integer.parseInt(aplicacionpechoizquierdo.toString());
+            int aplicacionpechoizquierdoint = Integer.parseInt(aplicacion1.toString());
 
 
-            if (aplicacionpechoderecho == null || aplicacionpechoderecho.equals("") || aplicacionpechoderecho.equals(" ")) {
-                aplicacionpechoderecho = "0";
+            if (aplicacion2 == null || aplicacion2.equals("") || aplicacion2.equals(" ")) {
+                aplicacion2 = "0";
             }
 
-            int aplicacionpechoderechoint = Integer.parseInt(aplicacionpechoderecho.toString());
+            int aplicacionpechoderechoint = Integer.parseInt(aplicacion2.toString());
 
 
-            if (aplicacionmangaizquierda == null || aplicacionmangaizquierda.equals("") || aplicacionmangaizquierda.equals(" ")) {
-                aplicacionmangaizquierda = "0";
+            if (aplicacion3 == null || aplicacion3.equals("") || aplicacion3.equals(" ")) {
+                aplicacion3 = "0";
             }
-            int aplicacionmangaizquierdaint = Integer.parseInt(aplicacionmangaizquierda.toString());
+            int aplicacionmangaizquierdaint = Integer.parseInt(aplicacion3.toString());
 
 
-            if (aplicacionmangaderecha == null || aplicacionmangaderecha.equals("") || aplicacionmangaderecha.equals(" ")) {
-                aplicacionmangaderecha = "0";
+            if (aplicacion4 == null || aplicacion4.equals("") || aplicacion4.equals(" ")) {
+                aplicacion4 = "0";
             }
-            int aplicacionmangaderechaint = Integer.parseInt(aplicacionmangaderecha.toString());
+            int aplicacionmangaderechaint = Integer.parseInt(aplicacion4.toString());
 
 
 
@@ -4745,10 +5071,10 @@ JOptionPane.showMessageDialog(null, mensaje);
           
 
            
-            if (aplicacionespalda == null || aplicacionespalda.equals("") || aplicacionespalda.equals(" ")) {
-                aplicacionespalda = "0";
+            if (aplicacion5 == null || aplicacion5.equals("") || aplicacion5.equals(" ")) {
+                aplicacion5 = "0";
             }
-            int aplicacionespaldaint = Integer.parseInt(aplicacionespalda.toString());
+            int aplicacionespaldaint = Integer.parseInt(aplicacion5.toString());
 
             int sumadelasaplicacionesgrandes = aplicacionespaldaint;
 
@@ -7278,7 +7604,7 @@ JOptionPane.showMessageDialog(null, mensaje);
           ubicacioncantidad = "manga_izquierda_cantidad";
           ubicacionfecha  = "manga_izquierda_fecha";
            nombrebordado = mangaizquierdanombre;
-            cantidadaplicacion = aplicacionmangaizquierda;
+            cantidadaplicacion = aplicacion3;
         
                 ubicacionprenda = "MANGA IZQUIERDA";
                                                 
@@ -7364,7 +7690,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
            ubicacionprenda = "PECHO IZQUIERDO";
            nombrebordado =pechoizquierdonombre;
-           cantidadaplicacion = aplicacionpechoizquierdo;
+           cantidadaplicacion = aplicacion1;
         
         
            determinaciondeladescripciondelbordado();
@@ -7440,7 +7766,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            ubicacioncantidad = "espalda_cantidad";
            
             nombrebordado = espaldanombre;
-            cantidadaplicacion = aplicacionespalda;
+            cantidadaplicacion = aplicacion5;
             
             ubicacionprenda = "ESPALDA";
             
@@ -7518,7 +7844,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         ubicacionfecha  = "pecho_derecho_fecha";
         ubicacioncantidad = "pecho_derecho_cantidad";
         nombrebordado = pechoderechonombre;
-        cantidadaplicacion = aplicacionpechoderecho;
+        cantidadaplicacion = aplicacion2;
         ubicacionprenda = "PECHO DERECHO";
         
         
@@ -7595,7 +7921,7 @@ JOptionPane.showMessageDialog(null, mensaje);
           ubicacionfecha  = "manga_derecha_fecha";
           ubicacioncantidad = "manga_derecha_cantidad";
           nombrebordado = mangaderechanombre;
-          cantidadaplicacion = aplicacionmangaderecha;       
+          cantidadaplicacion = aplicacion4;       
                         
           ubicacionprenda = "MANGA DERECHA";       
           
@@ -7768,7 +8094,7 @@ JOptionPane.showMessageDialog(null, mensaje);
           ubicacionfecha  = "otra_ubicacion_fecha";
           ubicacioncantidad = "otra_ubicacion_cantidad";
           nombrebordado = otraubicacionnombre;
-          cantidadaplicacion = aplicacionotraubicacion;
+          cantidadaplicacion = aplicacion6;
                
          ubicacionprenda = "OTRA UBICACION";
          
@@ -7847,7 +8173,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          ubicacionfecha  = "otra_ubicacion2_fecha";
             ubicacioncantidad = "otra_ubicacion2_cantidad";
             nombrebordado = otraubicacion2nombre;
-            cantidadaplicacion = aplicacionotraubicacion2; 
+            cantidadaplicacion = aplicacion7; 
             
             ubicacionprenda = "OTRA UBICACION2";
                                         
@@ -8230,7 +8556,7 @@ JOptionPane.showMessageDialog(null, mensaje);
            descripcion = "pecho_izquierdo_cantidad"; 
             
            nombrebordado =pechoizquierdonombre;
-           cantidadaplicacion = aplicacionpechoizquierdo;  
+           cantidadaplicacion = aplicacion1;  
            
            ubicacionprenda = "PECHO IZQUIERDO";
         
@@ -8339,7 +8665,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         ubicacionfecha = "pecho_derecho_fecha";
          ubicacioncantidad = "pecho_derecho_cantidad";
         nombrebordado = pechoderechonombre;
-        cantidadaplicacion = aplicacionpechoderecho;
+        cantidadaplicacion = aplicacion2;
         
         ubicacionprenda = "PECHO DERECHO";
         
@@ -8435,7 +8761,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         ubicacionfecha = "manga_izquierda_fecha";
         ubicacioncantidad = "manga_izquierda_cantidad";
         nombrebordado = mangaizquierdanombre;
-            cantidadaplicacion = aplicacionmangaizquierda;
+            cantidadaplicacion = aplicacion3;
             
              ubicacionprenda = "MANGA IZQUIERDA";
         
@@ -8528,7 +8854,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         ubicacioncantidad = "manga_derecha_cantidad";
              ubicacionfecha = "manga_derecha_fecha";
         nombrebordado = mangaderechanombre;
-            cantidadaplicacion = aplicacionmangaderecha;
+            cantidadaplicacion = aplicacion4;
             
             ubicacionprenda = "MANGA DERECHA";    
         
@@ -8624,7 +8950,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         ubicacioncantidad = "espalda_cantidad";
           ubicacionfecha = "espalda_fecha";
         nombrebordado =espaldanombre;
-        cantidadaplicacion = aplicacionespalda;
+        cantidadaplicacion = aplicacion5;
         
          ubicacionprenda = "ESPALDA";
         
@@ -8718,7 +9044,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         ubicacioncantidad = "otra_ubicacion_cantidad";
             ubicacionfecha = "otra_ubicacion_fecha";
         nombrebordado = otraubicacionnombre;
-            cantidadaplicacion = aplicacionotraubicacion;
+            cantidadaplicacion = aplicacion6;
             
             ubicacionprenda = "OTRA UBICACION";
         
@@ -8813,7 +9139,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         ubicacioncantidad = "otra_ubicacion2_cantidad";
             ubicacionfecha = "otra_ubicacion2_fecha";
             nombrebordado = otraubicacion2nombre;
-            cantidadaplicacion = aplicacionotraubicacion2;
+            cantidadaplicacion = aplicacion7;
             
             ubicacionprenda = "OTRA UBICACION2";
             

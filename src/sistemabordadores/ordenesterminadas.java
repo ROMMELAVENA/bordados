@@ -1881,7 +1881,7 @@ sorter.sort();
         }
         else
         {
-           datos2(); 
+           datos(); 
         }    
     }//GEN-LAST:event_btnactualizarActionPerformed
 

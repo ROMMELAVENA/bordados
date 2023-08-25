@@ -113,7 +113,7 @@ public class ordengorraS extends javax.swing.JFrame {
    String tienenumerodesucursal = "";
    String tiendalocal = principal.tiendalocal;
    String rutadedondeestanlosbordados ="";
-   String esenvioopedido = "";
+  
    String rutafrente = "";
    String rutaatras = "";
    String rutaladoizquierdo = "";
@@ -1604,7 +1604,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-        esordendeenvioopedidoyobtenernumeros();
+      //  esordendeenvioopedidoyobtenernumeros();
         
         
         
@@ -1877,7 +1877,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-    
+    /*
     
     void esordendeenvioopedidoyobtenernumeros() 
     {
@@ -1921,7 +1921,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-    
+    */
     
     
     
@@ -1955,12 +1955,12 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
        
-                 if (esenvioopedido.equals("ordendeenvio")) 
+                 if (tiendeordenopedido.equals("ordendeenvio")) 
         {
             
             
             
-            String sql3 = "Select surtidas from historial_ordenes_envio_recibidas where numero = '" + numeroordenopedidorecibido + "'";
+            String sql3 = "Select surtidas from historial_ordenes_envio_recibidas where articulo = '" + descripcion + "' and numero = '" + numeroordenopedidorecibido + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql3);
@@ -2010,7 +2010,7 @@ JOptionPane.showMessageDialog(null, mensaje);
           
        
          cantidadint =  Integer.parseInt(cantidad);
-        surtidanuevaint = surtidaactualint - cantidadint;
+        surtidanuevaint = surtidaactualint + cantidadint;
        
         surtidanuevastring =  String.valueOf(surtidanuevaint);
             
@@ -2020,7 +2020,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtidas = '" + surtidanuevastring + "' WHERE numero='" + numeroordenopedidorecibido + "' and articulo = '" + descripcion + "'      ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtidas = '" + surtidanuevastring + "' WHERE numero='" + numeroordenopedidorecibido + "' and articulo = '" + descripcion + "'");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -2047,7 +2047,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
       
       
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroordenopedidorecibido+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtidas) as surtidas,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroordenopedidorecibido+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -2118,13 +2118,13 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
         }
-           if (esenvioopedido.equals("pedido")) 
+           if (tiendeordenopedido.equals("pedido")) 
             {
 
                 
                 
               
-            String sql3 = "Select surtidas from historial_pedidos_sucursal_recibidos where numero = '" + numeroordenopedidorecibido + "'";
+            String sql3 = "Select surtidas from historial_pedidos_sucursal_recibidos where articulo = '" + descripcion + "' and numero = '" + numeroordenopedidorecibido + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql3);
@@ -2215,7 +2215,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
       
       
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_pedidos_sucursal_recibidos where numero = '"+numeroordenopedidorecibido+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtidas) as surtidas,Sum(enviadas) as enviadas from historial_pedidos_sucursal_recibidos where numero = '"+numeroordenopedidorecibido+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -2647,7 +2647,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
       
       
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroordenopedidorecibido+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtidas) as surtidas,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroordenopedidorecibido+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);

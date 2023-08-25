@@ -3829,7 +3829,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
       
       
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroordenopedidorecibido+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtidas) as surtidas,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroordenopedidorecibido+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -4198,7 +4198,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
       
       
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroordenopedidorecibido+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtidas) as surtidas,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroordenopedidorecibido+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);

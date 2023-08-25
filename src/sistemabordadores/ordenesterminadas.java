@@ -25,8 +25,8 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import net.coderazzi.filters.gui.AutoChoices;
 import net.coderazzi.filters.gui.TableFilterHeader;
-import static sistemabordadores.ordenesterminadas.btnactualizar;
 import javax.swing.JTextField;
+import static sistemabordadores.ordenesterminadas.btndatos;
 
 
 public class ordenesterminadas extends javax.swing.JFrame {
@@ -50,7 +50,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         ventanaordenesterminadas = true;
         lbinterface.setVisible(false);
         lbtienda.setVisible(false);
-        btnactualizar.setVisible(false);
+        btndatos.setVisible(false);
         btnfrente.setVisible(false);
         
         
@@ -1293,7 +1293,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         btnsalir = new javax.swing.JButton();
         lbinterface = new javax.swing.JLabel();
         lbtienda = new javax.swing.JLabel();
-        btnactualizar = new javax.swing.JButton();
+        btndatos = new javax.swing.JButton();
         btnfrente = new javax.swing.JButton();
         lbfechainicial = new com.toedter.calendar.JDateChooser();
         lbfechafinal = new com.toedter.calendar.JDateChooser();
@@ -1388,10 +1388,10 @@ public class ordenesterminadas extends javax.swing.JFrame {
 
         lbtienda.setText(" ");
 
-        btnactualizar.setText("actualizar");
-        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
+        btndatos.setText("datos");
+        btndatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnactualizarActionPerformed(evt);
+                btndatosActionPerformed(evt);
             }
         });
 
@@ -1435,7 +1435,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnfrente, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnactualizar)
+                                .addComponent(btndatos)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbinterface, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(210, 210, 210)
@@ -1457,7 +1457,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbinterface)
                     .addComponent(btnfrente)
-                    .addComponent(btnactualizar)
+                    .addComponent(btndatos)
                     .addComponent(lbtienda))
                 .addGap(0, 0, 0))
         );
@@ -1873,7 +1873,7 @@ sorter.sort();
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
-    private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
+    private void btndatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndatosActionPerformed
        limpiartabla();
        if(localuotrasucursal.equals("Local"))
         {
@@ -1883,7 +1883,7 @@ sorter.sort();
         {
            datos(); 
         }    
-    }//GEN-LAST:event_btnactualizarActionPerformed
+    }//GEN-LAST:event_btndatosActionPerformed
 
     private void btnfrenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfrenteActionPerformed
         this.toFront();
@@ -1892,14 +1892,14 @@ sorter.sort();
     private void tablaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaKeyPressed
          if (evt.getKeyCode() == KeyEvent.VK_F5) 
         {
-            btnactualizar.doClick();
+            btndatos.doClick();
         }
     }//GEN-LAST:event_tablaKeyPressed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
           if (evt.getKeyCode() == KeyEvent.VK_F5) 
         {
-            btnactualizar.doClick();
+            btndatos.doClick();
         }
     }//GEN-LAST:event_formKeyPressed
 
@@ -2984,7 +2984,7 @@ sorter.sort();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btnactualizar;
+    public static javax.swing.JButton btndatos;
     public static javax.swing.JButton btnfrente;
     private javax.swing.JButton btnsalir;
     private javax.swing.JScrollPane jScrollPane1;

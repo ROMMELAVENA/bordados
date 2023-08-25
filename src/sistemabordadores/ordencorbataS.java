@@ -3710,7 +3710,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                        if(ordenesterminadas.ventanaordenesterminadas==true)
          {
-             ordenesterminadas.btnactualizar.doClick();
+             ordenesterminadas.btndatos.doClick();
          }
         
         

@@ -45,7 +45,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btnfrente" min="-2" pref="79" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnactualizar" min="-2" max="-2" attributes="0"/>
+                              <Component id="btndatos" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="lbinterface" min="-2" pref="157" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
@@ -74,7 +74,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbinterface" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnfrente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnactualizar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btndatos" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbtienda" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
@@ -214,12 +214,12 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnactualizar">
+    <Component class="javax.swing.JButton" name="btndatos">
       <Properties>
-        <Property name="text" type="java.lang.String" value="actualizar"/>
+        <Property name="text" type="java.lang.String" value="datos"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnactualizarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndatosActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

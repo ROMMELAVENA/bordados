@@ -6243,7 +6243,7 @@ public static String dia() {
                 
                        if(ordenesterminadas.ventanaordenesterminadas==true)
          {
-             ordenesterminadas.btnactualizar.doClick();
+             ordenesterminadas.btndatos.doClick();
          }
         
         
@@ -6261,7 +6261,7 @@ public static String dia() {
                 
                        if(ordenesterminadas.ventanaordenesterminadas==true)
          {
-             ordenesterminadas.btnactualizar.doClick();
+             ordenesterminadas.btndatos.doClick();
          }
         
         
@@ -6279,7 +6279,7 @@ public static String dia() {
                 
                        if(ordenesterminadas.ventanaordenesterminadas==true)
          {
-             ordenesterminadas.btnactualizar.doClick();
+             ordenesterminadas.btndatos.doClick();
          }
         
         
@@ -6297,7 +6297,7 @@ public static String dia() {
                 
                        if(ordenesterminadas.ventanaordenesterminadas==true)
          {
-             ordenesterminadas.btnactualizar.doClick();
+             ordenesterminadas.btndatos.doClick();
          }
         
         
@@ -6315,7 +6315,7 @@ public static String dia() {
                 
                        if(ordenesterminadas.ventanaordenesterminadas==true)
          {
-             ordenesterminadas.btnactualizar.doClick();
+             ordenesterminadas.btndatos.doClick();
          }
         
         
@@ -6333,7 +6333,7 @@ public static String dia() {
                 
                        if(ordenesterminadas.ventanaordenesterminadas==true)
          {
-             ordenesterminadas.btnactualizar.doClick();
+             ordenesterminadas.btndatos.doClick();
          }
         
         
@@ -6351,7 +6351,7 @@ public static String dia() {
                 
                        if(ordenesterminadas.ventanaordenesterminadas==true)
          {
-             ordenesterminadas.btnactualizar.doClick();
+             ordenesterminadas.btndatos.doClick();
          }
         
         
@@ -6369,7 +6369,7 @@ public static String dia() {
                 
                        if(ordenesterminadas.ventanaordenesterminadas==true)
          {
-             ordenesterminadas.btnactualizar.doClick();
+             ordenesterminadas.btndatos.doClick();
          }
         
         

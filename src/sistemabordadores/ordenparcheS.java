@@ -84,7 +84,7 @@ public static boolean ventanaordenparche = false;
        String tiendaconectada = "";
     //  String esenvioopedido = "";
        String numeroordenopedidorecibido = "";
-      
+      int cantidadint = 0;
        
        
        String ubicacionponchado = "";
@@ -336,6 +336,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 nombre = rs.getString("articulo");
                 cantidad = rs.getString("cantidad");
+                cantidadint =  Integer.parseInt(cantidad);
                 lbcantidad.setText(cantidad);
                 
                 cantidadparche = rs.getString("parche_cantidad");
@@ -1094,6 +1095,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          
                 
                 cantidad = rs.getString("cantidad");
+                cantidadint =  Integer.parseInt(cantidad);
                 lbcantidad.setText(cantidad);
                 
                 
@@ -1400,7 +1402,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String surtidanuevastring = "";
         String estatusentrega ="";
         int surtidasnuevasint = 0;
-        int cantidadint = 0;
+       
       
         
           String SQL2 = "select surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcion + "' and identificador_prenda = '"+identificador+"'";
@@ -1487,12 +1489,47 @@ JOptionPane.showMessageDialog(null, mensaje);
             else
             {
                 
-                int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                 String cantidadaplicacionstring = "";
+         int cantidadaplicacionintanterior = 0;
                 
-                cantidadaplicacionint = cantidadaplicacionint * surtidasnuevasint;
                 
-                String totalaplicaciones = String.valueOf(cantidadaplicacionint);
+         
+         
+         
                 
+                  String SQL5 = "select surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcionaplicacion + "' and identificador_prenda = '"+identificador+"'";
+      
+                  
+                  try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL5);
+
+        if (rs.next()) 
+        {
+
+        cantidadaplicacionstring = rs.getString("surtida");
+        cantidadaplicacionintanterior = Integer.parseInt(cantidadaplicacionstring);
+     
+
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+                
+                  
+                
+              int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+               cantidadaplicacionint = cantidadaplicacionint * cantidadint;
+               
+             int nuevacantidadaplicacionint = cantidadaplicacionintanterior + cantidadaplicacionint;
+                
+               String totalaplicaciones = String.valueOf(nuevacantidadaplicacionint);
+                
+        
             
             
             
@@ -1745,7 +1782,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         int cantidadstringint = Integer.parseInt(cantidadstring.toString());
-        int cantidadint =  Integer.parseInt(cantidad);
+        cantidadint =  Integer.parseInt(cantidad);
 
         int nuevacantidadint = cantidadstringint - cantidadint;
         nuevacantidadstring =  String.valueOf(nuevacantidadint);
@@ -1780,13 +1817,47 @@ JOptionPane.showMessageDialog(null, mensaje);
             {
                 
                 
+               String cantidadaplicacionstring = "";
+         int cantidadaplicacionintanterior = 0;
+                
+                
+         
+         
+         
+                
+                  String SQL5 = "select surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcionaplicacion + "' and identificador_prenda = '"+identificador+"'";
+      
+                  
+                  try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL5);
+
+        if (rs.next()) 
+        {
+
+        cantidadaplicacionstring = rs.getString("surtida");
+        cantidadaplicacionintanterior = Integer.parseInt(cantidadaplicacionstring);
+     
+
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+                
+                  
+                
               int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
                 
-                cantidadaplicacionint = cantidadaplicacionint * nuevacantidadint;
+               cantidadaplicacionint = cantidadaplicacionint * cantidadint;
+               
+             int nuevacantidadaplicacionint = cantidadaplicacionintanterior - cantidadaplicacionint;
                 
-               String totalaplicaciones = String.valueOf(cantidadaplicacionint);
+               String totalaplicaciones = String.valueOf(nuevacantidadaplicacionint);
                 
-                
+        
                 
                 
                 
@@ -1924,7 +1995,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String surtidanuevastring = "";
         String estatusentrega ="";
         int surtidanuevaint = 0;
-        int cantidadint = 0;
+       
         
         
        
@@ -2279,7 +2350,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String surtidanuevastring = "";
         String estatusentrega ="";
         int surtidanuevaint = 0;
-        int cantidadint = 0;
+      
         
         
        

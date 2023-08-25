@@ -3772,7 +3772,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          
          
                 
-                  String SQL5 = "select cantidad from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcionaplicacion + "' and identificador_prenda = '"+identificador+"'";
+                  String SQL5 = "select surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcionaplicacion + "' and identificador_prenda = '"+identificador+"'";
       
                   
                   try {
@@ -3782,7 +3782,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (rs.next()) 
         {
 
-        cantidadaplicacionstring = rs.getString("cantidad");
+        cantidadaplicacionstring = rs.getString("surtida");
         cantidadaplicacionintanterior = Integer.parseInt(cantidadaplicacionstring);
      
 
@@ -3978,7 +3978,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          
          
                 
-                  String SQL5 = "select cantidad from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcionaplicacion + "' and identificador_prenda = '"+identificador+"'";
+                  String SQL5 = "select surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcionaplicacion + "' and identificador_prenda = '"+identificador+"'";
       
                   
                   try {
@@ -3988,7 +3988,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (rs.next()) 
         {
 
-        cantidadaplicacionstring = rs.getString("cantidad");
+        cantidadaplicacionstring = rs.getString("surtida");
         cantidadaplicacionintanterior = Integer.parseInt(cantidadaplicacionstring);
      
 

@@ -1764,7 +1764,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         int surtidaactualint =  0;
         String nuevasurtidastring = "";
         String estatusentrega ="";
-        String estatusentregaventa = "";
+     
         
          String SQL2 = "select articulo,surtida,estatus_entrega from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcion + "' and identificador_prenda = '"+identificador+"'";
         try {
@@ -1778,8 +1778,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         surtidaactualstring = rs.getString("surtida");
         surtidaactualint = Integer.parseInt(surtidaactualstring);
-        estatusentregaventa= rs.getString("estatus_entrega");
-
+        
         }
         
         else
@@ -2221,7 +2220,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String nuevacantidadstring = "";
         String estatusentrega ="";
         
-        String SQL2 = "select cantidad from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcion + "' and identificador_prenda = '"+identificador+"'";
+        String SQL2 = "select surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcion + "' and identificador_prenda = '"+identificador+"'";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -2229,7 +2228,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (rs.next()) 
         {
 
-        cantidadstring = rs.getString("cantidad");
+        cantidadstring = rs.getString("surtida");
         
 
         }

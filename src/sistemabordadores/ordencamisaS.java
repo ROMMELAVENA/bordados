@@ -58,8 +58,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.awt.Desktop;
 import java.io.OutputStream;
+import static sistemabordadores.ordengorraS.lbautorizacion;
 import static sistemabordadores.ordengorraS.lbbordacliente;
 import static sistemabordadores.ordengorraS.lbcliente;
+import static sistemabordadores.ordengorraS.tipotabla;
 
 public class ordencamisaS extends javax.swing.JFrame {
 
@@ -79,8 +81,8 @@ public class ordencamisaS extends javax.swing.JFrame {
     int nuevoremanentebordadosint = 0;
     String nuevoremanentebordadossstring = "";
     String numerodeventa = "";
-    String fechaubicacion = "";
-    String ubicacion = "";
+    String ubicacionfecha = "";
+    String ubicacioncantidad = "";
     Connection cnsucursal = null;
     String bordadosutilizadosstring = "";
     int bordadosutilizadosint = 0;
@@ -93,7 +95,7 @@ public class ordencamisaS extends javax.swing.JFrame {
     String nombrebordado = "";
     int traspaso = 0;
     String ipsucursal = "";
-    
+    String ubicacionponchado = "";
     String numeroordendeenviosolicitada = "";
     String numerohistorialordenbordadorecibida = "";
     String numerosucursal = "";
@@ -108,7 +110,7 @@ public class ordencamisaS extends javax.swing.JFrame {
     String codigocliente = "";
     String lugar = "";
     String prenda ="";
-    String ubicacionponchado = "";
+   
     String ubicacionponchadonombre = "";
    
     String numeroordendebordadosolicitadoorecibidasisehabredesderecibidas = "";
@@ -116,7 +118,7 @@ public class ordencamisaS extends javax.swing.JFrame {
     ///// para insertar
     
     String descripcion = ""; 
-    String aplicacioninsertar = "";
+    String descripcionaplicacion = "";
     
     String rutadelip = "";
     
@@ -1510,7 +1512,11 @@ JOptionPane.showMessageDialog(null, mensaje);
                 numerosucursal = rs.getString("numero_orden_camisa_solicitada");
                 
                 numeroordenopedidorecibido = rs.getString("numero_orden_o_pedido_recibida");
+               
                 lbnumeroordenopedidorecibido.setText(numeroordenopedidorecibido);
+                
+                
+                
                 
                 
                 cliente = rs.getString("cliente");
@@ -2371,13 +2377,13 @@ JOptionPane.showMessageDialog(null, mensaje);
              if (prenda.toUpperCase().equals("CAMISA")) {
 
                 descripcion = "BORDADO CAMISA " +ubicacionprenda+" " + nombrebordado+ "";
-                aplicacioninsertar = "APLICACION CAMISA " + ubicacionprenda + "";
+                descripcionaplicacion = "APLICACION CAMISA " + ubicacionprenda + "";
 
             } //// playera
             else if (prenda.toUpperCase().equals("PLAYERA")) {
 
                 descripcion = "BORDADO PLAYERA " + ubicacionprenda + " " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION PLAYERA " + ubicacionprenda + "";
+                descripcionaplicacion = "APLICACION PLAYERA " + ubicacionprenda + "";
 
             } //// chamarra desmontable
          
@@ -2386,36 +2392,36 @@ JOptionPane.showMessageDialog(null, mensaje);
             else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
 
                 descripcion = "BORDADO CHAMARRA DESMONTABLE " + ubicacionprenda + " " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA DESMONTABLE " + ubicacionprenda + "";
+                descripcionaplicacion = "APLICACION CHAMARRA DESMONTABLE " + ubicacionprenda + "";
 
             } /// chamarra rompevientos
             else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
 
                 descripcion = "BORDADO CHAMARRA ROMPEVIENTOS " + ubicacionprenda + " " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHAMARRA ROMPEVIENTOS " + ubicacionprenda + "";
+                descripcionaplicacion = "APLICACION CHAMARRA ROMPEVIENTOS " + ubicacionprenda + "";
 
             } ///camisola
             else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
 
                 descripcion = "BORDADO CAMISOLA " + ubicacionprenda + " " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CAMISOLA " + ubicacionprenda + "";
+                descripcionaplicacion = "APLICACION CAMISOLA " + ubicacionprenda + "";
 
             } else if (prenda.toUpperCase().equals("FILIPINA")) {
 
                 descripcion = "BORDADO FILIPINA " + ubicacionprenda + " " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION FILIPINA " + ubicacionprenda + "";
+                descripcionaplicacion = "APLICACION FILIPINA " + ubicacionprenda + "";
 
             } ///SACO
             else if (prenda.toUpperCase().equals("SACO")) {
 
                 descripcion = "BORDADO SACO " + ubicacionprenda + " " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION SACO " + ubicacionprenda + "";
+                descripcionaplicacion = "APLICACION SACO " + ubicacionprenda + "";
 
             }
             else if (prenda.toUpperCase().equals("CHALECO")) {
 
                 descripcion = "BORDADO CHALECO " + ubicacionprenda + " " + nombrebordado + "";
-                aplicacioninsertar = "APLICACION CHALECO " + ubicacionprenda + "";
+                descripcionaplicacion = "APLICACION CHALECO " + ubicacionprenda + "";
 
             }
             
@@ -3105,11 +3111,19 @@ JOptionPane.showMessageDialog(null, mensaje);
     }
     
     
-    void insertarlacantidadylafechaenlaubicacionCancelar(String ubicacion, String fecha){
+    
+    
+    
+    
+    
+    
+    
+    
+    void insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDAcancelar(){
     
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+fecha+"=null where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacioncantidad+"='0', "+ubicacionfecha+"=null where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'");
                     pst.executeUpdate();
                     pst.close();
 
@@ -3119,33 +3133,22 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
         
         
-    }
-    
-    
-    
-    
-    void insertarlacantidadylafechaenlaubicacion(String ubicacion, String fechaubicacion)
-    {
+        
+        
+        String ubicacionsinguiones = ubicacioncantidad;
+        ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
+        
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">"+ubicacionsinguiones+" cancelada correctamente ");
+        
+        
         try {
-            
-            
-            
-           
-
-                    PreparedStatement pst = cn.prepareStatement("UPDATE "+nombredelatabla+" set "+ubicacion+"='" + cantidad + "',"+fechaubicacion+"  =  '"+dia()+"' where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                    
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-                     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al actualizar al actualizar las cantidades en el historial de ordenes de camisa");
-                }
+            datostiendalocal();
+        } catch (IOException ex) {
+            Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
         
-        
-      
     }
     
     
@@ -3155,7 +3158,10 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-    void insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO(String ubicacion)
+    
+    
+    
+    void insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDA()
     {
         
         
@@ -3163,12 +3169,12 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         try {
         
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_camisa_recibidas set "+ubicacion+"='" + cantidad + "',fecha = '"+dia()+"',"+fechaubicacion+" = '"+dia()+"'  where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'  ");
+                     PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacioncantidad+"='" + cantidad + "',fecha = '"+dia()+"',"+ubicacionfecha+" = '"+dia()+"'  where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'  ");
                     pst.executeUpdate();
                     pst.close();
                     
                     
-                     String ubicacionsinguiones = ubicacion;
+                     String ubicacionsinguiones = ubicacioncantidad;
                          ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
                     
                     JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
@@ -3203,7 +3209,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-    void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega(String ubicacion, String cantidad, String ubicacionaplicacion) 
+    void agregaralsurtidasalhistorialdeventasyactualizarestatusentrega() 
       {
 
         numerodeventa =  lbnumerodeventa.getText();
@@ -3213,7 +3219,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String estatusentrega ="";
        
         
-        String SQL2 = "select articulo,surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"' ";
+        String SQL2 = "select articulo,surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcion + "'  and identificador_prenda = '"+identificador+"' ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -3236,7 +3242,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         String[] lineas = observacion.split("\n");
         
-        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el artículo "+ubicacion+"" + lineas[0] + "</span><br>";
+        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el artículo "+descripcion+"" + lineas[0] + "</span><br>";
         if (lineas.length > 1) {
          mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
 }
@@ -3396,7 +3402,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevasurtidastring + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"'   ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevasurtidastring + "' WHERE numero='" + numerodeventa + "' and articulo = '" + descripcion + "'  and identificador_prenda = '"+identificador+"'   ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -3433,7 +3439,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
              try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + totalaplicaciones + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacionaplicacion + "'  and identificador_prenda = '"+identificador+"'   ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + totalaplicaciones + "' WHERE numero='" + numerodeventa + "' and articulo = '" + descripcion + "'  and identificador_prenda = '"+identificador+"'   ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -3527,7 +3533,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-     void agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar(String ubicacion, String cantidad, String ubicacionaplicacion) 
+     void agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar() 
       {
 
         numerodeventa =  lbnumerodeventa.getText();
@@ -3536,7 +3542,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String estatusentrega ="";
        
         
-        String SQL2 = "select cantidad from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacion + "' and identificador_prenda = '"+identificador+"'";
+        String SQL2 = "select cantidad from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcion + "' and identificador_prenda = '"+identificador+"'";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -3573,7 +3579,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+nuevacantidadstring+"' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacion + "'  and identificador_prenda = '"+identificador+"'");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+nuevacantidadstring+"' WHERE numero='" + numerodeventa + "' and articulo = '" + descripcion + "'  and identificador_prenda = '"+identificador+"'");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -3608,7 +3614,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
              try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+totalaplicaciones+"' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacionaplicacion + "'  and identificador_prenda = '"+identificador+"'");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '"+totalaplicaciones+"' WHERE numero='" + numerodeventa + "' and articulo = '" + descripcionaplicacion + "'  and identificador_prenda = '"+identificador+"'");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -3717,294 +3723,67 @@ JOptionPane.showMessageDialog(null, mensaje);
      
      
      
-     
-    void agregarsurtidasalhistorialdepedidosoenviosyactualizarestatus(String ubicacion, String cantidad, String ubicacionaplicacion) 
-      {
-          
-          
-          
-          
+     void agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentrega(){
          
-          
-          
-           // PEDIDO
-          
-          
-          
-            if (tiendeordenopedido.equals("pedido"))
-            {
-            
-            
-                
-                
-        String surtidaactualstring ="";
-        int surtidaactualint =  0;
-        String nuevasurtidastring = "";
-        String estatusentrega ="";
        
+         
+         
+         String surtidaactualstring ="";
+        int surtidaactualint =  0;
+        String surtidanuevastring = "";
+        String estatusentrega ="";
+        int surtidanuevaint = 0;
+        int cantidadint = 0;
         
-        String SQL2 = "select articulo,surtidas from historial_pedidos_sucursal_recibidos where numero = '" + numeroordenopedidorecibido + "' and articulo = '" + ubicacion + "'   and identificador = '"+identificador+"'";
-        try {
-        Statement st = cn.createStatement();
-        ResultSet rs = st.executeQuery(SQL2);
-
-        if (rs.next()) 
+        
+       
+                 if (tiendeordenopedido.equals("ordendeenvio")) 
         {
             
-       
+            
+            
+            String sql3 = "Select surtidas from historial_ordenes_envio_recibidas where articulo = '" + ubicacioncantidad + "' and  numero = '" + numeroordenopedidorecibido + "'";
 
-        surtidaactualstring = rs.getString("surtidas");
-        surtidaactualint = Integer.parseInt(surtidaactualstring);
-      
+            try {
+                PreparedStatement prst = cn.prepareStatement(sql3);
+                ResultSet rs = prst.executeQuery();
+                if (rs.next()) {
+               
+                    
+                  
+                   surtidaactualstring = rs.getString("surtidas");
+                          surtidaactualint = Integer.parseInt(surtidaactualstring);
+        
 
-        }
+                }
         
         else
         {
      
-        String observacion = "\n no se pudo surtir debido a que NO SE ENCONTRÓ EN LA VENTA; QUIZAS SE CAMBIO LA DESCRIPCION DEL BORDADO";
+        String observacion = "\n no se pudo surtir debido a que NO SE ENCONTRÓ EL BORDADO EN LA ORDEN DE ENVIO RECIBIDA; QUIZAS SE CAMBIO LA DESCRIPCION DEL BORDADO";
         
         String[] lineas = observacion.split("\n");
         
-        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el artículo "+ubicacion+"" + lineas[0] + "</span><br>";
+        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacioncantidad+"" + lineas[0] + "</span><br>";
         if (lineas.length > 1) {
          mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
-           }
+}
 
-           JOptionPane.showMessageDialog(null, mensaje);
-             
-             
-        }
-        
-
-        } catch (SQLException ex) {
-            System.out.println (ex);
-        }
-        
-        
-        
-        
-        
-          if(surtidaactualstring ==null || surtidaactualstring.equals("")||surtidaactualstring.equals(" "))
-      {
-          surtidaactualstring ="0";
-      } 
-          
-       
-        int surtidasint =  Integer.parseInt(cantidad);
-        int surtidasnuevasint = surtidaactualint + surtidasint;
-       
-        nuevasurtidastring =  String.valueOf(surtidasnuevasint);
-            
-            
-          
-             
-                     
-            
-            try{
-            
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET surtidas = '" + nuevasurtidastring + "' WHERE numero ='" + numeroordenopedidorecibido + "' and articulo = '" + ubicacion + "'   and identificador = '"+identificador+"'");
-                                pst.executeUpdate();
-                                pst.close();
-                            } catch (Exception e) {
-
-                                System.out.println(e);
-                            }
-            
-            
-                     
-            
-            
-            // TIENE APLICACION
-            
-            
-            
-            
-            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
-            {
-                
-                
-                
-                
-            }
-            
-            else
-            {
-                
-                int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-                
-                cantidadaplicacionint = cantidadaplicacionint * surtidasnuevasint;
-                
-                String totalaplicaciones = String.valueOf(cantidadaplicacionint);
-                
-            
-          
-            
-            
-              try{
-            
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET surtidas = '" + totalaplicaciones + "' WHERE numero ='" + numeroordenopedidorecibido + "' and articulo = '" + ubicacion + "'   and identificador = '"+identificador+"'");
-                                pst.executeUpdate();
-                                pst.close();
-                            } catch (Exception e) {
-
-                                System.out.println(e);
-                            }
-       
-
-            }
-              
-
-      
-        ////Actualiza el estatus
-
-      String vendidastring = "";    
-      String surtidastring = "";  
-      String enviadastring = "";  
-     
-       
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(enviadas) as enviadas,Sum(surtidas) as surtidas from historial_pedidos_sucursal_recibidos where numero = '" + numeroordenopedidorecibido + "' ";
-        try {
-        Statement st = cn.createStatement();
-        ResultSet rs = st.executeQuery(SQL3);
-
-        if (rs.next()) 
-        {
-
-        vendidastring = rs.getString("cantidad");
-        surtidastring = rs.getString("surtidas");
-        enviadastring = rs.getString("enviadas");
-       
-        
-
-        }
-        
-
-        } catch (SQLException ex) {
-        System.out.println (ex);
-        }
-      
-        
-        
-        
-        
-        
-      
-     ////Actualiza el estatus
-      
-     
-      
-      int vendida = Integer.parseInt(vendidastring);
-      int surtida = Integer.parseInt(surtidastring);
-      int enviada = Integer.parseInt(enviadastring);
-     
-      
-        
-        if(vendida == (surtida + enviada) && enviada == 0 )
-        {
-          estatusentrega ="surtido totalmente no traspasada";  
-        }
-        
-        else
-          if(vendida == (surtida + enviada) && enviada > 0 )
-        {
-          estatusentrega ="surtido totalmente traspasada parcialmente";  
-        }
-          
-          
-           else
-          if(vendida > (surtida +enviada) && enviada > 0 )
-        {
-          estatusentrega ="surtido parcialmente traspasada parcialmente";  
-        }
-     
-        
-        else
-        {
-          estatusentrega ="surtido parcialmente no traspasada";   
-        }    
-        
-        
-        
-        
-          try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET estatus_entrega = '" + estatusentrega + "' where numero = '" + numeroordenopedidorecibido + "' ");
-              pst.executeUpdate();
-              pst.close();
-          } catch (Exception e) {
-
-              System.out.println(e);
-          }
-      
-      
-            
-       
-            }
-            
-            
-           // ORDEN DE ENVIO
-           // ORDEN DE ENVIO
-           // ORDEN DE ENVIO
-            // ORDEN DE ENVIO
-            
-            else
-                
-                
-            {
-                
-                
-                
-                
-                
+          JOptionPane.showMessageDialog(null, mensaje);
+                   
                    
                 
-        String surtidaactualstring ="";
-        int surtidaactualint =  0;
-        String nuevasurtidastring = "";
-        String estatusentrega ="";
-       
-        
-        String SQL2 = "select articulo,surtidas from historial_ordenes_envio_recibidas where numero = '" + numeroordenopedidorecibido + "' and articulo = '" + ubicacion + "'   and identificador = '"+identificador+"'";
-        try {
-        Statement st = cn.createStatement();
-        ResultSet rs = st.executeQuery(SQL2);
+                    
+                }
+                
+                
+            } catch (Exception exx) {
+                
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+exx+"");
 
-        if (rs.next()) 
-        {
+            }
             
-       
-
-        surtidaactualstring = rs.getString("surtidas");
-        surtidaactualint = Integer.parseInt(surtidaactualstring);
-      
-
-        }
-        
-        else
-        {
-     
-        String observacion = "\n no se pudo surtir debido a que NO SE ENCONTRÓ EN LA VENTA; QUIZAS SE CAMBIO LA DESCRIPCION DEL BORDADO";
-        
-        String[] lineas = observacion.split("\n");
-        
-        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el artículo "+ubicacion+"" + lineas[0] + "</span><br>";
-        if (lineas.length > 1) {
-         mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
-           }
-
-           JOptionPane.showMessageDialog(null, mensaje);
-             
-             
-        }
-        
-
-        } catch (SQLException ex) {
-            System.out.println (ex);
-        }
-        
-        
-        
-        
+          
         
           if(surtidaactualstring ==null || surtidaactualstring.equals("")||surtidaactualstring.equals(" "))
       {
@@ -4012,60 +3791,18 @@ JOptionPane.showMessageDialog(null, mensaje);
       } 
           
        
-        int surtidasint =  Integer.parseInt(cantidad);
-        int surtidasnuevasint = surtidaactualint + surtidasint;
+         cantidadint =  Integer.parseInt(cantidad);
+        surtidanuevaint = surtidaactualint + cantidadint;
        
-        nuevasurtidastring =  String.valueOf(surtidasnuevasint);
+        surtidanuevastring =  String.valueOf(surtidanuevaint);
             
-        
-        
-       
-             
-                     
+      
+            
+            
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtidas = '" + nuevasurtidastring + "' WHERE numero ='" + numeroordenopedidorecibido + "' and articulo = '" + ubicacion + "'   and identificador = '"+identificador+"'");
-                                pst.executeUpdate();
-                                pst.close();
-                            } catch (Exception e) {
-
-                                System.out.println(e);
-                            }
-            
-            
-                     
-            
-            
-            // TIENE APLICACION
-            
-            
-            
-            
-            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
-            {
-                
-                
-                
-                
-            }
-            
-            else
-            {
-                
-                int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-                
-                cantidadaplicacionint = cantidadaplicacionint * surtidasnuevasint;
-                
-                String totalaplicaciones = String.valueOf(cantidadaplicacionint);
-                
-            
-          
-            
-            
-              try{
-            
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtidas = '" + totalaplicaciones + "' WHERE numero ='" + numeroordenopedidorecibido + "' and articulo = '" + ubicacion + "'   and identificador = '"+identificador+"'");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtidas = '" + surtidanuevastring + "' WHERE numero='" + numeroordenopedidorecibido + "' and articulo = '" + ubicacioncantidad + "'");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -4073,19 +3810,26 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 System.out.println(e);
                             }
        
+            
+            
+            
+            
+            
 
-            }
-              
-
-      
         ////Actualiza el estatus
 
-      String vendidastring = "";    
-      String surtidastring = "";  
-      String enviadastring = "";  
-     
+      String sumasurtidastring = "";  
+      String sumavendidastring = "";  
+      String sumaenviadastring = "";  
+      
+      int sumasurtidaint = 0;  
+      int sumavendidaint = 0;  
+      int sumaenviadaint = 0;  
        
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(enviadas) as enviadas,Sum(surtidas) as surtidas from historial_ordenes_envio_recibidas where numero = '" + numeroordenopedidorecibido + "' ";
+      
+      
+      
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroordenopedidorecibido+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -4093,10 +3837,9 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (rs.next()) 
         {
 
-        vendidastring = rs.getString("cantidad");
-        surtidastring = rs.getString("surtidas");
-        enviadastring = rs.getString("enviadas");
-       
+        sumavendidastring = rs.getString("cantidad");
+        sumasurtidastring = rs.getString("surtidas");
+        sumaenviadastring = rs.getString("enviadas");
         
 
         }
@@ -4107,522 +3850,30 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
       
         
-        
-        
-        
-        
       
-     ////Actualiza el estatus
+      /////
       
-     
-      
-      int vendida = Integer.parseInt(vendidastring);
-      int surtida = Integer.parseInt(surtidastring);
-      int enviada = Integer.parseInt(enviadastring);
-     
+       sumavendidaint = Integer.parseInt(sumavendidastring);
+       sumasurtidaint = Integer.parseInt(sumasurtidastring);
+       sumaenviadaint = Integer.parseInt(sumaenviadastring);
       
         
-        if(vendida == (surtida + enviada) && enviada == 0 )
-        {
-          estatusentrega ="surtido totalmente no enviada";  
-        }
-        
-        else
-          if(vendida == (surtida + enviada) && enviada > 0 )
-        {
-          estatusentrega ="surtido totalmente enviada parcialmente";  
-        }
-          
-          
-           else
-          if(vendida > (surtida +enviada) && enviada > 0 )
-        {
-          estatusentrega ="surtido parcialmente enviada parcialmente";  
-        }
-     
-        
-        else
-        {
-          estatusentrega ="surtido parcialmente no enviada";   
-        }    
-        
-        
-        
-        
-          try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET estatus_entrega = '" + estatusentrega + "' WHERE numero = '" + numeroordenopedidorecibido + "' ");
-              pst.executeUpdate();
-              pst.close();
-          } catch (Exception e) {
-
-              System.out.println(e);
-          }
-      
-      
-            
-              
-                
-                
-                
-                
-                
-                
-                
-                
-            }
-         
-         
-      
-      }
-    
-     
-     
-    
-    
- 
-            
-            
-            
-            
-    void agregarsurtidasalhistorialdepedidosoenviosyactualizarestatusCancelar(String ubicacion, String cantidad, String ubicacionaplicacion) 
-      {
-          
-          
-          
-          
-          
-          
-          
-          
-           // PEDIDO
-          
-          
-          
-            if (tiendeordenopedido.equals("pedido"))
-            {
-            
-            
-                
-                
-        String surtidaactualstring ="";
-        int surtidaactualint =  0;
-        String nuevasurtidastring = "";
-        String estatusentrega ="";
-       
-        
-        String SQL2 = "select articulo,surtidas from historial_pedidos_sucursal_recibidos where numero = '" + numeroordenopedidorecibido + "' and articulo = '" + ubicacion + "'   and identificador = '"+identificador+"'";
-        try {
-        Statement st = cn.createStatement();
-        ResultSet rs = st.executeQuery(SQL2);
-
-        if (rs.next()) 
-        {
-            
-       
-
-        surtidaactualstring = rs.getString("surtidas");
-        surtidaactualint = Integer.parseInt(surtidaactualstring);
-      
-
-        }
-        
-        else
-        {
-     
-        String observacion = "\n no se pudo surtir debido a que NO SE ENCONTRÓ EN LA VENTA; QUIZAS SE CAMBIO LA DESCRIPCION DEL BORDADO";
-        
-        String[] lineas = observacion.split("\n");
-        
-        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el artículo "+ubicacion+"" + lineas[0] + "</span><br>";
-        if (lineas.length > 1) {
-         mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
-           }
-
-           JOptionPane.showMessageDialog(null, mensaje);
-             
-             
-        }
-        
-
-        } catch (SQLException ex) {
-            System.out.println (ex);
-        }
-        
-        
-        
-        
-        
-          if(surtidaactualstring ==null || surtidaactualstring.equals("")||surtidaactualstring.equals(" "))
-      {
-          surtidaactualstring ="0";
-      } 
-          
-       
-        int surtidasint =  Integer.parseInt(cantidad);
-        
-         //////////// RESTA LAS SURTIDAS
-        int surtidasnuevasint = surtidaactualint - surtidasint;
-       
-        nuevasurtidastring =  String.valueOf(surtidasnuevasint);
-            
-            
-          
-             
-                     
-            
-            try{
-            
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET surtidas = '" + nuevasurtidastring + "' WHERE numero ='" + numeroordenopedidorecibido + "' and articulo = '" + ubicacion + "'   and identificador = '"+identificador+"'");
-                                pst.executeUpdate();
-                                pst.close();
-                            } catch (Exception e) {
-
-                                System.out.println(e);
-                            }
-            
-            
-                     
-            
-            
-            // TIENE APLICACION
-            
-            
-            
-            
-            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
-            {
-                
-                
-                
-                
-            }
-            
-            else
-            {
-                
-                int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-                
-                cantidadaplicacionint = cantidadaplicacionint * surtidasnuevasint;
-                
-                String totalaplicaciones = String.valueOf(cantidadaplicacionint);
-                
-            
-          
-            
-            
-              try{
-            
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET surtidas = '" + totalaplicaciones + "' WHERE numero ='" + numeroordenopedidorecibido + "' and articulo = '" + ubicacion + "'   and identificador = '"+identificador+"'");
-                                pst.executeUpdate();
-                                pst.close();
-                            } catch (Exception e) {
-
-                                System.out.println(e);
-                            }
-       
-
-            }
-              
-
-      
-        ////Actualiza el estatus
-
-      String vendidastring = "";    
-      String surtidastring = "";  
-      String enviadastring = "";  
-     
-       
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(enviadas) as enviadas,Sum(surtidas) as surtidas from historial_pedidos_sucursal_recibidos where numero = '" + numeroordenopedidorecibido + "' ";
-        try {
-        Statement st = cn.createStatement();
-        ResultSet rs = st.executeQuery(SQL3);
-
-        if (rs.next()) 
-        {
-
-        vendidastring = rs.getString("cantidad");
-        surtidastring = rs.getString("surtidas");
-        enviadastring = rs.getString("enviadas");
-       
-        
-
-        }
-        
-
-        } catch (SQLException ex) {
-        System.out.println (ex);
-        }
-      
-        
-        
-        
-        
-        
-      
-     ////Actualiza el estatus
-      
-     
-      
-      int vendida = Integer.parseInt(vendidastring);
-      int surtida = Integer.parseInt(surtidastring);
-      int enviada = Integer.parseInt(enviadastring);
-     
-      
-        
-        if(vendida == (surtida + enviada) && enviada == 0 )
-        {
-          estatusentrega ="surtida totalmente no traspasada";  
-        }
-        
-        else
-          if(vendida == (surtida + enviada) && enviada > 0 )
-        {
-          estatusentrega ="surtida totalmente traspasada parcialmente";  
-        }
-          
-          
-           else
-          if(vendida > (surtida +enviada) && enviada > 0 )
-        {
-          estatusentrega ="surtida parcialmente traspasada parcialmente";  
-        }
-     
-        
-        else
-        {
-          estatusentrega ="surtida parcialmente no traspasada";   
-        }    
-        
-        
-        
-        
-          try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET estatus_entrega = '" + estatusentrega + "' where numero = '" + numeroordenopedidorecibido + "' ");
-              pst.executeUpdate();
-              pst.close();
-          } catch (Exception e) {
-
-              System.out.println(e);
-          }
-      
-      
-            
-       
-            }
-            
-            
-           // ORDEN DE ENVIO
-           // ORDEN DE ENVIO
-           // ORDEN DE ENVIO
-            // ORDEN DE ENVIO
-            
-            else
-                
-                
-            {
-                
-                
-                
-                
-                
-                   
-                
-        String surtidaactualstring ="";
-        int surtidaactualint =  0;
-        String nuevasurtidastring = "";
-        String estatusentrega ="";
-       
-        
-        String SQL2 = "select articulo,surtidas from historial_ordenes_envio_recibidas where numero = '" + numeroordenopedidorecibido + "' and articulo = '" + ubicacion + "'   and identificador = '"+identificador+"'";
-        try {
-        Statement st = cn.createStatement();
-        ResultSet rs = st.executeQuery(SQL2);
-
-        if (rs.next()) 
-        {
-            
-       
-
-        surtidaactualstring = rs.getString("surtidas");
-        surtidaactualint = Integer.parseInt(surtidaactualstring);
-      
-
-        }
-        
-        else
-        {
-     
-        String observacion = "\n no se pudo surtir debido a que NO SE ENCONTRO EN LA VENTA; QUIZAS SE CAMBIO LA DESCRIPCION DEL BORDADO";
-        
-        String[] lineas = observacion.split("\n");
-        
-        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el artículo "+ubicacion+"" + lineas[0] + "</span><br>";
-        if (lineas.length > 1) {
-         mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
-           }
-
-           JOptionPane.showMessageDialog(null, mensaje);
-             
-             
-        }
-        
-
-        } catch (SQLException ex) {
-            System.out.println (ex);
-        }
-        
-        
-        
-        
-        
-          if(surtidaactualstring ==null || surtidaactualstring.equals("")||surtidaactualstring.equals(" "))
-      {
-          surtidaactualstring ="0";
-      } 
-          
-       
-        int surtidasint =  Integer.parseInt(cantidad);
-        
-        
-        //////////// RESTA LAS SURTIDAS
-        int surtidasnuevasint = surtidaactualint - surtidasint;
-       
-        nuevasurtidastring =  String.valueOf(surtidasnuevasint);
-            
-        
-        
-       
-             
-                     
-            
-            try{
-            
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtidas = '" + nuevasurtidastring + "' WHERE numero ='" + numeroordenopedidorecibido + "' and articulo = '" + ubicacion + "'   and identificador = '"+identificador+"'");
-                                pst.executeUpdate();
-                                pst.close();
-                            } catch (Exception e) {
-
-                                System.out.println(e);
-                            }
-            
-            
-                     
-            
-            
-            // TIENE APLICACION
-            
-            
-            
-            
-            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
-            {
-                
-                
-                
-                
-            }
-            
-            else
-            {
-                
-                int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
-                
-                cantidadaplicacionint = cantidadaplicacionint * surtidasnuevasint;
-                
-                String totalaplicaciones = String.valueOf(cantidadaplicacionint);
-                
-            
-          
-            
-            
-              try{
-            
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtidas = '" + totalaplicaciones + "' WHERE numero ='" + numeroordenopedidorecibido + "' and articulo = '" + ubicacion + "'   and identificador = '"+identificador+"'");
-                                pst.executeUpdate();
-                                pst.close();
-                            } catch (Exception e) {
-
-                                System.out.println(e);
-                            }
-       
-
-            }
-              
-
-      
-        ////Actualiza el estatus
-
-      String vendidastring = "";    
-      String surtidastring = "";  
-      String enviadastring = "";  
-     
-       
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(enviadas) as enviadas,Sum(surtidas) as surtidas from historial_ordenes_envio_recibidas where numero = '" + numeroordenopedidorecibido + "' ";
-        try {
-        Statement st = cn.createStatement();
-        ResultSet rs = st.executeQuery(SQL3);
-
-        if (rs.next()) 
-        {
-
-        vendidastring = rs.getString("cantidad");
-        surtidastring = rs.getString("surtidas");
-        enviadastring = rs.getString("enviadas");
-       
-        
-
-        }
-        
-
-        } catch (SQLException ex) {
-        System.out.println (ex);
-        }
-      
-        
-        
-        
-        
-        
-      
-     ////Actualiza el estatus
-      
-     
-      
-      int vendida = Integer.parseInt(vendidastring);
-      int surtida = Integer.parseInt(surtidastring);
-      int enviada = Integer.parseInt(enviadastring);
-     
-      
-        
-        if(vendida == (surtida + enviada) && enviada == 0 )
+        if(sumavendidaint == sumasurtidaint && sumaenviadaint == 0 )
         {
           estatusentrega ="surtida totalmente no enviada";  
         }
-        
-        else
-          if(vendida == (surtida + enviada) && enviada > 0 )
+        else  if(sumavendidaint == (sumasurtidaint + sumaenviadaint )  &&  sumaenviadaint <  sumavendidaint  )
         {
           estatusentrega ="surtida totalmente enviada parcialmente";  
         }
-          
-          
-           else
-          if(vendida > (surtida +enviada) && enviada > 0 )
-        {
-          estatusentrega ="surtida parcialmente enviada parcialmente";  
-        }
-     
         
         else
         {
           estatusentrega ="surtida parcialmente no enviada";   
         }    
         
-        
-        
-        
           try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET estatus_entrega = '" + estatusentrega + "' WHERE numero = '" + numeroordenopedidorecibido + "' ");
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroordenopedidorecibido + "'       ");
               pst.executeUpdate();
               pst.close();
           } catch (Exception e) {
@@ -4630,26 +3881,561 @@ JOptionPane.showMessageDialog(null, mensaje);
               System.out.println(e);
           }
       
+
+            
+            
+            
+            
+            ////////////////////////////////////////////////
+            
+            
+            
+
+        }
+        else 
+        {
+            
+            
+            ////////////////////////////////////////////////////////
+            
+            
+        }
+           if (tiendeordenopedido.equals("pedido")) 
+            {
+
+                
+                
+              
+            String sql3 = "Select surtidas from historial_pedidos_sucursal_recibidos where articulo = '" + descripcion + "' and numero = '" + numeroordenopedidorecibido + "'";
+
+            try {
+                PreparedStatement prst = cn.prepareStatement(sql3);
+                ResultSet rs = prst.executeQuery();
+                if (rs.next()) {
+               
+                    
+                  
+                   surtidaactualstring = rs.getString("surtidas");
+                          surtidaactualint = Integer.parseInt(surtidaactualstring);
+        
+
+                }
+        
+        else
+        {
+     
+        String observacion = "\n no se pudo surtir debido a que NO SE ENCONTRÓ EL BORDADO EN LA ORDEN DE ENVIO RECIBIDA; QUIZAS SE CAMBIO LA DESCRIPCION DEL BORDADO";
+        
+        String[] lineas = observacion.split("\n");
+        
+        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacioncantidad+"" + lineas[0] + "</span><br>";
+        if (lineas.length > 1) {
+         mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
+}
+
+          JOptionPane.showMessageDialog(null, mensaje);
+                   
+                   
+                
+                    
+                }
+                
+                
+            } catch (Exception exx) {
+                
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+exx+"");
+
+            }
+            
+          
+            
+            
+          
+        
+          if(surtidaactualstring ==null || surtidaactualstring.equals("")||surtidaactualstring.equals(" "))
+      {
+          surtidaactualstring ="0";
+      } 
+          
+       
+         cantidadint =  Integer.parseInt(cantidad);
+        surtidanuevaint = surtidaactualint + cantidadint;
+       
+        surtidanuevastring =  String.valueOf(surtidanuevaint);
+            
       
             
-              
-                
-                
-                
-                
-                
-                
-                
-                
+            
+            
+            try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET surtidas = '" + surtidanuevastring + "' WHERE numero='" + numeroordenopedidorecibido + "' and articulo = '" + descripcion + "'      ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+            
+            
+            
+            
+            
+            
+
+        ////Actualiza el estatus
+
+      String sumasurtidastring = "";  
+      String sumavendidastring = "";  
+      String sumaenviadastring = "";  
+      
+      int sumasurtidaint = 0;  
+      int sumavendidaint = 0;  
+      int sumaenviadaint = 0;  
+       
+      
+      
+      
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtidas) as surtidas,Sum(enviadas) as enviadas from historial_pedidos_sucursal_recibidos where numero = '"+numeroordenopedidorecibido+"'  ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL3);
+
+        if (rs.next()) 
+        {
+
+        sumavendidastring = rs.getString("cantidad");
+        sumasurtidastring = rs.getString("surtidas");
+        sumaenviadastring = rs.getString("enviadas");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+        System.out.println (ex);
+        }
+      
+        
+      
+      /////
+      
+       sumavendidaint = Integer.parseInt(sumavendidastring);
+       sumasurtidaint = Integer.parseInt(sumasurtidastring);
+       sumaenviadaint = Integer.parseInt(sumaenviadastring);
+      
+        
+        if(sumavendidaint == sumasurtidaint && sumaenviadaint == 0 )
+        {
+          estatusentrega ="surtida completamente no traspasado";  
+        }
+        else  if(sumavendidaint == (sumasurtidaint + sumaenviadaint )  &&  sumaenviadaint <  sumavendidaint  )
+        {
+          estatusentrega ="surtida completamente traspasada parcialmente";  
+        }
+        
+        else
+        {
+          estatusentrega ="surtida parcialmente no traspasado";   
+        }    
+        
+          try {
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroordenopedidorecibido + "'       ");
+              pst.executeUpdate();
+              pst.close();
+          } catch (Exception e) {
+
+              System.out.println(e);
+          }
+      
+
+            
+            
+            
+            
             }
          
          
+         
+         
+         
+     }
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+            
+     
+     void agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentregacancelar(){
+         
+       
+         
+         
+         String surtidaactualstring ="";
+        int surtidaactualint =  0;
+        String surtidanuevastring = "";
+        String estatusentrega ="";
+        int surtidanuevaint = 0;
+        int cantidadint = 0;
+        
+        
+       
+                 if (tiendeordenopedido.equals("ordendeenvio")) 
+        {
+            
+            
+            
+            String sql3 = "Select surtidas from historial_ordenes_envio_recibidas where articulo = '" + ubicacioncantidad + "' and  numero = '" + numeroordenopedidorecibido + "'";
+
+            try {
+                PreparedStatement prst = cn.prepareStatement(sql3);
+                ResultSet rs = prst.executeQuery();
+                if (rs.next()) {
+               
+                    
+                  
+                   surtidaactualstring = rs.getString("surtidas");
+                          surtidaactualint = Integer.parseInt(surtidaactualstring);
+        
+
+                }
+        
+        else
+        {
+     
+        String observacion = "\n no se pudo surtir debido a que NO SE ENCONTRÓ EL BORDADO EN LA ORDEN DE ENVIO RECIBIDA; QUIZAS SE CAMBIO LA DESCRIPCION DEL BORDADO";
+        
+        String[] lineas = observacion.split("\n");
+        
+        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacioncantidad+"" + lineas[0] + "</span><br>";
+        if (lineas.length > 1) {
+         mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
+}
+
+          JOptionPane.showMessageDialog(null, mensaje);
+                   
+                   
+                
+                    
+                }
+                
+                
+            } catch (Exception exx) {
+                
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+exx+"");
+
+            }
+            
+          
+        
+          if(surtidaactualstring ==null || surtidaactualstring.equals("")||surtidaactualstring.equals(" "))
+      {
+          surtidaactualstring ="0";
+      } 
+          
+       
+         cantidadint =  Integer.parseInt(cantidad);
+        surtidanuevaint = surtidaactualint - cantidadint;
+       
+        surtidanuevastring =  String.valueOf(surtidanuevaint);
+            
       
-      }
-    
+            
+            
+            
+            try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtidas = '" + surtidanuevastring + "' WHERE numero='" + numeroordenopedidorecibido + "' and articulo = '" + ubicacioncantidad + "'");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+            
+            
+            
+            
+            
+
+        ////Actualiza el estatus
+
+      String sumasurtidastring = "";  
+      String sumavendidastring = "";  
+      String sumaenviadastring = "";  
+      
+      int sumasurtidaint = 0;  
+      int sumavendidaint = 0;  
+      int sumaenviadaint = 0;  
+       
+      
+      
+      
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroordenopedidorecibido+"'  ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL3);
+
+        if (rs.next()) 
+        {
+
+        sumavendidastring = rs.getString("cantidad");
+        sumasurtidastring = rs.getString("surtidas");
+        sumaenviadastring = rs.getString("enviadas");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+        System.out.println (ex);
+        }
+      
+        
+      
+      /////
+      
+       sumavendidaint = Integer.parseInt(sumavendidastring);
+       sumasurtidaint = Integer.parseInt(sumasurtidastring);
+       sumaenviadaint = Integer.parseInt(sumaenviadastring);
+      
+        
+        if(sumavendidaint == sumasurtidaint && sumaenviadaint == 0 )
+        {
+          estatusentrega ="surtida totalmente no enviada";  
+        }
+        else  if(sumavendidaint == (sumasurtidaint + sumaenviadaint )  &&  sumaenviadaint <  sumavendidaint  )
+        {
+          estatusentrega ="surtida totalmente enviada parcialmente";  
+        }
+        
+        else
+        {
+          estatusentrega ="surtida parcialmente no enviada";   
+        }    
+        
+          try {
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroordenopedidorecibido + "'       ");
+              pst.executeUpdate();
+              pst.close();
+          } catch (Exception e) {
+
+              System.out.println(e);
+          }
+      
+
+            
+            
+            
+            
+            ////////////////////////////////////////////////
+            
+            
+            
+
+        }
+        else 
+        {
+            
+            
+            ////////////////////////////////////////////////////////
+            
+            
+        }
+           if (tiendeordenopedido.equals("pedido")) 
+            {
+
+                
+                
+              
+            String sql3 = "Select surtidas from historial_pedidos_sucursal_recibidos where articulo = '" + descripcion + "' and numero = '" + numeroordenopedidorecibido + "'";
+
+            try {
+                PreparedStatement prst = cn.prepareStatement(sql3);
+                ResultSet rs = prst.executeQuery();
+                if (rs.next()) {
+               
+                    
+                  
+                   surtidaactualstring = rs.getString("surtidas");
+                          surtidaactualint = Integer.parseInt(surtidaactualstring);
+        
+
+                }
+        
+        else
+        {
+     
+        String observacion = "\n no se pudo surtir debido a que NO SE ENCONTRÓ EL BORDADO EN LA ORDEN DE ENVIO RECIBIDA; QUIZAS SE CAMBIO LA DESCRIPCION DEL BORDADO";
+        
+        String[] lineas = observacion.split("\n");
+        
+        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacioncantidad+"" + lineas[0] + "</span><br>";
+        if (lineas.length > 1) {
+         mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
+}
+
+          JOptionPane.showMessageDialog(null, mensaje);
+                   
+                   
+                
+                    
+                }
+                
+                
+            } catch (Exception exx) {
+                
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+exx+"");
+
+            }
+            
+          
+            
+            
+          
+        
+          if(surtidaactualstring ==null || surtidaactualstring.equals("")||surtidaactualstring.equals(" "))
+      {
+          surtidaactualstring ="0";
+      } 
+          
+       
+         cantidadint =  Integer.parseInt(cantidad);
+        surtidanuevaint = surtidaactualint - cantidadint;
+       
+        surtidanuevastring =  String.valueOf(surtidanuevaint);
+            
+      
+            
+            
+            
+            try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET surtidas = '" + surtidanuevastring + "' WHERE numero='" + numeroordenopedidorecibido + "' and articulo = '" + descripcion + "'      ");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+            
+            
+            
+            
+            
+            
+
+        ////Actualiza el estatus
+
+      String sumasurtidastring = "";  
+      String sumavendidastring = "";  
+      String sumaenviadastring = "";  
+      
+      int sumasurtidaint = 0;  
+      int sumavendidaint = 0;  
+      int sumaenviadaint = 0;  
+       
+      
+      
+      
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtidas) as surtidas,Sum(enviadas) as enviadas from historial_pedidos_sucursal_recibidos where numero = '"+numeroordenopedidorecibido+"'  ";
+        try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL3);
+
+        if (rs.next()) 
+        {
+
+        sumavendidastring = rs.getString("cantidad");
+        sumasurtidastring = rs.getString("surtidas");
+        sumaenviadastring = rs.getString("enviadas");
+        
+
+        }
+        
+
+        } catch (SQLException ex) {
+        System.out.println (ex);
+        }
+      
+        
+      
+      /////
+      
+       sumavendidaint = Integer.parseInt(sumavendidastring);
+       sumasurtidaint = Integer.parseInt(sumasurtidastring);
+       sumaenviadaint = Integer.parseInt(sumaenviadastring);
+      
+        
+        if(sumasurtidaint > 0 && sumaenviadaint > 0 )
+        {
+          estatusentrega ="surtida parcialmente traspasada parcialmente";  
+        }
+        else
+          if(sumasurtidaint > 0 && sumaenviadaint == 0 )
+        {
+          estatusentrega ="surtida parcialmente no traspasado";  
+        }
+        
+        else
+        {
+          estatusentrega ="no surtida no traspasada";   
+        }    
+        
+          try {
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroordenopedidorecibido + "'       ");
+              pst.executeUpdate();
+              pst.close();
+          } catch (Exception e) {
+
+              System.out.println(e);
+          }
+      
+
+            
+            
+            
+            
+            }
+         
+         
+         
+         
+         
+     }
      
      
-   
+     
+     
+     
      
      
      
@@ -5587,14 +5373,14 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
      
-     void descargarponchado(String ubicacion,String ubicacionnombre)
+     void descargarponchado(String ubicacionponchado,String ubicacionnombre)
      {
          
          JFileChooser fs = new JFileChooser();
         
 
          try (
-                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_camisa_recibidas where numero = '" + numeroordendebordadosolicitadoorecibidasisehabredesderecibidas + "' ")) {
+                 PreparedStatement ps = cn.prepareStatement("select " + ubicacionponchado + "," + ubicacionnombre + " from historial_ordenes_camisa_recibidas where numero = '" + numeroordendebordadosolicitadoorecibidasisehabredesderecibidas + "' ")) {
              ResultSet rs = ps.executeQuery();
 
              if (rs.next()) {
@@ -5623,7 +5409,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                  if (tampak == JFileChooser.APPROVE_OPTION) 
                  {
                      File file = fs.getSelectedFile();
-                     try (InputStream stream = rs.getBinaryStream("" + ubicacion + "");
+                     try (InputStream stream = rs.getBinaryStream("" + ubicacionponchado + "");
                              OutputStream output = new FileOutputStream(file)) 
                      {
                          byte[] buffer = new byte[4096];
@@ -5810,17 +5596,17 @@ JOptionPane.showMessageDialog(null, mensaje);
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Orden camisa");
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -6608,7 +6394,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Numero orden o pedido solicitado");
+        jLabel11.setText("Numero orden o pedido recibido");
         jLabel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -6676,11 +6462,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1036, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(5, 5, 5)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -6772,7 +6558,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                                                 .addGap(5, 5, 5)
                                                 .addComponent(lbnumeroordenbordadodelaotrasucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
                                 .addComponent(jLabel18)
                                 .addGap(7, 7, 7)
                                 .addComponent(lbbordacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -6790,7 +6575,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbmangaizquierdanombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -7159,17 +6943,13 @@ JOptionPane.showMessageDialog(null, mensaje);
                                     .addComponent(btnreplicar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnquitarponchado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(163, 163, 163)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnponchado6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnreplicar6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(163, 163, 163)
-                                        .addComponent(btnponchado6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(163, 163, 163)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnreplicar6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(39, 39, 39)
-                                                .addComponent(btnreplicar7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addGap(39, 39, 39)
+                                        .addComponent(btnreplicar7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -7469,37 +7249,36 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         
           
-          ubicacion = "manga_izquierda_cantidad";
-          fechaubicacion  = "manga_izquierda_fecha";
+          ubicacioncantidad = "manga_izquierda_cantidad";
+          ubicacionfecha  = "manga_izquierda_fecha";
            nombrebordado = mangaizquierdanombre;
             cantidadaplicacion = aplicacionmangaizquierda;
         
                 ubicacionprenda = "MANGA IZQUIERDA";
                                                 
-                                                
-                                                
-         if(cantidad.equals("0"))
+             determinaciondeladescripciondelbordado();
+                
+                
+                
+                    if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
         else
-        { 
         
-       
-            
-           
-              determinaciondeladescripciondelbordado();
-           
-            
-            
-            //ESTA SUCURSAL
+                    {
+                
+    
+                        
+                        
+              //ESTA SUCURSAL
             
         if(lugar.equals("Esta sucursal"))
         {
        
       
-       agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
-    
+        agregaralsurtidasalhistorialdeventasyactualizarestatusentrega();       
+          
        
             
         }
@@ -7510,42 +7289,36 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
         // OTRA SUCURSAL           
             
-            if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+            if(lugar.equals("Otra sucursal"))
         {
           
-         //    nombredelatabla = "historial_ordenes_camisa_recibidas";
+       
         
-            agregarsurtidasalhistorialdepedidosoenviosyactualizarestatus((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
+         
+         agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentrega();
             
-          
+           
 
         }
+                      
+                        
+                        
+            insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDA();
         
+         
+         actualizarestatusentregaordendebordado();    
         
-        
-        
-        
-        
-        
-        insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);  
-        
-        actualizarestatusentregaordendebordado(); 
-    
-        sumapuntos();   
         
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
        
-        
-        }
-         
-         
-         
-         
-         
-         
-         
-         
+                     
+                    }
+                    
+                    
+                    
+                    
+                
          
          
          
@@ -7560,39 +7333,37 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-           fechaubicacion  = "pecho_izquierdo_fecha";
-           ubicacion = "pecho_izquierdo_cantidad"; 
+           ubicacionfecha  = "pecho_izquierdo_fecha";
+           ubicacioncantidad = "pecho_izquierdo_cantidad"; 
             
            ubicacionprenda = "PECHO IZQUIERDO";
            nombrebordado =pechoizquierdonombre;
            cantidadaplicacion = aplicacionpechoizquierdo;
         
         
-        
-        
-        
-        
-         if(cantidad.equals("0"))
+           determinaciondeladescripciondelbordado();
+                
+                
+                
+                    if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
         else
-        { 
         
-      
-           
-              determinaciondeladescripciondelbordado();
-           
-            
-            
-            //ESTA SUCURSAL
+                    {
+                
+    
+                        
+                        
+              //ESTA SUCURSAL
             
         if(lugar.equals("Esta sucursal"))
         {
        
       
-       agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
-    
+        agregaralsurtidasalhistorialdeventasyactualizarestatusentrega();       
+          
        
             
         }
@@ -7603,36 +7374,32 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
         // OTRA SUCURSAL           
             
-            if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+            if(lugar.equals("Otra sucursal"))
         {
           
-         //    nombredelatabla = "historial_ordenes_camisa_recibidas";
+       
         
-            agregarsurtidasalhistorialdepedidosoenviosyactualizarestatus((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
+         
+         agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentrega();
             
-          
+           
 
         }
+                      
+                        
+                        
+            insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDA();
         
+         
+         actualizarestatusentregaordendebordado();    
         
-        
-        
-        
-        
-        
-        insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);  
-        
-        actualizarestatusentregaordendebordado(); 
-    
-        sumapuntos();   
         
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
        
-        
-        
-    
-        }
+                     
+                    }
+                    
     
     
     }//GEN-LAST:event_btnpechoizquierdotermineActionPerformed
@@ -7643,36 +7410,38 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
           
-          fechaubicacion  = "espalda_fecha";
-           ubicacion = "espalda_cantidad";
+          ubicacionfecha  = "espalda_fecha";
+           ubicacioncantidad = "espalda_cantidad";
            
             nombrebordado = espaldanombre;
             cantidadaplicacion = aplicacionespalda;
             
             ubicacionprenda = "ESPALDA";
-                  
-         
-        if(cantidad.equals("0"))
+            
+            
+           determinaciondeladescripciondelbordado();
+                
+                
+                
+                    if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
         else
-        {
         
-      
-           
-              determinaciondeladescripciondelbordado();
-           
-            
-            
-            //ESTA SUCURSAL
+                    {
+                
+    
+                        
+                        
+              //ESTA SUCURSAL
             
         if(lugar.equals("Esta sucursal"))
         {
        
       
-       agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
-    
+        agregaralsurtidasalhistorialdeventasyactualizarestatusentrega();       
+          
        
             
         }
@@ -7683,37 +7452,36 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
         // OTRA SUCURSAL           
             
-            if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+            if(lugar.equals("Otra sucursal"))
         {
           
-         //    nombredelatabla = "historial_ordenes_camisa_recibidas";
+       
         
-            agregarsurtidasalhistorialdepedidosoenviosyactualizarestatus((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
+         
+         agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentrega();
             
-          
+           
 
         }
+                      
+                        
+                        
+            insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDA();
         
+         
+         actualizarestatusentregaordendebordado();    
         
-        
-        
-        
-        
-        
-        insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);  
-        
-        actualizarestatusentregaordendebordado(); 
-    
-        sumapuntos();   
         
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
        
-      
-       
-        
-        } 
-        
+                     
+                    }
+                    
+                    
+                    
+                    
+                
         
         
     }//GEN-LAST:event_btnespaldatetermineActionPerformed
@@ -7721,36 +7489,36 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnpechoderechotermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpechoderechotermineActionPerformed
      
         
-        fechaubicacion  = "pecho_derecho_fecha";
-        ubicacion = "pecho_derecho_cantidad";
+        ubicacionfecha  = "pecho_derecho_fecha";
+        ubicacioncantidad = "pecho_derecho_cantidad";
         nombrebordado = pechoderechonombre;
         cantidadaplicacion = aplicacionpechoderecho;
         ubicacionprenda = "PECHO DERECHO";
         
         
-        
-         if(cantidad.equals("0"))
+           determinaciondeladescripciondelbordado();
+                
+                
+                
+                    if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
         else
-        { 
-
+        
+                    {
+                
     
-            
-           
-              determinaciondeladescripciondelbordado();
-           
-            
-            
-            //ESTA SUCURSAL
+                        
+                        
+              //ESTA SUCURSAL
             
         if(lugar.equals("Esta sucursal"))
         {
        
       
-       agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
-    
+        agregaralsurtidasalhistorialdeventasyactualizarestatusentrega();       
+          
        
             
         }
@@ -7761,35 +7529,36 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
         // OTRA SUCURSAL           
             
-            if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+            if(lugar.equals("Otra sucursal"))
         {
           
-         //    nombredelatabla = "historial_ordenes_camisa_recibidas";
+       
         
-            agregarsurtidasalhistorialdepedidosoenviosyactualizarestatus((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
+         
+         agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentrega();
             
-          
+           
 
         }
+                      
+                        
+                        
+            insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDA();
         
+         
+         actualizarestatusentregaordendebordado();    
         
-        
-        
-        
-        
-        
-        insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);  
-        
-        actualizarestatusentregaordendebordado(); 
-    
-        sumapuntos();   
         
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
        
-      
-        
-        }
+                     
+                    }
+                    
+                    
+                    
+                    
+                
         
     }//GEN-LAST:event_btnpechoderechotermineActionPerformed
 
@@ -7797,34 +7566,37 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         
          
-          fechaubicacion  = "manga_derecha_fecha";
-          ubicacion = "manga_derecha_cantidad";
+          ubicacionfecha  = "manga_derecha_fecha";
+          ubicacioncantidad = "manga_derecha_cantidad";
           nombrebordado = mangaderechanombre;
           cantidadaplicacion = aplicacionmangaderecha;       
                         
-          ubicacionprenda = "MANGA DERECHA";                              
-                                        
-        if(cantidad.equals("0"))
+          ubicacionprenda = "MANGA DERECHA";       
+          
+          
+              determinaciondeladescripciondelbordado();
+                
+                
+                
+                    if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
         else
-        {    
         
-       
-           
-              determinaciondeladescripciondelbordado();
-           
-            
-            
-            //ESTA SUCURSAL
+                    {
+                
+    
+                        
+                        
+              //ESTA SUCURSAL
             
         if(lugar.equals("Esta sucursal"))
         {
        
       
-       agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
-    
+        agregaralsurtidasalhistorialdeventasyactualizarestatusentrega();       
+          
        
             
         }
@@ -7835,36 +7607,36 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
         // OTRA SUCURSAL           
             
-            if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+            if(lugar.equals("Otra sucursal"))
         {
           
-         //    nombredelatabla = "historial_ordenes_camisa_recibidas";
+       
         
-            agregarsurtidasalhistorialdepedidosoenviosyactualizarestatus((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
+         
+         agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentrega();
             
-          
+           
 
         }
+                      
+                        
+                        
+            insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDA();
         
+         
+         actualizarestatusentregaordendebordado();    
         
-        
-        
-        
-        
-        
-        insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);  
-        
-        actualizarestatusentregaordendebordado(); 
-    
-        sumapuntos();   
         
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
        
-      
-           
-            
-        }    
+                     
+                    }
+                    
+                    
+                    
+                    
+                
    
         
     }//GEN-LAST:event_btnmangaderechatetermineActionPerformed
@@ -7967,35 +7739,38 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         
           
-          fechaubicacion  = "otra_ubicacion_fecha";
-          ubicacion = "otra_ubicacion_cantidad";
+          ubicacionfecha  = "otra_ubicacion_fecha";
+          ubicacioncantidad = "otra_ubicacion_cantidad";
           nombrebordado = otraubicacionnombre;
           cantidadaplicacion = aplicacionotraubicacion;
                
          ubicacionprenda = "OTRA UBICACION";
-                                        
-                                        
-        if(cantidad.equals("0"))
+         
+         
+         
+           determinaciondeladescripciondelbordado();
+                
+                
+                
+                    if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
         else
-        {
         
-
-           
-              determinaciondeladescripciondelbordado();
-           
-            
-            
-            //ESTA SUCURSAL
+                    {
+                
+    
+                        
+                        
+              //ESTA SUCURSAL
             
         if(lugar.equals("Esta sucursal"))
         {
        
       
-       agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
-    
+        agregaralsurtidasalhistorialdeventasyactualizarestatusentrega();       
+          
        
             
         }
@@ -8006,37 +7781,36 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
         // OTRA SUCURSAL           
             
-            if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+            if(lugar.equals("Otra sucursal"))
         {
           
-         //    nombredelatabla = "historial_ordenes_camisa_recibidas";
+       
         
-            agregarsurtidasalhistorialdepedidosoenviosyactualizarestatus((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
+         
+         agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentrega();
             
-          
+           
 
         }
+                      
+                        
+                        
+            insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDA();
         
+         
+         actualizarestatusentregaordendebordado();    
         
-        
-        
-        
-        
-        
-        insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);  
-        
-        actualizarestatusentregaordendebordado(); 
-    
-        sumapuntos();   
         
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
        
-      
-       
-        
-        
-        }
+                     
+                    }
+                    
+                    
+                    
+                    
+                
         
     }//GEN-LAST:event_btnotraubicaciontetermineActionPerformed
 
@@ -8044,37 +7818,36 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         
          
-         fechaubicacion  = "otra_ubicacion2_fecha";
-            ubicacion = "otra_ubicacion2_cantidad";
+         ubicacionfecha  = "otra_ubicacion2_fecha";
+            ubicacioncantidad = "otra_ubicacion2_cantidad";
             nombrebordado = otraubicacion2nombre;
             cantidadaplicacion = aplicacionotraubicacion2; 
             
             ubicacionprenda = "OTRA UBICACION2";
                                         
-         
-                                                
-                                                
-        if(cantidad.equals("0"))
+             determinaciondeladescripciondelbordado();
+                
+                
+                
+                    if(cantidad.equals("0"))
         {
            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La cantidad es 0 revisa por favor la orden");
         }
         else
-        {
         
-      
-           
-              determinaciondeladescripciondelbordado();
-           
-            
-            
-            //ESTA SUCURSAL
+                    {
+                
+    
+                        
+                        
+              //ESTA SUCURSAL
             
         if(lugar.equals("Esta sucursal"))
         {
        
       
-       agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
-    
+        agregaralsurtidasalhistorialdeventasyactualizarestatusentrega();       
+          
        
             
         }
@@ -8085,36 +7858,36 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
         // OTRA SUCURSAL           
             
-            if(lugar.equals("Otra sucursal") && tipotabla.equals("Recibida") )
+            if(lugar.equals("Otra sucursal"))
         {
           
-         //    nombredelatabla = "historial_ordenes_camisa_recibidas";
+       
         
-            agregarsurtidasalhistorialdepedidosoenviosyactualizarestatus((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
+         
+         agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentrega();
             
-          
+           
 
         }
+                      
+                        
+                        
+            insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDA();
         
+         
+         actualizarestatusentregaordendebordado();    
         
-        
-        
-        
-        
-        
-        insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);  
-        
-        actualizarestatusentregaordendebordado(); 
-    
-        sumapuntos();   
         
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">El "+descripcion+" SE AGREGÓ CORRECTAMENTE");
        
-      
-            
-            
-        }
+                     
+                    }
+                    
+                    
+                    
+                    
+                
         
         
     }//GEN-LAST:event_btnotraubicacion2tetermineActionPerformed
@@ -8337,10 +8110,10 @@ JOptionPane.showMessageDialog(null, mensaje);
      
         
         
-         ubicacion = "otra_ubicacion2_ponchado";
+         ubicacioncantidad = "otra_ubicacion2_ponchado";
                 String ubicacionnombre = "otra_ubicacion2_ponchado_nombre";
 
-                descargarponchado((String) ubicacion, (String) ubicacionnombre);
+                descargarponchado((String) ubicacionponchado, (String) ubicacionnombre);
                 
                 
                 
@@ -8350,10 +8123,10 @@ JOptionPane.showMessageDialog(null, mensaje);
     
         
         
-           ubicacion ="otra_ubicacion_ponchado";
+           ubicacionponchado ="otra_ubicacion_ponchado";
                 String ubicacionnombre ="otra_ubicacion_ponchado_nombre";
                         
-                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
+                descargarponchado((String) ubicacionponchado,(String) ubicacionnombre); 
                 
                 
                 
@@ -8363,10 +8136,10 @@ JOptionPane.showMessageDialog(null, mensaje);
       
         
         
-            ubicacion ="espalda_ponchado";
+            ubicacionponchado ="espalda_ponchado";
                 String ubicacionnombre ="espalda_ponchado_nombre";
                         
-                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
+                descargarponchado((String) ubicacionponchado,(String) ubicacionnombre); 
                 
                 
                 
@@ -8375,10 +8148,10 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnponchado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnponchado1ActionPerformed
     
         
-        ubicacion ="pecho_izquierdo_ponchado";
+        ubicacionponchado ="pecho_izquierdo_ponchado";
                 String ubicacionnombre ="pecho_izquierdo_ponchado_nombre";
                         
-                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
+                descargarponchado((String) ubicacionponchado,(String) ubicacionnombre); 
                 
                 
     }//GEN-LAST:event_btnponchado1ActionPerformed
@@ -8386,10 +8159,10 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnponchado2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnponchado2ActionPerformed
    
         
-            ubicacion ="pecho_derecho_ponchado";
+            ubicacionponchado ="pecho_derecho_ponchado";
                 String ubicacionnombre ="pecho_derecho_ponchado_nombre";
                         
-                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
+                descargarponchado((String) ubicacionponchado,(String) ubicacionnombre); 
                 
                 
                 
@@ -8398,10 +8171,10 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnponchado3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnponchado3ActionPerformed
     
         
-         ubicacion ="manga_derecha_ponchado";
+         ubicacionponchado ="manga_derecha_ponchado";
                 String ubicacionnombre ="manga_derecha_ponchado_nombre";
                         
-                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
+                descargarponchado((String) ubicacionponchado,(String) ubicacionnombre); 
                 
                 
                 
@@ -8411,10 +8184,10 @@ JOptionPane.showMessageDialog(null, mensaje);
       
         
         
-           ubicacion ="manga_derecha_ponchado";
+           ubicacionponchado ="manga_derecha_ponchado";
                 String ubicacionnombre ="manga_derecha_ponchado_nombre";
                         
-                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
+                descargarponchado((String) ubicacionponchado,(String) ubicacionnombre); 
                 
                 
                 
@@ -8427,8 +8200,8 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-          fechaubicacion  = "pecho_izquierdo_fecha";
-           ubicacion = "pecho_izquierdo_cantidad"; 
+          ubicacionfecha  = "pecho_izquierdo_fecha";
+           descripcion = "pecho_izquierdo_cantidad"; 
             
            nombrebordado =pechoizquierdonombre;
            cantidadaplicacion = aplicacionpechoizquierdo;  
@@ -8443,51 +8216,58 @@ JOptionPane.showMessageDialog(null, mensaje);
         
               
            
+            determinaciondeladescripciondelbordado();
               
               
-          determinaciondeladescripciondelbordado();
               
-              
-            
-            if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
+                    
+          if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
-          
-           
-             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;   
-             
-           
-            }
-           
-           
-           
-          else
-          
-          
-          {
-          
-           
-          agregarsurtidasalhistorialdepedidosoenviosyactualizarestatusCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
-         
+                       
+                    
+                    
+                    agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar();
               
-                  
+                    
+                    
+                    
+                    
+                    
+                    
+        }    
+          
+          
+          else
+              
+              
+          {
+              
+              
+           agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentregacancelar();
+              
           }
-           
-                
+                    
+                    
+                    
+                    insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDAcancelar();
          
-           insertarlacantidadylafechaenlaubicacionCancelar((String) ubicacion, (String) fechaubicacion); 
-           actualizarestatusentregaordendebordado(); 
-             sumapuntos();   
-           
-           
+                    
+                    
+                    actualizarestatusentregaordendebordado();
+                 
+                  
+                    
+                    lbautorizacion.setText("no");
            
            
            
             datos();
            
-           
-           
-           
-            lbautorizacion.setText("no");
+             
+     
+                      
+             
+                      
                 
                      }
             
@@ -8530,8 +8310,8 @@ JOptionPane.showMessageDialog(null, mensaje);
            
            
            
-        fechaubicacion = "pecho_derecho_fecha";
-         ubicacion = "pecho_derecho_cantidad";
+        ubicacionfecha = "pecho_derecho_fecha";
+         ubicacioncantidad = "pecho_derecho_cantidad";
         nombrebordado = pechoderechonombre;
         cantidadaplicacion = aplicacionpechoderecho;
         
@@ -8543,50 +8323,55 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
             
             
-            
-          determinaciondeladescripciondelbordado();
+         determinaciondeladescripciondelbordado();
               
               
-            
-            if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
+              
+                    
+          if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
-          
-           
-             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;   
-             
-           
-            }
-           
-           
-           
-          else
-          
-          
-          {
-          
-           
-          agregarsurtidasalhistorialdepedidosoenviosyactualizarestatusCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
-         
+                       
+                    
+                    
+                    agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar();
               
-                  
+                    
+                    
+                    
+                    
+                    
+                    
+        }    
+          
+          
+          else
+              
+              
+          {
+              
+              
+           agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentregacancelar();
+              
           }
-           
-                
+                    
+                    
+                    
+                    insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDAcancelar();
          
-           insertarlacantidadylafechaenlaubicacionCancelar((String) ubicacion, (String) fechaubicacion); 
-           actualizarestatusentregaordendebordado(); 
-             sumapuntos();   
-           
-           
+                    
+                    
+                    actualizarestatusentregaordendebordado();
+                 
+                  
+                    
+                    lbautorizacion.setText("no");
            
            
            
             datos();
            
-           
-           
-           
-            lbautorizacion.setText("no");
+             
+     
                 
                      }
             
@@ -8621,8 +8406,8 @@ JOptionPane.showMessageDialog(null, mensaje);
       
         
         
-        fechaubicacion = "manga_izquierda_fecha";
-        ubicacion = "manga_izquierda_cantidad";
+        ubicacionfecha = "manga_izquierda_fecha";
+        ubicacioncantidad = "manga_izquierda_cantidad";
         nombrebordado = mangaizquierdanombre;
             cantidadaplicacion = aplicacionmangaizquierda;
             
@@ -8637,47 +8422,52 @@ JOptionPane.showMessageDialog(null, mensaje);
           determinaciondeladescripciondelbordado();
               
               
-            
-            if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
-        {
-          
-           
-             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;   
-             
-           
-            }
-           
-           
-           
-          else
-          
-          
-          {
-          
-           
-          agregarsurtidasalhistorialdepedidosoenviosyactualizarestatusCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
-         
               
-                  
+                    
+          if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
+        {
+                       
+                    
+                    
+                    agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar();
+              
+                    
+                    
+                    
+                    
+                    
+                    
+        }    
+          
+          
+          else
+              
+              
+          {
+              
+              
+           agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentregacancelar();
+              
           }
-           
-                
+                    
+                    
+                    
+                    insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDAcancelar();
          
-           insertarlacantidadylafechaenlaubicacionCancelar((String) ubicacion, (String) fechaubicacion); 
-           actualizarestatusentregaordendebordado(); 
-             sumapuntos();   
-           
-           
+                    
+                    
+                    actualizarestatusentregaordendebordado();
+                 
+                  
+                    
+                    lbautorizacion.setText("no");
            
            
            
             datos();
            
-           
-           
-           
-            lbautorizacion.setText("no");
-                
+             
+     
                      }
             
        else
@@ -8709,8 +8499,8 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnmangaderechacancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmangaderechacancelarActionPerformed
       
         
-        ubicacion = "manga_derecha_cantidad";
-             fechaubicacion = "manga_derecha_fecha";
+        ubicacioncantidad = "manga_derecha_cantidad";
+             ubicacionfecha = "manga_derecha_fecha";
         nombrebordado = mangaderechanombre;
             cantidadaplicacion = aplicacionmangaderecha;
             
@@ -8724,50 +8514,55 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
         
-          determinaciondeladescripciondelbordado();
+         determinaciondeladescripciondelbordado();
               
               
-            
-            if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
+              
+                    
+          if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
-          
-           
-             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;   
-             
-           
-            }
-           
-           
-           
-          else
-          
-          
-          {
-          
-           
-          agregarsurtidasalhistorialdepedidosoenviosyactualizarestatusCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
-         
+                       
+                    
+                    
+                    agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar();
               
-                  
+                    
+                    
+                    
+                    
+                    
+                    
+        }    
+          
+          
+          else
+              
+              
+          {
+              
+              
+           agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentregacancelar();
+              
           }
-           
-                
+                    
+                    
+                    
+                    insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDAcancelar();
          
-           insertarlacantidadylafechaenlaubicacionCancelar((String) ubicacion, (String) fechaubicacion); 
-           actualizarestatusentregaordendebordado(); 
-             sumapuntos();   
-           
-           
+                    
+                    
+                    actualizarestatusentregaordendebordado();
+                 
+                  
+                    
+                    lbautorizacion.setText("no");
            
            
            
             datos();
            
-           
-           
-           
-            lbautorizacion.setText("no");
-                
+             
+     
                      }
             
        else
@@ -8800,8 +8595,8 @@ JOptionPane.showMessageDialog(null, mensaje);
       
         
         
-        ubicacion = "espalda_cantidad";
-          fechaubicacion = "espalda_fecha";
+        ubicacioncantidad = "espalda_cantidad";
+          ubicacionfecha = "espalda_fecha";
         nombrebordado =espaldanombre;
         cantidadaplicacion = aplicacionespalda;
         
@@ -8813,50 +8608,55 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
         
-          determinaciondeladescripciondelbordado();
+         determinaciondeladescripciondelbordado();
               
               
-            
-            if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
+              
+                    
+          if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
-          
-           
-             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;   
-             
-           
-            }
-           
-           
-           
-          else
-          
-          
-          {
-          
-           
-          agregarsurtidasalhistorialdepedidosoenviosyactualizarestatusCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
-         
+                       
+                    
+                    
+                    agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar();
               
-                  
+                    
+                    
+                    
+                    
+                    
+                    
+        }    
+          
+          
+          else
+              
+              
+          {
+              
+              
+           agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentregacancelar();
+              
           }
-           
-                
+                    
+                    
+                    
+                    insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDAcancelar();
          
-           insertarlacantidadylafechaenlaubicacionCancelar((String) ubicacion, (String) fechaubicacion); 
-           actualizarestatusentregaordendebordado(); 
-             sumapuntos();   
-           
-           
+                    
+                    
+                    actualizarestatusentregaordendebordado();
+                 
+                  
+                    
+                    lbautorizacion.setText("no");
            
            
            
             datos();
            
-           
-           
-           
-            lbautorizacion.setText("no");
-                
+             
+     
                      }
             
        else
@@ -8889,8 +8689,8 @@ JOptionPane.showMessageDialog(null, mensaje);
        
         
         
-        ubicacion = "otra_ubicacion_cantidad";
-            fechaubicacion = "otra_ubicacion_fecha";
+        ubicacioncantidad = "otra_ubicacion_cantidad";
+            ubicacionfecha = "otra_ubicacion_fecha";
         nombrebordado = otraubicacionnombre;
             cantidadaplicacion = aplicacionotraubicacion;
             
@@ -8906,46 +8706,52 @@ JOptionPane.showMessageDialog(null, mensaje);
           determinaciondeladescripciondelbordado();
               
               
-            
-            if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
-        {
-          
-           
-             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;   
-             
-           
-            }
-           
-           
-           
-          else
-          
-          
-          {
-          
-           
-          agregarsurtidasalhistorialdepedidosoenviosyactualizarestatusCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
-         
               
-                  
+                    
+          if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
+        {
+                       
+                    
+                    
+                    agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar();
+              
+                    
+                    
+                    
+                    
+                    
+                    
+        }    
+          
+          
+          else
+              
+              
+          {
+              
+              
+           agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentregacancelar();
+              
           }
-           
-                
+                    
+                    
+                    
+                    insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDAcancelar();
          
-           insertarlacantidadylafechaenlaubicacionCancelar((String) ubicacion, (String) fechaubicacion); 
-           actualizarestatusentregaordendebordado(); 
-             sumapuntos();   
-           
-           
+                    
+                    
+                    actualizarestatusentregaordendebordado();
+                 
+                  
+                    
+                    lbautorizacion.setText("no");
            
            
            
             datos();
            
-           
-           
-           
-            lbautorizacion.setText("no");
+             
+     
                 
                      }
             
@@ -8978,8 +8784,8 @@ JOptionPane.showMessageDialog(null, mensaje);
       
         
         
-        ubicacion = "otra_ubicacion2_cantidad";
-            fechaubicacion = "otra_ubicacion2_fecha";
+        ubicacioncantidad = "otra_ubicacion2_cantidad";
+            ubicacionfecha = "otra_ubicacion2_fecha";
             nombrebordado = otraubicacion2nombre;
             cantidadaplicacion = aplicacionotraubicacion2;
             
@@ -8992,49 +8798,55 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
         
-          determinaciondeladescripciondelbordado();
+            determinaciondeladescripciondelbordado();
               
               
-            
-            if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
+              
+                    
+          if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
-          
-           
-             agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar  ) ;   
-             
-           
-            }
-           
-           
-           
-          else
-          
-          
-          {
-          
-           
-          agregarsurtidasalhistorialdepedidosoenviosyactualizarestatusCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);  
-         
+                       
+                    
+                    
+                    agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar();
               
-                  
+                    
+                    
+                    
+                    
+                    
+                    
+        }    
+          
+          
+          else
+              
+              
+          {
+              
+              
+           agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentregacancelar();
+              
           }
-           
-                
+                    
+                    
+                    
+                    insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDAcancelar();
          
-           insertarlacantidadylafechaenlaubicacionCancelar((String) ubicacion, (String) fechaubicacion); 
-           actualizarestatusentregaordendebordado(); 
-             sumapuntos();   
-           
-           
+                    
+                    
+                    actualizarestatusentregaordendebordado();
+                 
+                  
+                    
+                    lbautorizacion.setText("no");
            
            
            
             datos();
            
-           
-           
-           
-            lbautorizacion.setText("no");
+             
+     
                 
                      }
             

@@ -52,7 +52,7 @@ public static boolean ventanaordenparche = false;
         String parchepuntadas = "";
         String parchenombre = "";
         String nombre = "";
-        String ubicacion = "";
+        String ubicacioncantidad = "";
         String aplicacion = "";
         String observacion = "";
         String cantidadaplicacion = "";
@@ -82,11 +82,14 @@ public static boolean ventanaordenparche = false;
        Connection cnsucursal = null;
        String tiendaconectada = "";
     //   String esenvioopedido = "";
-       String numeroenvioopedidorecibido = "";
+       String numeroordenopedidorecibido = "";
+      
+       
+       
        String ubicacionponchado = "";
        String ubicacionponchadonombre = "";
        String numeroordendebordadosolicitadoorecibidasisehabredesderecibidas = "";
-    
+      
        
        String ruta1= "";
         
@@ -546,7 +549,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             ResultSet rs = prst.executeQuery();
             if (rs.next()) {
                 esenvioopedido = rs.getString("orden_o_pedido");
-                numeroenvioopedidorecibido = rs.getString("numero_orden_o_pedido_recibida");
+                numeroordenopedidorecibido = rs.getString("numero_orden_o_pedido_recibida");
 
             }
             
@@ -834,42 +837,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-    
-    
-    
-       
-    void insertarlacantidadylafechaenlaubicacion()
-    {
-        try {
-
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche set "+ubicacion+" = '"+cantidad+"',"+ubicacionfecha+"  =  '"+dia()+"' where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'  ");
-                    pst.executeUpdate();
-                    pst.close();
-
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, ex);
-                    JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
-                }
-        
-        
-        String ubicacionsinguiones = ubicacion;
-        ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
-        
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
-        
-        
-        try {
-            datostiendalocal();
-        } catch (IOException ex) {
-            Logger.getLogger(ordenparcheS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
-    
-    
-    
-    
-    
      void verfotomontajetiendalocal()
     {
       
@@ -1041,13 +1008,15 @@ JOptionPane.showMessageDialog(null, mensaje);
      
      
     
-    void insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO()
+    void insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDA()
     {
         
       
         try {
-
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_parche_recibidas set "+ubicacion+"='" + cantidad + "',"+ubicacionfecha+"='"+dia()+"' where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'");
+            
+            
+         
+                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacioncantidad+"='" + cantidad + "',"+ubicacionfecha+"='"+dia()+"' where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1057,7 +1026,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
         
         
-        String ubicacionsinguiones = ubicacion;
+        String ubicacionsinguiones = ubicacioncantidad;
         ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">"+ubicacionsinguiones+" actualizada correctamente ");
@@ -1103,7 +1072,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 lbnombrecomercial.setText(rs.getString("nombre_comercial"));
                 lbbordacliente.setText(rs.getString("borda_cliente"));
              
-                 numeroenvioopedidorecibido = rs.getString("numero_orden_o_pedido_recibida");
+                 numeroordenopedidorecibido = rs.getString("numero_orden_o_pedido_recibida");
                 lbnumerodelaotrasucursal.setText(rs.getString("numero_orden_o_pedido_solicitada"));
          
                 lbfechaelaboracion.setText(rs.getString("fecha"));
@@ -1343,13 +1312,13 @@ JOptionPane.showMessageDialog(null, mensaje);
      
      
       
-       void eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion(String ubicacion, String fecha){
+       void insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDAcancelar(){
         
            
            
             try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacion+"='0', "+ubicacionfecha+" = null where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacioncantidad+"='0', "+ubicacionfecha+" = null where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1359,7 +1328,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
         
         
-        String ubicacionsinguiones = ubicacion;
+        String ubicacionsinguiones = ubicacioncantidad;
         ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
         
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">"+ubicacionsinguiones+" cancelada correctamente ");
@@ -1431,7 +1400,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         int cantidadint = 0;
       
         
-          String SQL2 = "select surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacion + "' and identificador_prenda = '"+identificador+"'";
+          String SQL2 = "select surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacioncantidad + "' and identificador_prenda = '"+identificador+"'";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -1454,7 +1423,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         String[] lineas = observacion.split("\n");
         
-        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacion+"" + lineas[0] + "</span><br>";
+        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacioncantidad+"" + lineas[0] + "</span><br>";
         if (lineas.length > 1) {
          mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
 }
@@ -1488,7 +1457,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + surtidanuevastring + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacion + "'      ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + surtidanuevastring + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacioncantidad + "'      ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -1747,7 +1716,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String nuevacantidadstring = "";
         String estatusentrega ="";
         
-        String SQL2 = "select cantidad from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacion + "' and identificador_prenda = '"+identificador+"'";
+        String SQL2 = "select cantidad from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacioncantidad + "' and identificador_prenda = '"+identificador+"'";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -1782,7 +1751,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevacantidadstring + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacion + "'      ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevacantidadstring + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacioncantidad + "'      ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -1961,7 +1930,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
-            String sql3 = "Select surtidas from historial_ordenes_envio_recibidas where articulo = '" + ubicacion + "' and  numero = '" + numeroenvioopedidorecibido + "'";
+            String sql3 = "Select surtidas from historial_ordenes_envio_recibidas where articulo = '" + ubicacioncantidad + "' and  numero = '" + numeroordenopedidorecibido + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql3);
@@ -1983,7 +1952,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         String[] lineas = observacion.split("\n");
         
-        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacion+"" + lineas[0] + "</span><br>";
+        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacioncantidad+"" + lineas[0] + "</span><br>";
         if (lineas.length > 1) {
          mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
 }
@@ -2021,7 +1990,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtidas = '" + surtidanuevastring + "' WHERE numero='" + numeroenvioopedidorecibido + "' and articulo = '" + ubicacion + "'");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtidas = '" + surtidanuevastring + "' WHERE numero='" + numeroordenopedidorecibido + "' and articulo = '" + ubicacioncantidad + "'");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -2048,7 +2017,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
       
       
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroenvioopedidorecibido+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroordenopedidorecibido+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -2092,7 +2061,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }    
         
           try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroenvioopedidorecibido + "'       ");
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroordenopedidorecibido + "'       ");
               pst.executeUpdate();
               pst.close();
           } catch (Exception e) {
@@ -2125,7 +2094,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
               
-            String sql3 = "Select surtidas from historial_pedidos_sucursal_recibidos where articulo = '" + descripcion + "' and numero = '" + numeroenvioopedidorecibido + "'";
+            String sql3 = "Select surtidas from historial_pedidos_sucursal_recibidos where articulo = '" + descripcion + "' and numero = '" + numeroordenopedidorecibido + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql3);
@@ -2147,7 +2116,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         String[] lineas = observacion.split("\n");
         
-        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacion+"" + lineas[0] + "</span><br>";
+        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacioncantidad+"" + lineas[0] + "</span><br>";
         if (lineas.length > 1) {
          mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
 }
@@ -2188,7 +2157,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET surtidas = '" + surtidanuevastring + "' WHERE numero='" + numeroenvioopedidorecibido + "' and articulo = '" + descripcion + "'      ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET surtidas = '" + surtidanuevastring + "' WHERE numero='" + numeroordenopedidorecibido + "' and articulo = '" + descripcion + "'      ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -2216,7 +2185,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
       
       
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtidas) as surtidas,Sum(enviadas) as enviadas from historial_pedidos_sucursal_recibidos where numero = '"+numeroenvioopedidorecibido+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtidas) as surtidas,Sum(enviadas) as enviadas from historial_pedidos_sucursal_recibidos where numero = '"+numeroordenopedidorecibido+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -2260,7 +2229,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }    
         
           try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroenvioopedidorecibido + "'       ");
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroordenopedidorecibido + "'       ");
               pst.executeUpdate();
               pst.close();
           } catch (Exception e) {
@@ -2316,7 +2285,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
-            String sql3 = "Select surtidas from historial_ordenes_envio_recibidas where articulo = '" + ubicacion + "' and  numero = '" + numeroenvioopedidorecibido + "'";
+            String sql3 = "Select surtidas from historial_ordenes_envio_recibidas where articulo = '" + ubicacioncantidad + "' and  numero = '" + numeroordenopedidorecibido + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql3);
@@ -2338,7 +2307,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         String[] lineas = observacion.split("\n");
         
-        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacion+"" + lineas[0] + "</span><br>";
+        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacioncantidad+"" + lineas[0] + "</span><br>";
         if (lineas.length > 1) {
          mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
 }
@@ -2376,7 +2345,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtidas = '" + surtidanuevastring + "' WHERE numero='" + numeroenvioopedidorecibido + "' and articulo = '" + ubicacion + "'");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtidas = '" + surtidanuevastring + "' WHERE numero='" + numeroordenopedidorecibido + "' and articulo = '" + ubicacioncantidad + "'");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -2403,7 +2372,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
       
       
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroenvioopedidorecibido+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtida) as surtida,Sum(enviadas) as enviadas from historial_ordenes_envio_recibidas where numero = '"+numeroordenopedidorecibido+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -2447,7 +2416,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }    
         
           try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroenvioopedidorecibido + "'       ");
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroordenopedidorecibido + "'       ");
               pst.executeUpdate();
               pst.close();
           } catch (Exception e) {
@@ -2480,7 +2449,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
               
-            String sql3 = "Select surtidas from historial_pedidos_sucursal_recibidos where articulo = '" + descripcion + "' and numero = '" + numeroenvioopedidorecibido + "'";
+            String sql3 = "Select surtidas from historial_pedidos_sucursal_recibidos where articulo = '" + descripcion + "' and numero = '" + numeroordenopedidorecibido + "'";
 
             try {
                 PreparedStatement prst = cn.prepareStatement(sql3);
@@ -2502,7 +2471,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         String[] lineas = observacion.split("\n");
         
-        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacion+"" + lineas[0] + "</span><br>";
+        String mensaje = "<HTML><span style=\"Color:red;font-size:20px;\">POR FAVOR INDIQUE AL ENCARGADO que el arículo "+ubicacioncantidad+"" + lineas[0] + "</span><br>";
         if (lineas.length > 1) {
          mensaje += "<span style=\"Color:red; font-size:20px;\">" + lineas[1] + "</span>";
 }
@@ -2543,7 +2512,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET surtidas = '" + surtidanuevastring + "' WHERE numero='" + numeroenvioopedidorecibido + "' and articulo = '" + descripcion + "'      ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET surtidas = '" + surtidanuevastring + "' WHERE numero='" + numeroordenopedidorecibido + "' and articulo = '" + descripcion + "'      ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -2571,7 +2540,7 @@ JOptionPane.showMessageDialog(null, mensaje);
       
       
       
-      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtidas) as surtidas,Sum(enviadas) as enviadas from historial_pedidos_sucursal_recibidos where numero = '"+numeroenvioopedidorecibido+"'  ";
+      String SQL3 = "SELECT SUM(cantidad) AS cantidad,Sum(surtidas) as surtidas,Sum(enviadas) as enviadas from historial_pedidos_sucursal_recibidos where numero = '"+numeroordenopedidorecibido+"'  ";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL3);
@@ -2616,7 +2585,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }    
         
           try {
-              PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroenvioopedidorecibido + "'       ");
+              PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroordenopedidorecibido + "'       ");
               pst.executeUpdate();
               pst.close();
           } catch (Exception e) {
@@ -2645,14 +2614,14 @@ JOptionPane.showMessageDialog(null, mensaje);
      
      
      
-     void descargarponchado(String ubicacion,String ubicacionnombre)
+     void descargarponchado(String ubicacionponchado,String ubicacionnombre)
      {
          
          JFileChooser fs = new JFileChooser();
         
 
          try (
-                 PreparedStatement ps = cn.prepareStatement("select " + ubicacion + "," + ubicacionnombre + " from historial_ordenes_parche_recibidas where numero = '" + numeroordendebordadosolicitadoorecibidasisehabredesderecibidas + "' ")) {
+                 PreparedStatement ps = cn.prepareStatement("select " + ubicacionponchado + "," + ubicacionnombre + " from historial_ordenes_parche_recibidas where numero = '" + numeroordendebordadosolicitadoorecibidasisehabredesderecibidas + "' ")) {
              ResultSet rs = ps.executeQuery();
 
              if (rs.next()) {
@@ -2681,7 +2650,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                  if (tampak == JFileChooser.APPROVE_OPTION) 
                  {
                      File file = fs.getSelectedFile();
-                     try (InputStream stream = rs.getBinaryStream("" + ubicacion + "");
+                     try (InputStream stream = rs.getBinaryStream("" + ubicacionponchado + "");
                              OutputStream output = new FileOutputStream(file)) 
                      {
                          byte[] buffer = new byte[4096];
@@ -3975,7 +3944,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
            
         
-                   ubicacion = "parche_cantidad";
+                   ubicacioncantidad = "parche_cantidad";
                     ubicacionfecha = "parche_fecha";
                     
                    descripcion = "BORDADO PARCHE " +parchenombre+ "";  
@@ -3987,13 +3956,6 @@ JOptionPane.showMessageDialog(null, mensaje);
           if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
                        
-                    
-                    
-                    
-                    
-                    
-                   
-                 
                     
                     
                     agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar();
@@ -4019,7 +3981,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                     
                     
-                    eliminardelaordendebordadoslacantidaddelaubicacionylafechadelaubicacion((String) ubicacion, (String) ubicacionfecha);
+                    insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDAcancelar();
          
                     
                     
@@ -4064,10 +4026,10 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnponchado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnponchado1ActionPerformed
       
-        ubicacion ="parche_ponchado";
+        ubicacionponchado ="parche_ponchado";
                 String ubicacionnombre ="parche_ponchado_nombre";
                         
-                descargarponchado((String) ubicacion,(String) ubicacionnombre); 
+                descargarponchado((String) ubicacionponchado,(String) ubicacionnombre); 
                 
                 
                 
@@ -4076,16 +4038,16 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btntermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermineActionPerformed
 
    
-        ubicacion  = "parche_cantidad";
+       ubicacioncantidad  = "parche_cantidad";
        ubicacionfecha = "parche_fecha";
        
        
        cantidadaplicacion = "0";
-            descripcion = "BORDADO PARCHE "+parchenombre+ "";
-            aplicacioninsertar = "APLICACION PARCHE";
+       descripcion = "BORDADO PARCHE "+parchenombre+ "";
+       aplicacioninsertar = "APLICACION PARCHE";
             
            
-            cantidad = lbcantidad.getText();
+        cantidad = lbcantidad.getText();
            
      
       
@@ -4104,18 +4066,9 @@ JOptionPane.showMessageDialog(null, mensaje);
 
           
             
-             insertarlacantidadylafechaenlaubicacion();
-            
-            
-            
-             
-            
             
             
             agregaralsurtidasalhistorialdeventasyactualizarestatusentrega();
-        
-            
-            
         
            
         }
@@ -4129,24 +4082,17 @@ JOptionPane.showMessageDialog(null, mensaje);
             
          
             
-            
-            
             agregaralsurtidasalhistorialdePEDIDOuORDENdeENVIORECIBIDAyactualizarestatusentrega();
-        
-           
             
-            insertarlacantidadylafechaenlaubicacionhistorialRECIBIDO();
-             
+            
               
             
         }
     
         
         
-           
+         insertarlacantidadylafechaenlaubicacionLOCALYRECIBIDA();
         
-        
-              
               
                actualizarestatusentregaordendebordado(); 
     
@@ -4154,28 +4100,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         
 
         }
-         
-         
-         
-         
-         
-         
-         
-         
-         
-       
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
          
 
 

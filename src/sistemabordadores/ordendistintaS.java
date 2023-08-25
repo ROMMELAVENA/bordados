@@ -52,7 +52,8 @@ public class ordendistintaS extends javax.swing.JFrame {
     String remanentebordadosstring = "";
     int nuevoremanentebordadosint = 0;
     String nuevoremanentebordadossstring = "";
-     String fechaubicacion = "";
+     String ubicacionfecha = "";
+     String ubicacioncantidad = "";
      String consecutivo = "";
     String nuevoestatusorden = "";
     String bordadosutilizadosstring = "";
@@ -90,7 +91,7 @@ public class ordendistintaS extends javax.swing.JFrame {
     ///// para insertar
     
     String descripcion = ""; 
-    String aplicacioninsertar = "";
+    String descripcionaplicacon = "";
     
     
     String distinta1 = "ninguno";
@@ -1161,6 +1162,14 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
      void codigocliente()
     {
         
@@ -1978,11 +1987,11 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-    void insertarlacantidadylafechaenlaubicacion(String ubicacion, String fechaubicacion)
+    void insertarlacantidadylafechaenlaubicacion()
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacion+"='" + cantidad + "',"+fechaubicacion+" = '"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
+                    PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_distinta set "+ubicacioncantidad+"='" + cantidad + "',"+ubicacionfecha+" = '"+dia()+"' where numero = '"+numeroordendebordadolocalorecibida+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -1992,7 +2001,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 }
         
         
-        String ubicacionsinguiones = ubicacion;
+        String ubicacionsinguiones = ubicacioncantidad;
         ubicacionsinguiones = ubicacionsinguiones.replaceAll("_"," ");
         
         
@@ -5571,21 +5580,21 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             String ubicacion = "distinta2_cantidad";
-            fechaubicacion = "distinta2_fecha";
+            ubicacionfecha = "distinta2_fecha";
           
             cantidadaplicacion = distinta2aplicacion;
          
             nombredelatabla = "historial_ordenes_distinta";
         
             
-            insertarlacantidadylafechaenlaubicacion((String) ubicacion,(String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion();
             
 
             descripcion = "BORDADO " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + " ";
-            aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + "";
+            descripcionaplicacon = "APLICACION " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + "";
 
           
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) descripcionaplicacon);
             actualizarestatusentregaordendebordado();
             //sumapuntos(); 
             
@@ -5609,19 +5618,19 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             String ubicacion = "distinta4_cantidad";
-            fechaubicacion = "distinta4_fecha";
+            ubicacionfecha = "distinta4_fecha";
            
             cantidadaplicacion = distinta4aplicacion;
            
             nombredelatabla = "historial_ordenes_distinta";
          
-            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion();
 
             descripcion = "BORDADO " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + " ";
-            aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + "";
+            descripcionaplicacon = "APLICACION " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + "";
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) descripcionaplicacon);
             actualizarestatusentregaordendebordado();
         //sumapuntos(); 
         
@@ -5643,20 +5652,20 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             String ubicacion = "distinta5_cantidad";
-            fechaubicacion = "distinta5_fecha";
+            ubicacionfecha = "distinta5_fecha";
            
             cantidadaplicacion = distinta5aplicacion;
             
          
             nombredelatabla = "historial_ordenes_distinta";
             
-            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion();
 
             descripcion = "BORDADO " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + " ";
-            aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + "";
+            descripcionaplicacon = "APLICACION " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + "";
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) descripcionaplicacon);
             actualizarestatusentregaordendebordado();
             //sumapuntos(); 
             
@@ -5680,19 +5689,19 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             String ubicacion = "distinta3_cantidad";
-            fechaubicacion = "distinta3_fecha";
+            ubicacionfecha = "distinta3_fecha";
             
             cantidadaplicacion = distinta3aplicacion;
        
             nombredelatabla = "historial_ordenes_distinta";
             
-            insertarlacantidadylafechaenlaubicacion((String) ubicacion,(String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion();
 
             descripcion = "BORDADO " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + " ";
-            aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + "";
+            descripcionaplicacon = "APLICACION " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + "";
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) descripcionaplicacon);
             actualizarestatusentregaordendebordado();
             //sumapuntos(); 
             
@@ -5715,21 +5724,21 @@ JOptionPane.showMessageDialog(null, mensaje);
         else if(lugar.equals("Esta sucursal") && tipotabla.equals("Local"))
         {
 
-            String ubicacion = "distinta1_cantidad";
-            fechaubicacion = "distinta1_fecha";
+          
+            ubicacionfecha = "distinta1_fecha";
          
             cantidadaplicacion = distinta1aplicacion;
             
             nombredelatabla = "historial_ordenes_distinta";
             
             
-            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion();
 
             descripcion = "BORDADO " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + " ";
-            aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + "";
+            descripcionaplicacon = "APLICACION " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + "";
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) descripcionaplicacon);
             actualizarestatusentregaordendebordado();
             //sumapuntos(); 
             
@@ -5788,19 +5797,19 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             String ubicacion = "distinta6_cantidad";
-            fechaubicacion = "distinta6_fecha"; 
+            ubicacionfecha = "distinta6_fecha"; 
             
             cantidadaplicacion = distinta6aplicacion;
            
             nombredelatabla = "historial_ordenes_distinta";
             
-            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion();
 
             descripcion = "BORDADO " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + " ";
-            aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + "";
+            descripcionaplicacon = "APLICACION " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + "";
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) descripcionaplicacon);
             actualizarestatusentregaordendebordado();
             //sumapuntos(); 
             
@@ -5825,20 +5834,20 @@ JOptionPane.showMessageDialog(null, mensaje);
         {
 
             String ubicacion = "distinta7_cantidad";
-            fechaubicacion = "distinta7_fecha";
+            ubicacionfecha = "distinta7_fecha";
           
             
             cantidadaplicacion = distinta7aplicacion;
           
             nombredelatabla = "historial_ordenes_distinta";
             
-            insertarlacantidadylafechaenlaubicacion((String) ubicacion, (String) fechaubicacion);
+            insertarlacantidadylafechaenlaubicacion();
 
             descripcion = "BORDADO " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + " ";
-            aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + "";
+            descripcionaplicacon = "APLICACION " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + "";
 
             
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentrega((String) descripcion, (String) cantidad, (String) descripcionaplicacon);
             actualizarestatusentregaordendebordado();
             //sumapuntos(); 
             
@@ -5962,11 +5971,11 @@ JOptionPane.showMessageDialog(null, mensaje);
            
 
             descripcion = "BORDADO " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + " ";
-            aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + "";
+            descripcionaplicacon = "APLICACION " + tipoprenda + " " + distinta1ubicacion + " " + distinta1nombre + "";
                          
             
            
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) descripcionaplicacon);
             actualizarestatusentregaordendebordado();
             //sumapuntos();
             
@@ -6040,10 +6049,10 @@ JOptionPane.showMessageDialog(null, mensaje);
 
 
             descripcion = "BORDADO " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + " ";
-            aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + "";  
+            descripcionaplicacon = "APLICACION " + tipoprenda + " " + distinta2ubicacion + " " + distinta2nombre + "";  
 
      
-       agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
+       agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) descripcionaplicacon);
        actualizarestatusentregaordendebordado(); 
        //sumapuntos(); 
        
@@ -6102,10 +6111,10 @@ JOptionPane.showMessageDialog(null, mensaje);
            
              
             descripcion = "BORDADO " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + " ";
-            aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + "";  
+            descripcionaplicacon = "APLICACION " + tipoprenda + " " + distinta3ubicacion + " " + distinta3nombre + "";  
             
       
-       agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
+       agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) descripcionaplicacon);
        actualizarestatusentregaordendebordado(); 
       // sumapuntos();
             
@@ -6166,10 +6175,10 @@ JOptionPane.showMessageDialog(null, mensaje);
            
           
             descripcion = "BORDADO " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + " ";
-            aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + "";  
+            descripcionaplicacon = "APLICACION " + tipoprenda + " " + distinta4ubicacion + " " + distinta4nombre + "";  
 
      
-       agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);   
+       agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) descripcionaplicacon);   
        actualizarestatusentregaordendebordado(); 
        //sumapuntos();   
         
@@ -6228,10 +6237,10 @@ JOptionPane.showMessageDialog(null, mensaje);
            
 
             descripcion = "BORDADO " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + " ";
-            aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + "";  
+            descripcionaplicacon = "APLICACION " + tipoprenda + " " + distinta5ubicacion + " " + distinta5nombre + "";  
 
      
-       agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);   
+       agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) descripcionaplicacon);   
        actualizarestatusentregaordendebordado();
        //sumapuntos();       
             
@@ -6290,10 +6299,10 @@ JOptionPane.showMessageDialog(null, mensaje);
 
 
             descripcion = "BORDADO " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + " ";
-            aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + "";  
+            descripcionaplicacon = "APLICACION " + tipoprenda + " " + distinta6ubicacion + " " + distinta6nombre + "";  
             
          
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) descripcionaplicacon);
             actualizarestatusentregaordendebordado();
            // sumapuntos();
             
@@ -6351,10 +6360,10 @@ JOptionPane.showMessageDialog(null, mensaje);
             
 
             descripcion = "BORDADO " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + " ";
-            aplicacioninsertar = "APLICACION " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + "";  
+            descripcionaplicacon = "APLICACION " + tipoprenda + " " + distinta7ubicacion + " " + distinta7nombre + "";  
 
        
-            agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) aplicacioninsertar);
+            agregaralsurtidasalhistorialdeventasyactualizarestatusentregaCancelar((String) descripcion, (String) cantidad, (String) descripcionaplicacon);
             actualizarestatusentregaordendebordado();
           //  sumapuntos();
             

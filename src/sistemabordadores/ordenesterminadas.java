@@ -82,7 +82,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
             }
        
          
-         int diainicial = diaactual - 30;  //PONER LOS DIAS QUE QUIERE QUE SE MUESTREN
+         int diainicial = diaactual - 10;  //PONER LOS DIAS QUE QUIERE QUE SE MUESTREN
          int mesinicial = mesactual;
          if (diainicial<0) {diainicial = diainicial + 30; mesinicial = mesactual-1; }
                  

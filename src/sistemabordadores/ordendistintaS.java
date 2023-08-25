@@ -5499,7 +5499,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         ventanaordencamisaanteriores = false;
          if(ordenesporrealizar.ventanaordenesporrealizar==true)
         {
-            ordenesporrealizar.btnactualizar.doClick();
+            ordenesporrealizar.btndatos.doClick();
         }
 
         this.dispose();

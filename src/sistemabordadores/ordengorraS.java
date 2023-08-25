@@ -1107,6 +1107,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 lbfechaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
+                
+                
                 lbnumeroordenopedidosolicitado.setText(rs.getString("numero_orden_o_pedido_solicitada"));
                 
                 ladoizquierdonombre = rs.getString("lado_izquierdo_nombre");

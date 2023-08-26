@@ -5342,7 +5342,7 @@ public static String dia() {
         ubicacionfecha  = "lado_izquierdo_frente_fecha";
            ubicacioncantidad = "lado_izquierdo_frente_cantidad"; 
             
-           ubicacionprenda = "LADO DERECHO FRENTE";
+           ubicacionprenda = "LADO IZQUIERDO FRENTE";
            nombrebordado =ladoizquierdofrentenombre;
            cantidadaplicacion = "1";
         
@@ -5425,7 +5425,7 @@ public static String dia() {
           ubicacionfecha  = "lado_izquierdo_atras_fecha";
            ubicacioncantidad = "lado_izquierdo_atras_cantidad"; 
             
-           ubicacionprenda = "LADO DERECHO ATRAS";
+           ubicacionprenda = "LADO IZQUIERDO ATRAS";
            nombrebordado =ladoizquierdoatrasnombre;
            cantidadaplicacion = "1";
         
@@ -5603,7 +5603,7 @@ public static String dia() {
           ubicacionfecha  = "lado_izquierdo_frente_fecha";
            ubicacioncantidad = "lado_izquierdo_frente_cantidad"; 
             
-           ubicacionprenda = "LADO IZQUIERDO FRENTE";
+           ubicacionprenda = "LADO DERECHO FRENTE";
            nombrebordado =ladoizquierdofrentenombre;
            cantidadaplicacion = "1";
         
@@ -5895,7 +5895,7 @@ public static String dia() {
           ubicacionfecha  = "lado_izquierdo_frente_fecha";
            ubicacioncantidad = "lado_izquierdo_frente_cantidad"; 
             
-           ubicacionprenda = "LADO IZQUIERDO FRENTE";
+           ubicacionprenda = "LADO DERECHO FRENTE";
            nombrebordado =ladoizquierdofrentenombre;
            cantidadaplicacion = "1";
         
@@ -6091,7 +6091,7 @@ public static String dia() {
            ubicacionfecha  = "lado_izquierdo_frente_fecha";
            ubicacioncantidad = "lado_izquierdo_frente_cantidad"; 
             
-           ubicacionprenda = "LADO DERECHO FRENTE";
+           ubicacionprenda = "LADO IZQUIERDO FRENTE";
            nombrebordado =ladoizquierdofrentenombre;
            cantidadaplicacion = "1";
         
@@ -6183,7 +6183,7 @@ public static String dia() {
           ubicacionfecha  = "lado_izquierdo_atras_fecha";
            ubicacioncantidad = "lado_izquierdo_atras_cantidad"; 
             
-           ubicacionprenda = "LADO DERECHO ATRAS";
+           ubicacionprenda = "LADO IZQUIERDO ATRAS";
            nombrebordado =ladoizquierdoatrasnombre;
            cantidadaplicacion = "1";
 

@@ -3232,7 +3232,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     {
         try {
 
-                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacioncantidad+"='" + cantidad + "',"+ubicacionfecha+"  =  '"+dia()+"' where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'  ");
+as15a                    PreparedStatement pst = cn.prepareStatement("UPDATE  "+nombredelatabla+" set "+ubicacioncantidad+"='" + cantidad + "',"+ubicacionfecha+"  =  '"+dia()+"' where numero = '"+numeroordendebordadosolicitadoorecibidasisehabredesderecibidas+"'  ");
                     pst.executeUpdate();
                     pst.close();
 
@@ -5506,20 +5506,17 @@ public static String dia() {
 
         
         
-          ubicacionfecha  = "lado_izquierdo_atras_fecha";
-           ubicacioncantidad = "lado_izquierdo_atras_cantidad"; 
+          ubicacionfecha  = "lado_derecho_atras_fecha";
+           ubicacioncantidad = "lado_derecho_atras_cantidad"; 
             
            ubicacionprenda = "ATRAS LADO DERECHO";
-           nombrebordado =ladoizquierdoatrasnombre;
+           nombrebordado =ladoderechoatrasnombre;
            cantidadaplicacion = "1";
         
         
         determinaciondeladescripciondelbordado();
         
         
-        
-         determinaciondeladescripciondelbordado();
-                
                 
                 
                     if(cantidad.equals("0"))

@@ -53,6 +53,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import net.coderazzi.filters.gui.AutoChoices;
 import net.coderazzi.filters.gui.TableFilterHeader;
+import java.time.format.DateTimeFormatter;
 
 
 public class bordadosreportegeneral extends javax.swing.JFrame {
@@ -64,13 +65,16 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     String anterior = "";
     String messtring = "";
 
-    int diainicio = 0;
+    int diainicial = 0;
+    int mesinicial = 0;
+    int añoinicial = 0;
     int diafinal = 0;
-    int mesfinal = -1;
+    int mesfinal = 0;
     int añofinal = 0;
 
     int ultimomes = 0;
     int ultimoaño = 0;
+    int diasquevoyasumarorestar = 0;
     
     String cantidadpechoizquierdo="0";
     String cantidadpechoderecho="0";
@@ -115,7 +119,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         topes();
     //    seleccionarfechas();
         
-        fechasemana();
+        fechasemanaactual();
         
         
         anterior = "no";
@@ -161,6 +165,9 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         return numeroDias;
     }
+    
+    
+    
 
     public static boolean esBisiesto(int anio) {
 
@@ -189,51 +196,59 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     
     void datostablaizquierda() 
     {
+        
+     
+      
+        
+        
+        String diaSemana = "";
+        
+        
+        
+          DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate fechastring = LocalDate.parse(fechainicial, dateFormatter);
+        
+        
+        
 
         DefaultTableModel modelotabla = (DefaultTableModel) tablaizquierda.getModel();
-        String[] datos = new String[3];
+        String[] datos = new String[4];
 
-        for (int i = 1; i <= diafinal; i++) {
+     
+        
+        
+            
+            for (int i = 1; i < 8; i++)
             
             
+            {
+                
+                
+              
+          
+            
+                
+                
+         int diaint = fechastring.getDayOfMonth();
+
+        
+        String diaSemanaeningles = fechastring.getDayOfWeek().toString();
+        
+        if (diaSemanaeningles.equals("MONDAY")) {diaSemana = "Lunes";}else
+        if (diaSemanaeningles.equals("TUESDAY")) {diaSemana = "Martes";}else
+        if (diaSemanaeningles.equals("WEDNESDAY")) {diaSemana = "Miercoles";}else
+        if (diaSemanaeningles.equals("THURSDAY")) {diaSemana = "Jueves";}else
+        if (diaSemanaeningles.equals("FRIDAY")) {diaSemana = "Viernes";}else
+        if (diaSemanaeningles.equals("SATURDAY")) {diaSemana = "Sabado";}else
+        if (diaSemanaeningles.equals("SUNDAY")) {diaSemana = "Domingo";}
+        
+        
+        
+                
             
             String color = "blanco";
             
-            Calendar now = Calendar.getInstance();
-      
-        int mesdelaño = now.get(Calendar.MONTH)+1;
-        String messtring = String.valueOf(mesdelaño);
-        
-        int añoactual = now.get(Calendar.YEAR);
-        String añoactualstring = String.valueOf(añoactual);
-        
-        String dia = String.valueOf(i);
-        
-       Date fechadate = null;
-            
-           String fechastring =  añoactualstring.concat("-").concat(messtring).concat("-").concat(dia);
-       
-           
-           
-        String formato = "yyyy-MM-dd";
-
-        DateFormat dateFormat = new SimpleDateFormat(formato);
-
-        try {
-            fechadate = dateFormat.parse(fechastring);
-            System.out.println(fechadate);
-        } catch (ParseException e) {
-            System.out.println("Error al convertir la cadena a fecha");
-            e.printStackTrace();
-           
-           
-        }
-          
-      
-       
-          DateFormat diaSemanaFormat = new SimpleDateFormat("EEEE");
-            String diaSemana = diaSemanaFormat.format(fechadate);
-    
+         
           
                  if (diaSemana.equals("sábado") || diaSemana.equals("domingo"))
             {
@@ -246,26 +261,27 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                   }
         
         
-            
+            String dia = String.valueOf(diaint);
             
 
-            datos[0] = String.valueOf(i);
+            datos[0] = dia;
             datos[1] = "0.00";
             datos[2] = color;
+            datos[3] = diaSemana;
             
             
             modelotabla.addRow(datos);
 
-            if (i == 1 || i == 31) 
-            {
-                int a = 0;
-            }
-
-            
-            
-            
+          
             
             calculodelassumasdelosbordadostablaizquierda((int) i);
+           
+         
+            
+            fechastring = fechastring.plusDays(1);
+            
+            
+            
 
         }
 
@@ -2793,41 +2809,189 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
     
     
     
-    private void obtenerDiasSemanaPasada() {
+    private void fechasemanaanterior() {
+       
+        
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            Date fechaActual = new Date();  // Fecha actual
+           
+             
+            
+           
+         //   Date fechaActual = new Date();  // Fecha actual
             Calendar calendar = Calendar.getInstance();
-            calendar.setTime(fechaActual);
+          //  calendar.setTime(fechaActual);
 
             // Retrocede 7 días para obtener la fecha de hace una semana
-            calendar.add(Calendar.DAY_OF_WEEK, -7);
+            calendar.add(Calendar.DAY_OF_WEEK, + diasquevoyasumarorestar);
             Date fechaSemanaPasada = calendar.getTime();
 
             // Calcula los días de inicio (lunes) y final (viernes) de la semana pasada
             calendar.setTime(fechaSemanaPasada);
             int diaSemana = calendar.get(Calendar.DAY_OF_WEEK);
             int diasHastaLunes = (Calendar.MONDAY - diaSemana + 7) % 7;
-            int diasHastaViernes = (Calendar.FRIDAY - diaSemana + 7) % 7;
+            int diasHastaViernes = (Calendar.SUNDAY - diaSemana + 7) % 7;
 
             calendar.add(Calendar.DAY_OF_WEEK, diasHastaLunes);
-            int diaInicio = calendar.get(Calendar.DAY_OF_MONTH);
-            int mesInicio = calendar.get(Calendar.MONTH) + 1;
+            diainicial = calendar.get(Calendar.DAY_OF_MONTH);
+            mesinicial = calendar.get(Calendar.MONTH) + 1;
+            añoinicial = calendar.get(Calendar.YEAR);
 
             calendar.add(Calendar.DAY_OF_WEEK, diasHastaViernes - diasHastaLunes);
-            int diaFinal = calendar.get(Calendar.DAY_OF_MONTH);
-            int mesFinal = calendar.get(Calendar.MONTH) + 1;
+            diafinal = calendar.get(Calendar.DAY_OF_MONTH);
+            mesfinal = calendar.get(Calendar.MONTH) + 1;
+            añofinal = calendar.get(Calendar.YEAR);
+            
+           
+            
+              fechainicial = (+diainicial +"/" + mesinicial + "/" + añofinal);
+        fechafinal = (+diafinal + "/" + mesfinal + "/" + añofinal);
+        
+        
+        
+        try {
+            SimpleDateFormat sdfSource = new SimpleDateFormat("d/MM/yyyy");
 
-            int año = calendar.get(Calendar.YEAR);
+            java.util.Date date2 = sdfSource.parse(fechainicial);
 
-            // Actualiza los labels con los resultados
-            lbinicio.setText("Día de inicio = " + año + "/" + mesInicio + "/" + diaInicio);
-            lbfin.setText("Día final = " + año + "/" + mesFinal + "/" + diaFinal);
+            SimpleDateFormat sdfDestination = new SimpleDateFormat("yyyy/MM/dd");
 
+            fechainicial = sdfDestination.format(date2);
+
+        } catch (Exception pe) {
+
+        }
+        
+        
+        
+        try {
+            SimpleDateFormat sdfSource = new SimpleDateFormat("d/MM/yyyy");
+
+            java.util.Date date2 = sdfSource.parse(fechafinal);
+
+            SimpleDateFormat sdfDestination = new SimpleDateFormat("yyyy/MM/dd");
+
+            fechafinal = sdfDestination.format(date2);
+
+        } catch (Exception pe) {
+
+        }
+        
+        
+        
+        
+        lbinicio.setText(fechainicial);
+        lbfin.setText(fechafinal);
+        
+           
+            
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        
+        
+        
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      private void fechasiguiente() {
+       
+        
+        try {
+           
+             
+            
+           
+         //   Date fechaActual = new Date();  // Fecha actual
+            Calendar calendar = Calendar.getInstance();
+          //  calendar.setTime(fechaActual);
+
+            // Retrocede 7 días para obtener la fecha de hace una semana
+            calendar.add(Calendar.DAY_OF_WEEK, +7);
+            Date fechaSemanaPasada = calendar.getTime();
+
+            // Calcula los días de inicio (lunes) y final (viernes) de la semana pasada
+            calendar.setTime(fechaSemanaPasada);
+            int diaSemana = calendar.get(Calendar.DAY_OF_WEEK);
+            int diasHastaLunes = (Calendar.MONDAY - diaSemana + 7) % 7;
+            int diasHastaViernes = (Calendar.SUNDAY - diaSemana + 7) % 7;
+
+            calendar.add(Calendar.DAY_OF_WEEK, diasHastaLunes);
+            diainicial = calendar.get(Calendar.DAY_OF_MONTH);
+            mesinicial = calendar.get(Calendar.MONTH) + 1;
+            añoinicial = calendar.get(Calendar.YEAR);
+
+            calendar.add(Calendar.DAY_OF_WEEK, diasHastaViernes - diasHastaLunes);
+            diafinal = calendar.get(Calendar.DAY_OF_MONTH);
+            mesfinal = calendar.get(Calendar.MONTH) + 1;
+            añofinal = calendar.get(Calendar.YEAR);
+            
+           
+            
+              fechainicial = (+diainicial +"/" + mesinicial + "/" + añofinal);
+        fechafinal = (+diafinal + "/" + mesfinal + "/" + añofinal);
+        
+        
+        
+        try {
+            SimpleDateFormat sdfSource = new SimpleDateFormat("d/MM/yyyy");
+
+            java.util.Date date2 = sdfSource.parse(fechainicial);
+
+            SimpleDateFormat sdfDestination = new SimpleDateFormat("yyyy/MM/dd");
+
+            fechainicial = sdfDestination.format(date2);
+
+        } catch (Exception pe) {
+
+        }
+        
+        
+        
+        try {
+            SimpleDateFormat sdfSource = new SimpleDateFormat("d/MM/yyyy");
+
+            java.util.Date date2 = sdfSource.parse(fechafinal);
+
+            SimpleDateFormat sdfDestination = new SimpleDateFormat("yyyy/MM/dd");
+
+            fechafinal = sdfDestination.format(date2);
+
+        } catch (Exception pe) {
+
+        }
+        
+        
+        
+        
+        lbinicio.setText(fechainicial);
+        lbfin.setText(fechafinal);
+        
+           
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+        
+        
+    }
+    
+    
     
     
     
@@ -4632,53 +4796,37 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
      */
      
     
-    void fechasemana(){
+    void fechasemanaactual(){
+        
+        
+        {
+        
+          LocalDate currentDate = LocalDate.now();
+
+        // Calcular la cantidad de días para retroceder al pasado lunes
+        int daysToSubtract = (currentDate.getDayOfWeek().getValue() + 6) % 7;
+        LocalDate pastMonday = currentDate.minusDays(daysToSubtract);
+        diainicial = pastMonday.getDayOfMonth();
+        mesinicial = pastMonday.getMonthValue();
+        añoinicial =  pastMonday.getYear();
+
+        // Calcular la cantidad de días para avanzar al próximo domingo
+        int daysToAdd = (DayOfWeek.SUNDAY.getValue() + 7 - currentDate.getDayOfWeek().getValue()) % 7;
+        LocalDate nextSunday = currentDate.plusDays(daysToAdd);
+        diafinal = nextSunday.getDayOfMonth();
+        mesfinal = nextSunday.getMonthValue();
+        añofinal = nextSunday.getYear();
+
+       
+    }
         
         
         
-         // Ingresa la fecha actual en el formato "YYYY-MM-DD"
-        String fechaActualStr = "2023-08-21";  // Cambia esto con la fecha actual
         
-        try {
-            // Convierte la fecha en un objeto Date
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            Date fechaActual = sdf.parse(fechaActualStr);
-            
-            // Crea un objeto Calendar y establece la fecha actual
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(fechaActual);
-            
-            // Encuentra el día de la semana (1 = domingo, 2 = lunes, ..., 7 = sábado)
-            int diaSemana = calendar.get(Calendar.DAY_OF_WEEK);
-            
-            // Calcula el día de inicio (lunes) y el día final (viernes) de la semana
-            int diasHastaLunes = (Calendar.MONDAY - diaSemana + 7) % 7;
-            int diasHastaViernes = (Calendar.FRIDAY - diaSemana + 7) % 7;
-            
-            calendar.add(Calendar.DAY_OF_WEEK, diasHastaLunes);
-            diainicio = calendar.get(Calendar.DAY_OF_MONTH);
-            int mesInicio = calendar.get(Calendar.MONTH) + 1; // Sumamos 1 porque los meses en Calendar van de 0 a 11
-            
-            calendar.add(Calendar.DAY_OF_WEEK, diasHastaViernes - diasHastaLunes);
-            diafinal = calendar.get(Calendar.DAY_OF_MONTH);
-            mesfinal = calendar.get(Calendar.MONTH) + 1;
-            
-            añofinal = calendar.get(Calendar.YEAR);
-            
-            // Imprime los resultados en el formato "YYYY/MM/DD"
-            System.out.println("Día de inicio = " + añofinal + "/" + mesInicio + "/" + diainicio);
-            System.out.println("Día final = " + añofinal + "/" + mesfinal + "/" + diafinal);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    
-        
-        fechainicial = (+diainicio +"/" + mesfinal + "/" + añofinal);
+        fechainicial = (+diainicial +"/" + mesinicial + "/" + añofinal);
         fechafinal = (+diafinal + "/" + mesfinal + "/" + añofinal);
         
-        lbinicio.setText(fechainicial);
-        lbfin.setText(fechafinal);
+        
         
         try {
             SimpleDateFormat sdfSource = new SimpleDateFormat("d/MM/yyyy");
@@ -4709,6 +4857,11 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         }
         
+        
+        
+        
+        lbinicio.setText(fechainicial);
+        lbfin.setText(fechafinal);
         
     }
         
@@ -5256,6 +5409,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 formWindowClosing(evt);
             }
         });
+        getContentPane().setLayout(null);
 
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnsalir.setText("Salir");
@@ -5264,6 +5418,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 btnsalirActionPerformed(evt);
             }
         });
+        getContentPane().add(btnsalir);
+        btnsalir.setBounds(1779, 5, 102, 30);
 
         btnanterior.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnanterior.setText("<");
@@ -5272,6 +5428,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 btnanteriorActionPerformed(evt);
             }
         });
+        getContentPane().add(btnanterior);
+        btnanterior.setBounds(532, 5, 86, 30);
 
         btnsiguiente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnsiguiente.setText(">");
@@ -5280,14 +5438,20 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 btnsiguienteActionPerformed(evt);
             }
         });
+        getContentPane().add(btnsiguiente);
+        btnsiguiente.setBounds(628, 5, 88, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Año");
         jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(886, 5, 32, 30);
 
         lbaño.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbaño.setText("0000");
         lbaño.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lbaño);
+        lbaño.setBounds(925, 5, 109, 30);
 
         tablaizquierda.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tablaizquierda.setModel(new javax.swing.table.DefaultTableModel(
@@ -5295,11 +5459,11 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Fecha", "Importe del día", "Color"
+                "Fecha", "Importe del día", "Color", "Dia"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -5322,26 +5486,39 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             tablaizquierda.getColumnModel().getColumn(2).setMaxWidth(0);
         }
 
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(5, 50, 190, 895);
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Suma");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(6, 960, 54, 30);
 
         lbsumatablaizquierda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbsumatablaizquierda.setForeground(new java.awt.Color(153, 0, 0));
         lbsumatablaizquierda.setText("0.00");
         lbsumatablaizquierda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lbsumatablaizquierda);
+        lbsumatablaizquierda.setBounds(67, 960, 92, 30);
 
         lbsumapuntos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbsumapuntos.setText("0.00");
         lbsumapuntos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lbsumapuntos);
+        lbsumapuntos.setBounds(1768, 959, 113, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Dia:");
         jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(728, 5, 30, 30);
 
         lbdia.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbdia.setText("00");
         lbdia.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lbdia);
+        lbdia.setBounds(765, 5, 103, 30);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setText("Historial de horas de ayuda");
@@ -5350,6 +5527,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(1498, 5, 263, 30);
 
         tabladerecha.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tabladerecha.setModel(new javax.swing.table.DefaultTableModel(
@@ -5422,178 +5601,78 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             tabladerecha.getColumnModel().getColumn(13).setMaxWidth(100);
         }
 
+        getContentPane().add(jScrollPane4);
+        jScrollPane4.setBounds(204, 50, 1628, 758);
+
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Bordados");
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(1575, 821, 121, 30);
 
         lbsumatrabladerechobordados.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbsumatrabladerechobordados.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbsumatrabladerechobordados.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lbsumatrabladerechobordados);
+        lbsumatrabladerechobordados.setBounds(1714, 821, 167, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Fotomontajes");
         jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(1575, 858, 126, 30);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Horas de ayuda");
         jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(1575, 895, 126, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Suma");
         jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(1575, 932, 94, 30);
 
         lbfotomontajes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbfotomontajes.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbfotomontajes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lbfotomontajes);
+        lbfotomontajes.setBounds(1713, 858, 167, 30);
 
         lbsumatrabladerecha2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbsumatrabladerecha2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbsumatrabladerecha2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lbsumatrabladerecha2);
+        lbsumatrabladerecha2.setBounds(1713, 895, 167, 30);
 
         lbsuma.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbsuma.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbsuma.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lbsuma);
+        lbsuma.setBounds(1713, 922, 167, 30);
 
         lbinicio.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lbinicio.setForeground(new java.awt.Color(153, 0, 0));
         lbinicio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lbinicio);
+        lbinicio.setBounds(36, 5, 130, 30);
 
         lbfin.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        lbfin.setForeground(new java.awt.Color(153, 0, 0));
         lbfin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lbfin);
+        lbfin.setBounds(204, 5, 130, 30);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("al");
         jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(178, 5, 14, 30);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Del");
         jLabel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbsumatablaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1676, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lbsumatrabladerechobordados, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(99, 99, 99)
-                                                .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(44, 44, 44)
-                                                .addComponent(lbsuma, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbfotomontajes, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbsumatrabladerecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbinicio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbfin, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(230, 230, 230)
-                        .addComponent(btnanterior, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(btnsiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel6)
-                        .addGap(7, 7, 7)
-                        .addComponent(lbdia, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addGap(7, 7, 7)
-                        .addComponent(lbaño, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(464, 464, 464)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnanterior, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnsiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbdia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbaño, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbinicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbfin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 895, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 7, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lbsuma, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbsumatablaizquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(5, 5, 5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbsumatrabladerechobordados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbfotomontajes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbsumatrabladerecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))))
-        );
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(6, 5, 23, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -5619,17 +5698,23 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
     private void btnanteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanteriorActionPerformed
 
-        btnsiguiente.setEnabled(true);
+       btnsiguiente.setEnabled(true);
       //  mesfinal = mesfinal - 1;}}
       
       
-      obtenerDiasSemanaPasada();
+       limpiartablafechas();
+      
+      
+      diasquevoyasumarorestar = diasquevoyasumarorestar - 7;
+      
+      
+      fechasemanaanterior();
       
       
       
         lbdia.setText("0");
-        limpiartablafechas();
-        seleccionarfechas();
+       
+    //    seleccionarfechas();
         
         
         datostablaizquierda();
@@ -5641,11 +5726,35 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         btnanterior.setEnabled(true);
 
-        mesfinal = mesfinal + 1;
-        lbdia.setText("0");
-        limpiartablafechas();
-        seleccionarfechas();
+     //   mesfinal = mesfinal + 1;
+      //  lbdia.setText("0");
+     //   limpiartablafechas();
+     //   seleccionarfechas();
+     
+     
+     limpiartablafechas();
+     
+    // fechasiguiente();
+     
+     diasquevoyasumarorestar = diasquevoyasumarorestar  + 7;
+      
+      
+      fechasemanaanterior();
+     
+     
+     
+     
+      
+      
+      
+    //    lbdia.setText("0");
+      //  limpiartablafechas();
+    //    seleccionarfechas();
+        
+        
         datostablaizquierda();
+
+     
 
 
     }//GEN-LAST:event_btnsiguienteActionPerformed

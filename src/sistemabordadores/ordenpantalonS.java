@@ -5988,11 +5988,11 @@ public static String dia() {
         
         
         
-           ubicacionfecha  = "lado_izquierdo_atras_fecha";
-           ubicacioncantidad = "lado_izquierdo_atras_cantidad"; 
+           ubicacionfecha  = "lado_derecho_atras_fecha";
+           ubicacioncantidad = "lado_derecho_atras_cantidad"; 
             
            ubicacionprenda = "ATRAS LADO DERECHO";
-           nombrebordado =ladoizquierdoatrasnombre;
+           nombrebordado =ladoderechoatrasnombre;
            cantidadaplicacion = "1";
         
         

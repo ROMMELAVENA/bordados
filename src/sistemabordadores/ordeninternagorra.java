@@ -29,17 +29,19 @@ public class ordeninternagorra extends javax.swing.JFrame {
     String descripcion = "";
     String nombrecompleto = "";
     String estatusentrega = "";
-
+    String numerodeorden = "";
+    String articulo = "";
     String s1 = "GORRA ";
     String s2 = " CON BORDADO ";
 
     int renglon = 0;
-
+    String fechatermine = "";
     String primero = "";
     String ultimo = "";
     int posicion = 0;
     int primernumero = 0;
     int posiciondelarreglo = 0;
+    String bordado = "";
 
     ArrayList<String> listagorras = new ArrayList<String>();
 
@@ -47,7 +49,31 @@ public class ordeninternagorra extends javax.swing.JFrame {
         initComponents();
         ventanaordeninternagorraanterior = true;
         btncancelarbordado.setVisible(false);
+      
         
+        
+        btntermine1.setEnabled(false);
+        btntermine2.setEnabled(false);
+        btntermine3.setEnabled(false);
+        btntermine4.setEnabled(false);
+        btntermine5.setEnabled(false);
+        btntermine6.setEnabled(false);
+        btntermine7.setEnabled(false);
+        btntermine8.setEnabled(false);
+        btntermine9.setEnabled(false);
+        btntermine10.setEnabled(false);
+        
+        
+        btncancelar1.setEnabled(false);
+        btncancelar2.setEnabled(false);
+        btncancelar3.setEnabled(false);
+        btncancelar4.setEnabled(false);
+        btncancelar5.setEnabled(false);
+        btncancelar6.setEnabled(false);
+        btncancelar7.setEnabled(false);
+        btncancelar8.setEnabled(false);
+        btncancelar9.setEnabled(false);
+        btncancelar10.setEnabled(false);
 
     }
 
@@ -67,27 +93,7 @@ public class ordeninternagorra extends javax.swing.JFrame {
         lbcantidad9.setText("");
         lbcantidad10.setText("");
         
-        lbcantidadrecibidas1.setText("");
-        lbcantidadrecibidas2.setText("");        
-        lbcantidadrecibidas3.setText("");
-        lbcantidadrecibidas4.setText("");        
-        lbcantidadrecibidas5.setText("");
-        lbcantidadrecibidas6.setText("");
-        lbcantidadrecibidas7.setText("");
-        lbcantidadrecibidas8.setText("");
-        lbcantidadrecibidas9.setText("");        
-        lbcantidadrecibidas10.setText("");    
-        
-        lbcantidadremanente1.setText("");
-        lbcantidadremanente2.setText("");
-        lbcantidadremanente3.setText("");
-        lbcantidadremanente4.setText("");
-        lbcantidadremanente5.setText("");
-        lbcantidadremanente6.setText("");
-        lbcantidadremanente7.setText("");
-        lbcantidadremanente8.setText("");
-        lbcantidadremanente9.setText("");
-        lbcantidadremanente10.setText("");
+     
         
         lbcolor1.setText("");
         lbcolor2.setText("");
@@ -111,20 +117,17 @@ public class ordeninternagorra extends javax.swing.JFrame {
         lbnombre9.setText("");
         lbnombre10.setText("");
         
-        lbobservacion1.setText("");
-        lbobservacion2.setText("");
-        lbobservacion3.setText("");
-        lbobservacion4.setText("");
-        lbobservacion5.setText("");
-        lbobservacion6.setText("");
-        lbobservacion7.setText("");
-        lbobservacion8.setText("");
-        lbobservacion9.setText("");
-        lbobservacion10.setText("");
-        
-        btnprocesar1.setVisible(true);
-        btncancelar.setVisible(false);
-        
+        lbarticulo1.setText("");
+        lbarticulo2.setText("");
+        lbarticulo3.setText("");
+        lbarticulo4.setText("");
+        lbarticulo5.setText("");
+        lbarticulo6.setText("");
+        lbarticulo7.setText("");
+        lbarticulo8.setText("");
+        lbarticulo9.setText("");
+        lbarticulo10.setText("");
+      
                 
     }
 
@@ -137,17 +140,22 @@ public class ordeninternagorra extends javax.swing.JFrame {
         limpiarlostextfield();
         
         
+        int sumaterminadas = 0;
+        int sumaporrealizar = 0;
         
 
-            sql = "SELECT numero,fecha,hora,tipo,cantidad,cantidad_entregada,cantidad_remanente,color,descripcion,estatus_entrega,fecha_entrega FROM historial_ordenes_bordados_interno WHERE numero = '" + numero + "'";
+            sql = "SELECT numero,fecha,fecha_termine,hora,tipo,cantidad,cantidad_entregada,cantidad_remanente,color,descripcion,estatus_entrega,fecha_entrega FROM historial_ordenes_bordados_interno WHERE numero = '" + numero + "'";
 
             try {
                 Statement st = cn.createStatement();
                 ResultSet rs = st.executeQuery(sql);
                 while (rs.next()) {
 
-                    lbnumerodeorden.setText(rs.getString("numero"));
+                    numerodeorden = rs.getString("numero");
+                    lbnumerodeorden.setText(numerodeorden);
                     lbfecha.setText(rs.getString("fecha"));
+                    
+                    fechatermine = rs.getString("fecha_termine");
                     lbhora.setText(rs.getString("hora"));
                     cantidad = rs.getString("cantidad");
                     cantidadentregada = rs.getString("cantidad_entregada");
@@ -165,44 +173,246 @@ public class ordeninternagorra extends javax.swing.JFrame {
                     nombrecompleto = s1 + color + s2 + descripcion;
 
                     renglon = renglon + 1;
+                    
+                    
+                    
                     mostrarrenglonesgorra();
-                    habilitarbotonprocesar();
-
-                }
-
-            } catch (SQLException ex) {
-                System.out.println(ex);
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    if (renglon==1)
+                    
+                    {   if (fechatermine == null || fechatermine.equals(""))
+            {
+                 btntermine1.setEnabled(true);
+                 btncancelar1.setEnabled(false);
+                 
+                 sumaporrealizar = sumaporrealizar + 1;
+                 
             }
-
-         
-
-    }
-    
-    void habilitarbotonprocesar()
-    {
-        
-        String numero = lbnumerodeorden.getText();
-        String sql = "SELECT distinct estatus_entrega FROM historial_ordenes_bordados_interno WHERE numero = '" + numero + "' ORDER BY estatus_entrega " ;
-
-            try {
-                Statement st = cn.createStatement();
-                ResultSet rs = st.executeQuery(sql);
-                while (rs.next()) {
-
-                  String  estatusentrega = rs.getString("estatus_entrega");
+            else
+            {
+                btntermine1.setEnabled(false);
+                btncancelar1.setEnabled(true);
+                
+                
+                sumaterminadas = sumaterminadas + 1;
+            }}
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    if (renglon==2){ if (fechatermine == null || fechatermine.equals(""))
+            {
+                 btntermine2.setEnabled(true);
+                 btncancelar2.setEnabled(false);
+                 
+                 sumaporrealizar = sumaporrealizar + 1;
+                 
+            }
+            else
+            {
+                btntermine2.setEnabled(false);
+                btncancelar2.setEnabled(true);
+                
+                sumaterminadas = sumaterminadas + 1;
+            }}
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    if (renglon==3){ if (fechatermine == null || fechatermine.equals(""))
+            {
+                 btntermine3.setEnabled(true);
+                 btncancelar3.setEnabled(false);
+                 
+                 sumaporrealizar = sumaporrealizar + 1;
+                 
+            }
+            else
+            {
+                btntermine3.setEnabled(false);
+                btncancelar3.setEnabled(true);
+                
+                sumaterminadas = sumaterminadas + 1;
+            }}
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    if (renglon==4){ if (fechatermine == null || fechatermine.equals(""))
+            {
+                 btntermine4.setEnabled(true);
+                 btncancelar4.setEnabled(false);
+                 
+                 sumaporrealizar = sumaporrealizar + 1;
+                 
+            }
+            else
+            {
+                btntermine4.setEnabled(false);
+                btncancelar4.setEnabled(true);
+                
+                sumaterminadas = sumaterminadas + 1;
+            }}
+                    
+                    
+                    
+                    
+                    
+                    
+                    if (renglon==5){ if (fechatermine == null || fechatermine.equals(""))
+            {
+                 btntermine5.setEnabled(true);
+                 btncancelar5.setEnabled(false);
+                 
+                 sumaporrealizar = sumaporrealizar + 1;
+                 
+            }
+            else
+            {
+                btntermine5.setEnabled(false);
+                btncancelar5.setEnabled(true);
+                
+                sumaterminadas = sumaterminadas + 1;
+            }}
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    if (renglon==6){ if (fechatermine == null || fechatermine.equals(""))
+            {
+                 btntermine6.setEnabled(true);
+                 btncancelar6.setEnabled(false);
+                 
+                 sumaporrealizar = sumaporrealizar + 1;
+                 
+            }
+            else
+            {
+                btntermine6.setEnabled(false);
+                btncancelar6.setEnabled(true);
+                
+                sumaterminadas = sumaterminadas + 1;
+            }}
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    if (renglon==7){ if (fechatermine == null || fechatermine.equals(""))
+            {
+                 btntermine7.setEnabled(true);
+                 btncancelar7.setEnabled(false);
+                 
+                 sumaporrealizar = sumaporrealizar + 1;
+                 
+            }
+            else
+            {
+                btntermine7.setEnabled(false);
+                btncancelar7.setEnabled(true);
+                
+                sumaterminadas = sumaterminadas + 1;
+            }}
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    if (renglon==8){ if (fechatermine == null || fechatermine.equals(""))
+            {
+                 btntermine8.setEnabled(true);
+                 btncancelar8.setEnabled(false);
+                 
+                 sumaporrealizar = sumaporrealizar + 1;
+                 
+            }
+            else
+            {
+                btntermine8.setEnabled(false);
+                btncancelar8.setEnabled(true);
+                
+                sumaterminadas = sumaterminadas + 1;
+            }}
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    if (renglon==9){ if (fechatermine == null || fechatermine.equals(""))
+            {
+                 btntermine9.setEnabled(true);
+                 btncancelar9.setEnabled(false);
+                 
+                 sumaporrealizar = sumaporrealizar + 1;
+                 
+            }
+            else
+            {
+                btntermine9.setEnabled(false);
+                btncancelar9.setEnabled(true);
+                
+                sumaterminadas = sumaterminadas + 1;
+            }}
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    if (renglon==10){ if (fechatermine == null || fechatermine.equals(""))
+            {
+                 btntermine10.setEnabled(true);
+                 btncancelar10.setEnabled(false);
+                 
+                 sumaporrealizar = sumaporrealizar + 1;
+                 
+            }
+            else
+            {
+                btntermine10.setEnabled(false);
+                btncancelar10.setEnabled(true);
+                
+                sumaterminadas = sumaterminadas + 1;
+            }}
+                    
                   
-                  if (estatusentrega.equals("cancelada") || estatusentrega.equals("entregada")) {
-
-                        btncancelar.setEnabled(false);
-                        btnprocesar1.setEnabled(false);
-                        lbestatusentrega.setText(estatusentrega);
-
-                    } else {
-                        btncancelar.setEnabled(true);
-                        btnprocesar1.setEnabled(true);
-                        lbestatusentrega.setText(estatusentrega);
-                    }
-                   
+                    
                     
 
                 }
@@ -210,92 +420,115 @@ public class ordeninternagorra extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 System.out.println(ex);
             }
+            
+            
+            
+            
+            
+            if (sumaterminadas==0 && sumaporrealizar>0)
+                
+            {
+                estatusentrega = "generada";
+            }
+            else
+                
+             if (sumaterminadas>0 && sumaporrealizar>0)    
+            {
+                estatusentrega = "realizada parcialmente";
+            }
+            
+              else
+                
+             if (sumaterminadas>0 && sumaporrealizar==0)    
+            {
+                estatusentrega = "realizada totalmente";
+            }
+            
+            
 
-        
+            lbestatusentrega.setText(estatusentrega);
+            
+            
+            
+            actualizarestatusentregaenelhistorialbordadosinterno();
+            
+            
+         
+
     }
 
     void mostrarrenglonesgorra() {
 
         if (renglon == 1) {
             lbcantidad1.setText(cantidad);
-            lbcantidadrecibidas1.setText(cantidadentregada);
-            lbcantidadremanente1.setText(cantidadremanente);
+          
             lbcolor1.setText(color);
             lbnombre1.setText(descripcion);
-            lbobservacion1.setText(nombrecompleto);
+            lbarticulo1.setText(nombrecompleto);
 
         } else if (renglon == 2) {
             lbcantidad2.setText(cantidad);
-            lbcantidadrecibidas2.setText(cantidadentregada);
-            lbcantidadremanente2.setText(cantidadremanente);
+          
             lbcolor2.setText(color);
             lbnombre2.setText(descripcion);
-            lbobservacion2.setText(nombrecompleto);
+            lbarticulo2.setText(nombrecompleto);
 
         } else if (renglon == 3) {
             lbcantidad3.setText(cantidad);
-            lbcantidadrecibidas3.setText(cantidadentregada);
-            lbcantidadremanente3.setText(cantidadremanente);
+          
             lbcolor3.setText(color);
             lbnombre3.setText(descripcion);
-            lbobservacion3.setText(nombrecompleto);
+            lbarticulo3.setText(nombrecompleto);
 
         } else if (renglon == 4) {
             lbcantidad4.setText(cantidad);
-            lbcantidadrecibidas4.setText(cantidadentregada);
-            lbcantidadremanente4.setText(cantidadremanente);
+          
             lbcolor4.setText(color);
             lbnombre4.setText(descripcion);
-            lbobservacion4.setText(nombrecompleto);
+            lbarticulo4.setText(nombrecompleto);
 
         } else if (renglon == 5) {
             lbcantidad5.setText(cantidad);
-            lbcantidadrecibidas5.setText(cantidadentregada);
-            lbcantidadremanente5.setText(cantidadremanente);
+           
             lbcolor5.setText(color);
             lbnombre5.setText(descripcion);
-            lbobservacion5.setText(nombrecompleto);
+            lbarticulo5.setText(nombrecompleto);
 
         } else if (renglon == 6) {
             lbcantidad6.setText(cantidad);
-            lbcantidadrecibidas6.setText(cantidadentregada);
-            lbcantidadremanente6.setText(cantidadremanente);
+           
             lbcolor6.setText(color);
             lbnombre6.setText(descripcion);
-            lbobservacion6.setText(nombrecompleto);
+            lbarticulo6.setText(nombrecompleto);
 
         } else if (renglon == 7) {
             lbcantidad7.setText(cantidad);
-            lbcantidadrecibidas7.setText(cantidadentregada);
-            lbcantidadremanente7.setText(cantidadremanente);
+          
             lbcolor7.setText(color);
             lbnombre7.setText(descripcion);
-            lbobservacion7.setText(nombrecompleto);
+            lbarticulo7.setText(nombrecompleto);
 
         } else if (renglon == 8) {
             lbcantidad8.setText(cantidad);
-            lbcantidadrecibidas8.setText(cantidadentregada);
-            lbcantidadremanente8.setText(cantidadremanente);
+           
             lbcolor8.setText(color);
             lbnombre8.setText(descripcion);
-            lbobservacion8.setText(nombrecompleto);
+            lbarticulo8.setText(nombrecompleto);
 
         } else if (renglon == 9) {
             lbcantidad9.setText(cantidad);
-            lbcantidadrecibidas9.setText(cantidadentregada);
-            lbcantidadremanente9.setText(cantidadremanente);
+          
             lbcolor9.setText(color);
             lbnombre9.setText(descripcion);
-            lbobservacion9.setText(nombrecompleto);
+            lbarticulo9.setText(nombrecompleto);
 
         } else {
             if (renglon == 10) {
                 lbcantidad10.setText(cantidad);
-                lbcantidadrecibidas10.setText(cantidadentregada);
-                lbcantidadremanente10.setText(cantidadremanente);
+             
                 lbcolor10.setText(color);
                 lbnombre10.setText(descripcion);
-                lbobservacion10.setText(nombrecompleto);
+                lbarticulo10.setText(nombrecompleto);
 
             }
         }
@@ -343,8 +576,52 @@ public class ordeninternagorra extends javax.swing.JFrame {
         SimpleDateFormat formatoFecha = new SimpleDateFormat(" HH:mm:ss  ");
         return formatoFecha.format(hora);
     }
+    
+    
+    
+    
+    
+    void agregarlafechaenquetermineenelhistorialordenesinterna(){
+        
+       
+        
+      
+        String modi = "UPDATE historial_ordenes_bordados_interno SET fecha_termine='" + dia() + "' WHERE descripcion = '" + bordado + "' and numero = '"+numerodeorden+"' ";
+            try {
+                PreparedStatement pst = cn.prepareStatement(modi);
+                pst.executeUpdate();
+                pst.close();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    void modificarexistenciaykardexgorras(String nombre, String cantidad) {
+    void modificarexistenciaykardex(String nombre, String cantidad) {
 
         String numero = lbnumerodeorden.getText();
         String cantidadactual = "0";
@@ -369,9 +646,15 @@ public class ordeninternagorra extends javax.swing.JFrame {
         int nuevaexistenciaint = cantidadactualint + cantidadsurtidaint;
         nuevaexistencia = String.valueOf(nuevaexistenciaint);
 
-        if (cantidad.equals("0")) {
+        if (cantidad.equals("0")) 
+        
+        {
 
-        } else {
+        } 
+        
+        else
+        
+        {
 
             String modi = "UPDATE catalogo_articulos SET existencia='" + nuevaexistencia + "' WHERE descripcion = '" + nombre + "'";
             try {
@@ -410,6 +693,49 @@ public class ordeninternagorra extends javax.swing.JFrame {
 
     }
 
+    
+    
+    
+    
+    
+    void actualizarestatusentregaenelhistorialbordadosinterno(){
+        
+        
+        
+        
+       String modi2 = "UPDATE historial_ordenes_bordados_interno SET estatus_entrega='"+estatusentrega+"' WHERE numero = '" + numerodeorden + "'";
+            try {
+                PreparedStatement pst = cn.prepareStatement(modi2);
+                pst.executeUpdate();
+                pst.close();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        
+        
+        
+            
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     void modificarexistenciaykardexgorrascancelada(String nombre, String cantidad) {
 
         String numero = lbnumerodeorden.getText();
@@ -483,6 +809,17 @@ public class ordeninternagorra extends javax.swing.JFrame {
         }
 
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -492,65 +829,42 @@ public class ordeninternagorra extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         lbnumerodeorden = new javax.swing.JLabel();
         btnsalir = new javax.swing.JButton();
-        btncancelar = new javax.swing.JButton();
         lbtipo = new javax.swing.JLabel();
-        lbarticulo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lbfecha = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lbhora = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         lbestatusentrega = new javax.swing.JLabel();
-        btnprocesar1 = new javax.swing.JButton();
         btncancelarbordado = new javax.swing.JButton();
         lbcantidad10 = new javax.swing.JLabel();
         lbcantidad9 = new javax.swing.JLabel();
         lbcantidad8 = new javax.swing.JLabel();
-        lbcantidadrecibidas8 = new javax.swing.JLabel();
-        lbcantidadrecibidas9 = new javax.swing.JLabel();
-        lbcantidadrecibidas10 = new javax.swing.JLabel();
-        lbcantidadremanente10 = new javax.swing.JLabel();
-        lbcantidadremanente9 = new javax.swing.JLabel();
-        lbcantidadremanente8 = new javax.swing.JLabel();
         lbcolor8 = new javax.swing.JLabel();
         lbcolor9 = new javax.swing.JLabel();
         lbcolor10 = new javax.swing.JLabel();
         lbnombre10 = new javax.swing.JLabel();
         lbnombre9 = new javax.swing.JLabel();
         lbnombre8 = new javax.swing.JLabel();
-        lbobservacion10 = new javax.swing.JLabel();
-        lbobservacion9 = new javax.swing.JLabel();
-        lbobservacion8 = new javax.swing.JLabel();
+        lbarticulo10 = new javax.swing.JLabel();
+        lbarticulo9 = new javax.swing.JLabel();
+        lbarticulo8 = new javax.swing.JLabel();
         lbcantidad7 = new javax.swing.JLabel();
         lbcantidad6 = new javax.swing.JLabel();
         lbcantidad5 = new javax.swing.JLabel();
-        lbcantidadrecibidas5 = new javax.swing.JLabel();
-        lbcantidadrecibidas6 = new javax.swing.JLabel();
-        lbcantidadrecibidas7 = new javax.swing.JLabel();
-        lbcantidadremanente5 = new javax.swing.JLabel();
-        lbcantidadremanente6 = new javax.swing.JLabel();
-        lbcantidadremanente7 = new javax.swing.JLabel();
         lbcolor7 = new javax.swing.JLabel();
         lbcolor5 = new javax.swing.JLabel();
         lbcolor6 = new javax.swing.JLabel();
         lbnombre7 = new javax.swing.JLabel();
         lbnombre6 = new javax.swing.JLabel();
         lbnombre5 = new javax.swing.JLabel();
-        lbobservacion5 = new javax.swing.JLabel();
-        lbobservacion6 = new javax.swing.JLabel();
-        lbobservacion7 = new javax.swing.JLabel();
+        lbarticulo5 = new javax.swing.JLabel();
+        lbarticulo6 = new javax.swing.JLabel();
+        lbarticulo7 = new javax.swing.JLabel();
         lbcantidad1 = new javax.swing.JLabel();
         lbcantidad2 = new javax.swing.JLabel();
         lbcantidad3 = new javax.swing.JLabel();
         lbcantidad4 = new javax.swing.JLabel();
-        lbcantidadrecibidas4 = new javax.swing.JLabel();
-        lbcantidadrecibidas3 = new javax.swing.JLabel();
-        lbcantidadrecibidas2 = new javax.swing.JLabel();
-        lbcantidadrecibidas1 = new javax.swing.JLabel();
-        lbcantidadremanente4 = new javax.swing.JLabel();
-        lbcantidadremanente3 = new javax.swing.JLabel();
-        lbcantidadremanente2 = new javax.swing.JLabel();
-        lbcantidadremanente1 = new javax.swing.JLabel();
         lbcolor4 = new javax.swing.JLabel();
         lbcolor3 = new javax.swing.JLabel();
         lbcolor2 = new javax.swing.JLabel();
@@ -559,16 +873,34 @@ public class ordeninternagorra extends javax.swing.JFrame {
         lbnombre2 = new javax.swing.JLabel();
         lbnombre3 = new javax.swing.JLabel();
         lbnombre4 = new javax.swing.JLabel();
-        lbobservacion4 = new javax.swing.JLabel();
-        lbobservacion3 = new javax.swing.JLabel();
-        lbobservacion2 = new javax.swing.JLabel();
-        lbobservacion1 = new javax.swing.JLabel();
+        lbarticulo4 = new javax.swing.JLabel();
+        lbarticulo3 = new javax.swing.JLabel();
+        lbarticulo2 = new javax.swing.JLabel();
+        lbarticulo1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         lbtitulo2 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         lbtitulo3 = new javax.swing.JLabel();
+        btntermine1 = new javax.swing.JButton();
+        btncancelar1 = new javax.swing.JButton();
+        btntermine2 = new javax.swing.JButton();
+        btncancelar2 = new javax.swing.JButton();
+        btntermine3 = new javax.swing.JButton();
+        btncancelar3 = new javax.swing.JButton();
+        btntermine4 = new javax.swing.JButton();
+        btncancelar4 = new javax.swing.JButton();
+        btntermine5 = new javax.swing.JButton();
+        btncancelar5 = new javax.swing.JButton();
+        btntermine6 = new javax.swing.JButton();
+        btncancelar6 = new javax.swing.JButton();
+        btntermine7 = new javax.swing.JButton();
+        btncancelar7 = new javax.swing.JButton();
+        btntermine8 = new javax.swing.JButton();
+        btncancelar8 = new javax.swing.JButton();
+        btntermine9 = new javax.swing.JButton();
+        btncancelar9 = new javax.swing.JButton();
+        btntermine10 = new javax.swing.JButton();
+        btncancelar10 = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -604,19 +936,8 @@ public class ordeninternagorra extends javax.swing.JFrame {
             }
         });
 
-        btncancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btncancelar.setText("Cancelar");
-        btncancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncancelarActionPerformed(evt);
-            }
-        });
-
         lbtipo.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lbtipo.setForeground(new java.awt.Color(204, 0, 0));
-
-        lbarticulo.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        lbarticulo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Fecha");
@@ -642,14 +963,6 @@ public class ordeninternagorra extends javax.swing.JFrame {
         lbestatusentrega.setText(" ");
         lbestatusentrega.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnprocesar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnprocesar1.setText("Recibir");
-        btnprocesar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnprocesar1ActionPerformed(evt);
-            }
-        });
-
         btncancelarbordado.setText("Cancelar");
         btncancelarbordado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -669,30 +982,6 @@ public class ordeninternagorra extends javax.swing.JFrame {
         lbcantidad8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbcantidadrecibidas8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadrecibidas8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadrecibidas8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadrecibidas9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadrecibidas9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadrecibidas9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadrecibidas10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadrecibidas10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadrecibidas10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadremanente10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadremanente10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadremanente10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadremanente9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadremanente9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadremanente9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadremanente8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadremanente8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadremanente8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         lbcolor8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lbcolor9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -705,11 +994,11 @@ public class ordeninternagorra extends javax.swing.JFrame {
 
         lbnombre8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbobservacion10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbarticulo10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbobservacion9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbarticulo9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbobservacion8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbarticulo8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lbcantidad7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbcantidad7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -723,30 +1012,6 @@ public class ordeninternagorra extends javax.swing.JFrame {
         lbcantidad5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbcantidadrecibidas5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadrecibidas5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadrecibidas5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadrecibidas6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadrecibidas6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadrecibidas6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadrecibidas7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadrecibidas7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadrecibidas7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadremanente5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadremanente5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadremanente5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadremanente6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadremanente6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadremanente6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadremanente7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadremanente7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadremanente7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         lbcolor7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lbcolor5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -759,11 +1024,11 @@ public class ordeninternagorra extends javax.swing.JFrame {
 
         lbnombre5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbobservacion5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbarticulo5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbobservacion6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbarticulo6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbobservacion7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbarticulo7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lbcantidad1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbcantidad1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -781,38 +1046,6 @@ public class ordeninternagorra extends javax.swing.JFrame {
         lbcantidad4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbcantidad4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbcantidadrecibidas4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadrecibidas4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadrecibidas4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadrecibidas3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadrecibidas3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadrecibidas3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadrecibidas2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadrecibidas2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadrecibidas2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadrecibidas1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadrecibidas1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadrecibidas1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadremanente4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadremanente4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadremanente4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadremanente3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadremanente3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadremanente3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadremanente2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadremanente2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadremanente2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbcantidadremanente1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcantidadremanente1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbcantidadremanente1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         lbcolor4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lbcolor3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -829,27 +1062,17 @@ public class ordeninternagorra extends javax.swing.JFrame {
 
         lbnombre4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbobservacion4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbarticulo4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbobservacion3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbarticulo3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbobservacion2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbarticulo2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbobservacion1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbarticulo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setText("Cantidad Pedida");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Cantidad");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Remanente");
-        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Recibidas");
-        jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbtitulo2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbtitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -866,161 +1089,250 @@ public class ordeninternagorra extends javax.swing.JFrame {
         lbtitulo3.setText("Bordado");
         lbtitulo3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        btntermine1.setText("Termine");
+        btntermine1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntermine1ActionPerformed(evt);
+            }
+        });
+
+        btncancelar1.setText("Cancelar");
+
+        btntermine2.setText("Termine");
+        btntermine2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntermine2ActionPerformed(evt);
+            }
+        });
+
+        btncancelar2.setText("Cancelar");
+
+        btntermine3.setText("Termine");
+        btntermine3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntermine3ActionPerformed(evt);
+            }
+        });
+
+        btncancelar3.setText("Cancelar");
+
+        btntermine4.setText("Termine");
+        btntermine4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntermine4ActionPerformed(evt);
+            }
+        });
+
+        btncancelar4.setText("Cancelar");
+
+        btntermine5.setText("Termine");
+        btntermine5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntermine5ActionPerformed(evt);
+            }
+        });
+
+        btncancelar5.setText("Cancelar");
+
+        btntermine6.setText("Termine");
+        btntermine6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntermine6ActionPerformed(evt);
+            }
+        });
+
+        btncancelar6.setText("Cancelar");
+
+        btntermine7.setText("Termine");
+        btntermine7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntermine7ActionPerformed(evt);
+            }
+        });
+
+        btncancelar7.setText("Cancelar");
+
+        btntermine8.setText("Termine");
+        btntermine8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntermine8ActionPerformed(evt);
+            }
+        });
+
+        btncancelar8.setText("Cancelar");
+
+        btntermine9.setText("Termine");
+        btntermine9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntermine9ActionPerformed(evt);
+            }
+        });
+
+        btncancelar9.setText("Cancelar");
+
+        btntermine10.setText("Termine");
+        btntermine10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntermine10ActionPerformed(evt);
+            }
+        });
+
+        btncancelar10.setText("Cancelar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbnumerodeorden, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbestatusentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btncancelarbordado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addGap(6, 6, 6)
-                .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addComponent(jLabel7)
-                .addGap(6, 6, 6)
-                .addComponent(lbhora, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbarticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(132, 132, 132))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbnumerodeorden, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbestatusentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btncancelarbordado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addGap(6, 6, 6)
+                        .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel7)
+                        .addGap(6, 6, 6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbcantidad8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbcantidad9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbcantidad10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbcantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbcantidad6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbcantidad7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbcantidad2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbcantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbcantidad4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbcantidad2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcantidad4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(40, 40, 40)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbcantidadrecibidas1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcantidadrecibidas2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcantidadrecibidas3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcantidadrecibidas4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lbcantidad8, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                    .addComponent(lbcantidad9, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                    .addComponent(lbcantidad10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(39, 39, 39)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbcantidadrecibidas8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcantidadrecibidas9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcantidadrecibidas10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbcantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcantidad6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcantidad7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(39, 39, 39)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbcantidadrecibidas5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcantidadrecibidas6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcantidadrecibidas7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbcantidadremanente1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbcantidadremanente2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbcantidadremanente3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lbcantidadremanente8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcantidadremanente9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcantidadremanente10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
+                                        .addGap(8, 8, 8)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbcantidadremanente5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbcantidadremanente6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbcantidadremanente7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(lbcantidadremanente4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                            .addComponent(lbcolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbcolor2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbcolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(2, 2, 2)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lbcolor8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lbcolor9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lbcolor10, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(5, 5, 5)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lbcolor5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lbcolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lbcolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(lbcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(lbtitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(40, 40, 40)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbcolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcolor2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbcolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
+                                        .addComponent(lbtitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbcolor8, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbcolor9, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbcolor10, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(5, 5, 5)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbcolor5, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbcolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbcolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(lbcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(lbnombre3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lbnombre2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lbnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbarticulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbarticulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbarticulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbarticulo4, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbarticulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(lbnombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbnombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(3, 3, 3)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(lbnombre4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lbnombre7, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                            .addComponent(lbnombre6, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                            .addComponent(lbnombre5, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
-                                        .addGap(30, 30, 30)
+                                            .addComponent(lbnombre4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbnombre7, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbnombre6, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbnombre5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbobservacion7, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbobservacion6, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(btnprocesar1)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lbnombre10, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lbnombre9, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lbnombre8, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(33, 33, 33)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lbobservacion10, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lbobservacion9, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lbobservacion8, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                            .addComponent(lbarticulo7, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbarticulo6, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbnombre10, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbnombre9, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbnombre8, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbarticulo10, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbarticulo9, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbarticulo8, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(27, 27, 27)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(99, 99, 99)
-                                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btntermine2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btncancelar2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(lbtitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(lbtitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(36, 36, 36)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(lbobservacion3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lbobservacion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lbobservacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbobservacion4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addComponent(lbobservacion5, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10))
+                                    .addComponent(btntermine1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btncancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btntermine4, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btncancelar4, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btntermine3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btncancelar3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btntermine5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btncancelar5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btntermine7, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btncancelar7, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btntermine6, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btncancelar6, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btntermine8, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btncancelar8, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btntermine9, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btncancelar9, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btntermine10, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btncancelar10, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbhora, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(184, 184, 184))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1032,75 +1344,35 @@ public class ordeninternagorra extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbtitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbtitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbtitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(lbcantidadrecibidas1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbcantidadrecibidas2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(13, 13, 13)
-                                .addComponent(lbcantidadrecibidas3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(13, 13, 13)
-                                .addComponent(lbcantidadrecibidas4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbcantidad2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15)
-                                .addComponent(lbcantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17)
-                                .addComponent(lbcantidad4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lbcantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbcantidadrecibidas5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(lbcantidadrecibidas6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(lbcantidadrecibidas7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbcantidad6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lbcantidad7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbcantidad8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lbcantidad9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lbcantidad10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbcantidadrecibidas8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lbcantidadrecibidas9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lbcantidadrecibidas10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(lbobservacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lbarticulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btntermine1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btncancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lbarticulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(btntermine2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btncancelar2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbobservacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbobservacion3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbarticulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(btntermine3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btncancelar3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lbnombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1109,86 +1381,111 @@ public class ordeninternagorra extends javax.swing.JFrame {
                                             .addComponent(lbnombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(lbcantidadremanente1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(lbcolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(lbnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(9, 9, 9)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lbcolor2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(lbcantidadremanente2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(lbcolor2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(13, 13, 13)
+                                        .addComponent(lbcolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(11, 11, 11)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbarticulo4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbnombre4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(btntermine4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btncancelar4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbnombre5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbarticulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btntermine5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btncancelar5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(13, 13, 13)
-                                                .addComponent(lbcantidadremanente3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(lbarticulo6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lbarticulo7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lbnombre6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lbnombre7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(lbcolor3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(11, 11, 11)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(btntermine6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(btncancelar6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(btntermine7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(btncancelar7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lbarticulo8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lbarticulo9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lbarticulo10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lbnombre8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lbnombre9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lbnombre10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(btntermine8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(btncancelar8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(btntermine9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(btncancelar9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(btntermine10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(btncancelar10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbcantidadremanente4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(11, 11, 11)
-                                        .addComponent(lbcantidadremanente5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lbcolor5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lbcantidadremanente6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbcolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(lbcantidadremanente7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbcolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(lbcantidadremanente8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lbcantidadremanente9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbcolor8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(lbcantidadremanente10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lbobservacion4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(lbnombre4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lbnombre5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(lbobservacion5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(lbobservacion6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(lbobservacion7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(lbnombre6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(lbnombre7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(lbobservacion8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(lbobservacion9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(lbobservacion10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(lbnombre8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(lbnombre9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(lbnombre10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lbcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(lbcolor5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(lbcolor6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(lbcolor7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(lbcolor8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(lbcolor9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(lbcolor10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))))
-                .addGap(65, 65, 65)
+                                        .addComponent(lbcolor9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lbcolor10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(lbcantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbcantidad2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(lbcantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
+                        .addComponent(lbcantidad4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbcantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(111, 111, 111))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbcantidad6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lbcantidad7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(lbcantidad8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbcantidad9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbcantidad10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbhora, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1197,17 +1494,14 @@ public class ordeninternagorra extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lbarticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(lbnumerodeorden, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbestatusentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btncancelarbordado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnprocesar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -1399,250 +1693,10 @@ public class ordeninternagorra extends javax.swing.JFrame {
             System.out.println(e);
         }
 
-        btncancelar.setEnabled(false);
+       
     }
     
      
-    private void btnprocesar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprocesar1ActionPerformed
-     
-        /*
-        
-        ordeninternagorrarecibir entregar = new ordeninternagorrarecibir();
-        entregar.setVisible(true);
-
-        ordeninternagorrarecibir.lbfolio.setText(lbfolio.getText());
-
-        int gorra1 = lbobservacion1.getText().length();
-        if (gorra1 > 0) {
-
-            String cantidadgorra1 = lbcantidad1.getText();
-            String cantidadgorra11 = lbcantidadrecibidas1.getText();
-
-            int ccantidadgorra1int = Integer.parseInt(cantidadgorra1);
-            int ccantidadgorra11int = Integer.parseInt(cantidadgorra11);
-
-            int cantidadremantenteint = ccantidadgorra1int - ccantidadgorra11int;
-            String cantidadremanentestring = String.valueOf(cantidadremantenteint);
-
-            ordeninternagorrarecibir.txtgorra1.setText(lbobservacion1.getText());
-            ordeninternagorrarecibir.txtgorra1cantidad.setText(cantidadremanentestring);
-            ordeninternagorrarecibir.lbdescripcion1.setText(lbnombre1.getText());
-            ordeninternagorrarecibir.lbcolor1.setText(lbcolor1.getText());
-            ordeninternagorrarecibir.txtgorra1.setEditable(false);
-
-        } else {
-
-            ordeninternagorrarecibir.txtgorra1.setEnabled(false);
-            ordeninternagorrarecibir.txtgorra1cantidad.setEnabled(false);
-        }
-
-        ///gorra2
-        int gorra2 = lbobservacion2.getText().length();
-        if (gorra2 > 0) {
-
-            String cantidadgorra2 = lbcantidad2.getText();
-            String cantidadgorra21 = lbcantidadrecibidas2.getText();
-
-            int ccantidadgorra2int = Integer.parseInt(cantidadgorra2);
-            int ccantidadgorra21int = Integer.parseInt(cantidadgorra21);
-
-            int cantidadremantente2int = ccantidadgorra2int - ccantidadgorra21int;
-            String cantidadremanente2string = String.valueOf(cantidadremantente2int);
-
-            ordeninternagorrarecibir.txtgorra2.setText(lbobservacion2.getText());
-            ordeninternagorrarecibir.txtgorra2cantidad.setText(cantidadremanente2string);
-            ordeninternagorrarecibir.lbdescripcion2.setText(lbnombre2.getText());
-            ordeninternagorrarecibir.lbcolor2.setText(lbcolor2.getText());
-            ordeninternagorrarecibir.txtgorra2.setEditable(false);
-        } else {
-            ordeninternagorrarecibir.txtgorra2.setEnabled(false);
-            ordeninternagorrarecibir.txtgorra2cantidad.setEnabled(false);
-
-        }
-
-        ///gorra 3
-        int gorra3 = lbobservacion3.getText().length();
-        if (gorra3 > 0) {
-
-            String cantidadgorra3 = lbcantidad3.getText();
-            String cantidadgorra31 = lbcantidadrecibidas3.getText();
-
-            int ccantidadgorra3int = Integer.parseInt(cantidadgorra3);
-            int ccantidadgorra31int = Integer.parseInt(cantidadgorra31);
-
-            int cantidadremantente3int = ccantidadgorra3int - ccantidadgorra31int;
-            String cantidadremanente3string = String.valueOf(cantidadremantente3int);
-
-            ordeninternagorrarecibir.txtgorra3.setText(lbobservacion3.getText());
-            ordeninternagorrarecibir.txtgorra3cantidad.setText(cantidadremanente3string);
-            ordeninternagorrarecibir.lbdescripcion3.setText(lbnombre3.getText());
-            ordeninternagorrarecibir.lbcolor3.setText(lbcolor3.getText());
-            ordeninternagorrarecibir.txtgorra3.setEditable(false);
-        } else {
-            ordeninternagorrarecibir.txtgorra3.setEnabled(false);
-            ordeninternagorrarecibir.txtgorra3cantidad.setEnabled(false);
-        }
-
-        /// gorra 4
-        int gorra4 = lbobservacion4.getText().length();
-        if (gorra4 > 0) {
-
-            String cantidadgorra4 = lbcantidad4.getText();
-            String cantidadgorra41 = lbcantidadrecibidas4.getText();
-
-            int ccantidadgorra4int = Integer.parseInt(cantidadgorra4);
-            int ccantidadgorra41int = Integer.parseInt(cantidadgorra41);
-
-            int cantidadremantente4int = ccantidadgorra4int - ccantidadgorra41int;
-            String cantidadremanente4string = String.valueOf(cantidadremantente4int);
-
-            ordeninternagorrarecibir.txtgorra4.setText(lbobservacion4.getText());
-            ordeninternagorrarecibir.txtgorra4cantidad.setText(cantidadremanente4string);
-            ordeninternagorrarecibir.lbdescripcion4.setText(lbnombre4.getText());
-            ordeninternagorrarecibir.lbcolor4.setText(lbcolor4.getText());
-            ordeninternagorrarecibir.txtgorra4.setEditable(false);
-        } else {
-            ordeninternagorrarecibir.txtgorra4.setEnabled(false);
-            ordeninternagorrarecibir.txtgorra4cantidad.setEnabled(false);
-        }
-
-        ///gorra5
-        int gorra5 = lbobservacion5.getText().length();
-        if (gorra5 > 0) {
-
-            String cantidadgorra5 = lbcantidad5.getText();
-            String cantidadgorra51 = lbcantidadrecibidas5.getText();
-
-            int ccantidadgorra5int = Integer.parseInt(cantidadgorra5);
-            int ccantidadgorra51int = Integer.parseInt(cantidadgorra51);
-
-            int cantidadremantente5int = ccantidadgorra5int - ccantidadgorra51int;
-            String cantidadremanente5string = String.valueOf(cantidadremantente5int);
-
-            ordeninternagorrarecibir.txtgorra5.setText(lbobservacion5.getText());
-            ordeninternagorrarecibir.txtgorra5cantidad.setText(cantidadremanente5string);
-            ordeninternagorrarecibir.lbdescripcion5.setText(lbnombre5.getText());
-            ordeninternagorrarecibir.lbcolor5.setText(lbcolor5.getText());
-            ordeninternagorrarecibir.txtgorra5.setEditable(false);
-        } else {
-            ordeninternagorrarecibir.txtgorra5.setEnabled(false);
-            ordeninternagorrarecibir.txtgorra5cantidad.setEnabled(false);
-        }
-
-        int gorra6 = lbobservacion6.getText().length();
-        if (gorra6 > 0) {
-
-            String cantidadgorra6 = lbcantidad6.getText();
-            String cantidadgorra61 = lbcantidadrecibidas6.getText();
-
-            int ccantidadgorra6int = Integer.parseInt(cantidadgorra6);
-            int ccantidadgorra61int = Integer.parseInt(cantidadgorra61);
-
-            int cantidadremantente6int = ccantidadgorra6int - ccantidadgorra61int;
-            String cantidadremanente6string = String.valueOf(cantidadremantente6int);
-
-            ordeninternagorrarecibir.txtgorra6.setText(lbobservacion6.getText());
-            ordeninternagorrarecibir.txtgorra6cantidad.setText(cantidadremanente6string);
-            ordeninternagorrarecibir.lbdescripcion6.setText(lbnombre6.getText());
-            ordeninternagorrarecibir.lbcolor6.setText(lbcolor6.getText());
-            ordeninternagorrarecibir.txtgorra6.setEditable(false);
-        } else {
-            ordeninternagorrarecibir.txtgorra6.setEnabled(false);
-            ordeninternagorrarecibir.txtgorra6cantidad.setEnabled(false);
-        }
-
-        int gorra7 = lbobservacion7.getText().length();
-        if (gorra7 > 0) {
-
-            String cantidadgorra7 = lbcantidad7.getText();
-            String cantidadgorra71 = lbcantidadrecibidas7.getText();
-
-            int ccantidadgorra7int = Integer.parseInt(cantidadgorra7);
-            int ccantidadgorra71int = Integer.parseInt(cantidadgorra71);
-
-            int cantidadremantente7int = ccantidadgorra7int - ccantidadgorra71int;
-            String cantidadremanente7string = String.valueOf(cantidadremantente7int);
-
-            ordeninternagorrarecibir.txtgorra7.setText(lbobservacion7.getText());
-            ordeninternagorrarecibir.txtgorra7cantidad.setText(cantidadremanente7string);
-            ordeninternagorrarecibir.lbdescripcion7.setText(lbnombre7.getText());
-            ordeninternagorrarecibir.lbcolor7.setText(lbcolor7.getText());
-            ordeninternagorrarecibir.txtgorra7.setEditable(false);
-        } else {
-            ordeninternagorrarecibir.txtgorra7.setEnabled(false);
-            ordeninternagorrarecibir.txtgorra7cantidad.setEnabled(false);
-        }
-
-        int gorra8 = lbobservacion8.getText().length();
-        if (gorra8 > 0) {
-
-            String cantidadgorra8 = lbcantidad8.getText();
-            String cantidadgorra81 = lbcantidadrecibidas8.getText();
-
-            int ccantidadgorra8int = Integer.parseInt(cantidadgorra8);
-            int ccantidadgorra81int = Integer.parseInt(cantidadgorra81);
-
-            int cantidadremantente8int = ccantidadgorra8int - ccantidadgorra81int;
-            String cantidadremanente8string = String.valueOf(cantidadremantente8int);
-
-            ordeninternagorrarecibir.txtgorra8.setText(lbobservacion7.getText());
-            ordeninternagorrarecibir.txtgorra8cantidad.setText(cantidadremanente8string);
-            ordeninternagorrarecibir.lbdescripcion8.setText(lbnombre8.getText());
-            ordeninternagorrarecibir.lbcolor8.setText(lbcolor8.getText());
-            ordeninternagorrarecibir.txtgorra8.setEditable(false);
-        } else {
-            ordeninternagorrarecibir.txtgorra8.setEnabled(false);
-            ordeninternagorrarecibir.txtgorra8cantidad.setEnabled(false);
-        }
-
-        int gorra9 = lbobservacion9.getText().length();
-        if (gorra9 > 0) {
-
-            String cantidadgorra9 = lbcantidad9.getText();
-            String cantidadgorra91 = lbcantidadrecibidas9.getText();
-
-            int ccantidadgorra9int = Integer.parseInt(cantidadgorra9);
-            int ccantidadgorra91int = Integer.parseInt(cantidadgorra91);
-
-            int cantidadremantente9int = ccantidadgorra9int - ccantidadgorra91int;
-            String cantidadremanente9string = String.valueOf(cantidadremantente9int);
-
-            ordeninternagorrarecibir.txtgorra9.setText(lbobservacion9.getText());
-            ordeninternagorrarecibir.txtgorra9cantidad.setText(cantidadremanente9string);
-            ordeninternagorrarecibir.lbdescripcion9.setText(lbnombre9.getText());
-            ordeninternagorrarecibir.lbcolor9.setText(lbcolor9.getText());
-            ordeninternagorrarecibir.txtgorra9.setEditable(false);
-        } else {
-            ordeninternagorrarecibir.txtgorra9.setEnabled(false);
-            ordeninternagorrarecibir.txtgorra9cantidad.setEnabled(false);
-        }
-
-        int gorra10 = lbobservacion10.getText().length();
-        if (gorra10 > 0) {
-
-            String cantidadgorra10 = lbcantidad10.getText();
-            String cantidadgorra101 = lbcantidadrecibidas10.getText();
-
-            int ccantidadgorra10int = Integer.parseInt(cantidadgorra10);
-            int ccantidadgorra101int = Integer.parseInt(cantidadgorra101);
-
-            int cantidadremantente10int = ccantidadgorra10int - ccantidadgorra101int;
-            String cantidadremanente10string = String.valueOf(cantidadremantente10int);
-
-            ordeninternagorrarecibir.txtgorra10.setText(lbobservacion10.getText());
-            ordeninternagorrarecibir.txtgorra10cantidad.setText(cantidadremanente10string);
-            ordeninternagorrarecibir.lbdescripcion10.setText(lbnombre10.getText());
-            ordeninternagorrarecibir.lbcolor10.setText(lbcolor10.getText());
-            ordeninternagorrarecibir.txtgorra10.setEditable(false);
-        } else {
-            ordeninternagorrarecibir.txtgorra10.setEnabled(false);
-            ordeninternagorrarecibir.txtgorra10cantidad.setEnabled(false);
-        }
-
-
-     */
-    }//GEN-LAST:event_btnprocesar1ActionPerformed
-
     
 
     private void btncancelarbordadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarbordadoActionPerformed
@@ -1657,24 +1711,181 @@ public class ordeninternagorra extends javax.swing.JFrame {
       datos();
     }//GEN-LAST:event_formWindowOpened
 
-    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
+    private void btntermine1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermine1ActionPerformed
+       
+        
+        articulo = lbarticulo1.getText();
+        cantidad = lbcantidad1.getText();
+        bordado = lbnombre1.getText();
+        
+        agregarlafechaenquetermineenelhistorialordenesinterna();
+        
+        
+      
+        modificarexistenciaykardex((String)articulo,(String) cantidad);
+                
+        
+        
+        datos();
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btntermine1ActionPerformed
 
-        if (autorizacion.ventanaautorizacion == true)
-        {
-            JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de cerrar la ventana de autorizaci�n");
-        }
-        else
-        {
-            autorizacion ventana = new autorizacion();
-            ventana.setVisible(true);
-            ventana.setLocationRelativeTo(null);
+    private void btntermine2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermine2ActionPerformed
+     
+        
+        
+        articulo = lbarticulo2.getText();
+        cantidad = lbcantidad2.getText();
+        bordado = lbnombre2.getText();
+        
+         agregarlafechaenquetermineenelhistorialordenesinterna();
+        
+        
+      
+        modificarexistenciaykardex((String)articulo,(String) cantidad);
+        
+        
+        
+    }//GEN-LAST:event_btntermine2ActionPerformed
 
-            autorizacion.lbinterfaz.setText("ordenanteriorbordadointernogorra");
-            autorizacion.lbnivel.setText("1");
+    private void btntermine3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermine3ActionPerformed
+      
+        
+        
+         articulo = lbarticulo3.getText();
+        cantidad = lbcantidad3.getText();
+        bordado = lbnombre3.getText();
+        
+         agregarlafechaenquetermineenelhistorialordenesinterna();
+        
+        
+      
+        modificarexistenciaykardex((String)articulo,(String) cantidad);
+    }//GEN-LAST:event_btntermine3ActionPerformed
 
-        }
+    private void btntermine4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermine4ActionPerformed
+       
+        
+         articulo = lbarticulo4.getText();
+        cantidad = lbcantidad4.getText();
+        bordado = lbnombre4.getText();
+        
+         agregarlafechaenquetermineenelhistorialordenesinterna();
+        
+        
+      
+        modificarexistenciaykardex((String)articulo,(String) cantidad);
+        
+        
+        
+    }//GEN-LAST:event_btntermine4ActionPerformed
 
-    }//GEN-LAST:event_btncancelarActionPerformed
+    private void btntermine5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermine5ActionPerformed
+      
+        
+         articulo = lbarticulo5.getText();
+        cantidad = lbcantidad5.getText();
+        bordado = lbnombre5.getText();
+        
+         agregarlafechaenquetermineenelhistorialordenesinterna();
+        
+        
+      
+        modificarexistenciaykardex((String)articulo,(String) cantidad);
+        
+    }//GEN-LAST:event_btntermine5ActionPerformed
+
+    private void btntermine6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermine6ActionPerformed
+     
+        
+         articulo = lbarticulo6.getText();
+        cantidad = lbcantidad6.getText();
+        bordado = lbnombre6.getText();
+        
+         agregarlafechaenquetermineenelhistorialordenesinterna();
+        
+        
+      
+        modificarexistenciaykardex((String)articulo,(String) cantidad);
+        
+        
+        
+    }//GEN-LAST:event_btntermine6ActionPerformed
+
+    private void btntermine7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermine7ActionPerformed
+       
+        
+         articulo = lbarticulo7.getText();
+        cantidad = lbcantidad7.getText();
+        bordado = lbnombre7.getText();
+        
+         agregarlafechaenquetermineenelhistorialordenesinterna();
+        
+        
+      
+        modificarexistenciaykardex((String)articulo,(String) cantidad);
+        
+        
+        
+        
+    }//GEN-LAST:event_btntermine7ActionPerformed
+
+    private void btntermine8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermine8ActionPerformed
+        
+         articulo = lbarticulo8.getText();
+        cantidad = lbcantidad8.getText();
+        bordado = lbnombre8.getText();
+        
+         agregarlafechaenquetermineenelhistorialordenesinterna();
+        
+        
+      
+        modificarexistenciaykardex((String)articulo,(String) cantidad);
+        
+        
+        
+        
+    }//GEN-LAST:event_btntermine8ActionPerformed
+
+    private void btntermine9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermine9ActionPerformed
+       
+        
+         articulo = lbarticulo9.getText();
+        cantidad = lbcantidad9.getText();
+        bordado = lbnombre9.getText();
+        
+         agregarlafechaenquetermineenelhistorialordenesinterna();
+        
+        
+      
+        modificarexistenciaykardex((String)articulo,(String) cantidad);
+        
+        
+        
+        
+    }//GEN-LAST:event_btntermine9ActionPerformed
+
+    private void btntermine10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermine10ActionPerformed
+      
+        
+         articulo = lbarticulo10.getText();
+        cantidad = lbcantidad10.getText();
+        bordado = lbnombre10.getText();
+        
+         agregarlafechaenquetermineenelhistorialordenesinterna();
+        
+        
+      
+        modificarexistenciaykardex((String)articulo,(String) cantidad);
+        
+        
+        
+    }//GEN-LAST:event_btntermine10ActionPerformed
 
     ResultSet rs;
     ResultSet rs2;
@@ -1689,20 +1900,45 @@ public class ordeninternagorra extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btncancelar;
+    private javax.swing.JButton btncancelar1;
+    private javax.swing.JButton btncancelar10;
+    private javax.swing.JButton btncancelar2;
+    private javax.swing.JButton btncancelar3;
+    private javax.swing.JButton btncancelar4;
+    private javax.swing.JButton btncancelar5;
+    private javax.swing.JButton btncancelar6;
+    private javax.swing.JButton btncancelar7;
+    private javax.swing.JButton btncancelar8;
+    private javax.swing.JButton btncancelar9;
     public static javax.swing.JButton btncancelarbordado;
-    private javax.swing.JButton btnprocesar1;
     public static javax.swing.JButton btnsalir;
+    private javax.swing.JButton btntermine1;
+    private javax.swing.JButton btntermine10;
+    private javax.swing.JButton btntermine2;
+    private javax.swing.JButton btntermine3;
+    private javax.swing.JButton btntermine4;
+    private javax.swing.JButton btntermine5;
+    private javax.swing.JButton btntermine6;
+    private javax.swing.JButton btntermine7;
+    private javax.swing.JButton btntermine8;
+    private javax.swing.JButton btntermine9;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel lbarticulo;
+    public static javax.swing.JLabel lbarticulo1;
+    public static javax.swing.JLabel lbarticulo10;
+    public static javax.swing.JLabel lbarticulo2;
+    public static javax.swing.JLabel lbarticulo3;
+    public static javax.swing.JLabel lbarticulo4;
+    public static javax.swing.JLabel lbarticulo5;
+    public static javax.swing.JLabel lbarticulo6;
+    public static javax.swing.JLabel lbarticulo7;
+    public static javax.swing.JLabel lbarticulo8;
+    public static javax.swing.JLabel lbarticulo9;
     public static javax.swing.JLabel lbcantidad1;
     public static javax.swing.JLabel lbcantidad10;
     public static javax.swing.JLabel lbcantidad2;
@@ -1713,26 +1949,6 @@ public class ordeninternagorra extends javax.swing.JFrame {
     public static javax.swing.JLabel lbcantidad7;
     public static javax.swing.JLabel lbcantidad8;
     public static javax.swing.JLabel lbcantidad9;
-    public static javax.swing.JLabel lbcantidadrecibidas1;
-    public static javax.swing.JLabel lbcantidadrecibidas10;
-    public static javax.swing.JLabel lbcantidadrecibidas2;
-    public static javax.swing.JLabel lbcantidadrecibidas3;
-    public static javax.swing.JLabel lbcantidadrecibidas4;
-    public static javax.swing.JLabel lbcantidadrecibidas5;
-    public static javax.swing.JLabel lbcantidadrecibidas6;
-    public static javax.swing.JLabel lbcantidadrecibidas7;
-    public static javax.swing.JLabel lbcantidadrecibidas8;
-    public static javax.swing.JLabel lbcantidadrecibidas9;
-    public static javax.swing.JLabel lbcantidadremanente1;
-    public static javax.swing.JLabel lbcantidadremanente10;
-    public static javax.swing.JLabel lbcantidadremanente2;
-    public static javax.swing.JLabel lbcantidadremanente3;
-    public static javax.swing.JLabel lbcantidadremanente4;
-    public static javax.swing.JLabel lbcantidadremanente5;
-    public static javax.swing.JLabel lbcantidadremanente6;
-    public static javax.swing.JLabel lbcantidadremanente7;
-    public static javax.swing.JLabel lbcantidadremanente8;
-    public static javax.swing.JLabel lbcantidadremanente9;
     public static javax.swing.JLabel lbcolor1;
     public static javax.swing.JLabel lbcolor10;
     public static javax.swing.JLabel lbcolor2;
@@ -1757,16 +1973,6 @@ public class ordeninternagorra extends javax.swing.JFrame {
     public static javax.swing.JLabel lbnombre8;
     public static javax.swing.JLabel lbnombre9;
     public static javax.swing.JLabel lbnumerodeorden;
-    public static javax.swing.JLabel lbobservacion1;
-    public static javax.swing.JLabel lbobservacion10;
-    public static javax.swing.JLabel lbobservacion2;
-    public static javax.swing.JLabel lbobservacion3;
-    public static javax.swing.JLabel lbobservacion4;
-    public static javax.swing.JLabel lbobservacion5;
-    public static javax.swing.JLabel lbobservacion6;
-    public static javax.swing.JLabel lbobservacion7;
-    public static javax.swing.JLabel lbobservacion8;
-    public static javax.swing.JLabel lbobservacion9;
     private javax.swing.JLabel lbtipo;
     private javax.swing.JLabel lbtitulo2;
     private javax.swing.JLabel lbtitulo3;

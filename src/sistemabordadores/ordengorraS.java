@@ -3188,6 +3188,19 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
     }
      
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
     void actualizarestatusentregaordendebordado()
     {
         

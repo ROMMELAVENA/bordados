@@ -1696,7 +1696,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         String frente = "";
         String puntadasfrenteordeninterna = "";
 
-        String sqlgorrasinternas = "Select cantidad_entregada,descripcion from historial_ordenes_bordados_interno where estatus_entrega = 'entregada'  AND fecha = '" + fechastring + "'  AND prenda = 'Gorra' order by numero ";
+        String sqlgorrasinternas = "Select cantidad_entregada,descripcion from historial_ordenes_bordados_interno where fecha_termine = '" + fechastring + "'  AND prenda = 'Gorra' order by fecha_termine ";
 
         try {
             Statement st = cn.createStatement();

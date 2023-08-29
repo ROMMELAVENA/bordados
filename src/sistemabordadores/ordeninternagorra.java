@@ -1063,6 +1063,7 @@ public class ordeninternagorra extends javax.swing.JFrame {
         lbtitulo3.setText("Bordado");
         lbtitulo3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        btntermine1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btntermine1.setText("Termine");
         btntermine1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1070,8 +1071,10 @@ public class ordeninternagorra extends javax.swing.JFrame {
             }
         });
 
+        btncancelar1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btncancelar1.setText("Cancelar");
 
+        btntermine2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btntermine2.setText("Termine");
         btntermine2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1079,8 +1082,10 @@ public class ordeninternagorra extends javax.swing.JFrame {
             }
         });
 
+        btncancelar2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btncancelar2.setText("Cancelar");
 
+        btntermine3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btntermine3.setText("Termine");
         btntermine3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1088,8 +1093,10 @@ public class ordeninternagorra extends javax.swing.JFrame {
             }
         });
 
+        btncancelar3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btncancelar3.setText("Cancelar");
 
+        btntermine4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btntermine4.setText("Termine");
         btntermine4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1097,8 +1104,10 @@ public class ordeninternagorra extends javax.swing.JFrame {
             }
         });
 
+        btncancelar4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btncancelar4.setText("Cancelar");
 
+        btntermine5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btntermine5.setText("Termine");
         btntermine5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1106,8 +1115,10 @@ public class ordeninternagorra extends javax.swing.JFrame {
             }
         });
 
+        btncancelar5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btncancelar5.setText("Cancelar");
 
+        btntermine6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btntermine6.setText("Termine");
         btntermine6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1115,8 +1126,10 @@ public class ordeninternagorra extends javax.swing.JFrame {
             }
         });
 
+        btncancelar6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btncancelar6.setText("Cancelar");
 
+        btntermine7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btntermine7.setText("Termine");
         btntermine7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1124,8 +1137,10 @@ public class ordeninternagorra extends javax.swing.JFrame {
             }
         });
 
+        btncancelar7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btncancelar7.setText("Cancelar");
 
+        btntermine8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btntermine8.setText("Termine");
         btntermine8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1133,8 +1148,10 @@ public class ordeninternagorra extends javax.swing.JFrame {
             }
         });
 
+        btncancelar8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btncancelar8.setText("Cancelar");
 
+        btntermine9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btntermine9.setText("Termine");
         btntermine9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1142,8 +1159,10 @@ public class ordeninternagorra extends javax.swing.JFrame {
             }
         });
 
+        btncancelar9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btncancelar9.setText("Cancelar");
 
+        btntermine10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btntermine10.setText("Termine");
         btntermine10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1151,6 +1170,7 @@ public class ordeninternagorra extends javax.swing.JFrame {
             }
         });
 
+        btncancelar10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btncancelar10.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

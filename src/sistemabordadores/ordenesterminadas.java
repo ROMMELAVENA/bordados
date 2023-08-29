@@ -562,7 +562,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
          //// historial ordenes internas
         
-        String sql5 = "Select numero,tipo,fecha,cantidad,prenda,descripcion,hora from historial_ordenes_bordados_interno where estatus_entrega = 'entregada' and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by fecha desc ";
+        String sql5 = "Select numero,tipo,fecha,cantidad,prenda,descripcion,hora from historial_ordenes_bordados_interno where estatus_entrega = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' group by numero order by fecha desc ";
 
         try {
             Statement st5 = cn.createStatement();

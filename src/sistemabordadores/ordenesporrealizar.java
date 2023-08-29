@@ -61,24 +61,8 @@ public class ordenesporrealizar extends javax.swing.JFrame {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
   
     void datos() {
-        
-        
         
         
         limpiartabla();
@@ -89,9 +73,6 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         
-        
-        
-        //// historial_orden_camisa
         
         String[] datos = new String[15];
         
@@ -109,6 +90,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
        }
       
         
+        //// historial_orden_camisa
         
         String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,tienda,identificador_prenda,observacion,cantidad "
                          + "FROM historial_ordenes_camisa where lugar = '"+donde+"' "
@@ -512,7 +494,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         //// historial ordenes internas
         
-        String sql5 = "Select numero,tipo,fecha,cantidad,prenda,descripcion,hora from historial_ordenes_bordados_interno where (estatus_entrega = 'solicitada') order by fecha desc ";
+        String sql5 = "Select Distinct numero,tipo,fecha,cantidad,prenda,descripcion,hora from historial_ordenes_bordados_interno where (estatus_entrega = 'solicitada' OR estatus_entrega = 'realizada parcialmente') group by numero order by fecha desc ";
 
         try {
             Statement st5 = cn.createStatement();

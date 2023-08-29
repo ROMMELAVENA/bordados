@@ -428,7 +428,7 @@ public class ordeninternagorra extends javax.swing.JFrame {
             if (sumaterminadas==0 && sumaporrealizar>0)
                 
             {
-                estatusentrega = "generada";
+                estatusentrega = "solicitada";
             }
             else
                 

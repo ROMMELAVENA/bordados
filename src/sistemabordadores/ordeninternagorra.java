@@ -572,6 +572,47 @@ public class ordeninternagorra extends javax.swing.JFrame {
     
     
     
+    
+    void actualizarinterfaceordenesporrealizaryordenesterminadas(){
+        
+        
+        
+        
+            if(ordenesporrealizar.ventanaordenesporrealizar==true)
+         {
+             ordenesporrealizar.btndatos.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btndatos.doClick();
+         }
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     void agregarlafechaenquetermineenelhistorialordenesinterna(){
         
        
@@ -1746,6 +1787,16 @@ public class ordeninternagorra extends javax.swing.JFrame {
         
         
          datos();
+         
+         
+         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
+       
+         
+         
+         
+         
+         
         
     }//GEN-LAST:event_btntermine2ActionPerformed
 
@@ -1768,6 +1819,8 @@ public class ordeninternagorra extends javax.swing.JFrame {
          datos();
          
          
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
+         
          
     }//GEN-LAST:event_btntermine3ActionPerformed
 
@@ -1786,6 +1839,9 @@ public class ordeninternagorra extends javax.swing.JFrame {
         
         
          datos();
+         
+         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
         
         
         
@@ -1806,6 +1862,9 @@ public class ordeninternagorra extends javax.swing.JFrame {
         
         
          datos();
+         
+         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
         
     }//GEN-LAST:event_btntermine5ActionPerformed
 
@@ -1824,6 +1883,9 @@ public class ordeninternagorra extends javax.swing.JFrame {
         
         
          datos();
+         
+         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
         
         
         
@@ -1845,6 +1907,8 @@ public class ordeninternagorra extends javax.swing.JFrame {
         
          datos();
         
+         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
         
         
         
@@ -1866,6 +1930,8 @@ public class ordeninternagorra extends javax.swing.JFrame {
          datos();
         
         
+         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
         
         
     }//GEN-LAST:event_btntermine8ActionPerformed
@@ -1887,6 +1953,7 @@ public class ordeninternagorra extends javax.swing.JFrame {
          datos();
         
         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
         
         
     }//GEN-LAST:event_btntermine9ActionPerformed
@@ -1906,6 +1973,9 @@ public class ordeninternagorra extends javax.swing.JFrame {
         
         
          datos();
+         
+         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
         
         
     }//GEN-LAST:event_btntermine10ActionPerformed

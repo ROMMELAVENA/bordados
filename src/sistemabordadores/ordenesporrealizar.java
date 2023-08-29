@@ -1479,6 +1479,9 @@ sorter.sort();
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tablaMouseEntered(evt);
+            }
         });
         tabla.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -1664,6 +1667,9 @@ sorter.sort();
         
        String donde = ""; 
        String esponchado = "";
+       
+       
+       
         
        if (localuotrasucursal.equals("Otra Sucursal"))
        {
@@ -1697,11 +1703,11 @@ sorter.sort();
                 Object lugar = tabla.getValueAt(fila, 4);
                 Object numerodeventa = tabla.getValueAt(fila, 5);
                 sucursal = tabla.getValueAt(fila, 7);
-                
-                
-                
-                
                 Object tablanombre = tabla.getValueAt(fila, 10);
+                
+                
+                
+               
                         
               
                 
@@ -1713,6 +1719,9 @@ sorter.sort();
                  
                   
               }
+              
+              
+              
                 
                 
                 
@@ -2370,6 +2379,10 @@ sorter.sort();
             btndatos.doClick();
         }
     }//GEN-LAST:event_formKeyPressed
+
+    private void tablaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablaMouseEntered
 
     /**
      * @param args the command line arguments

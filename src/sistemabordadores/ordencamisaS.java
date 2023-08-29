@@ -1676,7 +1676,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 + "   otra_ubicacion_puntadas,otra_ubicacion_nombre,otra_ubicacion_cantidad,otra_ubicacion2_puntadas,otra_ubicacion2_nombre,otra_ubicacion2_cantidad,"
                 + "   aplicacion_pecho_izquierdo,aplicacion_pecho_derecho,aplicacion_manga_izquierda,aplicacion_manga_derecha,aplicacion_espalda,aplicacion_otra_ubicacion,aplicacion_otra_ubicacion2,"
                 + "   aplicacion_pecho_izquierdo_color,aplicacion_pecho_derecho_color,aplicacion_manga_izquierda_color,aplicacion_manga_derecha_color,aplicacion_espalda_color,aplicacion_otra_ubicacion_color,aplicacion_otra_ubicacion2_color,"
-                + "   lugar,estatus_orden,identificador_prenda,tienda from historial_ordenes_camisa_recibidas where numero = '" + numeroordendebordadosolicitadoorecibidasisehabredesderecibidas + "' ";
+                + "   lugar,estatus_orden,identificador_prenda,tienda from historial_ordenes_camisa_recibidas where numero = '" + numeroordendebordadosolicitadoorecibidasisehabredesderecibidas + "' and orden_o_pedido not in('ninguno') ";
 
       
         

@@ -622,6 +622,45 @@ public static boolean ventanaordeninternaparcheanterior = false;
     
     
     
+      void actualizarinterfaceordenesporrealizaryordenesterminadas(){
+        
+        
+        
+        
+            if(ordenesporrealizar.ventanaordenesporrealizar==true)
+         {
+             ordenesporrealizar.btndatos.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btndatos.doClick();
+         }
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
        void actualizarestatusentregaenelhistorialbordadosinterno(){
         
         
@@ -1510,6 +1549,9 @@ void cancelarbordado()
         modificarexistenciaykardex();                
 
         datos();
+        
+        
+        actualizarinterfaceordenesporrealizaryordenesterminadas();
 
     }//GEN-LAST:event_btntermine1ActionPerformed
 
@@ -1525,6 +1567,9 @@ void cancelarbordado()
         
         
          datos();
+         
+         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
 
     }//GEN-LAST:event_btntermine2ActionPerformed
 
@@ -1540,6 +1585,9 @@ void cancelarbordado()
         
         
          datos();
+         
+         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
          
          
          
@@ -1559,6 +1607,9 @@ void cancelarbordado()
          datos();
          
          
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
+         
+         
          
     }//GEN-LAST:event_btntermine4ActionPerformed
 
@@ -1574,6 +1625,8 @@ void cancelarbordado()
 
       datos();
  
+      
+      actualizarinterfaceordenesporrealizaryordenesterminadas();
  
 
     }//GEN-LAST:event_btntermine5ActionPerformed
@@ -1590,6 +1643,9 @@ void cancelarbordado()
         
         
          datos();
+         
+         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
 
     }//GEN-LAST:event_btntermine6ActionPerformed
 
@@ -1605,6 +1661,9 @@ void cancelarbordado()
         
         
          datos();
+         
+         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
 
     }//GEN-LAST:event_btntermine7ActionPerformed
 
@@ -1620,6 +1679,9 @@ void cancelarbordado()
         
         
          datos();
+         
+         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
 
     }//GEN-LAST:event_btntermine8ActionPerformed
 
@@ -1635,6 +1697,9 @@ void cancelarbordado()
         
         
          datos();
+         
+         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
 
     }//GEN-LAST:event_btntermine9ActionPerformed
 
@@ -1650,6 +1715,9 @@ void cancelarbordado()
         
         
          datos();
+         
+         
+         actualizarinterfaceordenesporrealizaryordenesterminadas();
 
     }//GEN-LAST:event_btntermine10ActionPerformed
 

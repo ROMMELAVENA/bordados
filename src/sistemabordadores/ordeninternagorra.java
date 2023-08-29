@@ -134,7 +134,7 @@ public class ordeninternagorra extends javax.swing.JFrame {
     void datos() {
 
         String sql = "";
-        String numero = lbnumerodeorden.getText();
+        numerodeorden = lbnumerodeorden.getText();
         renglon = 0;
 
         limpiarlostextfield();
@@ -144,30 +144,21 @@ public class ordeninternagorra extends javax.swing.JFrame {
         int sumaporrealizar = 0;
         
 
-            sql = "SELECT numero,fecha,fecha_termine,hora,tipo,cantidad,cantidad_entregada,cantidad_remanente,color,descripcion,estatus_entrega,fecha_entrega FROM historial_ordenes_bordados_interno WHERE numero = '" + numero + "'";
+            sql = "SELECT numero,fecha,fecha_termine,hora,tipo,cantidad,color,descripcion,estatus_entrega,fecha_entrega FROM historial_ordenes_bordados_interno WHERE numero = '" + numerodeorden + "'";
 
             try {
                 Statement st = cn.createStatement();
                 ResultSet rs = st.executeQuery(sql);
                 while (rs.next()) {
 
-                    numerodeorden = rs.getString("numero");
+                   
                     lbnumerodeorden.setText(numerodeorden);
                     lbfecha.setText(rs.getString("fecha"));
                     
                     fechatermine = rs.getString("fecha_termine");
                     lbhora.setText(rs.getString("hora"));
                     cantidad = rs.getString("cantidad");
-                    cantidadentregada = rs.getString("cantidad_entregada");
-                    if(cantidadentregada==null||cantidadentregada.equals(""))
-                    {
-                        cantidadentregada = "0";
-                    }
-                    cantidadremanente = rs.getString("cantidad_remanente");
-                    if(cantidadremanente==null||cantidadremanente.equals(""))
-                    {
-                        cantidadremanente = "0";
-                    }
+                 
                     color = rs.getString("color");
                     descripcion = rs.getString("descripcion");             
                     nombrecompleto = s1 + color + s2 + descripcion;
@@ -596,15 +587,6 @@ public class ordeninternagorra extends javax.swing.JFrame {
             }
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
     
     
@@ -711,14 +693,6 @@ public class ordeninternagorra extends javax.swing.JFrame {
             } catch (Exception e) {
                 System.out.println(e);
             }
-        
-        
-        
-            
-        
-        
-        
-        
         
         
     }
@@ -1751,6 +1725,8 @@ public class ordeninternagorra extends javax.swing.JFrame {
         
         
         
+         datos();
+        
     }//GEN-LAST:event_btntermine2ActionPerformed
 
     private void btntermine3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermine3ActionPerformed
@@ -1766,6 +1742,13 @@ public class ordeninternagorra extends javax.swing.JFrame {
         
       
         modificarexistenciaykardex((String)articulo,(String) cantidad);
+        
+        
+        
+         datos();
+         
+         
+         
     }//GEN-LAST:event_btntermine3ActionPerformed
 
     private void btntermine4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermine4ActionPerformed
@@ -1780,6 +1763,9 @@ public class ordeninternagorra extends javax.swing.JFrame {
         
       
         modificarexistenciaykardex((String)articulo,(String) cantidad);
+        
+        
+         datos();
         
         
         
@@ -1798,6 +1784,9 @@ public class ordeninternagorra extends javax.swing.JFrame {
       
         modificarexistenciaykardex((String)articulo,(String) cantidad);
         
+        
+         datos();
+        
     }//GEN-LAST:event_btntermine5ActionPerformed
 
     private void btntermine6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntermine6ActionPerformed
@@ -1812,6 +1801,9 @@ public class ordeninternagorra extends javax.swing.JFrame {
         
       
         modificarexistenciaykardex((String)articulo,(String) cantidad);
+        
+        
+         datos();
         
         
         
@@ -1831,6 +1823,9 @@ public class ordeninternagorra extends javax.swing.JFrame {
         modificarexistenciaykardex((String)articulo,(String) cantidad);
         
         
+         datos();
+        
+        
         
         
     }//GEN-LAST:event_btntermine7ActionPerformed
@@ -1846,6 +1841,9 @@ public class ordeninternagorra extends javax.swing.JFrame {
         
       
         modificarexistenciaykardex((String)articulo,(String) cantidad);
+        
+        
+         datos();
         
         
         
@@ -1866,6 +1864,9 @@ public class ordeninternagorra extends javax.swing.JFrame {
         modificarexistenciaykardex((String)articulo,(String) cantidad);
         
         
+         datos();
+        
+        
         
         
     }//GEN-LAST:event_btntermine9ActionPerformed
@@ -1883,6 +1884,8 @@ public class ordeninternagorra extends javax.swing.JFrame {
       
         modificarexistenciaykardex((String)articulo,(String) cantidad);
         
+        
+         datos();
         
         
     }//GEN-LAST:event_btntermine10ActionPerformed

@@ -56,7 +56,7 @@ import net.coderazzi.filters.gui.TableFilterHeader;
 import java.time.format.DateTimeFormatter;
 
 
-public class bordadosreportegeneral extends javax.swing.JFrame {
+public class reportegeneral extends javax.swing.JFrame {
 
     public static boolean ventanareportedebordadosgeneral = false;
 
@@ -111,7 +111,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
      
     PreparedStatement pst;
 
-    public bordadosreportegeneral() {
+    public reportegeneral() {
 
         initComponents();
         ventanareportedebordadosgeneral = true;
@@ -468,40 +468,11 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
         
         double sumatotaldelosbordadosdistinta = 0;
 
-     //   int año = 0;
+    
 
         String costostring = "0";
 
-        Calendar cal = new GregorianCalendar();
-
-   //     int dia = i;
-        
-   //     String messtring = lbmes.getText();
-      /*  
-        if(messtring.equals("Diciembre"))
-        {
-          mes =12;  
-        }
-        else
-        {    
-        mes = (cal.get(Calendar.MONTH) + 1);
-        }
-        
-        if (mes > mesfinal) 
-        {
-            mes = mesfinal;
-        } 
-
-        String labelaño = lbaño.getText();
-        año = Integer.parseInt(labelaño);
-
-    //    fechabusqueda = (+año + "-" + mesfinal + "-" + dia);
-*/
-    
-    
-    
-    
-    
+      
     
     
         double sumatotaldelosbordoscamisaslocales = 0.00;
@@ -523,7 +494,17 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
        
         
         
+        
+        
+        
+        
+        
+        
         ////////////CAMISA
+        
+        
+        
+        /// PECHO IZQUIERDO
         
         String sql = "Select codigo,numero,fecha,cliente,pecho_izquierdo_fecha,cantidad,prenda,pecho_izquierdo_cantidad,pecho_izquierdo_nombre,pecho_izquierdo_puntadas,"
                 + "pecho_derecho_cantidad,pecho_derecho_nombre,pecho_derecho_puntadas,"
@@ -537,7 +518,10 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
 
-            while (rs.next()) {
+            while (rs.next()) 
+            
+            
+            {
 
           
              
@@ -545,16 +529,31 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
           
                 pechoizquierdo = rs.getString("pecho_izquierdo_puntadas");
                 cantidadpechoizquierdo = rs.getString("pecho_izquierdo_cantidad");
+             
+                
+                
                 pechoderecho = rs.getString("pecho_derecho_puntadas");
                 cantidadpechoderecho = rs.getString("pecho_derecho_cantidad");
+             
+                
+                
                 mangaizquierda = rs.getString("manga_izquierda_puntadas");
                 cantidadmangaizquierda = rs.getString("manga_izquierda_cantidad");
+              
+                
+                
                 mangaderecha = rs.getString("manga_derecha_puntadas");
                 cantidadmangaderecha = rs.getString("manga_derecha_cantidad");
+              
+                
                 espalda = rs.getString("espalda_puntadas");
                 cantidadespalda = rs.getString("espalda_cantidad");
+            
+                
                 otraubicacion = rs.getString("otra_ubicacion_puntadas");
                 cantidadotraubicacion = rs.getString("otra_ubicacion_cantidad");
+              
+                
                 otraubicacion2 = rs.getString("otra_ubicacion2_puntadas");
                 cantidadotraubicacion2 = rs.getString("otra_ubicacion2_cantidad");
 
@@ -565,9 +564,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 aplicacionespalda = rs.getString("aplicacion_espalda");
 
                 /////////////////////////////////////////////////////////////////////////////
-                if (cantidadbordados == null || cantidadbordados.equals("")) {
-                    cantidadbordados = "0";
-                }
+            
 
       
             int cantidadpechoizquierdoint = Integer.parseInt(cantidadpechoizquierdo);
@@ -578,6 +575,18 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
             int cantidadotraubicacionint = Integer.parseInt(cantidadotraubicacion);
             int cantidadotraubicacion2int = Integer.parseInt(cantidadotraubicacion2);
 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
                 //PECHO IZQUIERDO
                 double costopuntadapechoizquierdo = 0.0;
                 String sql1 = "SELECT costo from catalogo_costos_bordado where puntadas = '" + pechoizquierdo + "'";
@@ -608,6 +617,24 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                     agregardiferencia((String) cliente, (String) ubicacion, (String) puntos);
                     
                 }
+             
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 
 
                 //PECHO DERECHO
@@ -642,6 +669,28 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                     
                 }
 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
                 //MANGA IZQUIERDA
                 double costopuntadamangaizquierda = 0.0;
 
@@ -674,6 +723,27 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                     
                 }
 
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
                 //MANGA DERECHA
                 double costopuntadamangaderecha = 0.0;
 
@@ -705,6 +775,25 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                     agregardiferencia((String) cliente, (String) ubicacion, (String) puntos);
                     
                 }
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
 
                 // ESPALDA
                 double costopuntadaespalda = 0.0;
@@ -740,6 +829,26 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                     
                 }
 
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                 // OTRA UBICACION
                 double costopuntadaotraubicacion = 0.0;
 
@@ -763,6 +872,25 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 importeotraubicacion = cantidadotraubicacionint * costopuntadaotraubicacion;
 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 // OTRA UBICACION2
                 double costopuntadaotraubicacion2 = 0.0;
 
@@ -786,6 +914,26 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 importeotraubicacion2 = cantidadotraubicacion2int * costopuntadaotraubicacion2;
 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 if (aplicacionpechoizquierdo == null || aplicacionpechoizquierdo.equals("") || aplicacionpechoizquierdo.equals(" ") || aplicacionpechoizquierdo.equals("0")) {
                     aplicacionpechoizquierdo = "0";
                 }
@@ -834,6 +982,18 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
               //  sumadelasaplicioneschicasdouble = (sumadelasaplicioneschicasdouble * cantidad) * costopuntadaaplicacionchica;
 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
                 if (aplicacionespalda == null || aplicacionespalda.equals("") || aplicacionespalda.equals(" ") || aplicacionespalda.equals("0")) {
                     aplicacionespalda = "0";
                 }
@@ -841,6 +1001,8 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
                 double aplicacionespaldadouble = Double.parseDouble(aplicacionespalda);
                 double costopuntadaaplicaciongrande = 0.0;
 
+                
+                
                 String sql11 = "SELECT costo from catalogo_costos_bordado where puntadas = 'APLICACION GRANDE' ";
 
                 try {
@@ -864,10 +1026,45 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
                 
                
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
                 
                 double sumabordados = importepechoizquierdo + importepechoderecho + importemangaizquierda + importemangaderecha + importeespalda + importeotraubicacion + importeotraubicacion2 + sumadelasaplicionesgrandesdouble + sumadelasaplicioneschicasdouble;
                 sumatotaldelosbordoscamisaslocales = sumatotaldelosbordoscamisaslocales + sumabordados;
 
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             }
 
             rs.close();
@@ -3823,7 +4020,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
          
         }
         
-        
+      
 
         String sql = "Select numero,borda_cliente,prenda,identificador_prenda,"
                   + ""+ubicacionnombre+","+ubicacioncantidad+","+ubicacionpuntadas+","+ubicacionaplicacion+",tienda"
@@ -6763,7 +6960,7 @@ public class bordadosreportegeneral extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new bordadosreportegeneral().setVisible(true);
+                new reportegeneral().setVisible(true);
             }
         });
     }

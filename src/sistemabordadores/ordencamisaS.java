@@ -4759,9 +4759,9 @@ JOptionPane.showMessageDialog(null, mensaje);
 
         ////Actualiza el estatus
 
-      String sumasurtidastring = "";  
-      String sumavendidastring = "";  
-      String sumaenviadastring = "";  
+      String sumasurtidastring = "0";  
+      String sumavendidastring = "0";  
+      String sumaenviadastring = "0";  
       
       int sumasurtidaint = 0;  
       int sumavendidaint = 0;  

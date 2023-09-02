@@ -697,11 +697,19 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 numeroordendeenviosolicitada =  rs.getString("numero_orden");
                 
+                if (numeroordendeenviosolicitada==null)
+                {
+                    numeroordendeenviosolicitada = "";
+                }
+                
                 lbprenda.setText(rs.getString("prenda"));
                 prenda = (rs.getString("prenda"));
                 lbfecha.setText(rs.getString("fecha"));
                 
                 cantidad = rs.getString("cantidad");
+                
+                
+                
                 cantidadint =  Integer.parseInt(cantidad);
                 lbcantidad.setText(cantidad);
                 
@@ -2707,53 +2715,105 @@ JOptionPane.showMessageDialog(null, mensaje);
     void determinaciondeladescripciondelbordado(){
         
         
-        descripcion = "BORDADO CAMISA " + ubicacionprenda + " " + nombrebordado + "";
+            descripcion = "BORDADO CAMISA " + ubicacionprenda + " " + nombrebordado + "";
         
-             if (prenda.toUpperCase().equals("CAMISA")) {
+             if (prenda.toUpperCase().equals("CAMISA"))
+             
+             {
 
                 descripcion = "BORDADO CAMISA " +ubicacionprenda+" " + nombrebordado+ "";
                 descripcionaplicacion = "APLICACION CAMISA " + ubicacionprenda + "";
 
-            } //// playera
-            else if (prenda.toUpperCase().equals("PLAYERA")) {
+            }
+             
+
+//// playera
+            else if (prenda.toUpperCase().equals("PLAYERA")) 
+            
+            
+            {
 
                 descripcion = "BORDADO PLAYERA " + ubicacionprenda + " " + nombrebordado + "";
                 descripcionaplicacion = "APLICACION PLAYERA " + ubicacionprenda + "";
 
-            } //// chamarra desmontable
+            }
+            
+
+            //// chamarra desmontable
          
             
             
-            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE")) {
+            else if (prenda.toUpperCase().startsWith("CHAMARRA DESMONTABLE"))
+            
+            {
 
                 descripcion = "BORDADO CHAMARRA DESMONTABLE " + ubicacionprenda + " " + nombrebordado + "";
                 descripcionaplicacion = "APLICACION CHAMARRA DESMONTABLE " + ubicacionprenda + "";
 
             } /// chamarra rompevientos
-            else if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) {
+            
+            
+            else
+                
+                
+                if (prenda.toUpperCase().startsWith("CHAMARRA ROMPEVIENTOS")) 
+                
+                
+                {
 
                 descripcion = "BORDADO CHAMARRA ROMPEVIENTOS " + ubicacionprenda + " " + nombrebordado + "";
                 descripcionaplicacion = "APLICACION CHAMARRA ROMPEVIENTOS " + ubicacionprenda + "";
 
-            } ///camisola
-            else if (prenda.toUpperCase().startsWith("CAMISOLA")) {
+            } 
+
+
+           ///camisola
+            else if (prenda.toUpperCase().startsWith("CAMISOLA"))
+            
+            
+            {
 
                 descripcion = "BORDADO CAMISOLA " + ubicacionprenda + " " + nombrebordado + "";
                 descripcionaplicacion = "APLICACION CAMISOLA " + ubicacionprenda + "";
 
-            } else if (prenda.toUpperCase().equals("FILIPINA")) {
+            }
+            
+            
+            else
+                
+                
+                if (prenda.toUpperCase().equals("FILIPINA")) 
+                {
 
                 descripcion = "BORDADO FILIPINA " + ubicacionprenda + " " + nombrebordado + "";
                 descripcionaplicacion = "APLICACION FILIPINA " + ubicacionprenda + "";
 
-            } ///SACO
-            else if (prenda.toUpperCase().equals("SACO")) {
+            }
+                
+
+             ///SACO
+            else
+                    
+                    
+              if (prenda.toUpperCase().equals("SACO"))
+              
+              
+              {
 
                 descripcion = "BORDADO SACO " + ubicacionprenda + " " + nombrebordado + "";
                 descripcionaplicacion = "APLICACION SACO " + ubicacionprenda + "";
 
             }
-            else if (prenda.toUpperCase().equals("CHALECO")) {
+              
+              
+              
+            else
+                  
+                  
+              if (prenda.toUpperCase().equals("CHALECO")) 
+              
+              
+              {
 
                 descripcion = "BORDADO CHALECO " + ubicacionprenda + " " + nombrebordado + "";
                 descripcionaplicacion = "APLICACION CHALECO " + ubicacionprenda + "";
@@ -6952,22 +7012,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addGap(12, 12, 12)
                         .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(lbnumeroordenopedidosolicitado, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(lbnumeroordenopedidorecibido, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(lbprenda, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
@@ -7009,7 +7053,25 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addGap(12, 12, 12)
                         .addComponent(lbestatus, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(lbautorizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(lbautorizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
+                                .addComponent(lbprenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(lbnumeroordenopedidosolicitado, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(7, 7, 7)
+                        .addComponent(lbnumeroordenopedidorecibido, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(790, 790, 790)
                 .addComponent(btnterminetodo)
@@ -7767,7 +7829,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
            determinaciondeladescripciondelbordado();
                 
-                
+             
                 
                     if(cantidad.equals("0"))
         {

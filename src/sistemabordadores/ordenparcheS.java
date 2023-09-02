@@ -1756,7 +1756,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String nuevacantidadstring = "";
         String estatusentrega ="";
         
-        String SQL2 = "select surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + ubicacioncantidad + "' and identificador_prenda = '"+identificador+"'";
+        String SQL2 = "select surtida from historial_ventas where numero = '" + numerodeventa + "' and articulo = '" + descripcion + "' and identificador_prenda = '"+identificador+"'";
         try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(SQL2);
@@ -1791,7 +1791,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             try{
             
-             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevacantidadstring + "' WHERE numero='" + numerodeventa + "' and articulo = '" + ubicacioncantidad + "'      ");
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ventas SET surtida = '" + nuevacantidadstring + "' WHERE numero='" + numerodeventa + "' and articulo = '" + descripcion + "'      ");
                                 pst.executeUpdate();
                                 pst.close();
                             } catch (Exception e) {
@@ -3161,7 +3161,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbnumeroordenopedidorecibido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Orden de parche");
+        setTitle("Orden parche");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -4125,10 +4125,7 @@ JOptionPane.showMessageDialog(null, mensaje);
        descripcion = "BORDADO PARCHE "+parchenombre+ "";
        descripcionaplicacion = "APLICACION PARCHE";
             
-           
-        cantidad = lbcantidad.getText();
-           
-     
+        
       
          if(cantidad.equals("0"))
         {

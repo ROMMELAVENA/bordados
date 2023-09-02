@@ -86,24 +86,6 @@
                       <Component id="lbfecha" min="-2" pref="102" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                      <Component id="jLabel6" min="-2" pref="233" max="-2" attributes="0"/>
-                      <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                      <Component id="lbnumeroordenopedidosolicitado" min="-2" pref="104" max="-2" attributes="0"/>
-                      <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                      <Component id="jLabel11" min="-2" pref="233" max="-2" attributes="0"/>
-                      <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                      <Component id="lbnumeroordenopedidorecibido" min="-2" pref="103" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                      <Component id="jLabel24" min="-2" pref="100" max="-2" attributes="0"/>
-                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                      <Component id="lbprenda" min="-2" pref="196" max="-2" attributes="0"/>
-                      <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                      <Component id="lbtipo" min="-2" pref="87" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
                       <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                       <Component id="jLabel25" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
@@ -151,6 +133,28 @@
                       <Component id="lbestatus" min="-2" pref="335" max="-2" attributes="0"/>
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                       <Component id="lbautorizacion" min="-2" pref="53" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                              <Component id="jLabel24" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <Component id="lbprenda" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lbtipo" min="-2" pref="134" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                              <Component id="jLabel6" min="-2" pref="233" max="-2" attributes="0"/>
+                              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                              <Component id="lbnumeroordenopedidosolicitado" min="-2" pref="104" max="-2" attributes="0"/>
+                              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                              <Component id="jLabel11" min="-2" pref="233" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                      <Component id="lbnumeroordenopedidorecibido" min="-2" pref="103" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>

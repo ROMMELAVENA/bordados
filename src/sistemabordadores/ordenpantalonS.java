@@ -2639,7 +2639,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String botonhabilitado3 = "";
         String botonhabilitado4 = "";
 
-        String sql = "Select orden_o_pedido,fecha,hora,cliente,nombre_comercial,borda_cliente,numero_orden_o_pedido_solicitada,numero_orden_o_pedido_recibida,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente_nombre,lado_derecho_frente_nombre,lado_izquierdo_atras_nombre,lado_derecho_atras_nombre,lado_izquierdo_frente_nombre,lado_derecho_frente_cantidad,lado_izquierdo_atras_nombre,lado_derecho_atras_cantidad,lado_izquierdo_frente_puntadas,lado_derecho_frente_nombre,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,estatus_orden from historial_ordenes_pantalon_recibidas where numero = '" + numeroordendebordadosolicitadoorecibidasisehabredesderecibidas + "' and prenda = '" + prenda + "'";
+        String sql = "Select orden_o_pedido,fecha,hora,cliente,nombre_comercial,borda_cliente,numero_orden_o_pedido_solicitada,numero_orden_o_pedido_recibida,tienda,cantidad,cantidad_bordados,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lado_izquierdo_frente_nombre,lado_derecho_frente_nombre,lado_izquierdo_atras_nombre,lado_derecho_atras_nombre,lado_izquierdo_frente_nombre,lado_derecho_frente_cantidad,lado_izquierdo_atras_nombre,lado_derecho_atras_cantidad,lado_izquierdo_frente_puntadas,lado_derecho_frente_puntadas,lado_izquierdo_atras_puntadas,lado_derecho_atras_puntadas,lugar,identificador_prenda,estatus_orden from historial_ordenes_pantalon_recibidas where numero = '" + numeroordendebordadosolicitadoorecibidasisehabredesderecibidas + "' and prenda = '" + prenda + "'";
 
         try {
             Statement st = cn.createStatement();
@@ -2668,11 +2668,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 ladoizquierdoatrasnombre = rs.getString("lado_izquierdo_atras_puntadas");
                 ladoderechoatrasnombre = rs.getString("lado_derecho_atras_puntadas");
                         
-          //      lbladoizquierdofrente.setText(rs.getString("lado_izquierdo_frente_puntadas"));
-                String ladoizquierdofrente = rs.getString("lado_izquierdo_frente_puntadas");
-             
-                
-                
+               
                 
                 
                 
@@ -3106,6 +3102,9 @@ JOptionPane.showMessageDialog(null, mensaje);
             cnsucursal = DriverManager.getConnection("jdbc:mysql://" + ipsucursal + "/" + sucursal + "", "root", "sistemas");
       
 
+            /*
+            
+            
         String sql7 = "Select cliente,lugar,identificador_prenda from historial_ordenes_pantalon where numero = '" + numerosucursal + "' ";
 
         try {
@@ -3127,7 +3126,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
 
         
-     
+     */
         
         
          BufferedImage img = null;

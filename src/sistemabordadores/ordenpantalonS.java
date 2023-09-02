@@ -3573,7 +3573,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         if (rs.next()) 
         {
 
-        cantidadstring = rs.getString("cantidad");
+        cantidadstring = rs.getString("surtida");
        
 
         }

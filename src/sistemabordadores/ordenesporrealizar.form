@@ -87,7 +87,7 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="14" rowCount="0">
                 <Column editable="false" title="No. Orden" type="java.lang.Object"/>
-                <Column editable="false" title="cliente" type="java.lang.Object"/>
+                <Column editable="false" title="borda cliente" type="java.lang.Object"/>
                 <Column editable="false" title="prenda" type="java.lang.Object"/>
                 <Column editable="false" title="tipo" type="java.lang.Object"/>
                 <Column editable="false" title="lugar" type="java.lang.Object"/>

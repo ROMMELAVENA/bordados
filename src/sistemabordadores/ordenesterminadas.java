@@ -186,9 +186,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         String[] datos = new String[12];
         
         
-        String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  "
-                         + "FROM historial_ordenes_camisa where lugar = 'Esta sucursal' "
-                         + "and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc  ";
+        String sqlcamisa = "SELECT numero,borda_cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda FROM historial_ordenes_camisa where lugar = 'Esta sucursal' and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc  ";
         
         
         
@@ -212,7 +210,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 
                 
                 datos[0] = rs.getString("numero");
-                datos[1] = rs.getString("cliente");
+                datos[1] = rs.getString("borda_cliente");
                 datos[2] = rs.getString("prenda");
                 datos[3] = rs.getString("tipo");
                 datos[4] = rs.getString("lugar");
@@ -232,7 +230,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
 
         
@@ -247,14 +245,14 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos2 = new String[12];
         
-        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_gorra where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc";
+        String sqlgorra = "SELECT numero,borda_cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_gorra where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sqlgorra);
             while (rs.next()) {
                 datos2[0] = rs.getString("numero");
-                datos2[1] = rs.getString("cliente");
+                datos2[1] = rs.getString("borda_cliente");
                 datos2[2] = rs.getString("prenda");
                 datos2[3] = rs.getString("tipo");
                 datos2[4] = rs.getString("lugar");
@@ -274,7 +272,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
         
         
@@ -287,7 +285,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos3 = new String[12];
         
-         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_pantalon where lugar = 'Esta sucursal' and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc";
+         String sqlpantalon = "SELECT numero,borda_cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_pantalon where lugar = 'Esta sucursal' and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
@@ -295,7 +293,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
             while (rs.next()) 
             {
                 datos3[0] = rs.getString("numero");
-                datos3[1] = rs.getString("cliente");
+                datos3[1] = rs.getString("borda_cliente");
                 datos3[2] = rs.getString("prenda");
                 datos3[3] = rs.getString("tipo");
                 datos3[4] = rs.getString("lugar");
@@ -316,7 +314,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
            
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
         
         
@@ -329,7 +327,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
          String[] datos6 = new String[12];
         
-        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_corbata where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc ";
+        String sqlcorbata= "SELECT Distinct numero,borda_cliente,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_corbata where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc ";
 
         try {
             Statement st = cn.createStatement();
@@ -338,7 +336,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 
                 
                 datos6[0] = rs.getString("numero");
-                datos6[1] = rs.getString("cliente");
+                datos6[1] = rs.getString("borda_cliente");
                 datos6[2] = "Corbata";
                 datos6[3] = rs.getString("tipo");
                 datos6[4] = rs.getString("lugar");
@@ -359,7 +357,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
           
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
         
         
@@ -370,14 +368,14 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos4 = new String[12];
         
-        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc";
+        String sqlparches = "SELECT Distinct numero,borda_cliente,tipo,lugar,numero_venta,fecha,identificador_prenda  FROM historial_ordenes_parche where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sqlparches);
             while (rs.next()) {
                 datos4[0] = rs.getString("numero");
-                datos4[1] = rs.getString("cliente");
+                datos4[1] = rs.getString("borda_cliente");
                 datos4[2] = "Parche";
                 datos4[3] = rs.getString("tipo");
                 datos4[4] = rs.getString("lugar");
@@ -398,7 +396,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
           
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
       
         
@@ -441,7 +439,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
           
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
 
 
@@ -479,7 +477,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
           
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }        
      
         
@@ -493,14 +491,14 @@ public class ordenesterminadas extends javax.swing.JFrame {
          
          String[] datos5 = new String[12];
         
-        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc";
+        String sqlponchados = "SELECT Distinct numero,borda_cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Esta sucursal'  and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sqlponchados);
             while (rs.next()) {
                 datos5[0] = rs.getString("numero");
-                datos5[1] = rs.getString("cliente");
+                datos5[1] = rs.getString("borda_cliente");
                 datos5[2] = "Ponchado";
                 datos5[3] = rs.getString("tipo");
                 datos5[4] = rs.getString("lugar");
@@ -521,13 +519,13 @@ public class ordenesterminadas extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
            
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
         
         
         /// distinta
         
-         String sqldistinta = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  "
+         String sqldistinta = "SELECT numero,borda_cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda  "
                          + "FROM historial_ordenes_distinta where lugar = 'Esta sucursal' "
                          + "and estatus_orden = 'realizada totalmente' order by fecha desc  ";
 
@@ -536,7 +534,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(sqldistinta);
             while (rs.next()) {
                 datos[0] = rs.getString("numero");
-                datos[1] = rs.getString("cliente");
+                datos[1] = rs.getString("borda_cliente");
                 datos[2] = "Distinta";
                 datos[3] = rs.getString("tipo");
                 datos[4] = rs.getString("lugar");
@@ -556,7 +554,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
         
         
@@ -624,14 +622,14 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos9 = new String[12];
 
-        String sql3 = "SELECT numero,numero_orden_camisa_solicitada,cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc "; //and tienda not in('"+tiendalocal+"')
+        String sql3 = "SELECT numero,numero_orden_camisa_solicitada,borda_cliente,prenda,tipo,tienda,fecha,lugar  FROM historial_ordenes_camisa_recibidas where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc "; //and tienda not in('"+tiendalocal+"')
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql3);
             while (rs.next()) {
                 datos9[0] = rs.getString("numero");
-                datos9[1] = rs.getString("cliente");
+                datos9[1] = rs.getString("borda_cliente");
                 datos9[2] = rs.getString("prenda");
                 datos9[3] = rs.getString("tipo");
                 datos9[4] = rs.getString("lugar");
@@ -660,14 +658,14 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos10 = new String[12];
 
-        String sql4 = "SELECT numero,numero_orden_gorra_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_gorra_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc  ";
+        String sql4 = "SELECT numero,numero_orden_gorra_solicitada,borda_cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_gorra_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql4);
             while (rs.next()) {
                 datos10[0] = rs.getString("numero");
-                datos10[1] = rs.getString("cliente");
+                datos10[1] = rs.getString("borda_cliente");
                 datos10[2] = rs.getString("prenda");
                 datos10[3] = rs.getString("tipo");
                 datos10[4] = rs.getString("lugar");
@@ -695,14 +693,14 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos11 = new String[12];
 
-        String sql15 = "SELECT numero,numero_orden_pantalon_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_pantalon_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc  ";
+        String sql15 = "SELECT numero,numero_orden_pantalon_solicitada,borda_cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_pantalon_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql15);
             while (rs.next()) {
                 datos11[0] = rs.getString("numero");
-                datos11[1] = rs.getString("cliente");
+                datos11[1] = rs.getString("borda_cliente");
                 datos11[2] = rs.getString("prenda");
                 datos11[3] = rs.getString("tipo");
                 datos11[4] = rs.getString("lugar");
@@ -732,14 +730,14 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos16 = new String[12];
 
-        String sql16 = "SELECT numero,numero_orden_corbata_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_corbata_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by fecha desc  ";
+        String sql16 = "SELECT numero,numero_orden_corbata_solicitada,borda_cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_corbata_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"'  order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql16);
             while (rs.next()) {
                 datos16[0] = rs.getString("numero");
-                datos16[1] = rs.getString("cliente");
+                datos16[1] = rs.getString("borda_cliente");
                 datos16[2] = rs.getString("prenda");
                 datos16[3] = rs.getString("tipo");
                 datos16[4] = rs.getString("lugar");
@@ -767,14 +765,14 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos17 = new String[12];
 
-        String sql17 = "SELECT numero,numero_orden_parche_solicitada,cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_parche_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc  ";
+        String sql17 = "SELECT numero,numero_orden_parche_solicitada,borda_cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada  FROM historial_ordenes_parche_recibidas  where estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql17);
             while (rs.next()) {
                 datos17[0] = rs.getString("numero");
-                datos17[1] = rs.getString("cliente");
+                datos17[1] = rs.getString("borda_cliente");
                 datos17[2] = rs.getString("prenda");
                 datos17[3] = rs.getString("tipo");
                 datos17[4] = rs.getString("lugar");
@@ -832,16 +830,14 @@ public class ordenesterminadas extends javax.swing.JFrame {
         String[] datos = new String[12];
         
         
-        String sqlcamisa = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  "
-                         + "FROM historial_ordenes_camisa where lugar = 'Otra sucursal' "
-                         + "and (estatus_orden = 'generada' or estatus_orden = 'solicitada')  ";
+        String sqlcamisa = "SELECT numero,borda_cliente,prenda,tipo,lugar,numero_venta,fecha FROM historial_ordenes_camisa where lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada')  ";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sqlcamisa);
             while (rs.next()) {
                 datos[0] = rs.getString("numero");
-                datos[1] = rs.getString("cliente");
+                datos[1] = rs.getString("borda_cliente");
                 datos[2] = rs.getString("prenda");
                 datos[3] = rs.getString("tipo");
                 datos[4] = rs.getString("lugar");
@@ -860,7 +856,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
 
         
@@ -868,14 +864,14 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos2 = new String[12];
         
-        String sqlgorra = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada')";
+        String sqlgorra = "SELECT numero,borda_cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_gorra where lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada')";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sqlgorra);
             while (rs.next()) {
                 datos2[0] = rs.getString("numero");
-                datos2[1] = rs.getString("cliente");
+                datos2[1] = rs.getString("borda_cliente");
                 datos2[2] = rs.getString("prenda");
                 datos2[3] = rs.getString("tipo");
                 datos2[4] = rs.getString("lugar");
@@ -894,7 +890,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
         
         //// historial_orden_pantalon
@@ -902,7 +898,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos3 = new String[12];
         
-         String sqlpantalon = "SELECT numero,cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') ";
+         String sqlpantalon = "SELECT numero,borda_cliente,prenda,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_pantalon where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') ";
 
         try {
             Statement st = cn.createStatement();
@@ -910,7 +906,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
             while (rs.next()) 
             {
                 datos3[0] = rs.getString("numero");
-                datos3[1] = rs.getString("cliente");
+                datos3[1] = rs.getString("borda_cliente");
                 datos3[2] = rs.getString("prenda");
                 datos3[3] = rs.getString("tipo");
                 datos3[4] = rs.getString("lugar");
@@ -930,7 +926,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
            
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
         
         
@@ -938,14 +934,14 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         String[] datos4 = new String[12];
         
-        String sqlparches = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada')  ";
+        String sqlparches = "SELECT Distinct numero,borda_cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_parche where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada')  ";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sqlparches);
             while (rs.next()) {
                 datos4[0] = rs.getString("numero");
-                datos4[1] = rs.getString("cliente");
+                datos4[1] = rs.getString("borda_cliente");
                 datos4[2] = "Parche";
                 datos4[3] = rs.getString("tipo");
                 datos4[4] = rs.getString("lugar");
@@ -965,7 +961,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
           
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
         
          //// historial_orden_ponchado
@@ -973,14 +969,14 @@ public class ordenesterminadas extends javax.swing.JFrame {
          
          String[] datos5 = new String[12];
         
-        String sqlponchados = "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada')  ";
+        String sqlponchados = "SELECT Distinct numero,borda_cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_ponchados where lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada')  ";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sqlponchados);
             while (rs.next()) {
                 datos5[0] = rs.getString("numero");
-                datos5[1] = rs.getString("cliente");
+                datos5[1] = rs.getString("borda_cliente");
                 datos5[2] = "Ponchado";
                 datos5[3] = rs.getString("tipo");
                 datos5[4] = rs.getString("lugar");
@@ -1000,21 +996,21 @@ public class ordenesterminadas extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
            
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
         
         /// historial ordenes corbata
         
          String[] datos6 = new String[12];
         
-        String sqlcorbata= "SELECT Distinct numero,cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') ";
+        String sqlcorbata= "SELECT Distinct numero,borda_cliente,tipo,lugar,numero_venta,fecha  FROM historial_ordenes_corbata where  lugar = 'Otra sucursal' and (estatus_orden = 'generada' or estatus_orden = 'solicitada') ";
 
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sqlcorbata);
             while (rs.next()) {
                 datos6[0] = rs.getString("numero");
-                datos6[1] = rs.getString("cliente");
+                datos6[1] = rs.getString("borda_cliente");
                 datos6[2] = "Corbata";
                 datos6[3] = rs.getString("tipo");
                 datos6[4] = rs.getString("lugar");
@@ -1034,7 +1030,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         } catch (SQLException ex)
         {
            
-           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+ex+"");
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+ex+"");
         }
         
 
@@ -1070,7 +1066,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                         rs2.close();
                     } catch (Exception exx) {
                         
-                        JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+exx+"");
+                        JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+exx+"");
 
                     }
                 
@@ -1277,7 +1273,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             
-            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:5px;\">"+e+"");
+            JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px;\">"+e+"");
         }
 }
     
@@ -1320,7 +1316,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Numero Orden", "cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tieneponchados", "tabla", "Nombre bordado"
+                "Numero Orden", "borda cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tieneponchados", "tabla", "Nombre bordado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1840,7 +1836,7 @@ sorter.sort();
                      if (ordendistintaS.ventanaordencamisaanteriores == true) 
                     {
                         
-                        JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:5px;\">La orden de distinta ya esta abierta");
+                        JOptionPane.showMessageDialog(null,"<HTML><b style=\"Color:red; font-size:15px;\">La orden de distinta ya esta abierta");
 
                     } else {
                         ordendistintaS orden = new ordendistintaS();

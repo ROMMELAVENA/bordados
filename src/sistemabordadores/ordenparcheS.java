@@ -832,6 +832,23 @@ JOptionPane.showMessageDialog(null, mensaje);
         lbestatus.setText(nuevoestatusorden);
         
         
+        
+        
+        
+           if(ordenesporrealizar.ventanaordenesporrealizar==true)
+         {
+             ordenesporrealizar.btndatos.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btndatos.doClick();
+         }
+        
+        
+        
     }
     
     

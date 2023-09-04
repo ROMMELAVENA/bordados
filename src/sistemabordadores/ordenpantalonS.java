@@ -4049,6 +4049,36 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
          lbestatus.setText(nuevoestatusorden);
+         
+         
+         
+         
+         
+            if(ordenesporrealizar.ventanaordenesporrealizar==true)
+         {
+             ordenesporrealizar.btndatos.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btndatos.doClick();
+         }
+        
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
         
         
     }
@@ -4433,6 +4463,11 @@ JOptionPane.showMessageDialog(null, mensaje);
                 btnladoderechofrentecancelarActionPerformed(evt);
             }
         });
+        btnladoderechofrentecancelar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                btnladoderechofrentecancelarKeyReleased(evt);
+            }
+        });
 
         btnladoderechoatrascancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnladoderechoatrascancelar.setText("Cancelar");
@@ -4457,6 +4492,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         btnladoizquierdofrentecancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnladoizquierdofrentecancelarActionPerformed(evt);
+            }
+        });
+        btnladoizquierdofrentecancelar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                btnladoizquierdofrentecancelarKeyReleased(evt);
             }
         });
 
@@ -6326,81 +6366,31 @@ public static String dia() {
         
         
                 datos();
+                
+                
+                
+                
+                
     }//GEN-LAST:event_btnladoizquierdofrentetermineMouseReleased
 
     private void btnladoderechofrentetermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechofrentetermineMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesporrealizar==true)
-         {
-             ordenesporrealizar.btndatos.doClick();
-         }
-         
-       
-                
-                       if(ordenesterminadas.ventanaordenesterminadas==true)
-         {
-             ordenesterminadas.btndatos.doClick();
-         }
-        
-        
-                datos();
+             
     }//GEN-LAST:event_btnladoderechofrentetermineMouseReleased
 
     private void btnladoizquierdoatrastermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdoatrastermineMouseReleased
               
-                if(ordenesporrealizar.ventanaordenesporrealizar==true)
-         {
-             ordenesporrealizar.btndatos.doClick();
-         }
-         
-       
-                
-                       if(ordenesterminadas.ventanaordenesterminadas==true)
-         {
-             ordenesterminadas.btndatos.doClick();
-         }
-        
-        
-                datos();
+           
     }//GEN-LAST:event_btnladoizquierdoatrastermineMouseReleased
 
     private void btnladoderechoatrastermineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoderechoatrastermineMouseReleased
-             
-                if(ordenesporrealizar.ventanaordenesporrealizar==true)
-         {
-             ordenesporrealizar.btndatos.doClick();
-         }
-         
-       
-                
-                       if(ordenesterminadas.ventanaordenesterminadas==true)
-         {
-             ordenesterminadas.btndatos.doClick();
-         }
-        
-        
-                datos();
-                
-                
-                
+           
                 
                 
     }//GEN-LAST:event_btnladoderechoatrastermineMouseReleased
 
     private void btnladoizquierdofrentecancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnladoizquierdofrentecancelarMouseReleased
-        // TODO add your handling code here:       
-                if(ordenesporrealizar.ventanaordenesporrealizar==true)
-         {
-             ordenesporrealizar.btndatos.doClick();
-         }
-         
        
-                
-                       if(ordenesterminadas.ventanaordenesterminadas==true)
-         {
-             ordenesterminadas.btndatos.doClick();
-         }
-        
         
              
     }//GEN-LAST:event_btnladoizquierdofrentecancelarMouseReleased
@@ -6921,6 +6911,22 @@ public static String dia() {
         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:green; font-size:20px;\">Ponchado eliminado");
 
     }//GEN-LAST:event_btnquitarponchado4ActionPerformed
+
+    private void btnladoizquierdofrentecancelarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnladoizquierdofrentecancelarKeyReleased
+      
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnladoizquierdofrentecancelarKeyReleased
+
+    private void btnladoderechofrentecancelarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnladoderechofrentecancelarKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnladoderechofrentecancelarKeyReleased
 
     ResultSet rs;
     ResultSet rs2;

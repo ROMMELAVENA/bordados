@@ -5713,6 +5713,24 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
+        
+        
+           if(ordenesporrealizar.ventanaordenesporrealizar==true)
+         {
+             ordenesporrealizar.btndatos.doClick();
+         }
+         
+       
+                
+                       if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btndatos.doClick();
+         }
+        
+        
+        
+        
+        
     }
     
    
@@ -8451,7 +8469,10 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-        
+         if(ordenesporrealizar.ventanaordenesporrealizar==true)
+         {
+             ordenesporrealizar.btndatos.doClick();
+         }
          terminetodo = "no";
          btnterminetodo.setEnabled(false);
          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se actualizo");
@@ -8460,6 +8481,12 @@ JOptionPane.showMessageDialog(null, mensaje);
          {
              ordenesporrealizar.btndatos.doClick();
          }
+         
+         
+         
+         
+         
+         
          
          this.dispose();
          ventanaordencamisa = false;
@@ -9514,19 +9541,6 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnpechoizquierdocancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpechoizquierdocancelarMouseReleased
             
-                if(ordenesporrealizar.ventanaordenesporrealizar==true)
-         {
-             ordenesporrealizar.btndatos.doClick();
-         }
-         
-       
-                
-                       if(ordenesterminadas.ventanaordenesterminadas==true)
-         {
-             ordenesterminadas.btndatos.doClick();
-         }
-        
-        
                
                 
                 
@@ -9534,18 +9548,6 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btnpechoizquierdocancelarMouseReleased
 
     private void btnpechoderechocancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpechoderechocancelarMouseReleased
-              
-                if(ordenesporrealizar.ventanaordenesporrealizar==true)
-         {
-             ordenesporrealizar.btndatos.doClick();
-         }
-         
-       
-                
-                       if(ordenesterminadas.ventanaordenesterminadas==true)
-         {
-             ordenesterminadas.btndatos.doClick();
-         }
         
         
             
@@ -9556,19 +9558,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnmangaizquierdacancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmangaizquierdacancelarMouseReleased
             
-                if(ordenesporrealizar.ventanaordenesporrealizar==true)
-         {
-             ordenesporrealizar.btndatos.doClick();
-         }
-         
-       
-                
-                       if(ordenesterminadas.ventanaordenesterminadas==true)
-         {
-             ordenesterminadas.btndatos.doClick();
-         }
-        
-        
+           
                
                 
                 
@@ -9576,19 +9566,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btnmangaizquierdacancelarMouseReleased
 
     private void btnmangaderechacancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmangaderechacancelarMouseReleased
-              
-                if(ordenesporrealizar.ventanaordenesporrealizar==true)
-         {
-             ordenesporrealizar.btndatos.doClick();
-         }
-         
        
-                
-                       if(ordenesterminadas.ventanaordenesterminadas==true)
-         {
-             ordenesterminadas.btndatos.doClick();
-         }
-        
         
                
                 
@@ -9597,18 +9575,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnespaldacancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnespaldacancelarMouseReleased
              
-                if(ordenesporrealizar.ventanaordenesporrealizar==true)
-         {
-             ordenesporrealizar.btndatos.doClick();
-         }
-         
-       
-                
-                       if(ordenesterminadas.ventanaordenesterminadas==true)
-         {
-             ordenesterminadas.btndatos.doClick();
-         }
-        
+          
         
              
                 
@@ -9616,18 +9583,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btnespaldacancelarMouseReleased
 
     private void btnotraubicacioncancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnotraubicacioncancelarMouseReleased
-             
-                if(ordenesporrealizar.ventanaordenesporrealizar==true)
-         {
-             ordenesporrealizar.btndatos.doClick();
-         }
          
-       
-                
-                       if(ordenesterminadas.ventanaordenesterminadas==true)
-         {
-             ordenesterminadas.btndatos.doClick();
-         }
         
         
                
@@ -9635,19 +9591,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnotraubicacion2cancelarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnotraubicacion2cancelarMouseReleased
              
-                if(ordenesporrealizar.ventanaordenesporrealizar==true)
-         {
-             ordenesporrealizar.btndatos.doClick();
-         }
-         
-       
-                
-                       if(ordenesterminadas.ventanaordenesterminadas==true)
-         {
-             ordenesterminadas.btndatos.doClick();
-         }
-        
-        
+            
                
                 
                 

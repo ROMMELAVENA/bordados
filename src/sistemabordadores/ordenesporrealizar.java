@@ -74,7 +74,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         
-        String[] datos = new String[15];
+        String[] datos = new String[16];
         
         
         
@@ -92,7 +92,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         //// historial_orden_camisa
         
-        String sqlcamisa = "SELECT numero,borda_cliente,prenda,tipo,lugar,numero_venta,fecha,tienda,identificador_prenda,observacion,cantidad FROM historial_ordenes_camisa where lugar = '"+donde+"' and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc  ";
+        String sqlcamisa = "SELECT numero,borda_cliente,prenda,tipo,lugar,numero_venta,fecha,tienda,identificador_prenda,observacion,cantidad,cliente FROM historial_ordenes_camisa where lugar = '"+donde+"' and (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc  ";
 
         try {
             Statement st = cn.createStatement();
@@ -114,6 +114,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos[11] = rs.getString("identificador_prenda");
                 datos[12] = rs.getString("observacion");
                 datos[13] = rs.getString("cantidad");
+                datos[14] = rs.getString("cantidad");
 
                 modelo.addRow(datos);
 
@@ -1193,11 +1194,11 @@ sorter.sort();
 
             },
             new String [] {
-                "No. Orden", "borda cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tiene ponchados", "tabla", "Identificador de prenda", "observacion", "Cantidad"
+                "No. Orden", "borda cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tiene ponchados", "tabla", "Identificador de prenda", "observacion", "Cantidad", "cliente"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

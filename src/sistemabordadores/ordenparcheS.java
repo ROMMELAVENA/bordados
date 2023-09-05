@@ -2316,7 +2316,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         else
         {
-          estatusentrega ="surtida parcialmente no traspasado";   
+          estatusentrega ="surtido parcialmente no traspasado";   
         }    
         
           try {
@@ -2667,7 +2667,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         else
           if(sumasurtidaint > 0 && sumaenviadaint == 0 )
         {
-          estatusentrega ="surtida parcialmente no traspasado";  
+          estatusentrega ="surtido parcialmente no traspasado";  
         }
         
         else

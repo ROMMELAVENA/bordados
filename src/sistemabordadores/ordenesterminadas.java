@@ -183,7 +183,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         //// historial_orden_camisa
         
-        String[] datos = new String[12];
+        String[] datos = new String[16];
         
         
         String sqlcamisa = "SELECT numero,borda_cliente,prenda,tipo,lugar,numero_venta,fecha,identificador_prenda FROM historial_ordenes_camisa where lugar = 'Esta sucursal' and estatus_orden = 'realizada totalmente' and fecha between '"+fechainicial+"' and '"+fechafinal+"' order by fecha desc  ";
@@ -221,6 +221,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 datos[9] = "";
                 datos[10] = "Local";
                 datos[11] = rs.getString("identificador_prenda");
+                datos[12] = rs.getString("cliente");
 
                 modelo.addRow(datos);
 
@@ -1316,11 +1317,11 @@ public class ordenesterminadas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Numero Orden", "borda cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tieneponchados", "tabla", "Nombre bordado"
+                "Numero Orden", "borda cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tieneponchados", "tabla", "Nombre bordado", "cliente"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

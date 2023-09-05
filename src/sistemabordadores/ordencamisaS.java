@@ -4279,6 +4279,97 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+              
+            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
+            {
+                
+                
+                
+                
+            }
+            
+            else
+            {
+                
+               
+         String cantidadaplicacionstring = "";
+         int cantidadaplicacionintanterior = 0;
+                
+                
+         
+         
+         
+                
+                  String SQL5 = "select surtidas from historial_ordenes_envio_recibidas where articulo = '" + descripcionaplicacion + "' and  numero = '" + numeroordenopedidorecibido + "'";
+      
+                  
+                  try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL5);
+
+        if (rs.next()) 
+        {
+
+        cantidadaplicacionstring = rs.getString("surtidas");
+        cantidadaplicacionintanterior = Integer.parseInt(cantidadaplicacionstring);
+     
+
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+                
+                  
+                
+              int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+               cantidadaplicacionint = cantidadaplicacionint * cantidadint;
+               
+             int nuevacantidadaplicacionint = cantidadaplicacionintanterior + cantidadaplicacionint;
+                
+               String totalaplicaciones = String.valueOf(nuevacantidadaplicacionint);
+                
+        
+            
+            
+             try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtidas = '" + totalaplicaciones + "' WHERE numero='" + numeroordenopedidorecibido + "' and articulo = '" + descripcionaplicacion + "'");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+             
+             
+             
+            
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
 
         ////Actualiza el estatus
 
@@ -4441,6 +4532,121 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 System.out.println(e);
                             }
        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+              
+            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
+            {
+                
+                
+                
+                
+            }
+            
+            else
+            {
+                
+               
+         String cantidadaplicacionstring = "";
+         int cantidadaplicacionintanterior = 0;
+                
+                
+         
+         
+         
+                
+                  String SQL5 = "select surtidas from historial_pedidos_sucursal_recibidos where articulo = '" + descripcionaplicacion + "' and  numero = '" + numeroordenopedidorecibido + "'";
+      
+                  
+                  try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL5);
+
+        if (rs.next()) 
+        {
+
+        cantidadaplicacionstring = rs.getString("surtidas");
+        cantidadaplicacionintanterior = Integer.parseInt(cantidadaplicacionstring);
+     
+
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+                
+                  
+                
+              int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+               cantidadaplicacionint = cantidadaplicacionint * cantidadint;
+               
+             int nuevacantidadaplicacionint = cantidadaplicacionintanterior + cantidadaplicacionint;
+                
+               String totalaplicaciones = String.valueOf(nuevacantidadaplicacionint);
+                
+        
+            
+            
+             try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET surtidas = '" + totalaplicaciones + "' WHERE numero='" + numeroordenopedidorecibido + "' and articulo = '" + descripcionaplicacion + "'");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+             
+             
+             
+            
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
             
             
@@ -4648,6 +4854,110 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
+            
+            
+            
+            
+            
+            
+            
+              
+            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
+            {
+                
+                
+                
+                
+            }
+            
+            else
+            {
+                
+               
+         String cantidadaplicacionstring = "";
+         int cantidadaplicacionintanterior = 0;
+                
+                
+         
+         
+         
+                
+                  String SQL5 = "select surtidas from historial_ordenes_envio_recibidas where articulo = '" + descripcionaplicacion + "' and  numero = '" + numeroordenopedidorecibido + "'";
+      
+                  
+                  try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL5);
+
+        if (rs.next()) 
+        {
+
+        cantidadaplicacionstring = rs.getString("surtidas");
+        cantidadaplicacionintanterior = Integer.parseInt(cantidadaplicacionstring);
+     
+
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+                
+                  
+                
+              int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+               cantidadaplicacionint = cantidadaplicacionint * cantidadint;
+               
+             int nuevacantidadaplicacionint = cantidadaplicacionintanterior - cantidadaplicacionint;
+                
+               String totalaplicaciones = String.valueOf(nuevacantidadaplicacionint);
+                
+        
+            
+            
+             try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET surtidas = '" + totalaplicaciones + "' WHERE numero='" + numeroordenopedidorecibido + "' and articulo = '" + descripcionaplicacion + "'");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+             
+             
+             
+            
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
 
         ////Actualiza el estatus
 
@@ -4810,6 +5120,115 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 System.out.println(e);
                             }
        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+              
+            if (cantidadaplicacion.equals("0") || cantidadaplicacion.equals(""))
+            {
+                
+                
+                
+                
+            }
+            
+            else
+            {
+                
+               
+         String cantidadaplicacionstring = "";
+         int cantidadaplicacionintanterior = 0;
+                
+                
+         
+         
+         
+                
+                  String SQL5 = "select surtidas from historial_pedidos_sucursal_recibidos where articulo = '" + descripcionaplicacion + "' and  numero = '" + numeroordenopedidorecibido + "'";
+      
+                  
+                  try {
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(SQL5);
+
+        if (rs.next()) 
+        {
+
+        cantidadaplicacionstring = rs.getString("surtidas");
+        cantidadaplicacionintanterior = Integer.parseInt(cantidadaplicacionstring);
+     
+
+        }
+        
+
+        } catch (SQLException ex) {
+            System.out.println (ex);
+        }
+        
+                
+                  
+                
+              int cantidadaplicacionint = Integer.parseInt(cantidadaplicacion);
+                
+               cantidadaplicacionint = cantidadaplicacionint * cantidadint;
+               
+             int nuevacantidadaplicacionint = cantidadaplicacionintanterior - cantidadaplicacionint;
+                
+               String totalaplicaciones = String.valueOf(nuevacantidadaplicacionint);
+                
+        
+            
+            
+             try{
+            
+             PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET surtidas = '" + totalaplicaciones + "' WHERE numero='" + numeroordenopedidorecibido + "' and articulo = '" + descripcionaplicacion + "'");
+                                pst.executeUpdate();
+                                pst.close();
+                            } catch (Exception e) {
+
+                                System.out.println(e);
+                            }
+       
+             
+             
+             
+            
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
             
             

@@ -1114,10 +1114,13 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 lbnumeroordenopedidosolicitado.setText(rs.getString("numero_orden_o_pedido_solicitada"));
                 
-                ladoizquierdonombre = rs.getString("lado_izquierdo_nombre");
-                ladoderechonombre = rs.getString("lado_derecho_nombre");
+                
                 frentenombre = rs.getString("frente_nombre");
                 atrasnombre = rs.getString("atras_nombre");
+                ladoizquierdonombre = rs.getString("lado_izquierdo_nombre");
+                ladoderechonombre = rs.getString("lado_derecho_nombre");
+                
+                
                 sucursal= rs.getString("tienda");
                 numerosucursal= rs.getString("numero_orden_gorra_solicitada");
                 
@@ -1247,6 +1250,11 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
+                
+                
+                
+                
+                
                 if( botonhabilitado1.equals("si"))
                 {
                      
@@ -1295,67 +1303,75 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                 if(  botonhabilitado3.equals("si") )
+                
+                
+                       
+                 
+                 
+                 
+                  if(  botonhabilitado2.equals("si"))
                 {
-                  
                    
-                  
-                   if(cantidadladoderecho.equals("0"))
+              
+                 
+              
+                   
+                   if(cantidadatras.equals("0"))
                    {
-                    listabotones.add("btnladoderecho");
+                    listabotones.add("btnatras");
                     
-                       btnatrastermine.setEnabled(true);
-                       
-                       
-                    btnponchado2.setEnabled(true); 
-                     btnladoderechocancelar.setEnabled(false);
+                    
+                     btnatrastermine.setEnabled(true);
+                      btnatrascancelar.setEnabled(false);
+                    
                     
                      lbcantidad2.setText("0");
                     lbcantidad2.setForeground(Color.red.darker());
-                    
-                    
                    }
                    
                    else
-                       
                    {
-                        btnladoderechocancelar.setEnabled(true);
-                         btnatrastermine.setEnabled(false);
-                         
-                         
-                 lbcantidad2.setText(cantidad);
-                 lbcantidad2.setForeground(Color.GREEN.darker());
+                      btnatrascancelar.setEnabled(true);
+                       btnatrastermine.setEnabled(false);
+                       
+                  lbcantidad2.setText(cantidad);
+                 lbcantidad2.setForeground(Color.GREEN.darker());  
                        
                        
                    }
-                   
-                   
                 }
                 else
                 {
                     
+                      btnatrastermine.setEnabled(false);
                     
-                     btnatrastermine.setEnabled(false); 
-                  
-                    
-                  
+                     
+                     
+                 
                 } 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                  
                  
                  
                  
                  /// lado izquierdo
                  
-                 if( botonhabilitado2.equals("si"))
+                 if( botonhabilitado3.equals("si"))
                 {
                  
                    
@@ -1394,54 +1410,78 @@ JOptionPane.showMessageDialog(null, mensaje);
                      
                      
                 }
-                 
-                 
-                 
-                 
-                  if(  botonhabilitado4.equals("si"))
+          
+                
+                  
+                  
+                  
+                  
+                  
+                  
+                
+                 if(  botonhabilitado4.equals("si") )
                 {
+                  
                    
-              
-                   
-                   
-        
-                 
-              
-                   
-                   if(cantidadatras.equals("0"))
+                  
+                   if(cantidadladoderecho.equals("0"))
                    {
-                    listabotones.add("btnatras");
+                    listabotones.add("btnladoderecho");
                     
-                    
-                     btnladoderechotermine.setEnabled(true);
-                      btnatrascancelar.setEnabled(false);
-                    
+                       btnladoderechotermine.setEnabled(true);
+                        btnladoderechocancelar.setEnabled(false);
+                       
+                    btnponchado4.setEnabled(true); 
+                     btnladoderechocancelar.setEnabled(false);
                     
                      lbcantidad4.setText("0");
                     lbcantidad4.setForeground(Color.red.darker());
+                    
+                    
                    }
                    
                    else
-                   {
-                      btnatrascancelar.setEnabled(true);
-                       btnladoderechotermine.setEnabled(false);
                        
-                  lbcantidad4.setText(cantidad);
-                 lbcantidad4.setForeground(Color.GREEN.darker());  
+                   {
+                        btnladoderechocancelar.setEnabled(true);
+                         btnladoderechotermine.setEnabled(false);
+                         
+                         
+                 lbcantidad4.setText(cantidad);
+                 lbcantidad4.setForeground(Color.GREEN.darker());
                        
                        
                    }
+                   
+                   
                 }
                 else
                 {
                     
-                      btnladoderechotermine.setEnabled(false);
                     
-                     
-                     
-                 
+                     btnladoderechotermine.setEnabled(false); 
+                  
+                    
+                  
                 } 
-                
+                 
+                 
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                   
                   
                 
@@ -5147,11 +5187,11 @@ JOptionPane.showMessageDialog(null, mensaje);
     private void btnatrastermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrastermineActionPerformed
       
        
-                ubicacioncantidad = "lado_derecho_cantidad";
-                ubicacionfecha = "lado_derecho_fecha";
-                nombrebordado =ladoderechonombre;
+                ubicacioncantidad = "atras_cantidad";
+                ubicacionfecha = "atras_fecha";
+                nombrebordado = atrasnombre;
              //   cantidadaplicacion = aplicacionladoderecho
-                ubicacionprenda = "LADO DERECHO";
+                ubicacionprenda = "ATRAS";
               
                 
                 
@@ -5412,10 +5452,10 @@ JOptionPane.showMessageDialog(null, mensaje);
 
     private void btnladoderechotermineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnladoderechotermineActionPerformed
 
-             ubicacioncantidad = "atras_cantidad";
-                ubicacionfecha = "atras_fecha";
-                nombrebordado =atrasnombre;
-                cantidadaplicacion = aplicacionfrente;
+             ubicacioncantidad = "lado_derecho_cantidad";
+                ubicacionfecha = "lado_derecho_fecha";
+                nombrebordado =ladoderechonombre;
+            
                 
                 ubicacionprenda = "ATRAS";
               

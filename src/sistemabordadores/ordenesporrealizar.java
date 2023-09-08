@@ -536,6 +536,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos[10] = "Local";
                 datos[11] = rs5.getString("descripcion");
                 datos[12] = "";
+                datos[14] = "Orden bordado interno";
                 
            
                 

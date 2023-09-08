@@ -427,7 +427,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
 
                    lbladoizquierdofrentenombre.setText(ladoizquierdofrentenombre);
-                   lbladoizquierdofrentepuntadas.setText(rs.getString(ladoizquierdofrentepuntadas));
+                   lbladoizquierdofrentepuntadas.setText(ladoizquierdofrentepuntadas);
                     
                     btnponchado1.setEnabled(true);
                  
@@ -452,7 +452,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
 
                      lbladoderechofrentenombre.setText(ladoderechofrentenombre);
-                    lbladoderechofrentepuntadas.setText(rs.getString(ladoderechofrentepuntadas));
+                    lbladoderechofrentepuntadas.setText(ladoderechofrentepuntadas);
                   
                     btnponchado2.setEnabled(true);
                     
@@ -478,7 +478,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
 
                     lbladoizquierdoatrasnombre.setText(ladoizquierdoatrasnombre);
-                    lbladoizquierdoatraspuntadas.setText(rs.getString(ladoizquierdoatraspuntadas));
+                    lbladoizquierdoatraspuntadas.setText(ladoizquierdoatraspuntadas);
                   
                      btnponchado3.setEnabled(true);
                     
@@ -501,7 +501,7 @@ JOptionPane.showMessageDialog(null, mensaje);
 
 
                    lbladoderechoatrasnombre.setText(ladoderechoatrasnombre);
-                    lbladoderechoatraspuntadas.setText(rs.getString(ladoderechoatraspuntadas));
+                    lbladoderechoatraspuntadas.setText(ladoderechoatraspuntadas);
                     
                      btnponchado4.setEnabled(true);
                  

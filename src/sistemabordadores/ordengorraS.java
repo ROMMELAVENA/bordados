@@ -5820,7 +5820,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("gorracancelar1");
+            autorizacion.lbinterfaz.setText("gorracancelar4");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -5925,7 +5925,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("gorracancelar1");
+            autorizacion.lbinterfaz.setText("gorracancelar3");
             autorizacion.lbnivel.setText("2");
 
         }
@@ -6136,7 +6136,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             autorizacion ventana = new autorizacion();
             ventana.setVisible(true);
             ventana.setLocationRelativeTo(null);
-            autorizacion.lbinterfaz.setText("gorracancelar1");
+            autorizacion.lbinterfaz.setText("gorracancelar2");
             autorizacion.lbnivel.setText("2");
 
         }

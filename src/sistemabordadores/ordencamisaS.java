@@ -4415,16 +4415,16 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if(sumavendidaint == sumasurtidaint && sumaenviadaint == 0 )
         {
-          estatusentrega ="surtida totalmente no enviada";  
+          estatusentrega ="surtido totalmente no enviada";  
         }
         else  if(sumavendidaint == (sumasurtidaint + sumaenviadaint )  &&  sumaenviadaint <  sumavendidaint  )
         {
-          estatusentrega ="surtida totalmente enviada parcialmente";  
+          estatusentrega ="surtido totalmente enviada parcialmente";  
         }
         
         else
         {
-          estatusentrega ="surtida parcialmente no enviada";   
+          estatusentrega ="surtido parcialmente no enviada";   
         }    
         
           try {
@@ -5003,16 +5003,16 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if(sumavendidaint == sumasurtidaint && sumaenviadaint == 0 )
         {
-          estatusentrega ="surtida totalmente no enviada";  
+          estatusentrega ="surtido totalmente no enviada";  
         }
         else  if(sumavendidaint == (sumasurtidaint + sumaenviadaint )  &&  sumaenviadaint <  sumavendidaint  )
         {
-          estatusentrega ="surtida totalmente enviada parcialmente";  
+          estatusentrega ="surtido totalmente enviada parcialmente";  
         }
         
         else
         {
-          estatusentrega ="surtida parcialmente no enviada";   
+          estatusentrega ="surtido parcialmente no enviada";   
         }    
         
           try {
@@ -5280,7 +5280,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if(sumasurtidaint > 0 && sumaenviadaint > 0 )
         {
-          estatusentrega ="surtida parcialmente traspasada parcialmente";  
+          estatusentrega ="surtido parcialmente traspasada parcialmente";  
         }
         else
           if(sumasurtidaint > 0 && sumaenviadaint == 0 )
@@ -5290,7 +5290,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         else
         {
-          estatusentrega ="no surtida no traspasada";   
+          estatusentrega ="no surtido no traspasada";   
         }    
         
           try {
@@ -7510,9 +7510,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addGap(7, 7, 7)
                         .addComponent(lbnumeroordenopedidorecibido, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(790, 790, 790)
-                .addComponent(btnterminetodo)
-                .addGap(505, 505, 505)
+                .addGap(1426, 1426, 1426)
                 .addComponent(btnreplicartodoslosponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -7619,7 +7617,11 @@ JOptionPane.showMessageDialog(null, mensaje);
                                     .addComponent(lbhilo4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbhilo5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbhilo6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbhilo7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(lbhilo7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnterminetodo)
+                        .addGap(155, 155, 155)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -8023,15 +8025,19 @@ JOptionPane.showMessageDialog(null, mensaje);
                                 .addComponent(lbhilo5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
                                 .addComponent(lbhilo6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnreplicartodoslosponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
+                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(btnreplicartodoslosponchados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbsumapuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnterminetodo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         pack();
@@ -8888,10 +8894,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-         if(ordenesporrealizar.ventanaordenesporrealizar==true)
-         {
-             ordenesporrealizar.btndatos.doClick();
-         }
+       
          terminetodo = "no";
          btnterminetodo.setEnabled(false);
          JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">La orden se actualizo");
@@ -8901,14 +8904,11 @@ JOptionPane.showMessageDialog(null, mensaje);
              ordenesporrealizar.btndatos.doClick();
          }
          
+           if(ordenesterminadas.ventanaordenesterminadas==true)
+         {
+             ordenesterminadas.btndatos.doClick();
+         }
          
-         
-         
-         
-         
-         
-         this.dispose();
-         ventanaordencamisa = false;
          
          
          

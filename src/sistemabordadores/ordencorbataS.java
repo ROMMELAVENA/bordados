@@ -838,16 +838,16 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if(sumavendidaint == sumasurtidaint && sumaenviadaint == 0 )
         {
-          estatusentrega ="surtida totalmente no enviada";  
+          estatusentrega ="surtido totalmente no enviada";  
         }
         else  if(sumavendidaint == (sumasurtidaint + sumaenviadaint )  &&  sumaenviadaint <  sumavendidaint  )
         {
-          estatusentrega ="surtida totalmente enviada parcialmente";  
+          estatusentrega ="surtido totalmente enviada parcialmente";  
         }
         
         else
         {
-          estatusentrega ="surtida parcialmente no enviada";   
+          estatusentrega ="surtido parcialmente no enviada";   
         }    
         
           try {
@@ -1010,7 +1010,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         }
         else  if(sumavendidaint == (sumasurtidaint + sumaenviadaint )  &&  sumaenviadaint <  sumavendidaint  )
         {
-          estatusentrega ="surtida completamente traspasada parcialmente";  
+          estatusentrega ="surtido completamente traspasada parcialmente";  
         }
         
         else
@@ -1184,16 +1184,16 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if(sumavendidaint == sumasurtidaint && sumaenviadaint == 0 )
         {
-          estatusentrega ="surtida totalmente no enviada";  
+          estatusentrega ="surtido totalmente no enviada";  
         }
         else  if(sumavendidaint == (sumasurtidaint + sumaenviadaint )  &&  sumaenviadaint <  sumavendidaint  )
         {
-          estatusentrega ="surtida totalmente enviada parcialmente";  
+          estatusentrega ="surtido totalmente enviada parcialmente";  
         }
         
         else
         {
-          estatusentrega ="surtida parcialmente no enviada";   
+          estatusentrega ="surtido parcialmente no enviada";   
         }    
         
           try {
@@ -1352,7 +1352,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if(sumasurtidaint > 0 && sumaenviadaint > 0 )
         {
-          estatusentrega ="surtida parcialmente traspasada parcialmente";  
+          estatusentrega ="surtido parcialmente traspasada parcialmente";  
         }
         else
           if(sumasurtidaint > 0 && sumaenviadaint == 0 )
@@ -1362,7 +1362,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         else
         {
-          estatusentrega ="no surtida no traspasada";   
+          estatusentrega ="no surtido no traspasada";   
         }    
         
           try {

@@ -203,7 +203,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
                 
                String num = rs.getString("numero"); 
                 
-                 if (num.equals("00002273"))
+                 if (num.equals("00016449"))
                  {
                      int aquivoy = 0;
                  }

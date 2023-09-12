@@ -2014,7 +2014,7 @@ JOptionPane.showMessageDialog(null, mensaje);
        
        
         
-         String sql = "Select orden_o_pedido,fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,numero_orden_o_pedido_recibida,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente_puntadas,frente_nombre,frente_cantidad,identificador_prenda,numero_orden_o_pedido_solicitada from historial_ordenes_corbata_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
+         String sql = "Select orden_o_pedido,fecha,hora,cliente,numero_venta,cantidad,cantidad_bordados,numero_orden_o_pedido_recibida,prenda,nombre_persona_solicita,telefono,fecha_entrega,hora_entrega,observacion,lugar,identificador_prenda,frente_puntadas,frente_nombre,frente_cantidad,identificador_prenda,numero_orden_o_pedido_solicitada from historial_ordenes_corbata_recibidas where numero = '" + numeroordendebordadolocalorecibida + "' and prenda = '" + prenda + "'";
      
         try {
             Statement st = cn.createStatement();
@@ -2095,7 +2095,7 @@ JOptionPane.showMessageDialog(null, mensaje);
             
         } catch (SQLException ex) {
            
-            JOptionPane.showMessageDialog(null, ex);
+           
             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
         }
         
@@ -2572,7 +2572,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          int tienecantidad = 0;
         int botonesactivados = 0;
         
-         String sql = "Select frente,frente_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
+         String sql = "Select frente_puntadas,frente_cantidad from "+nombredelatabla+" where numero = '"+numeroordendebordadolocalorecibida+"' ";
 
         try {
             Statement st = cn.createStatement();

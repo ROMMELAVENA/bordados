@@ -2083,14 +2083,14 @@ JOptionPane.showMessageDialog(null, mensaje);
             
                 lugar =rs.getString("lugar");
 
-            }
-                
                 
                  identificador =  rs.getString("identificador_prenda");
                 lbidentificador.setText(identificador);
                 
                 
                 lbnumerodelaotrasucursal.setText(rs.getString("numero_orden_o_pedido_solicitada"));
+                
+            }
                 
             
         } catch (SQLException ex) {

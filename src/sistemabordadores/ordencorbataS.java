@@ -2601,7 +2601,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                    
                 
                 
-                if(cantidadubicacion1==null || cantidadubicacion1.equals("")||cantidadubicacion1.equals(" "))
+                if(cantidadubicacion1==null || cantidadubicacion1.equals("")||cantidadubicacion1.equals("0"))
                 {
                     
                 //       lbcantidad1.setText("0");

@@ -505,7 +505,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         //// historial ordenes internas
         
-        String sql5 = "Select Distinct numero,tipo,fecha,cantidad,prenda,descripcion,hora from historial_ordenes_bordados_interno where (estatus_entrega = 'solicitada' OR estatus_entrega = 'realizada parcialmente') group by numero order by fecha desc ";
+        String sql5 = "Select Distinct numero,tipo,fecha,sum(cantidad) as cantidad,prenda,descripcion,hora from historial_ordenes_bordados_interno where (estatus_entrega = 'solicitada' OR estatus_entrega = 'realizada parcialmente') group by numero order by fecha desc ";
 
         try {
             Statement st5 = cn.createStatement();
@@ -536,6 +536,7 @@ public class ordenesporrealizar extends javax.swing.JFrame {
                 datos[10] = "Local";
                 datos[11] = rs5.getString("descripcion");
                 datos[12] = "";
+                datos[13] = cantidad;
                 datos[14] = "Orden bordado interno";
                 
            

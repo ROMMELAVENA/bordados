@@ -657,8 +657,8 @@ public class ordeninternagorra extends javax.swing.JFrame {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             if (rs.next()) {
-                cantidadactual = rs.getString(1);
-                codigoarticulo = rs.getString(2);
+                cantidadactual = rs.getString("existencia");
+             
             }
 
         } catch (Exception e) {

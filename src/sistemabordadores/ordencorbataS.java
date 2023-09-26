@@ -328,13 +328,13 @@ JOptionPane.showMessageDialog(null, mensaje);
                   btntermine.setEnabled(false);
                   btncancelar.setEnabled(true); 
                  
-                  
+                  lbcantidad1.setText(cantidad);
                   
                   btnterminetodo.setEnabled(false);
                   
                   
                   lbestatus.setForeground(Color.green.darker());
-                  lbcantidad1.setText(cantidad);
+                  
                   lbcantidad1.setForeground(Color.GREEN.darker());
                   
                   
@@ -351,14 +351,12 @@ JOptionPane.showMessageDialog(null, mensaje);
                    
                    btnterminetodo.setEnabled(true); 
                    
+                   lbcantidad1.setText(cantidad);
                    
-                   
-                    lbcantidad1.setText("0");
+                    
                       lbcantidad1.setForeground(Color.red.darker());
                    
                    
-                      
-                  
                       lbestatus.setForeground(Color.red.darker());
                     
                       
@@ -2084,11 +2082,25 @@ JOptionPane.showMessageDialog(null, mensaje);
                 {
                    btntermine.setEnabled(true);
                    btncancelar.setEnabled(false);
+                   
+                   
+                    lbestatus.setForeground(Color.green.darker());
+                 
+                  lbcantidad1.setForeground(Color.GREEN.darker());
+                  
+                  
+                  lbestatus.setForeground(Color.green.darker());
                 }
                 else
                 {
                     btntermine.setEnabled(false);
                     btncancelar.setEnabled(true);
+                    
+                     lbcantidad1.setText(cantidad);
+                    
+                    lbcantidad1.setForeground(Color.red.darker());
+                      lbestatus.setForeground(Color.red.darker());
+                    
                 }    
                 
                 

@@ -725,7 +725,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                numerohistorialordenbordadorecibida = rs.getString("numero_historial_camisa_recibida");
                lbnumeroordenbordadodelaotrasucursal.setText(numerohistorialordenbordadorecibida);
                
-               
+               //LOCAL
                 String observacion = rs.getString("observacion");
 
                 if(observacion == null || observacion.equals("")||observacion.equals(" ") )
@@ -1675,7 +1675,6 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
         
-        
        
            String sql = "Select orden_o_pedido,numero_orden_o_pedido_solicitada,numero_orden_camisa_solicitada,numero_orden_o_pedido_recibida,fecha,hora,cliente,nombre_comercial,borda_cliente,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
                 + "   pecho_izquierdo_puntadas,pecho_derecho_puntadas,manga_izquierda_puntadas,manga_derecha_puntadas,espalda_puntadas,otra_ubicacion_puntadas,otra_ubicacion2_puntadas,"
@@ -2569,6 +2568,25 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                    identificador =  rs.getString("identificador_prenda");
                    lbidentificador.setText(identificador);
+                   
+                   
+                   //LOCAL
+                String observacion = rs.getString("observacion");
+
+                if(observacion == null || observacion.equals("")||observacion.equals(" ") )
+                {
+                    
+                }
+                else
+                {
+                tieneunaobservacion="si";    
+                lbobservaciones.setText(observacion);
+             
+                
+                }
+                   
+                   
+                   
 
 
             }

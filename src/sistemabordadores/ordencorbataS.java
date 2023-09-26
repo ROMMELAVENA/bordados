@@ -271,7 +271,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 lbbordacliente.setText( rs.getString("borda_cliente"));
                 
                 lbnumerodeventa.setText(rs.getString("numero_venta"));
-                lbcantidad.setText(rs.getString("cantidad_bordados"));
+                lbcantidad.setText(rs.getString("cantidad"));
+                lbcantidad1.setText(rs.getString("cantidad_bordados"));
 
                 lbfechaelaboracion.setText(rs.getString("fecha"));
                 lbhoraelaboracion.setText(rs.getString("hora"));
@@ -1640,7 +1641,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         String existe = "";
 
         //// prenda del fotomontaje
-        String sql = "Select extension_imagen,imagen from bordados_puntadas where codigo = '" + codigocliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'CORBATA'   ";
+        String sql = "Select extension_imagen,imagen from bordados_puntadas where nombre = '" + cliente + "' and identificador_prenda= '"+identificador+"' and tipo = 'CORBATA'   ";
 
         try {
             Statement st1 = cnsucursal.createStatement();
@@ -2030,7 +2031,8 @@ JOptionPane.showMessageDialog(null, mensaje);
                 lbcliente.setText(cliente);
                 
                 lbnumerodeventa.setText(rs.getString("numero_venta"));
-                lbcantidad.setText(rs.getString("cantidad_bordados"));
+                lbcantidad.setText(rs.getString("cantidad"));
+                lbcantidad1.setText(rs.getString("cantidad_bordados"));
                 
                  numeroordenopedidorecibido = rs.getString("numero_orden_o_pedido_recibida");
                 lbnumeroordenopedidorecibido.setText(numeroordenopedidorecibido);
@@ -2069,13 +2071,23 @@ JOptionPane.showMessageDialog(null, mensaje);
                 cantidadint =  Integer.parseInt(cantidad);
                 
                 String frentecantidad = rs.getString("frente_cantidad");
+                
+                if (frentecantidad==null || frentecantidad.equals("0"))
+                {
+                
+                frentecantidad = "0";
+                
+                }
+                
                 if(frentecantidad.equals("0"))
                 {
                    btntermine.setEnabled(true);
+                   btncancelar.setEnabled(false);
                 }
                 else
                 {
                     btntermine.setEnabled(false);
+                    btncancelar.setEnabled(true);
                 }    
                 
                 
@@ -3547,7 +3559,7 @@ JOptionPane.showMessageDialog(null, mensaje);
        
         
         
-            verfotomontajetiendalocal();
+            verfotomontajesucursal();
             
     }
         

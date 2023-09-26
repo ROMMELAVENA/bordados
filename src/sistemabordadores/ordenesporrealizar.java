@@ -783,6 +783,66 @@ public class ordenesporrealizar extends javax.swing.JFrame {
         
         
         
+        
+        
+          
+        //// historial_orden_corbata
+        
+        String[] datos48 = new String[15];
+        
+        String sql33 = "SELECT Distinct numero,numero_orden_corbata_solicitada,borda_cliente,prenda,tipo,cliente,tienda,lugar,fecha,numero_orden_o_pedido_solicitada,observacion,identificador_prenda,cantidad,cliente  FROM historial_ordenes_corbata_recibidas where (estatus_orden = 'generada' or estatus_orden = 'solicitada' or estatus_orden = 'realizada parcialmente') order by fecha desc";
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql33);
+      
+            
+            
+            while (rs.next()) {
+                datos48[0] = rs.getString("numero");
+                datos48[1] = rs.getString("borda_cliente");
+                datos48[2] = rs.getString("prenda");
+                datos48[3] = rs.getString("tipo");
+                datos48[4] = rs.getString("lugar");
+                datos48[5] = "0000000";  
+                datos48[6] = rs.getString("fecha");
+                datos48[7] = rs.getString("tienda");
+                datos48[8] = rs.getString("numero_orden_o_pedido_solicitada");
+                datos48[9] = "";
+                datos48[10] = "Recibida";
+                datos48[11] = rs.getString("identificador_prenda");
+                datos48[12] = rs.getString("observacion");
+                datos48[13] = rs.getString("cantidad");
+                datos48[14] = rs.getString("cliente");
+             
+                
+                
+                modelo.addRow(datos48);
+
+            }
+
+            
+
+        } catch (SQLException ex)
+        {
+           
+           JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:20px;\">"+ex+"");
+        }
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         // PONCHADOS
         
         tieneponchados();
@@ -1681,7 +1741,7 @@ sorter.sort();
                         autorizaciondelfotomontaje((String)numerodeordendebordado,(String) nombre_tabla);
                         
                         
-                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal"))
+                        if(fotomontajeautorizado.equals("si")||localuotrasucursal.equals("Otra Sucursal") || tablanombre.equals("Recibida"))
                         {    
                             
                         ordencorbataS orden = new ordencorbataS();

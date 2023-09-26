@@ -327,6 +327,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                   
                   btntermine.setEnabled(false);
                   btncancelar.setEnabled(true); 
+                 
                   
                   
                   btnterminetodo.setEnabled(false);
@@ -3524,6 +3525,9 @@ JOptionPane.showMessageDialog(null, mensaje);
               
                actualizarestatusentregaordendebordado(); 
     
+               
+               
+                datos();
              
         
 

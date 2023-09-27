@@ -175,7 +175,7 @@ public class ordencorbataS extends javax.swing.JFrame {
 
 
 
-     else if(enquesucursalsebordara.equals("Otra sucursal") && tipotabla.equals("Recibida"))    
+     else if(enquesucursalsebordara.equals("Otra sucursal") || tipotabla.equals("Recibida"))    
     {
         
         nombredelatabla = "historial_ordenes_corbata_recibidas";
@@ -2145,33 +2145,7 @@ JOptionPane.showMessageDialog(null, mensaje);
          
                      
                      
-            
-      
-
-        String sql7 = "Select cliente,lugar,identificador_prenda from historial_ordenes_pantalon where numero = '" + numerosucursal + "' ";
-
-        try {
-            Statement st = cnsucursal.createStatement();
-            ResultSet rs = st.executeQuery(sql7);
-            if (rs.next()) {
-
-                cliente = rs.getString("cliente");
-                prenda = (rs.getString("prenda"));
-               
-                sucursal = rs.getString("lugar");
-                lbsucursal.setText(sucursal);
-                
-                identificador = rs.getString("identificador_prenda");
-                
-
-            }
-
-        } catch (SQLException ex) 
-        {
-             JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">"+ex+"");
-        }
-
-        
+         
      
         
         

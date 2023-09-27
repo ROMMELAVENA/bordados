@@ -2307,11 +2307,11 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if(sumavendidaint == sumasurtidaint && sumaenviadaint == 0 )
         {
-          estatusentrega ="surtido completamente no traspasado";  
+          estatusentrega ="surtido totalmente no traspasado";  
         }
         else  if(sumavendidaint == (sumasurtidaint + sumaenviadaint )  &&  sumaenviadaint <  sumavendidaint  )
         {
-          estatusentrega ="surtido completamente traspasada parcialmente";  
+          estatusentrega ="surtido totalmente traspasada parcialmente";  
         }
         
         else

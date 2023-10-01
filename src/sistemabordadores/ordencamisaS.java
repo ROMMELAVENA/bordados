@@ -535,7 +535,7 @@ public class ordencamisaS extends javax.swing.JFrame {
       if(enquesucursalsebordara.equals("Otra sucursal"))
         {
         btnterminetodo.setEnabled(false);
-        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");
+        JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:orange; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");
         
         }
      
@@ -3016,7 +3016,9 @@ JOptionPane.showMessageDialog(null, mensaje);
                     tienefotomontaje = "no";
               
                     
-                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos");
+                    JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Favor de agregar fotomontaje para poder iniciar el bordado y registrar puntos, o quizar EL ENCARGADO LE CAMBIO DE NOMBRE AL IDENTIFICADOR");
+                  
+                    
                     
                 } 
                 
@@ -4965,17 +4967,6 @@ JOptionPane.showMessageDialog(null, mensaje);
             
             
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
 
         ////Actualiza el estatus
 
@@ -5019,19 +5010,34 @@ JOptionPane.showMessageDialog(null, mensaje);
        sumaenviadaint = Integer.parseInt(sumaenviadastring);
       
         
-        if(sumavendidaint == sumasurtidaint && sumaenviadaint == 0 )
-        {
-          estatusentrega ="surtido totalmente no enviada";  
-        }
-        else  if(sumavendidaint == (sumasurtidaint + sumaenviadaint )  &&  sumaenviadaint <  sumavendidaint  )
-        {
-          estatusentrega ="surtido totalmente enviada parcialmente";  
-        }
+       
         
+        
+        
+          if(sumaenviadaint > 0 && sumasurtidaint > 0)
+              
+          {
+              estatusentrega = "surtido parcialmente enviada parcialmente";
+          }
         else
-        {
-          estatusentrega ="surtido parcialmente no enviada";   
-        }    
+              
+          {
+               if(sumaenviadaint > 0 && sumasurtidaint > 0)
+              
+          {
+              estatusentrega = "surtido parcialmente no enviada";
+          }
+         
+          
+        else
+        
+      
+              
+          {
+              estatusentrega = "por surtir";
+          }
+        
+          }
         
           try {
               PreparedStatement pst = cn.prepareStatement("UPDATE historial_ordenes_envio_recibidas SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroordenopedidorecibido + "'       ");
@@ -5295,21 +5301,33 @@ JOptionPane.showMessageDialog(null, mensaje);
        sumasurtidaint = Integer.parseInt(sumasurtidastring);
        sumaenviadaint = Integer.parseInt(sumaenviadastring);
       
+      
+       
         
-        if(sumasurtidaint > 0 && sumaenviadaint > 0 )
-        {
-          estatusentrega ="surtido parcialmente traspasada parcialmente";  
-        }
+          if(sumaenviadaint > 0 && sumasurtidaint > 0)
+              
+          {
+              estatusentrega = "surtido parcialmente traspasado parcialmente";
+          }
         else
-          if(sumasurtidaint > 0 && sumaenviadaint == 0 )
-        {
-          estatusentrega ="surtido parcialmente no traspasado";  
-        }
+              
+          {
+               if(sumaenviadaint > 0 && sumasurtidaint > 0)
+              
+          {
+              estatusentrega = "surtido parcialmente no traspasado";
+          }
+         
+          
+        else
         
-        else
-        {
-          estatusentrega ="no surtido no traspasada";   
-        }    
+      
+              
+          {
+              estatusentrega = "por surtir";
+          }
+        
+          }
         
           try {
               PreparedStatement pst = cn.prepareStatement("UPDATE historial_pedidos_sucursal_recibidos SET estatus_entrega = '" + estatusentrega + "' WHERE numero='" + numeroordenopedidorecibido + "'       ");

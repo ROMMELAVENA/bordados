@@ -164,7 +164,7 @@ public class ordencorbataS extends javax.swing.JFrame {
         {
             
          btnterminetodo.setEnabled(false);
-         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");
+         JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:orange; font-size:20px;\">Recuerda que Aqui solo replicas los ponchados y el fotomontaje");
         
         }
        

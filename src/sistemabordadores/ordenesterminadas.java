@@ -625,6 +625,7 @@ public class ordenesterminadas extends javax.swing.JFrame {
         
         
         
+        
         //CAMISA
         
         

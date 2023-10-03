@@ -76,6 +76,9 @@ public class ordencamisaS extends javax.swing.JFrame {
     String cantidadprendasstring = "";
     int cantidadprendasint = 0;
     String cantidad = "";
+    String cantidadgenerada = "";
+    int cantidadgeneradaint = 0;
+    int cantidadint = 0;
     int remanentebordadosint = 0;
     String remanentebordadosstring = "";
     int nuevoremanentebordadosint = 0;
@@ -102,7 +105,7 @@ public class ordencamisaS extends javax.swing.JFrame {
     String sucursal = "";
     String numerosolicitoarticulos = "";
     String tiendasolicitoarticulos = "";
-    int cantidadint = 0;
+    
     String numeroordenenvio = "";
     String tiendaordenenvio = "";
     String tiendalocal = principal.tiendalocal;
@@ -501,6 +504,9 @@ public class ordencamisaS extends javax.swing.JFrame {
      
      
      
+     
+     
+     
      void datos(){
          
          
@@ -549,7 +555,14 @@ public class ordencamisaS extends javax.swing.JFrame {
     
     
     
-    else if(enquesucursalsebordara.equals("Otra sucursal") )    
+    else
+        
+        
+    
+    if(enquesucursalsebordara.equals("Otra sucursal") )    
+   
+    
+    
     {
         
         nombredelatabla = "historial_ordenes_camisa_recibidas";
@@ -665,7 +678,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,numero_orden,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,numero_orden,cantidad,cantidad_generada,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
                 + "   pecho_izquierdo_puntadas,pecho_derecho_puntadas,manga_izquierda_puntadas,manga_derecha_puntadas,espalda_puntadas,otra_ubicacion_puntadas,otra_ubicacion2_puntadas,"
                 + "   pecho_izquierdo_cantidad,pecho_derecho_cantidad,manga_izquierda_cantidad,manga_derecha_cantidad,espalda_cantidad,"
                 + "   pecho_izquierdo_nombre,pecho_derecho_nombre,manga_izquierda_nombre,manga_derecha_nombre,espalda_nombre,"
@@ -707,11 +720,13 @@ JOptionPane.showMessageDialog(null, mensaje);
                 lbfecha.setText(rs.getString("fecha"));
                 
                 cantidad = rs.getString("cantidad");
-                
-                
-                
                 cantidadint =  Integer.parseInt(cantidad);
+                
+                cantidadgenerada = rs.getString("cantidad_generada");
+                cantidadint =  Integer.parseInt(cantidadgenerada);
+                
                 lbcantidad.setText(cantidad);
+                
                 
                 lbdiaentrega.setText(rs.getString("fecha_entrega"));
                 lbhoraentrega.setText(rs.getString("hora_entrega"));
@@ -1676,7 +1691,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
        
-           String sql = "Select orden_o_pedido,numero_orden_o_pedido_solicitada,numero_orden_camisa_solicitada,numero_orden_o_pedido_recibida,fecha,hora,cliente,nombre_comercial,borda_cliente,cantidad,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
+           String sql = "Select orden_o_pedido,numero_orden_o_pedido_solicitada,numero_orden_camisa_solicitada,numero_orden_o_pedido_recibida,fecha,hora,cliente,nombre_comercial,borda_cliente,cantidad,cantidad_generada,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
                 + "   pecho_izquierdo_puntadas,pecho_derecho_puntadas,manga_izquierda_puntadas,manga_derecha_puntadas,espalda_puntadas,otra_ubicacion_puntadas,otra_ubicacion2_puntadas,"
                 + "   pecho_izquierdo_cantidad,pecho_derecho_cantidad,manga_izquierda_cantidad,manga_derecha_cantidad,espalda_cantidad,"
                 + "   pecho_izquierdo_nombre,pecho_derecho_nombre,manga_izquierda_nombre,manga_derecha_nombre,espalda_nombre,"
@@ -1815,12 +1830,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
                 
                 
-                
-                
-                
-                
-                
-                
                 mangaderechanombre = rs.getString("manga_derecha_nombre");
               
                 String mangaderecha = rs.getString("manga_derecha_puntadas");
@@ -1942,10 +1951,13 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                 } 
 
-                
                 cantidad = rs.getString("cantidad");
                 cantidadint =  Integer.parseInt(cantidad);
+                
+                cantidadgenerada = rs.getString("cantidad_generada");
+                
                 lbcantidad.setText(cantidad);
+                
 
                 aplicacion1 = rs.getString("aplicacion_pecho_izquierdo");
 

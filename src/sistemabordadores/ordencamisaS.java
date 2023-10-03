@@ -2629,7 +2629,10 @@ JOptionPane.showMessageDialog(null, mensaje);
     
     
     
-    void cargarfotomontajesucursal(){
+    void cargarfotomontajesucursal()
+    
+    
+    {
         
         
                         
@@ -2715,7 +2718,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 
             {
                 
-                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">No se encotro imangen con el nombre de este identificador; quizas el encardo de la otra tienda cambio el nombre del identificador");
+                JOptionPane.showMessageDialog(this, "<HTML><b style=\"Color:red; font-size:15px ;\">No se encotro imangen con el nombre de este identificador; quizas el Encargado de la otra tienda cambio el nombre del identificador");
                 
             }
             

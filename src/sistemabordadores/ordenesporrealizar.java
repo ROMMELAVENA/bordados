@@ -1275,7 +1275,7 @@ sorter.sort();
 
             },
             new String [] {
-                "No. Orden", "borda cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tiene ponchados", "tabla", "Identificador de prenda", "observacion", "Cantidad", "cliente"
+                "No. Orden", "borda cliente", "prenda", "tipo", "lugar", "No. de venta", "fecha", "Sucursal", "No. sucursal", "tiene ponchados", "tabla", "Identificador", "observacion", "Cantidad", "cliente"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1521,7 +1521,7 @@ sorter.sort();
                 Object tablanombre = tabla.getValueAt(fila, 10);
                 
                 
-                
+                Object identificador = tabla.getValueAt(fila, 11);
                
                         
               
@@ -1575,6 +1575,7 @@ sorter.sort();
                         ordencamisaS.enquesucursalsebordara =(lugar.toString());
                         ordencamisaS.lbnumerodeventa.setText(numerodeventa.toString());
                         ordencamisaS.esponchado = esponchado;
+                        ordencamisaS.lbidentificador.setText(identificador.toString());
                         
                         
                         if (sucursal==null || sucursal.equals(""))

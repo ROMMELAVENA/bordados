@@ -97,7 +97,7 @@
                 <Column editable="false" title="No. sucursal" type="java.lang.Object"/>
                 <Column editable="false" title="tiene ponchados" type="java.lang.Object"/>
                 <Column editable="false" title="tabla" type="java.lang.Object"/>
-                <Column editable="false" title="Identificador de prenda" type="java.lang.Object"/>
+                <Column editable="false" title="Identificador" type="java.lang.Object"/>
                 <Column editable="false" title="observacion" type="java.lang.Object"/>
                 <Column editable="false" title="Cantidad" type="java.lang.Object"/>
                 <Column editable="false" title="cliente" type="java.lang.Object"/>

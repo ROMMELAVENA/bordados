@@ -678,7 +678,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
 
-        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,numero_orden,cantidad,cantidad_generada,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
+        String sql = "Select fecha,hora,cliente,nombre_comercial,borda_cliente,numero_venta,numero_orden,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
                 + "   pecho_izquierdo_puntadas,pecho_derecho_puntadas,manga_izquierda_puntadas,manga_derecha_puntadas,espalda_puntadas,otra_ubicacion_puntadas,otra_ubicacion2_puntadas,"
                 + "   pecho_izquierdo_cantidad,pecho_derecho_cantidad,manga_izquierda_cantidad,manga_derecha_cantidad,espalda_cantidad,"
                 + "   pecho_izquierdo_nombre,pecho_derecho_nombre,manga_izquierda_nombre,manga_derecha_nombre,espalda_nombre,"
@@ -722,7 +722,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 cantidad = rs.getString("cantidad");
                 cantidadint =  Integer.parseInt(cantidad);
                 
-                cantidadgenerada = rs.getString("cantidad_generada");
+              //  cantidadgenerada = rs.getString("cantidad_generada");
                 cantidadint =  Integer.parseInt(cantidadgenerada);
                 
                 lbcantidad.setText(cantidad);
@@ -1691,7 +1691,7 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         
        
-           String sql = "Select orden_o_pedido,numero_orden_o_pedido_solicitada,numero_orden_camisa_solicitada,numero_orden_o_pedido_recibida,fecha,hora,cliente,nombre_comercial,borda_cliente,cantidad,cantidad_generada,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
+           String sql = "Select orden_o_pedido,numero_orden_o_pedido_solicitada,numero_orden_camisa_solicitada,numero_orden_o_pedido_recibida,fecha,hora,cliente,nombre_comercial,borda_cliente,cantidad,cantidad_aplicaciones_chicas,cantidad_aplicaciones_grandes,prenda,nombre_persona_solicita,celular,fecha_entrega,hora_entrega,observacion,"
                 + "   pecho_izquierdo_puntadas,pecho_derecho_puntadas,manga_izquierda_puntadas,manga_derecha_puntadas,espalda_puntadas,otra_ubicacion_puntadas,otra_ubicacion2_puntadas,"
                 + "   pecho_izquierdo_cantidad,pecho_derecho_cantidad,manga_izquierda_cantidad,manga_derecha_cantidad,espalda_cantidad,"
                 + "   pecho_izquierdo_nombre,pecho_derecho_nombre,manga_izquierda_nombre,manga_derecha_nombre,espalda_nombre,"
@@ -1954,7 +1954,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 cantidad = rs.getString("cantidad");
                 cantidadint =  Integer.parseInt(cantidad);
                 
-                cantidadgenerada = rs.getString("cantidad_generada");
+          //      cantidadgenerada = rs.getString("cantidad_generada");
                 
                 lbcantidad.setText(cantidad);
                 
@@ -2641,6 +2641,8 @@ JOptionPane.showMessageDialog(null, mensaje);
          
                
          BufferedImage img = null;
+         
+         identificador = lbidentificador.getText();
         
         
         
@@ -7673,7 +7675,6 @@ JOptionPane.showMessageDialog(null, mensaje);
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnterminetodo)
                         .addGap(155, 155, 155)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbcolor1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -11013,7 +11014,7 @@ JOptionPane.showMessageDialog(null, mensaje);
     public javax.swing.JLabel lbhilo6;
     public javax.swing.JLabel lbhilo7;
     public static javax.swing.JLabel lbhoraentrega;
-    private javax.swing.JLabel lbidentificador;
+    public static javax.swing.JLabel lbidentificador;
     private javax.swing.JLabel lbltallas;
     public javax.swing.JLabel lbmangaderecha;
     public javax.swing.JLabel lbmangaderechanombre;

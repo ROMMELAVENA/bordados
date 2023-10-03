@@ -723,7 +723,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                 cantidadint =  Integer.parseInt(cantidad);
                 
               //  cantidadgenerada = rs.getString("cantidad_generada");
-                cantidadint =  Integer.parseInt(cantidadgenerada);
+             //   cantidadint =  Integer.parseInt(cantidadgenerada);
                 
                 lbcantidad.setText(cantidad);
                 

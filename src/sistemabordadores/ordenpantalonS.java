@@ -5647,11 +5647,11 @@ public static String dia() {
         
         
         
-          ubicacionfecha  = "lado_izquierdo_frente_fecha";
-           ubicacioncantidad = "lado_izquierdo_frente_cantidad"; 
+          ubicacionfecha  = "lado_derecho_frente_fecha";
+           ubicacioncantidad = "lado_dereccho_frente_cantidad"; 
             
            ubicacionprenda = "FRENTE LADO DERECHO";
-           nombrebordado =ladoizquierdofrentenombre;
+           nombrebordado =ladoderechofrentenombre;
            cantidadaplicacion = "1";
         
         
@@ -5939,11 +5939,11 @@ public static String dia() {
         
         
          
-          ubicacionfecha  = "lado_izquierdo_frente_fecha";
-           ubicacioncantidad = "lado_izquierdo_frente_cantidad"; 
+          ubicacionfecha  = "lado_derecho_frente_fecha";
+           ubicacioncantidad = "lado_derecho_frente_cantidad"; 
             
            ubicacionprenda = "FRENTE LADO DERECHO";
-           nombrebordado =ladoizquierdofrentenombre;
+           nombrebordado =ladoderechofrentenombre;
            cantidadaplicacion = "1";
         
         

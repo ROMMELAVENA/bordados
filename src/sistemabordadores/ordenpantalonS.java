@@ -605,7 +605,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                     
                      {
                    btnladoderechofrentetermine.setEnabled(true);
-                   btnladoderechoatrascancelar.setEnabled(false);
+                   btnladoderechofrentecancelar.setEnabled(false);
                     
                      lbcantidad2.setText("0");
                     lbcantidad2.setForeground(Color.red.darker());
@@ -619,7 +619,7 @@ JOptionPane.showMessageDialog(null, mensaje);
                      else
                      {
                          
-                            btnladoderechoatrascancelar.setEnabled(true);
+                            btnladoderechofrentecancelar.setEnabled(true);
                             btnladoderechofrentetermine.setEnabled(false);
                   lbcantidad2.setText(cantidad);
                    lbcantidad2.setForeground(Color.GREEN.darker());
@@ -5648,7 +5648,7 @@ public static String dia() {
         
         
           ubicacionfecha  = "lado_derecho_frente_fecha";
-           ubicacioncantidad = "lado_dereccho_frente_cantidad"; 
+           ubicacioncantidad = "lado_derecho_frente_cantidad"; 
             
            ubicacionprenda = "FRENTE LADO DERECHO";
            nombrebordado =ladoderechofrentenombre;

@@ -2289,16 +2289,16 @@ JOptionPane.showMessageDialog(null, mensaje);
         
         if(sumavendidaint == sumasurtidaint && sumaenviadaint == 0 )
         {
-          estatusentrega ="surtido totalmente no enviado";  
+          estatusentrega ="surtido totalmente no traspasado";  
         }
         else  if(sumavendidaint == (sumasurtidaint + sumaenviadaint )  &&  sumaenviadaint <  sumavendidaint  )
         {
-          estatusentrega ="surtido totalmente enviado parcialmente";  
+          estatusentrega ="surtido totalmente traspasada parcialmente";  
         }
         
         else
         {
-          estatusentrega ="surtido parcialmente no enviado";   
+          estatusentrega ="surtido parcialmente no traspasado";   
         }    
         
           try {

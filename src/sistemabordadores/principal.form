@@ -50,11 +50,14 @@
                                   <Component id="btninformacionrapida" alignment="0" min="-2" pref="389" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton3" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                                  <Component id="btnordenesbordadosucursalrealizadas1" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                                  <Component id="btnactualizarpuntos" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                                  <Component id="jButton5" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jButton3" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Component id="btnordenesbordadosucursalrealizadas1" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Component id="btnactualizarpuntos" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Component id="jButton5" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="btnpullea" min="-2" pref="302" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -141,7 +144,10 @@
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnclienteshanbordadoultimos6a12meses" min="-2" pref="60" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnclienteshanbordadoultimos6a12meses" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="btnpullea" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -411,6 +417,17 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnpullea">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="PULLEEN BORDADORES"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpulleaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

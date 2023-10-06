@@ -1,16 +1,47 @@
 
 package sistemabordadores;
 
+
+//import javax.swing.Timer;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import javax.swing.table.DefaultTableModel;
+
+
+import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Locale;
+
+import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.text.ParseException;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
+
+
 
 
 public class principal extends javax.swing.JFrame {
@@ -34,6 +65,8 @@ public class principal extends javax.swing.JFrame {
     public static String contraseñaencargado  = "";
     
     public static String tiendalocal  = "";
+    
+  
 
 
     public principal() 
@@ -58,10 +91,142 @@ public class principal extends javax.swing.JFrame {
         contraseñas();
         
         
+        pullear();
+        
+        
        
         
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+       void pullear() {
+    
+
+           Timer timer;
+        timer = new Timer();
+
+        TimerTask task = new TimerTask() {
+            
+
+            @Override
+            public void run() 
+            {
+
+                
+                
+                
+                
+                
+                
+                    
+                      // CONTEO DE DEPOSITOS por utilizar
+                      
+                      
+                String nombrehost = "";
+
+                try {
+
+                    nombrehost = InetAddress.getLocalHost().getHostName();
+
+                } catch (UnknownHostException e) {
+                    System.out.println(e);
+                }
+
+                  
+                        
+                    {
+                    
+               
+                    String hacerpull = "";
+                 
+                    
+                    
+                        String sql3 = "SELECT pullear FROM catalogo_avisos where tipo = 'pullearbordados'";
+
+                        try {
+                            Statement st = cn.createStatement();
+                            ResultSet rs = st.executeQuery(sql3);
+                            while (rs.next()) 
+                            {
+
+                                hacerpull = rs.getString("pullear");
+                           
+                                
+                                if(hacerpull.equals("si") )
+                                {
+                                   JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:#4169E1; font-size:20px;\">Pullea");
+                                  
+                                        try {
+                                            PreparedStatement pst = cn.prepareStatement("UPDATE catalogo_avisos SET pullear = 'no' where tipo = 'pullearbordados' ");
+                                            pst.executeUpdate();
+                                            pst.close();
+                                        } catch (Exception e) {
+
+                                            System.out.println(e);
+                                        }
+
+                                   
+                                
+                                
+                                }
+                                
+
+                            }
+                           
+                            
+                            
+                            
+                            rs.close();
+
+                        } catch (SQLException ex) {
+                            Logger.getLogger(ordencamisaS.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                        
+                        
+                        
+                        
+                    }
+                        
+                        
+        
+         }
+        
+        };
+
+        timer.schedule(task, 0, 10000 ); //900000 //5000 (5 segundos)
+     
+
+
+    }
+      
+           
+     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     
     void contraseñas()
@@ -1955,6 +2120,7 @@ public class principal extends javax.swing.JFrame {
         btnclienteshanbordadoultimos6a12meses = new javax.swing.JButton();
         btnvertabla = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        btnpullea = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
@@ -2119,6 +2285,14 @@ public class principal extends javax.swing.JFrame {
             }
         });
 
+        btnpullea.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnpullea.setText("PULLEEN BORDADORES");
+        btnpullea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpulleaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2143,11 +2317,13 @@ public class principal extends javax.swing.JFrame {
                                     .addComponent(btnclienteshanbordadoultimos6meses, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btninformacionrapida, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnordenesbordadosucursalrealizadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnactualizarpuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnordenesbordadosucursalrealizadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnactualizarpuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnpullea, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(12, 12, 12)
@@ -2211,7 +2387,9 @@ public class principal extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(btnactualizarpuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnclienteshanbordadoultimos6a12meses, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnclienteshanbordadoultimos6a12meses, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnpullea, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(26, 26, 26)
@@ -2637,6 +2815,10 @@ public class principal extends javax.swing.JFrame {
       
         
          tiendalocal = lbtiendalocal.getText();
+         
+         
+         
+         
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -2644,6 +2826,23 @@ public class principal extends javax.swing.JFrame {
        
         
         tabla.setEnabled(true);
+        
+        
+                Timer timer;
+        timer = new Timer();
+
+        TimerTask task = new TimerTask() {
+
+            @Override
+            public void run() {
+                //borrarlospartadosvirtuales();
+
+            }
+        };
+
+        int tiempoRepeticion = 7200000;
+        timer.schedule(task, 10, tiempoRepeticion);
+
         
     }//GEN-LAST:event_btnvertablaActionPerformed
 
@@ -2665,6 +2864,284 @@ public class principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void btnpulleaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpulleaActionPerformed
+
+        String ipalmacen ="";
+        String ipcdmxsur = "";
+        String ipguadalajara = "";
+        String ipmonterrey = "";
+        String iptijuana = "";
+
+        Connection concdmxcentro = null;
+        Connection contijuana = null;
+        Connection conmonterrey = null;
+        Connection conguadalajara = null;
+        Connection concdmxsur = null;
+        Connection conexiontienda = null;
+
+        String conectadocdmxsur = "";
+        String conectadoguadalajara = "";
+        String conectadomonterrey = "";
+        String conectadotijuana = "";
+        String conectadocdmxcentro = "";
+
+        //// seleccionaripstiendas
+        try {
+            Connection con = null;
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/tiendas", "root", "sistemas");
+
+            try {
+
+                String sql = "SELECT tienda,ip FROM catalogo_tiendas ";
+
+                Statement st = con.prepareStatement(sql);
+                ResultSet rs = st.executeQuery(sql);
+
+                while (rs.next()) {
+
+                    String tienda = rs.getString("tienda");
+
+                    if (tienda.equals("cdmxsur")) {
+                        ipcdmxsur = rs.getString("ip");
+                    } else if (tienda.equals("monterrey")) {
+                        ipmonterrey = rs.getString("ip");
+                    } else if (tienda.equals("tijuana")) {
+                        iptijuana = rs.getString("ip");
+                    } else if (tienda.equals("guadalajara")) {
+                        ipguadalajara = rs.getString("ip");
+                    } else if (tienda.equals("cdmxcentro")) {
+                        ipalmacen = rs.getString("ip");
+                    }
+
+                }
+
+                st.close();
+            } catch (SQLException ex) {
+
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al buscar tiendas");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ingresotienda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        InetAddress ping;
+
+        /// taxqueña
+        try {
+
+            ping = InetAddress.getByName(ipcdmxsur);
+            if (ping.isReachable(5000)) {
+
+                conectadocdmxsur = "si";
+
+            } else {
+
+                conectadocdmxsur = "no";
+
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Taxqueña no está conectada");
+
+            }
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+
+        /// monterrey
+        try {
+
+            ping = InetAddress.getByName(ipmonterrey);
+            if (ping.isReachable(5000)) {
+
+                conectadomonterrey = "si";
+
+            } else {
+
+                conectadomonterrey = "no";
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Monterrey no está conectada");
+
+            }
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+
+        /// guadalajara
+        try {
+
+            ping = InetAddress.getByName(ipguadalajara);
+            if (ping.isReachable(5000)) {
+
+                conectadoguadalajara = "si";
+
+            } else {
+
+                conectadoguadalajara = "no";
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Guadalaajara no está conectada");
+
+            }
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+
+        /// tijuana
+        try {
+
+            ping = InetAddress.getByName(iptijuana);
+            if (ping.isReachable(5000)) {
+
+                conectadotijuana = "si";
+
+            } else {
+
+                conectadotijuana = "no";
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Tijuana no está conectada");
+
+            }
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+
+        /// fabrica
+        try {
+
+            ping = InetAddress.getByName(ipalmacen);
+            if (ping.isReachable(5000)) {
+
+                conectadocdmxcentro = "si";
+
+            } else {
+
+                conectadocdmxcentro = "no";
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Mexico Centro no está conectada");
+
+            }
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+
+        ////// obtenerconexioneson
+
+        if (conectadocdmxsur.equals("si")) {
+            try {
+
+                Class.forName("com.mysql.jdbc.Driver");
+                concdmxsur = DriverManager.getConnection("jdbc:mysql://" + ipcdmxsur + "/cdmxsur", "root", "sistemas");
+
+                try {
+                    PreparedStatement pst = concdmxsur.prepareStatement("UPDATE catalogo_avisos SET pullear = 'si' where tipo = 'pullearbordados'  ");
+                    pst.executeUpdate();
+                    pst.close();
+                } catch (Exception e) {
+
+                    System.out.println(e);
+                }
+
+            } catch (ClassNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con CDMXSUR");
+
+            } catch (SQLException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        if (conectadomonterrey.equals("si")) {
+            try {
+
+                Class.forName("com.mysql.jdbc.Driver");
+                conmonterrey = DriverManager.getConnection("jdbc:mysql://" + ipmonterrey + "/monterrey", "root", "sistemas");
+
+                try {
+                    PreparedStatement pst = conmonterrey.prepareStatement("UPDATE catalogo_avisos SET pullear = 'si' where tipo = 'pullearbordados'  ");
+                    pst.executeUpdate();
+                    pst.close();
+                } catch (Exception e) {
+
+                    System.out.println(e);
+                }
+
+            } catch (ClassNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con Monterrey");
+
+            } catch (SQLException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        if (conectadoguadalajara.equals("si")) {
+            try {
+
+                Class.forName("com.mysql.jdbc.Driver");
+                conguadalajara = DriverManager.getConnection("jdbc:mysql://" + ipguadalajara + "/guadalajara", "root", "sistemas");
+
+                try {
+                    PreparedStatement pst = conguadalajara.prepareStatement("UPDATE catalogo_avisos SET pullear = 'si' where tipo = 'pullearbordados'  ");
+                    pst.executeUpdate();
+                    pst.close();
+                } catch (Exception e) {
+
+                    System.out.println(e);
+                }
+
+            } catch (ClassNotFoundException ex) {
+
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con Guadalajara");
+
+            } catch (SQLException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+        if (conectadotijuana.equals("si")) {
+
+            try {
+
+                Class.forName("com.mysql.jdbc.Driver");
+                contijuana = DriverManager.getConnection("jdbc:mysql://" + iptijuana + "/tijuana", "root", "sistemas");
+
+                try {
+                    PreparedStatement pst = contijuana.prepareStatement("UPDATE catalogo_avisos SET pullear = 'si' where tipo = 'pullearbordados'  ");
+                    pst.executeUpdate();
+                    pst.close();
+                } catch (Exception e) {
+
+                    System.out.println(e);
+                }
+
+            } catch (ClassNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con Tijuana");
+
+            } catch (SQLException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        if (conectadocdmxcentro.equals("si")) {
+            try {
+
+                Class.forName("com.mysql.jdbc.Driver");
+                concdmxcentro = DriverManager.getConnection("jdbc:mysql://" + ipalmacen + "/cdmxcentro", "root", "sistemas");
+
+                try {
+                    PreparedStatement pst = concdmxcentro.prepareStatement("UPDATE catalogo_avisos SET pullear = 'si' where tipo = 'pullearbordados'  ");
+                    pst.executeUpdate();
+                    pst.close();
+                } catch (Exception e) {
+
+                    System.out.println(e);
+                }
+
+            } catch (ClassNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, "<HTML><b style=\"Color:red; font-size:20px;\">Error al conectar con Mexico centro");
+
+            } catch (SQLException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }//GEN-LAST:event_btnpulleaActionPerformed
+
 
     public static void main(String args[]) {
       
@@ -2683,6 +3160,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton btnordenesbordadosucursalporrealizar;
     private javax.swing.JButton btnordenesbordadosucursalrealizadas;
     private javax.swing.JButton btnordenesbordadosucursalrealizadas1;
+    private javax.swing.JButton btnpullea;
     private javax.swing.JButton btnreplicarponchados;
     private javax.swing.JButton btnsalir;
     private javax.swing.JButton btnvertabla;

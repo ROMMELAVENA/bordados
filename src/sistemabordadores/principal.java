@@ -5,6 +5,7 @@ package sistemabordadores;
 //import javax.swing.Timer;
 //1
 //22
+//33
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -2306,7 +2307,7 @@ public class principal extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("2");
+        jLabel1.setText("3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

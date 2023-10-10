@@ -2121,6 +2121,7 @@ public class principal extends javax.swing.JFrame {
         btnvertabla = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btnpullea = new javax.swing.JButton();
+        btnpullea1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
@@ -2293,6 +2294,14 @@ public class principal extends javax.swing.JFrame {
             }
         });
 
+        btnpullea1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnpullea1.setText("PULL");
+        btnpullea1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpullea1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2323,7 +2332,10 @@ public class principal extends javax.swing.JFrame {
                                         .addComponent(btnordenesbordadosucursalrealizadas1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btnactualizarpuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnpullea, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnpullea)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnpullea1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(12, 12, 12)
@@ -2389,7 +2401,8 @@ public class principal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnclienteshanbordadoultimos6a12meses, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnpullea, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnpullea, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnpullea1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(26, 26, 26)
@@ -3142,6 +3155,18 @@ public class principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnpulleaActionPerformed
 
+    private void btnpullea1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpullea1ActionPerformed
+     
+               try {
+                    Process proceso = Runtime.getRuntime().exec("git pull https://github.com/ROMMELAVENA/bordados.git");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+        
+    
+        
+    }//GEN-LAST:event_btnpullea1ActionPerformed
+
 
     public static void main(String args[]) {
       
@@ -3161,6 +3186,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton btnordenesbordadosucursalrealizadas;
     private javax.swing.JButton btnordenesbordadosucursalrealizadas1;
     private javax.swing.JButton btnpullea;
+    private javax.swing.JButton btnpullea1;
     private javax.swing.JButton btnreplicarponchados;
     private javax.swing.JButton btnsalir;
     private javax.swing.JButton btnvertabla;
